@@ -1,0 +1,199 @@
+---
+title: "Real Example of Data Processing and Exploratory Data Analysis with R"
+format: 
+  html:
+    theme: custom.scss
+    df-print: kable 
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    code-tools: false
+    self-contained: true
+bibliography: references.bib
+lightbox: true
+author: "Yu Cheng Hsu"
+date: "2025-08-06"
+---
+
+# Background
+
+Ray is studying R programmming. He is working on the famous dataset "Iris, which record the width and wwidth for petal and sepal for thress iris species. 
+
+
+First, Ray load the data show the first 10 rows of the data
+```{r}
+data(iris)
+head(iris)
+```
+
+Based on the above information please answer the following questions:
+
+# Q1 index and datatype
+
+What is the output of this line?
+
+```{r}
+#| eval: false
+typeof(iris[3,1])
+```
+
+a. integer
+b. double
+c. factor
+d. string
+
+# Q2 access to data
+
+Ray wants to get the column "Sepal.Width" to vestigate which line below does **NOT** work for him?
+
+a.
+```{r}
+#| eval: false
+iris[['Sepal.Width']]
+```
+b. 
+```{r}
+#| eval: false
+iris$Sepal.Width
+```
+c. 
+```{r}
+#| eval: false
+iris[[2]]
+```
+d.
+```{r}
+#| eval: false
+iris[2,]
+```
+
+
+# Q3 Good practice
+
+Ray wants to change the data type of the column "Species" to factor. Which of the following code is the best practice of coding
+
+a. 
+```{r}
+#| eval: false
+
+# Change Column Species from text to factor
+iris$Species=as.factor(iris$Species)
+```
+b. 
+```{r}
+#| eval: false
+
+# Change Column Species from text to factor
+iris$Species<-as.factor(iris$Species)
+```
+c.
+```{r}
+#| eval: false
+
+iris$Species=as.factor(iris$Species)
+```
+d.
+```{r}
+#| eval: false
+
+# Change Column Species from text to factor
+iris[,5]=as.factor(iris$Species)
+```
+
+# Q4 for loop
+
+
+Ray wants to count how many 'setosa' in the Species column, which code will get this job done? 
+
+a.
+```{r}  
+#| eval: false
+
+count=0
+for(i in 1:length(iris$Species)){
+  count=count+(iris[,5]=='setosa')
+}
+count
+```
+
+b.
+```{r}  
+#| eval: false
+
+for(i in 1:length(iris$Species)){
+  count=0
+  count=count+(iris[,5]=='setosa')
+}
+count
+```
+
+c.
+```{r}  
+#| eval: false
+
+count=0
+for(i in 1:length(iris$Species)){
+  count=count+(iris[,5]=='Setosa')
+}
+count
+```
+
+d.
+```{r}  
+#| eval: false
+
+
+for(i in 1:length(iris$Species)){
+  count=0
+  count=count+(iris[,5]=='Setosa')
+}
+count
+```
+
+
+# Q5 Advance for  loopcalculate mean of Sepal.Length
+
+Ray wants to calculate the average Sepal length in the sample, which of the below code does **NOT** return the average Sepal length?
+
+Noted that the average of a series of obseration $x_1 , x_2 \dots x_{n-1} , x_n$ can be expressed as 
+
+$$
+\begin{aligned}
+\frac{1}{n}(x_1 + x_2 \dots x_{n-1} + x_n), \text{or}\\
+ (\frac{x_1}{n} +\frac{x_2}{n}\dots \frac{x_{n-1}}{n} + \frac{x_{n}}{n})
+\end{aligned}
+$$
+
+a.
+```{r}
+#| eval: false
+
+average=mean(ris$Sepal.Length)
+average
+```
+b.
+```{r}
+#| eval: false
+
+sum=0
+for (i in 1:length(iris$Sepal.Length)){
+    sum=sum+iris[1,i]
+}
+average=sum/(length(iris$Sepal.Length))
+average
+```
+c.
+```{r}
+#| eval: false
+
+average=iris$Sepal.Length/length(iris$Sepal.Length)
+average
+```
+d.
+```{r}
+#| eval: false
+
+average=sum(iris$Sepal.Length*rep(1/length(iris$Sepal.Length),length(iris$Sepal.Length)))
+average
+```
+

@@ -1,0 +1,280 @@
+---
+title: "Real Example of Data Processing and Exploratory Data Analysis with R"
+format: 
+  live-html:
+    theme: custom.scss
+    df-print: kable 
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    code-tools: false
+    self-contained: true
+engine: knitr
+bibliography: references.bib
+lightbox: true
+author: "Yu Cheng Hsu"
+date: "2025-08-06"
+---
+
+# Introduction
+
+This section illustrates an example of processing and analyzing data using R, focusing on the Zea mays (corn) experiment data from Charles Darwin's studies. We will cover reading files from the file system, working with paths, manipulating data with tidyr and dplyr, generating summary statistics, and visualizing the results through plots to explore relationships between cross- and self-pollinated Zea mays plants.
+
+# Data Source: Zea mays Example from Darwin
+
+The dataset used in this analysis is derived from Charles Darwin's experiments on the growth of Zea mays plants, comparing the heights of cross-pollinated and self-pollinated plants. The data is stored in a CSV file named `zea_mays.csv`.
+
+# File System and Path of the File
+
+Understanding the file system and specifying the correct path to your data files is crucial in R for successful data import. In this example, the `zea_mays.csv` file is located in a subdirectory named `data` within the current working directory of this project. The working directory is the default location where R looks for files if a full path is not specified.
+
+To check your current working directory in R, you can use the following command:
+
+```{webr}
+# Display the current working directory
+getwd()
+```
+
+As a side note, if you execute this line in a `.Rmarkdown` file, it will return the file path where the markdown file is located unless specified elsewhere. 
+
+In contrast, if you execute this line in the R terminal, it will return the default root path of your R system unless specified elsewhere.
+
+## File Path Tree Diagram
+
+This diagram illustrates a simple file system structure to demonstrate absolute and relative paths.
+
+```md
+/ (root)
+├── home
+│   └── user
+│       ├── documents
+│       │   ├── BIOF1001
+│       │   │   ├── THIS_MARKDOWN.rmd
+│       │   │   └── IMAGE.png
+│       │   └── notes.txt
+│       └── downloads
+|           └── Zea_mays.csv
+└── var
+```
+
+## Absolute Path Examples
+An absolute path starts from the root directory (`/`) and specifies the full path to a file or directory. A reminder: in a Windows system, you will find your file path using `\` instead of `/` in your file explorer. In R, you need to transform these `\`s to `/` if you directly copy and paste the file path.
+
+- Path to `THIS_MARKDOWN.rmd`: `/home/user/documents/BIOF1001/THIS_MARKDOWN.rmd`
+- Path to `Zea_mays.csv`: `/home/user/downloads/Zea_mays.csv`
+
+## Relative Path Examples
+A relative path is defined relative to the current working directory. It uses `.` to refer to the current directory, and `..` means "go up one directory level".
+
+Assume that we are working on `THIS_MARKDOWN.rmd`, so the current directory is `/home/user/documents/BIOF1001`.
+
+- Path to `IMAGE.png` from `/home/user/documents/BIOF1001`: `./IMAGE.png` or `IMAGE.png`
+- Path to `Zea_mays.csv` from `/home/user/documents/BIOF1001`: `../../Zea_mays.csv`
+
+
+::: {.callout-tip}
+# Relative Path
+
+In most projects you get from GitHub or other sources, you will typically see relative paths. 
+
+- What are the advantages and disadvantages of using absolute paths?
+- What are the advantages and disadvantages of using relative paths?
+:::
+
+
+## Reading Zea mays Data
+
+Now it's your time to practice opening `Zea_mays.csv` using a relative path.
+
+```{webr}
+# Set the working directory (example path, adjust as needed)
+# setwd("path/to/your/project/directory")
+```
+
+::: {.callout-note collapse='true'}
+# Solution
+
+```{webr}
+# Load the Zea mays dataset from the data subdirectory
+zea_mays = read.csv("data/zea_mays.csv", header = TRUE)
+```
+:::
+
+We can validate if you have correctly read the file by inspecting `zea_mays`:
+
+```{webr}
+head(zea_mays)
+```
+
+# Introducing tidyr and dplyr with Zea mays Example
+
+In real-world examples, you might need to manipulate your dataframe to the right format for analysis or perform descriptive analysis of your data. Here, we introduce the `tidyr` and `dplyr` packages from the tidyverse collection, which provide powerful tools for these tasks.
+
+Let's install and load these packages if you haven't already:
+
+```{webr}
+# Install tidyverse if not already installed (includes tidyr and dplyr)
+# install.packages("tidyverse")
+# Load the tidyverse package
+library(tidyverse)
+```
+
+In the ecosystem of `dplyr` and `tidyr`, we use the concept of a pipeline: data is transformed step by step through functions. This transmission process is done using `%>%` operators, indicating that the dataframe will be the first argument of the next function.
+
+```{mermaid}
+flowchart LR
+  A((Data)) -->|%>%| B[Function 1]
+  B -->|%>%| C[Function 2]
+  C --> E((Transformed data))
+```
+
+
+::: {.callout-tip}
+# Pipeline Approach
+
+The concept of a pipeline is widely used in programming languages. Even in Python, it is further integrated into machine learning algorithms.  
+
+- What are the benefits of using a pipeline?
+:::
+
+
+## Using tidyr for Data Reshaping
+
+The `tidyr` package helps in tidying data, making it easier to work with. For instance, if our Zea mays data were in a wide format (a table with many attributes in columns, i.e., self-pollinated heights and cross-fertilized heights, which are actually two observations), we could reshape it into a long format using `pivot_longer`. Although our current dataset might already be in a suitable format, here's an illustrative example of how to use `tidyr`:
+
+```{webr}
+# Example of reshaping data with tidyr (assuming a wide format for illustration)
+# If the data had separate columns for Cross and Self pollinated heights
+zea_mays_long = zea_mays %>%
+  pivot_longer(cols = c(Cross.fertilized.plant, Self.fertilized.plant), 
+               names_to = "Type", 
+               values_to = "Height")
+
+# Display the reshaped data
+head(zea_mays_long)
+```
+
+In this example, `pivot_longer` gathers the values from columns `Cross.fertilized.plant` and `Self.fertilized.plant` into a single column `Height`, with a new column `Type` indicating whether the height is from a cross- or self-pollinated plant. 
+
+An intuitive benefit of this transformation is that you can conduct regression analysis to analyze the association between fertilization type and height. You will learn how to do this in the future.
+
+## Using dplyr for Data Manipulation
+
+The `dplyr` package offers functions for data manipulation such as filtering, selecting, mutating, and summarizing data. Let's use `dplyr` to clean and prepare the Zea mays data for analysis. For instance, we can select specific columns or filter rows based on conditions:
+
+```{webr}
+# Using dplyr to select specific columns and filter data
+zea_mays_selected = zea_mays %>%
+  select(Pair, Cross.fertilized.plant, Self.fertilized.plant) %>%  # Select only relevant columns
+  mutate(diff.height = Cross.fertilized.plant - Self.fertilized.plant)
+# Display the filtered data
+head(zea_mays_selected)
+```
+
+Here, `select` chooses the columns `Pair`, `Cross.fertilized.plant`, and `Self.fertilized.plant`, and `mutate` creates a new column which is `Cross.fertilized.plant` minus `Self.fertilized.plant`.
+
+# Generating Summary Statistics of Zea mays Data
+
+Once the data is prepared, we generate summary statistics to understand the distribution and characteristics of the variables. We can use base R functions or enhance our analysis with `dplyr` for grouped summaries.
+
+```{webr}
+# Display the structure of the dataset
+str(zea_mays)
+
+# Basic summary statistics for the entire dataset
+summary(zea_mays_long)
+```
+```{webr}
+# Using dplyr to compute summary statistics by pollination type
+zea_mays_summary = zea_mays_long %>%
+  group_by(Type) %>%
+  summarise(
+    Count = n(),
+    Mean_Height = mean(Height, na.rm = TRUE),
+    SD_Height = sd(Height, na.rm = TRUE),
+    Min_Height = min(Height, na.rm = TRUE),
+    Max_Height = max(Height, na.rm = TRUE)
+  )
+
+# Display the grouped summary statistics
+zea_mays_summary
+```
+
+This code provides a detailed summary by pollination type (`Type`), calculating the number of observations, mean height, standard deviation, and the range of heights for cross- and self-pollinated plants. The `na.rm = TRUE` argument ensures that missing values are ignored in calculations.
+
+# Plotting to Explore Relationships Between Cross- and Self-Pollinated Zea mays
+
+Visualization is a key part of exploratory data analysis. We use the `ggplot2` package to create various plots that compare the heights of cross-pollinated and self-pollinated Zea mays plants, exploring potential relationships and differences.
+
+## Boxplot for Comparison
+
+A boxplot is useful for comparing the distribution of heights between the two pollination types.
+
+```{webr}
+# Load ggplot2 for visualization (already loaded with tidyverse)
+# library(ggplot2)
+
+# Create a boxplot to compare heights by pollination type
+ggplot(zea_mays_long, aes(x = Type, y = Height, fill = Type)) +
+  geom_boxplot() +
+  labs(title = "Comparison of Heights of Cross- and Self-Pollinated Zea mays",
+       x = "Pollination Type",
+       y = "Height (inches)") +
+  theme_minimal()
+```
+
+This boxplot visually assesses the differences in growth between the two pollination methods, highlighting central tendencies, variability, and any potential outliers in the data.
+
+## Scatterplot with Pair Information
+
+Since the data includes paired observations (plants grown in pairs), a scatterplot with lines connecting pairs can illustrate individual differences within pairs.
+
+```{webr}
+# Create a scatterplot with lines connecting paired observations
+ggplot(zea_mays_long, aes(x = Type, y = Height, group = Pair)) +
+  geom_point(aes(color = Type), size = 3) +
+  geom_line(color = "grey") +
+  labs(title = "Paired Heights of Cross- and Self-Pollinated Zea mays",
+       x = "Pollination Type",
+       y = "Height (inches)") +
+  theme_minimal()
+```
+
+This plot shows the height of each plant, with lines connecting the cross- and self-pollinated plants from the same pair, making it easier to see the direction and magnitude of differences within each pair.
+
+## Histogram for Distribution
+
+Histograms can show the distribution of heights for each pollination type separately.
+
+```{webr}
+# Create histograms to show distribution of heights by pollination type
+ggplot(zea_mays_selected, aes(x = diff.height)) +
+  geom_histogram(binwidth = 1, alpha = 0.5, position = "identity") +
+  labs(title = "Distribution of Paired Difference of Heights for Cross- and Self-Pollinated Zea mays",
+       x = "Height Difference (inches)",
+       y = "Frequency") +
+  theme_minimal()
+```
+
+This histogram allows us to compare the distribution of height differences and see if there are notable patterns or central tendencies between cross- and self-pollinated plants.
+
+# Wrap-up
+
+Through this analysis of the Zea mays dataset, we have demonstrated a comprehensive workflow in R for data analysis. Starting from understanding file systems and paths, reading data, manipulating data with `tidyr` and `dplyr`, generating detailed summary statistics, to creating various visualizations with `ggplot2`, this example underscores the importance of exploratory data analysis in understanding biological data.
+
+## Data Life Cycle Framework
+
+At the end of this module, we introduce a higher-level overview of how to analyze data in the life sciences from a life cycle perspective. The idea of a data life cycle is widely used and applied in many fields. @griffin2018best proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.
+
+![Data lifecycle, figure from @griffin2018best](img/data_lifecycle.png){.lightbox}
+
+
+| Life Cycle Stage | Example                      |
+|------------------|------------------------------|
+| Collecting       | Read the data                |
+| Integrating      | -                            |
+| Processing       | Manipulating tables          |
+| Analyzing        | Reporting statistics         |
+| Publishing       | Generating report and figures| 
+
+: Data Life Cycle and Examples {.striped .hover}
