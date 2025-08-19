@@ -1,0 +1,17 @@
+---
+title: "About This Website"
+---
+
+# About
+
+This website is dedicated to providing accessible course materials for students and educators. Our goal is to centralize resources such as lecture notes, assignments, and supplementary materials to facilitate learning and teaching.
+
+## Purpose
+
+The primary purpose of this site is to support educational endeavors by making course content readily available. Whether you are a student seeking to review materials or an instructor looking to share resources, this platform aims to meet your needs.
+
+## Contact
+
+For inquiries or to contribute materials, please contact us at [email@example.com](mailto:email@example.com).
+
+Thank you for using this resource!

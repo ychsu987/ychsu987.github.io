@@ -1,0 +1,14 @@
+---
+title: "Welcome to Course Material Website"
+---
+
+# Welcome
+
+This website hosts course materials for various subjects. Here, you can find lecture notes, assignments, and other resources to aid in your learning journey.
+
+## Getting Started
+
+- Explore the [Courses](courses.qmd) page to see the list of available courses.
+- Visit the [About](about.qmd) page for more information about this site and its purpose.
+
+Thank you for visiting!

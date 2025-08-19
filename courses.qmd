@@ -1,0 +1,23 @@
+---
+title: "Courses"
+---
+
+# Available Courses
+
+Below is a list of courses with materials available on this website. Click on a course to access its resources.
+
+## Course List
+
+- **Introduction to Programming**
+  - [Lecture Notes](courses/intro-programming/notes.qmd)
+  - [Assignments](courses/intro-programming/assignments.qmd)
+
+- **Data Science Basics**
+  - [Lecture Notes](courses/data-science/notes.qmd)
+  - [Assignments](courses/data-science/assignments.qmd)
+
+- **Web Development**
+  - [Lecture Notes](courses/web-dev/notes.qmd)
+  - [Assignments](courses/web-dev/assignments.qmd)
+
+More courses will be added as materials become available.
