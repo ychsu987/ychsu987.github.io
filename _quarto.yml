@@ -1,11 +1,12 @@
 project:
   type: website
-  output-dir: docs
 
 website:
   title: "Course Material Website"
+  site-url: https://ychsu987.github.io
+  description: "Bioinformaticist"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - href: courses.qmd
@@ -18,3 +19,4 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+
