@@ -3,7 +3,6 @@ project:
 
 website:
   title: "Course Material Website"
-  site-url: https://ychsu987.github.io
   description: "Bioinformaticist"
   navbar:
     right:
