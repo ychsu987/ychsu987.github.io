@@ -1,21 +1,17 @@
 project:
   type: website
-
 website:
-  title: "Course Material Website"
-  description: "Bioinformaticist"
+  title: "Yu Cheng Hsu"
   navbar:
-    right:
-      - href: index.qmd
+    left:
+      - href: about.qmd
         text: Home
       - href: courses.qmd
         text: Courses
-      - href: about.qmd
-        text: About
-
 format:
   html:
-    theme: cosmo
+    theme: sandstone
     css: styles.css
-    toc: true
-
+    
+execute:
+  freeze: auto

@@ -2,22 +2,14 @@
 title: "Courses"
 ---
 
-# Available Courses
+# Course materials
 
-Below is a list of courses with materials available on this website. Click on a course to access its resources.
+Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.   
 
 ## Course List
 
-- **Introduction to Programming**
-  - [Lecture Notes](courses/intro-programming/notes.qmd)
-  - [Assignments](courses/intro-programming/assignments.qmd)
+- **BBMS1021  Introduction to AI and Biomedical Data Science**
+  - [Introduction to ggplot2](BBMS1021/ggplot2_intro/introduction_to_ggplot2.html)
+  - [Real life example](BBMS1021/Real_case/Real-example.html)
 
-- **Data Science Basics**
-  - [Lecture Notes](courses/data-science/notes.qmd)
-  - [Assignments](courses/data-science/assignments.qmd)
 
-- **Web Development**
-  - [Lecture Notes](courses/web-dev/notes.qmd)
-  - [Assignments](courses/web-dev/assignments.qmd)
-
-More courses will be added as materials become available.
