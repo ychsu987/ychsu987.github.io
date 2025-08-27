@@ -1,0 +1,14 @@
+{
+  "about.qmd": {
+    "about.html": "67f0c82f"
+  },
+  "courses.qmd": {
+    "courses.html": "3381a059"
+  },
+  "BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd": {
+    "introduction_to_ggplot2.html": "1097c10f"
+  },
+  "BBMS1021/Real_case/Real-example.qmd": {
+    "Real-example.html": "7f13bbb3"
+  }
+}
