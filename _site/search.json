@@ -1,17 +1,59 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to Course Material Website",
+    "objectID": "courses.html",
+    "href": "courses.html",
+    "title": "Courses",
     "section": "",
-    "text": "This website hosts course materials for various subjects. Here, you can find lecture notes, assignments, and other resources to aid in your learning journey.\n\n\n\nExplore the Courses page to see the list of available courses.\nVisit the About page for more information about this site and its purpose.\n\nThank you for visiting!"
+    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example"
   },
   {
-    "objectID": "index.html#getting-started",
-    "href": "index.html#getting-started",
-    "title": "Welcome to Course Material Website",
+    "objectID": "courses.html#course-list",
+    "href": "courses.html#course-list",
+    "title": "Courses",
     "section": "",
-    "text": "Explore the Courses page to see the list of available courses.\nVisit the About page for more information about this site and its purpose.\n\nThank you for visiting!"
+    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example"
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
+    "title": "Introduction to ggplot2",
+    "section": "",
+    "text": "Before Class Exercise\n\n\n\nBased on the data we collected in the first lecture:\n\nWhat kind of message can be expressed through visualization?\nWhat kind of graph will you use?\nWhy will you choose this graph to express such an idea?"
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#what-is-ggplot2",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#what-is-ggplot2",
+    "title": "Introduction to ggplot2",
+    "section": "What is ggplot2?",
+    "text": "What is ggplot2?\nggplot2 is part of the tidyverse collection of R packages developed by Hadley Wickham in his work (Wickham 2010). He received the COPSS Presidents’ Award for his contributions to the tidyverse collections. It is based on the grammar of graphics (Wilkinson 2011). As part of the tidyverse collection, it shares a similar framework that allows users to build plots layer by layer. This approach makes it highly flexible and intuitive once you understand its core concepts."
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#basic-plot-example",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#basic-plot-example",
+    "title": "Introduction to ggplot2",
+    "section": "Basic Plot Example",
+    "text": "Basic Plot Example\n\nData and mapping layer\nLet’s create a simple scatter plot using the mtcars dataset, which is built into R:\n\n\n\n\n\n\n\n\nFrom the code, you can figure out that, data and mapping was encode in the first line of ggplot function\n\\[\n\\text{ggplot}(\\text{data=}\\underbrace{\\text{mtcars2}}_{\\text{data}},\n\\text{mapping=}\\underbrace{\\text{aes(x = mpg, y = cyl, colour=am)}}_{\\text{mapping}})\n\\]\nOccasionally (actually, very frequently), you will see people ignoring everything on the left-hand side (LHS) of the equal sign for data, mapping, x, and y as they are standard arguments for ggplot2.\nThere are also some other mapping options other than color\n\nSize\nLine\n\nlinetype\nlineend\nlinejoin\n\nDot\n\nShape\n\n\n\n\nLayers\nThis series of function are named in the format geom_XXXX\n\nOne variable\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo variables\n\n\n\n\n\n\n\n\n\n\n\nScales\nScales are functions (processes) that transform data for the graph. This process is trivial and is done by observing the type of layer and the data, so the only thing that people frequently need to use is to modify the axis/legend display. The series of functions are named in the following format: scale_(AES)_(datatype). The argument and its corresponding components are listed in the below table and figure.\n\nFruit prices\n\n\nArgument name\nAxis\nLegend\n\n\n\n\nname\nLabel\nTitle\n\n\nbreaks\nTicks\nKey\n\n\nlabels\nTick label\nKey Label\n\n\n\n\n\n\nCommon components of a figure, figure from Wickham (2016b)\n\n\n\n\n\n\n\n\n\n\n\n\nCoordinates and facet\nCoordinates refer to the coordinate system on the graph. They can help you adjust your plot.\n\n\n\n\n\n\n\n\nFacets facilitate breaking data into several subgraphs, but this is a more complicated technique that we won’t cover in class. If you are interested in the topic, you can explore it in the reference book and documentation of ggplot2.\n\n\nTheme\nThere are several available options for the theme of your plot. Meanwhile, there are also third-party packages designing different themes for plots, such as ggtheme."
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#wrap-up",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#wrap-up",
+    "title": "Introduction to ggplot2",
+    "section": "Wrap-up",
+    "text": "Wrap-up\nAs a wrap-up, your code is usually in the following format:\n\\[\n\\small\n\\begin{aligned}\n\\text{ggplot()}+ &\\\\\n\\underbrace{\\text{geom\\_XXXX(data=DATA,mapping=aes(x,y,color,...))}}_{\\text{plotting data}}\n+ &\\\\\n\\underbrace{\\text{scale\\_AES\\_TYPE(name=\"TITLE\",breaks=\"TICK LOC\",labels=\"TICK LAB\")}}_{\\text{Handeling axis, legend etc}}\n+ & \\\\\n\\underbrace{ \\text{coord\\_cartesian(xlim=c(min,MAX), ylim=c(min,MAX))}}_{\\text{Adjust coordinate systems}} + &\\\\\n\\underbrace{\\text{ggtitle(\"CHART TITLE\")}}_{\\text{Plotting title}}\n\\end{aligned}\n\\]\n\n\n\n\n\n\nAbout making graph\n\n\n\nFrom the code introduced, it will be great to reflect on\n\nHow does the code construction differ from your human process of plotting code?\nHow does the 7 layer graphic language differ from the ggplot syntax?\nIf you could make ggplot easier to use, how would you design it?"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Yu Cheng Hsu",
+    "section": "",
+    "text": "I’m currently a lecturer in bioinformatics at the University of Hong Kong. I teach fundamental biostatistics, biounformatics and machine learning courses. Prior to my current position, I worked at HKJC Centre for Suicide Research and Prevention at the University of Hong Kong. By training, I am a data scientist and industrial engineer. I specializes in analyzing and leveraging data and technology to promote mental health at both individual and population levels.\n\n\nFor inquiries or to contribute materials, please contact us at ychsu@hku.hk."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "Yu Cheng Hsu",
+    "section": "",
+    "text": "For inquiries or to contribute materials, please contact us at ychsu@hku.hk."
   },
   {
     "objectID": "BBMS1021/Real_case/Real-example.html",
@@ -89,75 +131,5 @@
     "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
     "section": "Data Life Cycle Framework",
     "text": "Data Life Cycle Framework\nAt the end of this module, we introduce a higher-level overview of how to analyze data in the life sciences from a life cycle perspective. The idea of a data life cycle is widely used and applied in many fields. Griffin et al. (2018) proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.\n\n\n\nData lifecycle, figure from Griffin et al. (2018)\n\n\n\nData Life Cycle and Examples\n\n\nLife Cycle Stage\nExample\n\n\n\n\nCollecting\nRead the data\n\n\nIntegrating\n-\n\n\nProcessing\nManipulating tables\n\n\nAnalyzing\nReporting statistics\n\n\nPublishing\nGenerating report and figures"
-  },
-  {
-    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
-    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
-    "title": "Introduction to ggplot2",
-    "section": "",
-    "text": "Before Class Exercise\n\n\n\nBased on the data we collected in the first lecture:\n\nWhat kind of message can be expressed through visualization?\nWhat kind of graph will you use?\nWhy will you choose this graph to express such an idea?"
-  },
-  {
-    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#what-is-ggplot2",
-    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#what-is-ggplot2",
-    "title": "Introduction to ggplot2",
-    "section": "What is ggplot2?",
-    "text": "What is ggplot2?\nggplot2 is part of the tidyverse collection of R packages developed by Hadley Wickham in his work (Wickham 2010). He received the COPSS Presidents’ Award for his contributions to the tidyverse collections. It is based on the grammar of graphics (Wilkinson 2011). As part of the tidyverse collection, it shares a similar framework that allows users to build plots layer by layer. This approach makes it highly flexible and intuitive once you understand its core concepts."
-  },
-  {
-    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#basic-plot-example",
-    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#basic-plot-example",
-    "title": "Introduction to ggplot2",
-    "section": "Basic Plot Example",
-    "text": "Basic Plot Example\n\nData and mapping layer\nLet’s create a simple scatter plot using the mtcars dataset, which is built into R:\n\n\n\n\n\n\n\n\nFrom the code, you can figure out that, data and mapping was encode in the first line of ggplot function\n\\[\n\\text{ggplot}(\\text{data=}\\underbrace{\\text{mtcars2}}_{\\text{data}},\n\\text{mapping=}\\underbrace{\\text{aes(x = mpg, y = cyl, colour=am)}}_{\\text{mapping}})\n\\]\nOccasionally (actually, very frequently), you will see people ignoring everything on the left-hand side (LHS) of the equal sign for data, mapping, x, and y as they are standard arguments for ggplot2.\nThere are also some other mapping options other than color\n\nSize\nLine\n\nlinetype\nlineend\nlinejoin\n\nDot\n\nShape\n\n\n\n\nLayers\nThis series of function are named in the format geom_XXXX\n\nOne variable\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo variables\n\n\n\n\n\n\n\n\n\n\n\nScales\nScales are functions (processes) that transform data for the graph. This process is trivial and is done by observing the type of layer and the data, so the only thing that people frequently need to use is to modify the axis/legend display. The series of functions are named in the following format: scale_(AES)_(datatype). The argument and its corresponding components are listed in the below table and figure.\n\nFruit prices\n\n\nArgument name\nAxis\nLegend\n\n\n\n\nname\nLabel\nTitle\n\n\nbreaks\nTicks\nKey\n\n\nlabels\nTick label\nKey Label\n\n\n\n\n\n\nCommon components of a figure, figure from Wickham (2016b)\n\n\n\n\n\n\n\n\n\n\n\n\nCoordinates and facet\nCoordinates refer to the coordinate system on the graph. They can help you adjust your plot.\n\n\n\n\n\n\n\n\nFacets facilitate breaking data into several subgraphs, but this is a more complicated technique that we won’t cover in class. If you are interested in the topic, you can explore it in the reference book and documentation of ggplot2.\n\n\nTheme\nThere are several available options for the theme of your plot. Meanwhile, there are also third-party packages designing different themes for plots, such as ggtheme."
-  },
-  {
-    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#wrap-up",
-    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#wrap-up",
-    "title": "Introduction to ggplot2",
-    "section": "Wrap-up",
-    "text": "Wrap-up\nAs a wrap-up, your code is usually in the following format:\n\\[\n\\small\n\\begin{aligned}\n\\text{ggplot()}+ &\\\\\n\\underbrace{\\text{geom\\_XXXX(data=DATA,mapping=aes(x,y,color,...))}}_{\\text{plotting data}}\n+ &\\\\\n\\underbrace{\\text{scale\\_AES\\_TYPE(name=\"TITLE\",breaks=\"TICK LOC\",labels=\"TICK LAB\")}}_{\\text{Handeling axis, legend etc}}\n+ & \\\\\n\\underbrace{ \\text{coord\\_cartesian(xlim=c(min,MAX), ylim=c(min,MAX))}}_{\\text{Adjust coordinate systems}} + &\\\\\n\\underbrace{\\text{ggtitle(\"CHART TITLE\")}}_{\\text{Plotting title}}\n\\end{aligned}\n\\]\n\n\n\n\n\n\nAbout making graph\n\n\n\nFrom the code introduced, it will be great to reflect on\n\nHow does the code construction differ from your human process of plotting code?\nHow does the 7 layer graphic language differ from the ggplot syntax?\nIf you could make ggplot easier to use, how would you design it?"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Yu Cheng Hsu",
-    "section": "",
-    "text": "I’m currently a lecturer in bioinformatics at the University of Hong Kong. I teach fundamental biostatistics, biounformatics and machine learning courses. Prior to my current position, I worked at HKJC Centre for Suicide Research and Prevention at the University of Hong Kong. By training, I am a data scientist and industrial engineer. I specializes in analyzing and leveraging data and technology to promote mental health at both individual and population levels. By training,\n\n\nFor inquiries or to contribute materials, please contact us at email@example.com."
-  },
-  {
-    "objectID": "about.html#purpose",
-    "href": "about.html#purpose",
-    "title": "Yu Cheng Hsu",
-    "section": "",
-    "text": "The primary purpose of this site is to support educational endeavors by making course content readily available. Whether you are a student seeking to review materials or an instructor looking to share resources, this platform aims to meet your needs."
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "Yu Cheng Hsu",
-    "section": "",
-    "text": "For inquiries or to contribute materials, please contact us at email@example.com."
-  },
-  {
-    "objectID": "BBMS1021/Real_case/quiz.html",
-    "href": "BBMS1021/Real_case/quiz.html",
-    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
-    "section": "",
-    "text": "Background\nRay is studying R programmming. He is working on the famous dataset “Iris, which record the width and wwidth for petal and sepal for thress iris species.\nFirst, Ray load the data show the first 10 rows of the data\n\ndata(iris)\nhead(iris)\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa\n\n\n\n\n\n\nBased on the above information please answer the following questions:\n\n\nQ1 index and datatype\nWhat is the output of this line?\n\ntypeof(iris[3,1])\n\n\ninteger\ndouble\nfactor\nstring\n\n\n\nQ2 access to data\nRay wants to get the column “Sepal.Width” to vestigate which line below does NOT work for him?\n\n\n\n\niris[['Sepal.Width']]\n\n\n\n\n\niris$Sepal.Width\n\n\n\n\n\niris[[2]]\n\n\n\n\n\niris[2,]\n\n\n\nQ3 Good practice\nRay wants to change the data type of the column “Species” to factor. Which of the following code is the best practice of coding\n\n\n\n\n# Change Column Species from text to factor\niris$Species=as.factor(iris$Species)\n\n\n\n\n\n# Change Column Species from text to factor\niris$Species&lt;-as.factor(iris$Species)\n\n\n\n\n\niris$Species=as.factor(iris$Species)\n\n\n\n\n\n# Change Column Species from text to factor\niris[,5]=as.factor(iris$Species)\n\n\n\nQ4 for loop\nRay wants to count how many ‘setosa’ in the Species column, which code will get this job done?\n\n\n\n\ncount=0\nfor(i in 1:length(iris$Species)){\n  count=count+(iris[,5]=='setosa')\n}\ncount\n\n\n\n\n\nfor(i in 1:length(iris$Species)){\n  count=0\n  count=count+(iris[,5]=='setosa')\n}\ncount\n\n\n\n\n\ncount=0\nfor(i in 1:length(iris$Species)){\n  count=count+(iris[,5]=='Setosa')\n}\ncount\n\n\n\n\n\nfor(i in 1:length(iris$Species)){\n  count=0\n  count=count+(iris[,5]=='Setosa')\n}\ncount\n\n\n\nQ5 Advance for loopcalculate mean of Sepal.Length\nRay wants to calculate the average Sepal length in the sample, which of the below code does NOT return the average Sepal length?\nNoted that the average of a series of obseration \\(x_1 , x_2 \\dots x_{n-1} , x_n\\) can be expressed as\n\\[\n\\begin{aligned}\n\\frac{1}{n}(x_1 + x_2 \\dots x_{n-1} + x_n), \\text{or}\\\\\n(\\frac{x_1}{n} +\\frac{x_2}{n}\\dots \\frac{x_{n-1}}{n} + \\frac{x_{n}}{n})\n\\end{aligned}\n\\]\n\n\n\n\naverage=mean(ris$Sepal.Length)\naverage\n\n\n\n\n\nsum=0\nfor (i in 1:length(iris$Sepal.Length)){\n    sum=sum+iris[1,i]\n}\naverage=sum/(length(iris$Sepal.Length))\naverage\n\n\n\n\n\naverage=iris$Sepal.Length/length(iris$Sepal.Length)\naverage\n\n\n\n\n\naverage=sum(iris$Sepal.Length*rep(1/length(iris$Sepal.Length),length(iris$Sepal.Length)))\naverage"
-  },
-  {
-    "objectID": "courses.html",
-    "href": "courses.html",
-    "title": "Courses",
-    "section": "",
-    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example"
-  },
-  {
-    "objectID": "courses.html#course-list",
-    "href": "courses.html#course-list",
-    "title": "Courses",
-    "section": "",
-    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example"
   }
 ]
