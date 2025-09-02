@@ -20,9 +20,11 @@ date: "2025-08-06"
 
 This section illustrates an example of processing and analyzing data using R, focusing on the Zea mays (corn) experiment data from Charles Darwin's studies. We will cover reading files from the file system, working with paths, manipulating data with tidyr and dplyr, generating summary statistics, and visualizing the results through plots to explore relationships between cross- and self-pollinated Zea mays plants.
 
-# Data Source: Zea mays Example from Darwin
+# About the Experiment
 
-The dataset used in this analysis is derived from Charles Darwin's experiments on the growth of Zea mays plants, comparing the heights of cross-pollinated and self-pollinated plants. The data is stored in a CSV file named `zea_mays.csv`.
+The data were presented in Charles Darwin's book *The Effects of Cross and Self Fertilization in the Vegetable Kingdom* in 1876. He hypothesized that cross-pollination could make their offspring stronger (in terms of height, in his opinion back then). To show this idea, he planted 15 pairs of Zea mays, one by self-pollination and the other by cross-pollination. Each pair of observations was grown in the same pots, and there were a total of 4 pots in this study. 
+
+This study is famous not because of its contribution to plant biology and genetics; instead, it is a famous **wrong** experiment in statistics. Darwin's incorrect calculation was later corrected by Ronald A. Fisher, a renowned biostatistician (and you will see his name throughout your university life, from genetics to hematology).   
 
 # File System and Path of the File
 
@@ -137,6 +139,39 @@ The concept of a pipeline is widely used in programming languages. Even in Pytho
 - What are the benefits of using a pipeline?
 :::
 
+## Handling Messy Data
+
+In real life, we might encounter human error and missing data in the dataset. Some common issues you might see:
+
+- Missing data
+- Wrong datatype
+- Out of range
+
+There are many techniques to handle these situations through statistical approaches, but here we use the simplest way: dropping them.
+
+`dplyr` provides the function `filter`, which **keeps** the data that meets the filter condition:
+
+- Removing rows with NA
+```{webr}
+# Example of 
+# If the data had separate columns for Cross and Self pollinated heights
+zea_mays <- zea_mays %>% filter(!is.na(column_name))
+# Equivalent to zea_mays %>% drop_na()
+```
+
+- Removing out-of-range values
+```{webr}
+# Example of 
+# If the data had separate columns for Cross and Self pollinated heights
+zea_mays <- zea_mays %>% filter(Height < 30)
+```
+
+::: {.callout-tip}
+# Identify Rows with Missing Values
+
+Using the same techniques, you can do it in the opposite way to identify rows with potential errors. This is a critical skill when you are working with people who collect the data. 
+:::
+
 
 ## Using tidyr for Data Reshaping
 
@@ -225,7 +260,7 @@ ggplot(zea_mays_long, aes(x = Type, y = Height, fill = Type)) +
 
 This boxplot visually assesses the differences in growth between the two pollination methods, highlighting central tendencies, variability, and any potential outliers in the data.
 
-## Scatterplot with Pair Information
+## Scatter Plot with Pair Information
 
 Since the data includes paired observations (plants grown in pairs), a scatterplot with lines connecting pairs can illustrate individual differences within pairs.
 

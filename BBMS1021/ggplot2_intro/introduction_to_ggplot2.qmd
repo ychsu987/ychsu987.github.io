@@ -7,23 +7,12 @@ format:
     toc-depth: 3
     toc-location: left
     self-contained: true
-
 engine: knitr 
 author: "Yu Cheng Hsu"
 date: "2025-08-06"
 bibliography: references.bib
 lightbox: true
 ---
-
-
-::: {.callout-tip}
-# Before Class Exercise
-Based on the data we collected in the first lecture:
-
-- What kind of message can be expressed through visualization?
-- What kind of graph will you use?
-- Why will you choose this graph to express such an idea?
-:::
 
 
 # Introduction to ggplot2
@@ -35,6 +24,15 @@ In this chapter, we will introduce **ggplot2**, a powerful plotting library in R
 ggplot2 is part of the tidyverse collection of R packages developed by Hadley Wickham in his work [@wickham2010layered]. He received the COPSS Presidents' Award for his contributions to the tidyverse collections. It is based on the grammar of graphics [@wilkinson2011grammar]. As part of the tidyverse collection, it shares a similar framework that allows users to build plots layer by layer. This approach makes it highly flexible and intuitive once you understand its core concepts.
 
 # Basic Concepts of the Grammar of Graphics
+
+::: {.callout-tip}
+# Discussion
+Based on the data we collected in the first lecture:
+
+- What kind of message can be expressed through visualization?
+- What kind of graph will you use?
+- Why will you choose this graph to express such an idea?
+:::
 
 ![Layers of a graph from @ggplot2](img/layer.png){.lightbox}
 
@@ -159,7 +157,16 @@ There are also some other mapping options other than color
 
 This series of function are named in the format *geom_XXXX*
 
+|                 |  Function name  | 
+|-----------------|-----------------|
+|    Histogram    | `geom_hist()`   |
+|    Box chart    | `geom_boxplot()`|
+|    Bar chart    | `geom_bar()`    |
+|  Scatter chart  | `geom_scatter()`|
+|   Line chart    | `geom_line()`   |
+
 #### One variable
+
 ```{webr}
 #| label: fig-2
 #| fig-cap: "Histogram of miles per gallon (MPG) distribution."
@@ -179,8 +186,6 @@ ggplot(mtcars2) +
 # Create a boxplot to summarize the distribution of miles per gallon (mpg)
 ggplot(mtcars2) + 
   geom_boxplot(mapping = aes(y = mpg))  # Boxplot on y-axis for mpg
-
-
 ```
 
 #### Two variables
@@ -195,13 +200,21 @@ ggplot(mtcars2, aes(mpg, cyl, color = am)) +
 ```
 ### Scales
 
-Scales are functions (processes) that transform data for the graph. This process is trivial and is done by observing the type of layer and the data, so the only thing that people frequently need to use is to modify the axis/legend display. The series of functions are named in the following format: `scale_(AES)_(datatype)`. The argument and its corresponding components are listed in the below table and figure.
+Scales are functions (processes) that transform data for the graph. This process is trivial and is done by observing the type of layer and the data, so the only thing that people frequently need to use is to modify the axis/legend display. The series of functions are named in the following format: `scale_(AES)_(datatype)`.
 
-| Argument name	  |  Axis  |  Legend  |
-|-----------------|--------|----------|
-| name            | Label  |  Title  |
-| breaks          | Ticks  |   Key   |
-| labels          | Tick label   | Key Label |
+|                 |         Discrete           |        Continuous        |
+|-----------------|----------------------------|--------------------------|
+|    X            |    `scale_x_discrete()`    |  `scale_x_continuous()`  |
+|    Y            |    `scale_y_discrete()`    |  `scale_y_continuous()`  |
+|  color          | `scale_color_discrete()`   | `scale_color_discrete()` |
+
+ The argument and its corresponding components are listed in the below table and figure.
+
+| Argument name	  |     Axis     |   Legend  |
+|-----------------|--------------|-----------|
+| name            |     Label    |   Title   |
+| breaks          |     Ticks    |    Key    |
+| labels          |  Tick label  | Key Label |
 
 : Fruit prices {.striped .hover}
 
@@ -220,7 +233,8 @@ ggplot(mtcars2, aes(mpg, cyl, color = am)) +
 ```
 ### Coordinates and facet
 
-Coordinates refer to the coordinate system on the graph. They can help you adjust your plot.
+Coordinates refer to the coordinate system on the graph. They can help you adjust your plot. In most of the data we will encounter, you sometime need to adjust the range of x and y axis. This can bedome through arguments `xlim=c(LOWER_BOUND,UPPER_BOUND)` for x axis and `ylim=c(LOWER_BOUND,UPPER_BOUND)` for y-axis.
+
 
 ```{webr}
 #| label: fig-6
@@ -236,14 +250,32 @@ ggplot(mtcars2, aes(mpg, cyl, color = am)) +
 
 ```
 
-Facets facilitate breaking data into several subgraphs, but this is a more complicated technique that we won't cover in class. If you are interested in the topic, you can explore it in the reference book and documentation of `ggplot2`.
+Facets facilitate breaking data into several subgraphs, separated by different subgroups. You can specify by the notation 1. one-factor scenario `~ FACTOR_A` which generate subplots oer different level of `Factor_A` ( and you additional specify `nrow=x` or `ncol=x` to let it spread over columns or rows). For two-factor scenario `Factor_A ~ Factor_B` which spreads `Factor_B` over rows and `Factor_A`over columns.  
 
+```{webr}
+#| label: fig-7
+#| fig-cap: "Scatter plot of MPG vs cylinders with customized axis limits."
+#| message: false
+# Create a scatter plot with customized axis limits and labels
+ggplot(mtcars2, aes(mpg, cyl)) +
+  geom_point() +  # Add points layer for data representation
+  scale_x_continuous(name="Miles per gallon") +  # Customize x-axis label
+  facet_wrap(~am, nrow = 2, ncol=1)
+
+```
+
+From time to time you might want each subplots share (or not share) same scale (axis). You can specify throught the argumnt `scales=XXX` in `facet_wrap()` functions. The options of `scales` is listed in below.
+
+|              | free x axis | fixed x axis  |
+|--------------|-------------|---------------|
+|  free y axis |   `free`    |    `free_y`   |
+| fixed y axis |  `free_x`   |    `fixed`    |
 
 ### Theme
 
 There are several available options for the theme of your plot. Meanwhile, there are also third-party packages designing different themes for plots, such as `ggtheme`.
 ```{webr}
-#| label: fig-7
+#| label: fig-8
 #| fig-cap: "Comparison of different ggplot2 themes applied to a scatter plot of MPG vs cylinders."
 #| message: false
 # Initialize base plot with customized axis limits and labels
@@ -266,6 +298,18 @@ p_v <- p + theme_void() + ggtitle("theme_void()")  # Empty theme with no backgro
 # Combine all themed plots for display using patchwork
 # Arrange plots in a grid layout with 2 columns
 p_grey + p_bw + p_ld + p_l + p_d + p_m + p_c + p_v + plot_layout(ncol = 2)
+```
+# Reading R documentation
+
+It is by no means possibile to introduce all functions and attribute in this library, even though `ggplot2` is a relatively stable library. The key to survive in the coding world is to understand the mechanism and concept of the code. And rest of them you can checkout the official documentation from the library authors
+
+
+```{webr}
+
+# Checking the documentation of geom_bar()
+
+??ggplot::geom_bar()
+
 ```
 
 ## Wrap-up 
@@ -293,6 +337,9 @@ $$
 - How does the 7 layer graphic language differ from the ggplot syntax?
 - If you could make `ggplot` easier to use, how would you design it?
 :::
+
+
+
 
 # Final remarks and acknowledgement
 
