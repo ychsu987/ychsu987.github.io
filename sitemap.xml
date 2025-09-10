@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ychsu987.github.io/courses.html</loc>
-    <lastmod>2025-08-27T02:26:51.492Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html</loc>
-    <lastmod>2025-09-10T09:53:03.046Z</lastmod>
+    <loc>https://ychsu987.github.io/BBMS1021/Real_case/Real-example.html</loc>
+    <lastmod>2025-09-10T14:44:56.439Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/about.html</loc>
-    <lastmod>2025-08-27T02:37:51.998Z</lastmod>
+    <lastmod>2025-09-10T14:46:21.236Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/BBMS1021/Real_case/Real-example.html</loc>
-    <lastmod>2025-09-02T02:46:57.321Z</lastmod>
+    <loc>https://ychsu987.github.io/courses.html</loc>
+    <lastmod>2025-09-10T14:44:56.518Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html</loc>
+    <lastmod>2025-09-10T14:36:03.929Z</lastmod>
   </url>
 </urlset>
