@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ychsu987.github.io/BIOF4002/Global health informatics.html</loc>
+    <lastmod>2025-09-14T07:32:16.492Z</lastmod>
+  </url>
+  <url>
     <loc>https://ychsu987.github.io/BBMS1021/Real_case/Real-example.html</loc>
     <lastmod>2025-09-10T14:44:56.439Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/about.html</loc>
-    <lastmod>2025-09-10T15:04:03.705Z</lastmod>
+    <lastmod>2025-09-14T08:36:44.555Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/courses.html</loc>
-    <lastmod>2025-09-10T15:06:32.452Z</lastmod>
+    <lastmod>2025-09-14T08:36:05.792Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html</loc>
     <lastmod>2025-09-10T14:36:03.929Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF4002/mHealth and telemedicine.html</loc>
+    <lastmod>2025-09-14T08:44:21.778Z</lastmod>
   </url>
 </urlset>

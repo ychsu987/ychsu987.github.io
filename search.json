@@ -1,5 +1,208 @@
 [
   {
+    "objectID": "BIOF4002/Global health informatics.html#learning-objectives",
+    "href": "BIOF4002/Global health informatics.html#learning-objectives",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\n\n\n\nUnderstand the principles of global health informatics\n\nExplore applications in healthcare\nIdentify challenges in implementation\n\nRecognize key data sources for global health\nLearn effective data presentation and visualization techniques"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#what-is-global-health-informatics",
+    "href": "BIOF4002/Global health informatics.html#what-is-global-health-informatics",
+    "title": "Global Health Informatics and Visualization",
+    "section": "What is Global Health Informatics?",
+    "text": "What is Global Health Informatics?\n\n\n\nHealth Informatics: An interdisciplinary field combining health sciences, information technology, and data analytics to improve health equity worldwide (“National Information Center on Health Services Research; Health Care Technology (NICHSR) - Hsric.nlm.nih.gov”).\n\n\n\nGlobal Health: The development, adoption, and application of an area for study, research, and practice that places a priority on improving health and achieving equity in health for all people worldwide (Koplan et al. 2009).\n\n\n\n\nScope of global health informatics"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#applications-of-global-health-informatics",
+    "href": "BIOF4002/Global health informatics.html#applications-of-global-health-informatics",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Applications of Global Health Informatics",
+    "text": "Applications of Global Health Informatics\n\n\n\n\n\nDisease Surveillance:\n\nCommunicable disease monitoring\nPrediction\n\nEnhancing access and equity in healthcare delivery:\n\neHR\nmHealth\nTelemedicine\n\nPolicy advocacy and evaluation"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#enhancing-access-and-equity-in-healthcare-delivery",
+    "href": "BIOF4002/Global health informatics.html#enhancing-access-and-equity-in-healthcare-delivery",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Enhancing access and equity in healthcare delivery",
+    "text": "Enhancing access and equity in healthcare delivery\n\nEnhancing healthcare access for LMICs and rural populations\nHealth education\nPersonalized monitoring"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#enhancing-access-and-equity-in-healthcare-delivery-1",
+    "href": "BIOF4002/Global health informatics.html#enhancing-access-and-equity-in-healthcare-delivery-1",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Enhancing access and equity in healthcare delivery",
+    "text": "Enhancing access and equity in healthcare delivery\n\n\n\n\n\n\n\nHIV education app in Kenya\n\n\n\n\n\n\nHIV education in Kenya\n\n\n\n\nNon-Prep HIV prevention in Kenya (Mwaisaka et al. 2021): Improving on\n\nEnhanced knowledge\nSelf-efficacy\nBehavioral intention\n\n\n\n\n\n\nMental health promotion app in India\n\n\n\nYouth mental health in India (Gonsalves et al. 2019):\n\nGamification"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#disease-surveillance",
+    "href": "BIOF4002/Global health informatics.html#disease-surveillance",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Disease surveillance",
+    "text": "Disease surveillance\n\nEnhancing information transparency\nEvidence foundation\nMonitoring disease transmission\nAI prediction of future trends\n\n\n\n\n\n\n\nBefore we go through example\n\n\n\nHave you tried visiting surveillance tools?\n\nWhat kind of information do you usually look for?\nHow will you use these data?"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#disease-surveillance-1",
+    "href": "BIOF4002/Global health informatics.html#disease-surveillance-1",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Disease surveillance",
+    "text": "Disease surveillance\n\n\n\n\n\n\n\nCOVID dashboard\n\n\n\n\n\n\nCOVID dashboard\n\n\n\n\nDashboard for COVID-19 (Everts 2020):\n\nIntervention\nSurveillance\n\nArguments:\n\nNationalism\n\nNeglecting social determinants of health\n\n\n\n\n\nHIV dashboard in Kenya\n\n\n\nDashboard for HIV in Kenya (Gesicho and Babic 2022):\n\nLeveraging DHIS2 system (WHO system) for integrating reporting and surveillance"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#decision-support-and-policy",
+    "href": "BIOF4002/Global health informatics.html#decision-support-and-policy",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Decision support and policy",
+    "text": "Decision support and policy\n\n\n\n\n\nData-driven intervention and policy advocacy\n\n\n\n\n\n\nData-driven intervention and policy advocacy"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#challenges-in-global-health-informatics-1",
+    "href": "BIOF4002/Global health informatics.html#challenges-in-global-health-informatics-1",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Challenges in global health informatics",
+    "text": "Challenges in global health informatics\n\n\n\nLeavitt’s diamond framework (Wigand 2007)\n\n\n\n\n\nChange management framework"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#role-of-the-data-in-the-global-health-context",
+    "href": "BIOF4002/Global health informatics.html#role-of-the-data-in-the-global-health-context",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Role of the data in the global health context",
+    "text": "Role of the data in the global health context\n\nDetect disease outbreaks\nMonitor health trends\nImprove service coverage\nTrack risk factors\nGuide evidence-based actions\nInform and evaluate public health policies"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#fantastic-data-and-where-to-find-them",
+    "href": "BIOF4002/Global health informatics.html#fantastic-data-and-where-to-find-them",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Fantastic data and where to find them",
+    "text": "Fantastic data and where to find them\nMeasuring dimensions\n\nHealth economics\nMortality and life expectancy\nGlobal issues\nSocial determinants of health\nChild and women’s health\n\nInfectious disease"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#global-burden-of-disease-gbd",
+    "href": "BIOF4002/Global health informatics.html#global-burden-of-disease-gbd",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Global Burden of Disease (GBD)",
+    "text": "Global Burden of Disease (GBD)\n\n\n\nGBD dataset focuses on health loss across:\n\nDiseases\nPlaces\nTime\n\nAdditional items:\n\nDemographic\nFertility\nLife expectancy\nSocio-Demographic Index\nDALY/HLY\n\n\n\n\n\n\nGlobal burden of disease"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#global-health-expenditure-database-ghed",
+    "href": "BIOF4002/Global health informatics.html#global-health-expenditure-database-ghed",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Global Health Expenditure Database (GHED)",
+    "text": "Global Health Expenditure Database (GHED)\n\n\n\nTracking and analyzing health spending trends\nAssessing health expenditure by different levels:\n\nSources (e.g., government, households, donors)\nFinancing mechanisms (compulsory vs. voluntary)\nCountry-wise comparison\n\n\n\n\n\n\nGHED"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#global-health-observatory-gho",
+    "href": "BIOF4002/Global health informatics.html#global-health-observatory-gho",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Global Health Observatory (GHO)",
+    "text": "Global Health Observatory (GHO)\nGlobal Health Observatory is the data hub from WHO aggregating all the data under the WHO umbrella\n\n\n\nGlobal Health Observatory (GHO)"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#multiple-income-cluster-survey-mics",
+    "href": "BIOF4002/Global health informatics.html#multiple-income-cluster-survey-mics",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Multiple Income Cluster Survey (MICS)",
+    "text": "Multiple Income Cluster Survey (MICS)\n\n\nMICS is a survey under UNICEF focusing on women and children in LMIC:\n\nChild health\nChild development\nLiteracy\nProtection\nHIV\nWell-being\n\n\n\n\n\nMICS surveying"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#challenges-in-global-health-data",
+    "href": "BIOF4002/Global health informatics.html#challenges-in-global-health-data",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Challenges in global health data",
+    "text": "Challenges in global health data\n\n\n\n\n\n\nDiscussion\n\n\n\nIs WHO data reliable?\nWill there be any potential bias in global data?\n\n\n\n\n\nHow does WHO get the data\n\nSurvey\nLiaise with local government officials"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#implication-on-global-health-data-quality",
+    "href": "BIOF4002/Global health informatics.html#implication-on-global-health-data-quality",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Implication on global health data quality",
+    "text": "Implication on global health data quality\n\n\nIntegrating data worldwide\nCollecting and maintaining data worldwide is challenging Resources:\n\nStandard coding (ICD-9/ICD-10/ICD-11/DSM-V)\nDeidentification\n\n\nCultural context and bias in the data\nItems with strong cultural stigma or illegal behavior are usually underreported or missing\n\nDrug overuse\nAIDS\nMental health"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#principle-of-visualizing-data",
+    "href": "BIOF4002/Global health informatics.html#principle-of-visualizing-data",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Principle of visualizing data",
+    "text": "Principle of visualizing data\n\n\n\nEffective: Information conveyed by one visualization is more readily perceived\nExpressiveness: The visualizations express all the facts in the set of data, and only the facts in the data\n\n\n\n\n\nTriangle of visualization"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#principle-of-visualizing-data-1",
+    "href": "BIOF4002/Global health informatics.html#principle-of-visualizing-data-1",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Principle of visualizing data",
+    "text": "Principle of visualizing data\n\n\n\nVisualization cheatsheet"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#motivations",
+    "href": "BIOF4002/Global health informatics.html#motivations",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Motivations",
+    "text": "Motivations\n\n\n\nWhen more than two variables need to be presented (hopefully in one graph):\n\nWhat is the best way to present them?\nWhat are the pre-attentive features (easily perceived by humans)?\n\n\n\n\n\n\nMackinlay’s paper"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#pre-attentive-features",
+    "href": "BIOF4002/Global health informatics.html#pre-attentive-features",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Pre-attentive features",
+    "text": "Pre-attentive features\n\n\n\nLocation\nColour:\n\nHue\nSaturation\n\nShape:\n\nLength\nShape\nTexture\nArea\n\n\n\n\n\n\nColor guide\n\n\n\nCombinations of pre-attentive features are not pre-attentive, e.g., Red triangle vs. Green rectangle"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#mackinlays-ranking-1",
+    "href": "BIOF4002/Global health informatics.html#mackinlays-ranking-1",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Mackinlay’s Ranking",
+    "text": "Mackinlay’s Ranking\n\n\n\nMackinlay developed the ranking to choose the best way to present data\nRule of thumb: Don’t go to ranking below 5\n\n\n\n\n\nMackinlay’s Ranking"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#social-and-cultural-context-consideration",
+    "href": "BIOF4002/Global health informatics.html#social-and-cultural-context-consideration",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Social and cultural context consideration",
+    "text": "Social and cultural context consideration\n\n\n\nColor-blindness friendly  \n\n\nCultural context:\n\nBlue and red:\n\nSex\nSeverity\nPolitics\n\nRed and green:\n\nChinese and Western stock market"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#example",
+    "href": "BIOF4002/Global health informatics.html#example",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Example",
+    "text": "Example\n\n\n\nSource"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#example-1",
+    "href": "BIOF4002/Global health informatics.html#example-1",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Example",
+    "text": "Example\n\n\n\nSource"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#example-2",
+    "href": "BIOF4002/Global health informatics.html#example-2",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Example",
+    "text": "Example\n\n\n\nSource"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#example-3",
+    "href": "BIOF4002/Global health informatics.html#example-3",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Example",
+    "text": "Example\n\n\n\nSource"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#example-4",
+    "href": "BIOF4002/Global health informatics.html#example-4",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Example",
+    "text": "Example\n\n\n\nSource"
+  },
+  {
+    "objectID": "BIOF4002/Global health informatics.html#bibliography",
+    "href": "BIOF4002/Global health informatics.html#bibliography",
+    "title": "Global Health Informatics and Visualization",
+    "section": "Bibliography",
+    "text": "Bibliography\n\n\n\n\nEverts, Jonathan. 2020. “The Dashboard Pandemic.” Dialogues in Human Geography 10 (2): 260–64. https://doi.org/10.1177/2043820620935355.\n\n\nGesicho, Milka, and Ankica Babic. 2022. “Designing a Dashboard for HIV-Data Reporting Performance by Facilities: Case Study of Kenya.” In Advances in Informatics, Management and Technology in Healthcare, 238–41. IOS Press.\n\n\nGonsalves, Pattie P, Eleanor S Hodgson, Avinash Kumar, Tiara Aurora, Yash Chandak, Rhea Sharma, Daniel Michelson, and Vikram Patel. 2019. “Design and Development of the ‘POD Adventures’ Smartphone Game: A Blended Problem-Solving Intervention for Adolescent Mental Health in India.” Frontiers in Public Health 7: 238.\n\n\nKoplan, Jeffrey P, T Christopher Bond, Michael H Merson, K Srinath Reddy, Mario Henry Rodriguez, Nelson K Sewankambo, and Judith N Wasserheit. 2009. “Towards a Common Definition of Global Health.” The Lancet 373 (9679): 1993–95.\n\n\nMwaisaka, Jefferson, Lianne Gonsalves, Mary Thiongo, Michael Waithaka, Hellen Sidha, Otieno Alfred, Carol Mukiira, Peter Gichangi, et al. 2021. “Young People’s Experiences Using an on-Demand Mobile Health Sexual and Reproductive Health Text Message Intervention in Kenya: Qualitative Study.” JMIR mHealth and uHealth 9 (1): e19109.\n\n\n“National Information Center on Health Services Research; Health Care Technology (NICHSR) - Hsric.nlm.nih.gov.” https://hsric.nlm.nih.gov/hsric_public/topic/informatics.\n\n\nWigand, Dianne. 2007. “Building on Leavitt’s Diamond Model of Organizations: The Organizational Interaction Diamond Model and the Impact of Information Technology on Structure, People, and Tasks.” AMCIS 2007 Proceedings, 287.\n\n\nWong, Bang. 2011. “Points of View: Color Blindness.” Nature Publishing Group US New York."
+  },
+  {
     "objectID": "BBMS1021/Real_case/Real-example.html",
     "href": "BBMS1021/Real_case/Real-example.html",
     "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
@@ -102,14 +305,14 @@
     "href": "courses.html",
     "title": "Courses",
     "section": "",
-    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example"
+    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
   },
   {
     "objectID": "courses.html#course-list",
     "href": "courses.html#course-list",
     "title": "Courses",
     "section": "",
-    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example"
+    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
   },
   {
     "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
@@ -152,5 +355,159 @@
     "title": "Introduction to ggplot2",
     "section": "R generic visualization",
     "text": "R generic visualization\nR also provides generic functions for plotting data:\n\n\n\n\n\n\n\n\nThese functions have limited customization options (although you can still edit the figure and axis labels), so they are less commonly used in scientific publications.\nThe materials and content are largely adapted from Wickham (2016a). You can access the latest edition on the book website, which also covers more advanced topics. For detailed information on how to use the code and each function, refer to the ggplot2 library documentation via ??ggplot2."
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#learning-objectives",
+    "href": "BIOF4002/mHealth and telemedicine.html#learning-objectives",
+    "title": "Health technologies in the global health context",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\n\n\n\nUnderstand digital health in the global health context\nExplore roles and applications of digital health\nLearn to design, implement, and evaluate digital health interventions\nIdentify challenges of mHealth and telemedicine in global health"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#digital-health-definition",
+    "href": "BIOF4002/mHealth and telemedicine.html#digital-health-definition",
+    "title": "Health technologies in the global health context",
+    "section": "Digital Health: Definition",
+    "text": "Digital Health: Definition\n\n\n\nDefinition: The use of information and communications technology in support of health and health-related fields (WHO et al. 2017)\nAn umbrella term that encompasses various information technology solutions for health\n\n\n\n\n\nOccupational Therapy Article"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#discussion-1-do-global-start-local",
+    "href": "BIOF4002/mHealth and telemedicine.html#discussion-1-do-global-start-local",
+    "title": "Health technologies in the global health context",
+    "section": "Discussion 1: Do global, start local",
+    "text": "Discussion 1: Do global, start local\n\n\n\n\n\n\nLocal example of digital health\n\n\n\nHave you heard or tried any digital health product or service?\nhow does it benefit your health ?\nWhy do you use them ?"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#fuel-up-digital-health-technology",
+    "href": "BIOF4002/mHealth and telemedicine.html#fuel-up-digital-health-technology",
+    "title": "Health technologies in the global health context",
+    "section": "Fuel up digital health technology",
+    "text": "Fuel up digital health technology\n\nTechnology\n\nIncreasing coverage of internet and smartphone\n\nUser engageement and empowerment\n\nPeople are more familiar with new technology\n\nGlobal health\n\nWHO recognized mHealth as a tool for enhancing healthcare systems Kay et al. (2011)\n\nResearch, policy and business\n\nEconomic potentials"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#quadruple-aim-of-digital-health",
+    "href": "BIOF4002/mHealth and telemedicine.html#quadruple-aim-of-digital-health",
+    "title": "Health technologies in the global health context",
+    "section": "Quadruple Aim of Digital Health",
+    "text": "Quadruple Aim of Digital Health\n\n\nProposed by Bodenheimer and Sinsky (2014):\n\nImproving the health of populations\nReducing the cost of healthcare\nImproving the individual experience of care\nImproving the experience of providing care\n\n\n\n\n\nQuadruple of mobile health"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#improving-population-health",
+    "href": "BIOF4002/mHealth and telemedicine.html#improving-population-health",
+    "title": "Health technologies in the global health context",
+    "section": "Improving Population Health",
+    "text": "Improving Population Health\n\n\nHealth Promotion and Education\n\nHealth education initiatives\nCombating misinformation (Miller et al. 2024) \n\n\nDisease surveillance\n\nSurveillance\nTargeting intervention (Gesicho and Babic 2022)\n\n\n\n\nTargeting intervention from Gesicho and Babic (2022)\n\n\n\nPersonalized Devices and Behavior - Precision medicine - Promoting healthy behaviors\n\n\n\nSource from"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#reducing-the-cost-of-healthcare",
+    "href": "BIOF4002/mHealth and telemedicine.html#reducing-the-cost-of-healthcare",
+    "title": "Health technologies in the global health context",
+    "section": "Reducing the Cost of Healthcare",
+    "text": "Reducing the Cost of Healthcare\n\n\nReducing the cost of healthcare in\n\nLow-Cost Alternatives:\n\nDigital medicine reduces human and logistic costs\n\nPreventive Approach:\n\nLowers potential future healthcare costs\n\n\n\n\n\n\nCost of care"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#improving-individual-experience-of-care",
+    "href": "BIOF4002/mHealth and telemedicine.html#improving-individual-experience-of-care",
+    "title": "Health technologies in the global health context",
+    "section": "Improving Individual Experience of Care",
+    "text": "Improving Individual Experience of Care\n\n\n\nConnected Care Integration:\n\nTB treatment adherence in India (Narasimhan et al. 2014)\n\nJust-in-Time Interventions:\n\nAlcohol overuse intervention for adolescents (Haug et al. 2020)\n\nDestigmatization:\n\nDigital platforms provide anonymity for sensitive conditions\n\nHIV (Mulawa et al. 2021)\nMental health (Kim, Xu, and Wang 2022)\n\n\n\n\n\n\n\nJust in time intervention"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#improving-experience-of-providing-care",
+    "href": "BIOF4002/mHealth and telemedicine.html#improving-experience-of-providing-care",
+    "title": "Health technologies in the global health context",
+    "section": "Improving Experience of Providing Care",
+    "text": "Improving Experience of Providing Care\n\n\n\nTelemedicine:\n\nDuring COVID-19 (Mahmoud, Jaramillo, and Barteit 2022)\nMental health support Maha, Kolawole, and Abdul (2024)\n\nIntegrated Healthcare Information:\n\nHealthcare information systems in Kenya (L. A. Celi et al. 2020)\n\n\n\n\n\n\nEmproving care experience"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#implement-digital-health-product-as-a-pm",
+    "href": "BIOF4002/mHealth and telemedicine.html#implement-digital-health-product-as-a-pm",
+    "title": "Health technologies in the global health context",
+    "section": "Implement digital health product as a PM",
+    "text": "Implement digital health product as a PM\n\n\nImportance of Participatory Design\nNelson and Staggers (2013) proposed system life life cycle of health informatics\n\nAnalyze\nPlan\nDevelop\nTest\nImplement\nMaintain\nEvaluate\n\n\n\n\n\nSystem life cycle"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#participatory-design",
+    "href": "BIOF4002/mHealth and telemedicine.html#participatory-design",
+    "title": "Health technologies in the global health context",
+    "section": "Participatory design",
+    "text": "Participatory design\n\n\nImportance of Participatory Design\n\nInvolves patients and professionals for better outcomes\nAligns with P4 medicine goals\n\npredictive\npreventive\npersonalized\nparticipatory\n\nEnhances communication and adherence\n\n\nThrough the participatory medicine approach\n\nBetter health outcome\n\nBetter communication\nPersonalized design of intervention\nHigher adherence to the treatment"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#non-participatory-design-pitfalls",
+    "href": "BIOF4002/mHealth and telemedicine.html#non-participatory-design-pitfalls",
+    "title": "Health technologies in the global health context",
+    "section": "Non-Participatory Design Pitfalls",
+    "text": "Non-Participatory Design Pitfalls\n\n\nTill et al. (2023): Maternal and Child Health in LMICs\n\nFailure to identify target users’ needs\nLack of lived experience and community engagement\nNeglecting cultural contexts\nExcluding stakeholders in the user’s circle\n\n\n\n\n\nExample without participatroy design Till et al. (2023)"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#participatory-example-in-diabetes",
+    "href": "BIOF4002/mHealth and telemedicine.html#participatory-example-in-diabetes",
+    "title": "Health technologies in the global health context",
+    "section": "Participatory – example in diabetes",
+    "text": "Participatory – example in diabetes\n\n\n\nDiabetes patients are heterogenous in many aspects\n\nUsing CGM for continuous monitoring\nConnected care with health coach\nEHR integration\n\n\n\n\n\nParticipatory design of diabete\n\n\n\n\n\n\nParticipatory design of diabete"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#intervention-strategy-technology-acceptance-model-tam",
+    "href": "BIOF4002/mHealth and telemedicine.html#intervention-strategy-technology-acceptance-model-tam",
+    "title": "Health technologies in the global health context",
+    "section": "Intervention Strategy: Technology Acceptance Model (TAM)",
+    "text": "Intervention Strategy: Technology Acceptance Model (TAM)\n\n\n\n\n\n\nAdopting new technology\n\n\n\nWhat new app/technology product/healthy lifestyle have you recently given up?\nWhat were your initial motivations for trying it?\nWhy did you give up? How long did you sustain it before giving up?\n\n\n\n\n\n\nTechnology acceptance model (TAM) was proposed in Davis (1989) and Davis and Venkatesh (1996)\n\n\n\n\nTechnology acceptance model"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#intrinsic-and-extrinsic-factors-on-tam",
+    "href": "BIOF4002/mHealth and telemedicine.html#intrinsic-and-extrinsic-factors-on-tam",
+    "title": "Health technologies in the global health context",
+    "section": "Intrinsic and extrinsic factors on TAM",
+    "text": "Intrinsic and extrinsic factors on TAM\n\n\nFrom the TAM model, it is no clear how do we increase individual’s knowledge.\nVenkatesh and Davis (2000) shows that social norms and competence are important in shaping user’s perception.\nIt suggest some direction of intervention\n\nEliminating stigma and promotion\nProvide good quality of work\n\n\n\n\n\nTechnology acceptance model extension"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#evaluating-digital-health-interventions",
+    "href": "BIOF4002/mHealth and telemedicine.html#evaluating-digital-health-interventions",
+    "title": "Health technologies in the global health context",
+    "section": "Evaluating Digital Health Interventions",
+    "text": "Evaluating Digital Health Interventions\n\n\n\n(Zhang et al. 2025) Three Dimensions of Evaluation\n\nTheme\nStakeholders\nStage\n\n\n\n\n\n\nThree dimension of evaluation"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#stakeholder-x-theme",
+    "href": "BIOF4002/mHealth and telemedicine.html#stakeholder-x-theme",
+    "title": "Health technologies in the global health context",
+    "section": "Stakeholder x Theme",
+    "text": "Stakeholder x Theme\n\n\n\nDifferent interest across themes and stakeholders\nProgram developer\n\nImplementation\n\nProvider and patient\n\nClinical impact\n\nInstitution\n\nEconmic impact\n\nPolicy maker\n\nPotential compliance issue in different aspects\n\n\n\n\n\n\nStakeholder x Theme"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#stage-x-theme",
+    "href": "BIOF4002/mHealth and telemedicine.html#stage-x-theme",
+    "title": "Health technologies in the global health context",
+    "section": "Stage x Theme",
+    "text": "Stage x Theme\n\n\nShiffting focus along the way of product development\n\nImplementation evaluation come on the early stage\nClinical and socioeconomic impact come in the late stage\n\n\n\n\n\nStage x Theme"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#implementation-challenges-in-the-global-health-context",
+    "href": "BIOF4002/mHealth and telemedicine.html#implementation-challenges-in-the-global-health-context",
+    "title": "Health technologies in the global health context",
+    "section": "Implementation Challenges in the Global Health context",
+    "text": "Implementation Challenges in the Global Health context\n\nPolicy\n\nStandardization\nMonitoring and evaluation\nInfrastructure\n\nPatients\n\nUrgency\nAttitude toward digital technology\n\nService provider\n\nTraining\nAttitude toward digital technology"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#future-of-digital-health",
+    "href": "BIOF4002/mHealth and telemedicine.html#future-of-digital-health",
+    "title": "Health technologies in the global health context",
+    "section": "Future of digital health",
+    "text": "Future of digital health\n\n\n\nRivas and Boillat (2023) proposed an intergrative data sharing platform of digital footprint\n\n\n\n\n\n\n\nFuture of digital health\n\n\nWhat will be the future digital health technology look like?\n\n\n\n\n\n\n\nfrom Rivas and Boillat (2023)"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#further-reading",
+    "href": "BIOF4002/mHealth and telemedicine.html#further-reading",
+    "title": "Health technologies in the global health context",
+    "section": "Further reading",
+    "text": "Further reading\nThe material covers in this slide is majorly referenced and L. A. G. Celi et al. (2017 - 2017)"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#bibilography",
+    "href": "BIOF4002/mHealth and telemedicine.html#bibilography",
+    "title": "Health technologies in the global health context",
+    "section": "Bibilography",
+    "text": "Bibilography\n\n\n\n\nAcharibasam, Jeremiah W, and Rolf Wynn. 2018. “Telemental Health in Low-and Middle-Income Countries: A Systematic Review.” International Journal of Telemedicine and Applications 2018 (1): 9602821.\n\n\nBodenheimer, Thomas, and Christine Sinsky. 2014. “From Triple to Quadruple Aim: Care of the Patient Requires Care of the Provider.” The Annals of Family Medicine 12 (6): 573–76.\n\n\nCeli, Leo Anthony G., Hamish S. F. Fraser, Vipan Nikore, Juan Sebastián Osorio, and Kenneth Paik. 2017 - 2017. Global Health Informatics : Principles of Ehealth and Mhealth to Improve Quality of Care. Cambridge, Massachusetts: The MIT Press.\n\n\nCeli, Leo Anthony, Maimuna S Majumder, Patricia Ordóñez, Juan Sebastian Osorio, Kenneth E Paik, and Melek Somai. 2020. Leveraging Data Science for Global Health. Springer Nature.\n\n\nDavis, Fred D. 1989. “Perceived Usefulness, Perceived Ease of Use, and User Acceptance of Information Technology.” MIS Quarterly, 319–40.\n\n\nDavis, Fred D, and Viswanath Venkatesh. 1996. “A Critical Assessment of Potential Measurement Biases in the Technology Acceptance Model: Three Experiments.” International Journal of Human-Computer Studies 45 (1): 19–45.\n\n\nGesicho, Milka, and Ankica Babic. 2022. “Designing a Dashboard for HIV-Data Reporting Performance by Facilities: Case Study of Kenya.” In Advances in Informatics, Management and Technology in Healthcare, 238–41. IOS Press.\n\n\nHaug, Severin, Raquel Paz Castro, Urte Scholz, Tobias Kowatsch, Michael Patrick Schaub, Theda Radtke, et al. 2020. “Assessment of the Efficacy of a Mobile Phone–Delivered Just-in-Time Planning Intervention to Reduce Alcohol Use in Adolescents: Randomized Controlled Crossover Trial.” JMIR mHealth and uHealth 8 (5): e16937.\n\n\nKay, Misha, Jonathan Santos, Marina Takane, et al. 2011. “mHealth: New Horizons for Health Through Mobile Technologies.” World Health Organization 64 (7): 66–71.\n\n\nKim, Hye Min, Yusi Xu, and Yunwen Wang. 2022. “Overcoming the Mental Health Stigma Through m-Health Apps: Results from the Healthy Minds Study.” Telemedicine and e-Health 28 (10): 1534–40.\n\n\nMaha, Chukwudi Cosmos, Tolulope Olagoke Kolawole, and Samira Abdul. 2024. “Transforming Mental Health Care: Telemedicine as a Game-Changer for Low-Income Communities in the US and Africa.” GSC Advanced Research and Reviews 19 (2): 275–85.\n\n\nMahmoud, Kareem, Catalina Jaramillo, and Sandra Barteit. 2022. “Telemedicine in Low-and Middle-Income Countries During the COVID-19 Pandemic: A Scoping Review.” Frontiers in Public Health 10: 914423.\n\n\nMiller, Emily, Alex Michel, Prachi Singh, and Rupali Limaye. 2024. “Countering Vaccine Misinformation: Designing a Learning Resource for Healthcare Workers in Eight Countries.” Vaccine 42: 126091.\n\n\nMulawa, Marta I, A Lina Rosengren, K Rivet Amico, Lisa B Hightow-Weidman, and Kathryn E Muessig. 2021. “mHealth to Reduce HIV-Related Stigma Among Youth in the United States: A Scoping Review.” Mhealth 7: 35.\n\n\nNarasimhan, Padmanesan, Aishwarya Bakshi, Sathyapriya Kittusami, Suma Prashant, Dilip Mathai, Kasturi Bakshi, Chandini Raina MacIntyre, and Pradeep Ray. 2014. “A Customized m-Health System for Improving Tuberculosis Treatment Adherence and Follow-up in South India.” Health and Technology 4 (1): 1–10.\n\n\nNelson, Ramona, and Nancy Staggers. 2013. Health Informatics: An Interprofessional Approach. Elsevier Health Sciences.\n\n\nRivas, Homero, and Thomas Boillat. 2023. Digital Health: From Assumptions to Implementations. Springer.\n\n\nTill, Sarina, Mirriam Mkhize, Jaydon Farao, Londiwe Deborah Shandu, Livhuwani Muthelo, Toshka Lauren Coleman, Masenyani Mbombi, et al. 2023. “Digital Health Technologies for Maternal and Child Health in Africa and Other Low-and Middle-Income Countries: Cross-Disciplinary Scoping Review with Stakeholder Consultation.” Journal of Medical Internet Research 25: e42161.\n\n\nVenkatesh, Viswanath, and Fred D Davis. 2000. “A Theoretical Extension of the Technology Acceptance Model: Four Longitudinal Field Studies.” Management Science 46 (2): 186–204.\n\n\nWHO et al. 2017. Global Diffusion of eHealth: Making Universal Health Coverage Achievable: Report of the Third Global Survey on eHealth. World Health Organization.\n\n\nZhang, Yunxi, Yueh-Yun Lin, Lincy S Lal, Jennifer C Reneker, Elizabeth G Hinton, Saurabh Chandra, and J Michael Swint. 2025. “Stakeholder-Driven Multi-Stage Adaptive Real-World Theme-Oriented (SMART) Telehealth Evaluation Framework: A Scoping Review.” The Lancet Regional Health–Americas 44."
   }
 ]
