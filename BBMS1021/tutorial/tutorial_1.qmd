@@ -1,0 +1,143 @@
+---
+title: "Tutorial 1"
+format: 
+  live-html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    self-contained: true
+engine: knitr 
+author: "Yu Cheng Hsu, BBMS1021 teaching team"
+date: "2025-09-08"
+eval: false
+lightbox: true
+---
+
+# Installing R
+
+First, you need to download and install the latest version of R.
+
+1. Go to [R official website](https://www.r-project.org/)
+2. Click on "download R"
+3. Save the installation file
+4. Run the installation file and follow the prompts to install R (default settings are fine)
+
+# Installing RStudio
+
+1. Go to [RStudio](https://rstudio.com/products/rstudio/download/#download)
+2. Click the big blue download button to download the installation file
+3. Run the installation file and follow the prompts to install RStudio (default settings are fine)
+
+# Cheatsheets 
+
+If you forget how to use it or are not sure, there are some cheatsheets for you:
+[RStudio cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
+
+# Question set 1 -- Getting started
+
+* Q1: Create a new R script `tutorial1.R`
+* Q2: Execute the following code
+```{webr}
+fakedata<-c(5,4,98,"5",3)
+```
+* Q3: Use RStudio tab panes to explore `fakedata`
+* Q4: Explain the functions `mean()` and `sd()`
+* Q5: If we calculate `mean(fakedata)`, it will result in an error. Why does this happen, and how should we fix the error?
+```{webr}
+## Your code starts here
+
+```
+
+# Question set 2 -- Data types
+
+* Q1: We have 25 students in BIOF1001, to store the final marks (0 to 100 with 
+a precision of 0.1), what data type will we use?
+
+* Q2: For the grades (`A+` to `F`), what data type and data structure can be 
+used to keep the data?
+
+* Q3: If you have two vectors for the BIOF1001 `marks` and `grades` and one 
+`character` for teaching performance `"good"`, and you want to store them 
+into one variable, which data structure will you use? 
+
+# Question set 3 -- Matrix manipulation
+
+* Q1: Make a matrix named `my_matrix` with a shape of 5 rows and 2 columns, filled 
+with values from 3 to 12, where the first row contains 3 and 4. 
+*Hint*: For creating a vector from 3 to 12, you may use `seq()` or `:`.
+
+```{webr}
+## Your code starts here
+
+```
+
+* Q2: Based on `Q1`, add the row names to `Day1` to `Day5` and column names to
+`Lunch` and `Dinner`.
+
+```{webr}
+## Your code starts here
+
+```
+
+* Q3: Based on `Q2`, extract a matrix with a shape of 3x1 containing the values 6, 8, and 10 from 
+the matrix `my_matrix`.
+
+```{webr}
+## Your code starts here
+
+```
+
+* Q4: What will you get for `my_matrix[c(TRUE, FALSE, FALSE, TRUE), ]`? 
+*Hint*: think of recycling if the index length is different from the query 
+dimension (Over-flexibility comes with a price of wrong use).
+
+# Question set 4 -- Analyzing data
+
+* Q1: Now, in your Desktop folder, create a subfolder named `R_exercises`
+and download this file of differentially expressed genes results
+[Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv) 
+(or [link to view](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv)) 
+to the folder. Check your current working directory by
+`getwd()` function and change the working directory to the folder you just created.
+*Hint*: you may use `setwd()` to change the working directory or use the `Session` 
+button of RStudio.
+
+```{webr}
+## Your code starts here
+
+```
+
+* Q2: Related to Q1, use the `read.table()` function to load the file into a 
+data frame with the variable name `df_DEG`.
+*Hint*: You may consider using the full path or just the file name if it's in 
+the same working directory. Please keep `header=TRUE` for the argument. Think how to
+find the help page for a certain function.
+
+```{webr}
+## Your code starts here
+
+```
+
+* Q3: Can you calculate the `mean` and `standard deviation` of the `log2FoldChange`?
+
+# Question set 5 -- Scientific computing
+
+* Q1: Write a function to solve a quadratic equation
+
+$$
+ax^2+bx+c=0
+$$
+
+
+```{webr}
+quadratic_equation <- function(a, b, c) {
+## Your code starts here
+
+}
+
+# Test cases
+quadratic_equation(1, 2, 0)
+quadratic_equation(1, 2, 1)
+quadratic_equation(1, 2, 4)
+
+```

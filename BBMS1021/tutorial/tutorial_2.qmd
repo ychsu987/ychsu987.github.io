@@ -1,0 +1,222 @@
+---
+title: "Tutorial 2"
+format: 
+  live-html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    self-contained: true
+engine: knitr 
+author: "Yu Cheng Hsu, BBMS1021 teaching team"
+date: "2025-09-15"
+eval: false
+lightbox: true
+---
+
+# Cheatsheets 
+
+If you forget ggplot2 syntax, here is a cheatsheet for your reference:
+[ggplot2 Cheatsheet](https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf)
+
+# Question Set 1 
+
+**This question set builds on Question Set 4 from Tutorial 1. If you haven't loaded the data yet, follow the instructions in Q1 and Q2. Otherwise, proceed directly to Q3.**
+
+* Q1: On your Desktop, create a subfolder named `R_exercises` and download the file containing differentially expressed genes results [Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv) (or [view here](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv)) to this folder. Check your current working directory using the `getwd()` function and change it to the newly created folder.
+  *Hint*: Use `setwd("<path to R_exercises>")` to change the working directory, replacing `<path to R_exercises>` with the actual path to the folder, or use the `Session` menu in RStudio to set the working directory.
+
+```{webr}
+# Suggested answer
+# getwd()
+# setwd("~/Desktop/R_exercises")
+```
+
+* Q2: Use the `read.table()` function to load the downloaded file into a data frame named `df_DEG`.
+  *Hint*: Use the full path or just the file name if it's in the current working directory. Ensure `header=TRUE` is set as an argument. To find help for a function, use `?function_name` in R.
+
+```{r}
+# Suggested answer
+df_DEG <- read.table("Diff_Expression_results.tsv", header=TRUE)
+head(df_DEG)
+```
+
+* Q3: Use the `summary()` function to get an overview of the `df_DEG` data frame.
+
+```{r}
+# Suggested answer
+summary(df_DEG)
+```
+
+* Q4: Create a histogram of the `log2FoldChange` column in `df_DEG` using both the basic plotting function `hist()` and the `ggplot2` package. 
+  For the ggplot2 plot, add a figure title `Histogram of log2FoldChange`.
+
+```{r}
+library(ggplot2)
+# Suggested answer
+# Using base R
+hist(df_DEG$log2FoldChange)
+# Using ggplot2
+ggplot(df_DEG, aes(x=log2FoldChange)) + geom_histogram() + ggtitle("Histogram of log2FoldChange")
+```
+
+* Q5: Create a scatter plot with the x-axis as `log10(baseMean)` and the y-axis as `log2FoldChange` from the `df_DEG` data frame. Use both the basic `plot()` function and the `ggplot2` package.
+
+```{r}
+# Suggested answer
+# Using base R
+plot(log10(df_DEG$baseMean), df_DEG$log2FoldChange, xlab="log10(baseMean)", ylab="log2FoldChange", main="Scatter Plot")
+
+# Using ggplot2
+ggplot(df_DEG, aes(x=log10(baseMean), y=log2FoldChange)) + geom_point() + ggtitle("Scatter Plot of log2FoldChange vs log10(baseMean)")
+```
+
+* Q6: Manipulate the data frame by adding two columns:
+  - Add a column `log2FC_clip` for clipping `log2FoldChange` to the range `[-5, +5]`.
+  - Add a column `is_DE` to indicate if `padj < 0.05`.
+
+```{r}
+# Suggested answer
+# Any of the below works
+ df_DEG$log2FC_clip <- df_DEG$log2FoldChange
+ df_DEG$log2FC_clip[df_DEG$log2FC_clip > 5] = 5
+df_DEG$lÇog2FC_clip[df_DEG$log2FC_clip < -5] = -5
+
+
+df_DEG$is_DE <-  df_DEG$padj<0.05
+# df_DEG$is_DE <- factor(df_DEG$is_DE, levels=c(TRUE, FALSE))
+```
+
+* Q7: Use the `table()` function to count the values in the `is_DE` column.
+
+```{r}
+# Suggested answer
+table(df_DEG$is_DE)
+```
+
+* Q8: Using ggplot2, create a scatter plot colored by the newly added column `is_DE`. 
+  To make the figure clear, set the color legend title to `Is differentially expressed` and map the labels from `TRUE` to `Yes` and `FALSE` to `No`.
+
+```{r}
+# Suggested answer
+ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip, color=is_DE)) +
+   geom_point() +
+   scale_color_discrete(name="Is differentially expressed")
+```
+
+* Q9: For the scatter plot from Q8, reverse the color order so that `TRUE (Yes)` is blue and `FALSE (No)` is red. 
+  How do you adjust the code? 
+  *Hint*: ggplot uses the order of factor levels to render the color. Use `factor()` and set the `levels` parameter to control the order of categories.
+
+```{r}
+# Suggested answer
+ df_DEG$is_DE <- factor(df_DEG$is_DE, levels=c(TRUE, FALSE))
+
+ ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip)) +
+ geom_point(aes(color=is_DE)) +
+    scale_color_discrete(name="Is differentially expressed")
+```
+
+* Q10: Save the scatter plot from Q8 or Q9 into a file named "My_DEG_results.pdf".
+
+```{r}
+# Suggested answer
+p <- ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip)) +
+  geom_point(aes(color=is_DE)) +
+  scale_color_discrete(name="Is differentially expressed", labels=c("Yes", "No"))
+
+ggsave("My_DEG_results.pdf",p)
+```
+
+# Question Set 2 
+
+Import and inspect the iris dataset. This is a pre-defined dataset in the R environment that you can load and use by default. 
+This study measured the widths and lengths of petals and sepals (parts of the flower) among different iris species.
+
+```{r}
+head(iris)
+```
+
+* Q1: Plot a boxplot showing the petal length distribution among different species in the `iris` dataset, with the following requirements:
+  a. Place `Species` on the y-axis. 
+  b. Label the x-axis as `Petal Length (cm)`.
+  c. Label the y-axis as `Species`.
+
+```{r}
+library(ggplot2)
+# Suggested answer
+ggplot(iris, aes(x=Petal.Length, y=Species, color=Species)) +
+  geom_boxplot() +
+  scale_y_discrete(name="Species") +
+  scale_x_continuous(name="Petal Length (cm)")
+```
+
+* Q2: Create a plot showing the association between `Petal.Width` and `Sepal.Width` among different `Species` in the `iris` dataset, with the following requirements:
+  a. Place `Petal.Width` on the x-axis. 
+  b. Place `Sepal.Width` on the y-axis. 
+  c. Label the x-axis as `Petal Width (cm)`.
+  d. Label the y-axis as `Sepal Width (cm)`.
+  e. Assign colors to differentiate `Species`.
+
+```{webr}
+# Suggested answer
+# ggplot(iris, aes(x=Petal.Width, y=Sepal.Width, color=Species)) + 
+#   geom_point() + 
+#   xlab("Petal Width (cm)") + 
+#   ylab("Sepal Width (cm)")
+```
+
+# Question Set 3
+
+This question set is adapted from the [NIH Bioinformatics Training and Education Program](https://bioinformatics.ccr.cancer.gov/docs/data-visualization-with-r/Practice_Exercises/L2Ex/). The original question is slightly more complex. If you are interested in more challenging questions, visit the website.
+
+Let's load the Titanic dataset.
+
+```{webr}
+# Suggested answer
+titanic <- read.csv("https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/stuff/titanic.csv", header=TRUE)
+```
+
+| Column                 | Description                                 |
+|------------------------|---------------------------------------------|
+| Survived               | 0 (No) / 1 (Yes)                            |
+| Pclass                 | 1 / 2 / 3 (Passenger Class)                 |
+| Name                   | Passenger Name                              | 
+| Sex                    | Male / Female                               |
+| Age                    | Age                                         |
+| Siblings.Spouses.Aboard | Number of siblings/spouses aboard          |
+| Parents.Children.Aboard | Number of parents/children aboard          |
+| Fare                   | Fare Price                                  |
+
+* Q1: Inspect the data using `str()`, `summary()`, and `head()`.
+
+```{webr}
+# Suggested answer
+# str(titanic)
+# summary(titanic)
+# head(titanic) 
+```
+
+* Q2: Explore the relationship between the passenger's age and fare. What type of plot should you use? Write the code using `ggplot2`.
+
+```{webr}
+# Suggested answer
+# ggplot(titanic) + 
+#   geom_point(aes(x=Age, y=Fare))
+```
+
+* Q3: Color the points from Q2 by `Pclass`. Remember that `Pclass` is a proxy for socioeconomic status. While the values are treated as numeric upon loading, they are categorical and should be treated as such. You will need to coerce `Pclass` into a categorical (factor) variable using `factor()` or `as.factor()`.
+
+```{webr}
+# Suggested answer
+# ggplot(titanic) + 
+#   geom_point(aes(x=Age, y=Fare, color=as.factor(Pclass)))
+```
+
+* Q4: Modify the plot from Q3 to update the legend labels to (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class).
+
+```{webr}
+# Suggested answer
+# ggplot(titanic) + 
+#   geom_point(aes(x=Age, y=Fare, color=as.factor(Pclass))) + 
+#   scale_color_discrete(labels=c("1st Class", "2nd Class", "3rd Class"))
+```

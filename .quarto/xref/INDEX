@@ -1,0 +1,53 @@
+{
+  "courses.qmd": {
+    "courses.html": "4974b401"
+  },
+  "2025/Workshop/workshop.qmd": {
+    "workshop.html": "d2521659"
+  },
+  "2025/mHealth and telemedicine.qmd": {
+    "mHealth and telemedicine.html": "79df926b"
+  },
+  "2025/MCQs_Digital_Health.qmd": {
+    "MCQs_Digital_Health.html": "eac937d7"
+  },
+  "2025/Global health informatics.qmd": {
+    "Global health informatics.html": "271c054e"
+  },
+  "about.qmd": {
+    "about.html": "8cc435db"
+  },
+  "BIOF4002/Global health informatics.qmd": {
+    "Global health informatics.html": "bce6be44"
+  },
+  "BIOF4002/Workshop/workshop.qmd": {
+    "workshop.html": "4c09d0dd"
+  },
+  "BIOF4002/mHealth and telemedicine.qmd": {
+    "mHealth and telemedicine.html": "ef8e60d0"
+  },
+  "BIOF4002/mobile_health/mHealth and telemedicine.qmd": {
+    "mHealth and telemedicine.html": "0cee7978"
+  },
+  "BIOF4002/mHealth_and_telemedicine.qmd": {
+    "mHealth_and_telemedicine.html": "8a738b79"
+  },
+  "BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd": {
+    "introduction_to_ggplot2.html": "a590ce50"
+  },
+  "BBMS1021/Real_case/Real-example.qmd": {
+    "Real-example.html": "23834361"
+  },
+  "BIOF4002/Workshop-tableau/workshop.qmd": {
+    "workshop.html": "15b37f88"
+  },
+  "BIOF4002/Global_health_informatics.qmd": {
+    "Global_health_informatics.html": "0bf98afa"
+  },
+  "BBMS1021/tutorial/tutorial_2.qmd": {
+    "tutorial_2.html": "e7661c4f"
+  },
+  "BBMS1021/tutorial/tutorial_1.qmd": {
+    "tutorial_1.html": "f85b0a46"
+  }
+}
