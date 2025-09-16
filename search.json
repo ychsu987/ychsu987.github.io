@@ -287,6 +287,27 @@
     "text": "Data Life Cycle Framework\nAt the end of this module, we introduce a higher-level overview of how to analyze data in the life sciences from a life cycle perspective. The idea of a data life cycle is widely used and applied in many fields. Griffin et al. (2018) proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.\n\n\n\nData lifecycle, figure from Griffin et al. (2018)\n\n\n\nData Life Cycle and Examples\n\n\nLife Cycle Stage\nExample\n\n\n\n\nCollecting\nRead the data\n\n\nIntegrating\n-\n\n\nProcessing\nManipulating tables\n\n\nAnalyzing\nReporting statistics\n\n\nPublishing\nGenerating report and figures"
   },
   {
+    "objectID": "BBMS1021/tutorial/tutorial_2.html",
+    "href": "BBMS1021/tutorial/tutorial_2.html",
+    "title": "Tutorial 2",
+    "section": "",
+    "text": "Cheatsheets\nIf you forget ggplot2 syntax, here is a cheatsheet for your reference: ggplot2 Cheatsheet\n\n\nQuestion Set 1\nThis question set builds on Question Set 4 from Tutorial 1. If you haven’t loaded the data yet, follow the instructions in Q1 and Q2. Otherwise, proceed directly to Q3.\n\nQ1: On your Desktop, create a subfolder named R_exercises and download the file containing differentially expressed genes results Diff_Expression_results.tsv (or view here) to this folder. Check your current working directory using the getwd() function and change it to the newly created folder. Hint: Use setwd(\"&lt;path to R_exercises&gt;\") to change the working directory, replacing &lt;path to R_exercises&gt; with the actual path to the folder, or use the Session menu in RStudio to set the working directory.\n\n\n\n\n\n\n\n\n\n\nQ2: Use the read.table() function to load the downloaded file into a data frame named df_DEG. Hint: Use the full path or just the file name if it’s in the current working directory. Ensure header=TRUE is set as an argument. To find help for a function, use ?function_name in R.\n\n\n\n\n\n\n\n\n\n\nQ3: Use the summary() function to get an overview of the df_DEG data frame.\n\n\n\n\n\n\n\n\n\n\nQ4: Create a histogram of the log2FoldChange column in df_DEG using both the basic plotting function hist() and the ggplot2 package. For the ggplot2 plot, add a figure title Histogram of log2FoldChange.\n\n\n\n\n\n\n\n\n\n\nQ5: Create a scatter plot with the x-axis as log10(baseMean) and the y-axis as log2FoldChange from the df_DEG data frame. Use both the basic plot() function and the ggplot2 package.\n\n\n\n\n\n\n\n\n\n\nQ6: Manipulate the data frame by adding two columns:\n\nAdd a column log2FC_clip for clipping log2FoldChange to the range [-5, +5].\nAdd a column is_DE to indicate if padj &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\nQ7: Use the table() function to count the values in the is_DE column.\n\n\n\n\n\n\n\n\n\n\nQ8: Using ggplot2, create a scatter plot colored by the newly added column is_DE. To make the figure clear, set the color legend title to Is differentially expressed and map the labels from TRUE to Yes and FALSE to No.\n\n\n\n\n\n\n\n\n\n\nQ9: For the scatter plot from Q8, reverse the color order so that TRUE (Yes) is blue and FALSE (No) is red. How do you adjust the code? Hint: ggplot uses the order of factor levels to render the color. Use factor() and set the levels parameter to control the order of categories.\n\n\n\n\n\n\n\n\n\n\nQ10: Save the scatter plot from Q8 or Q9 into a file named “My_DEG_results.pdf”.\n\n\n\n\n\n\n\n\n\n\n\nQuestion Set 2\nImport and inspect the iris dataset. This is a pre-defined dataset in the R environment that you can load and use by default. This study measured the widths and lengths of petals and sepals (parts of the flower) among different iris species.\n\n\n\n\n\n\n\n\n\nQ1: Plot a boxplot showing the petal length distribution among different species in the iris dataset, with the following requirements:\n\nPlace Species on the y-axis.\nLabel the x-axis as Petal Length (cm).\nLabel the y-axis as Species.\n\n\n\n\n\n\n\n\n\n\n\nQ2: Create a plot showing the association between Petal.Width and Sepal.Width among different Species in the iris dataset, with the following requirements:\n\nPlace Petal.Width on the x-axis.\nPlace Sepal.Width on the y-axis.\nLabel the x-axis as Petal Width (cm).\nLabel the y-axis as Sepal Width (cm).\nAssign colors to differentiate Species.\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion Set 3\nThis question set is adapted from the NIH Bioinformatics Training and Education Program. The original question is slightly more complex. If you are interested in more challenging questions, visit the website.\nLet’s load the Titanic dataset.\n\n\n\n\n\n\n\n\n\n\n\nColumn\nDescription\n\n\n\n\nSurvived\n0 (No) / 1 (Yes)\n\n\nPclass\n1 / 2 / 3 (Passenger Class)\n\n\nName\nPassenger Name\n\n\nSex\nMale / Female\n\n\nAge\nAge\n\n\nSiblings.Spouses.Aboard\nNumber of siblings/spouses aboard\n\n\nParents.Children.Aboard\nNumber of parents/children aboard\n\n\nFare\nFare Price\n\n\n\n\nQ1: Inspect the data using str(), summary(), and head().\n\n\n\n\n\n\n\n\n\n\nQ2: Explore the relationship between the passenger’s age and fare. What type of plot should you use? Write the code using ggplot2.\n\n\n\n\n\n\n\n\n\n\nQ3: Color the points from Q2 by Pclass. Remember that Pclass is a proxy for socioeconomic status. While the values are treated as numeric upon loading, they are categorical and should be treated as such. You will need to coerce Pclass into a categorical (factor) variable using factor() or as.factor().\n\n\n\n\n\n\n\n\n\n\nQ4: Modify the plot from Q3 to update the legend labels to (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class)."
+  },
+  {
+    "objectID": "courses.html",
+    "href": "courses.html",
+    "title": "Courses",
+    "section": "",
+    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\ntutorial\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
+  },
+  {
+    "objectID": "courses.html#course-list",
+    "href": "courses.html#course-list",
+    "title": "Courses",
+    "section": "",
+    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\ntutorial\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Yu Cheng Hsu",
@@ -299,20 +320,6 @@
     "title": "Yu Cheng Hsu",
     "section": "",
     "text": "For inquiries or to contribute materials, please contact us at ychsu@hku.hk."
-  },
-  {
-    "objectID": "courses.html",
-    "href": "courses.html",
-    "title": "Courses",
-    "section": "",
-    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
-  },
-  {
-    "objectID": "courses.html#course-list",
-    "href": "courses.html#course-list",
-    "title": "Courses",
-    "section": "",
-    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
   },
   {
     "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
