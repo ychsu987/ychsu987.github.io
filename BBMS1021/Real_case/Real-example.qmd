@@ -20,6 +20,11 @@ date: "2025-08-06"
 
 This section illustrates an example of processing and analyzing data using R, focusing on the Zea mays (corn) experiment data from Charles Darwin's studies. We will cover reading files from the file system, working with paths, manipulating data with tidyr and dplyr, generating summary statistics, and visualizing the results through plots to explore relationships between cross- and self-pollinated Zea mays plants.
 
+# Learning goal
+
+- Analyzing data from scratch
+- Performing basic data manipulation 
+
 # About the Experiment
 
 The data were presented in Charles Darwin's book *The Effects of Cross and Self Fertilization in the Vegetable Kingdom* in 1876. He hypothesized that cross-pollination could make their offspring stronger (in terms of height, in his opinion back then). To show this idea, he planted 15 pairs of Zea mays, one by self-pollination and the other by cross-pollination. Each pair of observations was grown in the same pots, and there were a total of 4 pots in this study. 
@@ -55,7 +60,7 @@ This diagram illustrates a simple file system structure to demonstrate absolute 
 │       │   │   └── IMAGE.png
 │       │   └── notes.txt
 │       └── downloads
-|           └── Zea_mays.csv
+|           └── zea_mays.csv
 └── var
 ```
 
@@ -63,7 +68,7 @@ This diagram illustrates a simple file system structure to demonstrate absolute 
 An absolute path starts from the root directory (`/`) and specifies the full path to a file or directory. A reminder: in a Windows system, you will find your file path using `\` instead of `/` in your file explorer. In R, you need to transform these `\`s to `/` if you directly copy and paste the file path.
 
 - Path to `THIS_MARKDOWN.rmd`: `/home/user/documents/BIOF1001/THIS_MARKDOWN.rmd`
-- Path to `Zea_mays.csv`: `/home/user/downloads/Zea_mays.csv`
+- Path to `zea_mays.csv`: `/home/user/downloads/zea_mays.csv`
 
 ## Relative Path Examples
 A relative path is defined relative to the current working directory. It uses `.` to refer to the current directory, and `..` means "go up one directory level".
@@ -71,7 +76,7 @@ A relative path is defined relative to the current working directory. It uses `.
 Assume that we are working on `THIS_MARKDOWN.rmd`, so the current directory is `/home/user/documents/BIOF1001`.
 
 - Path to `IMAGE.png` from `/home/user/documents/BIOF1001`: `./IMAGE.png` or `IMAGE.png`
-- Path to `Zea_mays.csv` from `/home/user/documents/BIOF1001`: `../../Zea_mays.csv`
+- Path to `zea_mays.csv` from `/home/user/documents/BIOF1001`: `../../zea_mays.csv`
 
 
 ::: {.callout-tip}
@@ -86,7 +91,7 @@ In most projects you get from GitHub or other sources, you will typically see re
 
 ## Reading Zea mays Data
 
-Now it's your time to practice opening `Zea_mays.csv` using a relative path.
+Now it's your time to practice opening `zea_mays.csv` using a relative path.
 
 ```{webr}
 # Set the working directory (example path, adjust as needed)
