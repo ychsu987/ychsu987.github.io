@@ -30536,6 +30536,7 @@ z-index: 1000;
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#learning-goal" id="toc-learning-goal" class="nav-link" data-scroll-target="#learning-goal">Learning goal</a></li>
   <li><a href="#about-the-experiment" id="toc-about-the-experiment" class="nav-link" data-scroll-target="#about-the-experiment">About the Experiment</a></li>
   <li><a href="#file-system-and-path-of-the-file" id="toc-file-system-and-path-of-the-file" class="nav-link" data-scroll-target="#file-system-and-path-of-the-file">File System and Path of the File</a>
   <ul class="collapse">
@@ -30606,6 +30607,13 @@ z-index: 1000;
 <h1>Introduction</h1>
 <p>This section illustrates an example of processing and analyzing data using R, focusing on the Zea mays (corn) experiment data from Charles Darwin’s studies. We will cover reading files from the file system, working with paths, manipulating data with tidyr and dplyr, generating summary statistics, and visualizing the results through plots to explore relationships between cross- and self-pollinated Zea mays plants.</p>
 </section>
+<section id="learning-goal" class="level1">
+<h1>Learning goal</h1>
+<ul>
+<li>Analyzing data from scratch</li>
+<li>Performing basic data manipulation</li>
+</ul>
+</section>
 <section id="about-the-experiment" class="level1">
 <h1>About the Experiment</h1>
 <p>The data were presented in Charles Darwin’s book <em>The Effects of Cross and Self Fertilization in the Vegetable Kingdom</em> in 1876. He hypothesized that cross-pollination could make their offspring stronger (in terms of height, in his opinion back then). To show this idea, he planted 15 pairs of Zea mays, one by self-pollination and the other by cross-pollination. Each pair of observations was grown in the same pots, and there were a total of 4 pots in this study.</p>
@@ -30639,7 +30647,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBEaXNwbGF5IHRoZSBjdXJy
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>│       │   │   └── IMAGE.png</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>│       │   └── notes.txt</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>│       └── downloads</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>           └── Zea_mays.csv</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>           └── zea_mays.csv</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="absolute-path-examples" class="level2">
@@ -30647,7 +30655,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBEaXNwbGF5IHRoZSBjdXJy
 <p>An absolute path starts from the root directory (<code>/</code>) and specifies the full path to a file or directory. A reminder: in a Windows system, you will find your file path using <code>\</code> instead of <code>/</code> in your file explorer. In R, you need to transform these <code>\</code>s to <code>/</code> if you directly copy and paste the file path.</p>
 <ul>
 <li>Path to <code>THIS_MARKDOWN.rmd</code>: <code>/home/user/documents/BIOF1001/THIS_MARKDOWN.rmd</code></li>
-<li>Path to <code>Zea_mays.csv</code>: <code>/home/user/downloads/Zea_mays.csv</code></li>
+<li>Path to <code>zea_mays.csv</code>: <code>/home/user/downloads/zea_mays.csv</code></li>
 </ul>
 </section>
 <section id="relative-path-examples" class="level2">
@@ -30656,7 +30664,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBEaXNwbGF5IHRoZSBjdXJy
 <p>Assume that we are working on <code>THIS_MARKDOWN.rmd</code>, so the current directory is <code>/home/user/documents/BIOF1001</code>.</p>
 <ul>
 <li>Path to <code>IMAGE.png</code> from <code>/home/user/documents/BIOF1001</code>: <code>./IMAGE.png</code> or <code>IMAGE.png</code></li>
-<li>Path to <code>Zea_mays.csv</code> from <code>/home/user/documents/BIOF1001</code>: <code>../../Zea_mays.csv</code></li>
+<li>Path to <code>zea_mays.csv</code> from <code>/home/user/documents/BIOF1001</code>: <code>../../zea_mays.csv</code></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -30678,7 +30686,7 @@ Relative Path
 </section>
 <section id="reading-zea-mays-data" class="level2">
 <h2 class="anchored" data-anchor-id="reading-zea-mays-data">Reading Zea mays Data</h2>
-<p>Now it’s your time to practice opening <code>Zea_mays.csv</code> using a relative path.</p>
+<p>Now it’s your time to practice opening <code>zea_mays.csv</code> using a relative path.</p>
 <div class="cell">
 <div>
 <div id="webr-2" class="exercise-cell">
@@ -30989,7 +30997,7 @@ eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNCIsImlubGluZSI6ZmFsc2UsIm1l
 </div>
 </div>
 <script type="vfs-file">
-W10=
+WyJkYXRhL3plYV9tYXlzLmNzdiJd
 </script>
 
 </section>
@@ -31084,7 +31092,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
