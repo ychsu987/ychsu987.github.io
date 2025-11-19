@@ -1,17 +1,627 @@
 [
   {
+    "objectID": "BIOF3001/suicide-media-slides.html#overview",
+    "href": "BIOF3001/suicide-media-slides.html#overview",
+    "title": "Media Reporting and Suicide",
+    "section": "Overview",
+    "text": "Overview\n\nProject Task\nProject Background\n\nSuicide\nSuicide reporting and its impact\n\nKey Technical Skills\n\nOverview of natural language processing\nLarge language model (LLM)\nInstructing LLM\nChain of thought"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#project-task-1",
+    "href": "BIOF3001/suicide-media-slides.html#project-task-1",
+    "title": "Media Reporting and Suicide",
+    "section": "Project task",
+    "text": "Project task\n\nDoes a machine learning model have the potential to evaluate suicide news reports?\n\n\nSpecific Tasks\n\n\nCoding Hong Kong local suicide news reports\nDeveloping an LLM prompt to examine whether an LLM can evaluate suicide news reporting style"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#suicide-1",
+    "href": "BIOF3001/suicide-media-slides.html#suicide-1",
+    "title": "Media Reporting and Suicide",
+    "section": "Suicide",
+    "text": "Suicide\n\nGlobal Statistics\n\n~800,000 deaths annually (WHO, 2023)\nSuicide is the 4th leading cause of death among 15-29-year-olds\n\n\nIdeation-to-Action Framework\nKlonsky and May (2015) proposed the framework from ideation (suicidal thoughts) to action (behaviors).\nKey Risk Factors\n\nPsychological factors: Depression, Schizophrenia\n\nSocioeconomic factors: Relationships, access to lethal means\nBiological factors: Cancer"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#biological-perspective-of-suicide",
+    "href": "BIOF3001/suicide-media-slides.html#biological-perspective-of-suicide",
+    "title": "Media Reporting and Suicide",
+    "section": "Biological perspective of suicide",
+    "text": "Biological perspective of suicide\n\nControl of Impulsive Behavior\n\nAssociated with the prefrontal cortex (Mann 2002).\n\nHeritability\n\nTwin studies show a 0.2~0.45 concordance rate for suicidal behavior (Pedersen and Fiske 2010)."
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#implications-for-suicide-prevention",
+    "href": "BIOF3001/suicide-media-slides.html#implications-for-suicide-prevention",
+    "title": "Media Reporting and Suicide",
+    "section": "Implications for suicide prevention",
+    "text": "Implications for suicide prevention\nFrom a population-level perspective, interventions targeting the whole community usually focus on the following aspects:\n\nMeans control\nHealth promotion\n\n\n\n\n\n\n\nDiscussion\n\n\nHave you seen any suicide prevention efforts in your daily life?"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#suicide-rate-in-hong-kong",
+    "href": "BIOF3001/suicide-media-slides.html#suicide-rate-in-hong-kong",
+    "title": "Media Reporting and Suicide",
+    "section": "Suicide rate in Hong Kong",
+    "text": "Suicide rate in Hong Kong\n\n\n\nHong Kong’s age-standardized suicide rate: 9.5 per 100,000 people\nThe historical peak was in 2003 during the SARS outbreak and financial crisis\nHeterogeneity within subgroups\n\n\n\n\n\nHong Kong suicide rate"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#media-impact-on-suicide",
+    "href": "BIOF3001/suicide-media-slides.html#media-impact-on-suicide",
+    "title": "Media Reporting and Suicide",
+    "section": "Media Impact on suicide",
+    "text": "Media Impact on suicide\n\nArguments on Media Effects\n\nMedia reporting can influence suicidal behavior through imitation, protection, or neutrality.\nThere are arguments about different effects:\n\nPapageno effect (Positive effect)\nNo effect\nWerther effect (Negative effect)"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#papageno-effect",
+    "href": "BIOF3001/suicide-media-slides.html#papageno-effect",
+    "title": "Media Reporting and Suicide",
+    "section": "Papageno effect",
+    "text": "Papageno effect\n\nDefinition Media stories of coping, hope, and recovery can reduce suicidal ideation and encourage help-seeking.\nEvidence\n\nNiederkrotenthaler et al. (2010)\n\nShort-term decrease in suicides\nReporting with coping and encouraging content\n\nCarmichael and Whitley (2019)\n\nReporting with treatment information\n\n\nCounterarguments A systematic review (Sisask and Värnik 2012) does not confirm the effect."
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#werther-effect",
+    "href": "BIOF3001/suicide-media-slides.html#werther-effect",
+    "title": "Media Reporting and Suicide",
+    "section": "Werther effect",
+    "text": "Werther effect\n\nDefinition Increased suicides following detailed, sensationalist media reports, especially of celebrities. This promotes imitation via social learning theory.\nEvidence\n\nPromoting suicide methods: Chan et al. (2005), P. Yip et al. (2022)\nImitating celebrities: Hegerl et al. (2013), P. S. Yip et al. (2006)"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#debating-on-the-effects",
+    "href": "BIOF3001/suicide-media-slides.html#debating-on-the-effects",
+    "title": "Media Reporting and Suicide",
+    "section": "Debating on the Effects",
+    "text": "Debating on the Effects\n\nWhat is the Effect?\n\nCan we establish a causal relationship between media reporting and suicide?\nIndividual studies show positive/negative effects, but what then?\n\n\n\n\n\n\n\n\nDiscussion\n\n\n\nHave you read any local suicide news?\nWhat did you feel after reading it?\nWhat have you learned from the news?"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#who-guidelines-on-ethical-reporting",
+    "href": "BIOF3001/suicide-media-slides.html#who-guidelines-on-ethical-reporting",
+    "title": "Media Reporting and Suicide",
+    "section": "WHO guidelines on ethical reporting",
+    "text": "WHO guidelines on ethical reporting\nThe news media’s impact on suicide depends on how it is reported. A responsible reporting style is needed.\n\nWHO (2023) developed guidelines for good reporting styles."
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#dos",
+    "href": "BIOF3001/suicide-media-slides.html#dos",
+    "title": "Media Reporting and Suicide",
+    "section": "Dos",
+    "text": "Dos\n\n\n\nProvide\n\nhelpful information\nfacts on suicide and prevention efforts\n\nAcknowledge that reporters may be affected\nReport how to cope and seek help\nExercise caution with\n\nCelebrity suicides\nInterviewing bereaved family and friends\n\n\n\n\n\n\nWHO responsible reporting guideline"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#donts",
+    "href": "BIOF3001/suicide-media-slides.html#donts",
+    "title": "Media Reporting and Suicide",
+    "section": "Don’ts",
+    "text": "Don’ts\n\n\n\nContent\n\nMethods\nDetails\n\nStyle\n\nOver-simplifying reasons\n\nLanguage use\n\nSensational language\nRomanticizing\n\nAdditional content\n\nVisual and audio content\nSocial media links\n\n\n\n\n\n\nWHO responsible reporting guideline"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#assessing-the-quality-of-news-reporting",
+    "href": "BIOF3001/suicide-media-slides.html#assessing-the-quality-of-news-reporting",
+    "title": "Media Reporting and Suicide",
+    "section": "Assessing the Quality of News Reporting",
+    "text": "Assessing the Quality of News Reporting\n\nJohn et al. (2014) developed a scale (PRINTQUAL) to quantitatively evaluate the quality of reporting suicide news\nJarvis et al. (2025) proposed a web version for online news reporting\nChallenges in the online media year\n\nDifferent modality\nSocial media\nComment threads"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#natural-language-processing-1",
+    "href": "BIOF3001/suicide-media-slides.html#natural-language-processing-1",
+    "title": "Media Reporting and Suicide",
+    "section": "Natural language processing",
+    "text": "Natural language processing\n\n\nDefinition A field using computers to understand and analyze human languages.\nYou might also hear the term computational linguistics, which uses quantitative approaches to study human linguistics, and most of the time both terms are interchangeable.\n\n\n\n\n\n\nDiscussion\n\n\nIf a natural language processing task can fall into a traditional (or even deep learning) scope, then why is it so special that it is usually discussed separately?\n\n\n\n\nScope of NLP We can still use machine learning taxonomy to categorize tasks:\n\nUnsupervised learning\n\nEncoding language\nRanking/Searching documents\n\nSupervised learning\n\nClassification of parts of speech, sentiment, etc.\n\nGenerative models\n\nMachine translation\nText-to-speech\nChatbots"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#why-modeling-text-is-so-different",
+    "href": "BIOF3001/suicide-media-slides.html#why-modeling-text-is-so-different",
+    "title": "Media Reporting and Suicide",
+    "section": "Why modeling text is so different",
+    "text": "Why modeling text is so different\n\n\n\nModeling perspective\n\nDynamic input shape\nContext awareness\nTraining time\nEvaluation\n\nData perspective\n\nAmbiguity\nDirty data\n\n\n\nFor the rest of the slides, we will discuss NLP in these three aspects\n\nData processing\nModeling\nEvaluation"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#our-whole-universe-was-in-a-regression",
+    "href": "BIOF3001/suicide-media-slides.html#our-whole-universe-was-in-a-regression",
+    "title": "Media Reporting and Suicide",
+    "section": "Our whole universe was in a regression",
+    "text": "Our whole universe was in a regression\nWe start from a regression setting, and we define the input and outcome pair \\((x_i,y_i)\\) with total \\(n\\) observations, where\n\n\\(x_i = [x_{i1}\\dots x_{ip}]\\) : feature vectors with size \\(p\\), and\n\\(y_i\\) : outcome vectors:\n\n\\(y_i \\in [0,1] \\rightarrow\\) Logistic regression, other classification methods\n\nSentiment analysis\nSpam detection\nLanguage Identification\n\n\\(y_i \\in \\mathbb{R} \\rightarrow\\) other GLMs\n\nProduct rating"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#fantastic-features-and-where-to-find-them",
+    "href": "BIOF3001/suicide-media-slides.html#fantastic-features-and-where-to-find-them",
+    "title": "Media Reporting and Suicide",
+    "section": "Fantastic Features and where to find them",
+    "text": "Fantastic Features and where to find them\nAn intuitive way is to set the p-th feature of document i as\n\\[\\begin{align*}\nx_{ip}  \n        & = 1 \\text{ if the i-th document contains word \"XXXX\"} \\\\\n        & = 0 \\text{ if the i-th document does not contain word \"XXXX\"}\n\\end{align*}\n\\]\nThere are also other alternatives\n\\[\\begin{align*}\nx_{ip} \\in \\mathbb{Z} \\text{ How many times that \"XXXX\" occurs in the document i  }\n\\end{align*}\n\\]\n\n\n\n\n\n\nDiscussion\n\n\n\nWhat is the implied distribution of \\(x_{ip}\\)\nWhat is the limitation of regression approach"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#then-neural-network-expansion-started.-wait..",
+    "href": "BIOF3001/suicide-media-slides.html#then-neural-network-expansion-started.-wait..",
+    "title": "Media Reporting and Suicide",
+    "section": "Then neural network expansion started. Wait..",
+    "text": "Then neural network expansion started. Wait..\nThe key questions at this moment lies in two aspects\n\nUnderstanding the context\n\nRecurrent neural network (RNN)\nLong-short term memory (LSTM)\nTransformer\nLLM\n\nBetter feature engineering\n\nAutoencoder\nMulti-layer perceptron(MLP)\nconvolution neural network (CNN)"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#multi-layer-perceptronmlp",
+    "href": "BIOF3001/suicide-media-slides.html#multi-layer-perceptronmlp",
+    "title": "Media Reporting and Suicide",
+    "section": "Multi-layer perceptron(MLP)",
+    "text": "Multi-layer perceptron(MLP)\n\n\nAdjustment of input\n\nTreat text as a time-series \\[\n\\begin{align}\n& x_{ijp} = 1 \\text{ if the j-th words in i-th } \\\\\n& \\text{document contains word in index p}\n\\end{align}\n\\]\nWe need to create a dictionary index \\(\\{p:\"XXX\"\\}\\)\n\n\n\n\n\n\n\nstateDiagram \ni : Input text\n\nstate i{\nT0 : Text A1\nT1 : Text A2\n}\nr : Hidden layers\nstate r{\nRNN1 : Node1\nRNN2 : Node2\nRNN3 : Node3\nRNN4 : Node4\n\n}\no : Output layers\n\nstate o{\no1 : Output layer 1\no2 : Output layer 2\n}\n T0 --&gt; RNN1\n T1 --&gt; RNN1\n T0 --&gt; RNN2\n T1 --&gt; RNN2\n T0 --&gt; RNN3\n T1 --&gt; RNN3\n T0 --&gt; RNN4\n T1 --&gt; RNN4\n RNN1 --&gt; o1\n RNN2 --&gt; o1\n RNN3 --&gt; o1\n RNN1 --&gt; o2\n RNN2 --&gt; o2\n RNN3 --&gt; o2"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#rnn-and-lstm",
+    "href": "BIOF3001/suicide-media-slides.html#rnn-and-lstm",
+    "title": "Media Reporting and Suicide",
+    "section": "RNN and LSTM",
+    "text": "RNN and LSTM\n\n\n\nWhat did MLP and CNN not achieve\n\nContext\nAmount of parameter\n\nSolution\n\nAsking nodes to memorizing context\nUsing this Memory as an additional input\n\n\n\n\n\n\n\n\nstateDiagram \ni : Input text\n\nstate i{\nT0 : Text A1\nT1 : Text A2\nT2 : Text A3\n}\nr : Hidden layers\nstate r{\nRNN1 : Node1\nRNN2 : Node2\nRNN3 : Node3\n}\no : Output layers\n\nstate o{\no1 : Output layer 1\no2 : Output layer 2\n}\n\n T0 --&gt; RNN1\n T1 --&gt; RNN2\n T2 --&gt; RNN3\n\n RNN1 --&gt; o1\n RNN2 --&gt; o1\n RNN3 --&gt; o1\n\n RNN1 --&gt; o2\n RNN2 --&gt; o2\n RNN3 --&gt; o2\n\n RNN1 --&gt; RNN2\n RNN2 --&gt; RNN3"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#attention-transformer-and-llm",
+    "href": "BIOF3001/suicide-media-slides.html#attention-transformer-and-llm",
+    "title": "Media Reporting and Suicide",
+    "section": "Attention, transformer and LLM",
+    "text": "Attention, transformer and LLM\n\n\n\nAttention mechanism introduced in Vaswani et al. (2017) Attention is All You Need, which uses self-attention mechanisms to process input data efficiently.\n\n\n\n\nAttention mechanism\n\n\n\n\nInstead of memorizing previous state, attention mechanism dynamically calculates the importance of each input based on the context.\n\n\n\n\n\n\nstateDiagram \ni : Input text\n\nstate i{\nT0 : Text A1\nT1 : Text A2\nT2 : Text A3\n}\n\ne : Embedding\nstate e {\n\nQuery1 : Query A1\nKey1 : Key A1 \nKey2 : Key A2\nKey3 : Key A3\nValue1 : Value A1\nValue2 : Value A2\nValue3 : Value A3\n}\n\nw : Attention Weight\nstate w {\n\nweight1 : Weight A1\nweight2 : Weight A2\nweight3 : Weight A3\n\n}\n\n\n T0 --&gt; Query1\n T0 --&gt; Key1\n T0 --&gt; Value1\n T1 --&gt; Key2\n T1 --&gt; Value2\n T2 --&gt; Key3\n T2 --&gt; Value3\n\n  Query1 --&gt; weight1\n  Key1 --&gt; weight1\n\n  Query1 --&gt; weight2\n  Key2 --&gt; weight2\n\n  Query1 --&gt; weight3\n  Key3 --&gt; weight3\n\n  weight1 --&gt; output\n  Value1 --&gt; output\n\n  weight2 --&gt; output\n  Value2 --&gt; output\n\n  weight3 --&gt; output\n  Value3 --&gt; output"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#all-i-need-is-data",
+    "href": "BIOF3001/suicide-media-slides.html#all-i-need-is-data",
+    "title": "Media Reporting and Suicide",
+    "section": "All I need is data",
+    "text": "All I need is data\n\n\nTraining an NLP model requires a huge amount of data. For example, OpenAI revealed (Brown et al. 2020) that the majority of the training data sources are English data from:\n\nWeb pages\nSocial media and forum posts\nBooks\nWikipedia\nUser feedback (for GPT-4 and onwards)\n\n\n\n\n\n\n\n\nDiscussion\n\n\nWhat are the implications of these data sources in terms of\n\nPerformance\nPrivacy"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#pre-processing-data",
+    "href": "BIOF3001/suicide-media-slides.html#pre-processing-data",
+    "title": "Media Reporting and Suicide",
+    "section": "Pre-processing data",
+    "text": "Pre-processing data\nAt the first step of data analysis, pre-processing is always the key to quality model and better performance.\n\nCleaning data\n\nPre-processing issue\n\nEncoding text into vector space\n\nTokenization\nEmbedding\n\nLabeling data"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#cleaning-data",
+    "href": "BIOF3001/suicide-media-slides.html#cleaning-data",
+    "title": "Media Reporting and Suicide",
+    "section": "Cleaning data",
+    "text": "Cleaning data\n\n\n\nMannual typo, non-text elements\nStopwords\n\nFunction word (e.g. articles, pronouns, conjunctions, …)\nOverly used verb\n\nDeclension (Tense, gender, plural)\n\n\n\n\n\n\n\n\nDiscussion\n\n\n\nWhy can LLM accept our typos?\nIf LLM can comprehend typos, then do I need to clean data?"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#tokenizing-text",
+    "href": "BIOF3001/suicide-media-slides.html#tokenizing-text",
+    "title": "Media Reporting and Suicide",
+    "section": "Tokenizing text",
+    "text": "Tokenizing text\nTokenize means breaking down sentences to small pieces of words\nA straight forward way is word tokenization\n\nNew public housing with enlarged toilets and kitchens for the convenience of wheelchair users.\n新公屋廁廚加大便利輪椅戶\n\n\nSentence segmentation\n\nEnglish: 14 tokens\n\nrule-based could work nearly perfect\n\nChinese: ?? tokens\n\nDynamic programming approach\nDeep-learning approach"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#subword-tokenization",
+    "href": "BIOF3001/suicide-media-slides.html#subword-tokenization",
+    "title": "Media Reporting and Suicide",
+    "section": "Subword Tokenization",
+    "text": "Subword Tokenization\n\n\nEncoding based on the word are potentially prone to\n\nMis-spelling\nHard to cater to grammatical variations\n\nSubword Tokenization Breaking word into some smaller subwords, in addition to address above issue\n\nHigher chance to guess out of dictionary terms\n\n\n\n\n\nSubword tokenization from Tiktokenizer"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#embedding",
+    "href": "BIOF3001/suicide-media-slides.html#embedding",
+    "title": "Media Reporting and Suicide",
+    "section": "Embedding",
+    "text": "Embedding\n\n\nCount-based embedding\n\nSentence level: we create a vocabulary (actually token) corpus and create an adjacency matrix \\(|V|\\times |V|\\) where\nEach element \\(v_{ij}\\) means how many times word \\(i\\) and \\(j\\) is next to each other (1-gram)\n\n\n\n\nEmbedding from Jurafsky and Martin (2025)\n\n\n\nWord2vec\nAnother brutal way is let the machine embedding themselves through self-supervise learning and auto-encoder.\n\nInput: Sentence + word\nOutput: Word next to them within 2 words\n\n\n\n\n\n\n\nDiscussion\n\n\nIt is obvious that these tokens were represented in high dimension and sparse format. What are the potential implication if we directly used these embedding for analysis?"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#why-or-why-not-llm",
+    "href": "BIOF3001/suicide-media-slides.html#why-or-why-not-llm",
+    "title": "Media Reporting and Suicide",
+    "section": "Why or Why not LLM",
+    "text": "Why or Why not LLM\n\n\n\n\n\n\nDiscussion\n\n\n\nIf doing a data science job on language is so troublesome, why not just throw away those old fashioned methods and embrace LLM?"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#techniques-of-customizing-llm",
+    "href": "BIOF3001/suicide-media-slides.html#techniques-of-customizing-llm",
+    "title": "Media Reporting and Suicide",
+    "section": "Techniques of customizing LLM",
+    "text": "Techniques of customizing LLM\n\n\nCount-based embedding\n\nPrompting\n\nInstructing LLM the task\n\nRetrieval-Augmented Generation (RAG)\n\nGiving external reference\n\nFine-tuning\n\nRetraining model\n\n\n\n\n\n\nChoice of RAG and fine-tuning from Towards Data Science"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#consideration-of-different-customization",
+    "href": "BIOF3001/suicide-media-slides.html#consideration-of-different-customization",
+    "title": "Media Reporting and Suicide",
+    "section": "Consideration of different customization",
+    "text": "Consideration of different customization\n\nBudget \nScalability Does the model need to be very generalizable\n\nSmall, precise model v.s. large generalizable model"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#prompt-engineering",
+    "href": "BIOF3001/suicide-media-slides.html#prompt-engineering",
+    "title": "Media Reporting and Suicide",
+    "section": "Prompt engineering",
+    "text": "Prompt engineering\n\nStructured Prompts\nChain-of-Thought (CoT)\nFew-Shot\n\nProvide a few examples of compliant/non-compliant news.\n\nDivide and Conquer"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#structured-prompt",
+    "href": "BIOF3001/suicide-media-slides.html#structured-prompt",
+    "title": "Media Reporting and Suicide",
+    "section": "Structured prompt",
+    "text": "Structured prompt\n\n\nOverall, structured instruction provides steadier and more reliable outcomes\nStructured prompt\n\nRole\nTask\nContext\nFormat\nFew-shot learning\nExamples\n\n\nXu et al. (2024) proposed a structured prompt to address prediction tasks in mental health-related topics using LLMs:\n\\[\n\\begin{aligned}\n\\text{Prompt} = \\text{Analyzed text} + \\\\\n\\text{Outcome and context} + \\text{Question} + \\\\\\text{Constraints}\n\\end{aligned}\n\\]\nNori et al. (2024) argues that few-shot learning does not always get better results\n\n\n\n\n\n\n\nDiscussion\n\n\n\nWhy does\n\nstructured prompt\nfew-shot learning\n\nusually have better outcome?"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#chain-of-thought-wei2022chain",
+    "href": "BIOF3001/suicide-media-slides.html#chain-of-thought-wei2022chain",
+    "title": "Media Reporting and Suicide",
+    "section": "Chain of thought (Wei et al. 2022)",
+    "text": "Chain of thought (Wei et al. 2022)\nIdea Provide illustration of how you solve the problem in the prompt to let LLM understand how to tackle the problem\nPrompt without CoT\nJane was born on the last day of February in 2020. Today is her 15-year-old birthday in the common law. What is the date tomorrow in MM/DD/YYYY?\nPrompt with CoT\nExample question: Jane was born on the last day of February in 2020. Today is her 15-year-old birthday in the common law. What is the date tomorrow in MM/DD/YYYY? Example Answer: In common law practice, for leap year babies the legal birthday in common years is March 1st, and 2020+15=2035. So today is 03/01/2035 and tomorrow is 03/02/2035 Please answer the following question: Question: Ray was born on the last day of February in 2016. Today is his 15-year-old birthday in the common law. What is the date tomorrow in MM/DD/YYYY? \n\n\n\n\n\n\n\n\n\n\nMethod\ngpt-4o-mini (version:2024-07-18)\nGrok3\nGrok 4\nStandard answer\n\n\n\n\nW/ CoT\n03/01/2035\n09/03/2025\n03/02/2035\n03/02/2035\n\n\nCoT\n03/02/2031\n03/02/2031\n03/02/2031\n03/02/2031"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#how-does-text-being-generated-from-llm",
+    "href": "BIOF3001/suicide-media-slides.html#how-does-text-being-generated-from-llm",
+    "title": "Media Reporting and Suicide",
+    "section": "How does text being generated from LLM",
+    "text": "How does text being generated from LLM\n\nGreedy decoding - local optimal strategy\n\nChoose the highest token (\\(w_t\\)) given input \\(\\textbf{w}_{&lt;t}\\) (the prompt and your previous output)\n\\[\n\\hat{w_t} = \\arg\\max_{w \\in V} P(w | \\textbf{w}_{&lt;t})\n\\]\n\nRandom sampling - probabilistic approach\n\nInstead of returning optimal solution, we allow the flexibility of generation through probability sampling.\n\\[\nw_{t+1} \\sim P(w_{t+1} | \\textbf{w}_{&lt;t})\n\\]\n\n\n\n\n\n\nDiscussion\n\n\nNeither greedy decoding nor random sampling was used in LLM, what are the disadvantages of these algorithms"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#temperature-sampling",
+    "href": "BIOF3001/suicide-media-slides.html#temperature-sampling",
+    "title": "Media Reporting and Suicide",
+    "section": "Temperature sampling",
+    "text": "Temperature sampling\n\n\n\nAdjusting the chance of being selected in the random sampling.\n\nRecalling \\(w \\sim \\text{Mult}(1,p)\\)\nTherefore, we can using a bayesian to influence this distribution.\n\nSome thoughts\n\nUniform dirichlet prior =&gt; It will be normalized at the end\nInformative prior =&gt; how to generate informative prior?\n\n\nSolution: Exponentially scaling the logit with factor \\(\\frac{1}{\\tau}\\)\n\n\n\n\nTemperature factor from Jurafsky and Martin (2025)"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#top-p-and-top-k-sampling",
+    "href": "BIOF3001/suicide-media-slides.html#top-p-and-top-k-sampling",
+    "title": "Media Reporting and Suicide",
+    "section": "Top-p and Top-K sampling",
+    "text": "Top-p and Top-K sampling\n\n\nTop-K\nRandom sampling based on the first \\(K\\) tokens\n\nIdentifying the \\(K\\) highest probability tokens\nDrawing samples from these K tokens proportional to their probability\n\n\nTop-p\nRandom sampling based on the cumulative distribution\n\nIdentifying the highest \\(n\\) probability tokens that their cumulative probability is less than \\(p\\)\nDrawing samples from these \\(n\\) tokens proportional to their probability"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#self-consistency-cot-and-tree-of-thought-tot",
+    "href": "BIOF3001/suicide-media-slides.html#self-consistency-cot-and-tree-of-thought-tot",
+    "title": "Media Reporting and Suicide",
+    "section": "Self-consistency CoT and Tree of Thought (ToT)",
+    "text": "Self-consistency CoT and Tree of Thought (ToT)\n\n\nSelf-consistency CoT Wang et al. (2022) Random forest of LLM\n\nGenerate more possible outcomes\nMajority voting of the results\n\n\nTree of Thought Yao et al. (2023) Decision tree\n\nLLM decomposes the task into several strategies and develops strategies\nEvaluating the output whether it has answered the original question\n\n\n\n\n\nCoT family from Yao et al. (2023)"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#evaluating-nlp-model-performance",
+    "href": "BIOF3001/suicide-media-slides.html#evaluating-nlp-model-performance",
+    "title": "Media Reporting and Suicide",
+    "section": "Evaluating NLP model performance",
+    "text": "Evaluating NLP model performance\nEvaluation of NLP largely depends on the task itself. The overall idea is modifying the problem back to MLE/classification-like evaluation\n\n\nCommonly seen indicators\n\nClassification and regression task\n\nTraditional metrics\n\nMachine translation\n\nBilingual evaluation understudy (BLEU) score\n\nGeneration\n\nPerplexity\n\nSummarization\n\nROUGE-N\n\n\n\nPerplexity\nIdea: Model \\(\\theta\\) has the highest probability to get the (i.e. \\(\\arg\\max_{\\theta} p_{\\theta}(w_{1:n})\\))\nIssue: MLE approach subject to the length of a text, and in favor of short text\nModification: Perplexity function (Geometric mean of the probability)\n\\[\n\\text{Perplexity}_{\\theta}(w_{1:n})=\\Biggl(\\prod_{i=1}^n\\frac{1}{P_{\\theta}(w_i|w_{&lt;i})}\\Biggr)^{(1/n)}\n\\]"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#implementing-nlp-task",
+    "href": "BIOF3001/suicide-media-slides.html#implementing-nlp-task",
+    "title": "Media Reporting and Suicide",
+    "section": "Implementing NLP task",
+    "text": "Implementing NLP task\n\n\n\n\n\n\nDiscussion\n\n\nWhat are the consideration of selecting model to address your NLP task?\n\n\n\n\n\nOutput complexity\n\nClassification, regression problem\nGeneration tasks\n\nInput complexity\n\nScope of the input text\nDomain knowledge involved\n\nData availability\n\nAmount of available data\n\nCost\n\nFinancial feasibility\nTime feasibility"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#ethical-and-safety-issues",
+    "href": "BIOF3001/suicide-media-slides.html#ethical-and-safety-issues",
+    "title": "Media Reporting and Suicide",
+    "section": "Ethical and Safety Issues",
+    "text": "Ethical and Safety Issues\n\n\nBias\nData source is the major contributor of the model bias. The model gets the inference based on your input text, which could convey social and cultural bias.\nHallucination\nIt is prominent in LLM that it generates text based on a probabilistic way instead of facts and references. It can create new things that do not exist at all.\nSafety use\nSensitive content, violence, sex, death, could occur if you intentionally instruct them to do so. Safely using these tools is critical\n\n\n\n\nChatGPT, encouraged him to take his own life. Yousif (2025)"
+  },
+  {
+    "objectID": "BIOF3001/suicide-media-slides.html#bibliography",
+    "href": "BIOF3001/suicide-media-slides.html#bibliography",
+    "title": "Media Reporting and Suicide",
+    "section": "Bibliography",
+    "text": "Bibliography\n\n\n\n\nBrown, Tom, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, et al. 2020. “Language Models Are Few-Shot Learners.” Advances in Neural Information Processing Systems 33: 1877–1901.\n\n\nCarmichael, Victoria, and Rob Whitley. 2019. “Media Coverage of Robin Williams’ Suicide in the United States: A Contributor to Contagion?” PloS One 14 (5): e0216543.\n\n\nChan, Kathy PM, Paul SF Yip, Jade Au, and Dominic TS Lee. 2005. “Charcoal-Burning Suicide in Post-Transition Hong Kong.” The British Journal of Psychiatry 186 (1): 67–73.\n\n\nHegerl, Ulrich, Nicole Koburger, Christine Rummel-Kluge, Christian Gravert, Martin Walden, and Roland Mergl. 2013. “One Followed by Many?—Long-Term Effects of a Celebrity Suicide on the Number of Suicidal Acts on the German Railway Net.” Journal of Affective Disorders 146 (1): 39–44.\n\n\nJarvis, Ruby Rose, Agatha Anet Alves, Kangning Zheng, Monica Hawley, Amanada Marchant, Keith Hawton, Ann John, and Alexandra Pitman. 2025. “Development of the PRINTQUAL-Web Tool for Assessing the Quality of Online News Reporting of Suicide: Adaptation of the PRINTQUAL Tool for Newspaper Reporting.” Crisis: The Journal of Crisis Intervention and Suicide Prevention.\n\n\nJohn, Ann, Keith Hawton, Keith Lloyd, Ann Luce, Stephen Platt, Jonathan Scourfield, Amanda L Marchant, Phil A Jones, and Mick S Dennis. 2014. “PRINTQUAL–a Measure for Assessing the Quality of Newspaper Reporting of Suicide.” Crisis.\n\n\nJurafsky, Daniel, and James H. Martin. 2025. Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition, with Language Models. 3rd ed. https://web.stanford.edu/~jurafsky/slp3/.\n\n\nKlonsky, E David, and Alexis M May. 2015. “The Three-Step Theory (3ST): A New Theory of Suicide Rooted in the ‘Ideation-to-Action’ Framework.” International Journal of Cognitive Therapy 8 (2): 114–29.\n\n\nMann, J John. 2002. “A Current Perspective of Suicide and Attempted Suicide.” Annals of Internal Medicine 136 (4): 302–11.\n\n\nNiederkrotenthaler, Thomas, Martin Voracek, Arno Herberth, Benedikt Till, Markus Strauss, Elmar Etzersdorfer, Brigitte Eisenwort, and Gernot Sonneck. 2010. “Role of Media Reports in Completed and Prevented Suicide: Werther v. Papageno Effects.” The British Journal of Psychiatry 197 (3): 234–43.\n\n\nNori, Harsha, Naoto Usuyama, Nicholas King, Scott Mayer McKinney, Xavier Fernandes, Sheng Zhang, and Eric Horvitz. 2024. “From Medprompt to O1: Exploration of Run-Time Strategies for Medical Challenge Problems and Beyond.” arXiv Preprint arXiv:2411.03590.\n\n\nPedersen, Nancy L, and Amy Fiske. 2010. “Genetic Influences on Suicide and Nonfatal Suicidal Behavior: Twin Study Findings.” European Psychiatry 25 (5): 264–67.\n\n\nSisask, Merike, and Airi Värnik. 2012. “Media Roles in Suicide Prevention: A Systematic Review.” International Journal of Environmental Research and Public Health 9 (1): 123–38.\n\n\nVaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017. “Attention Is All You Need.” Advances in Neural Information Processing Systems 30.\n\n\nWang, Xuezhi, Jason Wei, Dale Schuurmans, Quoc Le, Ed Chi, Sharan Narang, Aakanksha Chowdhery, and Denny Zhou. 2022. “Self-Consistency Improves Chain of Thought Reasoning in Language Models.” arXiv Preprint arXiv:2203.11171.\n\n\nWei, Jason, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Fei Xia, Ed Chi, Quoc V Le, Denny Zhou, et al. 2022. “Chain-of-Thought Prompting Elicits Reasoning in Large Language Models.” Advances in Neural Information Processing Systems 35: 24824–37.\n\n\nWHO. 2023. Preventing Suicide: A Resource for Media Professionals, 2023 Update. World Health Organization.\n\n\nXu, Xuhai, Bingsheng Yao, Yuanzhe Dong, Saadia Gabriel, Hong Yu, James Hendler, Marzyeh Ghassemi, Anind K Dey, and Dakuo Wang. 2024. “Mental-Llm: Leveraging Large Language Models for Mental Health Prediction via Online Text Data.” Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies 8 (1): 1–32.\n\n\nYao, Shunyu, Dian Yu, Jeffrey Zhao, Izhak Shafran, Tom Griffiths, Yuan Cao, and Karthik Narasimhan. 2023. “Tree of Thoughts: Deliberate Problem Solving with Large Language Models.” Advances in Neural Information Processing Systems 36: 11809–22.\n\n\nYip, Paul SF, King-Wa Fu, Kris CT Yang, Brian YT Ip, Cecilia LW Chan, Eric YH Chen, Dominic TS Lee, Frances YW Law, and Keith Hawton. 2006. “The Effects of a Celebrity Suicide on Suicide Rates in Hong Kong.” Journal of Affective Disorders 93 (1-3): 245–52.\n\n\nYip, Paul, Yunyu Xiao, Yucan Xu, Evangeline Chan, Florence Cheung, Christian S Chan, and Jane Pirkis. 2022. “Social Media Sentiments on Suicides at the New York City Landmark, Vessel: A Twitter Study.” International Journal of Environmental Research and Public Health 19 (18): 11694.\n\n\nYousif, Nadine. 2025. “Parents of Teenager Who Took His Own Life Sue OpenAI — Bbc.com.” https://www.bbc.com/news/articles/cgerwp7rdlvo."
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#learning-objectives",
+    "href": "BIOF4002/mHealth and telemedicine.html#learning-objectives",
+    "title": "Health technologies in the global health context",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\n\n\n\nUnderstand digital health in the global health context\nExplore roles and applications of digital health\nLearn to design, implement, and evaluate digital health interventions\nIdentify challenges of mHealth and telemedicine in global health"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#digital-health-definition",
+    "href": "BIOF4002/mHealth and telemedicine.html#digital-health-definition",
+    "title": "Health technologies in the global health context",
+    "section": "Digital Health: Definition",
+    "text": "Digital Health: Definition\n\n\n\nDefinition: The use of information and communications technology in support of health and health-related fields (WHO et al. 2017)\nAn umbrella term that encompasses various information technology solutions for health\n\n\n\n\n\nOccupational Therapy Article"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#discussion-1-do-global-start-local",
+    "href": "BIOF4002/mHealth and telemedicine.html#discussion-1-do-global-start-local",
+    "title": "Health technologies in the global health context",
+    "section": "Discussion 1: Do global, start local",
+    "text": "Discussion 1: Do global, start local\n\n\n\n\n\n\nLocal example of digital health\n\n\n\nHave you heard or tried any digital health product or service?\nhow does it benefit your health ?\nWhy do you use them ?"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#fuel-up-digital-health-technology",
+    "href": "BIOF4002/mHealth and telemedicine.html#fuel-up-digital-health-technology",
+    "title": "Health technologies in the global health context",
+    "section": "Fuel up digital health technology",
+    "text": "Fuel up digital health technology\n\nTechnology\n\nIncreasing coverage of internet and smartphone\n\nUser engageement and empowerment\n\nPeople are more familiar with new technology\n\nGlobal health\n\nWHO recognized mHealth as a tool for enhancing healthcare systems Kay et al. (2011)\n\nResearch, policy and business\n\nEconomic potentials"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#quadruple-aim-of-digital-health",
+    "href": "BIOF4002/mHealth and telemedicine.html#quadruple-aim-of-digital-health",
+    "title": "Health technologies in the global health context",
+    "section": "Quadruple Aim of Digital Health",
+    "text": "Quadruple Aim of Digital Health\n\n\nProposed by Bodenheimer and Sinsky (2014):\n\nImproving the health of populations\nReducing the cost of healthcare\nImproving the individual experience of care\nImproving the experience of providing care\n\n\n\n\n\nQuadruple of mobile health"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#improving-population-health",
+    "href": "BIOF4002/mHealth and telemedicine.html#improving-population-health",
+    "title": "Health technologies in the global health context",
+    "section": "Improving Population Health",
+    "text": "Improving Population Health\n\n\nHealth Promotion and Education\n\nHealth education initiatives\nCombating misinformation (Miller et al. 2024) \n\n\nDisease surveillance\n\nSurveillance\nTargeting intervention (Gesicho and Babic 2022)\n\n\n\n\nTargeting intervention from Gesicho and Babic (2022)\n\n\n\nPersonalized Devices and Behavior - Precision medicine - Promoting healthy behaviors\n\n\n\nSource from"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#reducing-the-cost-of-healthcare",
+    "href": "BIOF4002/mHealth and telemedicine.html#reducing-the-cost-of-healthcare",
+    "title": "Health technologies in the global health context",
+    "section": "Reducing the Cost of Healthcare",
+    "text": "Reducing the Cost of Healthcare\n\n\nReducing the cost of healthcare in\n\nLow-Cost Alternatives:\n\nDigital medicine reduces human and logistic costs\n\nPreventive Approach:\n\nLowers potential future healthcare costs\n\n\n\n\n\n\nCost of care"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#improving-individual-experience-of-care",
+    "href": "BIOF4002/mHealth and telemedicine.html#improving-individual-experience-of-care",
+    "title": "Health technologies in the global health context",
+    "section": "Improving Individual Experience of Care",
+    "text": "Improving Individual Experience of Care\n\n\n\nConnected Care Integration:\n\nTB treatment adherence in India (Narasimhan et al. 2014)\n\nJust-in-Time Interventions:\n\nAlcohol overuse intervention for adolescents (Haug et al. 2020)\n\nDestigmatization:\n\nDigital platforms provide anonymity for sensitive conditions\n\nHIV (Mulawa et al. 2021)\nMental health (Kim, Xu, and Wang 2022)\n\n\n\n\n\n\n\nJust in time intervention"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#improving-experience-of-providing-care",
+    "href": "BIOF4002/mHealth and telemedicine.html#improving-experience-of-providing-care",
+    "title": "Health technologies in the global health context",
+    "section": "Improving Experience of Providing Care",
+    "text": "Improving Experience of Providing Care\n\n\n\nTelemedicine:\n\nDuring COVID-19 (Mahmoud, Jaramillo, and Barteit 2022)\nMental health support Maha, Kolawole, and Abdul (2024)\n\nIntegrated Healthcare Information:\n\nHealthcare information systems in Kenya (L. A. Celi et al. 2020)\n\n\n\n\n\n\nEmproving care experience"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#implement-digital-health-product-as-a-pm",
+    "href": "BIOF4002/mHealth and telemedicine.html#implement-digital-health-product-as-a-pm",
+    "title": "Health technologies in the global health context",
+    "section": "Implement digital health product as a PM",
+    "text": "Implement digital health product as a PM\n\n\nImportance of Participatory Design\nNelson and Staggers (2013) proposed system life life cycle of health informatics\n\nAnalyze\nPlan\nDevelop\nTest\nImplement\nMaintain\nEvaluate\n\n\n\n\n\nSystem life cycle"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#participatory-design",
+    "href": "BIOF4002/mHealth and telemedicine.html#participatory-design",
+    "title": "Health technologies in the global health context",
+    "section": "Participatory design",
+    "text": "Participatory design\n\n\nImportance of Participatory Design\n\nInvolves patients and professionals for better outcomes\nAligns with P4 medicine goals\n\npredictive\npreventive\npersonalized\nparticipatory\n\nEnhances communication and adherence\n\n\nThrough the participatory medicine approach\n\nBetter health outcome\n\nBetter communication\nPersonalized design of intervention\nHigher adherence to the treatment"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#non-participatory-design-pitfalls",
+    "href": "BIOF4002/mHealth and telemedicine.html#non-participatory-design-pitfalls",
+    "title": "Health technologies in the global health context",
+    "section": "Non-Participatory Design Pitfalls",
+    "text": "Non-Participatory Design Pitfalls\n\n\nTill et al. (2023): Maternal and Child Health in LMICs\n\nFailure to identify target users’ needs\nLack of lived experience and community engagement\nNeglecting cultural contexts\nExcluding stakeholders in the user’s circle\n\n\n\n\n\nExample without participatroy design Till et al. (2023)"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#participatory-example-in-diabetes",
+    "href": "BIOF4002/mHealth and telemedicine.html#participatory-example-in-diabetes",
+    "title": "Health technologies in the global health context",
+    "section": "Participatory – example in diabetes",
+    "text": "Participatory – example in diabetes\n\n\n\nDiabetes patients are heterogenous in many aspects\n\nUsing CGM for continuous monitoring\nConnected care with health coach\nEHR integration\n\n\n\n\n\nParticipatory design of diabete\n\n\n\n\n\n\nParticipatory design of diabete"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#intervention-strategy-technology-acceptance-model-tam",
+    "href": "BIOF4002/mHealth and telemedicine.html#intervention-strategy-technology-acceptance-model-tam",
+    "title": "Health technologies in the global health context",
+    "section": "Intervention Strategy: Technology Acceptance Model (TAM)",
+    "text": "Intervention Strategy: Technology Acceptance Model (TAM)\n\n\n\n\n\n\nAdopting new technology\n\n\n\nWhat new app/technology product/healthy lifestyle have you recently given up?\nWhat were your initial motivations for trying it?\nWhy did you give up? How long did you sustain it before giving up?\n\n\n\n\n\n\nTechnology acceptance model (TAM) was proposed in Davis (1989) and Davis and Venkatesh (1996)\n\n\n\n\nTechnology acceptance model"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#intrinsic-and-extrinsic-factors-on-tam",
+    "href": "BIOF4002/mHealth and telemedicine.html#intrinsic-and-extrinsic-factors-on-tam",
+    "title": "Health technologies in the global health context",
+    "section": "Intrinsic and extrinsic factors on TAM",
+    "text": "Intrinsic and extrinsic factors on TAM\n\n\nFrom the TAM model, it is no clear how do we increase individual’s knowledge.\nVenkatesh and Davis (2000) shows that social norms and competence are important in shaping user’s perception.\nIt suggest some direction of intervention\n\nEliminating stigma and promotion\nProvide good quality of work\n\n\n\n\n\nTechnology acceptance model extension"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#evaluating-digital-health-interventions",
+    "href": "BIOF4002/mHealth and telemedicine.html#evaluating-digital-health-interventions",
+    "title": "Health technologies in the global health context",
+    "section": "Evaluating Digital Health Interventions",
+    "text": "Evaluating Digital Health Interventions\n\n\n\n(Zhang et al. 2025) Three Dimensions of Evaluation\n\nTheme\nStakeholders\nStage\n\n\n\n\n\n\nThree dimension of evaluation"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#stakeholder-x-theme",
+    "href": "BIOF4002/mHealth and telemedicine.html#stakeholder-x-theme",
+    "title": "Health technologies in the global health context",
+    "section": "Stakeholder x Theme",
+    "text": "Stakeholder x Theme\n\n\n\nDifferent interest across themes and stakeholders\nProgram developer\n\nImplementation\n\nProvider and patient\n\nClinical impact\n\nInstitution\n\nEconmic impact\n\nPolicy maker\n\nPotential compliance issue in different aspects\n\n\n\n\n\n\nStakeholder x Theme"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#stage-x-theme",
+    "href": "BIOF4002/mHealth and telemedicine.html#stage-x-theme",
+    "title": "Health technologies in the global health context",
+    "section": "Stage x Theme",
+    "text": "Stage x Theme\n\n\nShiffting focus along the way of product development\n\nImplementation evaluation come on the early stage\nClinical and socioeconomic impact come in the late stage\n\n\n\n\n\nStage x Theme"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#implementation-challenges-in-the-global-health-context",
+    "href": "BIOF4002/mHealth and telemedicine.html#implementation-challenges-in-the-global-health-context",
+    "title": "Health technologies in the global health context",
+    "section": "Implementation Challenges in the Global Health context",
+    "text": "Implementation Challenges in the Global Health context\n\nPolicy\n\nStandardization\nMonitoring and evaluation\nInfrastructure\n\nPatients\n\nUrgency\nAttitude toward digital technology\n\nService provider\n\nTraining\nAttitude toward digital technology"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#future-of-digital-health",
+    "href": "BIOF4002/mHealth and telemedicine.html#future-of-digital-health",
+    "title": "Health technologies in the global health context",
+    "section": "Future of digital health",
+    "text": "Future of digital health\n\n\n\nRivas and Boillat (2023) proposed an intergrative data sharing platform of digital footprint\n\n\n\n\n\n\n\nFuture of digital health\n\n\nWhat will be the future digital health technology look like?\n\n\n\n\n\n\n\nfrom Rivas and Boillat (2023)"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#further-reading",
+    "href": "BIOF4002/mHealth and telemedicine.html#further-reading",
+    "title": "Health technologies in the global health context",
+    "section": "Further reading",
+    "text": "Further reading\nThe material covers in this slide is majorly referenced and L. A. G. Celi et al. (2017 - 2017)"
+  },
+  {
+    "objectID": "BIOF4002/mHealth and telemedicine.html#bibilography",
+    "href": "BIOF4002/mHealth and telemedicine.html#bibilography",
+    "title": "Health technologies in the global health context",
+    "section": "Bibilography",
+    "text": "Bibilography\n\n\n\n\nAcharibasam, Jeremiah W, and Rolf Wynn. 2018. “Telemental Health in Low-and Middle-Income Countries: A Systematic Review.” International Journal of Telemedicine and Applications 2018 (1): 9602821.\n\n\nBodenheimer, Thomas, and Christine Sinsky. 2014. “From Triple to Quadruple Aim: Care of the Patient Requires Care of the Provider.” The Annals of Family Medicine 12 (6): 573–76.\n\n\nCeli, Leo Anthony G., Hamish S. F. Fraser, Vipan Nikore, Juan Sebastián Osorio, and Kenneth Paik. 2017 - 2017. Global Health Informatics : Principles of Ehealth and Mhealth to Improve Quality of Care. Cambridge, Massachusetts: The MIT Press.\n\n\nCeli, Leo Anthony, Maimuna S Majumder, Patricia Ordóñez, Juan Sebastian Osorio, Kenneth E Paik, and Melek Somai. 2020. Leveraging Data Science for Global Health. Springer Nature.\n\n\nDavis, Fred D. 1989. “Perceived Usefulness, Perceived Ease of Use, and User Acceptance of Information Technology.” MIS Quarterly, 319–40.\n\n\nDavis, Fred D, and Viswanath Venkatesh. 1996. “A Critical Assessment of Potential Measurement Biases in the Technology Acceptance Model: Three Experiments.” International Journal of Human-Computer Studies 45 (1): 19–45.\n\n\nGesicho, Milka, and Ankica Babic. 2022. “Designing a Dashboard for HIV-Data Reporting Performance by Facilities: Case Study of Kenya.” In Advances in Informatics, Management and Technology in Healthcare, 238–41. IOS Press.\n\n\nHaug, Severin, Raquel Paz Castro, Urte Scholz, Tobias Kowatsch, Michael Patrick Schaub, Theda Radtke, et al. 2020. “Assessment of the Efficacy of a Mobile Phone–Delivered Just-in-Time Planning Intervention to Reduce Alcohol Use in Adolescents: Randomized Controlled Crossover Trial.” JMIR mHealth and uHealth 8 (5): e16937.\n\n\nKay, Misha, Jonathan Santos, Marina Takane, et al. 2011. “mHealth: New Horizons for Health Through Mobile Technologies.” World Health Organization 64 (7): 66–71.\n\n\nKim, Hye Min, Yusi Xu, and Yunwen Wang. 2022. “Overcoming the Mental Health Stigma Through m-Health Apps: Results from the Healthy Minds Study.” Telemedicine and e-Health 28 (10): 1534–40.\n\n\nMaha, Chukwudi Cosmos, Tolulope Olagoke Kolawole, and Samira Abdul. 2024. “Transforming Mental Health Care: Telemedicine as a Game-Changer for Low-Income Communities in the US and Africa.” GSC Advanced Research and Reviews 19 (2): 275–85.\n\n\nMahmoud, Kareem, Catalina Jaramillo, and Sandra Barteit. 2022. “Telemedicine in Low-and Middle-Income Countries During the COVID-19 Pandemic: A Scoping Review.” Frontiers in Public Health 10: 914423.\n\n\nMiller, Emily, Alex Michel, Prachi Singh, and Rupali Limaye. 2024. “Countering Vaccine Misinformation: Designing a Learning Resource for Healthcare Workers in Eight Countries.” Vaccine 42: 126091.\n\n\nMulawa, Marta I, A Lina Rosengren, K Rivet Amico, Lisa B Hightow-Weidman, and Kathryn E Muessig. 2021. “mHealth to Reduce HIV-Related Stigma Among Youth in the United States: A Scoping Review.” Mhealth 7: 35.\n\n\nNarasimhan, Padmanesan, Aishwarya Bakshi, Sathyapriya Kittusami, Suma Prashant, Dilip Mathai, Kasturi Bakshi, Chandini Raina MacIntyre, and Pradeep Ray. 2014. “A Customized m-Health System for Improving Tuberculosis Treatment Adherence and Follow-up in South India.” Health and Technology 4 (1): 1–10.\n\n\nNelson, Ramona, and Nancy Staggers. 2013. Health Informatics: An Interprofessional Approach. Elsevier Health Sciences.\n\n\nRivas, Homero, and Thomas Boillat. 2023. Digital Health: From Assumptions to Implementations. Springer.\n\n\nTill, Sarina, Mirriam Mkhize, Jaydon Farao, Londiwe Deborah Shandu, Livhuwani Muthelo, Toshka Lauren Coleman, Masenyani Mbombi, et al. 2023. “Digital Health Technologies for Maternal and Child Health in Africa and Other Low-and Middle-Income Countries: Cross-Disciplinary Scoping Review with Stakeholder Consultation.” Journal of Medical Internet Research 25: e42161.\n\n\nVenkatesh, Viswanath, and Fred D Davis. 2000. “A Theoretical Extension of the Technology Acceptance Model: Four Longitudinal Field Studies.” Management Science 46 (2): 186–204.\n\n\nWHO et al. 2017. Global Diffusion of eHealth: Making Universal Health Coverage Achievable: Report of the Third Global Survey on eHealth. World Health Organization.\n\n\nZhang, Yunxi, Yueh-Yun Lin, Lincy S Lal, Jennifer C Reneker, Elizabeth G Hinton, Saurabh Chandra, and J Michael Swint. 2025. “Stakeholder-Driven Multi-Stage Adaptive Real-World Theme-Oriented (SMART) Telehealth Evaluation Framework: A Scoping Review.” The Lancet Regional Health–Americas 44."
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
+    "title": "Introduction to ggplot2",
+    "section": "",
+    "text": "In this chapter, we introduce ggplot2, a powerful plotting library in R for creating elegant and complex visualizations. We will guide you through the basics of ggplot2, including its grammar of graphics approach, and demonstrate how to create various types of plots.\n\n\nggplot2 is part of the tidyverse collection of R packages, developed by Hadley Wickham (Wickham 2010). He received the COPSS Presidents’ Award for his contributions to the tidyverse collection. It is based on the grammar of graphics (Wilkinson 2011). As part of the tidyverse, it shares a framework that allows users to build plots layer by layer. This approach makes it highly flexible and intuitive once you understand its core concepts."
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#what-is-ggplot2",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#what-is-ggplot2",
+    "title": "Introduction to ggplot2",
+    "section": "",
+    "text": "ggplot2 is part of the tidyverse collection of R packages, developed by Hadley Wickham (Wickham 2010). He received the COPSS Presidents’ Award for his contributions to the tidyverse collection. It is based on the grammar of graphics (Wilkinson 2011). As part of the tidyverse, it shares a framework that allows users to build plots layer by layer. This approach makes it highly flexible and intuitive once you understand its core concepts."
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#basic-plot-example",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#basic-plot-example",
+    "title": "Introduction to ggplot2",
+    "section": "Basic Plot Example",
+    "text": "Basic Plot Example\nBefore we start, let’s take a look at the data we are going to use:\n\n\n\n\n\n\n\n\n\nData and mapping layer\nLet’s create a simple scatter plot using the mtcars dataset, which is built into R:\n\n\n\n\n\n\n\n\nFrom the code, you can see that data and mapping are encoded in the first line of the ggplot function:\n\\[\n\\text{ggplot}(\\text{data=}\\underbrace{\\text{mtcars2}}_{\\text{data}},\n\\text{mapping=}\\underbrace{\\text{aes(x = mpg, y = cyl, colour=am)}}_{\\text{mapping}})\n\\]\nOccasionally (and quite frequently), you will see people omit everything on the left-hand side (LHS) of the equal sign for data, mapping, x, and y, as these are standard arguments in ggplot2.\nThere are also other mapping options besides color:\n\nSize\nLine\n\nlinetype\nlineend\nlinejoin\n\nDot\n\nShape\n\n\n\n\nLayers\nThese functions are named in the format geom_XXXX:\n\n\n\n\nFunction name\n\n\n\n\nHistogram\ngeom_histogram()\n\n\nBox chart\ngeom_boxplot()\n\n\nBar chart\ngeom_bar()\n\n\nScatter chart\ngeom_point()\n\n\nLine chart\ngeom_line()\n\n\n\n\nOne variable\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo variables\n\n\n\n\n\n\n\n\n\n\n\nScales\nScales are functions (or processes) that transform data for the graph. This process is often automatic, based on the type of layer and data, so users typically only need to modify the axis or legend display. These functions are named in the format scale_(AES)_(datatype):\n\n\n\n\n\n\n\n\n\nDiscrete\nContinuous\n\n\n\n\nX\nscale_x_discrete()\nscale_x_continuous()\n\n\nY\nscale_y_discrete()\nscale_y_continuous()\n\n\ncolor\nscale_color_discrete()\nscale_color_discrete()\n\n\n\nThe argument and its corresponding components are listed in the below table and figure.\n\n\n\nArgument name\nAxis\nLegend\n\n\n\n\nname\nLabel\nTitle\n\n\nbreaks\nTicks\nKey\n\n\nlabels\nTick label\nKey Label\n\n\n\n\n\n\nCommon components of a figure, figure from Wickham (2016b)\n\n\n\n\n\n\n\n\n\n\n\n\nCoordinates and facet\nCoordinates refer to the coordinate system of the graph and can help you adjust your plot. For most data we encounter, you sometimes need to adjust the range of the x and y axes. This can be done using the arguments xlim=c(LOWER_BOUND, UPPER_BOUND) for the x-axis and ylim=c(LOWER_BOUND, UPPER_BOUND) for the y-axis.\n\n\n\n\n\n\n\n\nFacets allow you to break data into several subgraphs, separated by different subgroups. You can specify this with the notation: 1. For a one-factor scenario, use ~ FACTOR_A, which generates subplots for each level of FACTOR_A. (You can additionally specify nrow=x or ncol=x to arrange them over rows or columns.) 2. For a two-factor scenario, use FACTOR_A ~ FACTOR_B, which spreads FACTOR_B over rows and FACTOR_A over columns.\n\n\n\n\n\n\n\n\nFrom time to time, you might want each subplot to share (or not share) the same scale (axis). You can specify this through the argument scales=XXX in the facet_wrap() function. The options for scales are listed below:\n\n\n\n\nfree x axis\nfixed x axis\n\n\n\n\nfree y axis\nfree\nfree_y\n\n\nfixed y axis\nfree_x\nfixed\n\n\n\n\n\nTheme\nThere are several available options for the theme of your plot. Additionally, third-party packages like ggtheme offer different themes for plots."
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#wrap-up",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#wrap-up",
+    "title": "Introduction to ggplot2",
+    "section": "Wrap-up",
+    "text": "Wrap-up\nAs a wrap-up, your code typically follows this structure:\n\\[\n\\small\n\\begin{aligned}\n\\text{ggplot()}+ &\\\\\n\\underbrace{\\text{geom\\_XXXX(data=DATA,mapping=aes(x,y,color,...))}}_{\\text{plotting data}}\n+ &\\\\\n\\underbrace{\\text{scale\\_AES\\_TYPE(name=\"TITLE\",breaks=\"TICK LOC\",labels=\"TICK LAB\")}}_{\\text{Handeling axis, legend etc}}\n+ & \\\\\n\\underbrace{ \\text{coord\\_cartesian(xlim=c(min,MAX), ylim=c(min,MAX))}}_{\\text{Adjust coordinate systems}} + &\\\\\n\\underbrace{\\text{ggtitle(\"CHART TITLE\")}}_{\\text{Plotting title}}\n\\end{aligned}\n\\]\n\n\n\n\n\n\nAbout making graph\n\n\n\nFrom the code introduced, it will be great to reflect on\n\nHow does the code construction differ from your human process of plotting code?\nHow does the 7 layer graphic language differ from the ggplot syntax?\nIf you could make ggplot easier to use, how would you design it?"
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#save-the-plots",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#save-the-plots",
+    "title": "Introduction to ggplot2",
+    "section": "Save the plots",
+    "text": "Save the plots\nAdd the function ggsave(\"FILE_PATH+FILE_NAME.png\") after your ggplot instructions:"
+  },
+  {
+    "objectID": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#r-generic-visualization",
+    "href": "BBMS1021/ggplot2_intro/introduction_to_ggplot2.html#r-generic-visualization",
+    "title": "Introduction to ggplot2",
+    "section": "R generic visualization",
+    "text": "R generic visualization\nR also provides generic functions for plotting data:\n\n\n\n\n\n\n\n\nThese functions have limited customization options (although you can still edit the figure and axis labels), so they are less commonly used in scientific publications.\nThe materials and content are largely adapted from Wickham (2016a). You can access the latest edition on the book website, which also covers more advanced topics. For detailed information on how to use the code and each function, refer to the ggplot2 library documentation via ??ggplot2."
+  },
+  {
+    "objectID": "BBMS1021/tutorial/tutorial_2.html",
+    "href": "BBMS1021/tutorial/tutorial_2.html",
+    "title": "Tutorial 2",
+    "section": "",
+    "text": "Cheatsheets\nIf you forget ggplot2 syntax, here is a cheatsheet for your reference: ggplot2 Cheatsheet\n\n\nQuestion Set 1\nThis question set builds on Question Set 4 from Tutorial 1. If you haven’t loaded the data yet, follow the instructions in Q1 and Q2. Otherwise, proceed directly to Q3.\n\nQ1: On your Desktop, create a subfolder named R_exercises and download the file containing differentially expressed genes results Diff_Expression_results.tsv (or view here) to this folder. Check your current working directory using the getwd() function and change it to the newly created folder. Hint: Use setwd(\"&lt;path to R_exercises&gt;\") to change the working directory, replacing &lt;path to R_exercises&gt; with the actual path to the folder, or use the Session menu in RStudio to set the working directory.\n\n\n\n\n\n\n\n\n\n\nQ2: Use the read.table() function to load the downloaded file into a data frame named df_DEG. Hint: Use the full path or just the file name if it’s in the current working directory. Ensure header=TRUE is set as an argument. To find help for a function, use ?function_name in R.\n\n\n\n\n\n\n\n\n\n\nQ3: Use the summary() function to get an overview of the df_DEG data frame.\n\n\n\n\n\n\n\n\n\n\nQ4: Create a histogram of the log2FoldChange column in df_DEG using both the basic plotting function hist() and the ggplot2 package. For the ggplot2 plot, add a figure title Histogram of log2FoldChange.\n\n\n\n\n\n\n\n\n\n\nQ5: Create a scatter plot with the x-axis as log10(baseMean) and the y-axis as log2FoldChange from the df_DEG data frame. Use both the basic plot() function and the ggplot2 package.\n\n\n\n\n\n\n\n\n\n\nQ6: Manipulate the data frame by adding two columns:\n\nAdd a column log2FC_clip for clipping log2FoldChange to the range [-5, +5].\nAdd a column is_DE to indicate if padj &lt; 0.05.\n\n\n\n\n\n\n\n\n\n\n\nQ7: Use the table() function to count the values in the is_DE column.\n\n\n\n\n\n\n\n\n\n\nQ8: Using ggplot2, create a scatter plot colored by the newly added column is_DE. To make the figure clear, set the color legend title to Is differentially expressed and map the labels from TRUE to Yes and FALSE to No.\n\n\n\n\n\n\n\n\n\n\nQ9: For the scatter plot from Q8, reverse the color order so that TRUE (Yes) is blue and FALSE (No) is red. How do you adjust the code? Hint: ggplot uses the order of factor levels to render the color. Use factor() and set the levels parameter to control the order of categories.\n\n\n\n\n\n\n\n\n\n\nQ10: Save the scatter plot from Q8 or Q9 into a file named “My_DEG_results.pdf”.\n\n\n\n\n\n\n\n\n\n\n\nQuestion Set 2\nImport and inspect the iris dataset. This is a pre-defined dataset in the R environment that you can load and use by default. This study measured the widths and lengths of petals and sepals (parts of the flower) among different iris species.\n\n\n\n\n\n\n\n\n\nQ1: Plot a boxplot showing the petal length distribution among different species in the iris dataset, with the following requirements:\n\nPlace Species on the y-axis.\nLabel the x-axis as Petal Length (cm).\nLabel the y-axis as Species.\n\n\n\n\n\n\n\n\n\n\n\nQ2: Create a plot showing the association between Petal.Width and Sepal.Width among different Species in the iris dataset, with the following requirements:\n\nPlace Petal.Width on the x-axis.\nPlace Sepal.Width on the y-axis.\nLabel the x-axis as Petal Width (cm).\nLabel the y-axis as Sepal Width (cm).\nAssign colors to differentiate Species.\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion Set 3\nThis question set is adapted from the NIH Bioinformatics Training and Education Program. The original question is slightly more complex. If you are interested in more challenging questions, visit the website.\nLet’s load the Titanic dataset.\n\n\n\n\n\n\n\n\n\n\n\nColumn\nDescription\n\n\n\n\nSurvived\n0 (No) / 1 (Yes)\n\n\nPclass\n1 / 2 / 3 (Passenger Class)\n\n\nName\nPassenger Name\n\n\nSex\nMale / Female\n\n\nAge\nAge\n\n\nSiblings.Spouses.Aboard\nNumber of siblings/spouses aboard\n\n\nParents.Children.Aboard\nNumber of parents/children aboard\n\n\nFare\nFare Price\n\n\n\n\nQ1: Inspect the data using str(), summary(), and head().\n\n\n\n\n\n\n\n\n\n\nQ2: Explore the relationship between the passenger’s age and fare. What type of plot should you use? Write the code using ggplot2.\n\n\n\n\n\n\n\n\n\n\nQ3: Color the points from Q2 by Pclass. Remember that Pclass is a proxy for socioeconomic status. While the values are treated as numeric upon loading, they are categorical and should be treated as such. You will need to coerce Pclass into a categorical (factor) variable using factor() or as.factor().\n\n\n\n\n\n\n\n\n\n\nQ4: Modify the plot from Q3 to update the legend labels to (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class)."
+  },
+  {
     "objectID": "courses.html",
     "href": "courses.html",
     "title": "Courses",
     "section": "",
+<<<<<<< HEAD
     "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBBMS3009 Genome Science\n\nEnrichment analysis\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
+=======
+    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBIOF3001 Big data biomedical informatics\n\nSuicide news reporting and natural language processing\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
+>>>>>>> 2e9726174e22291fc0d65eb34989d755ba11548b
   },
   {
     "objectID": "courses.html#course-list",
     "href": "courses.html#course-list",
     "title": "Courses",
     "section": "",
+<<<<<<< HEAD
     "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBBMS3009 Genome Science\n\nEnrichment analysis\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
+=======
+    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBIOF3001 Big data biomedical informatics\n\nSuicide news reporting and natural language processing\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Yu Cheng Hsu",
+    "section": "",
+    "text": "I’m currently a lecturer in bioinformatics at the University of Hong Kong. I teach fundamental biostatistics, biounformatics and machine learning courses. Prior to my current position, I worked at HKJC Centre for Suicide Research and Prevention at the University of Hong Kong. By training, I am a data scientist and industrial engineer. I specializes in analyzing and leveraging data and technology to promote mental health at both individual and population levels.\n\n\nFor inquiries or to contribute materials, please contact us at ychsu@hku.hk."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "Yu Cheng Hsu",
+    "section": "",
+    "text": "For inquiries or to contribute materials, please contact us at ychsu@hku.hk."
+  },
+  {
+    "objectID": "BBMS1021/tutorial/tutorial_1.html",
+    "href": "BBMS1021/tutorial/tutorial_1.html",
+    "title": "Tutorial 1",
+    "section": "",
+    "text": "Installing R\nFirst, you need to download and install the latest version of R.\n\nGo to R official website\nClick on “download R”\nSave the installation file\nRun the installation file and follow the prompts to install R (default settings are fine)\n\n\n\nInstalling RStudio\n\nGo to RStudio\nClick the big blue download button to download the installation file\nRun the installation file and follow the prompts to install RStudio (default settings are fine)\n\n\n\nCheatsheets\nIf you forget how to use it or are not sure, there are some cheatsheets for you: RStudio cheatsheet\n\n\nQuestion set 1 – Getting started\n\nQ1: Create a new R script tutorial1.R\nQ2: Execute the following code\n\n\n\n\n\n\n\n\n\n\nQ3: Use RStudio tab panes to explore fakedata\nQ4: Explain the functions mean() and sd()\nQ5: If we calculate mean(fakedata), it will result in an error. Why does this happen, and how should we fix the error?\n\n\n\n\n\n\n\n\n\n\n\nQuestion set 2 – Data types\n\nQ1: We have 25 students in BIOF1001, to store the final marks (0 to 100 with a precision of 0.1), what data type will we use?\nQ2: For the grades (A+ to F), what data type and data structure can be used to keep the data?\nQ3: If you have two vectors for the BIOF1001 marks and grades and one character for teaching performance \"good\", and you want to store them into one variable, which data structure will you use?\n\n\n\nQuestion set 3 – Matrix manipulation\n\nQ1: Make a matrix named my_matrix with a shape of 5 rows and 2 columns, filled with values from 3 to 12, where the first row contains 3 and 4. Hint: For creating a vector from 3 to 12, you may use seq() or :.\n\n\n\n\n\n\n\n\n\n\nQ2: Based on Q1, add the row names to Day1 to Day5 and column names to Lunch and Dinner.\n\n\n\n\n\n\n\n\n\n\nQ3: Based on Q2, extract a matrix with a shape of 3x1 containing the values 6, 8, and 10 from the matrix my_matrix.\n\n\n\n\n\n\n\n\n\n\nQ4: What will you get for my_matrix[c(TRUE, FALSE, FALSE, TRUE), ]? Hint: think of recycling if the index length is different from the query dimension (Over-flexibility comes with a price of wrong use).\n\n\n\nQuestion set 4 – Analyzing data\n\nQ1: Now, in your Desktop folder, create a subfolder named R_exercises and download this file of differentially expressed genes results Diff_Expression_results.tsv (or link to view) to the folder. Check your current working directory by getwd() function and change the working directory to the folder you just created. Hint: you may use setwd() to change the working directory or use the Session button of RStudio.\n\n\n\n\n\n\n\n\n\n\nQ2: Related to Q1, use the read.table() function to load the file into a data frame with the variable name df_DEG. Hint: You may consider using the full path or just the file name if it’s in the same working directory. Please keep header=TRUE for the argument. Think how to find the help page for a certain function.\n\n\n\n\n\n\n\n\n\n\nQ3: Can you calculate the mean and standard deviation of the log2FoldChange?\n\n\n\nQuestion set 5 – Scientific computing\n\nQ1: Write a function to solve a quadratic equation\n\n\\[\nax^2+bx+c=0\n\\]"
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html",
+    "href": "BBMS1021/Real_case/Real-example.html",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "",
+    "text": "This section illustrates an example of processing and analyzing data using R, focusing on the Zea mays (corn) experiment data from Charles Darwin’s studies. We will cover reading files from the file system, working with paths, manipulating data with tidyr and dplyr, generating summary statistics, and visualizing the results through plots to explore relationships between cross- and self-pollinated Zea mays plants."
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#file-path-tree-diagram",
+    "href": "BBMS1021/Real_case/Real-example.html#file-path-tree-diagram",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "File Path Tree Diagram",
+    "text": "File Path Tree Diagram\nThis diagram illustrates a simple file system structure to demonstrate absolute and relative paths.\n/ (root)\n├── home\n│   └── user\n│       ├── documents\n│       │   ├── BIOF1001\n│       │   │   ├── THIS_MARKDOWN.rmd\n│       │   │   └── IMAGE.png\n│       │   └── notes.txt\n│       └── downloads\n|           └── zea_mays.csv\n└── var"
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#absolute-path-examples",
+    "href": "BBMS1021/Real_case/Real-example.html#absolute-path-examples",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Absolute Path Examples",
+    "text": "Absolute Path Examples\nAn absolute path starts from the root directory (/) and specifies the full path to a file or directory. A reminder: in a Windows system, you will find your file path using \\ instead of / in your file explorer. In R, you need to transform these \\s to / if you directly copy and paste the file path.\n\nPath to THIS_MARKDOWN.rmd: /home/user/documents/BIOF1001/THIS_MARKDOWN.rmd\nPath to zea_mays.csv: /home/user/downloads/zea_mays.csv"
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#relative-path-examples",
+    "href": "BBMS1021/Real_case/Real-example.html#relative-path-examples",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Relative Path Examples",
+    "text": "Relative Path Examples\nA relative path is defined relative to the current working directory. It uses . to refer to the current directory, and .. means “go up one directory level”.\nAssume that we are working on THIS_MARKDOWN.rmd, so the current directory is /home/user/documents/BIOF1001.\n\nPath to IMAGE.png from /home/user/documents/BIOF1001: ./IMAGE.png or IMAGE.png\nPath to zea_mays.csv from /home/user/documents/BIOF1001: ../../zea_mays.csv\n\n\n\n\n\n\n\nRelative Path\n\n\n\nIn most projects you get from GitHub or other sources, you will typically see relative paths.\n\nWhat are the advantages and disadvantages of using absolute paths?\nWhat are the advantages and disadvantages of using relative paths?"
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#reading-zea-mays-data",
+    "href": "BBMS1021/Real_case/Real-example.html#reading-zea-mays-data",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Reading Zea mays Data",
+    "text": "Reading Zea mays Data\nNow it’s your time to practice opening zea_mays.csv using a relative path.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can validate if you have correctly read the file by inspecting zea_mays:"
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#handling-messy-data",
+    "href": "BBMS1021/Real_case/Real-example.html#handling-messy-data",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Handling Messy Data",
+    "text": "Handling Messy Data\nIn real life, we might encounter human error and missing data in the dataset. Some common issues you might see:\n\nMissing data\nWrong datatype\nOut of range\n\nThere are many techniques to handle these situations through statistical approaches, but here we use the simplest way: dropping them.\ndplyr provides the function filter, which keeps the data that meets the filter condition:\n\nRemoving rows with NA\n\n\n\n\n\n\n\n\n\n\nRemoving out-of-range values\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIdentify Rows with Missing Values\n\n\n\nUsing the same techniques, you can do it in the opposite way to identify rows with potential errors. This is a critical skill when you are working with people who collect the data."
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#using-tidyr-for-data-reshaping",
+    "href": "BBMS1021/Real_case/Real-example.html#using-tidyr-for-data-reshaping",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Using tidyr for Data Reshaping",
+    "text": "Using tidyr for Data Reshaping\nThe tidyr package helps in tidying data, making it easier to work with. For instance, if our Zea mays data were in a wide format (a table with many attributes in columns, i.e., self-pollinated heights and cross-fertilized heights, which are actually two observations), we could reshape it into a long format using pivot_longer. Although our current dataset might already be in a suitable format, here’s an illustrative example of how to use tidyr:\n\n\n\n\n\n\n\n\nIn this example, pivot_longer gathers the values from columns Cross.fertilized.plant and Self.fertilized.plant into a single column Height, with a new column Type indicating whether the height is from a cross- or self-pollinated plant.\nAn intuitive benefit of this transformation is that you can conduct regression analysis to analyze the association between fertilization type and height. You will learn how to do this in the future."
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#using-dplyr-for-data-manipulation",
+    "href": "BBMS1021/Real_case/Real-example.html#using-dplyr-for-data-manipulation",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Using dplyr for Data Manipulation",
+    "text": "Using dplyr for Data Manipulation\nThe dplyr package offers functions for data manipulation such as filtering, selecting, mutating, and summarizing data. Let’s use dplyr to clean and prepare the Zea mays data for analysis. For instance, we can select specific columns or filter rows based on conditions:\n\n\n\n\n\n\n\n\nHere, select chooses the columns Pair, Cross.fertilized.plant, and Self.fertilized.plant, and mutate creates a new column which is Cross.fertilized.plant minus Self.fertilized.plant."
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#boxplot-for-comparison",
+    "href": "BBMS1021/Real_case/Real-example.html#boxplot-for-comparison",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Boxplot for Comparison",
+    "text": "Boxplot for Comparison\nA boxplot is useful for comparing the distribution of heights between the two pollination types.\n\n\n\n\n\n\n\n\nThis boxplot visually assesses the differences in growth between the two pollination methods, highlighting central tendencies, variability, and any potential outliers in the data."
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#scatter-plot-with-pair-information",
+    "href": "BBMS1021/Real_case/Real-example.html#scatter-plot-with-pair-information",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Scatter Plot with Pair Information",
+    "text": "Scatter Plot with Pair Information\nSince the data includes paired observations (plants grown in pairs), a scatterplot with lines connecting pairs can illustrate individual differences within pairs.\n\n\n\n\n\n\n\n\nThis plot shows the height of each plant, with lines connecting the cross- and self-pollinated plants from the same pair, making it easier to see the direction and magnitude of differences within each pair."
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#histogram-for-distribution",
+    "href": "BBMS1021/Real_case/Real-example.html#histogram-for-distribution",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Histogram for Distribution",
+    "text": "Histogram for Distribution\nHistograms can show the distribution of heights for each pollination type separately.\n\n\n\n\n\n\n\n\nThis histogram allows us to compare the distribution of height differences and see if there are notable patterns or central tendencies between cross- and self-pollinated plants."
+  },
+  {
+    "objectID": "BBMS1021/Real_case/Real-example.html#data-life-cycle-framework",
+    "href": "BBMS1021/Real_case/Real-example.html#data-life-cycle-framework",
+    "title": "Real Example of Data Processing and Exploratory Data Analysis with R",
+    "section": "Data Life Cycle Framework",
+    "text": "Data Life Cycle Framework\nAt the end of this module, we introduce a higher-level overview of how to analyze data in the life sciences from a life cycle perspective. The idea of a data life cycle is widely used and applied in many fields. Griffin et al. (2018) proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.\n\n\n\nData lifecycle, figure from Griffin et al. (2018)\n\n\n\nData Life Cycle and Examples\n\n\nLife Cycle Stage\nExample\n\n\n\n\nCollecting\nRead the data\n\n\nIntegrating\n-\n\n\nProcessing\nManipulating tables\n\n\nAnalyzing\nReporting statistics\n\n\nPublishing\nGenerating report and figures"
+>>>>>>> 2e9726174e22291fc0d65eb34989d755ba11548b
   },
   {
     "objectID": "BIOF4002/Global health informatics.html#learning-objectives",
@@ -215,6 +825,7 @@
     "title": "Global Health Informatics and Visualization",
     "section": "Bibliography",
     "text": "Bibliography\n\n\n\n\nEverts, Jonathan. 2020. “The Dashboard Pandemic.” Dialogues in Human Geography 10 (2): 260–64. https://doi.org/10.1177/2043820620935355.\n\n\nGesicho, Milka, and Ankica Babic. 2022. “Designing a Dashboard for HIV-Data Reporting Performance by Facilities: Case Study of Kenya.” In Advances in Informatics, Management and Technology in Healthcare, 238–41. IOS Press.\n\n\nGonsalves, Pattie P, Eleanor S Hodgson, Avinash Kumar, Tiara Aurora, Yash Chandak, Rhea Sharma, Daniel Michelson, and Vikram Patel. 2019. “Design and Development of the ‘POD Adventures’ Smartphone Game: A Blended Problem-Solving Intervention for Adolescent Mental Health in India.” Frontiers in Public Health 7: 238.\n\n\nKoplan, Jeffrey P, T Christopher Bond, Michael H Merson, K Srinath Reddy, Mario Henry Rodriguez, Nelson K Sewankambo, and Judith N Wasserheit. 2009. “Towards a Common Definition of Global Health.” The Lancet 373 (9679): 1993–95.\n\n\nMwaisaka, Jefferson, Lianne Gonsalves, Mary Thiongo, Michael Waithaka, Hellen Sidha, Otieno Alfred, Carol Mukiira, Peter Gichangi, et al. 2021. “Young People’s Experiences Using an on-Demand Mobile Health Sexual and Reproductive Health Text Message Intervention in Kenya: Qualitative Study.” JMIR mHealth and uHealth 9 (1): e19109.\n\n\n“National Information Center on Health Services Research; Health Care Technology (NICHSR) - Hsric.nlm.nih.gov.” https://hsric.nlm.nih.gov/hsric_public/topic/informatics.\n\n\nWigand, Dianne. 2007. “Building on Leavitt’s Diamond Model of Organizations: The Organizational Interaction Diamond Model and the Impact of Information Technology on Structure, People, and Tasks.” AMCIS 2007 Proceedings, 287.\n\n\nWong, Bang. 2011. “Points of View: Color Blindness.” Nature Publishing Group US New York."
+<<<<<<< HEAD
   },
   {
     "objectID": "BBMS1021/tutorial/tutorial_2.html",
@@ -775,5 +1386,7 @@
     "title": "Bridging Genome to Function: Post-Genome Science",
     "section": "Bibliography Notes",
     "text": "Bibliography Notes\n\n\n\n\nKhatri, Purvesh, Marina Sirota, and Atul J Butte. 2012. “Ten Years of Pathway Analysis: Current Approaches and Outstanding Challenges.” PLoS Computational Biology 8 (2): e1002375.\n\n\nSubramanian, Aravind, Pablo Tamayo, Vamsi K Mootha, Sayan Mukherjee, Benjamin L Ebert, Michael A Gillette, Amanda Paulovich, et al. 2005. “Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.” Proceedings of the National Academy of Sciences 102 (43): 15545–50.\n\n\nWelch, Ryan P, Chee Lee, Paul M Imbriano, Snehal Patil, Terry E Weymouth, R Alex Smith, Laura J Scott, and Maureen A Sartor. 2014. “ChIP-Enrich: Gene Set Enrichment Testing for ChIP-Seq Data.” Nucleic Acids Research 42 (13): e105–5."
+=======
+>>>>>>> 2e9726174e22291fc0d65eb34989d755ba11548b
   }
 ]
