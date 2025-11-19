@@ -9,6 +9,7 @@ format:
     toc-location: left
     code-tools: false
     self-contained: true
+resources: data/zea_mays.csv
 engine: knitr
 bibliography: references.bib
 lightbox: true

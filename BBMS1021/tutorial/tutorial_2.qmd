@@ -6,6 +6,7 @@ format:
     toc-depth: 3
     toc-location: left
     self-contained: true
+resources: Diff_Expression_results.tsv
 engine: knitr 
 author: "Yu Cheng Hsu, BBMS1021 teaching team"
 date: "2025-09-15"
@@ -34,7 +35,7 @@ If you forget ggplot2 syntax, here is a cheatsheet for your reference:
 * Q2: Use the `read.table()` function to load the downloaded file into a data frame named `df_DEG`.
   *Hint*: Use the full path or just the file name if it's in the current working directory. Ensure `header=TRUE` is set as an argument. To find help for a function, use `?function_name` in R.
 
-```{r}
+```{webr}
 # Suggested answer
 df_DEG <- read.table("Diff_Expression_results.tsv", header=TRUE)
 head(df_DEG)
@@ -42,7 +43,7 @@ head(df_DEG)
 
 * Q3: Use the `summary()` function to get an overview of the `df_DEG` data frame.
 
-```{r}
+```{webr}
 # Suggested answer
 summary(df_DEG)
 ```
@@ -50,7 +51,7 @@ summary(df_DEG)
 * Q4: Create a histogram of the `log2FoldChange` column in `df_DEG` using both the basic plotting function `hist()` and the `ggplot2` package. 
   For the ggplot2 plot, add a figure title `Histogram of log2FoldChange`.
 
-```{r}
+```{webr}
 library(ggplot2)
 # Suggested answer
 # Using base R
@@ -61,7 +62,7 @@ ggplot(df_DEG, aes(x=log2FoldChange)) + geom_histogram() + ggtitle("Histogram of
 
 * Q5: Create a scatter plot with the x-axis as `log10(baseMean)` and the y-axis as `log2FoldChange` from the `df_DEG` data frame. Use both the basic `plot()` function and the `ggplot2` package.
 
-```{r}
+```{webr}
 # Suggested answer
 # Using base R
 plot(log10(df_DEG$baseMean), df_DEG$log2FoldChange, xlab="log10(baseMean)", ylab="log2FoldChange", main="Scatter Plot")
@@ -74,7 +75,7 @@ ggplot(df_DEG, aes(x=log10(baseMean), y=log2FoldChange)) + geom_point() + ggtitl
   - Add a column `log2FC_clip` for clipping `log2FoldChange` to the range `[-5, +5]`.
   - Add a column `is_DE` to indicate if `padj < 0.05`.
 
-```{r}
+```{webr}
 # Suggested answer
 # Any of the below works
  df_DEG$log2FC_clip <- df_DEG$log2FoldChange
@@ -88,7 +89,7 @@ df_DEG$is_DE <-  df_DEG$padj<0.05
 
 * Q7: Use the `table()` function to count the values in the `is_DE` column.
 
-```{r}
+```{webr}
 # Suggested answer
 table(df_DEG$is_DE)
 ```
@@ -96,7 +97,7 @@ table(df_DEG$is_DE)
 * Q8: Using ggplot2, create a scatter plot colored by the newly added column `is_DE`. 
   To make the figure clear, set the color legend title to `Is differentially expressed` and map the labels from `TRUE` to `Yes` and `FALSE` to `No`.
 
-```{r}
+```{webr}
 # Suggested answer
 ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip, color=is_DE)) +
    geom_point() +
@@ -107,7 +108,7 @@ ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip, color=is_DE)) +
   How do you adjust the code? 
   *Hint*: ggplot uses the order of factor levels to render the color. Use `factor()` and set the `levels` parameter to control the order of categories.
 
-```{r}
+```{webr}
 # Suggested answer
  df_DEG$is_DE <- factor(df_DEG$is_DE, levels=c(TRUE, FALSE))
 
@@ -118,7 +119,7 @@ ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip, color=is_DE)) +
 
 * Q10: Save the scatter plot from Q8 or Q9 into a file named "My_DEG_results.pdf".
 
-```{r}
+```{webr}
 # Suggested answer
 p <- ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip)) +
   geom_point(aes(color=is_DE)) +
@@ -132,7 +133,7 @@ ggsave("My_DEG_results.pdf",p)
 Import and inspect the iris dataset. This is a pre-defined dataset in the R environment that you can load and use by default. 
 This study measured the widths and lengths of petals and sepals (parts of the flower) among different iris species.
 
-```{r}
+```{webr}
 head(iris)
 ```
 
@@ -141,7 +142,7 @@ head(iris)
   b. Label the x-axis as `Petal Length (cm)`.
   c. Label the y-axis as `Species`.
 
-```{r}
+```{webr}
 library(ggplot2)
 # Suggested answer
 ggplot(iris, aes(x=Petal.Length, y=Species, color=Species)) +
