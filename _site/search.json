@@ -4,14 +4,14 @@
     "href": "courses.html",
     "title": "Courses",
     "section": "",
-    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
+    "text": "Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.\n\n\n\nBBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBBMS3009 Genome Science\n\nEnrichment analysis\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
   },
   {
     "objectID": "courses.html#course-list",
     "href": "courses.html#course-list",
     "title": "Courses",
     "section": "",
-    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
+    "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nIntroduction to ggplot2\nReal life example\n\nBBMS3009 Genome Science\n\nEnrichment analysis\n\nBIOF4002 Informatics Applications in Global Health\n\nHealth technologies in the global health context\nIntroduction to global health informatics and resources and data visualization"
   },
   {
     "objectID": "BIOF4002/Global health informatics.html#learning-objectives",
@@ -217,25 +217,11 @@
     "text": "Bibliography\n\n\n\n\nEverts, Jonathan. 2020. “The Dashboard Pandemic.” Dialogues in Human Geography 10 (2): 260–64. https://doi.org/10.1177/2043820620935355.\n\n\nGesicho, Milka, and Ankica Babic. 2022. “Designing a Dashboard for HIV-Data Reporting Performance by Facilities: Case Study of Kenya.” In Advances in Informatics, Management and Technology in Healthcare, 238–41. IOS Press.\n\n\nGonsalves, Pattie P, Eleanor S Hodgson, Avinash Kumar, Tiara Aurora, Yash Chandak, Rhea Sharma, Daniel Michelson, and Vikram Patel. 2019. “Design and Development of the ‘POD Adventures’ Smartphone Game: A Blended Problem-Solving Intervention for Adolescent Mental Health in India.” Frontiers in Public Health 7: 238.\n\n\nKoplan, Jeffrey P, T Christopher Bond, Michael H Merson, K Srinath Reddy, Mario Henry Rodriguez, Nelson K Sewankambo, and Judith N Wasserheit. 2009. “Towards a Common Definition of Global Health.” The Lancet 373 (9679): 1993–95.\n\n\nMwaisaka, Jefferson, Lianne Gonsalves, Mary Thiongo, Michael Waithaka, Hellen Sidha, Otieno Alfred, Carol Mukiira, Peter Gichangi, et al. 2021. “Young People’s Experiences Using an on-Demand Mobile Health Sexual and Reproductive Health Text Message Intervention in Kenya: Qualitative Study.” JMIR mHealth and uHealth 9 (1): e19109.\n\n\n“National Information Center on Health Services Research; Health Care Technology (NICHSR) - Hsric.nlm.nih.gov.” https://hsric.nlm.nih.gov/hsric_public/topic/informatics.\n\n\nWigand, Dianne. 2007. “Building on Leavitt’s Diamond Model of Organizations: The Organizational Interaction Diamond Model and the Impact of Information Technology on Structure, People, and Tasks.” AMCIS 2007 Proceedings, 287.\n\n\nWong, Bang. 2011. “Points of View: Color Blindness.” Nature Publishing Group US New York."
   },
   {
-    "objectID": "BBMS1021/tutorial/tutorial_1.html",
-    "href": "BBMS1021/tutorial/tutorial_1.html",
-    "title": "Tutorial 1",
+    "objectID": "BBMS1021/tutorial/tutorial_2.html",
+    "href": "BBMS1021/tutorial/tutorial_2.html",
+    "title": "Tutorial 2",
     "section": "",
-    "text": "Installing R\nFirst, you need to download and install the latest version of R.\n\nGo to R official website\nClick on “download R”\nSave the installation file\nRun the installation file and follow the prompts to install R (default settings are fine)\n\n\n\nInstalling RStudio\n\nGo to RStudio\nClick the big blue download button to download the installation file\nRun the installation file and follow the prompts to install RStudio (default settings are fine)\n\n\n\nCheatsheets\nIf you forget how to use it or are not sure, there are some cheatsheets for you: RStudio cheatsheet\n\n\nQuestion set 1 – Getting started\n\nQ1: Create a new R script tutorial1.R\nQ2: Execute the following code\n\n\n\n\n\n\n\n\n\n\nQ3: Use RStudio tab panes to explore fakedata\nQ4: Explain the functions mean() and sd()\nQ5: If we calculate mean(fakedata), it will result in an error. Why does this happen, and how should we fix the error?\n\n\n\n\n\n\n\n\n\n\n\nQuestion set 2 – Data types\n\nQ1: We have 25 students in BIOF1001, to store the final marks (0 to 100 with a precision of 0.1), what data type will we use?\nQ2: For the grades (A+ to F), what data type and data structure can be used to keep the data?\nQ3: If you have two vectors for the BIOF1001 marks and grades and one character for teaching performance \"good\", and you want to store them into one variable, which data structure will you use?\n\n\n\nQuestion set 3 – Matrix manipulation\n\nQ1: Make a matrix named my_matrix with a shape of 5 rows and 2 columns, filled with values from 3 to 12, where the first row contains 3 and 4. Hint: For creating a vector from 3 to 12, you may use seq() or :.\n\n\n\n\n\n\n\n\n\n\nQ2: Based on Q1, add the row names to Day1 to Day5 and column names to Lunch and Dinner.\n\n\n\n\n\n\n\n\n\n\nQ3: Based on Q2, extract a matrix with a shape of 3x1 containing the values 6, 8, and 10 from the matrix my_matrix.\n\n\n\n\n\n\n\n\n\n\nQ4: What will you get for my_matrix[c(TRUE, FALSE, FALSE, TRUE), ]? Hint: think of recycling if the index length is different from the query dimension (Over-flexibility comes with a price of wrong use).\n\n\n\nQuestion set 4 – Analyzing data\n\nQ1: Now, in your Desktop folder, create a subfolder named R_exercises and download this file of differentially expressed genes results Diff_Expression_results.tsv (or link to view) to the folder. Check your current working directory by getwd() function and change the working directory to the folder you just created. Hint: you may use setwd() to change the working directory or use the Session button of RStudio.\n\n\n\n\n\n\n\n\n\n\nQ2: Related to Q1, use the read.table() function to load the file into a data frame with the variable name df_DEG. Hint: You may consider using the full path or just the file name if it’s in the same working directory. Please keep header=TRUE for the argument. Think how to find the help page for a certain function.\n\n\n\n\n\n\n\n\n\n\nQ3: Can you calculate the mean and standard deviation of the log2FoldChange?\n\n\n\nQuestion set 5 – Scientific computing\n\nQ1: Write a function to solve a quadratic equation\n\n\\[\nax^2+bx+c=0\n\\]"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Yu Cheng Hsu",
-    "section": "",
-    "text": "I’m currently a lecturer in bioinformatics at the University of Hong Kong. I teach fundamental biostatistics, biounformatics and machine learning courses. Prior to my current position, I worked at HKJC Centre for Suicide Research and Prevention at the University of Hong Kong. By training, I am a data scientist and industrial engineer. I specializes in analyzing and leveraging data and technology to promote mental health at both individual and population levels.\n\n\nFor inquiries or to contribute materials, please contact us at ychsu@hku.hk."
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "Yu Cheng Hsu",
-    "section": "",
-    "text": "For inquiries or to contribute materials, please contact us at ychsu@hku.hk."
+    "text": "Cheatsheets\nIf you forget ggplot2 syntax, here is a cheatsheet for your reference: ggplot2 Cheatsheet\n\n\nQuestion Set 1\nThis question set builds on Question Set 4 from Tutorial 1. If you haven’t loaded the data yet, follow the instructions in Q1 and Q2. Otherwise, proceed directly to Q3.\n\nQ1: On your Desktop, create a subfolder named R_exercises and download the file containing differentially expressed genes results Diff_Expression_results.tsv (or view here) to this folder. Check your current working directory using the getwd() function and change it to the newly created folder. Hint: Use setwd(\"&lt;path to R_exercises&gt;\") to change the working directory, replacing &lt;path to R_exercises&gt; with the actual path to the folder, or use the Session menu in RStudio to set the working directory.\n\n\n\n\n\n\n\n\n\n\nQ2: Use the read.table() function to load the downloaded file into a data frame named df_DEG. Hint: Use the full path or just the file name if it’s in the current working directory. Ensure header=TRUE is set as an argument. To find help for a function, use ?function_name in R.\n\n\n# Suggested answer\ndf_DEG &lt;- read.table(\"Diff_Expression_results.tsv\", header=TRUE)\nhead(df_DEG)\n\n\nQ3: Use the summary() function to get an overview of the df_DEG data frame.\n\n\n# Suggested answer\nsummary(df_DEG)\n\n\nQ4: Create a histogram of the log2FoldChange column in df_DEG using both the basic plotting function hist() and the ggplot2 package. For the ggplot2 plot, add a figure title Histogram of log2FoldChange.\n\n\nlibrary(ggplot2)\n# Suggested answer\n# Using base R\nhist(df_DEG$log2FoldChange)\n# Using ggplot2\nggplot(df_DEG, aes(x=log2FoldChange)) + geom_histogram() + ggtitle(\"Histogram of log2FoldChange\")\n\n\nQ5: Create a scatter plot with the x-axis as log10(baseMean) and the y-axis as log2FoldChange from the df_DEG data frame. Use both the basic plot() function and the ggplot2 package.\n\n\n# Suggested answer\n# Using base R\nplot(log10(df_DEG$baseMean), df_DEG$log2FoldChange, xlab=\"log10(baseMean)\", ylab=\"log2FoldChange\", main=\"Scatter Plot\")\n\n# Using ggplot2\nggplot(df_DEG, aes(x=log10(baseMean), y=log2FoldChange)) + geom_point() + ggtitle(\"Scatter Plot of log2FoldChange vs log10(baseMean)\")\n\n\nQ6: Manipulate the data frame by adding two columns:\n\nAdd a column log2FC_clip for clipping log2FoldChange to the range [-5, +5].\nAdd a column is_DE to indicate if padj &lt; 0.05.\n\n\n\n# Suggested answer\n# Any of the below works\n df_DEG$log2FC_clip &lt;- df_DEG$log2FoldChange\n df_DEG$log2FC_clip[df_DEG$log2FC_clip &gt; 5] = 5\ndf_DEG$lÇog2FC_clip[df_DEG$log2FC_clip &lt; -5] = -5\n\n\ndf_DEG$is_DE &lt;-  df_DEG$padj&lt;0.05\n# df_DEG$is_DE &lt;- factor(df_DEG$is_DE, levels=c(TRUE, FALSE))\n\n\nQ7: Use the table() function to count the values in the is_DE column.\n\n\n# Suggested answer\ntable(df_DEG$is_DE)\n\n\nQ8: Using ggplot2, create a scatter plot colored by the newly added column is_DE. To make the figure clear, set the color legend title to Is differentially expressed and map the labels from TRUE to Yes and FALSE to No.\n\n\n# Suggested answer\nggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip, color=is_DE)) +\n   geom_point() +\n   scale_color_discrete(name=\"Is differentially expressed\")\n\n\nQ9: For the scatter plot from Q8, reverse the color order so that TRUE (Yes) is blue and FALSE (No) is red. How do you adjust the code? Hint: ggplot uses the order of factor levels to render the color. Use factor() and set the levels parameter to control the order of categories.\n\n\n# Suggested answer\n df_DEG$is_DE &lt;- factor(df_DEG$is_DE, levels=c(TRUE, FALSE))\n\n ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip)) +\n geom_point(aes(color=is_DE)) +\n    scale_color_discrete(name=\"Is differentially expressed\")\n\n\nQ10: Save the scatter plot from Q8 or Q9 into a file named “My_DEG_results.pdf”.\n\n\n# Suggested answer\np &lt;- ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip)) +\n  geom_point(aes(color=is_DE)) +\n  scale_color_discrete(name=\"Is differentially expressed\", labels=c(\"Yes\", \"No\"))\n\nggsave(\"My_DEG_results.pdf\",p)\n\n\n\nQuestion Set 2\nImport and inspect the iris dataset. This is a pre-defined dataset in the R environment that you can load and use by default. This study measured the widths and lengths of petals and sepals (parts of the flower) among different iris species.\n\nhead(iris)\n\n\nQ1: Plot a boxplot showing the petal length distribution among different species in the iris dataset, with the following requirements:\n\nPlace Species on the y-axis.\nLabel the x-axis as Petal Length (cm).\nLabel the y-axis as Species.\n\n\n\nlibrary(ggplot2)\n# Suggested answer\nggplot(iris, aes(x=Petal.Length, y=Species, color=Species)) +\n  geom_boxplot() +\n  scale_y_discrete(name=\"Species\") +\n  scale_x_continuous(name=\"Petal Length (cm)\")\n\n\nQ2: Create a plot showing the association between Petal.Width and Sepal.Width among different Species in the iris dataset, with the following requirements:\n\nPlace Petal.Width on the x-axis.\nPlace Sepal.Width on the y-axis.\nLabel the x-axis as Petal Width (cm).\nLabel the y-axis as Sepal Width (cm).\nAssign colors to differentiate Species.\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion Set 3\nThis question set is adapted from the NIH Bioinformatics Training and Education Program. The original question is slightly more complex. If you are interested in more challenging questions, visit the website.\nLet’s load the Titanic dataset.\n\n\n\n\n\n\n\n\n\n\n\nColumn\nDescription\n\n\n\n\nSurvived\n0 (No) / 1 (Yes)\n\n\nPclass\n1 / 2 / 3 (Passenger Class)\n\n\nName\nPassenger Name\n\n\nSex\nMale / Female\n\n\nAge\nAge\n\n\nSiblings.Spouses.Aboard\nNumber of siblings/spouses aboard\n\n\nParents.Children.Aboard\nNumber of parents/children aboard\n\n\nFare\nFare Price\n\n\n\n\nQ1: Inspect the data using str(), summary(), and head().\n\n\n\n\n\n\n\n\n\n\nQ2: Explore the relationship between the passenger’s age and fare. What type of plot should you use? Write the code using ggplot2.\n\n\n\n\n\n\n\n\n\n\nQ3: Color the points from Q2 by Pclass. Remember that Pclass is a proxy for socioeconomic status. While the values are treated as numeric upon loading, they are categorical and should be treated as such. You will need to coerce Pclass into a categorical (factor) variable using factor() or as.factor().\n\n\n\n\n\n\n\n\n\n\nQ4: Modify the plot from Q3 to update the legend labels to (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class)."
   },
   {
     "objectID": "BBMS1021/Real_case/Real-example.html",
@@ -322,11 +308,46 @@
     "text": "Data Life Cycle Framework\nAt the end of this module, we introduce a higher-level overview of how to analyze data in the life sciences from a life cycle perspective. The idea of a data life cycle is widely used and applied in many fields. Griffin et al. (2018) proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.\n\n\n\nData lifecycle, figure from Griffin et al. (2018)\n\n\n\nData Life Cycle and Examples\n\n\nLife Cycle Stage\nExample\n\n\n\n\nCollecting\nRead the data\n\n\nIntegrating\n-\n\n\nProcessing\nManipulating tables\n\n\nAnalyzing\nReporting statistics\n\n\nPublishing\nGenerating report and figures"
   },
   {
-    "objectID": "BBMS1021/tutorial/tutorial_2.html",
-    "href": "BBMS1021/tutorial/tutorial_2.html",
-    "title": "Tutorial 2",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Yu Cheng Hsu",
     "section": "",
-    "text": "Cheatsheets\nIf you forget ggplot2 syntax, here is a cheatsheet for your reference: ggplot2 Cheatsheet\n\n\nQuestion Set 1\nThis question set builds on Question Set 4 from Tutorial 1. If you haven’t loaded the data yet, follow the instructions in Q1 and Q2. Otherwise, proceed directly to Q3.\n\nQ1: On your Desktop, create a subfolder named R_exercises and download the file containing differentially expressed genes results Diff_Expression_results.tsv (or view here) to this folder. Check your current working directory using the getwd() function and change it to the newly created folder. Hint: Use setwd(\"&lt;path to R_exercises&gt;\") to change the working directory, replacing &lt;path to R_exercises&gt; with the actual path to the folder, or use the Session menu in RStudio to set the working directory.\n\n\n\n\n\n\n\n\n\n\nQ2: Use the read.table() function to load the downloaded file into a data frame named df_DEG. Hint: Use the full path or just the file name if it’s in the current working directory. Ensure header=TRUE is set as an argument. To find help for a function, use ?function_name in R.\n\n\n# Suggested answer\ndf_DEG &lt;- read.table(\"Diff_Expression_results.tsv\", header=TRUE)\nhead(df_DEG)\n\n\nQ3: Use the summary() function to get an overview of the df_DEG data frame.\n\n\n# Suggested answer\nsummary(df_DEG)\n\n\nQ4: Create a histogram of the log2FoldChange column in df_DEG using both the basic plotting function hist() and the ggplot2 package. For the ggplot2 plot, add a figure title Histogram of log2FoldChange.\n\n\nlibrary(ggplot2)\n# Suggested answer\n# Using base R\nhist(df_DEG$log2FoldChange)\n# Using ggplot2\nggplot(df_DEG, aes(x=log2FoldChange)) + geom_histogram() + ggtitle(\"Histogram of log2FoldChange\")\n\n\nQ5: Create a scatter plot with the x-axis as log10(baseMean) and the y-axis as log2FoldChange from the df_DEG data frame. Use both the basic plot() function and the ggplot2 package.\n\n\n# Suggested answer\n# Using base R\nplot(log10(df_DEG$baseMean), df_DEG$log2FoldChange, xlab=\"log10(baseMean)\", ylab=\"log2FoldChange\", main=\"Scatter Plot\")\n\n# Using ggplot2\nggplot(df_DEG, aes(x=log10(baseMean), y=log2FoldChange)) + geom_point() + ggtitle(\"Scatter Plot of log2FoldChange vs log10(baseMean)\")\n\n\nQ6: Manipulate the data frame by adding two columns:\n\nAdd a column log2FC_clip for clipping log2FoldChange to the range [-5, +5].\nAdd a column is_DE to indicate if padj &lt; 0.05.\n\n\n\n# Suggested answer\n# Any of the below works\n df_DEG$log2FC_clip &lt;- df_DEG$log2FoldChange\n df_DEG$log2FC_clip[df_DEG$log2FC_clip &gt; 5] = 5\ndf_DEG$lÇog2FC_clip[df_DEG$log2FC_clip &lt; -5] = -5\n\n\ndf_DEG$is_DE &lt;-  df_DEG$padj&lt;0.05\n# df_DEG$is_DE &lt;- factor(df_DEG$is_DE, levels=c(TRUE, FALSE))\n\n\nQ7: Use the table() function to count the values in the is_DE column.\n\n\n# Suggested answer\ntable(df_DEG$is_DE)\n\n\nQ8: Using ggplot2, create a scatter plot colored by the newly added column is_DE. To make the figure clear, set the color legend title to Is differentially expressed and map the labels from TRUE to Yes and FALSE to No.\n\n\n# Suggested answer\nggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip, color=is_DE)) +\n   geom_point() +\n   scale_color_discrete(name=\"Is differentially expressed\")\n\n\nQ9: For the scatter plot from Q8, reverse the color order so that TRUE (Yes) is blue and FALSE (No) is red. How do you adjust the code? Hint: ggplot uses the order of factor levels to render the color. Use factor() and set the levels parameter to control the order of categories.\n\n\n# Suggested answer\n df_DEG$is_DE &lt;- factor(df_DEG$is_DE, levels=c(TRUE, FALSE))\n\n ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip)) +\n geom_point(aes(color=is_DE)) +\n    scale_color_discrete(name=\"Is differentially expressed\")\n\n\nQ10: Save the scatter plot from Q8 or Q9 into a file named “My_DEG_results.pdf”.\n\n\n# Suggested answer\np &lt;- ggplot(df_DEG, aes(x=log10(baseMean), y=log2FC_clip)) +\n  geom_point(aes(color=is_DE)) +\n  scale_color_discrete(name=\"Is differentially expressed\", labels=c(\"Yes\", \"No\"))\n\nggsave(\"My_DEG_results.pdf\",p)\n\n\n\nQuestion Set 2\nImport and inspect the iris dataset. This is a pre-defined dataset in the R environment that you can load and use by default. This study measured the widths and lengths of petals and sepals (parts of the flower) among different iris species.\n\nhead(iris)\n\n\nQ1: Plot a boxplot showing the petal length distribution among different species in the iris dataset, with the following requirements:\n\nPlace Species on the y-axis.\nLabel the x-axis as Petal Length (cm).\nLabel the y-axis as Species.\n\n\n\nlibrary(ggplot2)\n# Suggested answer\nggplot(iris, aes(x=Petal.Length, y=Species, color=Species)) +\n  geom_boxplot() +\n  scale_y_discrete(name=\"Species\") +\n  scale_x_continuous(name=\"Petal Length (cm)\")\n\n\nQ2: Create a plot showing the association between Petal.Width and Sepal.Width among different Species in the iris dataset, with the following requirements:\n\nPlace Petal.Width on the x-axis.\nPlace Sepal.Width on the y-axis.\nLabel the x-axis as Petal Width (cm).\nLabel the y-axis as Sepal Width (cm).\nAssign colors to differentiate Species.\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion Set 3\nThis question set is adapted from the NIH Bioinformatics Training and Education Program. The original question is slightly more complex. If you are interested in more challenging questions, visit the website.\nLet’s load the Titanic dataset.\n\n\n\n\n\n\n\n\n\n\n\nColumn\nDescription\n\n\n\n\nSurvived\n0 (No) / 1 (Yes)\n\n\nPclass\n1 / 2 / 3 (Passenger Class)\n\n\nName\nPassenger Name\n\n\nSex\nMale / Female\n\n\nAge\nAge\n\n\nSiblings.Spouses.Aboard\nNumber of siblings/spouses aboard\n\n\nParents.Children.Aboard\nNumber of parents/children aboard\n\n\nFare\nFare Price\n\n\n\n\nQ1: Inspect the data using str(), summary(), and head().\n\n\n\n\n\n\n\n\n\n\nQ2: Explore the relationship between the passenger’s age and fare. What type of plot should you use? Write the code using ggplot2.\n\n\n\n\n\n\n\n\n\n\nQ3: Color the points from Q2 by Pclass. Remember that Pclass is a proxy for socioeconomic status. While the values are treated as numeric upon loading, they are categorical and should be treated as such. You will need to coerce Pclass into a categorical (factor) variable using factor() or as.factor().\n\n\n\n\n\n\n\n\n\n\nQ4: Modify the plot from Q3 to update the legend labels to (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class)."
+    "text": "I’m currently a lecturer in bioinformatics at the University of Hong Kong. I teach fundamental biostatistics, biounformatics and machine learning courses. Prior to my current position, I worked at HKJC Centre for Suicide Research and Prevention at the University of Hong Kong. By training, I am a data scientist and industrial engineer. I specializes in analyzing and leveraging data and technology to promote mental health at both individual and population levels.\n\n\nFor inquiries or to contribute materials, please contact us at ychsu@hku.hk."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "Yu Cheng Hsu",
+    "section": "",
+    "text": "For inquiries or to contribute materials, please contact us at ychsu@hku.hk."
+  },
+  {
+    "objectID": "BBMS1021/tutorial/tutorial_1.html",
+    "href": "BBMS1021/tutorial/tutorial_1.html",
+    "title": "Tutorial 1",
+    "section": "",
+    "text": "Installing R\nFirst, you need to download and install the latest version of R.\n\nGo to R official website\nClick on “download R”\nSave the installation file\nRun the installation file and follow the prompts to install R (default settings are fine)\n\n\n\nInstalling RStudio\n\nGo to RStudio\nClick the big blue download button to download the installation file\nRun the installation file and follow the prompts to install RStudio (default settings are fine)\n\n\n\nCheatsheets\nIf you forget how to use it or are not sure, there are some cheatsheets for you: RStudio cheatsheet\n\n\nQuestion set 1 – Getting started\n\nQ1: Create a new R script tutorial1.R\nQ2: Execute the following code\n\n\n\n\n\n\n\n\n\n\nQ3: Use RStudio tab panes to explore fakedata\nQ4: Explain the functions mean() and sd()\nQ5: If we calculate mean(fakedata), it will result in an error. Why does this happen, and how should we fix the error?\n\n\n\n\n\n\n\n\n\n\n\nQuestion set 2 – Data types\n\nQ1: We have 25 students in BIOF1001, to store the final marks (0 to 100 with a precision of 0.1), what data type will we use?\nQ2: For the grades (A+ to F), what data type and data structure can be used to keep the data?\nQ3: If you have two vectors for the BIOF1001 marks and grades and one character for teaching performance \"good\", and you want to store them into one variable, which data structure will you use?\n\n\n\nQuestion set 3 – Matrix manipulation\n\nQ1: Make a matrix named my_matrix with a shape of 5 rows and 2 columns, filled with values from 3 to 12, where the first row contains 3 and 4. Hint: For creating a vector from 3 to 12, you may use seq() or :.\n\n\n\n\n\n\n\n\n\n\nQ2: Based on Q1, add the row names to Day1 to Day5 and column names to Lunch and Dinner.\n\n\n\n\n\n\n\n\n\n\nQ3: Based on Q2, extract a matrix with a shape of 3x1 containing the values 6, 8, and 10 from the matrix my_matrix.\n\n\n\n\n\n\n\n\n\n\nQ4: What will you get for my_matrix[c(TRUE, FALSE, FALSE, TRUE), ]? Hint: think of recycling if the index length is different from the query dimension (Over-flexibility comes with a price of wrong use).\n\n\n\nQuestion set 4 – Analyzing data\n\nQ1: Now, in your Desktop folder, create a subfolder named R_exercises and download this file of differentially expressed genes results Diff_Expression_results.tsv (or link to view) to the folder. Check your current working directory by getwd() function and change the working directory to the folder you just created. Hint: you may use setwd() to change the working directory or use the Session button of RStudio.\n\n\n\n\n\n\n\n\n\n\nQ2: Related to Q1, use the read.table() function to load the file into a data frame with the variable name df_DEG. Hint: You may consider using the full path or just the file name if it’s in the same working directory. Please keep header=TRUE for the argument. Think how to find the help page for a certain function.\n\n\n\n\n\n\n\n\n\n\nQ3: Can you calculate the mean and standard deviation of the log2FoldChange?\n\n\n\nQuestion set 5 – Scientific computing\n\nQ1: Write a function to solve a quadratic equation\n\n\\[\nax^2+bx+c=0\n\\]"
+  },
+  {
+    "objectID": "BBMS1021/tutorial/tutorial_3.html",
+    "href": "BBMS1021/tutorial/tutorial_3.html",
+    "title": "Tutorial 3",
+    "section": "",
+    "text": "This question set focuses on data manipulation with the mtcars dataset, including converting variables to factors, implementing Leave-One-Out Cross-Validation (LOOCV) for model prediction, classifying gear types based on probabilities, calculating model accuracy, and discussing the drawbacks of using for-loops for data frame manipulation.\nFirst, we load mtcars data\n\n\n\n\n\n\n\n\n\n\nAgain we want to make the data more informative, so please change the column am to factor such that 0 refers automatic and 1 refers manual. You can use either:\n\nthe tidyverse way to do it, or\nthe way we did it during the lecture.\n\n\n\n\n\n\n\n\n\n\n\n\n\nLOOCV is a way to test how good a model is at making predictions.\n1. Think of your data as a list of examples: In the mtcars dataset, you have 32 cars, each with an mpg and hp value. Each car is one example.\n2. Leave one example out at a time: In LOOCV, you pick one car (one example) to set aside as your “test” data. The rest of the cars (31 in this case) become your “training” data.\n3. Repeat for every example: You do this process for every single car in the dataset. So, you’ll repeat it 32 times (once for each car). Each time, one car is the test data, and the rest are used for training.\n\n\n\nIllusttration of LOOCV\n\n\n\n\nPlease use the first 31 rows as training data and the 32nd row as testing data, and call the function train_n_predict that Ray wrote to provide a probability and save it in data$predict[32] (because we used the 32nd row as the test data).\n\n\n\n\n\n\n\n\n\n\n\nNow, we need to do this for a total of 32 times:\n1. For the first time, take out the first row as test data and use the rest of the 31 rows as training data.\n2. For the second time, take out the second row as test data and use the rest of the 31 rows as training data.\n3. And so on, for all 32 entries.\nand remember to store the test result in data$predict (i.e., if the test data is the 1st row of the data, then data$predict[1] &lt;- train_n_predict(data[-1,], data[1,])).\n\n\n\n\n\n\n\n\n\n\n\nAfter getting the probability, we need to match it back to the type of gear. A straightforward solution is that the function train_n_predict gives the probability that the car is a manual car. Therefore, if data$predict &gt; 0.5, we can guess it is manual, and if data$predict &lt; 0.5, we guess it is automatic.\nBased on this idea, create a new column data$p_class with factor data type, where if data$predict &gt;= 0.5 it shall be manual (original label of manual car) and automatic if data$predict &lt; 0.5.\n\n\n\n\n\n\n\n\n\n\n\nThe purpose of this practice is to let Ray know how good or bad his model is, so you need to report the accuracy of the model. It should be calculated as:\n\\[\n\\frac{\\text{number of times model predict correctly}\n}{\\text{Total test samples}}\n\\]\n\n\n\n\n\n\n\n\nQ6. Why do we keep not recommending using for-loop to manipulate data frames?"
+  },
+  {
+    "objectID": "BBMS1021/tutorial/tutorial_3.html#overview-of-question-set-1",
+    "href": "BBMS1021/tutorial/tutorial_3.html#overview-of-question-set-1",
+    "title": "Tutorial 3",
+    "section": "",
+    "text": "This question set focuses on data manipulation with the mtcars dataset, including converting variables to factors, implementing Leave-One-Out Cross-Validation (LOOCV) for model prediction, classifying gear types based on probabilities, calculating model accuracy, and discussing the drawbacks of using for-loops for data frame manipulation.\nFirst, we load mtcars data\n\n\n\n\n\n\n\n\n\n\nAgain we want to make the data more informative, so please change the column am to factor such that 0 refers automatic and 1 refers manual. You can use either:\n\nthe tidyverse way to do it, or\nthe way we did it during the lecture."
+  },
+  {
+    "objectID": "BBMS1021/tutorial/tutorial_3.html#about-leave-one-out-cross-validation-loocv",
+    "href": "BBMS1021/tutorial/tutorial_3.html#about-leave-one-out-cross-validation-loocv",
+    "title": "Tutorial 3",
+    "section": "",
+    "text": "LOOCV is a way to test how good a model is at making predictions.\n1. Think of your data as a list of examples: In the mtcars dataset, you have 32 cars, each with an mpg and hp value. Each car is one example.\n2. Leave one example out at a time: In LOOCV, you pick one car (one example) to set aside as your “test” data. The rest of the cars (31 in this case) become your “training” data.\n3. Repeat for every example: You do this process for every single car in the dataset. So, you’ll repeat it 32 times (once for each car). Each time, one car is the test data, and the rest are used for training.\n\n\n\nIllusttration of LOOCV\n\n\n\n\nPlease use the first 31 rows as training data and the 32nd row as testing data, and call the function train_n_predict that Ray wrote to provide a probability and save it in data$predict[32] (because we used the 32nd row as the test data).\n\n\n\n\n\n\n\n\n\n\n\nNow, we need to do this for a total of 32 times:\n1. For the first time, take out the first row as test data and use the rest of the 31 rows as training data.\n2. For the second time, take out the second row as test data and use the rest of the 31 rows as training data.\n3. And so on, for all 32 entries.\nand remember to store the test result in data$predict (i.e., if the test data is the 1st row of the data, then data$predict[1] &lt;- train_n_predict(data[-1,], data[1,])).\n\n\n\n\n\n\n\n\n\n\n\nAfter getting the probability, we need to match it back to the type of gear. A straightforward solution is that the function train_n_predict gives the probability that the car is a manual car. Therefore, if data$predict &gt; 0.5, we can guess it is manual, and if data$predict &lt; 0.5, we guess it is automatic.\nBased on this idea, create a new column data$p_class with factor data type, where if data$predict &gt;= 0.5 it shall be manual (original label of manual car) and automatic if data$predict &lt; 0.5.\n\n\n\n\n\n\n\n\n\n\n\nThe purpose of this practice is to let Ray know how good or bad his model is, so you need to report the accuracy of the model. It should be calculated as:\n\\[\n\\frac{\\text{number of times model predict correctly}\n}{\\text{Total test samples}}\n\\]\n\n\n\n\n\n\n\n\nQ6. Why do we keep not recommending using for-loop to manipulate data frames?"
   },
   {
     "objectID": "BIOF4002/mHealth and telemedicine.html#learning-objectives",
@@ -481,5 +502,278 @@
     "title": "Health technologies in the global health context",
     "section": "Bibilography",
     "text": "Bibilography\n\n\n\n\nAcharibasam, Jeremiah W, and Rolf Wynn. 2018. “Telemental Health in Low-and Middle-Income Countries: A Systematic Review.” International Journal of Telemedicine and Applications 2018 (1): 9602821.\n\n\nBodenheimer, Thomas, and Christine Sinsky. 2014. “From Triple to Quadruple Aim: Care of the Patient Requires Care of the Provider.” The Annals of Family Medicine 12 (6): 573–76.\n\n\nCeli, Leo Anthony G., Hamish S. F. Fraser, Vipan Nikore, Juan Sebastián Osorio, and Kenneth Paik. 2017 - 2017. Global Health Informatics : Principles of Ehealth and Mhealth to Improve Quality of Care. Cambridge, Massachusetts: The MIT Press.\n\n\nCeli, Leo Anthony, Maimuna S Majumder, Patricia Ordóñez, Juan Sebastian Osorio, Kenneth E Paik, and Melek Somai. 2020. Leveraging Data Science for Global Health. Springer Nature.\n\n\nDavis, Fred D. 1989. “Perceived Usefulness, Perceived Ease of Use, and User Acceptance of Information Technology.” MIS Quarterly, 319–40.\n\n\nDavis, Fred D, and Viswanath Venkatesh. 1996. “A Critical Assessment of Potential Measurement Biases in the Technology Acceptance Model: Three Experiments.” International Journal of Human-Computer Studies 45 (1): 19–45.\n\n\nGesicho, Milka, and Ankica Babic. 2022. “Designing a Dashboard for HIV-Data Reporting Performance by Facilities: Case Study of Kenya.” In Advances in Informatics, Management and Technology in Healthcare, 238–41. IOS Press.\n\n\nHaug, Severin, Raquel Paz Castro, Urte Scholz, Tobias Kowatsch, Michael Patrick Schaub, Theda Radtke, et al. 2020. “Assessment of the Efficacy of a Mobile Phone–Delivered Just-in-Time Planning Intervention to Reduce Alcohol Use in Adolescents: Randomized Controlled Crossover Trial.” JMIR mHealth and uHealth 8 (5): e16937.\n\n\nKay, Misha, Jonathan Santos, Marina Takane, et al. 2011. “mHealth: New Horizons for Health Through Mobile Technologies.” World Health Organization 64 (7): 66–71.\n\n\nKim, Hye Min, Yusi Xu, and Yunwen Wang. 2022. “Overcoming the Mental Health Stigma Through m-Health Apps: Results from the Healthy Minds Study.” Telemedicine and e-Health 28 (10): 1534–40.\n\n\nMaha, Chukwudi Cosmos, Tolulope Olagoke Kolawole, and Samira Abdul. 2024. “Transforming Mental Health Care: Telemedicine as a Game-Changer for Low-Income Communities in the US and Africa.” GSC Advanced Research and Reviews 19 (2): 275–85.\n\n\nMahmoud, Kareem, Catalina Jaramillo, and Sandra Barteit. 2022. “Telemedicine in Low-and Middle-Income Countries During the COVID-19 Pandemic: A Scoping Review.” Frontiers in Public Health 10: 914423.\n\n\nMiller, Emily, Alex Michel, Prachi Singh, and Rupali Limaye. 2024. “Countering Vaccine Misinformation: Designing a Learning Resource for Healthcare Workers in Eight Countries.” Vaccine 42: 126091.\n\n\nMulawa, Marta I, A Lina Rosengren, K Rivet Amico, Lisa B Hightow-Weidman, and Kathryn E Muessig. 2021. “mHealth to Reduce HIV-Related Stigma Among Youth in the United States: A Scoping Review.” Mhealth 7: 35.\n\n\nNarasimhan, Padmanesan, Aishwarya Bakshi, Sathyapriya Kittusami, Suma Prashant, Dilip Mathai, Kasturi Bakshi, Chandini Raina MacIntyre, and Pradeep Ray. 2014. “A Customized m-Health System for Improving Tuberculosis Treatment Adherence and Follow-up in South India.” Health and Technology 4 (1): 1–10.\n\n\nNelson, Ramona, and Nancy Staggers. 2013. Health Informatics: An Interprofessional Approach. Elsevier Health Sciences.\n\n\nRivas, Homero, and Thomas Boillat. 2023. Digital Health: From Assumptions to Implementations. Springer.\n\n\nTill, Sarina, Mirriam Mkhize, Jaydon Farao, Londiwe Deborah Shandu, Livhuwani Muthelo, Toshka Lauren Coleman, Masenyani Mbombi, et al. 2023. “Digital Health Technologies for Maternal and Child Health in Africa and Other Low-and Middle-Income Countries: Cross-Disciplinary Scoping Review with Stakeholder Consultation.” Journal of Medical Internet Research 25: e42161.\n\n\nVenkatesh, Viswanath, and Fred D Davis. 2000. “A Theoretical Extension of the Technology Acceptance Model: Four Longitudinal Field Studies.” Management Science 46 (2): 186–204.\n\n\nWHO et al. 2017. Global Diffusion of eHealth: Making Universal Health Coverage Achievable: Report of the Third Global Survey on eHealth. World Health Organization.\n\n\nZhang, Yunxi, Yueh-Yun Lin, Lincy S Lal, Jennifer C Reneker, Elizabeth G Hinton, Saurabh Chandra, and J Michael Swint. 2025. “Stakeholder-Driven Multi-Stage Adaptive Real-World Theme-Oriented (SMART) Telehealth Evaluation Framework: A Scoping Review.” The Lancet Regional Health–Americas 44."
+  },
+  {
+    "objectID": "BBMS3009/System biology.html",
+    "href": "BBMS3009/System biology.html",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "",
+    "text": "Identify potential ontology databases\nAnalyze functional pathways of:\n\nChIP-Seq\nDEG\n\nDescribe basic protein-protein interaction networks"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#learning-objectives",
+    "href": "BBMS3009/System biology.html#learning-objectives",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nIdentify potential ontology databases\nAnalyze functional pathways of:\n\nChIP-Seq\nDEG\n\nDescribe basic protein-protein interaction networks"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#connecting-differences-to-pathways",
+    "href": "BBMS3009/System biology.html#connecting-differences-to-pathways",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Connecting Differences to Pathways",
+    "text": "Connecting Differences to Pathways\nMotivation\n\nIf 300 genes are differentially expressed, what kind of biological pathways are affected?\nWhat are the implications of DNA-microarray/ChIP-seq results in the clinical perspective?\n\n   \n\n\nI cannot lose weight because my genes involved in fat synthesis are upregulated compared to others."
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#need-for-an-encyclopedia",
+    "href": "BBMS3009/System biology.html#need-for-an-encyclopedia",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Need for an Encyclopedia",
+    "text": "Need for an Encyclopedia\n\nWe have databases to annotate each gene with its:\n\nLocation in the genome\nMolecular function\nBiological pathways it involves\nCo-regulated/expressed genes\nProperties"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#databases-recording-all-information",
+    "href": "BBMS3009/System biology.html#databases-recording-all-information",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Databases Recording All Information",
+    "text": "Databases Recording All Information\n\n\nKyoto Encyclopedia of Genes and Genomes (KEGG)\n\nIntegrates genomic, biological pathway, disease, and drug information\nPathway maps depict molecular interaction networks including metabolic, signaling, and genetic information pathways.\n\n\nGene Ontology (GO)\n\nGO is a standardized, hierarchical ontology for annotating gene products across species\nAnnotates from three perspectives:\n\nBiological process\n\nCellular component\nMolecular functions"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#example-of-kegg-pathways",
+    "href": "BBMS3009/System biology.html#example-of-kegg-pathways",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Example of KEGG Pathways",
+    "text": "Example of KEGG Pathways\n\n\n\n\n\n\n\nInsulin Secretion Process\n\n\nExample of insulin annotation and insulin secretion process in KEGG"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#example-of-go-pathways",
+    "href": "BBMS3009/System biology.html#example-of-go-pathways",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Example of GO Pathways",
+    "text": "Example of GO Pathways\n\n\n\n\n\nGene Ontology Annotation for Insulin Secretion\n\n\n\n\n\nExample of insulin annotation and insulin secretion process in GO"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#connecting-genes-to-biological-functions",
+    "href": "BBMS3009/System biology.html#connecting-genes-to-biological-functions",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Connecting Genes to Biological Functions",
+    "text": "Connecting Genes to Biological Functions\nEnrichment Analysis Summarizes identified differences in genes associated with common functions.\n\n\n\nOverview of Enrichment Analysis Khatri, Sirota, and Butte (2012)"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#genomic-regions-enrichment-of-annotations-tool",
+    "href": "BBMS3009/System biology.html#genomic-regions-enrichment-of-annotations-tool",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Genomic Regions Enrichment of Annotations Tool",
+    "text": "Genomic Regions Enrichment of Annotations Tool\n\nMotivation: Do cis-regulatory elements associate with specific pathways?\n\n\n\n\nChIP-seq Data Visualization"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#problem-formulation",
+    "href": "BBMS3009/System biology.html#problem-formulation",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Problem Formulation",
+    "text": "Problem Formulation\n\n\n\n\n\nMotivation Example Welch et al. (2014)\n\n\n\n\nGiven a 1000 bp sequence\nFrom the existing database, 600 bp (located in the figure) is annotated with the functional path \\(\\pi\\)\nChIP-seq identified 6 enriched regions bound by protein, among them, 5 are in the annotated region \\(\\pi\\)\nQuestion: If the ChIP-Seq identified regions occur randomly, what is the probability that ChIP-Seq identified regions fall into the regulatory domain \\(\\pi\\)?"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#binomial-test",
+    "href": "BBMS3009/System biology.html#binomial-test",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Binomial Test",
+    "text": "Binomial Test\n\n\nAnalogy: You are flipping an unfair coin\n\nChance of having a head: 0.6\nTimes you flip: 6\nHeads you get: 5\n\n\nChIP-seq: Identified Region\n\nChance to be in the regulatory domain: \\(p = \\frac{\\text{Annotated length}}{\\text{Total ChIP-seq length}} = \\frac{600}{1000}\\)\nNumber of genomic regions identified: \\(n = 6\\)\nNumber of genomic regions falling into the annotated area: \\(k = 5\\)\n\nThe probability of getting exactly k heads out of n with the probability \\(p\\):\n\\[\nP(X = k) = \\binom{n}{k}(p)^k(1-p)^{n-k}\n\\]"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#back-to-our-example",
+    "href": "BBMS3009/System biology.html#back-to-our-example",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Back to Our Example",
+    "text": "Back to Our Example\n\nWe can derive the p-value (probability) to test: How likely is it to get at least \\(k\\) annotations in the regulatory region out of \\(n\\) attempts, if the ChIP-Seq peaks occur randomly?\n\n\\[\n\\text{p-value} = P(X \\geq k) = \\sum_{i=k}^{n}\\binom{n}{i}(p)^i(1-p)^{n-i}\n\\]\nIn our example, it will be\n\n\\[\nP(X\\geq 5) = \\binom{6}{5}(0.6)^5(1-0.6)^{1} +\\binom{6}{6}(0.6)^6(1-0.6)^{0}=0.23\n\\]\n\nFor a given false discovery rate (FDR, typically 0.05), if \\(\\text{p-value} &lt; FDR\\), we will say that the regulatory element is enriched in the pathway \\(\\pi\\)."
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#wrap-up-enrichment-analysis-of-a-set-of-cis-regulatory-regions",
+    "href": "BBMS3009/System biology.html#wrap-up-enrichment-analysis-of-a-set-of-cis-regulatory-regions",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Wrap-up: Enrichment Analysis of a Set of Cis-Regulatory Regions",
+    "text": "Wrap-up: Enrichment Analysis of a Set of Cis-Regulatory Regions\n\nFor a sequence with length \\(N\\) with \\(K_\\pi\\) of them annotated with pathway \\(\\pi\\)\nChIP-seq selected \\(n\\) genomic regions and \\(k_\\pi\\) of them fall into the annotation of pathway \\(\\pi\\)\n\\(p_\\pi\\) is the probability of selecting a base pair annotated with \\(\\pi\\) when selecting a single base pair uniformly from all base pairs in the genome \\[\n\\text{p-value} = P(X \\geq k_\\pi) = \\sum_{i=k_\\pi}^{n}\\binom{n}{i}(p_\\pi)^i(1-p_\\pi)^{n-i}\n\\]\nEach pathway needs to be tested once, and when testing on more than one pathway, P-value correction (e.g., Bonferroni or other methods) should be applied."
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#exercise-question",
+    "href": "BBMS3009/System biology.html#exercise-question",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Exercise Question",
+    "text": "Exercise Question\n\nOn a sequence with length \\(100\\), with \\(14\\) of them annotated with the pathway multicellular organismal development\nChIP-seq on this sequence showed that 10 enriched regions are bound by protein in older adults compared to young adults; among them, 6 fall into the annotated regions\n\nQ1 What is the p-value of the binomial test that at least 6 out of 10 fall into the annotated regions?\n\n\\[\nP(X\\geq 6) = \\sum_{i=6}^{10}\\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095\n\\]\n\nQ2 Given the p-value, is the protein enriched in the pathway multicellular organismal development at the 0.05 false discovery rate?"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#over-representation-analysis",
+    "href": "BBMS3009/System biology.html#over-representation-analysis",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Over-Representation Analysis",
+    "text": "Over-Representation Analysis\n\nMotivation: Are biological pathways enriched (over-represented) in an experimentally-derived gene list, e.g., a list of differentially expressed genes (DEGs)?\n\n\n\n\n\n\nPathway Enrichment\n\n\n\n\n\\(N\\): Background set\n\\(n\\): Differentially expressed genes\n\\(K\\): Genes in the Pathway \\(\\pi\\)\n\\(k\\): Overlapping set"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#problem-formulation-1",
+    "href": "BBMS3009/System biology.html#problem-formulation-1",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Problem Formulation",
+    "text": "Problem Formulation\nProblem Statement\n\n\n\n10,000 (\\(N\\)) genes detected in a microarray study\n\n100 (\\(M\\), G1-G4,G10001~G10096) of them belong to pathway \\(\\pi\\)\n50 (\\(n\\)) genes were differentially expressed\n\n\n\n\n\n\n\n\n\n\n\n\nDE\nNOT DE\nRow sum\n\n\n\n\nIn \\(\\pi\\)\n4(a)\n 96(b)\n100 (\\(M\\))\n\n\nNOT in \\(\\pi\\)\n46(c)\n9854(d)\n9900 (\\(N-M\\))\n\n\nColumn sum\n50 (\\(n\\))\n 9950 (\\(N-n\\))\n10000 (\\(N\\))\n\n\n\n\n\n\n\nGene\nLog2FC\nAdjusted p-value\n\n\n\n\nG1\n-2.8\n0.010\n\n\nG2\n2.6\n0.028\n\n\nG3\n2.5\n0.031\n\n\nG4\n2.4\n0.040\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nG9999\n0.1\n0.849\n\n\nG10000\n0.4\n0.733\n\n\n\n\nMissing pathways we can assume they are not DE"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#fishers-exact-test",
+    "href": "BBMS3009/System biology.html#fishers-exact-test",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Fisher’s Exact Test",
+    "text": "Fisher’s Exact Test\n\nIf \\(a:c \\geq b:d\\), then the gene set is enriched with pathway \\(\\pi\\)\nThe observation of cells follows a hypergeometric distribution\nFisher’s exact test (as one of the cells is less than 5)\nThe p-value is the probability of the table being more uneven than the observation\n\n\\[\nP = \\sum_{i=a}^M \\frac{\\binom{M}{i}\\binom{N-M}{n-i}}{\\binom{N}{n}} = 1- \\sum_{i=0}^{a-1} \\frac{\\binom{M}{i}\\binom{N-M}{n-i}}{\\binom{N}{n}}\n\\]\n\n\nSide Notes\n\n\\(a:c \\geq b:d\\) is equivalent to \\(\\frac{a}{c} \\geq \\frac{b}{d} \\text{ or } ad \\geq bc\\), so you can swap the columns and rows in the previous table\nFor any cell with a larger number, Fisher’s exact test approximates to the Chi-square test"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#back-to-our-example-1",
+    "href": "BBMS3009/System biology.html#back-to-our-example-1",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Back to Our Example",
+    "text": "Back to Our Example\n\n\\[\nP = \\sum_{i=4}^{100}\\frac{\\binom{100}{i}\\binom{9900}{50-i}}{\\binom{10000}{50}} = 1- \\sum_{i=0}^{3} \\frac{\\binom{100}{i}\\binom{9900}{50-i}}{\\binom{10000}{50}}\n= 0.0015\n\\]\n\n\nAt 5% FDR, the differentially expressed gene is enriched in the pathway \\(\\pi\\)\n\n\n\n\n\n\n\n\n\n\n\nDifferentially Expressed\nNOT Differentially Expressed\nRow Sum\n\n\n\n\nIn the pathway \\(\\pi\\)\n4\n96\n100\n\n\nNOT in the pathway \\(\\pi\\)\n46\n9854\n9900\n\n\nColumn Sum\n50\n9950\n10000"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#wrap-up-ora",
+    "href": "BBMS3009/System biology.html#wrap-up-ora",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Wrap-up: ORA",
+    "text": "Wrap-up: ORA\n\nBackground gene list with size \\(N\\),\nPathway gene list \\(M\\)\nWithin the background gene list, \\(n\\) are differentially expressed and \\(a\\) of them are in the pathway\n\n\\[\nP = \\sum_{i=a}^M \\frac{\\binom{M}{i}\\binom{N-M}{n-i}}{\\binom{N}{n}} = 1- \\sum_{i=0}^{a-1} \\frac{\\binom{M}{i}\\binom{N-M}{n-i}}{\\binom{N}{n}}\n\\]\n\nEach pathway needs to be tested once, and when testing on more than one pathway, P-value correction (e.g., Bonferroni or other methods) should be applied."
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#pitfalls-of-ora",
+    "href": "BBMS3009/System biology.html#pitfalls-of-ora",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Pitfalls of ORA",
+    "text": "Pitfalls of ORA\n\nArbitrary cutoff of the interested gene list\nCannot determine the regulation direction:\n\nDownregulation\nUpregulation\n\nEven deeper consideration:\n\nGene expressions are not independent events"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#exercise-question-1",
+    "href": "BBMS3009/System biology.html#exercise-question-1",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Exercise Question",
+    "text": "Exercise Question\n\n\nConsider a genome with 30 genes, where the functional pathway “PATH_X” contains 5 genes {G1, G2, G3, G4, G5}. 10 are differentially expressed genes in males, with Log2 fold change (Log2FC) and adjusted p-values as follows\nQ1 Derive the contingency table for the study above to conduct over-representation analysis. use \\(p&lt;0.05\\) as selection criteria\nQ2 What is the p-value for the over-representation analysis\n\n\n\n\nGene\nLog2FC\nAdjusted p-value\n\n\n\n\nG1\n-2.2\n0.049\n\n\nG2\n-2.3\n0.049\n\n\nG3\n-2.8\n0.010\n\n\nG4\n2.3\n0.049\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nG30\n2.4\n0.033"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#solution",
+    "href": "BBMS3009/System biology.html#solution",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Solution",
+    "text": "Solution\n\n\nQ1\n\n\n\n\n\n\n\n\n\nDE\nNOT DE\n\n\n\n\nIn the pathway\n4\n1\n\n\nNOT in the pathway\n6\n19\n\n\n\n\nQ2\n\n\\[\\begin{aligned}\nP & = \\sum_{i=4}^5 \\frac{\\binom{5}{i}\\binom{25}{10-i}}{\\binom{30}{10}} \\\\\n& = \\frac{\\binom{5}{4}\\binom{25}{10-4}}{\\binom{30}{10}}+ \\frac{\\binom{5}{5}\\binom{25}{10-5}}{\\binom{30}{10}} =0.03124 \\\\\n& = 1-\\sum_{i=0}^3 \\frac{\\binom{5}{i}\\binom{25}{10-i}}{\\binom{30}{10}} \\\\\n& = 1 - \\biggl(\n\\frac{\\binom{5}{0}\\binom{25}{10-0}}{\\binom{30}{10}}+ \\frac{\\binom{5}{1}\\binom{25}{10-1}}{\\binom{30}{10}} \\\\\n&+\n\\frac{\\binom{5}{2}\\binom{25}{10-2}}{\\binom{30}{10}}+ \\frac{\\binom{5}{3}\\binom{25}{10-3}}{\\binom{30}{10}}\\biggr) =0.03124\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#functional-class-scoring",
+    "href": "BBMS3009/System biology.html#functional-class-scoring",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Functional Class Scoring",
+    "text": "Functional Class Scoring\n\nMotivation: Genes in the same pathway are usually co-expressed together, but they do not necessarily pass the DEGs threshold selection."
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#gene-set-enrichment-analysis-gsea",
+    "href": "BBMS3009/System biology.html#gene-set-enrichment-analysis-gsea",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Gene Set Enrichment Analysis (GSEA)",
+    "text": "Gene Set Enrichment Analysis (GSEA)\n\n\n\nSort genes (by log fold change)\nCalculate running sum from the sorted gene list:\n\nIncrease while in the pathway\nDecrease while not in the pathway\n\nFind the maximum running sum\nPermute the label to calculate p-value\n\n\n\n\n\nIllustration of GSEA Subramanian et al. (2005); Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#calculate-running-sum",
+    "href": "BBMS3009/System biology.html#calculate-running-sum",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Calculate Running Sum",
+    "text": "Calculate Running Sum\nConsider our gene set with size \\(N\\), and the pathway \\(\\pi\\) has \\(M\\) genes in it.\n\nInitial running sum of enrichment score is \\(ES_0 = 0\\), the denominator \\(N_R=\\sum |r_j|\\), where \\(r_j\\) is the log fold change of genes that are in the pathway \\(\\pi\\)\nGoing through the ordered gene \\(n_i\\) list, do:\n\nIf gene \\(n_i\\) is in the list, \\(ES_i = ES_{i-1} + \\frac{|r_j|}{N_R}\\)\nIf gene \\(n_i\\) is NOT in the list, \\(ES_i = ES_{i-1} - \\frac{1}{N - M}\\)\n\n\nThe final enrichment score is \\(ES = \\max(|ES_i|)\\)\nIf DEG missed some genes in the Path !? :\n\nAs long as \\(N&gt;M\\) you can still use the same formula."
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#calculating-p-values",
+    "href": "BBMS3009/System biology.html#calculating-p-values",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Calculating P-values",
+    "text": "Calculating P-values\nPermutation Test: Randomly shuffle the gene label for each expression level for \\(k\\) times and plot the \\(ES\\) distribution for these \\(k\\) permutations, and the p-value will be\n\\[\n\\small\n\\text{P-value} = \\frac{\\text{# of times} ES \\geq ES_o}{k}\n\\]\n\n\n\nOriginal results\n\n\nGene\nLog2FC\n\n\n\n\nG1\n2.3\n\n\nG2\n0.7\n\n\nG3\n2.6\n\n\nG4\n1.4\n\n\nG5\n1.2\n\n\nG6\n0.1\n\n\n\n\n\nPermutation\n\n\nGene\nLog2FC\n\n\n\n\nG4\n2.3\n\n\nG2\n0.7\n\n\nG6\n2.6\n\n\nG1\n1.4\n\n\nG5\n1.2\n\n\nG3\n0.1\n\n\n\n\n\nPermutation 2\n\n\nGene\nLog2FC\n\n\n\n\nG4\n2.3\n\n\nG1\n0.7\n\n\nG6\n2.6\n\n\nG2\n1.4\n\n\nG3\n0.1\n\n\nG5\n0.6"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#example",
+    "href": "BBMS3009/System biology.html#example",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Example",
+    "text": "Example\n\n\nConsider a DEG for 8 genes {G1 to G8}, where the functional pathway “PATH_A” contains 4 genes {G1, G2, G3, G4}. With the readings on the right, please calculate the enrichment score of PATH_A on this array.\n\n\n\n\nGene\nLog2FC\n\n\n\n\nG1\n2.3\n\n\nG2\n0.7\n\n\nG3\n2.6\n\n\nG4\n1.4\n\n\nG5\n1.2\n\n\nG6\n0.1\n\n\nG7\n0.3\n\n\nG8\n0.6"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#example-1",
+    "href": "BBMS3009/System biology.html#example-1",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Example",
+    "text": "Example\n\n\n\n\n\n\n\n\n\n\n\nRank\nGene\nHit/Miss\nScore\n\n\n\n\n1\nG3\nHit\n2.6/7\n\n\n2\nG1\nHit\n2.3/7\n\n\n3\nG4\nHit\n1.4/7\n\n\n4\nG5\nMiss\n-1/4\n\n\n5\nG2\nHit\n0.7/7\n\n\n6\nG8\nMiss\n-1/4\n\n\n7\nG7\nMiss\n-1/4\n\n\n8\nG6\nMiss\n-1/4\n\n\n\n\n\nScore deducted if the gene is not in the pathway 1/(8-4)\nNormalized term (\\(N_R\\)) if the gene is in the pathway: 2.6+2.3+1.4+0.7=7\nES\n\n\n\\[\\begin{aligned}\nES & = \\\\\n  & \\frac{2.6}{7} + \\frac{2.3}{7} + \\frac{1.4}{7} \\\\\n  & =0.9\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#example-2",
+    "href": "BBMS3009/System biology.html#example-2",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Example 2",
+    "text": "Example 2\n\n\nConsider a DEG for 8 genes {G1 to G8}, where the functional pathway “PATH_B” contains 5 genes {G1, G2, G3, G4, G5}. With the readings on the right, please calculate the enrichment score of PATH_A on this array.\n\n\n\n\nGene\nLog2FC\n\n\n\n\nG1\n-2.0\n\n\nG2\n-0.1\n\n\nG3\n-2.3\n\n\nG4\n-1.7\n\n\nG5\n-0.9\n\n\nG6\n0.1\n\n\nG7\n0.3\n\n\nG8\n0.6"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#example-2-1",
+    "href": "BBMS3009/System biology.html#example-2-1",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Example 2",
+    "text": "Example 2\n\n\n\n\n\n\n\n\n\n\n\nRank\nGene\nHit/Miss\nScore\n\n\n\n\n1\nG8\nHit\n-1/3\n\n\n2\nG7\nHit\n-1/3\n\n\n3\nG6\nHit\n-1/3\n\n\n4\nG2\nMiss\n0.1/7\n\n\n5\nG5\nHit\n0.9/7\n\n\n6\nG4\nMiss\n1.7/4\n\n\n7\nG1\nMiss\n2/4\n\n\n8\nG3\nMiss\n2.3/4\n\n\n\n\n\nScore deducted if the gene is not in the pathway: 1/(8-5)\nNormalized term (\\(N_R\\)) if the gene is in the pathway 2+0.1+2.3+1.7+0.9=7\nES\n\n\n\\[\\begin{aligned}\nES & = \\\\\n  & |\\frac{-1}{3}| + |\\frac{-1}{3}| + |\\frac{-1}{3}| \\\\\n  & = 1\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#comparison-of-ora-and-gsea",
+    "href": "BBMS3009/System biology.html#comparison-of-ora-and-gsea",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Comparison of ORA and GSEA",
+    "text": "Comparison of ORA and GSEA\n\n\nORA\n\nA hard threshold\nProvides a list of interested genes instead of DEG result\n\n\nGSEA\n\nA soft threshold\nNeeds a DEG result\nComputationally expensive\nCan determine the regulation direction\n\nDifferent results in ORA and GSEA might implies subtle difference at the boundary of arbitrary cut-off (i.e. some genes with p-value like 0.051)"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#complexity-of-interactions",
+    "href": "BBMS3009/System biology.html#complexity-of-interactions",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Complexity of Interactions",
+    "text": "Complexity of Interactions\nIn reality, proteins can interact together, and it’s more complex than what we’ve seen in KEGG.\n\n\n\n\n\n\nSimplified Insulin Pathway\n\n\n\n\n\nComplex Insulin Pathway\n\n\n\n\nReasons\n\nProteins could interact with each other in other pathways (e.g., some interactions can be related to insulin resistance but not insulin secretion, so KEGG does not show it)\nScientific advancements and experiments:\n\nGene co-expression\nCo-occurrence"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#getting-networks",
+    "href": "BBMS3009/System biology.html#getting-networks",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Getting Networks",
+    "text": "Getting Networks\nGetting Protein-Protein Interaction (PPI) Network\nSTRING: A database to document interactions between proteins\n\nInteractions:\n\nPhysical and functional associations\n\nSources:\n\nComputational prediction\nKnowledge transfer between organisms\nDatabases\n\n\nDefinition of the Network\n\\[\\begin{equation*}\n\\begin{split}\n    G&=(V,E) \\\\\n    V&=\\text{All the nodes (Proteins)}\\\\\n    E&=\\{(s,e)\\} \\quad \\text{All the edges from s to e (interactions between two)}\n\\end{split}\n\\end{equation*}\\]"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#importance-of-a-node",
+    "href": "BBMS3009/System biology.html#importance-of-a-node",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Importance of a Node",
+    "text": "Importance of a Node\n\n\n\n\n\nSTRING Protein-Protein Interaction Network for Color Blindness\n\n\n\nDegree\n\nAn intuitive measurement of the importance of a node\nNumber of edges connected to the node\n\n\\[\\begin{equation*}\n    \\text{Degree(i)}=\\sum_{j=0}^{\\vert N\\vert}e_{ij}\n\\end{equation*}\\]\nDegree of:\n\nGNAT2: 7\nTEX28: 2"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#local-community-of-a-network",
+    "href": "BBMS3009/System biology.html#local-community-of-a-network",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Local Community of a Network",
+    "text": "Local Community of a Network\n\n\n\n\n\nSTRING Protein-Protein Interaction Network for Color Blindness\n\n\n\nClustering Coefficient\n\nHow many friends of friends are also my friends (Triangles)\n\n\\[\\begin{equation*}\n\\begin{split}\n        \\text{Clustering coefficient(i)}&=\\frac{L_i}{\\frac{k_i(k_i-1)}{2}}\\\\\n        &=\\frac{2L_i}{k_i(k_i-1)}\n\\end{split}\n\\end{equation*}\\]\n\n\\(L_i\\): Number of triangles including node \\(i\\)\n\\(k_i\\): Number of nodes connected to node \\(i\\)\n\nClustering coefficient of:\n\nGNAT2: \\(\\frac{7*2}{7*6}=0.33\\), TEX28: \\(0\\)"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#why-they-are-important",
+    "href": "BBMS3009/System biology.html#why-they-are-important",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Why They Are Important",
+    "text": "Why They Are Important\n\n\nDegree\n\nImportance of a protein\nIdentifying potential drug targets\n\n\nClustering Coefficient\n\nIdentifies potential clusters (sub-functions)\nIdentifying potential drug targets"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#application-of-ppi",
+    "href": "BBMS3009/System biology.html#application-of-ppi",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Application of PPI",
+    "text": "Application of PPI\n\nExploring disease mechanisms\nDrug discovery\n\n\n\n\nApplication of PPI"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#wrap-up",
+    "href": "BBMS3009/System biology.html#wrap-up",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Wrap Up",
+    "text": "Wrap Up\n\nConnecting sequencing results to more informative clinical information:\n\nEnrichment in ChIP-Seq and DEG\nPPI"
+  },
+  {
+    "objectID": "BBMS3009/System biology.html#bibliography-notes",
+    "href": "BBMS3009/System biology.html#bibliography-notes",
+    "title": "Bridging Genome to Function: Post-Genome Science",
+    "section": "Bibliography Notes",
+    "text": "Bibliography Notes\n\n\n\n\nKhatri, Purvesh, Marina Sirota, and Atul J Butte. 2012. “Ten Years of Pathway Analysis: Current Approaches and Outstanding Challenges.” PLoS Computational Biology 8 (2): e1002375.\n\n\nSubramanian, Aravind, Pablo Tamayo, Vamsi K Mootha, Sayan Mukherjee, Benjamin L Ebert, Michael A Gillette, Amanda Paulovich, et al. 2005. “Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.” Proceedings of the National Academy of Sciences 102 (43): 15545–50.\n\n\nWelch, Ryan P, Chee Lee, Paul M Imbriano, Snehal Patil, Terry E Weymouth, R Alex Smith, Laura J Scott, and Maureen A Sartor. 2014. “ChIP-Enrich: Gene Set Enrichment Testing for ChIP-Seq Data.” Nucleic Acids Research 42 (13): e105–5."
   }
 ]

@@ -24,7 +24,7 @@ This question set focuses on data manipulation with the mtcars dataset, includin
 
 First, we load mtcars data
 
-```{r}
+```{webr}
 data <- mtcars
 data
 ```
@@ -38,7 +38,7 @@ You can use either:
 
 2.  the way we did it during the lecture.
 
-```{r}
+```{webr}
 
 ```
 
@@ -65,7 +65,7 @@ Each time, one car is the test data, and the rest are used for training.
 
 Please use the first 31 rows as training data and the 32nd row as testing data, and call the function `train_n_predict` that Ray wrote to provide a probability and save it in `data$predict[32]` (because we used the 32nd row as the test data).
 
-```{r}
+```{webr}
 
 train_n_predict <- function(train_data, test_data) {
     # Input:
@@ -97,7 +97,7 @@ And so on, for all 32 entries.
 
 and remember to store the test result in `data$predict` (i.e., if the test data is the 1st row of the data, then `data$predict[1] <- train_n_predict(data[-1,], data[1,])`).
 
-```{r}
+```{webr}
 
 
 ```
@@ -110,7 +110,7 @@ Therefore, if `data$predict > 0.5`, we can guess it is manual, and if `data$pred
 
 Based on this idea, create a new column `data$p_class` with factor data type, where if `data$predict >= 0.5` it shall be `manual` (original label of manual car) and `automatic` if `data$predict < 0.5`.
 
-```{r}
+```{webr}
 
 ```
 
@@ -124,7 +124,7 @@ $$
 }{\text{Total test samples}}
 $$
 
-```{r}
+```{webr}
 
 ```
 
