@@ -6,15 +6,14 @@ website:
     left:
       - href: about.qmd
         text: Home
-      - href: courses.qmd
-        text: Courses
       - text: Courses
         menu:
-        - text: "BBMS1021 Introduction to AI and Biomedical Data Science" 
-          href: bbms1021_course.qmd
+        - text: Scientific computing
+          href: programming.qmd
         - text: Hybrid PBL Lectures
           href: hybridPBL.qmd
-          
+        - text: Quantitative analysis
+          href: quant.qmd          
 format:
   html:
     theme: litera
