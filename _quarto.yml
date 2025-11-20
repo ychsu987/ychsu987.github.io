@@ -8,11 +8,16 @@ website:
         text: Home
       - href: courses.qmd
         text: Courses
-      - href: bbms1021_course.qmd
-        text: Courses
+      - text: Courses
+        menu:
+        - text: "BBMS1021 Introduction to AI and Biomedical Data Science" 
+          href: bbms1021_course.qmd
+        - text: Hybrid PBL Lectures
+          href: hybridPBL.qmd
+          
 format:
   html:
-    theme: sandstone
+    theme: litera
     css: styles.css
     
 execute:

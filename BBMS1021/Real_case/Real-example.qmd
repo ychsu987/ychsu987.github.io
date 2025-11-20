@@ -2,7 +2,6 @@
 title: "Real Example of Data Processing and Exploratory Data Analysis with R"
 format: 
   live-html:
-    theme: custom.scss
     df-print: kable 
     toc: true
     toc-depth: 3

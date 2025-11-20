@@ -1,12 +1,27 @@
 ---
 title: BBMS1021 Introduction to AI and Biomedical Data Science
 listing:
-    id: lecture-listings
-    contents: [BBMS1021\ggplot2_intro\introduction_to_ggplot2.qmd, BBMS1021\Real_case\Real-example.qmd]
+    - id: lecture
+      contents: 
+        - BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd
+        - BBMS1021/Real_case/Real-example.qmd
+      fields: [title]
+    - id: tutorial
+      contents: 
+        - BBMS1021/tutorial/*.qmd
+      fields: [title]
 ---
 
-You can review the following documents for additional information:
+This is an introductory R programming course for biomedical science students to familiar with tidyverse packages.
 
+## Lecture materials
 
-::: {#lecture-listings}
+::: {#lecture}
+:::
+
+The tutorial questions cover basic R programming techniques and data manipulation.
+
+## Tutorial materials
+
+::: {#tutorial}
 :::

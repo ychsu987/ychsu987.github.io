@@ -1,0 +1,17 @@
+---
+title: Hybrid PBL Lectures
+listing:
+    - id: lecture
+      contents: 
+        - BIOF3001/suicide-media-slides.qmd
+        - BIOF4002/Global health informatics.qmd
+        - BIOF4002/mHealth and telemedicine.qmd
+      fields: [title]
+---
+
+I teach several hybrid PBL courses in bioinformatics/public health.  
+
+## Lecture materials
+
+::: {#lecture}
+:::

@@ -17,7 +17,12 @@ lightbox: true
 
 # Introduction to ggplot2
 
-In this chapter, we introduce **ggplot2**, a powerful plotting library in R for creating elegant and complex visualizations. We will guide you through the basics of ggplot2, including its grammar of graphics approach, and demonstrate how to create various types of plots.
+![ggplot2 logo](img/Ggplot2_hex_logo.svg){.preview-images width=100}
+
+
+In this chapter, we introduce **ggplot2**, a powerful plotting library in R for creating elegant and complex visualizations. We will guide you through the basics of ggplot2, including its grammar of graphics approach, and demonstrate how to create various types of plots. 
+
+
 
 ## What is ggplot2?
 

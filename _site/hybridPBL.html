@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Yu Cheng Hsu</title>
+<title>Hybrid PBL Lectures – Yu Cheng Hsu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,10 +30,13 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -66,7 +69,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-lecture .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-lecture'] = new List('listing-lecture', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -89,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -104,10 +165,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./bbms1021_course.html">
  <span class="dropdown-text">BBMS1021 Introduction to AI and Biomedical Data Science</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./hybridPBL.html">
- <span class="dropdown-text">Hybrid PBL Lectures</span></a>
   </li>  
     </ul>
   </li>
@@ -124,31 +181,83 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla page-columns page-full">
-  <img src="img/bio.jpeg" class="about-image
-  round " style="height: 10em; width: 10em;">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Yu Cheng Hsu</h1>
+<h1 class="title">Hybrid PBL Lectures</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header><main class="content page-columns page-full" id="quarto-document-content">
-<section id="about" class="level1 column-page">
-<h1>About</h1>
-<p>I’m currently a lecturer in bioinformatics at the University of Hong Kong. I teach fundamental biostatistics, bioinformatics, and machine learning courses. Prior to my current position, I worked at the HKJC Centre for Suicide Research and Prevention at the University of Hong Kong. By training, I am a data scientist and industrial engineer. I specialize in analyzing and leveraging data and technology to promote mental health at both individual and population levels.</p>
-<section id="contact" class="level2">
-<h2 data-anchor-id="contact">Contact</h2>
-<p>For inquiries or to contribute materials, please contact us at <a href="mailto:ychsu@hku.hk">ychsu@hku.hk</a>.</p>
+  
 
 
-</section>
-</section>
-</main>  
+</header>
+
+
+<p>I teach several hybrid PBL courses in bioinformatics/public health.</p>
+<section id="lecture-materials" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-materials">Lecture materials</h2>
+<div id="listing-lecture" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1757835136492" data-listing-reading-time-sort="5" data-listing-word-count-sort="978">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./BIOF4002/Global health informatics.html" class="no-external">Global Health Informatics and Visualization</a>
+</h3>
 </div>
- <!-- /main -->
+<div class="metadata">
+<a href="./BIOF4002/Global health informatics.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1757839461778" data-listing-reading-time-sort="5" data-listing-word-count-sort="975">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./BIOF4002/mHealth and telemedicine.html" class="no-external">Health technologies in the global health context</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="./BIOF4002/mHealth and telemedicine.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1759159402720" data-listing-reading-time-sort="15" data-listing-word-count-sort="2880">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./BIOF3001/suicide-media-slides.html" class="no-external">Media Reporting and Suicide</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="./BIOF3001/suicide-media-slides.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

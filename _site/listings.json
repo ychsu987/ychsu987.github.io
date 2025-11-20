@@ -3,7 +3,18 @@
     "listing": "/bbms1021_course.html",
     "items": [
       "/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
-      "/BBMS1021/Real_case/Real-example.html"
+      "/BBMS1021/Real_case/Real-example.html",
+      "/BBMS1021/tutorial/tutorial_1.html",
+      "/BBMS1021/tutorial/tutorial_2.html",
+      "/BBMS1021/tutorial/tutorial_3.html"
+    ]
+  },
+  {
+    "listing": "/hybridPBL.html",
+    "items": [
+      "/BIOF4002/Global health informatics.html",
+      "/BIOF4002/mHealth and telemedicine.html",
+      "/BIOF3001/suicide-media-slides.html"
     ]
   }
 ]
