@@ -8,6 +8,8 @@ website:
         text: Home
       - href: courses.qmd
         text: Courses
+      - href: bbms1021_course.qmd
+        text: Courses
 format:
   html:
     theme: sandstone

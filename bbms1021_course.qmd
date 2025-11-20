@@ -1,0 +1,12 @@
+---
+title: BBMS1021 Introduction to AI and Biomedical Data Science
+listing:
+    id: lecture-listings
+    contents: [BBMS1021\ggplot2_intro\introduction_to_ggplot2.qmd, BBMS1021\Real_case\Real-example.qmd]
+---
+
+You can review the following documents for additional information:
+
+
+::: {#lecture-listings}
+:::
