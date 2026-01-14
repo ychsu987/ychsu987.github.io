@@ -2,6 +2,7 @@
 title: "Yu Cheng Hsu"
 
 about:
+    id: headingtop
     template: jolla
     image: img/bio.jpeg
     image-width: 10em
@@ -11,10 +12,28 @@ about:
       href: mailto:ychsu@hku.hk
 ---
 
-::: {.column-page}
+:::{#headingtop}
 
 
-I'm a lecturer in bioinformatics at the University of Hong Kong. I teach fundamental biostatistics, bioinformatics, and machine learning courses. Prior to my current position, I worked at the HKJC Centre for Suicide Research and Prevention at the University of Hong Kong. By training, I am a data scientist and industrial engineer. I specialize in analyzing and leveraging data and technology to promote mental health at both individual and population levels. 
+I'm a lecturer in bioinformatics at the University of Hong Kong. I teach fundamental biostatistics, bioinformatics, and machine learning courses. 
 
+My research focus on translatiing healthcare problems into quantifiable measurement and actions. I have a wide range capability in psychometrics, statistical machine learning, language processing and network science. Given these tools, I try to find the best modeling method to address the healthcare context.
 
 :::
+
+## Experience
+
+|  | |  |
+|-----|-----|-------|
+| Lecturer | School of Biomedical Science, University of Hong Kong | Current |
+| Research Assistant Progrssor | HKJC Centre for Suicide Research and Prevention, University of Hong Kong | 2023-2025 |
+| Post-doctoral fellow | HKJC Centre for Suicide Research and Prevention, University of Hong Kong | 2022-2023 |
+
+## Education
+
+
+| |  | |  |
+|-----|-----|-----|-------|
+| Data science | Ph.D.  | City University of Hong Kong | 2022 |
+| Industrial engineering | BEng | City University of Hong Kong  | 2017 |
+

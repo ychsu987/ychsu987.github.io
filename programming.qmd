@@ -1,5 +1,5 @@
 ---
-title: BBMS1021 Introduction to AI and Biomedical Data Science
+title: Scientific computing
 listing:
     - id: lecture
       contents: 
@@ -12,16 +12,18 @@ listing:
       fields: [title]
 ---
 
-This is an introductory R programming course for biomedical science students to familiar with tidyverse packages.
+I teach several fundamental computing modules
 
-## Lecture materials
+## BBMS1021 Introduction to AI and Biomedical Data Science
+
+### Lecture materials
 
 ::: {#lecture}
 :::
 
 The tutorial questions cover basic R programming techniques and data manipulation.
 
-## Tutorial materials
+### Tutorial materials
 
 ::: {#tutorial}
 :::

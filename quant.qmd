@@ -8,7 +8,7 @@ listing:
       fields: [title]
 ---
 
-## Lecture materials
+## BBMS3009 Genome Science
 
 ::: {#lecture}
 :::

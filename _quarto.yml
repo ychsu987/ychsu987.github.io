@@ -16,8 +16,7 @@ website:
           href: quant.qmd          
 format:
   html:
-    theme: litera
-    css: styles.css
+    theme: lux
     
 execute:
   freeze: auto
