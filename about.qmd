@@ -3,9 +3,9 @@ title: "Yu Cheng Hsu"
 
 about:
     id: headingtop
-    template: jolla
+    template: trestles
     image: img/bio.jpeg
-    image-width: 10em
+    image-width: 15em
     links:
     - icon: envelope
       text: Mail
@@ -19,9 +19,8 @@ I'm a lecturer in bioinformatics at the University of Hong Kong. I teach fundame
 
 My research focus on translatiing healthcare problems into quantifiable measurement and actions. I have a wide range capability in psychometrics, statistical machine learning, language processing and network science. Given these tools, I try to find the best modeling method to address the healthcare context.
 
-:::
 
-## Experience
+### Experience
 
 |  | |  |
 |-----|-----|-------|
@@ -36,4 +35,8 @@ My research focus on translatiing healthcare problems into quantifiable measurem
 |-----|-----|-----|-------|
 | Data science | Ph.D.  | City University of Hong Kong | 2022 |
 | Industrial engineering | BEng | City University of Hong Kong  | 2017 |
+
+
+:::
+
 

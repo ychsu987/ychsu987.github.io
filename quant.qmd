@@ -1,14 +1,40 @@
 ---
 title: Quantitative analysis
 listing:
-    - id: lecture
+    - id: 3009lecture
       contents: 
         - BBMS3009/System biology.qmd
-
+      fields: [title, image]
+      type: default
+    - id: 2014lecture
+      contents: 
+        - BIOF2014/0-Housekeeping.qmd
+        - BIOF2014/1-distribution.qmd
+      fields: [title, subtitle, image]
+      type: default
+    - id: 2014tutorial
+      contents: 
+        - BIOF2014/1-Question sets-discrete.qmd
       fields: [title]
+      type: default
+
 ---
 
 ## BBMS3009 Genome Science
 
-::: {#lecture}
+::: {#3009lecture}
+:::
+
+
+## BIOF2014 Statistical Modelling for Bioinformatics
+
+
+::: {#2014lecture}
+
+:::
+
+### Tutorial questions
+
+::: {#2014tutorial}
+
 :::
