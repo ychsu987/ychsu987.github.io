@@ -5,12 +5,18 @@ format:
     toc: true
     html-math-method: katex
     css: [solution_view.scss]
+  revealjs:
+    output-file: 1-Question sets_presentation.html
+    theme: [default, student_view.scss]
+    slide-number: true
+    reference-location: margin
+    chalkboard: true
+format-links: true
 engine: knitr 
 bibliography: ref.bib
 ---
 
-
-## Question 1
+## Question 1 {.smaller}
 
 Given $X \sim \text{Uniform}(a, b)$, 
 
@@ -31,10 +37,11 @@ $$
 $$
 :::
 
+## {.smaller}
+
 2. Please show that $\text{VAR}(X) = \frac{(b-a)^2}{12}$
 
 :::{.hide}
-
 $$
 \begin{align*}
 \mathrm{Var}(X) &= \int_a^b \left( x - \frac{1}{2} (a+b) \right)^2 \cdot \frac{1}{b-a} \, \mathrm{d}x 
@@ -47,6 +54,8 @@ $$
 $$
 
 :::
+
+## {.smaller}
 
 3. Please show that the CDF is:
 $$  
@@ -84,6 +93,8 @@ $$
 
 :::
 
+## {.smaller}
+
 4. Please show that $\mathbb{E}[(X - \mathbb{E}(X))^3] = 0$
 
 
@@ -101,7 +112,7 @@ $$
 :::
 
 
-## Question 2 
+## Question 2 {.smaller}
 
 For a given empirical distribution
 
@@ -124,6 +135,8 @@ $$
 
 :::
 
+## {.smaller}
+
 2. Please show that the empirical distribution fulfills the unit measure condition
 
 :::{.hide}
@@ -135,7 +148,7 @@ $$
 
 :::
 
-## Question 3
+## Question 3 {.smaller}
 
 Given $X \sim \text{Uniform}(a, b)$, and for any numbers $u, v, w$ where $a < u < v < w < b$ and $v - u = w - v = c$, please show that:
 
@@ -151,7 +164,7 @@ $$
 $$
 :::
 
-## Question 4
+## Question 4 {.smaller}
 
 Hoo Hey How (魚蝦蟹) is a traditional Southern Chinese dice game rooted in Hokkien culture and popularly played during festivals like Chinese New Year. Using three six-sided dice marked with symbols—typically fish, prawn, crab, gourd, rooster, and stag. Players place bets on a board featuring these icons. After the dice are rolled, payouts are awarded based on how many times a chosen symbol appears: 1:1 for one match, 2:1 for two, and 3:1 for three. This game is also popular in Vietnam called Bầu Cua Cá Cọp and Cambodia called Klah Klok.
 
@@ -164,6 +177,8 @@ Suppose that you bet 1 dollar on Crab. Let $X$ denote the money you win (negativ
 :::{.hide}
 $-1,1,2,3$
 :::
+
+## {.smaller}
 
 2. What is the probability mass function (pmf) of X
 
@@ -187,6 +202,8 @@ $$
 :::
 
 
+---
+
 3. What is the cumulative distribution function (CDF) of X?
 
 :::{.hide}
@@ -208,7 +225,7 @@ F(x) \begin{cases}
 $$
 ::: 
 
-## Question 5
+## Question 5 {.smaller}
 
 “Pig” is a simple dice game in which two players take turns to roll a six-sided die, according to the following rule
 
@@ -219,6 +236,8 @@ it becomes the opponent’s turn.
 - The first player who scores 100 or more points wins
 
 A simple tactic at the early stage of the game is called “hold at k strategy”, with which one should continue to roll whenever the turn total is less than k. What would be the wise choice on the value of k?
+
+## {.smaller}
 
 1. Given the current turn total is $s$ what is the expected gain of rolling 
 
@@ -236,7 +255,7 @@ $$
 
 :::
 
-## Question 6: Birthday Problem
+## Question 6: Birthday Problem {.smaller}
 
 What is the probability that at least two people share the same birthday in the classroom with size of 20 ?
 
@@ -245,7 +264,7 @@ When we examined this problem previously, we assumed:
 - 365 days in a year
 - Every birthday is equally likely to happen
 
-
+## {.smaller}
 1. Assuming each individual's birthday is independent and equally likely to occur on any day, what is the potential distribution of everyone's birthday?
 
 
@@ -253,6 +272,7 @@ When we examined this problem previously, we assumed:
 Uniform distribution (Either continuous and discrete is fine in this case)
 :::
 
+## {.smaller}
 2. What is the probability of all student's birthday are different? 
 
 :::{.hide}
@@ -261,7 +281,7 @@ $$
 $$
 :::
 
-
+## {.smaller}
 3. What is the probability that at least two people share the same birthday in the classroom with size of 20 ?
 
 :::{.hide}
@@ -270,7 +290,7 @@ $$
 $$
 :::
 
-
+## {.smaller}
 However, these assumptions are unrealistic. Let's refine our model by 
 using real world data.
 
@@ -283,7 +303,7 @@ from 1995 to 2024. We can download it with
 curl -o uk-daily-births.csv \
 https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv
 ```
-
+## {.smaller}
 So, let's use this data to construct the empirical 
 probability mass function (pmf).
 Then, we can re-estimate the probability that two people share the same
@@ -324,9 +344,8 @@ p1 <- ggplot(data, aes(x = date_parsed, y = average)) +
 p1
 ```
 
-
-2. Construct the empirical pmf that a person
-   is born on each day within a year.
+## {.smaller}
+2. Construct the empirical pmf that a person is born on each day within a year.
 
 ```{r}
 
@@ -335,7 +354,9 @@ p1
 
 data <- data %>% mutate(pmf_weight=average/sum(average) # Total births in the whole period
 )
+```
 
+```{r}
 # Verify it sums to 1
 cat("PMF sums to:", sum(data$pmf_weight), "\n")
 
@@ -349,7 +370,9 @@ ggplot(data, aes(x = date_parsed, y = pmf_weight)) +
   theme_minimal()
 ```
 
-1. Implement a simulation that generates 20 people their  birthday based on the empirical pmf.
+## {.smaller}
+3. Implement a simulation that generates 20 people their  birthday based on the empirical pmf.
+
 
 ```{r}
 inverse_cdf <- function(u,pmf) {
@@ -357,11 +380,18 @@ inverse_cdf <- function(u,pmf) {
    day_indices<-1:366                    # day-of-year 1 … 366
    return(day_indices[which(cdf_366 >= u)[1]])   # first day where CDF exceeds u
 }
+```
+
+vectorization
+```{r}
 inverse_cdf_vec <- Vectorize(inverse_cdf,vectorize.args = 'u') # vectorization on u to facilitate speed computation
 data$date_parsed[inverse_cdf_vec(runif(20),data$pmf_weight)]
 ```
 
-3. Compare $P\left( X \ge 2 \right)$ determined using the simple uniform model 
+
+## {.smaller}
+
+4. Compare $P\left( X \ge 2 \right)$ determined using the simple uniform model 
    we used previously vs. the probability that is estimated using the 
    empirical pmf.
 
@@ -379,6 +409,7 @@ birthdays_matrix <- matrix(
     nrow = simulation_amount,
     ncol = class_size
   )
+
 
 # Step 2: Check for each simulated classroom whether at least two students
 #         share the same birthday

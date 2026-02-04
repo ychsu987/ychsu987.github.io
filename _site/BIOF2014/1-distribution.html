@@ -834,7 +834,7 @@ P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
