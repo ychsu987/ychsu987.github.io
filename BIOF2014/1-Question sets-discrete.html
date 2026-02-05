@@ -94,7 +94,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f9e6e4d29af3f5f6ee06eaf03ed5edd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -580,10 +580,10 @@ https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv</co
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.1     ✔ stringr   1.5.2
-✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.0     ✔ tibble    3.2.1
 ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.1.0     
+✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -678,10 +678,10 @@ https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv</co
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>inverse_cdf_vec <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(inverse_cdf,<span class="at">vectorize.args =</span> <span class="st">'u'</span>) <span class="co"># vectorization on u to facilitate speed computation</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>date_parsed[<span class="fu">inverse_cdf_vec</span>(<span class="fu">runif</span>(<span class="dv">20</span>),data<span class="sc">$</span>pmf_weight)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "2024-02-23" "2024-07-01" "2024-03-07" "2024-11-18" "2024-04-11"
- [6] "2024-09-23" "2024-10-09" "2024-09-20" "2024-08-12" "2024-08-20"
-[11] "2024-07-23" "2024-12-21" "2024-11-27" "2024-03-12" "2024-12-02"
-[16] "2024-03-28" "2024-08-30" "2024-04-01" "2024-04-06" "2024-08-17"</code></pre>
+<pre><code> [1] "2024-11-16" "2024-09-22" "2024-11-10" "2024-07-10" "2024-01-18"
+ [6] "2024-06-25" "2024-03-24" "2024-06-26" "2024-04-03" "2024-12-13"
+[11] "2024-01-26" "2024-12-30" "2024-11-16" "2024-02-10" "2024-12-09"
+[16] "2024-09-06" "2024-05-02" "2024-01-26" "2024-11-10" "2024-01-05"</code></pre>
 </div>
 </div>
 </section>
@@ -716,7 +716,7 @@ https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv</co
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>probability<span class="ot">=</span> <span class="fu">sum</span>(check_same_birthsday)<span class="sc">/</span>simulation_amount</span>
 <span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>probability</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4105</code></pre>
+<pre><code>[1] 0.418</code></pre>
 </div>
 </div>
 
