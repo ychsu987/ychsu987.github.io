@@ -10,6 +10,8 @@ format:
     theme: [default,student_view.scss,  general_style.scss]
     slide-number: true
     reference-location: margin
+    chalkboard:
+      src: compiled_pdf/chalkboard 2.json
 lightbox: true
 ---
 
