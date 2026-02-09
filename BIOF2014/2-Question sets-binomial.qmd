@@ -1,0 +1,134 @@
+---
+title: "Question sets"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: [student_view.scss]
+  revealjs:
+    output-file: 2-Question sets_presentation.html
+    theme: [default, student_view.scss]
+engine: knitr 
+---
+
+## Question 1 {.smaller}
+
+BIOF2014 consists of 20 multiple choice questions, with 4 choices for each question. A student goes into the examination and tries o randomly guess the answers
+It is obvious that the total correct answers the student can get follows Binomial distribution.
+
+## {.smaller}
+1. How likely can the student get **exactly** 10 correct answer?   
+
+:::{.hide}
+$$
+\text{p-value}=\binom{20}{10}0.25^{10}0.75^{10}
+$$
+:::
+
+## {.smaller}
+2. If each correct answer can get 5 marks, what is the expect grade of the student?  
+
+:::{.hide}
+$$
+\text{E}(5x)=5*20*0.25=25
+$$
+:::
+
+## Question 2 
+
+During the transportation process, The probability of an egg is cracked is 0.01
+
+## {.smaller}
+
+1. For a box of 8 eggs how likely can a box have at least one cracked egg?
+
+:::{.hide}
+$$
+P(X\geq 1) =1- P(x=0)= 1- \binom{8}{0}0.99^80.1^0=0.08
+$$
+:::
+
+## {.smaller}
+
+2. If a product quality control is checking the quality of the eggs to ensure all eggs are not cracked, and **in average** how may boxes does he need to examine to find a box with at least a cracked egg? . What will be the probability distribution to model this outcome
+
+:::{.hide}
+$$
+E(x)=\frac{1}{0.08}=12.5
+$$
+:::
+
+## {.smaller}
+
+3. A product quality control is to continuously monitoring the quality of the eggs. They would liek to have a short review of the case once they have observed 4 boxes of egg with cracks. **in average** how may boxes does he need to examine to commence the review? What will be the probability distribution to model this situation?
+
+:::{.hide}
+$$
+E(x)=\frac{4*(1-0.08)}{0.08}
+$$
+:::
+
+
+## Question 3
+
+For a $X\sim G(p)$, please show the following property
+
+$$
+P(X>s|X>t)=P(X>s-t) \quad \forall s>t
+$$
+
+:::{.hide}
+$$
+\begin{align*}
+P(X>s|X>t)&=\frac{P(X>s \text{ and } X>t)}{p(X>t)}
+=\frac{P(X>s)}{p(X>t)}\\
+&=\frac{p(1-p)^{s-1}}{p(1-p)^{t-1}} = (1-p)^{s-t}\\
+&=P(X>s-t) 
+\end{align*}
+$$
+:::
+
+
+## Question 4: Wright-Fisher Model
+
+Suppose the population size is $N=50$ diploid individuals (so the total number of alleles is $2N=100$). In the parent generation, the frequency of allele $A$ is 0.4 (meaning $n_{A0} = 40$).
+Using the formula provided in the slides, write the expression for the probability that the number of $A$ alleles in the next generation ($n_{A1}$) will remain exactly 40.
+
+
+
+:::{.hide}
+$$
+P(n_{A1}=40) = \binom{100}{40} (0.4)^{40} (0.6)^{60}
+$$
+:::
+
+## Question 5: Coalescent Theory
+
+If the effective population size $N_e = 1000$, calculate the probability that two randomly selected alleles coalesce exactly 3 generations ago ($t=3$).
+
+
+:::{.hide}
+ $$P(T=3) = (1 - 1/2000)^2 \times (1/2000)$$
+:::
+
+## Question 6: Clinical trial
+
+You are analyzing a contingency table from a clinical trial comparing a Treatment vs. a Control group. Using the Hypergeometric probability mass function, calculate the probability of observing exactly $a=4$.
+
+| | Improvement (Y) | No Improvement (Not Y) | 
+|---|---|---|
+| Treatment | $a=4$ | $b=6$ | 
+| Control | $c=2$ | $d=8$ |
+
+
+:::{.hide}
+$P(X=4) = \frac{\binom{10}{4}\binom{10}{2}}{\binom{20}{6}}$
+:::
+
+## Question 7: 
+
+why the combination term in the Negative Binomial PMF is $\binom{x-1}{r-1}$ rather than $\binom{x}{r}$
+
+:::{.hide}
+Because the last trial must be a success. Therefore, we only need to arrange the previous $r-1$ successes among the previous $x-1$ trials.
+:::

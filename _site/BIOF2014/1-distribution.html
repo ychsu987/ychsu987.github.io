@@ -260,23 +260,22 @@ Yu Cheng Hsu
 </section>
 <section id="property-of-variance" class="slide level2 smaller">
 <h2>Property of Variance</h2>
-<span class="math display">\[\begin{aligned}
+<p><span class="math display">\[
+\begin{aligned}
 1. \; &amp;\mathbb{V}(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2 \\
 2. \; &amp;\mathbb{V}(aX+b)=a^2\mathbb{V}(X) \\
 3. \; &amp;\mathbb{V}\big(\sum_i a_iX_i\big)=\sum_i a_i^2\mathbb{V}(X_i)
-\end{aligned}\]</span>
+\end{aligned}
+\]</span></p>
 <p><strong>Proof</strong>:</p>
-<div class="hide">
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{aligned}
 \mathbb{V}(X) = &amp; \mathbb{E} \left[ \left( X - \mathbb{E}\left(X\right) \right)^2 \right] = \mathbb{E}[X^2-2X\mathbb{E}(X)+(\mathbb{E}(X)^2)]\\
-= &amp; \mathbb{E}(X^2)-2\mathbb{E}(X)^2+\mathbb{E}(X)^2 =\mathbb{E}(X^2)-\mathbb{E}(X)^2
-\end{align}\]</span></p>
-<p><span class="math display">\[\begin{align}
+= &amp; \mathbb{E}(X^2)-2\mathbb{E}(X)^2+\mathbb{E}(X)^2 =\mathbb{E}(X^2)-\mathbb{E}(X)^2 \\
 \mathbb{V}(aX+b) = &amp; \mathbb{E}(a^2X^2+2abX+b^2)-(a^2\mathbb{E}(X)^2 +2ab\mathbb{E}(x)+b^2) \\
 = &amp; a^2\mathbb{E}(X^2)-a^2\mathbb{E}(X)^2 = a^2\mathbb{V}(X)
-
-\end{align}\]</span></p>
-</div>
+\end{aligned}
+\]</span></p>
 <p><strong>Application</strong>:</p>
 <p>Variance estimation for t-test with unequal variance</p>
 </section>
@@ -287,7 +286,6 @@ Yu Cheng Hsu
 \mathbb{V}(X+Y)=\mathbb{V}(X)+\mathbb{V}(Y)
 \]</span></p>
 <p><strong>Proof</strong>:</p>
-<div class="hide">
 <p><span class="math display">\[
 \begin{aligned}
 \text{Assuming } &amp; \mathbb{E}(X) \quad \&amp;\quad \mathbb{E}(Y) = 0 \\
@@ -297,7 +295,6 @@ Yu Cheng Hsu
 =&amp;\mathbb{E}(X^2)+\mathbb{E}(Y^2)
 \end{aligned}
 \]</span></p>
-</div>
 </section>
 <section id="discrete-vs.-continuous-random-variables" class="slide level2 smaller">
 <h2>Discrete vs.&nbsp;continuous random variables</h2>
@@ -342,8 +339,8 @@ Yu Cheng Hsu
 <div class="column" style="width:60%;">
 <p><strong>Properties</strong></p>
 <ul>
-<li>Support <span class="math inline">\(\{x_a\dots x_b\}\)</span></li>
-<li>Parameter <span class="math inline">\(N\)</span> number of distinct outcomes</li>
+<li>Support: <span class="math inline">\(\{x_a\dots x_b\}\)</span></li>
+<li>Parameter: <span class="math inline">\(N\)</span> number of distinct outcomes</li>
 <li>pmf</li>
 </ul>
 <p><span class="math display">\[
@@ -369,25 +366,26 @@ x \in \Omega
 <div class="columns">
 <p>We write a random variable <span class="math inline">\(X\)</span> follows a continuous uniform distribution over an interval <span class="math inline">\([a, b]\)</span> as <span class="math inline">\(X \sim \text{Uniform}\left(a, b\right)\)</span> if</p><div class="column" style="width:50%;">
 <p><strong>Definition</strong></p>
-<p><span class="math display">\[
+<ul>
+<li><p>Support: <span class="math inline">\([a,b]\)</span></p></li>
+<li><p>Parameter: <span class="math inline">\(a,b\)</span> range</p></li>
+<li><p>pmf <span class="math display">\[
 f_X(x) =
 \begin{cases}
 \frac{1}{b - a} &amp; \text{ if } x \in [a, b] \\
 0 &amp; \text{otherwise} ,
 \end{cases}
-\]</span></p>
-<p>where <span class="math inline">\(b &gt; a\)</span>.</p>
-<span class="math display">\[\begin{aligned}
-\mathbb{E}(X) &amp; =\frac{a+b}{2} \\
-\mathbb{V}(X) &amp; =\frac{(b-a)^2}{12}
-\end{aligned}\]</span>
+\]</span></p></li>
+<li><p>Mean: <span class="math inline">\((a+b)/2\)</span></p></li>
+<li><p>Variance: <span class="math inline">\((b-a)^2/12\)</span></p></li>
+</ul>
 </div><div class="column" style="width:50%;">
 <div id="cell-fig-unifm" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div id="fig-unifm" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-unifm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="1-distribution_files/figure-revealjs/fig-unifm-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: uniform(3,7)"><img data-src="1-distribution_files/figure-revealjs/fig-unifm-output-1.png" width="802" height="411"></a>
+<a href="1-distribution_files/figure-revealjs/fig-unifm-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: uniform(3,7)"><img data-src="1-distribution_files/figure-revealjs/fig-unifm-output-1.png" width="356" height="263"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unifm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: uniform(3,7)
@@ -456,7 +454,7 @@ Figure&nbsp;1: uniform(3,7)
 </div><div class="column" style="width:50%;">
 <p><strong>Example</strong></p>
 <p>Suppose we have observations <span class="math inline">\([1,2,2,2,3,3,4]\)</span> Please plot the empirical pdf and cdf of the observations</p>
-<div id="a7a13efd" class="cell" data-execution_count="2">
+<div id="1549cc7e" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -498,7 +496,7 @@ v = F^{-1}(x)
 \]</span></p>
 <p><strong>Example</strong></p>
 <p>Suppose we have observations <span class="math inline">\([1,2,2,2,3,3,4]\)</span> Please plot the empirical cdf and inverse cdf of the observations</p>
-<div id="7f5d57aa" class="cell" data-execution_count="4">
+<div id="2fc57cad" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>

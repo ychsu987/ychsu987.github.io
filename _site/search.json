@@ -487,21 +487,49 @@
     "href": "BIOF2014/1-Question sets-discrete.html",
     "title": "Question sets",
     "section": "",
-    "text": "Given X \\sim \\text{Uniform}(a, b),\n\nPlease show that \\text{E}(X) = \\frac{a+b}{2}\n\n\n\n\\begin{align*}\n\\mathbb{E}(X) &= \\int_{-\\infty}^{\\infty} x\\, f_X(x)\\, dx\n= \\int_{a}^{b} x \\cdot \\frac{1}{b-a}\\, dx\n= \\frac{1}{b-a} \\int_{a}^{b} x\\, dx \\\\\n&= \\frac{1}{b-a} \\left[ \\frac{x^2}{2} \\right]_{a}^{b}\n= \\frac{1}{b-a} \\left( \\frac{b^2}{2} - \\frac{a^2}{2} \\right)\n= \\frac{b^2 - a^2}{2(b-a)}\n= \\frac{(b-a)(b+a)}{2(b-a)} \\\\[6pt]\n&= \\frac{a+b}{2}\n\\end{align*}\n\n\n\nPlease show that \\text{VAR}(X) = \\frac{(b-a)^2}{12}\n\n\n\n\\begin{align*}\n\\mathrm{Var}(X) &= \\int_a^b \\left( x - \\frac{1}{2} (a+b) \\right)^2 \\cdot \\frac{1}{b-a} \\, \\mathrm{d}x\n= \\frac{1}{b-a} \\cdot \\int_a^b \\left( x - \\frac{a+b}{2} \\right)^2 \\, \\mathrm{d}x \\\\\n& \\text{let } t= x - \\frac{1}{2} (a+b) \\text{ and } h= \\frac{1}{2} (b-a) \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^2 = \\frac{1}{3(b-a)} \\cdot [ t^3 ]_{-h}^h \\\\\n&= \\frac{1}{3(b-a)}(\\frac{1}{2} (b-a))^3-(-\\frac{1}{2} (b-a))^3 \\\\\n&= \\frac{(b-a)^2}{12}\n\\end{align*}\n\n\n\nPlease show that the CDF is:   \n\\begin{aligned}\nF(x) \\begin{cases}\n0\n\\quad & \\text{if }x &lt; a \\\\\n\\frac{x-a}{b-a}\n\\quad & \\text{if } a \\leq x &lt; b \\\\\n1\n\\quad & \\text{if } x \\geq b\n\\end{cases}\n\\end{aligned}\n\n\n\n\nCase 1: x &lt; a For t &lt; a, f_X(t) = 0, so the integral from -\\infty to x is zero:\nCase 2: a \\leq x &lt; b\n\n\n\\begin{align*}\nF(x) &= \\int_{-\\infty}^{x} f_X(t)\\, dt\n     = \\int_{-\\infty}^{a} 0\\, dt + \\int_{a}^{x} \\frac{1}{b-a}\\, dt \\\\\n     &= 0 + \\frac{1}{b-a} \\int_{a}^{x} 1\\, dt\n     = \\frac{1}{b-a} \\Big[ t \\Big]_{a}^{x} \\\\\n     &= \\frac{x - a}{b - a}.\n\\end{align*}\n\n\nCase 3: x \\geq b Similar to Case 1\n\n\n\nPlease show that \\mathbb{E}[(X - \\mathbb{E}(X))^3] = 0\n\n\n\n\\begin{align*}\n\\mathbb{E}(X-\\mathbb{E}(X))^3  &= \\int_a^b \\left( x - \\frac{1}{2} (a+b) \\right)^3 \\cdot \\frac{1}{b-a} \\, \\mathrm{d}x\n= \\frac{1}{b-a} \\cdot \\int_a^b \\left( x - \\frac{a+b}{2} \\right)^3 \\, \\mathrm{d}x \\\\\n& \\text{let } t= x - \\frac{1}{2} (a+b) \\text{ and } h= \\frac{1}{2} (b-a) \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^3  \\\\\n& \\text{because } t^3 \\text{ is an odd function, so} \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^3 = 0\n\\end{align*}"
+    "text": "Given X \\sim \\text{Uniform}(a, b),\n\nPlease show that \\text{E}(X) = \\frac{a+b}{2}\n\n\n\n\\begin{align*}\n\\mathbb{E}(X) &= \\int_{-\\infty}^{\\infty} x\\, f_X(x)\\, dx\n= \\int_{a}^{b} x \\cdot \\frac{1}{b-a}\\, dx\n= \\frac{1}{b-a} \\int_{a}^{b} x\\, dx \\\\\n&= \\frac{1}{b-a} \\left[ \\frac{x^2}{2} \\right]_{a}^{b}\n= \\frac{1}{b-a} \\left( \\frac{b^2}{2} - \\frac{a^2}{2} \\right)\n= \\frac{b^2 - a^2}{2(b-a)}\n= \\frac{(b-a)(b+a)}{2(b-a)} \\\\[6pt]\n&= \\frac{a+b}{2}\n\\end{align*}"
   },
   {
     "objectID": "BIOF2014/1-Question sets-discrete.html#question-1",
     "href": "BIOF2014/1-Question sets-discrete.html#question-1",
     "title": "Question sets",
     "section": "",
-    "text": "Given X \\sim \\text{Uniform}(a, b),\n\nPlease show that \\text{E}(X) = \\frac{a+b}{2}\n\n\n\n\\begin{align*}\n\\mathbb{E}(X) &= \\int_{-\\infty}^{\\infty} x\\, f_X(x)\\, dx\n= \\int_{a}^{b} x \\cdot \\frac{1}{b-a}\\, dx\n= \\frac{1}{b-a} \\int_{a}^{b} x\\, dx \\\\\n&= \\frac{1}{b-a} \\left[ \\frac{x^2}{2} \\right]_{a}^{b}\n= \\frac{1}{b-a} \\left( \\frac{b^2}{2} - \\frac{a^2}{2} \\right)\n= \\frac{b^2 - a^2}{2(b-a)}\n= \\frac{(b-a)(b+a)}{2(b-a)} \\\\[6pt]\n&= \\frac{a+b}{2}\n\\end{align*}\n\n\n\nPlease show that \\text{VAR}(X) = \\frac{(b-a)^2}{12}\n\n\n\n\\begin{align*}\n\\mathrm{Var}(X) &= \\int_a^b \\left( x - \\frac{1}{2} (a+b) \\right)^2 \\cdot \\frac{1}{b-a} \\, \\mathrm{d}x\n= \\frac{1}{b-a} \\cdot \\int_a^b \\left( x - \\frac{a+b}{2} \\right)^2 \\, \\mathrm{d}x \\\\\n& \\text{let } t= x - \\frac{1}{2} (a+b) \\text{ and } h= \\frac{1}{2} (b-a) \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^2 = \\frac{1}{3(b-a)} \\cdot [ t^3 ]_{-h}^h \\\\\n&= \\frac{1}{3(b-a)}(\\frac{1}{2} (b-a))^3-(-\\frac{1}{2} (b-a))^3 \\\\\n&= \\frac{(b-a)^2}{12}\n\\end{align*}\n\n\n\nPlease show that the CDF is:   \n\\begin{aligned}\nF(x) \\begin{cases}\n0\n\\quad & \\text{if }x &lt; a \\\\\n\\frac{x-a}{b-a}\n\\quad & \\text{if } a \\leq x &lt; b \\\\\n1\n\\quad & \\text{if } x \\geq b\n\\end{cases}\n\\end{aligned}\n\n\n\n\nCase 1: x &lt; a For t &lt; a, f_X(t) = 0, so the integral from -\\infty to x is zero:\nCase 2: a \\leq x &lt; b\n\n\n\\begin{align*}\nF(x) &= \\int_{-\\infty}^{x} f_X(t)\\, dt\n     = \\int_{-\\infty}^{a} 0\\, dt + \\int_{a}^{x} \\frac{1}{b-a}\\, dt \\\\\n     &= 0 + \\frac{1}{b-a} \\int_{a}^{x} 1\\, dt\n     = \\frac{1}{b-a} \\Big[ t \\Big]_{a}^{x} \\\\\n     &= \\frac{x - a}{b - a}.\n\\end{align*}\n\n\nCase 3: x \\geq b Similar to Case 1\n\n\n\nPlease show that \\mathbb{E}[(X - \\mathbb{E}(X))^3] = 0\n\n\n\n\\begin{align*}\n\\mathbb{E}(X-\\mathbb{E}(X))^3  &= \\int_a^b \\left( x - \\frac{1}{2} (a+b) \\right)^3 \\cdot \\frac{1}{b-a} \\, \\mathrm{d}x\n= \\frac{1}{b-a} \\cdot \\int_a^b \\left( x - \\frac{a+b}{2} \\right)^3 \\, \\mathrm{d}x \\\\\n& \\text{let } t= x - \\frac{1}{2} (a+b) \\text{ and } h= \\frac{1}{2} (b-a) \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^3  \\\\\n& \\text{because } t^3 \\text{ is an odd function, so} \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^3 = 0\n\\end{align*}"
+    "text": "Given X \\sim \\text{Uniform}(a, b),\n\nPlease show that \\text{E}(X) = \\frac{a+b}{2}\n\n\n\n\\begin{align*}\n\\mathbb{E}(X) &= \\int_{-\\infty}^{\\infty} x\\, f_X(x)\\, dx\n= \\int_{a}^{b} x \\cdot \\frac{1}{b-a}\\, dx\n= \\frac{1}{b-a} \\int_{a}^{b} x\\, dx \\\\\n&= \\frac{1}{b-a} \\left[ \\frac{x^2}{2} \\right]_{a}^{b}\n= \\frac{1}{b-a} \\left( \\frac{b^2}{2} - \\frac{a^2}{2} \\right)\n= \\frac{b^2 - a^2}{2(b-a)}\n= \\frac{(b-a)(b+a)}{2(b-a)} \\\\[6pt]\n&= \\frac{a+b}{2}\n\\end{align*}"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section",
+    "href": "BIOF2014/1-Question sets-discrete.html#section",
+    "title": "Question sets",
+    "section": "",
+    "text": "Please show that \\text{VAR}(X) = \\frac{(b-a)^2}{12}\n\n\n\n\\begin{align*}\n\\mathrm{Var}(X) &= \\int_a^b \\left( x - \\frac{1}{2} (a+b) \\right)^2 \\cdot \\frac{1}{b-a} \\, \\mathrm{d}x\n= \\frac{1}{b-a} \\cdot \\int_a^b \\left( x - \\frac{a+b}{2} \\right)^2 \\, \\mathrm{d}x \\\\\n& \\text{let } t= x - \\frac{1}{2} (a+b) \\text{ and } h= \\frac{1}{2} (b-a) \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^2 = \\frac{1}{3(b-a)} \\cdot [ t^3 ]_{-h}^h \\\\\n&= \\frac{1}{3(b-a)}(\\frac{1}{2} (b-a))^3-(-\\frac{1}{2} (b-a))^3 \\\\\n&= \\frac{(b-a)^2}{12}\n\\end{align*}"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-1",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-1",
+    "title": "Question sets",
+    "section": "",
+    "text": "Please show that the CDF is:   \n\\begin{aligned}\nF(x) \\begin{cases}\n0\n\\quad & \\text{if }x &lt; a \\\\\n\\frac{x-a}{b-a}\n\\quad & \\text{if } a \\leq x &lt; b \\\\\n1\n\\quad & \\text{if } x \\geq b\n\\end{cases}\n\\end{aligned}\n\n\n\n\nCase 1: x &lt; a For t &lt; a, f_X(t) = 0, so the integral from -\\infty to x is zero:\nCase 2: a \\leq x &lt; b\n\n\n\\begin{align*}\nF(x) &= \\int_{-\\infty}^{x} f_X(t)\\, dt\n     = \\int_{-\\infty}^{a} 0\\, dt + \\int_{a}^{x} \\frac{1}{b-a}\\, dt \\\\\n     &= 0 + \\frac{1}{b-a} \\int_{a}^{x} 1\\, dt\n     = \\frac{1}{b-a} \\Big[ t \\Big]_{a}^{x} \\\\\n     &= \\frac{x - a}{b - a}.\n\\end{align*}\n\n\nCase 3: x \\geq b Similar to Case 1"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-2",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-2",
+    "title": "Question sets",
+    "section": "",
+    "text": "Please show that \\mathbb{E}[(X - \\mathbb{E}(X))^3] = 0\n\n\n\n\\begin{align*}\n\\mathbb{E}(X-\\mathbb{E}(X))^3  &= \\int_a^b \\left( x - \\frac{1}{2} (a+b) \\right)^3 \\cdot \\frac{1}{b-a} \\, \\mathrm{d}x\n= \\frac{1}{b-a} \\cdot \\int_a^b \\left( x - \\frac{a+b}{2} \\right)^3 \\, \\mathrm{d}x \\\\\n& \\text{let } t= x - \\frac{1}{2} (a+b) \\text{ and } h= \\frac{1}{2} (b-a) \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^3  \\\\\n& \\text{because } t^3 \\text{ is an odd function, so} \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^3 = 0\n\\end{align*}"
   },
   {
     "objectID": "BIOF2014/1-Question sets-discrete.html#question-2",
     "href": "BIOF2014/1-Question sets-discrete.html#question-2",
     "title": "Question sets",
     "section": "Question 2",
-    "text": "Question 2\nFor a given empirical distribution\n\nPlease show that the empirical distribution fulfill non-negativity\n\n\n  \n\\begin{aligned}\n\\because N&gt;0  \\quad  \\&  \\quad\nI(x)\\begin{cases}\n1\n\\quad & \\text{if }X\\text{ is TRUE} \\\\\n0\n\\quad & \\text{if }X\\text{ is FALSE}\n\\end{cases} \\geq 0 \\\\\n\\rightarrow \\hat{f}_N(x) = \\frac{1}{N} \\sum_{i=1}^N I(x_i = x)  \\geq 0\n\\end{aligned}\n\n\n\nPlease show that the empirical distribution fulfills the unit measure condition\n\n\nLet the support have t unique values \\{X_1, \\dots, X_t\\}:   \nP(X) = \\sum_{t} \\frac{1}{N} \\sum_{i=1}^N I(x_i = X_t) = \\frac{N}{N}= 1"
+    "text": "Question 2\nFor a given empirical distribution\n\nPlease show that the empirical distribution fulfill non-negativity\n\n\n  \n\\begin{aligned}\n\\because N&gt;0  \\quad  \\&  \\quad\nI(x)\\begin{cases}\n1\n\\quad & \\text{if }X\\text{ is TRUE} \\\\\n0\n\\quad & \\text{if }X\\text{ is FALSE}\n\\end{cases} \\geq 0 \\\\\n\\rightarrow \\hat{f}_N(x) = \\frac{1}{N} \\sum_{i=1}^N I(x_i = x)  \\geq 0\n\\end{aligned}"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-3",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-3",
+    "title": "Question sets",
+    "section": "",
+    "text": "Please show that the empirical distribution fulfills the unit measure condition\n\n\nLet the support have t unique values \\{X_1, \\dots, X_t\\}:   \nP(X) = \\sum_{t} \\frac{1}{N} \\sum_{i=1}^N I(x_i = X_t) = \\frac{N}{N}= 1"
   },
   {
     "objectID": "BIOF2014/1-Question sets-discrete.html#question-3",
@@ -515,21 +543,231 @@
     "href": "BIOF2014/1-Question sets-discrete.html#question-4",
     "title": "Question sets",
     "section": "Question 4",
-    "text": "Question 4\nHoo Hey How (魚蝦蟹) is a traditional Southern Chinese dice game rooted in Hokkien culture and popularly played during festivals like Chinese New Year. Using three six-sided dice marked with symbols—typically fish, prawn, crab, gourd, rooster, and stag. Players place bets on a board featuring these icons. After the dice are rolled, payouts are awarded based on how many times a chosen symbol appears: 1:1 for one match, 2:1 for two, and 3:1 for three. This game is also popular in Vietnam called Bầu Cua Cá Cọp and Cambodia called Klah Klok.\n\n\n\nIllustration of Hoo Hey How By Outlookxp - Own work, CC BY-SA 3.0, Link\n\n\nSuppose that you bet 1 dollar on Crab. Let X denote the money you win (negative value represents a loss) from one trial of this game\n\nWhat is the support of X\n\n\n-1,1,2,3\n\n\nWhat is the probability mass function (pmf) of X\n\n\n  \n\\begin{aligned}\np(x) \\begin{cases}\n\\frac{125}{216}\n\\quad & \\text{, when }x = -1 ;\\\\\n\\frac{25}{72}\n\\quad & \\text{, when }x = 1 ;\\\\\n\\frac{5}{72}\n\\quad & \\text{, when }x = 2 ;\\\\\n\\frac{1}{216}\n\\quad & \\text{, when }x = 3 ;\\\\\n  0\n\\quad & \\text{Otherwise.} \\\\\n\\end{cases}\n\\end{aligned}\n\n\n\nWhat is the cumulative distribution function (CDF) of X?\n\n\n  \n\\begin{aligned}\nF(x) \\begin{cases}\n0\n\\quad & \\text{, when }x &lt; -1 ;\\\\\n\\frac{125}{216}\n\\quad & \\text{, when } -1 \\leq x &lt; 1 ;\\\\\n\\frac{25}{27}\n\\quad & \\text{, when } 1 \\leq x &lt; 2 ;\\\\\n\\frac{215}{216}\n\\quad & \\text{, when } 2 \\leq x &lt; 3 ;\\\\\n  1\n\\quad & \\text{, when }  x \\geq 3. \\\\\n\\end{cases}\n\\end{aligned}"
+    "text": "Question 4\nHoo Hey How (魚蝦蟹) is a traditional Southern Chinese dice game rooted in Hokkien culture and popularly played during festivals like Chinese New Year. Using three six-sided dice marked with symbols—typically fish, prawn, crab, gourd, rooster, and stag. Players place bets on a board featuring these icons. After the dice are rolled, payouts are awarded based on how many times a chosen symbol appears: 1:1 for one match, 2:1 for two, and 3:1 for three. This game is also popular in Vietnam called Bầu Cua Cá Cọp and Cambodia called Klah Klok.\n\n\n\nIllustration of Hoo Hey How By Outlookxp - Own work, CC BY-SA 3.0, Link\n\n\nSuppose that you bet 1 dollar on Crab. Let X denote the money you win (negative value represents a loss) from one trial of this game\n\nWhat is the support of X\n\n\n-1,1,2,3"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-4",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-4",
+    "title": "Question sets",
+    "section": "",
+    "text": "What is the probability mass function (pmf) of X\n\n\n  \n\\begin{aligned}\np(x) \\begin{cases}\n\\frac{125}{216}\n\\quad & \\text{, when }x = -1 ;\\\\\n\\frac{25}{72}\n\\quad & \\text{, when }x = 1 ;\\\\\n\\frac{5}{72}\n\\quad & \\text{, when }x = 2 ;\\\\\n\\frac{1}{216}\n\\quad & \\text{, when }x = 3 ;\\\\\n  0\n\\quad & \\text{Otherwise.} \\\\\n\\end{cases}\n\\end{aligned}\n\n\n\n\nWhat is the cumulative distribution function (CDF) of X?\n\n\n  \n\\begin{aligned}\nF(x) \\begin{cases}\n0\n\\quad & \\text{, when }x &lt; -1 ;\\\\\n\\frac{125}{216}\n\\quad & \\text{, when } -1 \\leq x &lt; 1 ;\\\\\n\\frac{25}{27}\n\\quad & \\text{, when } 1 \\leq x &lt; 2 ;\\\\\n\\frac{215}{216}\n\\quad & \\text{, when } 2 \\leq x &lt; 3 ;\\\\\n  1\n\\quad & \\text{, when }  x \\geq 3. \\\\\n\\end{cases}\n\\end{aligned}"
   },
   {
     "objectID": "BIOF2014/1-Question sets-discrete.html#question-5",
     "href": "BIOF2014/1-Question sets-discrete.html#question-5",
     "title": "Question sets",
     "section": "Question 5",
-    "text": "Question 5\n“Pig” is a simple dice game in which two players take turns to roll a six-sided die, according to the following rule\n\nIf a player rolls a 1, the player scores nothing and it becomes the opponent’s turn.\nIf a player rolls any other number, it is added to his turn total and the player’s turn continues.\nIf the player instead chooses to hold, the turn total is accumulated to his or her score and it becomes the opponent’s turn.\nThe first player who scores 100 or more points wins\n\nA simple tactic at the early stage of the game is called “hold at k strategy”, with which one should continue to roll whenever the turn total is less than k. What would be the wise choice on the value of k?\n\nGiven the current turn total is s what is the expected gain of rolling\n\n\n  \nE(X)=-s\\frac{1}{6}+2\\times\\frac{1}{6}+3\\times\\frac{1}{6}+4\\times\\frac{1}{6}+5\\times\\frac{1}{6}+6\\times\\frac{1}{6}=+2\\times\\frac{20-s}{6}\n\n\n\n\n\n\n\n\nNote\n\n\n\n\nHolds at k strategy is only good in early game\nThe total optimal strategy actually varies based on your opponent’s situation.\nDetailed discussion can be found in Neller and Presser (2005)"
+    "text": "Question 5\n“Pig” is a simple dice game in which two players take turns to roll a six-sided die, according to the following rule\n\nIf a player rolls a 1, the player scores nothing and it becomes the opponent’s turn.\nIf a player rolls any other number, it is added to his turn total and the player’s turn continues.\nIf the player instead chooses to hold, the turn total is accumulated to his or her score and it becomes the opponent’s turn.\nThe first player who scores 100 or more points wins\n\nA simple tactic at the early stage of the game is called “hold at k strategy”, with which one should continue to roll whenever the turn total is less than k. What would be the wise choice on the value of k?"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-5",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-5",
+    "title": "Question sets",
+    "section": "",
+    "text": "Given the current turn total is s what is the expected gain of rolling\n\n\n  \nE(X)=-s\\frac{1}{6}+2\\times\\frac{1}{6}+3\\times\\frac{1}{6}+4\\times\\frac{1}{6}+5\\times\\frac{1}{6}+6\\times\\frac{1}{6}=+2\\times\\frac{20-s}{6}\n\n\n\n\n\n\n\n\nNote\n\n\n\n\nHolds at k strategy is only good in early game\nThe total optimal strategy actually varies based on your opponent’s situation.\nDetailed discussion can be found in Neller and Presser (2005)"
   },
   {
     "objectID": "BIOF2014/1-Question sets-discrete.html#question-6-birthday-problem",
     "href": "BIOF2014/1-Question sets-discrete.html#question-6-birthday-problem",
     "title": "Question sets",
     "section": "Question 6: Birthday Problem",
-    "text": "Question 6: Birthday Problem\nWhat is the probability that at least two people share the same birthday in the classroom with size of 20 ?\nWhen we examined this problem previously, we assumed:\n\n365 days in a year\nEvery birthday is equally likely to happen\n\n\nAssuming each individual’s birthday is independent and equally likely to occur on any day, what is the potential distribution of everyone’s birthday?\n\n\nUniform distribution (Either continuous and discrete is fine in this case)\n\n\nWhat is the probability of all student’s birthday are different?\n\n\n\n=0.59\n\n\n\nWhat is the probability that at least two people share the same birthday in the classroom with size of 20 ?\n\n\n\n1-\\frac{\\binom{365}{20}\\times 20!}{365^{20}} =\\frac{P^{365}_{20}}{365^{20}}=0.41\n\n\nHowever, these assumptions are unrealistic. Let’s refine our model by using real world data.\n\nData\nThe UK publishes the average frequency of births on each day of the year from 1995 to 2024. We can download it with\ncurl -o uk-daily-births.csv \\\nhttps://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv\nSo, let’s use this data to construct the empirical probability mass function (pmf). Then, we can re-estimate the probability that two people share the same birthday in a group of people.\n\n\nTasks\n\nLoad the data into R and visualize it.\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.1     ✔ stringr   1.5.2\n✔ ggplot2   4.0.0     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.1.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(lubridate) # Library for handeling datetime \n\n# 1. Load the data\ndata &lt;- read_csv(\"Datasets/data.csv\", col_types = cols(\n  date = col_character(),\n  average = col_double()\n))\n\n# Parse the date properly (day-month format, ggplot2 cannot accept date without year information)\n\ndata &lt;- data %&gt;%\n  mutate(\n    date_parsed = dmy(paste(date, \"2024\")),  \n    month = month(date_parsed),\n    day   = day(date_parsed),\n  )\n\n# Visualise daily average births0\np1 &lt;- ggplot(data, aes(x = date_parsed, y = average)) +\n  geom_line(color = \"steelblue\") +\n  geom_point( color = \"steelblue\") +\n  scale_x_date(date_breaks = \"1 month\", date_labels = \"%b\") +\n  labs(title = \"Average Daily Births in England & Wales (1995–2024)\",\n       x = \"Date\", y = \"Average number of births\") +\n  theme_minimal()\n\np1\n\n\n\n\n\n\n\n\n\nConstruct the empirical pmf that a person is born on each day within a year.\n\n\n# Account for leap years and compute total births per calendar day ----\n# Over 30 years (1995–2024): 7 leap years (1996,2000,2004,2008,2012,2016,2020,2024)\n\ndata &lt;- data %&gt;% mutate(pmf_weight=average/sum(average) # Total births in the whole period\n)\n\n# Verify it sums to 1\ncat(\"PMF sums to:\", sum(data$pmf_weight), \"\\n\")\n\nPMF sums to: 1 \n\n# Visualise the empirical distribution\n\nggplot(data, aes(x = date_parsed, y = pmf_weight)) +\n  geom_col(fill = \"darkorange\", alpha = 0.8, width = 1) +\n  scale_x_date(date_breaks = \"1 month\", date_labels = \"%b\") +\n  labs(title = \"Empirical Birth Probability by Calendar Day (366-day year)\",\n       x = \"Month\", y = \"Probability\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nImplement a simulation that generates 20 people their birthday based on the empirical pmf.\n\n\ninverse_cdf &lt;- function(u,pmf) {\n   cdf_366 &lt;- cumsum(pmf)                # Get cdf\n   day_indices&lt;-1:366                    # day-of-year 1 … 366\n   return(day_indices[which(cdf_366 &gt;= u)[1]])   # first day where CDF exceeds u\n}\ninverse_cdf_vec &lt;- Vectorize(inverse_cdf,vectorize.args = 'u') # vectorization on u to facilitate speed computation\ndata$date_parsed[inverse_cdf_vec(runif(20),data$pmf_weight)]\n\n [1] \"2024-10-06\" \"2024-11-24\" \"2024-01-05\" \"2024-03-10\" \"2024-05-02\"\n [6] \"2024-06-30\" \"2024-05-27\" \"2024-09-19\" \"2024-03-16\" \"2024-05-11\"\n[11] \"2024-01-17\" \"2024-07-20\" \"2024-07-02\" \"2024-10-22\" \"2024-03-02\"\n[16] \"2024-06-02\" \"2024-05-25\" \"2024-03-31\" \"2024-05-09\" \"2024-09-07\"\n\n\n\nCompare P\\left( X \\ge 2 \\right) determined using the simple uniform model we used previously vs. the probability that is estimated using the empirical pmf.\n\n\nsimulation_amount=2000 # Number of simulation\n\nclass_size=20 # Number of students in each class (group size)\n\n# Step 1: Generate random birthdays using the INVERSE-CDF method\n#         We generate 'simulation_amount × class_size' uniform random numbers U(0,1)\n#         Then transform each U into a day-of-year using the empirical distribution\n\nbirthdays_matrix &lt;- matrix(\n    inverse_cdf_vec(runif(simulation_amount * class_size),data$pmf_weight),   # generate n_sim × n_people uniforms → days\n    nrow = simulation_amount,\n    ncol = class_size\n  )\n\n# Step 2: Check for each simulated classroom whether at least two students\n#         share the same birthday\n#         We use: if number of unique birthdays &lt; total students → at least two people have the same birthday\ncheck_same_birthsday &lt;- apply(birthdays_matrix,MARGIN=1,function(x) length(unique(x))&lt;length(x))\n\n# Step 3: Estimate the probability\n#         Proportion of simulated classrooms that had at least one shared birthday\nprobability= sum(check_same_birthsday)/simulation_amount\nprobability\n\n[1] 0.429"
+    "text": "Question 6: Birthday Problem\nWhat is the probability that at least two people share the same birthday in the classroom with size of 20 ?\nWhen we examined this problem previously, we assumed:\n\n365 days in a year\nEvery birthday is equally likely to happen"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-6",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-6",
+    "title": "Question sets",
+    "section": "",
+    "text": "Assuming each individual’s birthday is independent and equally likely to occur on any day, what is the potential distribution of everyone’s birthday?\n\n\nUniform distribution (Either continuous and discrete is fine in this case)"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-7",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-7",
+    "title": "Question sets",
+    "section": "",
+    "text": "What is the probability of all student’s birthday are different?\n\n\n\n=0.59"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-8",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-8",
+    "title": "Question sets",
+    "section": "",
+    "text": "What is the probability that at least two people share the same birthday in the classroom with size of 20 ?\n\n\n\n1-\\frac{\\binom{365}{20}\\times 20!}{365^{20}} =\\frac{P^{365}_{20}}{365^{20}}=0.41"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-9",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-9",
+    "title": "Question sets",
+    "section": "",
+    "text": "However, these assumptions are unrealistic. Let’s refine our model by using real world data.\n\nData\nThe UK publishes the average frequency of births on each day of the year from 1995 to 2024. We can download it with\ncurl -o uk-daily-births.csv \\\nhttps://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-10",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-10",
+    "title": "Question sets",
+    "section": "",
+    "text": "So, let’s use this data to construct the empirical probability mass function (pmf). Then, we can re-estimate the probability that two people share the same birthday in a group of people.\n\nTasks\n\nLoad the data into R and visualize it.\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.1     ✔ stringr   1.5.2\n✔ ggplot2   4.0.0     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.1.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(lubridate) # Library for handeling datetime \n\n# 1. Load the data\ndata &lt;- read_csv(\"Datasets/data.csv\", col_types = cols(\n  date = col_character(),\n  average = col_double()\n))\n\n# Parse the date properly (day-month format, ggplot2 cannot accept date without year information)\n\ndata &lt;- data %&gt;%\n  mutate(\n    date_parsed = dmy(paste(date, \"2024\")),  \n    month = month(date_parsed),\n    day   = day(date_parsed),\n  )\n\n# Visualise daily average births0\np1 &lt;- ggplot(data, aes(x = date_parsed, y = average)) +\n  geom_line(color = \"steelblue\") +\n  geom_point( color = \"steelblue\") +\n  scale_x_date(date_breaks = \"1 month\", date_labels = \"%b\") +\n  labs(title = \"Average Daily Births in England & Wales (1995–2024)\",\n       x = \"Date\", y = \"Average number of births\") +\n  theme_minimal()\n\np1"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-11",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-11",
+    "title": "Question sets",
+    "section": "",
+    "text": "Construct the empirical pmf that a person is born on each day within a year.\n\n\n# Account for leap years and compute total births per calendar day ----\n# Over 30 years (1995–2024): 7 leap years (1996,2000,2004,2008,2012,2016,2020,2024)\n\ndata &lt;- data %&gt;% mutate(pmf_weight=average/sum(average) # Total births in the whole period\n)\n\n\n# Verify it sums to 1\ncat(\"PMF sums to:\", sum(data$pmf_weight), \"\\n\")\n\nPMF sums to: 1 \n\n# Visualise the empirical distribution\n\nggplot(data, aes(x = date_parsed, y = pmf_weight)) +\n  geom_col(fill = \"darkorange\", alpha = 0.8, width = 1) +\n  scale_x_date(date_breaks = \"1 month\", date_labels = \"%b\") +\n  labs(title = \"Empirical Birth Probability by Calendar Day (366-day year)\",\n       x = \"Month\", y = \"Probability\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-12",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-12",
+    "title": "Question sets",
+    "section": "",
+    "text": "Implement a simulation that generates 20 people their birthday based on the empirical pmf.\n\n\ninverse_cdf &lt;- function(u,pmf) {\n   cdf_366 &lt;- cumsum(pmf)                # Get cdf\n   day_indices&lt;-1:366                    # day-of-year 1 … 366\n   return(day_indices[which(cdf_366 &gt;= u)[1]])   # first day where CDF exceeds u\n}\n\nvectorization\n\ninverse_cdf_vec &lt;- Vectorize(inverse_cdf,vectorize.args = 'u') # vectorization on u to facilitate speed computation\ndata$date_parsed[inverse_cdf_vec(runif(20),data$pmf_weight)]\n\n [1] \"2024-02-23\" \"2024-07-01\" \"2024-03-07\" \"2024-11-18\" \"2024-04-11\"\n [6] \"2024-09-23\" \"2024-10-09\" \"2024-09-20\" \"2024-08-12\" \"2024-08-20\"\n[11] \"2024-07-23\" \"2024-12-21\" \"2024-11-27\" \"2024-03-12\" \"2024-12-02\"\n[16] \"2024-03-28\" \"2024-08-30\" \"2024-04-01\" \"2024-04-06\" \"2024-08-17\""
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets-discrete.html#section-13",
+    "href": "BIOF2014/1-Question sets-discrete.html#section-13",
+    "title": "Question sets",
+    "section": "",
+    "text": "Compare P\\left( X \\ge 2 \\right) determined using the simple uniform model we used previously vs. the probability that is estimated using the empirical pmf.\n\n\nsimulation_amount=2000 # Number of simulation\n\nclass_size=20 # Number of students in each class (group size)\n\n# Step 1: Generate random birthdays using the INVERSE-CDF method\n#         We generate 'simulation_amount × class_size' uniform random numbers U(0,1)\n#         Then transform each U into a day-of-year using the empirical distribution\n\nbirthdays_matrix &lt;- matrix(\n    inverse_cdf_vec(runif(simulation_amount * class_size),data$pmf_weight),   # generate n_sim × n_people uniforms → days\n    nrow = simulation_amount,\n    ncol = class_size\n  )\n\n\n# Step 2: Check for each simulated classroom whether at least two students\n#         share the same birthday\n#         We use: if number of unique birthdays &lt; total students → at least two people have the same birthday\ncheck_same_birthsday &lt;- apply(birthdays_matrix,MARGIN=1,function(x) length(unique(x))&lt;length(x))\n\n# Step 3: Estimate the probability\n#         Proportion of simulated classrooms that had at least one shared birthday\nprobability= sum(check_same_birthsday)/simulation_amount\nprobability\n\n[1] 0.4105"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#question-1",
+    "href": "BIOF2014/1-Question sets_presentation.html#question-1",
+    "title": "Question sets",
+    "section": "Question 1",
+    "text": "Question 1\nGiven \\(X \\sim \\text{Uniform}(a, b)\\),\n\nPlease show that \\(\\text{E}(X) = \\frac{a+b}{2}\\)\n\n\n\\[\n\\begin{align*}\n\\mathbb{E}(X) &= \\int_{-\\infty}^{\\infty} x\\, f_X(x)\\, dx\n= \\int_{a}^{b} x \\cdot \\frac{1}{b-a}\\, dx\n= \\frac{1}{b-a} \\int_{a}^{b} x\\, dx \\\\\n&= \\frac{1}{b-a} \\left[ \\frac{x^2}{2} \\right]_{a}^{b}\n= \\frac{1}{b-a} \\left( \\frac{b^2}{2} - \\frac{a^2}{2} \\right)\n= \\frac{b^2 - a^2}{2(b-a)}\n= \\frac{(b-a)(b+a)}{2(b-a)} \\\\[6pt]\n&= \\frac{a+b}{2}\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section",
+    "href": "BIOF2014/1-Question sets_presentation.html#section",
+    "title": "Question sets",
+    "section": "",
+    "text": "Please show that \\(\\text{VAR}(X) = \\frac{(b-a)^2}{12}\\)\n\n\n\\[\n\\begin{align*}\n\\mathrm{Var}(X) &= \\int_a^b \\left( x - \\frac{1}{2} (a+b) \\right)^2 \\cdot \\frac{1}{b-a} \\, \\mathrm{d}x\n= \\frac{1}{b-a} \\cdot \\int_a^b \\left( x - \\frac{a+b}{2} \\right)^2 \\, \\mathrm{d}x \\\\\n& \\text{let } t= x - \\frac{1}{2} (a+b) \\text{ and } h= \\frac{1}{2} (b-a) \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^2 = \\frac{1}{3(b-a)} \\cdot [ t^3 ]_{-h}^h \\\\\n&= \\frac{1}{3(b-a)}(\\frac{1}{2} (b-a))^3-(-\\frac{1}{2} (b-a))^3 \\\\\n&= \\frac{(b-a)^2}{12}\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-1",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-1",
+    "title": "Question sets",
+    "section": "",
+    "text": "Please show that the CDF is: \\[  \n\\begin{aligned}\nF(x) \\begin{cases}\n0\n\\quad & \\text{if }x &lt; a \\\\\n\\frac{x-a}{b-a}\n\\quad & \\text{if } a \\leq x &lt; b \\\\\n1\n\\quad & \\text{if } x \\geq b\n\\end{cases}\n\\end{aligned}\n\\]\n\n\n\nCase 1: \\(x &lt; a\\) For \\(t &lt; a\\), \\(f_X(t) = 0\\), so the integral from \\(-\\infty\\) to \\(x\\) is zero:\nCase 2: \\(a \\leq x &lt; b\\)\n\n\\[\n\\begin{align*}\nF(x) &= \\int_{-\\infty}^{x} f_X(t)\\, dt\n     = \\int_{-\\infty}^{a} 0\\, dt + \\int_{a}^{x} \\frac{1}{b-a}\\, dt \\\\\n     &= 0 + \\frac{1}{b-a} \\int_{a}^{x} 1\\, dt\n     = \\frac{1}{b-a} \\Big[ t \\Big]_{a}^{x} \\\\\n     &= \\frac{x - a}{b - a}.\n\\end{align*}\n\\]\n\nCase 3: \\(x \\geq b\\) Similar to Case 1"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-2",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-2",
+    "title": "Question sets",
+    "section": "",
+    "text": "Please show that \\(\\mathbb{E}[(X - \\mathbb{E}(X))^3] = 0\\)\n\n\n\\[\n\\begin{align*}\n\\mathbb{E}(X-\\mathbb{E}(X))^3  &= \\int_a^b \\left( x - \\frac{1}{2} (a+b) \\right)^3 \\cdot \\frac{1}{b-a} \\, \\mathrm{d}x\n= \\frac{1}{b-a} \\cdot \\int_a^b \\left( x - \\frac{a+b}{2} \\right)^3 \\, \\mathrm{d}x \\\\\n& \\text{let } t= x - \\frac{1}{2} (a+b) \\text{ and } h= \\frac{1}{2} (b-a) \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^3  \\\\\n& \\text{because } t^3 \\text{ is an odd function, so} \\\\\n&= \\frac{1}{b-a} \\int^h_{-h}t^3 = 0\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#question-2",
+    "href": "BIOF2014/1-Question sets_presentation.html#question-2",
+    "title": "Question sets",
+    "section": "Question 2",
+    "text": "Question 2\nFor a given empirical distribution\n\nPlease show that the empirical distribution fulfill non-negativity\n\n\n\\[  \n\\begin{aligned}\n\\because N&gt;0  \\quad  \\&  \\quad\nI(x)\\begin{cases}\n1\n\\quad & \\text{if }X\\text{ is TRUE} \\\\\n0\n\\quad & \\text{if }X\\text{ is FALSE}\n\\end{cases} \\geq 0 \\\\\n\\rightarrow \\hat{f}_N(x) = \\frac{1}{N} \\sum_{i=1}^N I(x_i = x)  \\geq 0\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-3",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-3",
+    "title": "Question sets",
+    "section": "",
+    "text": "Please show that the empirical distribution fulfills the unit measure condition\n\n\nLet the support have \\(t\\) unique values \\(\\{X_1, \\dots, X_t\\}\\): \\[  \nP(X) = \\sum_{t} \\frac{1}{N} \\sum_{i=1}^N I(x_i = X_t) = \\frac{N}{N}= 1\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#question-3",
+    "href": "BIOF2014/1-Question sets_presentation.html#question-3",
+    "title": "Question sets",
+    "section": "Question 3",
+    "text": "Question 3\nGiven \\(X \\sim \\text{Uniform}(a, b)\\), and for any numbers \\(u, v, w\\) where \\(a &lt; u &lt; v &lt; w &lt; b\\) and \\(v - u = w - v = c\\), please show that:\n\\(\\text{P} (u\\leq X\\leq v) = \\text{P} (v\\leq X\\leq w)\\)\n\n\\[\n\\small\n\\begin{align*}\n\\text{P} (u\\leq X\\leq v) &= P(x\\leq v)-P(x\\leq u) \\\\ &= \\frac{v - a}{b - a}-\\frac{u - a}{b - a}=\\frac{c}{b-a}\\\\\n\\text{P} (v\\leq X\\leq w) &= P(x\\leq w)-P(x\\leq v) \\\\ &= \\frac{w - a}{b - a}-\\frac{v - a}{b - a}=\\frac{c}{b-a}\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#question-4",
+    "href": "BIOF2014/1-Question sets_presentation.html#question-4",
+    "title": "Question sets",
+    "section": "Question 4",
+    "text": "Question 4\nHoo Hey How (魚蝦蟹) is a traditional Southern Chinese dice game rooted in Hokkien culture and popularly played during festivals like Chinese New Year. Using three six-sided dice marked with symbols—typically fish, prawn, crab, gourd, rooster, and stag. Players place bets on a board featuring these icons. After the dice are rolled, payouts are awarded based on how many times a chosen symbol appears: 1:1 for one match, 2:1 for two, and 3:1 for three. This game is also popular in Vietnam called Bầu Cua Cá Cọp and Cambodia called Klah Klok.\n\nIllustration of Hoo Hey How By Outlookxp - Own work, CC BY-SA 3.0, LinkSuppose that you bet 1 dollar on Crab. Let \\(X\\) denote the money you win (negative value represents a loss) from one trial of this game\n\nWhat is the support of \\(X\\)\n\n\n\\(-1,1,2,3\\)"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-4",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-4",
+    "title": "Question sets",
+    "section": "",
+    "text": "What is the probability mass function (pmf) of X\n\n\n\\[  \n\\begin{aligned}\np(x) \\begin{cases}\n\\frac{125}{216}\n\\quad & \\text{, when }x = -1 ;\\\\\n\\frac{25}{72}\n\\quad & \\text{, when }x = 1 ;\\\\\n\\frac{5}{72}\n\\quad & \\text{, when }x = 2 ;\\\\\n\\frac{1}{216}\n\\quad & \\text{, when }x = 3 ;\\\\\n  0\n\\quad & \\text{Otherwise.} \\\\\n\\end{cases}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#question-5",
+    "href": "BIOF2014/1-Question sets_presentation.html#question-5",
+    "title": "Question sets",
+    "section": "Question 5",
+    "text": "Question 5\n“Pig” is a simple dice game in which two players take turns to roll a six-sided die, according to the following rule\n\nIf a player rolls a 1, the player scores nothing and it becomes the opponent’s turn.\nIf a player rolls any other number, it is added to his turn total and the player’s turn continues.\nIf the player instead chooses to hold, the turn total is accumulated to his or her score and it becomes the opponent’s turn.\nThe first player who scores 100 or more points wins\n\nA simple tactic at the early stage of the game is called “hold at k strategy”, with which one should continue to roll whenever the turn total is less than k. What would be the wise choice on the value of k?"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-5",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-5",
+    "title": "Question sets",
+    "section": "",
+    "text": "Given the current turn total is \\(s\\) what is the expected gain of rolling\n\n\n\\[  \nE(X)=-s\\frac{1}{6}+2\\times\\frac{1}{6}+3\\times\\frac{1}{6}+4\\times\\frac{1}{6}+5\\times\\frac{1}{6}+6\\times\\frac{1}{6}=+2\\times\\frac{20-s}{6}\n\\]\n\n\n\n\n\n\n\nNote\n\n\n\nHolds at k strategy is only good in early game\nThe total optimal strategy actually varies based on your opponent’s situation.\nDetailed discussion can be found in Neller and Presser (2005)"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#question-6-birthday-problem",
+    "href": "BIOF2014/1-Question sets_presentation.html#question-6-birthday-problem",
+    "title": "Question sets",
+    "section": "Question 6: Birthday Problem",
+    "text": "Question 6: Birthday Problem\nWhat is the probability that at least two people share the same birthday in the classroom with size of 20 ?\nWhen we examined this problem previously, we assumed:\n\n365 days in a year\nEvery birthday is equally likely to happen"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-6",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-6",
+    "title": "Question sets",
+    "section": "",
+    "text": "Assuming each individual’s birthday is independent and equally likely to occur on any day, what is the potential distribution of everyone’s birthday?\n\n\nUniform distribution (Either continuous and discrete is fine in this case)"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-7",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-7",
+    "title": "Question sets",
+    "section": "",
+    "text": "What is the probability of all student’s birthday are different?\n\n\n\\[\n=0.59\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-8",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-8",
+    "title": "Question sets",
+    "section": "",
+    "text": "What is the probability that at least two people share the same birthday in the classroom with size of 20 ?\n\n\n\\[\n1-\\frac{\\binom{365}{20}\\times 20!}{365^{20}} =\\frac{P^{365}_{20}}{365^{20}}=0.41\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-9",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-9",
+    "title": "Question sets",
+    "section": "",
+    "text": "However, these assumptions are unrealistic. Let’s refine our model by using real world data.\nData\nThe UK publishes the average frequency of births on each day of the year from 1995 to 2024. We can download it with\ncurl -o uk-daily-births.csv \\\nhttps://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-10",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-10",
+    "title": "Question sets",
+    "section": "",
+    "text": "So, let’s use this data to construct the empirical probability mass function (pmf). Then, we can re-estimate the probability that two people share the same birthday in a group of people.\nTasks\n\nLoad the data into R and visualize it.\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.1     ✔ stringr   1.5.2\n✔ ggplot2   4.0.0     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.1.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(lubridate) # Library for handeling datetime \n\n# 1. Load the data\ndata &lt;- read_csv(\"Datasets/data.csv\", col_types = cols(\n  date = col_character(),\n  average = col_double()\n))\n\n# Parse the date properly (day-month format, ggplot2 cannot accept date without year information)\n\ndata &lt;- data %&gt;%\n  mutate(\n    date_parsed = dmy(paste(date, \"2024\")),  \n    month = month(date_parsed),\n    day   = day(date_parsed),\n  )\n\n# Visualise daily average births0\np1 &lt;- ggplot(data, aes(x = date_parsed, y = average)) +\n  geom_line(color = \"steelblue\") +\n  geom_point( color = \"steelblue\") +\n  scale_x_date(date_breaks = \"1 month\", date_labels = \"%b\") +\n  labs(title = \"Average Daily Births in England & Wales (1995–2024)\",\n       x = \"Date\", y = \"Average number of births\") +\n  theme_minimal()\n\np1"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-11",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-11",
+    "title": "Question sets",
+    "section": "",
+    "text": "Construct the empirical pmf that a person is born on each day within a year.\n\n\n# Account for leap years and compute total births per calendar day ----\n# Over 30 years (1995–2024): 7 leap years (1996,2000,2004,2008,2012,2016,2020,2024)\n\ndata &lt;- data %&gt;% mutate(pmf_weight=average/sum(average) # Total births in the whole period\n)\n\n\n# Verify it sums to 1\ncat(\"PMF sums to:\", sum(data$pmf_weight), \"\\n\")\n\nPMF sums to: 1 \n\n# Visualise the empirical distribution\n\nggplot(data, aes(x = date_parsed, y = pmf_weight)) +\n  geom_col(fill = \"darkorange\", alpha = 0.8, width = 1) +\n  scale_x_date(date_breaks = \"1 month\", date_labels = \"%b\") +\n  labs(title = \"Empirical Birth Probability by Calendar Day (366-day year)\",\n       x = \"Month\", y = \"Probability\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-12",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-12",
+    "title": "Question sets",
+    "section": "",
+    "text": "Implement a simulation that generates 20 people their birthday based on the empirical pmf.\n\n\ninverse_cdf &lt;- function(u,pmf) {\n   cdf_366 &lt;- cumsum(pmf)                # Get cdf\n   day_indices&lt;-1:366                    # day-of-year 1 … 366\n   return(day_indices[which(cdf_366 &gt;= u)[1]])   # first day where CDF exceeds u\n}\n\nvectorization\n\ninverse_cdf_vec &lt;- Vectorize(inverse_cdf,vectorize.args = 'u') # vectorization on u to facilitate speed computation\ndata$date_parsed[inverse_cdf_vec(runif(20),data$pmf_weight)]\n\n [1] \"2024-02-23\" \"2024-07-01\" \"2024-03-07\" \"2024-11-18\" \"2024-04-11\"\n [6] \"2024-09-23\" \"2024-10-09\" \"2024-09-20\" \"2024-08-12\" \"2024-08-20\"\n[11] \"2024-07-23\" \"2024-12-21\" \"2024-11-27\" \"2024-03-12\" \"2024-12-02\"\n[16] \"2024-03-28\" \"2024-08-30\" \"2024-04-01\" \"2024-04-06\" \"2024-08-17\""
+  },
+  {
+    "objectID": "BIOF2014/1-Question sets_presentation.html#section-13",
+    "href": "BIOF2014/1-Question sets_presentation.html#section-13",
+    "title": "Question sets",
+    "section": "",
+    "text": "Compare \\(P\\left( X \\ge 2 \\right)\\) determined using the simple uniform model we used previously vs. the probability that is estimated using the empirical pmf.\n\n\nsimulation_amount=2000 # Number of simulation\n\nclass_size=20 # Number of students in each class (group size)\n\n# Step 1: Generate random birthdays using the INVERSE-CDF method\n#         We generate 'simulation_amount × class_size' uniform random numbers U(0,1)\n#         Then transform each U into a day-of-year using the empirical distribution\n\nbirthdays_matrix &lt;- matrix(\n    inverse_cdf_vec(runif(simulation_amount * class_size),data$pmf_weight),   # generate n_sim × n_people uniforms → days\n    nrow = simulation_amount,\n    ncol = class_size\n  )\n\n\n# Step 2: Check for each simulated classroom whether at least two students\n#         share the same birthday\n#         We use: if number of unique birthdays &lt; total students → at least two people have the same birthday\ncheck_same_birthsday &lt;- apply(birthdays_matrix,MARGIN=1,function(x) length(unique(x))&lt;length(x))\n\n# Step 3: Estimate the probability\n#         Proportion of simulated classrooms that had at least one shared birthday\nprobability= sum(check_same_birthsday)/simulation_amount\nprobability\n\n[1] 0.4105\n\n\n\n\n\n\nNeller, Todd W, and Clifton GM Presser. 2005. “Pigtail: A Pig Addendum.” The UMAP Journal 26 (4)."
   },
   {
     "objectID": "BIOF2014/0-Housekeeping.html#about-me",
@@ -564,7 +802,7 @@
     "href": "BIOF2014/0-Housekeeping.html#in-class-quiz",
     "title": "Housekeeping",
     "section": "In-class Quiz",
-    "text": "In-class Quiz\n\n\n\nYou need to record a video\n\nContent: how do you solve a tutorial question\nDeadline: Monday or Thursday noon\nSubmission methods: Class forum\n\nQuiz questions\n\nVoting a question (with video recording)/class concept to let Ray do it\n\n\n\n\nComplete either submissions (i.e. video or quiz) to get full marks\n\nYou will only see answers for tutorial questions with video submission.\nComplete both submissions (i.e., video and quiz) to get full marks.\n\n\nCorrectness of the video is not an evaluation criterion\n\n\n\n\nClass logistics"
+    "text": "In-class Quiz\n\n\n\nYou need to record a video\n\nContent: how do you solve a tutorial question\nDeadline: Monday or Thursday noon\nSubmission methods: Class forum\n\nQuiz questions\n\nComments on the forum posts (video) and/or other class exercise wants Ray to eaplain again at the begining of next class\n\n\n\n\nComplete either submissions (i.e. video or quiz) to get full marks\n\nYou will only see answers for tutorial questions with video submission.\n\n\nCorrectness of the video is not an evaluation criterion\n\n\n\n\nClass logistics"
   },
   {
     "objectID": "BBMS1021/tutorial/tutorial_3.html",
@@ -1054,14 +1292,14 @@
     "href": "BIOF2014/1-distribution.html#property-of-variance",
     "title": "UniformDistribution",
     "section": "Property of Variance",
-    "text": "Property of Variance\n\\[\\begin{aligned}\n1. \\; &\\mathbb{V}(X)=\\mathbb{E}(X^2)-\\mathbb{E}(X)^2 \\\\\n2. \\; &\\mathbb{V}(aX+b)=a^2\\mathbb{V}(X) \\\\\n3. \\; &\\mathbb{V}\\big(\\sum_i a_iX_i\\big)=\\sum_i a_i^2\\mathbb{V}(X_i)\n\\end{aligned}\\]\nProof:\n\n\\[\\begin{align}\n\\mathbb{V}(X) = & \\mathbb{E} \\left[ \\left( X - \\mathbb{E}\\left(X\\right) \\right)^2 \\right] = \\mathbb{E}[X^2-2X\\mathbb{E}(X)+(\\mathbb{E}(X)^2)]\\\\\n= & \\mathbb{E}(X^2)-2\\mathbb{E}(X)^2+\\mathbb{E}(X)^2 =\\mathbb{E}(X^2)-\\mathbb{E}(X)^2\n\\end{align}\\]\n\\[\\begin{align}\n\\mathbb{V}(aX+b) = & \\mathbb{E}(a^2X^2+2abX+b^2)-(a^2\\mathbb{E}(X)^2 +2ab\\mathbb{E}(x)+b^2) \\\\\n= & a^2\\mathbb{E}(X^2)-a^2\\mathbb{E}(X)^2 = a^2\\mathbb{V}(X)\n\n\\end{align}\\]\n\nApplication:\nVariance estimation for t-test with unequal variance"
+    "text": "Property of Variance\n\\[\n\\begin{aligned}\n1. \\; &\\mathbb{V}(X)=\\mathbb{E}(X^2)-\\mathbb{E}(X)^2 \\\\\n2. \\; &\\mathbb{V}(aX+b)=a^2\\mathbb{V}(X) \\\\\n3. \\; &\\mathbb{V}\\big(\\sum_i a_iX_i\\big)=\\sum_i a_i^2\\mathbb{V}(X_i)\n\\end{aligned}\n\\]\nProof:\n\\[\n\\begin{aligned}\n\\mathbb{V}(X) = & \\mathbb{E} \\left[ \\left( X - \\mathbb{E}\\left(X\\right) \\right)^2 \\right] = \\mathbb{E}[X^2-2X\\mathbb{E}(X)+(\\mathbb{E}(X)^2)]\\\\\n= & \\mathbb{E}(X^2)-2\\mathbb{E}(X)^2+\\mathbb{E}(X)^2 =\\mathbb{E}(X^2)-\\mathbb{E}(X)^2 \\\\\n\\mathbb{V}(aX+b) = & \\mathbb{E}(a^2X^2+2abX+b^2)-(a^2\\mathbb{E}(X)^2 +2ab\\mathbb{E}(x)+b^2) \\\\\n= & a^2\\mathbb{E}(X^2)-a^2\\mathbb{E}(X)^2 = a^2\\mathbb{V}(X)\n\\end{aligned}\n\\]\nApplication:\nVariance estimation for t-test with unequal variance"
   },
   {
     "objectID": "BIOF2014/1-distribution.html#property-of-variance-1",
     "href": "BIOF2014/1-distribution.html#property-of-variance-1",
     "title": "UniformDistribution",
     "section": "Property of Variance",
-    "text": "Property of Variance\nStatistical independence\nThe following statement holds iff \\(X\\) and \\(Y\\) are statistically independent \\[\n\\mathbb{V}(X+Y)=\\mathbb{V}(X)+\\mathbb{V}(Y)\n\\]\nProof:\n\n\\[\n\\begin{aligned}\n\\text{Assuming } & \\mathbb{E}(X) \\quad \\&\\quad \\mathbb{E}(Y) = 0 \\\\\n\\mathbb{V}(X+Y)=&\\mathbb{E}((X+Y)^2)=\\mathbb{E}(X^2+2XY+ Y^2)\\\\\n=&\\mathbb{E}(X^2)+2\\mathbb{E}(XY)+\\mathbb{E}(Y^2)\\\\\n=&\\mathbb{E}(X^2)+2\\mathbb{E}(X)(Y)+\\mathbb{E}(Y^2)\\\\\n=&\\mathbb{E}(X^2)+\\mathbb{E}(Y^2)\n\\end{aligned}\n\\]"
+    "text": "Property of Variance\nStatistical independence\nThe following statement holds iff \\(X\\) and \\(Y\\) are statistically independent \\[\n\\mathbb{V}(X+Y)=\\mathbb{V}(X)+\\mathbb{V}(Y)\n\\]\nProof:\n\\[\n\\begin{aligned}\n\\text{Assuming } & \\mathbb{E}(X) \\quad \\&\\quad \\mathbb{E}(Y) = 0 \\\\\n\\mathbb{V}(X+Y)=&\\mathbb{E}((X+Y)^2)=\\mathbb{E}(X^2+2XY+ Y^2)\\\\\n=&\\mathbb{E}(X^2)+2\\mathbb{E}(XY)+\\mathbb{E}(Y^2)\\\\\n=&\\mathbb{E}(X^2)+2\\mathbb{E}(X)(Y)+\\mathbb{E}(Y^2)\\\\\n=&\\mathbb{E}(X^2)+\\mathbb{E}(Y^2)\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "BIOF2014/1-distribution.html#discrete-vs.-continuous-random-variables",
@@ -1075,14 +1313,14 @@
     "href": "BIOF2014/1-distribution.html#discrete-uniform-distribution",
     "title": "UniformDistribution",
     "section": "Discrete Uniform Distribution",
-    "text": "Discrete Uniform Distribution\nA random variable \\(X\\) with the sample space \\(\\Omega\\) with \\(N\\) distinct elements \\(\\{x_a, \\dots, x_b\\}\\). We write that X follows a discrete uniform distribution \\(X \\sim \\text{Uniform}\\left(N\\right)\\).\n\n\nProperties\n\nSupport \\(\\{x_a\\dots x_b\\}\\)\nParameter \\(N\\) number of distinct outcomes\npmf\n\n\\[\n\\begin{aligned}\nP ( X = x) \\; &= \\; \\frac{1}{N}, \\quad\nx \\in \\Omega\n\\end{aligned}\n\\]\n\nMean: \\(\\frac{a+b}{2}\\)\n\n\nExamples\n\noutcome of a fair coin flip\noutcome of a fair dice roll\nnumber on a drawn card from a well-shuffled deck"
+    "text": "Discrete Uniform Distribution\nA random variable \\(X\\) with the sample space \\(\\Omega\\) with \\(N\\) distinct elements \\(\\{x_a, \\dots, x_b\\}\\). We write that X follows a discrete uniform distribution \\(X \\sim \\text{Uniform}\\left(N\\right)\\).\n\n\nProperties\n\nSupport: \\(\\{x_a\\dots x_b\\}\\)\nParameter: \\(N\\) number of distinct outcomes\npmf\n\n\\[\n\\begin{aligned}\nP ( X = x) \\; &= \\; \\frac{1}{N}, \\quad\nx \\in \\Omega\n\\end{aligned}\n\\]\n\nMean: \\(\\frac{a+b}{2}\\)\n\n\nExamples\n\noutcome of a fair coin flip\noutcome of a fair dice roll\nnumber on a drawn card from a well-shuffled deck"
   },
   {
     "objectID": "BIOF2014/1-distribution.html#continuous-uniform-distribution",
     "href": "BIOF2014/1-distribution.html#continuous-uniform-distribution",
     "title": "UniformDistribution",
     "section": "Continuous Uniform Distribution",
-    "text": "Continuous Uniform Distribution\n\nWe write a random variable \\(X\\) follows a continuous uniform distribution over an interval \\([a, b]\\) as \\(X \\sim \\text{Uniform}\\left(a, b\\right)\\) if\nDefinition\n\\[\nf_X(x) =\n\\begin{cases}\n\\frac{1}{b - a} & \\text{ if } x \\in [a, b] \\\\\n0 & \\text{otherwise} ,\n\\end{cases}\n\\]\nwhere \\(b &gt; a\\).\n\\[\\begin{aligned}\n\\mathbb{E}(X) & =\\frac{a+b}{2} \\\\\n\\mathbb{V}(X) & =\\frac{(b-a)^2}{12}\n\\end{aligned}\\]\n\n\n\n\n\n\n\n\n\nFigure 1: uniform(3,7)"
+    "text": "Continuous Uniform Distribution\n\nWe write a random variable \\(X\\) follows a continuous uniform distribution over an interval \\([a, b]\\) as \\(X \\sim \\text{Uniform}\\left(a, b\\right)\\) if\nDefinition\n\nSupport: \\([a,b]\\)\nParameter: \\(a,b\\) range\npmf \\[\nf_X(x) =\n\\begin{cases}\n\\frac{1}{b - a} & \\text{ if } x \\in [a, b] \\\\\n0 & \\text{otherwise} ,\n\\end{cases}\n\\]\nMean: \\((a+b)/2\\)\nVariance: \\((b-a)^2/12\\)\n\n\n\n\n\n\n\n\n\n\nFigure 1: uniform(3,7)"
   },
   {
     "objectID": "BIOF2014/1-distribution.html#example",

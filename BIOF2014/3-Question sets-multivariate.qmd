@@ -1,0 +1,281 @@
+---
+title: "Question sets"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: [student_view.scss]
+  revealjs:
+    output-file: 3-Question sets_presentation.html
+    theme: [default, student_view.scss]
+engine: knitr 
+---
+
+## Question 1 {.smaller}
+
+Suppose that the pmf ($f_{X,Y}$) of joint distribution $X$ and $Y$ is given in the below table 
+
+
+|             |    $Y=0$    |  $Y=1$  |
+| ----------- | -----------  |----------- |
+|   $X=0$  |$\frac{2}{10}$|$\frac{3}{10}$|
+|   $X=1$    |$\frac{2}{10}$|$\frac{3}{10}$|
+
+please show that X and Y are statistically independent
+
+:::{.hide}
+$$
+\begin{align*}
+p_{X,Y}(0,0)=(\frac{2}{10}+\frac{3}{10})\times (\frac{2}{10}+\frac{2}{10})= 0.2 \\
+p_{X,Y}(0,1)=(\frac{2}{10}+\frac{3}{10})\times (\frac{3}{10}+\frac{3}{10})= 0.3 \\
+p_{X,Y}(1,0)=(\frac{2}{10}+\frac{3}{10})\times (\frac{2}{10}+\frac{2}{10})= 0.2 \\
+p_{X,Y}(1,1)=(\frac{2}{10}+\frac{3}{10})\times (\frac{3}{10}+\frac{3}{10})= 0.3
+\end{align*}
+$$
+:::
+
+## Question 2 {.smaller}
+
+Suppose that the pmf ($f_{X,Y}$) of joint distribution $X$ and $Y$ is given in the below table 
+
+
+|             |    $Y=0$    |  $Y=1$  |
+| ----------- | -----------  |----------- |
+|   $X=0$  |$\frac{1}{10}$|$\frac{1}{10}$|
+|   $X=1$    |$\frac{2}{10}$|$\frac{6}{10}$|
+
+
+What is the pmf of $f_Y$
+
+
+:::{.hide}
+$$
+p_Y(0)=\frac{3}{10}, p_Y(1)=\frac{7}{10}
+$$
+:::
+
+## Question 3 {.smaller}
+
+For medical research on the effect of exposure to cancer, the research results are shown below:
+
+
+|             |    Cancer   |  No Cancer |
+| ----------- | ----------- |----------- |
+|   Exposure  |      a      |     b      |
+|   Control   |      c      |     d      |
+
+## {.smaller}
+
+1. Odds ratio (OR= $\frac{ad}{bc}$) is a common indicator to the effectiveness of an intervention. Please show that OR=1 indicates that the outcome and treatment are statistically independent
+
+:::{.hide}
+$$
+\begin{align*}
+& \frac{ad}{bc}=1 \\
+\rightarrow & \frac{a}{b}=\frac{c}{d} \quad
+\text{Definition of statistical independent}
+\end{align*}
+$$
+:::
+
+## {.smaller}
+
+2. Another common indicator is relative risk (RR), defined as the fraction of the probability of developing cancer between exposure over control $\frac{\frac{a}{a+b}}{\frac{c}{c+d}}$. Please show that RR=1 indicates that the outcome and treatment are statistically independent
+
+:::{.hide}
+$$
+\begin{align*}
+& \frac{\frac{a}{a+b}}{\frac{c}{c+d}}=1 \\
+\rightarrow & \frac{a}{a+b}=\frac{c}{c+d} \\
+\rightarrow & ac+ad=ac+ab \\
+\rightarrow & \frac{a}{b}=\frac{c}{d} \quad
+\text{Definition of statistical independent}
+\end{align*}
+$$
+:::
+
+## Question 4 {.smaller}
+
+Consider a random variable $X$ uniformly distributed on $\{-1, 0, 1\}$, and let $Y = X^2$.
+
+## {.smaller}
+1. Show that $\sigma_{xy}=0$ 
+
+:::{.hide}
+$$
+\begin{aligned}
+\text{Cov}(X, Y) = & \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y] \\
+\because & \mathbb{E}(X) =0 
+\therefore \text{Cov}(X, Y) = \mathbb{E}[XY] - 0 \\
+XY= &X\times X^2 =X^3, \text{ The values of $X^3$ are $\{-1, 0, 1\}$.} \\
+\therefore & E[XY] = \frac{1}{3}(-1) + \frac{1}{3}(0) + \frac{1}{3}(1) = 0
+\therefore \text{Cov}(X, Y)=0
+\end{aligned}
+$$
+:::
+
+## {.smaller}
+
+2. Is X and Y statistically independent?
+
+:::{.hide}
+No, they are dependent. If you know $X=0$, you know for certain that $Y=0$. If you know $X=1$, you know $Y=1$. One variable conveys perfect information about the other (specifically, $Y$ is a deterministic function of $X$).
+:::
+
+## Question 5
+
+Marginal Density on a Unit Square: Let two continuous random variables $X$ and $Y$ have the joint probability density function (PDF):
+
+$$
+f_{X,Y}(x,y) = \begin{cases}
+x + y & \text{for } 0 \le x \le 1, 0 \le y \le 1 \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+## {.smaller}
+
+1. Find the marginal PDF of $X$
+
+:::{.hide}
+
+$$
+f_X(x) = \int_{0}^{1} (x + y) dy = \left[ xy + \frac{y^2}{2} \right]_{y=0}^{y=1} = (x + 0.5) - 0 = x + 0.5
+$$
+:::
+
+## {.smaller}
+
+2. Calculate the probability $P(X > 0.5)$
+
+:::{.hide}
+$$
+\begin{aligned}
+P(X > 0.5) = &\int_{0.5}^{1} (x + 0.5) dx  = \left[ \frac{x^2}{2} + 0.5x \right]_{0.5}^{1} \\ = & (0.5 + 0.5) - (0.125 + 0.25) = 1 - 0.375 = 0.625
+\end{aligned}
+$$
+:::
+
+## {.smaller}
+
+3. Determine if $X$ and $Y$ are independent.
+
+:::{.hide}
+
+NO
+$$
+\begin{aligned}
+f_X(x) \cdot f_Y(y) = & (x + 0.5)(y + 0.5) \\ 
+= & xy + 0.5x + 0.5y + 0.25 \\
+\neq & x+y
+\end{aligned}
+$$
+:::
+
+
+## Question 6 (Monty Hall problem)
+
+Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a Tesla; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 2, which has a goat. He then says to you, "Do you want to pick door No. 3?" Is it to your advantage to switch your choice?
+
+## {.smaller}
+
+1. What is the probability that a Tesla is behind door 1 given that you choose door 1 and the host opens door 2?
+
+:::{.hide}
+We define the event $C_1$, $C_2$, and $C_3$ indicate car is at the door 1, 2, and 3, the event  $O_1$, $O_2$, and $O_3$ indicate host open the door 1, 2, and 3
+
+$$
+\begin{align*}
+P(C_1 | O_2,B_1) &=  \frac{P(C_1 \& O_2 \& B_1)}{P(O2 \& B_1)} \\
+ &= \frac{\frac{1}{2}\times\frac{1}{3}\times\frac{1}{3}}{\frac{1}{2}\times\frac{1}{3}\times\frac{1}{3}+0\times\frac{1}{3}\times\frac{1}{3}+1\times\frac{1}{3}\times\frac{1}{3}} 
+\end{align*}
+$$
+:::
+
+## {.smaller}
+
+2. Please show that switching door is always the best strategy for any number $n$ doors while the game works as follow:
+  
+>  after you choose a door, the host will open rest of the doors, and leave the last one unopened
+
+:::{.hide}
+We define the event $C_1$, $C_2$, and $C_n$ indicate car is at the door 1, to n, the event  $O$ indicate host open the door 2 to $n-1$
+$$
+\begin{align*}
+P(C_1 | O) &=  \frac{P(C_1 \& O)}{P(O)} \\
+ &= \frac{\frac{1}{n-1}\times\frac{1}{n}}{\frac{1}{n-1}\times\frac{1}{n} + 0 +0 + \dots +1\times\frac{1}{n}} \\
+ & = \frac{1}{n}
+\end{align*}
+$$
+
+so switching is a better strategy
+:::
+
+## Question 7 (Buffon’s needle problem)
+
+
+A table is ruled with equidistant parallel lines a distance D apart. A needle of length L, where $L\leq D$, is randomly thrown on the table. What is the probability that the needle will intersect one of the lines (the other probability being that the needle will be completely contained in the
+strip between two lines)?
+
+## {.smaller}
+
+1. 
+We determine the position of the needle by specifying the distance $X$ from the middle point of the needle to the nearest parallel line 
+
+What is the possible range of $X$? What will be the probability distribution of $X$?
+
+:::{.hide}
+1. Range: $[0,\frac{D}{2}]$
+2. Uniform distribution: $X \sim U(0,\frac{D}{2})$
+:::
+
+## {.smaller}
+
+2. We determine the angle $\theta$ between the needle and the projected line of length X. What is the possible range of $\theta$? What will be the probability distribution of $\theta$?
+
+:::{.hide}
+1. Range: $[0,\frac{\pi}{2}]$
+2. Uniform distribution: $X \sim U(0,\frac{\pi}{2})$
+:::
+
+
+## {.smaller}
+
+3. What is the joint probability distribution of $f_{X,\theta}$?
+
+:::{.hide}
+
+$$
+f(x,\theta)= 
+\begin{cases}
+\frac{4}{D\pi} & \text{ while } 0 \leq x \leq \frac{D}{2}, 0 \leq \theta \leq \frac{\pi}{2} \\
+0 & \text{elsewhere}
+\end{cases}
+$$
+
+:::
+
+## {.smaller}
+
+4. The needle will intersect a line for the following condition $\frac{X}{\cos\theta}<\frac{L}{2}$. What is the probability that $X$ intersects with a line
+
+:::{.hide}
+
+$$
+\begin{aligned}
+P(X < \frac{L}{2}\cos\theta) = & \int_{\theta=0}^{\frac{\pi}{2}}\int_{x=0}^{\frac{L}{2}\cos\theta}\frac{4}{D\pi}dxd\theta \\
+= & \frac{4}{D\pi}\int_{\theta=0}^{\frac{\pi}{2}}\frac{L}{2}\cos\theta d\theta 
+= \frac{4}{D\pi}\frac{L}{2}\sin\theta \big|^{\frac{\pi}{2}}_0 \\
+= & \frac{2L}{D\pi}
+\end{aligned} 
+$$
+
+:::
+
+
+:::{.callout-note}
+
+1. This experiment provides a practical way to estimate $\pi$.  
+2. What happens if we do not restrict the needle length?
+
+:::

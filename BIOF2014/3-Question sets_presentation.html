@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="1-Question sets-discrete_files/libs/clipboard/clipboard.min.js"></script>
-<script src="1-Question sets-discrete_files/libs/quarto-html/tabby.min.js"></script>
-<script src="1-Question sets-discrete_files/libs/quarto-html/popper.min.js"></script>
-<script src="1-Question sets-discrete_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="1-Question sets-discrete_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="1-Question sets-discrete_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="1-Question sets-discrete_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="3-Question sets-multivariate_files/libs/clipboard/clipboard.min.js"></script>
+<script src="3-Question sets-multivariate_files/libs/quarto-html/tabby.min.js"></script>
+<script src="3-Question sets-multivariate_files/libs/quarto-html/popper.min.js"></script>
+<script src="3-Question sets-multivariate_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="3-Question sets-multivariate_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="3-Question sets-multivariate_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="3-Question sets-multivariate_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
   <title>Question sets</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="1-Question sets-discrete_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="1-Question sets-discrete_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="3-Question sets-multivariate_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="3-Question sets-multivariate_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -27,34 +27,12 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
-  <link rel="stylesheet" href="1-Question sets-discrete_files/libs/revealjs/dist/theme/quarto-f684eecc8762ab89d96cfad09c33d070.css">
-  <link href="1-Question sets-discrete_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="1-Question sets-discrete_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="1-Question sets-discrete_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="1-Question sets-discrete_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="1-Question sets-discrete_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="1-Question sets-discrete_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  </style>
+  <link rel="stylesheet" href="3-Question sets-multivariate_files/libs/revealjs/dist/theme/quarto-f684eecc8762ab89d96cfad09c33d070.css">
+  <link href="3-Question sets-multivariate_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="3-Question sets-multivariate_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="3-Question sets-multivariate_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="3-Question sets-multivariate_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -156,221 +134,304 @@
 </section>
 <section id="question-1" class="slide level2 smaller">
 <h2>Question 1</h2>
-<p>Given <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span>,</p>
-<ol type="1">
-<li>Please show that <span class="math inline">\(\text{E}(X) = \frac{a+b}{2}\)</span></li>
-</ol>
+<p>Suppose that the pmf (<span class="math inline">\(f_{X,Y}\)</span>) of joint distribution <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given in the below table</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(Y=0\)</span></th>
+<th><span class="math inline">\(Y=1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X=0\)</span></td>
+<td><span class="math inline">\(\frac{2}{10}\)</span></td>
+<td><span class="math inline">\(\frac{3}{10}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X=1\)</span></td>
+<td><span class="math inline">\(\frac{2}{10}\)</span></td>
+<td><span class="math inline">\(\frac{3}{10}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>please show that X and Y are statistically independent</p>
 <div class="hide">
 <p><span class="math display">\[
 \begin{align*}
-\mathbb{E}(X) &amp;= \int_{-\infty}^{\infty} x\, f_X(x)\, dx
-= \int_{a}^{b} x \cdot \frac{1}{b-a}\, dx
-= \frac{1}{b-a} \int_{a}^{b} x\, dx \\
-&amp;= \frac{1}{b-a} \left[ \frac{x^2}{2} \right]_{a}^{b}
-= \frac{1}{b-a} \left( \frac{b^2}{2} - \frac{a^2}{2} \right)
-= \frac{b^2 - a^2}{2(b-a)}
-= \frac{(b-a)(b+a)}{2(b-a)} \\[6pt]
-&amp;= \frac{a+b}{2}
-\end{align*}
-\]</span></p>
-</div>
-</section>
-<section id="section" class="slide level2 smaller">
-<h2></h2>
-<ol start="2" type="1">
-<li>Please show that <span class="math inline">\(\text{VAR}(X) = \frac{(b-a)^2}{12}\)</span></li>
-</ol>
-<div class="hide">
-<p><span class="math display">\[
-\begin{align*}
-\mathrm{Var}(X) &amp;= \int_a^b \left( x - \frac{1}{2} (a+b) \right)^2 \cdot \frac{1}{b-a} \, \mathrm{d}x
-= \frac{1}{b-a} \cdot \int_a^b \left( x - \frac{a+b}{2} \right)^2 \, \mathrm{d}x \\
-&amp; \text{let } t= x - \frac{1}{2} (a+b) \text{ and } h= \frac{1}{2} (b-a) \\
-&amp;= \frac{1}{b-a} \int^h_{-h}t^2 = \frac{1}{3(b-a)} \cdot [ t^3 ]_{-h}^h \\
-&amp;= \frac{1}{3(b-a)}(\frac{1}{2} (b-a))^3-(-\frac{1}{2} (b-a))^3 \\
-&amp;= \frac{(b-a)^2}{12}
-\end{align*}
-\]</span></p>
-</div>
-</section>
-<section id="section-1" class="slide level2 smaller">
-<h2></h2>
-<ol start="3" type="1">
-<li>Please show that the CDF is: <span class="math display">\[  
-\begin{aligned}
-F(x) \begin{cases}
-0
-\quad &amp; \text{if }x &lt; a \\
-\frac{x-a}{b-a}
-\quad &amp; \text{if } a \leq x &lt; b \\
-1
-\quad &amp; \text{if } x \geq b
-\end{cases}
-\end{aligned}
-\]</span></li>
-</ol>
-<div class="hide">
-<ul>
-<li><p>Case 1: <span class="math inline">\(x &lt; a\)</span> For <span class="math inline">\(t &lt; a\)</span>, <span class="math inline">\(f_X(t) = 0\)</span>, so the integral from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(x\)</span> is zero:</p></li>
-<li><p>Case 2: <span class="math inline">\(a \leq x &lt; b\)</span></p></li>
-</ul>
-<p><span class="math display">\[
-\begin{align*}
-F(x) &amp;= \int_{-\infty}^{x} f_X(t)\, dt
-     = \int_{-\infty}^{a} 0\, dt + \int_{a}^{x} \frac{1}{b-a}\, dt \\
-     &amp;= 0 + \frac{1}{b-a} \int_{a}^{x} 1\, dt
-     = \frac{1}{b-a} \Big[ t \Big]_{a}^{x} \\
-     &amp;= \frac{x - a}{b - a}.
-\end{align*}
-\]</span></p>
-<ul>
-<li>Case 3: <span class="math inline">\(x \geq b\)</span> Similar to Case 1</li>
-</ul>
-</div>
-</section>
-<section id="section-2" class="slide level2 smaller">
-<h2></h2>
-<ol start="4" type="1">
-<li>Please show that <span class="math inline">\(\mathbb{E}[(X - \mathbb{E}(X))^3] = 0\)</span></li>
-</ol>
-<div class="hide">
-<p><span class="math display">\[
-\begin{align*}
-\mathbb{E}(X-\mathbb{E}(X))^3  &amp;= \int_a^b \left( x - \frac{1}{2} (a+b) \right)^3 \cdot \frac{1}{b-a} \, \mathrm{d}x
-= \frac{1}{b-a} \cdot \int_a^b \left( x - \frac{a+b}{2} \right)^3 \, \mathrm{d}x \\
-&amp; \text{let } t= x - \frac{1}{2} (a+b) \text{ and } h= \frac{1}{2} (b-a) \\
-&amp;= \frac{1}{b-a} \int^h_{-h}t^3  \\
-&amp; \text{because } t^3 \text{ is an odd function, so} \\
-&amp;= \frac{1}{b-a} \int^h_{-h}t^3 = 0
+p_{X,Y}(0,0)=(\frac{2}{10}+\frac{3}{10})\times (\frac{2}{10}+\frac{2}{10})= 0.2 \\
+p_{X,Y}(0,1)=(\frac{2}{10}+\frac{3}{10})\times (\frac{3}{10}+\frac{3}{10})= 0.3 \\
+p_{X,Y}(1,0)=(\frac{2}{10}+\frac{3}{10})\times (\frac{2}{10}+\frac{2}{10})= 0.2 \\
+p_{X,Y}(1,1)=(\frac{2}{10}+\frac{3}{10})\times (\frac{3}{10}+\frac{3}{10})= 0.3
 \end{align*}
 \]</span></p>
 </div>
 </section>
 <section id="question-2" class="slide level2 smaller">
 <h2>Question 2</h2>
-<p>For a given empirical distribution</p>
-<ol type="1">
-<li>Please show that the empirical distribution fulfill non-negativity</li>
-</ol>
+<p>Suppose that the pmf (<span class="math inline">\(f_{X,Y}\)</span>) of joint distribution <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given in the below table</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(Y=0\)</span></th>
+<th><span class="math inline">\(Y=1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X=0\)</span></td>
+<td><span class="math inline">\(\frac{1}{10}\)</span></td>
+<td><span class="math inline">\(\frac{1}{10}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X=1\)</span></td>
+<td><span class="math inline">\(\frac{2}{10}\)</span></td>
+<td><span class="math inline">\(\frac{6}{10}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>What is the pmf of <span class="math inline">\(f_Y\)</span></p>
 <div class="hide">
-<p><span class="math display">\[  
-\begin{aligned}
-\because N&gt;0  \quad  \&amp;  \quad
-I(x)\begin{cases}
-1
-\quad &amp; \text{if }X\text{ is TRUE} \\
-0
-\quad &amp; \text{if }X\text{ is FALSE}
-\end{cases} \geq 0 \\
-\rightarrow \hat{f}_N(x) = \frac{1}{N} \sum_{i=1}^N I(x_i = x)  \geq 0
-\end{aligned}
-\]</span></p>
-</div>
-</section>
-<section id="section-3" class="slide level2 smaller">
-<h2></h2>
-<ol start="2" type="1">
-<li>Please show that the empirical distribution fulfills the unit measure condition</li>
-</ol>
-<div class="hide">
-<p>Let the support have <span class="math inline">\(t\)</span> unique values <span class="math inline">\(\{X_1, \dots, X_t\}\)</span>: <span class="math display">\[  
-P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
+<p><span class="math display">\[
+p_Y(0)=\frac{3}{10}, p_Y(1)=\frac{7}{10}
 \]</span></p>
 </div>
 </section>
 <section id="question-3" class="slide level2 smaller">
 <h2>Question 3</h2>
-<p>Given <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span>, and for any numbers <span class="math inline">\(u, v, w\)</span> where <span class="math inline">\(a &lt; u &lt; v &lt; w &lt; b\)</span> and <span class="math inline">\(v - u = w - v = c\)</span>, please show that:</p>
-<p><span class="math inline">\(\text{P} (u\leq X\leq v) = \text{P} (v\leq X\leq w)\)</span></p>
+<p>For medical research on the effect of exposure to cancer, the research results are shown below:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Cancer</th>
+<th>No Cancer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exposure</td>
+<td>a</td>
+<td>b</td>
+</tr>
+<tr class="even">
+<td>Control</td>
+<td>c</td>
+<td>d</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section" class="slide level2 smaller">
+<h2></h2>
+<ol type="1">
+<li>Odds ratio (OR= <span class="math inline">\(\frac{ad}{bc}\)</span>) is a common indicator to the effectiveness of an intervention. Please show that OR=1 indicates that the outcome and treatment are statistically independent</li>
+</ol>
 <div class="hide">
 <p><span class="math display">\[
-\small
 \begin{align*}
-\text{P} (u\leq X\leq v) &amp;= P(x\leq v)-P(x\leq u) \\ &amp;= \frac{v - a}{b - a}-\frac{u - a}{b - a}=\frac{c}{b-a}\\
-\text{P} (v\leq X\leq w) &amp;= P(x\leq w)-P(x\leq v) \\ &amp;= \frac{w - a}{b - a}-\frac{v - a}{b - a}=\frac{c}{b-a}
+&amp; \frac{ad}{bc}=1 \\
+\rightarrow &amp; \frac{a}{b}=\frac{c}{d} \quad
+\text{Definition of statistical independent}
+\end{align*}
+\]</span></p>
+</div>
+</section>
+<section id="section-1" class="slide level2 smaller">
+<h2></h2>
+<ol start="2" type="1">
+<li>Another common indicator is relative risk (RR), defined as the fraction of the probability of developing cancer between exposure over control <span class="math inline">\(\frac{\frac{a}{a+b}}{\frac{c}{c+d}}\)</span>. Please show that RR=1 indicates that the outcome and treatment are statistically independent</li>
+</ol>
+<div class="hide">
+<p><span class="math display">\[
+\begin{align*}
+&amp; \frac{\frac{a}{a+b}}{\frac{c}{c+d}}=1 \\
+\rightarrow &amp; \frac{a}{a+b}=\frac{c}{c+d} \\
+\rightarrow &amp; ac+ad=ac+ab \\
+\rightarrow &amp; \frac{a}{b}=\frac{c}{d} \quad
+\text{Definition of statistical independent}
 \end{align*}
 \]</span></p>
 </div>
 </section>
 <section id="question-4" class="slide level2 smaller">
 <h2>Question 4</h2>
-<p>Hoo Hey How (魚蝦蟹) is a traditional Southern Chinese dice game rooted in Hokkien culture and popularly played during festivals like Chinese New Year. Using three six-sided dice marked with symbols—typically fish, prawn, crab, gourd, rooster, and stag. Players place bets on a board featuring these icons. After the dice are rolled, payouts are awarded based on how many times a chosen symbol appears: 1:1 for one match, 2:1 for two, and 3:1 for three. This game is also popular in Vietnam called Bầu Cua Cá Cọp and Cambodia called Klah Klok.</p>
-
-<img data-src="img\hooHeyHow.JPG" class="r-stretch quarto-figure-center"><p class="caption">Illustration of Hoo Hey How By Outlookxp - Own work, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=30465860">Link</a></p><p>Suppose that you bet 1 dollar on Crab. Let <span class="math inline">\(X\)</span> denote the money you win (negative value represents a loss) from one trial of this game</p>
+<p>Consider a random variable <span class="math inline">\(X\)</span> uniformly distributed on <span class="math inline">\(\{-1, 0, 1\}\)</span>, and let <span class="math inline">\(Y = X^2\)</span>.</p>
+</section>
+<section id="section-2" class="slide level2 smaller">
+<h2></h2>
 <ol type="1">
-<li>What is the support of <span class="math inline">\(X\)</span></li>
+<li>Show that <span class="math inline">\(\sigma_{xy}=0\)</span></li>
 </ol>
 <div class="hide">
-<p><span class="math inline">\(-1,1,2,3\)</span></p>
+$$
+<span class="math display">\[\begin{aligned}
+\text{Cov}(X, Y) = &amp; \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y] \\
+\because &amp; \mathbb{E}(X) =0
+\therefore \text{Cov}(X, Y) = \mathbb{E}[XY] - 0 \\
+
+XY= &amp;X\times X^2 =X^3, \text{ The values of $X^3$ are $\{-1, 0, 1\}$.} \\
+\therefore &amp; E[XY] = \frac{1}{3}(-1) + \frac{1}{3}(0) + \frac{1}{3}(1) = 0
+\therefore \text{Cov}(X, Y)=0
+\end{aligned}\]</span>
+<p>$$</p>
 </div>
+</section>
+<section id="section-3" class="slide level2 smaller">
+<h2></h2>
+<ol start="2" type="1">
+<li>Is X and Y statistically independent?</li>
+</ol>
+<div class="hide">
+<p>No, they are dependent. If you know <span class="math inline">\(X=0\)</span>, you know for certain that <span class="math inline">\(Y=0\)</span>. If you know <span class="math inline">\(X=1\)</span>, you know <span class="math inline">\(Y=1\)</span>. One variable conveys perfect information about the other (specifically, <span class="math inline">\(Y\)</span> is a deterministic function of <span class="math inline">\(X\)</span>).</p>
+</div>
+</section>
+<section id="question-5" class="slide level2">
+<h2>Question 5</h2>
+<p>Marginal Density on a Unit Square: Let two continuous random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have the joint probability density function (PDF):</p>
+<p><span class="math display">\[
+f_{X,Y}(x,y) = \begin{cases}
+x + y &amp; \text{for } 0 \le x \le 1, 0 \le y \le 1 \\
+0 &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
 </section>
 <section id="section-4" class="slide level2 smaller">
 <h2></h2>
-<ol start="2" type="1">
-<li>What is the probability mass function (pmf) of X</li>
+<ol type="1">
+<li>Find the marginal PDF of <span class="math inline">\(X\)</span></li>
 </ol>
 <div class="hide">
-<p><span class="math display">\[  
-\begin{aligned}
-p(x) \begin{cases}
-\frac{125}{216}
-\quad &amp; \text{, when }x = -1 ;\\
-\frac{25}{72}
-\quad &amp; \text{, when }x = 1 ;\\
-\frac{5}{72}
-\quad &amp; \text{, when }x = 2 ;\\
-\frac{1}{216}
-\quad &amp; \text{, when }x = 3 ;\\
-  0
-\quad &amp; \text{Otherwise.} \\
-\end{cases}
-\end{aligned}
+<p><span class="math display">\[
+f_X(x) = \int_{0}^{1} (x + y) dy = \left[ xy + \frac{y^2}{2} \right]_{y=0}^{y=1} = (x + 0.5) - 0 = x + 0.5
 \]</span></p>
 </div>
-</section>
-<section class="slide level2">
-
-<ol start="3" type="1">
-<li>What is the cumulative distribution function (CDF) of X?</li>
-</ol>
-<div class="hide">
-<p><span class="math display">\[  
-\begin{aligned}
-F(x) \begin{cases}
-0
-\quad &amp; \text{, when }x &lt; -1 ;\\
-\frac{125}{216}
-\quad &amp; \text{, when } -1 \leq x &lt; 1 ;\\
-\frac{25}{27}
-\quad &amp; \text{, when } 1 \leq x &lt; 2 ;\\
-\frac{215}{216}
-\quad &amp; \text{, when } 2 \leq x &lt; 3 ;\\
-  1
-\quad &amp; \text{, when }  x \geq 3. \\
-\end{cases}
-\end{aligned}
-\]</span></p>
-</div>
-</section>
-<section id="question-5" class="slide level2 smaller">
-<h2>Question 5</h2>
-<p>“Pig” is a simple dice game in which two players take turns to roll a six-sided die, according to the following rule</p>
-<ul>
-<li>If a player rolls a 1, the player scores nothing and it becomes the opponent’s turn.</li>
-<li>If a player rolls any other number, it is added to his turn total and the player’s turn continues.</li>
-<li>If the player instead chooses to hold, the turn total is accumulated to his or her score and it becomes the opponent’s turn.</li>
-<li>The first player who scores 100 or more points wins</li>
-</ul>
-<p>A simple tactic at the early stage of the game is called “hold at k strategy”, with which one should continue to roll whenever the turn total is less than k. What would be the wise choice on the value of k?</p>
 </section>
 <section id="section-5" class="slide level2 smaller">
 <h2></h2>
-<ol type="1">
-<li>Given the current turn total is <span class="math inline">\(s\)</span> what is the expected gain of rolling</li>
+<ol start="2" type="1">
+<li>Calculate the probability <span class="math inline">\(P(X &gt; 0.5)\)</span></li>
 </ol>
 <div class="hide">
-<p><span class="math display">\[  
-E(X)=-s\frac{1}{6}+2\times\frac{1}{6}+3\times\frac{1}{6}+4\times\frac{1}{6}+5\times\frac{1}{6}+6\times\frac{1}{6}=+2\times\frac{20-s}{6}
+<p><span class="math display">\[
+\begin{aligned}
+P(X &gt; 0.5) = &amp;\int_{0.5}^{1} (x + 0.5) dx  = \left[ \frac{x^2}{2} + 0.5x \right]_{0.5}^{1} \\ = &amp; (0.5 + 0.5) - (0.125 + 0.25) = 1 - 0.375 = 0.625
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section id="section-6" class="slide level2 smaller">
+<h2></h2>
+<ol start="3" type="1">
+<li>Determine if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent.</li>
+</ol>
+<div class="hide">
+<p>NO <span class="math display">\[
+\begin{aligned}
+f_X(x) \cdot f_Y(y) = &amp; (x + 0.5)(y + 0.5) \\
+= &amp; xy + 0.5x + 0.5y + 0.25 \\
+\neq &amp; x+y
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section id="question-6-monty-hall-problem" class="slide level2">
+<h2>Question 6 (Monty Hall problem)</h2>
+<p>Suppose you’re on a game show, and you’re given the choice of three doors: Behind one door is a Tesla; behind the others, goats. You pick a door, say No.&nbsp;1, and the host, who knows what’s behind the doors, opens another door, say No.&nbsp;2, which has a goat. He then says to you, “Do you want to pick door No.&nbsp;3?” Is it to your advantage to switch your choice?</p>
+</section>
+<section id="section-7" class="slide level2 smaller">
+<h2></h2>
+<ol type="1">
+<li>What is the probability that a Tesla is behind door 1 given that you choose door 1 and the host opens door 2?</li>
+</ol>
+<div class="hide">
+<p>We define the event <span class="math inline">\(C_1\)</span>, <span class="math inline">\(C_2\)</span>, and <span class="math inline">\(C_3\)</span> indicate car is at the door 1, 2, and 3, the event <span class="math inline">\(O_1\)</span>, <span class="math inline">\(O_2\)</span>, and <span class="math inline">\(O_3\)</span> indicate host open the door 1, 2, and 3</p>
+<p><span class="math display">\[
+\begin{align*}
+P(C_1 | O_2,B_1) &amp;=  \frac{P(C_1 \&amp; O_2 \&amp; B_1)}{P(O2 \&amp; B_1)} \\
+&amp;= \frac{\frac{1}{2}\times\frac{1}{3}\times\frac{1}{3}}{\frac{1}{2}\times\frac{1}{3}\times\frac{1}{3}+0\times\frac{1}{3}\times\frac{1}{3}+1\times\frac{1}{3}\times\frac{1}{3}}
+\end{align*}
+\]</span></p>
+</div>
+</section>
+<section id="section-8" class="slide level2 smaller">
+<h2></h2>
+<ol start="2" type="1">
+<li>Please show that switching door is always the best strategy for any number <span class="math inline">\(n\)</span> doors while the game works as follow:</li>
+</ol>
+<blockquote>
+<p>after you choose a door, the host will open rest of the doors, and leave the last one unopened</p>
+</blockquote>
+<div class="hide">
+<p>We define the event <span class="math inline">\(C_1\)</span>, <span class="math inline">\(C_2\)</span>, and <span class="math inline">\(C_n\)</span> indicate car is at the door 1, to n, the event <span class="math inline">\(O\)</span> indicate host open the door 2 to <span class="math inline">\(n-1\)</span> <span class="math display">\[
+\begin{align*}
+P(C_1 | O) &amp;=  \frac{P(C_1 \&amp; O)}{P(O)} \\
+&amp;= \frac{\frac{1}{n-1}\times\frac{1}{n}}{\frac{1}{n-1}\times\frac{1}{n} + 0 +0 + \dots +1\times\frac{1}{n}} \\
+&amp; = \frac{1}{n}
+\end{align*}
+\]</span></p>
+<p>so switching is a better strategy</p>
+</div>
+</section>
+<section id="question-7-buffons-needle-problem" class="slide level2">
+<h2>Question 7 (Buffon’s needle problem)</h2>
+<p>A table is ruled with equidistant parallel lines a distance D apart. A needle of length L, where <span class="math inline">\(L\leq D\)</span>, is randomly thrown on the table. What is the probability that the needle will intersect one of the lines (the other probability being that the needle will be completely contained in the strip between two lines)?</p>
+</section>
+<section id="section-9" class="slide level2 smaller">
+<h2></h2>
+<ol type="1">
+<li>We determine the position of the needle by specifying the distance <span class="math inline">\(X\)</span> from the middle point of the needle to the nearest parallel line</li>
+</ol>
+<p>What is the possible range of <span class="math inline">\(X\)</span>? What will be the probability distribution of <span class="math inline">\(X\)</span>?</p>
+<div class="hide">
+<ol type="1">
+<li>Range: <span class="math inline">\([0,\frac{D}{2}]\)</span></li>
+<li>Uniform distribution: <span class="math inline">\(X \sim U(0,\frac{D}{2})\)</span></li>
+</ol>
+</div>
+</section>
+<section id="section-10" class="slide level2 smaller">
+<h2></h2>
+<ol start="2" type="1">
+<li>We determine the angle <span class="math inline">\(\theta\)</span> between the needle and the projected line of length X. What is the possible range of <span class="math inline">\(\theta\)</span>? What will be the probability distribution of <span class="math inline">\(\theta\)</span>?</li>
+</ol>
+<div class="hide">
+<ol type="1">
+<li>Range: <span class="math inline">\([0,\frac{\pi}{2}]\)</span></li>
+<li>Uniform distribution: <span class="math inline">\(X \sim U(0,\frac{\pi}{2})\)</span></li>
+</ol>
+</div>
+</section>
+<section id="section-11" class="slide level2 smaller">
+<h2></h2>
+<ol start="3" type="1">
+<li>What is the joint probability distribution of <span class="math inline">\(f_{X,\theta}\)</span>?</li>
+</ol>
+<div class="hide">
+<p><span class="math display">\[
+f(x,\theta)=
+\begin{cases}
+\frac{4}{D\pi} &amp; \text{ while } 0 \leq x \leq \frac{D}{2}, 0 \leq \theta \leq \frac{\pi}{2} \\
+0 &amp; \text{elsewhere}
+\end{cases}
+\]</span></p>
+</div>
+</section>
+<section id="section-12" class="slide level2 smaller">
+<h2></h2>
+<ol start="4" type="1">
+<li>The needle will intersect a line for the following condition <span class="math inline">\(\frac{X}{\cos\theta}&lt;\frac{L}{2}\)</span>. What is the probability that <span class="math inline">\(X\)</span> intersects with a line</li>
+</ol>
+<div class="hide">
+<p><span class="math display">\[
+\begin{aligned}
+P(X &lt; \frac{L}{2}\cos\theta) = &amp; \int_{\theta=0}^{\frac{\pi}{2}}\int_{x=0}^{\frac{L}{2}\cos\theta}\frac{4}{D\pi}dxd\theta \\
+= &amp; \frac{4}{D\pi}\int_{\theta=0}^{\frac{\pi}{2}}\frac{L}{2}\cos\theta d\theta
+= \frac{4}{D\pi}\frac{L}{2}\sin\theta \big|^{\frac{\pi}{2}}_0 \\
+= &amp; \frac{2L}{D\pi}
+\end{aligned}
 \]</span></p>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -383,114 +444,14 @@ E(X)=-s\frac{1}{6}+2\times\frac{1}{6}+3\times\frac{1}{6}+4\times\frac{1}{6}+5\ti
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Holds at k strategy is only good in early game</li>
-<li>The total optimal strategy actually varies based on your opponent’s situation.</li>
-<li>Detailed discussion can be found in <span class="citation" data-cites="neller2005pigtail">Neller and Presser (<a href="#/section-13" role="doc-biblioref" onclick="">2005</a>)</span></li>
+<li>This experiment provides a practical way to estimate <span class="math inline">\(\pi\)</span>.<br>
+</li>
+<li>What happens if we do not restrict the needle length?</li>
 </ol>
 </div>
-</div>
-</div>
-</section>
-<section id="question-6-birthday-problem" class="slide level2 smaller">
-<h2>Question 6: Birthday Problem</h2>
-<p>What is the probability that at least two people share the same birthday in the classroom with size of 20 ?</p>
-<p>When we examined this problem previously, we assumed:</p>
-<ul>
-<li>365 days in a year</li>
-<li>Every birthday is equally likely to happen</li>
-</ul>
-</section>
-<section id="section-6" class="slide level2 smaller">
-<h2></h2>
-<ol type="1">
-<li>Assuming each individual’s birthday is independent and equally likely to occur on any day, what is the potential distribution of everyone’s birthday?</li>
-</ol>
-<div class="hide">
-<p>Uniform distribution (Either continuous and discrete is fine in this case)</p>
-</div>
-</section>
-<section id="section-7" class="slide level2 smaller">
-<h2></h2>
-<ol start="2" type="1">
-<li>What is the probability of all student’s birthday are different?</li>
-</ol>
-<div class="hide">
-<p><span class="math display">\[
-=0.59
-\]</span></p>
-</div>
-</section>
-<section id="section-8" class="slide level2 smaller">
-<h2></h2>
-<ol start="3" type="1">
-<li>What is the probability that at least two people share the same birthday in the classroom with size of 20 ?</li>
-</ol>
-<div class="hide">
-<p><span class="math display">\[
-1-\frac{\binom{365}{20}\times 20!}{365^{20}} =\frac{P^{365}_{20}}{365^{20}}=0.41
-\]</span></p>
-</div>
-</section>
-<section id="section-9" class="slide level2 smaller">
-<h2></h2>
-<p>However, these assumptions are unrealistic. Let’s refine our model by using real world data.</p>
-<h3 id="data">Data</h3>
-<p>The UK publishes the average frequency of births on each day of the year from 1995 to 2024. We can download it with</p>
-<pre><code>curl -o uk-daily-births.csv \
-https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv</code></pre>
-</section>
-<section id="section-10" class="slide level2 smaller">
-<h2></h2>
-<p>So, let’s use this data to construct the empirical probability mass function (pmf). Then, we can re-estimate the probability that two people share the same birthday in a group of people.</p>
-<h3 id="tasks">Tasks</h3>
-<ol type="1">
-<li>Load the data into R and visualize it.</li>
-</ol>
-
-<img data-src="1-Question-sets-discrete_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section id="section-11" class="slide level2 smaller">
-<h2></h2>
-<ol start="2" type="1">
-<li>Construct the empirical pmf that a person is born on each day within a year.</li>
-</ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>PMF sums to: 1 </code></pre>
-</div>
-
-</div>
-<img data-src="1-Question-sets-discrete_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="section-12" class="slide level2 smaller">
-<h2></h2>
-<ol start="3" type="1">
-<li>Implement a simulation that generates 20 people their birthday based on the empirical pmf.</li>
-</ol>
-<p>vectorization</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "2024-05-12" "2024-09-23" "2024-08-06" "2024-02-17" "2024-09-07"
- [6] "2024-06-09" "2024-02-19" "2024-12-22" "2024-06-27" "2024-03-22"
-[11] "2024-08-19" "2024-02-05" "2024-02-11" "2024-07-04" "2024-02-03"
-[16] "2024-12-31" "2024-01-19" "2024-01-11" "2024-01-18" "2024-11-20"</code></pre>
-</div>
-</div>
-</section>
-<section id="section-13" class="slide level2 smaller scrollable">
-<h2></h2>
-<ol start="4" type="1">
-<li>Compare <span class="math inline">\(P\left( X \ge 2 \right)\)</span> determined using the simple uniform model we used previously vs.&nbsp;the probability that is estimated using the empirical pmf.</li>
-</ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4005</code></pre>
 </div>
 </div>
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-neller2005pigtail" class="csl-entry" role="listitem">
-Neller, Todd W, and Clifton GM Presser. 2005. <span>“Pigtail: A Pig Addendum.”</span> <em>The UMAP Journal</em> 26 (4).
-</div>
-</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -500,20 +461,19 @@ Neller, Todd W, and Clifton GM Presser. 2005. <span>“Pigtail: A Pig Addendum.�
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="1-Question sets-discrete_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="3-Question sets-multivariate_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -528,8 +488,7 @@ Neller, Todd W, and Clifton GM Presser. 2005. <span>“Pigtail: A Pig Addendum.�
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -550,7 +509,7 @@ Neller, Todd W, and Clifton GM Presser. 2005. <span>“Pigtail: A Pig Addendum.�
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: false,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -700,7 +659,7 @@ Neller, Todd W, and Clifton GM Presser. 2005. <span>“Pigtail: A Pig Addendum.�
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,
