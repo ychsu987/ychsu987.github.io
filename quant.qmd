@@ -6,6 +6,7 @@ listing:
         - BBMS3009/System biology.qmd
       fields: [title, image]
       type: default
+      sort: false
     - id: 2014lecture
       contents: 
         - BIOF2014/0-Housekeeping.qmd
@@ -14,11 +15,13 @@ listing:
         - BIOF2014/3-multivariate.qmd
       fields: [title, subtitle, image]
       type: default
+      sort: false
     - id: 2014sketches 
       contents: 
         - BIOF2014/1-distribution_sketch.qmd
       fields: [title, subtitle, image]
       type: default
+      sort: false
     - id: 2014tutorial
       contents: 
         - BIOF2014/1-Question sets-discrete.qmd
@@ -26,6 +29,7 @@ listing:
         - BIOF2014/3-Question sets-multivariate.qmd
       fields: [title]
       type: default
+      sort: false
 
 ---
 

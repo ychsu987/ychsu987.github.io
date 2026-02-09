@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -123,22 +88,8 @@ div.csl-indent {
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -167,7 +118,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="solution_view.scss">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -222,39 +172,8 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
-  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
-  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
-  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
-  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
-  <li><a href="#question-6-birthday-problem" id="toc-question-6-birthday-problem" class="nav-link" data-scroll-target="#question-6-birthday-problem">Question 6: Birthday Problem</a></li>
-  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
-  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
-  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8"></a></li>
-  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9"></a>
-  <ul class="collapse">
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  </ul></li>
-  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10"></a>
-  <ul class="collapse">
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a></li>
-  </ul></li>
-  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11"></a></li>
-  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12"></a></li>
-  <li><a href="#section-13" id="toc-section-13" class="nav-link" data-scroll-target="#section-13"></a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="1-Question sets_presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="1-Question sets_presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -279,12 +198,12 @@ window.Quarto = {
 
 <section id="question-1" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="question-1">Question 1</h2>
-<p>Given <span class="math inline">X \sim \text{Uniform}(a, b)</span>,</p>
+<p>Given <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span>,</p>
 <ol type="1">
-<li>Please show that <span class="math inline">\text{E}(X) = \frac{a+b}{2}</span></li>
+<li>Please show that <span class="math inline">\(\text{E}(X) = \frac{a+b}{2}\)</span></li>
 </ol>
 <div class="hide">
-<p><span class="math display">
+<p><span class="math display">\[
 \begin{align*}
 \mathbb{E}(X) &amp;= \int_{-\infty}^{\infty} x\, f_X(x)\, dx
 = \int_{a}^{b} x \cdot \frac{1}{b-a}\, dx
@@ -295,16 +214,16 @@ window.Quarto = {
 = \frac{(b-a)(b+a)}{2(b-a)} \\[6pt]
 &amp;= \frac{a+b}{2}
 \end{align*}
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="section" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="section"></h2>
 <ol start="2" type="1">
-<li>Please show that <span class="math inline">\text{VAR}(X) = \frac{(b-a)^2}{12}</span></li>
+<li>Please show that <span class="math inline">\(\text{VAR}(X) = \frac{(b-a)^2}{12}\)</span></li>
 </ol>
 <div class="hide">
-<p><span class="math display">
+<p><span class="math display">\[
 \begin{align*}
 \mathrm{Var}(X) &amp;= \int_a^b \left( x - \frac{1}{2} (a+b) \right)^2 \cdot \frac{1}{b-a} \, \mathrm{d}x
 = \frac{1}{b-a} \cdot \int_a^b \left( x - \frac{a+b}{2} \right)^2 \, \mathrm{d}x \\
@@ -313,13 +232,13 @@ window.Quarto = {
 &amp;= \frac{1}{3(b-a)}(\frac{1}{2} (b-a))^3-(-\frac{1}{2} (b-a))^3 \\
 &amp;= \frac{(b-a)^2}{12}
 \end{align*}
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="section-1" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="section-1"></h2>
 <ol start="3" type="1">
-<li>Please show that the CDF is: <span class="math display">  
+<li>Please show that the CDF is: <span class="math display">\[  
 \begin{aligned}
 F(x) \begin{cases}
 0
@@ -330,14 +249,14 @@ F(x) \begin{cases}
 \quad &amp; \text{if } x \geq b
 \end{cases}
 \end{aligned}
-</span></li>
+\]</span></li>
 </ol>
 <div class="hide">
 <ul>
-<li><p>Case 1: <span class="math inline">x &lt; a</span> For <span class="math inline">t &lt; a</span>, <span class="math inline">f_X(t) = 0</span>, so the integral from <span class="math inline">-\infty</span> to <span class="math inline">x</span> is zero:</p></li>
-<li><p>Case 2: <span class="math inline">a \leq x &lt; b</span></p></li>
+<li><p>Case 1: <span class="math inline">\(x &lt; a\)</span> For <span class="math inline">\(t &lt; a\)</span>, <span class="math inline">\(f_X(t) = 0\)</span>, so the integral from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(x\)</span> is zero:</p></li>
+<li><p>Case 2: <span class="math inline">\(a \leq x &lt; b\)</span></p></li>
 </ul>
-<p><span class="math display">
+<p><span class="math display">\[
 \begin{align*}
 F(x) &amp;= \int_{-\infty}^{x} f_X(t)\, dt
      = \int_{-\infty}^{a} 0\, dt + \int_{a}^{x} \frac{1}{b-a}\, dt \\
@@ -345,19 +264,19 @@ F(x) &amp;= \int_{-\infty}^{x} f_X(t)\, dt
      = \frac{1}{b-a} \Big[ t \Big]_{a}^{x} \\
      &amp;= \frac{x - a}{b - a}.
 \end{align*}
-</span></p>
+\]</span></p>
 <ul>
-<li>Case 3: <span class="math inline">x \geq b</span> Similar to Case 1</li>
+<li>Case 3: <span class="math inline">\(x \geq b\)</span> Similar to Case 1</li>
 </ul>
 </div>
 </section>
 <section id="section-2" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="section-2"></h2>
 <ol start="4" type="1">
-<li>Please show that <span class="math inline">\mathbb{E}[(X - \mathbb{E}(X))^3] = 0</span></li>
+<li>Please show that <span class="math inline">\(\mathbb{E}[(X - \mathbb{E}(X))^3] = 0\)</span></li>
 </ol>
 <div class="hide">
-<p><span class="math display">
+<p><span class="math display">\[
 \begin{align*}
 \mathbb{E}(X-\mathbb{E}(X))^3  &amp;= \int_a^b \left( x - \frac{1}{2} (a+b) \right)^3 \cdot \frac{1}{b-a} \, \mathrm{d}x
 = \frac{1}{b-a} \cdot \int_a^b \left( x - \frac{a+b}{2} \right)^3 \, \mathrm{d}x \\
@@ -366,7 +285,7 @@ F(x) &amp;= \int_{-\infty}^{x} f_X(t)\, dt
 &amp; \text{because } t^3 \text{ is an odd function, so} \\
 &amp;= \frac{1}{b-a} \int^h_{-h}t^3 = 0
 \end{align*}
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="question-2" class="level2 smaller">
@@ -376,7 +295,7 @@ F(x) &amp;= \int_{-\infty}^{x} f_X(t)\, dt
 <li>Please show that the empirical distribution fulfill non-negativity</li>
 </ol>
 <div class="hide">
-<p><span class="math display">  
+<p><span class="math display">\[  
 \begin{aligned}
 \because N&gt;0  \quad  \&amp;  \quad
 I(x)\begin{cases}
@@ -387,7 +306,7 @@ I(x)\begin{cases}
 \end{cases} \geq 0 \\
 \rightarrow \hat{f}_N(x) = \frac{1}{N} \sum_{i=1}^N I(x_i = x)  \geq 0
 \end{aligned}
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="section-3" class="level2 smaller">
@@ -396,23 +315,23 @@ I(x)\begin{cases}
 <li>Please show that the empirical distribution fulfills the unit measure condition</li>
 </ol>
 <div class="hide">
-<p>Let the support have <span class="math inline">t</span> unique values <span class="math inline">\{X_1, \dots, X_t\}</span>: <span class="math display">  
+<p>Let the support have <span class="math inline">\(t\)</span> unique values <span class="math inline">\(\{X_1, \dots, X_t\}\)</span>: <span class="math display">\[  
 P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="question-3" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="question-3">Question 3</h2>
-<p>Given <span class="math inline">X \sim \text{Uniform}(a, b)</span>, and for any numbers <span class="math inline">u, v, w</span> where <span class="math inline">a &lt; u &lt; v &lt; w &lt; b</span> and <span class="math inline">v - u = w - v = c</span>, please show that:</p>
-<p><span class="math inline">\text{P} (u\leq X\leq v) = \text{P} (v\leq X\leq w)</span></p>
+<p>Given <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span>, and for any numbers <span class="math inline">\(u, v, w\)</span> where <span class="math inline">\(a &lt; u &lt; v &lt; w &lt; b\)</span> and <span class="math inline">\(v - u = w - v = c\)</span>, please show that:</p>
+<p><span class="math inline">\(\text{P} (u\leq X\leq v) = \text{P} (v\leq X\leq w)\)</span></p>
 <div class="hide">
-<p><span class="math display">
+<p><span class="math display">\[
 \small
 \begin{align*}
 \text{P} (u\leq X\leq v) &amp;= P(x\leq v)-P(x\leq u) \\ &amp;= \frac{v - a}{b - a}-\frac{u - a}{b - a}=\frac{c}{b-a}\\
 \text{P} (v\leq X\leq w) &amp;= P(x\leq w)-P(x\leq v) \\ &amp;= \frac{w - a}{b - a}-\frac{v - a}{b - a}=\frac{c}{b-a}
 \end{align*}
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="question-4" class="level2 smaller">
@@ -424,12 +343,12 @@ P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
 <figcaption>Illustration of Hoo Hey How By Outlookxp - Own work, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=30465860">Link</a></figcaption>
 </figure>
 </div>
-<p>Suppose that you bet 1 dollar on Crab. Let <span class="math inline">X</span> denote the money you win (negative value represents a loss) from one trial of this game</p>
+<p>Suppose that you bet 1 dollar on Crab. Let <span class="math inline">\(X\)</span> denote the money you win (negative value represents a loss) from one trial of this game</p>
 <ol type="1">
-<li>What is the support of <span class="math inline">X</span></li>
+<li>What is the support of <span class="math inline">\(X\)</span></li>
 </ol>
 <div class="hide">
-<p><span class="math inline">-1,1,2,3</span></p>
+<p><span class="math inline">\(-1,1,2,3\)</span></p>
 </div>
 </section>
 <section id="section-4" class="level2 smaller">
@@ -438,7 +357,7 @@ P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
 <li>What is the probability mass function (pmf) of X</li>
 </ol>
 <div class="hide">
-<p><span class="math display">  
+<p><span class="math display">\[  
 \begin{aligned}
 p(x) \begin{cases}
 \frac{125}{216}
@@ -453,14 +372,14 @@ p(x) \begin{cases}
 \quad &amp; \text{Otherwise.} \\
 \end{cases}
 \end{aligned}
-</span></p>
+\]</span></p>
 </div>
 <hr>
 <ol start="3" type="1">
 <li>What is the cumulative distribution function (CDF) of X?</li>
 </ol>
 <div class="hide">
-<p><span class="math display">  
+<p><span class="math display">\[  
 \begin{aligned}
 F(x) \begin{cases}
 0
@@ -475,7 +394,7 @@ F(x) \begin{cases}
 \quad &amp; \text{, when }  x \geq 3. \\
 \end{cases}
 \end{aligned}
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="question-5" class="level2 smaller">
@@ -492,12 +411,12 @@ F(x) \begin{cases}
 <section id="section-5" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="section-5"></h2>
 <ol type="1">
-<li>Given the current turn total is <span class="math inline">s</span> what is the expected gain of rolling</li>
+<li>Given the current turn total is <span class="math inline">\(s\)</span> what is the expected gain of rolling</li>
 </ol>
 <div class="hide">
-<p><span class="math display">  
+<p><span class="math display">\[  
 E(X)=-s\frac{1}{6}+2\times\frac{1}{6}+3\times\frac{1}{6}+4\times\frac{1}{6}+5\times\frac{1}{6}+6\times\frac{1}{6}=+2\times\frac{20-s}{6}
-</span></p>
+\]</span></p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -541,9 +460,9 @@ Note
 <li>What is the probability of all student’s birthday are different?</li>
 </ol>
 <div class="hide">
-<p><span class="math display">
+<p><span class="math display">\[
 =0.59
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="section-8" class="level2 smaller">
@@ -552,9 +471,9 @@ Note
 <li>What is the probability that at least two people share the same birthday in the classroom with size of 20 ?</li>
 </ol>
 <div class="hide">
-<p><span class="math display">
+<p><span class="math display">\[
 1-\frac{\binom{365}{20}\times 20!}{365^{20}} =\frac{P^{365}_{20}}{365^{20}}=0.41
-</span></p>
+\]</span></p>
 </div>
 </section>
 <section id="section-9" class="level2 smaller">
@@ -576,50 +495,10 @@ https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv</co
 <li>Load the data into R and visualize it.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.1     ✔ stringr   1.5.2
-✔ ggplot2   4.0.0     ✔ tibble    3.3.0
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.1.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate) <span class="co"># Library for handeling datetime </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the data</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Datasets/data.csv"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">col_character</span>(),</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">average =</span> <span class="fu">col_double</span>()</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse the date properly (day-month format, ggplot2 cannot accept date without year information)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_parsed =</span> <span class="fu">dmy</span>(<span class="fu">paste</span>(date, <span class="st">"2024"</span>)),  </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">month =</span> <span class="fu">month</span>(date_parsed),</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">day   =</span> <span class="fu">day</span>(date_parsed),</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise daily average births0</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> date_parsed, <span class="at">y =</span> average)) <span class="sc">+</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>( <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"1 month"</span>, <span class="at">date_labels =</span> <span class="st">"%b"</span>) <span class="sc">+</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Daily Births in England &amp; Wales (1995–2024)"</span>,</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Date"</span>, <span class="at">y =</span> <span class="st">"Average number of births"</span>) <span class="sc">+</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="1-Question-sets-discrete_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="1-Question-sets-discrete_files/figure-revealjs/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -632,30 +511,13 @@ https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv</co
 <li>Construct the empirical pmf that a person is born on each day within a year.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Account for leap years and compute total births per calendar day ----</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Over 30 years (1995–2024): 7 leap years (1996,2000,2004,2008,2012,2016,2020,2024)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pmf_weight=</span>average<span class="sc">/</span><span class="fu">sum</span>(average) <span class="co"># Total births in the whole period</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify it sums to 1</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"PMF sums to:"</span>, <span class="fu">sum</span>(data<span class="sc">$</span>pmf_weight), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>PMF sums to: 1 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise the empirical distribution</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> date_parsed, <span class="at">y =</span> pmf_weight)) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"1 month"</span>, <span class="at">date_labels =</span> <span class="st">"%b"</span>) <span class="sc">+</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Empirical Birth Probability by Calendar Day (366-day year)"</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Month"</span>, <span class="at">y =</span> <span class="st">"Probability"</span>) <span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="1-Question-sets-discrete_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="1-Question-sets-discrete_files/figure-revealjs/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -666,57 +528,24 @@ https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv</co
 <ol start="3" type="1">
 <li>Implement a simulation that generates 20 people their birthday based on the empirical pmf.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>inverse_cdf <span class="ot">&lt;-</span> <span class="cf">function</span>(u,pmf) {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>   cdf_366 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(pmf)                <span class="co"># Get cdf</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>   day_indices<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">366</span>                    <span class="co"># day-of-year 1 … 366</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(day_indices[<span class="fu">which</span>(cdf_366 <span class="sc">&gt;=</span> u)[<span class="dv">1</span>]])   <span class="co"># first day where CDF exceeds u</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>vectorization</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>inverse_cdf_vec <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(inverse_cdf,<span class="at">vectorize.args =</span> <span class="st">'u'</span>) <span class="co"># vectorization on u to facilitate speed computation</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>date_parsed[<span class="fu">inverse_cdf_vec</span>(<span class="fu">runif</span>(<span class="dv">20</span>),data<span class="sc">$</span>pmf_weight)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "2024-02-23" "2024-07-01" "2024-03-07" "2024-11-18" "2024-04-11"
- [6] "2024-09-23" "2024-10-09" "2024-09-20" "2024-08-12" "2024-08-20"
-[11] "2024-07-23" "2024-12-21" "2024-11-27" "2024-03-12" "2024-12-02"
-[16] "2024-03-28" "2024-08-30" "2024-04-01" "2024-04-06" "2024-08-17"</code></pre>
+<pre><code> [1] "2024-10-20" "2024-10-26" "2024-11-30" "2024-04-23" "2024-02-14"
+ [6] "2024-12-20" "2024-12-03" "2024-01-24" "2024-07-13" "2024-02-10"
+[11] "2024-07-19" "2024-08-07" "2024-07-21" "2024-09-05" "2024-07-26"
+[16] "2024-04-14" "2024-07-24" "2024-02-29" "2024-11-26" "2024-11-03"</code></pre>
 </div>
 </div>
 </section>
 <section id="section-13" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="section-13"></h2>
 <ol start="4" type="1">
-<li>Compare <span class="math inline">P\left( X \ge 2 \right)</span> determined using the simple uniform model we used previously vs.&nbsp;the probability that is estimated using the empirical pmf.</li>
+<li>Compare <span class="math inline">\(P\left( X \ge 2 \right)\)</span> determined using the simple uniform model we used previously vs.&nbsp;the probability that is estimated using the empirical pmf.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>simulation_amount<span class="ot">=</span><span class="dv">2000</span> <span class="co"># Number of simulation</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>class_size<span class="ot">=</span><span class="dv">20</span> <span class="co"># Number of students in each class (group size)</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Generate random birthdays using the INVERSE-CDF method</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#         We generate 'simulation_amount × class_size' uniform random numbers U(0,1)</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#         Then transform each U into a day-of-year using the empirical distribution</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>birthdays_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">inverse_cdf_vec</span>(<span class="fu">runif</span>(simulation_amount <span class="sc">*</span> class_size),data<span class="sc">$</span>pmf_weight),   <span class="co"># generate n_sim × n_people uniforms → days</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">nrow =</span> simulation_amount,</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncol =</span> class_size</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Check for each simulated classroom whether at least two students</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">#         share the same birthday</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#         We use: if number of unique birthdays &lt; total students → at least two people have the same birthday</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>check_same_birthsday <span class="ot">&lt;-</span> <span class="fu">apply</span>(birthdays_matrix,<span class="at">MARGIN=</span><span class="dv">1</span>,<span class="cf">function</span>(x) <span class="fu">length</span>(<span class="fu">unique</span>(x))<span class="sc">&lt;</span><span class="fu">length</span>(x))</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Estimate the probability</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co">#         Proportion of simulated classrooms that had at least one shared birthday</span></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>probability<span class="ot">=</span> <span class="fu">sum</span>(check_same_birthsday)<span class="sc">/</span>simulation_amount</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>probability</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4105</code></pre>
+<pre><code>[1] 0.4145</code></pre>
 </div>
 </div>
 
@@ -729,6 +558,82 @@ https://www.ons.gov.uk/visualisations/nesscontent/dvc307/line_chart/data.csv</co
 Neller, Todd W, and Clifton GM Presser. 2005. <span>“Pigtail: A Pig Addendum.”</span> <em>The UMAP Journal</em> 26 (4).
 </div>
 </div></section></div></main> <!-- /main -->
+
+
+<script>
+
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+  // slide changes (different for each slide format).
+
+  (function () {
+
+    // dispatch for htmlwidgets
+
+    function fireSlideEnter() {
+
+      const event = window.document.createEvent("Event");
+
+      event.initEvent("slideenter", true, true);
+
+      window.document.dispatchEvent(event);
+
+    }
+
+
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+
+      fireSlideEnter();
+
+
+
+      // dispatch for shiny
+
+      if (window.jQuery) {
+
+        if (previousSlide) {
+
+          window.jQuery(previousSlide).trigger("hidden");
+
+        }
+
+        if (currentSlide) {
+
+          window.jQuery(currentSlide).trigger("shown");
+
+        }
+
+      }
+
+    }
+
+
+
+    // hookup for slidy
+
+    if (window.w3c_slidy) {
+
+      window.w3c_slidy.add_observer(function (slide_num) {
+
+        // slide_num starts at position 1
+
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+      });
+
+    }
+
+
+
+  })();
+
+</script>
+
+
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -801,7 +706,7 @@ Neller, Todd W, and Clifton GM Presser. 2005. <span>“Pigtail: A Pig Addendum.�
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

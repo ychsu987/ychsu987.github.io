@@ -8,6 +8,8 @@ format:
   revealjs:
     output-file: 2-Question sets_presentation.html
     theme: [default, student_view.scss]
+    chalkboard: 
+      theme: whiteboard
 engine: knitr 
 ---
 

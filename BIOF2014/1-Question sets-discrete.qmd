@@ -1,16 +1,13 @@
 ---
 title: "Question sets"
 format:
-  html:
-    toc: true
-    html-math-method: katex
-    css: [solution_view.scss]
   revealjs:
     output-file: 1-Question sets_presentation.html
     theme: [default, student_view.scss]
     slide-number: true
     reference-location: margin
-    chalkboard: true
+    chalkboard: 
+      theme: whiteboard
 format-links: true
 engine: knitr 
 bibliography: ref.bib
