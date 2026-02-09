@@ -12,6 +12,11 @@ listing:
         - BIOF2014/1-distribution.qmd
       fields: [title, subtitle, image]
       type: default
+    - id: 2014sketches 
+      contents: 
+        - BIOF2014/1-distribution_sketch.qmd
+      fields: [title, subtitle, image]
+      type: default
     - id: 2014tutorial
       contents: 
         - BIOF2014/1-Question sets-discrete.qmd
@@ -28,10 +33,18 @@ listing:
 
 ## BIOF2014 Statistical Modelling for Bioinformatics
 
+### Blank notes
 
 ::: {#2014lecture}
 
 :::
+
+### Class sketches
+
+::: {#2014sketches}
+
+:::
+
 
 ### Tutorial questions
 
