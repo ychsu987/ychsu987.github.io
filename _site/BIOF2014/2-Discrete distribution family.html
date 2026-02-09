@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
-  <title>Yu Cheng Hsu – Uniform Distribution</title>
+  <title>Yu Cheng Hsu – Discrete DistributionFamily</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,10 +32,12 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-53082a6bf275a1e4c5bfd6eccb1a97b7.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9cb3bbe7ede7fcf9806b40b2b458214b.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -129,8 +131,9 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="img/cover-distribution.jpg" data-background-position="left" data-background-size="35% 100%" class="quarto-title-block center">
-  <h1 class="title">Uniform<br>Distribution</h1>
+<section id="title-slide" data-background-image="img/cover-binomial.jpg" data-background-position="left" data-background-size="35% 100%" class="quarto-title-block center">
+  <h1 class="title">Discrete <br>Distribution<br>Family</h1>
+  <p class="subtitle">Binomial distribution family</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -141,409 +144,406 @@ Yu Cheng Hsu
 </div>
 
 </section>
-<section id="intended-learning-outcomes" class="slide level2">
+<section id="intended-learning-outcomes" class="slide level2 c">
 <h2>Intended learning outcomes</h2>
 <ul>
-<li>Recognize and apply uniform distributions in statistical models</li>
-<li>Derive expected values of random variables</li>
-<li>Apply empirical probability mass functions in models</li>
-</ul>
-<!-- end columns -->
-</section>
-<section>
-<section id="describe-a-distribution" class="title-slide slide level1 center">
-<h1>Describe a Distribution</h1>
-
-</section>
-<section id="expectation" class="slide level2 smaller">
-<h2>Expectation</h2>
-<p><strong>Definition</strong></p>
-<p>The <em>expectation</em> or <em>mean</em> of a random variable <span class="math inline">\(X\)</span> with cdf <span class="math inline">\(F(X)\)</span> and pdf <span class="math inline">\(f(x)\)</span></p>
-<div class="hide">
-<p><span class="math display">\[
-\mathbb{E} (X) \triangleq \int xdF(x) =
-\begin{cases}
-\int_{-\infty}^{\infty} x f(x) dx
-\quad &amp; \text{if }X\text{ is continuous} \\
-\sum_{x \in \mathcal{X}} x f(x)
-\quad &amp; \text{if }X\text{ is discrete}
-\end{cases}
-\]</span></p>
-</div>
-<p>provided that the integral or sum exists.</p>
-<ul>
-<li>If <span class="math inline">\(\mathbb{E}(X)= \infty\)</span>, we say that <span class="math inline">\(\mathbb{E} \left( X\right)\)</span> does not exist.</li>
+<li>Recognize and apply Bernoulli and binomial distributions in statistical models</li>
+<li>Derive the binomial and negative binomial distributions</li>
 </ul>
 </section>
-<section id="property-of-expectation" class="slide level2 smaller">
-<h2>Property of Expectation</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Linearity</strong></p>
-<p>If <span class="math inline">\(X_1, . . . , X_n\)</span> are random variables and <span class="math inline">\(a_1, . . . , a_n\)</span> are constants, then</p>
-<div class="hide">
-<span class="math display">\[\begin{aligned}
-\mathbb{E}[X_1+X_2] =\mathbb{E}[X_1] +\mathbb{E}[X_2] \\
-\mathbb{E}[aX] =a\mathbb{E}[X]
-\end{aligned}\]</span>
-</div>
-<p>Combining them to get the general form</p>
-<p><span class="math display">\[
-\mathbb{E}\big(\sum_i a_iX_i\big)=\sum_i a_i\mathbb{E}(X_i)
-\]</span></p>
-</div><div class="column" style="width:50%;">
-<p><strong>Analogy</strong></p>
-<p>Considering you are rolling two fair dice, the first time you get twice the points, and the second time you get the points shown</p>
-<ul>
-<li>What is the expectation of the first dice</li>
-<li>What is the expectation of the sum of first and second dice</li>
-</ul>
-</div></div>
-</section>
-<section id="property-of-expectation-1" class="slide level2 smaller">
-<h2>Property of Expectation</h2>
-<p><strong>Expected value of a constant</strong></p>
-<p>For any constant <span class="math inline">\(a \in \mathbb{R}\)</span> ( i.e.&nbsp;in specific not a function of r.v ) the following holds <span class="math display">\[
-\mathbb{E} (a)= a
-\]</span></p>
-<p><strong>Proof</strong></p>
-<div class="hide">
-<p><span class="math display">\[
-\int a f(x)dx = a\int f(x)dx  =a
-\]</span></p>
-</div>
-<p><strong>Statistical independence</strong></p>
-<p>The following statement holds iff <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are statistically independent</p>
-<div class="hide">
-<p><span class="math display">\[
-\mathbb{E}(XY)= \mathbb{E}(X)\mathbb{E}(Y)
-\]</span></p>
-</div>
-</section>
-<section id="law-of-the-unconscious-statistician" class="slide level2 smaller">
-<h2>Law of the unconscious statistician</h2>
-<p><strong>Theorem:</strong> Let <span class="math inline">\(X\)</span> be a random variable and let <span class="math inline">\(Y = g(X)\)</span> be a function of this random variable.</p>
-<span class="math display">\[\begin{cases}
-\mathrm{E}[g(X)] = \int_{\mathcal{X}} g(x) f_X(x) \, \mathrm{d}x
-\quad &amp; \text{if }X\text{ is continuous} \\
-\mathrm{E}[g(X)] = \sum_{x \in \mathcal{X}} g(x) f_X(x) \; .
-&amp; \text{if }X\text{ is discrete}
-\end{cases}\]</span>
-<p>In a general term the following statement holds</p>
-<p><span class="math display">\[
-\mathrm{E}[g(X)] = \int_{\infty}^{\infty} g(x)\mathrm{d}F_X(x)
-\]</span></p>
-</section>
-<section id="variance" class="slide level2 smaller">
-<h2>Variance</h2>
-<p>The variance measures the “spread” of a distribution</p>
-<p><strong>Definition</strong></p>
-<p>The <em>variance</em> of a random variable <span class="math inline">\(X\)</span> is</p>
-<div class="hide">
-<p><span class="math display">\[
-\sigma^2=\text{Var} \left( X \right) \triangleq \int (x-\mathbb{E}(x))^2dF(x)=
-\mathbb{E} \left[ \left( X - \mathbb{E}\left(X\right) \right)^2 \right] .
-\]</span></p>
-</div>
-<p><em>assuming this expectation exists</em></p>
-<p><strong>Discussion</strong></p>
-<p>Why does <span class="math inline">\(\mathbb{E}[X-\mathbb{E}(x)]\)</span> not work as an indicator of “spreadness”?</p>
-<div class="hide">
-<p>This term is 0 <span class="math display">\[
-\begin{align}
-\mathbb{E}[X-\mathbb{E}(x)]=\mathbb{E}(X)-\mathbb{E}(x)=0
-\end{align}
-\]</span></p>
-</div>
-</section>
-<section id="property-of-variance" class="slide level2 smaller">
-<h2>Property of Variance</h2>
-<p><span class="math display">\[
-\begin{aligned}
-1. \; &amp;\mathbb{V}(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2 \\
-2. \; &amp;\mathbb{V}(aX+b)=a^2\mathbb{V}(X) \\
-3. \; &amp;\mathbb{V}\big(\sum_i a_iX_i\big)=\sum_i a_i^2\mathbb{V}(X_i)
-\end{aligned}
-\]</span></p>
-<p><strong>Proof</strong>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbb{V}(X) = &amp; \mathbb{E} \left[ \left( X - \mathbb{E}\left(X\right) \right)^2 \right] = \mathbb{E}[X^2-2X\mathbb{E}(X)+(\mathbb{E}(X)^2)]\\
-= &amp; \mathbb{E}(X^2)-2\mathbb{E}(X)^2+\mathbb{E}(X)^2 =\mathbb{E}(X^2)-\mathbb{E}(X)^2 \\
-\mathbb{V}(aX+b) = &amp; \mathbb{E}(a^2X^2+2abX+b^2)-(a^2\mathbb{E}(X)^2 +2ab\mathbb{E}(x)+b^2) \\
-= &amp; a^2\mathbb{E}(X^2)-a^2\mathbb{E}(X)^2 = a^2\mathbb{V}(X)
-\end{aligned}
-\]</span></p>
-<p><strong>Application</strong>:</p>
-<p>Variance estimation for t-test with unequal variance</p>
-</section>
-<section id="property-of-variance-1" class="slide level2 smaller">
-<h2>Property of Variance</h2>
-<p><strong>Statistical independence</strong></p>
-<p>The following statement holds iff <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are statistically independent <span class="math display">\[
-\mathbb{V}(X+Y)=\mathbb{V}(X)+\mathbb{V}(Y)
-\]</span></p>
-<p><strong>Proof</strong>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\text{Assuming } &amp; \mathbb{E}(X) \quad \&amp;\quad \mathbb{E}(Y) = 0 \\
-\mathbb{V}(X+Y)=&amp;\mathbb{E}((X+Y)^2)=\mathbb{E}(X^2+2XY+ Y^2)\\
-=&amp;\mathbb{E}(X^2)+2\mathbb{E}(XY)+\mathbb{E}(Y^2)\\
-=&amp;\mathbb{E}(X^2)+2\mathbb{E}(X)(Y)+\mathbb{E}(Y^2)\\
-=&amp;\mathbb{E}(X^2)+\mathbb{E}(Y^2)
-\end{aligned}
-\]</span></p>
-</section>
-<section id="discrete-vs.-continuous-random-variables" class="slide level2 smaller">
-<h2>Discrete vs.&nbsp;continuous random variables</h2>
-<p>For a random variable <span class="math inline">\(X\)</span>, we can categorize them into continuous random variables and discrete random variables</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Discrete random variables</strong></p>
-<ul>
-<li>Intuitive way:
-<ul>
-<li>the sample space <span class="math inline">\(\Omega\)</span> is a discrete space (countable)</li>
-</ul></li>
-<li>Official definition:
-<ul>
-<li>cdf <span class="math inline">\(FX(x)\)</span> is a step function of <span class="math inline">\(x\)</span></li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Continuous random variables</strong></p>
-<ul>
-<li>Intuitive way:
-<ul>
-<li>the sample space is a <span class="math inline">\(\Omega\)</span> continuous space (uncountable)</li>
-</ul></li>
-<li>Official definition:
-<ul>
-<li>cdf <span class="math inline">\(FX(x)\)</span> is a continuous function of <span class="math inline">\(x\)</span></li>
-</ul></li>
-</ul>
-</div><p><strong>Wrap-up</strong>:</p>
-</div>
-</section></section>
-<section>
-<section id="uniform-distribution-family" class="title-slide slide level1 center">
-<h1>Uniform Distribution Family</h1>
-
-</section>
-<section id="discrete-uniform-distribution" class="slide level2 smaller">
-<h2>Discrete Uniform Distribution</h2>
-<p>A random variable <span class="math inline">\(X\)</span> with the sample space <span class="math inline">\(\Omega\)</span> with <span class="math inline">\(N\)</span> distinct elements <span class="math inline">\(\{x_a, \dots, x_b\}\)</span>. We write that X follows a discrete uniform distribution <span class="math inline">\(X \sim \text{Uniform}\left(N\right)\)</span>.</p>
+<section id="bernoulli-distribution" class="slide level2 smaller">
+<h2>Bernoulli distribution</h2>
+<p>If a random variable <span class="math inline">\(X\)</span> follows bernoulli distribution, we will write <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span></p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><strong>Properties</strong></p>
 <ul>
-<li>Support: <span class="math inline">\(\{x_a\dots x_b\}\)</span></li>
-<li>Parameter: <span class="math inline">\(N\)</span> number of distinct outcomes</li>
+<li>Support <span class="math inline">\(\mathbf{X} = \{0, 1\}\)</span></li>
+<li>Parameter <span class="math inline">\(p \in [0, 1]\)</span> is the probability of success.</li>
 <li>pmf</li>
 </ul>
-<p><span class="math display">\[
-\begin{aligned}
-P ( X = x) \; &amp;= \; \frac{1}{N}, \quad
-x \in \Omega
-\end{aligned}
-\]</span></p>
-<ul>
-<li>Mean: <span class="math inline">\(\frac{a+b}{2}\)</span></li>
-</ul>
-</div><div class="column" style="width:40%;">
-<p><strong>Examples</strong></p>
-<ul>
-<li>outcome of a fair coin flip</li>
-<li>outcome of a fair dice roll</li>
-<li>number on a drawn card from a well-shuffled deck</li>
-</ul>
-</div></div>
-</section>
-<section id="continuous-uniform-distribution" class="slide level2 smaller">
-<h2>Continuous Uniform Distribution</h2>
-<div class="columns">
-<p>We write a random variable <span class="math inline">\(X\)</span> follows a continuous uniform distribution over an interval <span class="math inline">\([a, b]\)</span> as <span class="math inline">\(X \sim \text{Uniform}\left(a, b\right)\)</span> if</p><div class="column" style="width:50%;">
-<p><strong>Definition</strong></p>
-<ul>
-<li><p>Support: <span class="math inline">\([a,b]\)</span></p></li>
-<li><p>Parameter: <span class="math inline">\(a,b\)</span> range</p></li>
-<li><p>pdf <span class="math display">\[
-f_X(x) =
-\begin{cases}
-\frac{1}{b - a} &amp; \text{ if } x \in [a, b] \\
-0 &amp; \text{otherwise} ,
-\end{cases}
-\]</span></p></li>
-<li><p>Mean: <span class="math inline">\((a+b)/2\)</span></p></li>
-<li><p>Variance: <span class="math inline">\((b-a)^2/12\)</span></p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div id="cell-fig-unifm" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div id="fig-unifm" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-unifm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="1-distribution_files/figure-revealjs/fig-unifm-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: uniform(3,7)"><img data-src="1-distribution_files/figure-revealjs/fig-unifm-output-1.png" width="356" height="263"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unifm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: uniform(3,7)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="example" class="slide level2 smaller">
-<h2>Example</h2>
-<p>Given <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span>, please show that</p>
-<ol type="1">
-<li><span class="math inline">\(\text{E} \left(X\right) = \frac{a+b}{2}\)</span></li>
-<li><span class="math inline">\(\text{E} \left(X^2\right) = \frac{a^2 + ab + b^2}{3}\)</span></li>
-</ol>
 <div class="hide">
 <p><span class="math display">\[
-\small
 \begin{align}
-\mathbb{E}(X) &amp;= \int_{-\infty}^{\infty} x\, f_X(x)\, dx
-= \int_{a}^{b} x \cdot \frac{1}{b-a}\, dx
-= \frac{1}{b-a} \int_{a}^{b} x\, dx \\
-&amp;= \frac{1}{b-a} \left[ \frac{x^2}{2} \right]_{a}^{b}
-= \frac{1}{b-a} \left( \frac{b^2}{2} - \frac{a^2}{2} \right)
-= \frac{b^2 - a^2}{2(b-a)}
-= \frac{(b-a)(b+a)}{2(b-a)} \\[6pt]
-&amp;= \frac{a+b}{2}.
+P ( X = x \mid p ) \; &amp; = \;
+p^x \, (1 - p)^{1 - x} \\
+&amp; =
+\begin{cases}
+p \quad &amp; \text{if } x=1 \\
+1 - p \quad &amp; \text{if } x=0
+\end{cases}
 \end{align}
 \]</span></p>
 </div>
-</section>
-<section id="example-1" class="slide level2 smaller">
-<h2>Example</h2>
-<p>Given <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span>, please show that for any number <span class="math inline">\(u,v,w\)</span>, which <span class="math inline">\(a&lt;u&lt;v&lt;w&lt;b\)</span> and <span class="math inline">\(v-u=w-v=c\)</span>, please show that</p>
-<p><span class="math inline">\(\text{P} (u\leq X\leq v) = \text{P} (v\leq X\leq w)\)</span></p>
-<div class="hide">
-<p><span class="math display">\[
-\begin{align*}
-\text{P} (u\leq X\leq v) &amp;= P(x\leq v)-P(x\leq u) \\ &amp;= \frac{v - a}{b - a}-\frac{u - a}{b - a}=\frac{c}{b-a}\\
-\text{P} (v\leq X\leq w) &amp;= P(x\leq w)-P(x\leq v) \\ &amp;= \frac{w - a}{b - a}-\frac{v - a}{b - a}=\frac{c}{b-a}
-\end{align*}
-\]</span></p>
-</div>
-</section>
-<section id="empirical-distribution-function" class="slide level2 smaller">
-<h2>Empirical distribution function</h2>
-<p>One application of axioms is their heuristic inspiration to create an empirical distribution from observed data. Given <em>independent and identically distributed</em> (iid) samples <span class="math inline">\(\{x_1, \ldots, x_N\}\)</span> of random variable <span class="math inline">\(X\)</span></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Definition</strong></p>
-<p>the <strong>empirical pmf</strong> for <span class="math inline">\(X\)</span> is</p>
-<div class="hide">
-<p><span class="math display">\[
-\hat{f}_N(x) = \frac{1}{N} \sum_{i=1}^N I(x_i = x) ,
-\]</span></p>
-</div>
-<p>and the <strong>empirical cdf</strong></p>
-<div class="hide">
-<p><span class="math display">\[
-\hat{F}_N(t) = \frac{1}{N} \sum_{i=1}^N I(x_i \leq t) ,
-\]</span></p>
-</div>
-<p>where <span class="math inline">\(I\)</span> is the indicator function.</p>
-</div><div class="column" style="width:50%;">
-<p><strong>Example</strong></p>
-<p>Suppose we have observations <span class="math inline">\([1,2,2,2,3,3,4]\)</span> Please plot the empirical pdf and cdf of the observations</p>
-<div id="fe94e978" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><a href="1-distribution_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="1-distribution_files/figure-revealjs/cell-3-output-1.png" width="565" height="276"></a></p>
-</figure>
-</div>
-</div>
-</div>
+<ul>
+<li>Mean: <span class="math inline">\(\mathbf{E}(X) = p\)</span></li>
+<li>Variance: <span class="math inline">\(\mathbf{V}(X) = p(1-p)\)</span></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><strong>Analogy</strong></p>
+<p>Tossing a coin for one time. The <em>head</em> or <em>tail</em> follows bernoulli distribution</p>
 </div></div>
 </section>
-<section id="generating-samples-from-empirical-distribution" class="slide level2 smaller">
-<h2>Generating samples from empirical distribution</h2>
-<p><strong>Assumption</strong></p>
-<p>The only random variables a computer can generate are <span class="math inline">\(X\sim\text{uniform}(0,1)\)</span></p>
-<p><strong>Problem</strong></p>
-<p>We want to generate random samples <span class="math inline">\(X\sim\text{uniform}(3,7)\)</span></p>
-<p><strong>Intuitive way</strong></p>
-<ol type="1">
-<li>Scaling the distribution to the width 4 <span class="math inline">\(X\rightarrow 4X\)</span></li>
-<li>Translate it from [0,4] to [3,7]: <span class="math inline">\(X \rightarrow 4X+3\)</span></li>
-</ol>
-</section>
-<section id="inverse-transform-methods" class="slide level2 smaller">
-<h2>Inverse transform methods</h2>
-<p>What we are actually doing is calculating the inverse function of the CDF of <span class="math inline">\(X \sim \text{Uniform}(3,7)\)</span>.</p>
-<ul>
-<li>Recalling cdf of a uniform distribution is <span class="math inline">\(F(x)=\frac{x-a}{b-a} \quad \forall a\leq x \leq b\)</span></li>
-<li>The inverse cdf is <span class="math inline">\(F^{-1}(x)=(b-a)x+a\)</span></li>
-</ul>
-<p>Plugging <span class="math inline">\(a=3,b=7\)</span> we can get</p>
-<p><span class="hide"><span class="math display">\[F^{-1}(x)=4x+3\]</span></span></p>
-<p>The thing we did is actually do the inverse function of CDF. This is the fundamental approach of generating random samples</p>
-</section>
-<section id="inverse-transform-methods-1" class="slide level2 smaller">
-<h2>Inverse transform methods</h2>
-<p>We can generate random number with its cdf <span class="math inline">\(F(x)\)</span> through its inverse function <span class="math inline">\(F^{-1}(x) \quad \forall x \sim \text{uniform}(0,1)\)</span></p>
-<p><span class="math display">\[
-v = F^{-1}(x)
-\]</span></p>
-<p><strong>Example</strong></p>
-<p>Suppose we have observations <span class="math inline">\([1,2,2,2,3,3,4]\)</span> Please plot the empirical cdf and inverse cdf of the observations</p>
-<div id="90da3e51" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><a href="1-distribution_files/figure-revealjs/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="1-distribution_files/figure-revealjs/cell-5-output-1.png" width="565" height="276"></a></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="checking-empirical-distribution-function-fulfill-axioms" class="slide level2 smaller">
-<h2>Checking Empirical distribution function fulfill axioms</h2>
-<p><strong>Non-negativity</strong></p>
-<div class="hide">
-<p><span class="math display">\[  
+<section id="bernoulli-trials" class="slide level2 smaller">
+<h2>Bernoulli trials</h2>
+<div class="columns">
+<div class="column">
+<p>Suppose we have <span class="math inline">\(N\)</span> iid trials with success probability <span class="math inline">\(p\)</span>, resulting in random variables <span class="math inline">\(\mathbf{X} = [X_1, \ldots, X_N]\)</span> such that <span class="math display">\[
+X_i \sim \text{Bernoulli}(p) .
+\]</span> This sequence of iid trials are called <em>Bernoulli</em> trials. <span class="math display">\[
 \begin{aligned}
-\because N&gt;0  \quad  \&amp;  \quad
-I(x)\begin{cases}
-1
-\quad &amp; \text{if }X\text{ is TRUE} \\
-0
-\quad &amp; \text{if }X\text{ is FALSE}
-\end{cases} \geq 0 \\
-\rightarrow \hat{f}_N(x) = \frac{1}{N} \sum_{i=1}^N I(x_i = x)  \geq 0
+P_{\mathbf{X}}\left( \mathbf{x} \right)
+&amp;= \prod_{i=1}^N P_{X_i}\left(x_i\right)
+\quad (\text{independent}) \\
+&amp;= \prod_{i=1}^N p^{x_i} (1- p)^{1 - x_i} \\
+&amp;= p^{\sum_i x_i} (1- p)^{N - \sum_i x_i}
+\end{aligned}
+\]</span></p>
+</div><div class="column">
+<p><strong>Examples</strong></p>
+<p>Suppose we are tossing 5 unfair coins with the <span class="math inline">\(p(\text{head}) = 0.3\)</span> and <span class="math inline">\(p(\text{head}) = 0.7\)</span>. What is the probability of getting observation [T, T ,T, H, H]</p>
+</div></div>
+</section>
+<section id="bernoulli-trials-1" class="slide level2 smaller">
+<h2>Bernoulli trials</h2>
+<p>We define a new r.v. <span class="math inline">\(\small Y = \sum_{i=1}^N X_i\)</span>. Then, for <span class="math inline">\(\small y \in \{0, 1, \ldots, N\}\)</span>, (i.e.&nbsp;Y is the number of head from a fixed length bernoulli trials)</p>
+<p><span class="math display">\[
+\small
+\begin{aligned}
+P_Y \left( y \right)
+= P \left( \left\{ \mathbf{x} : \sum_i x_i = y \right\} \right)
+= \binom{N}{y} P_{\mathbf{X}}\left( \mathbf{x} \right)
+= \binom{N}{y} p^y \, (1 - p)^{N - y} .
+\end{aligned}
+\]</span></p>
+<p>Recall from previously, then we have derived the <strong>binomial distribution</strong>.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 32%">
+<col style="width: 32%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(y\)</span></th>
+<th>Outcome</th>
+<th>Probability</th>
+<th># permutation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(\{ 000 \}\)</span></td>
+<td><span class="hide"><span class="math inline">\((1-p)^3\)</span> </span></td>
+<td><span class="hide"><span class="math inline">\(\binom{3}{0}\)</span></span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(\{ 100, 010, 001 \}\)</span></td>
+<td><span class="hide"><span class="math inline">\(p(1-p)^2\)</span> </span></td>
+<td><span class="hide"><span class="math inline">\(\binom{3}{1}\)</span></span></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\(\{ 110, 101, 011 \}\)</span></td>
+<td><span class="hide"><span class="math inline">\(p^2(1-p)\)</span></span></td>
+<td><span class="hide"><span class="math inline">\(\binom{3}{2}\)</span></span></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><span class="math inline">\(\{ 111 \}\)</span></td>
+<td><span class="hide"><span class="math inline">\(p^3\)</span> </span></td>
+<td><span class="hide"><span class="math inline">\(\binom{3}{3}\)</span></span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="binomial-distribution" class="slide level2 smaller">
+<h2>Binomial distribution</h2>
+<p>If a random variable <span class="math inline">\(X\)</span> has a binomial distribution, we will write <span class="math inline">\(X \sim B(N,p)\)</span>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li>Support <span class="math inline">\(\mathcal{X} \in \{0, 1, \ldots, N\}\)</span></li>
+<li>Parameter <span class="math inline">\(N, p\)</span>, where
+<ul>
+<li><span class="math inline">\(p \in [0, 1]\)</span> is the probability of success</li>
+<li><span class="math inline">\(N\)</span> is number of trials.</li>
+</ul></li>
+<li>pmf</li>
+</ul>
+<div class="hide">
+<p><span class="math display">\[
+\small
+\begin{aligned}
+&amp; P\left( X = x \mid N, p \right) = \binom{N}{x} p^x \, (1 - p)^{N - x}
 \end{aligned}
 \]</span></p>
 </div>
-<p><strong>Unit measure</strong></p>
-<div class="hide">
-<p>let the support has <span class="math inline">\(t\)</span> unique values <span class="math inline">\(\{X_1 \dots X_t\}\)</span> <span class="math display">\[  
-P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
-\]</span></p>
+<ul>
+<li>Expectation: <span class="math inline">\(\mathbb{E}(X) = np\)</span></li>
+<li>Variance: <span class="math inline">\(\mathbb{V}(X) = np(1-p)\)</span></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><strong>Analogy</strong></p>
+<p>We are tossing an unfair coins for 10 times with <span class="math inline">\(p(H) = 0.3\)</span>. What is the probability of</p>
+<ol type="1">
+<li>getting 3 heads and 7 tails</li>
+<li>getting 7 heads and 3 tails</li>
+</ol>
+</div></div>
+</section>
+<section id="illustration" class="slide level2">
+<h2>Illustration</h2>
+<div id="ce135a39" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="2-Discrete distribution family_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="2-Discrete distribution family_files/figure-revealjs/cell-2-output-1.png" width="1237" height="568"></a></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
-<section id="intended-learning-outcomes-1" class="slide level2">
-<h2>Intended learning outcomes</h2>
+<section id="example-wright-fisher-model-optional" class="slide level2 smaller">
+<h2>Example: Wright-Fisher Model (Optional)</h2>
+<p>Consider a populaton with <span class="math inline">\(N\)</span> diploid individuals. and we are interested in an allele with possibile genotypes <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span></p>
 <ul>
-<li>Recognize and apply uniform distributions in statistical models</li>
-<li>Derive expected values of random variables</li>
-<li>Apply empirical probability mass functions in models</li>
+<li>Each individual in the population produces a large number of gametes.</li>
+<li>Fixed population size</li>
+<li>Mendelian inheritance applied</li>
 </ul>
+<p>Please describing the probability that there will be <span class="math inline">\(n_{A1}\)</span> copies of <span class="math inline">\(A\)</span> in the next generation given that there are <span class="math inline">\(n_{A0}\)</span> copies in the parent generation:</p>
+<p><span class="math display">\[p(n_{A1} \text{in offspring}\mid n_{A0} \text{in parents})=\binom{2N}{n_{A1}}( \frac{n_{A0}}{2N} )^{n_{A1}}( 1-\frac{n_{A0}}{2N} )^{2N-n_{A1}}
+\]</span></p>
+</section>
+<section id="some-properties-on-binomial-distribution" class="slide level2 smaller">
+<h2>Some Properties on Binomial distribution</h2>
+<ol type="1">
+<li>it is obvious us that p(x) for a binomial distribution is the (x+1)-th term in the expansion of <span class="math inline">\([p + (1-p)]^2\)</span> (Binomial theorm)</li>
+<li>In this end, it is clear that binomial distribution satisfy the axiom</li>
+</ol>
+</section>
+<section id="negative-binomial-distribution" class="slide level2 smaller">
+<h2>Negative binomial distribution</h2>
+<p>We define the random variable <span class="math inline">\(X\)</span> as how many time we need to toss until the r-th success. <span class="math inline">\(X\)</span> follows negative binomial distribution (<span class="math inline">\(X\sim NB(r,p)\)</span>)</p>
+<div class="columns">
+<div class="column">
+<p><strong>Properties</strong></p>
+<ul>
+<li>Support <span class="math inline">\(x\in\{ \mathbb{N}  \mid\quad\forall \mathbb{N}&gt;r\}\)</span></li>
+<li>Parameter <span class="math inline">\(r,p\)</span></li>
+<li>pmf</li>
+</ul>
+<div class="hide">
+<p><span class="math display">\[
+P\left( X = x \mid r, p \right) \; = \;
+\binom{x - 1}{r - 1} p^r (1 - p)^{x - r}
+\]</span></p>
+</div>
+<ul>
+<li>Mean <span class="math inline">\(\frac{r(1-p)}{p}\)</span></li>
+<li>Variance <span class="math inline">\(\frac{r(1-p)}{p^2}\)</span></li>
+</ul>
+</div><div class="column">
+<p><strong>Analogy</strong></p>
+<ul>
+<li>Tossing coins to see how many times it take to see the 5-th head</li>
+<li>Gene expression</li>
+</ul>
+</div></div>
+</section>
+<section id="illustration-1" class="slide level2">
+<h2>Illustration</h2>
+<div id="2f59159b" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="2-Discrete distribution family_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="2-Discrete distribution family_files/figure-revealjs/cell-3-output-1.png" width="1246" height="567"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="geometric-distribution" class="slide level2 smaller">
+<h2>Geometric distribution</h2>
+<p>A geometric distribution special case of the negative binomial distribution where <span class="math inline">\(r = 1\)</span>.</p>
+<p>A random variable <span class="math inline">\(X \sim G(p)\)</span> follows geometric distribution has the following property</p>
+<div class="columns">
+<div class="column">
+<p><strong>Properties</strong></p>
+<ul>
+<li>Support <span class="math inline">\(x \in \mathbb{N}\)</span></li>
+<li>Parameter <span class="math inline">\(p\)</span> is the probability of success</li>
+<li>pmf</li>
+</ul>
+<div class="hide">
+<p><span class="math display">\[
+P\left( X = x \mid p \right) \; = \;
+p (1 - p)^{x - 1}
+\]</span></p>
+</div>
+<ul>
+<li>Mean <span class="math inline">\(\frac{1}{p}\)</span></li>
+<li>Variance <span class="math inline">\(\frac{(1-p)}{p^2}\)</span></li>
+</ul>
+</div><div class="column">
+<p><strong>Analogy</strong></p>
+<p>A mobile game has a 5% draw a SSR card. In average, how many draws do you need to get a SSR card?</p>
+</div></div>
+</section>
+<section id="illustration-2" class="slide level2">
+<h2>Illustration</h2>
+<div id="877cb3f7" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="2-Discrete distribution family_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="2-Discrete distribution family_files/figure-revealjs/cell-4-output-1.png" width="1141" height="379"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="example-coalescent-optional" class="slide level2 smaller">
+<h2>Example: Coalescent (Optional)</h2>
+<div class="columns">
+<div class="column">
+<p>The probability that two alleles in generation <span class="math inline">\(t\)</span> are copies of the same allele in generation <span class="math inline">\(t − 1\)</span> is <span class="math inline">\(\frac{1}{2N_e}\)</span> (i.e.&nbsp;probaility to coalesce).</p>
+<p>For a coalescent event occur at <span class="math inline">\(t\)</span> generation ago, it means that two alleles have NOT have colleased in the <span class="math inline">\(1 \dots t-1\)</span> generation ago.</p>
+<p>The probability that two alleles coalesced t generations ago</p>
+<p><span class="math display">\[
+P(T=t)=(1-\frac{1}{2N_e})^{t-1}(\frac{1}{2N_e})
+\]</span></p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img\coalescent.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Coalescent illustration from @nakagome2015use"><img data-src="img\coalescent.png" alt="Coalescent illustration from @nakagome2015use"></a></p>
+<figcaption>Coalescent illustration from <span class="citation" data-cites="nakagome2015use">@nakagome2015use</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="hypergeometric-distribution" class="slide level2 smaller">
+<h2>Hypergeometric distribution</h2>
+<p>Tthis time we draws sample <em>without replacement</em> from the finite sample <span class="math inline">\(N\)</span> with known <span class="math inline">\(K\)</span> succeess and the random variable <span class="math inline">\(X\)</span> is defined as exactly <span class="math inline">\(x\)</span> times of success with <span class="math inline">\(n\)</span> draws. <span class="math inline">\(X\sim\text{Hypergeometric}(N,K,n)\)</span></p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Properties</strong></p>
+<ul>
+<li>Support <span class="math inline">\(x \in {\max(0,n+K-N),\dots,\min(n,K)}\)</span></li>
+<li>Parameter <span class="math inline">\(N, K, n\)</span></li>
+<li>pmf</li>
+</ul>
+<div class="hide">
+<p><span class="math inline">\(P( X = x) = \frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}}\)</span></p>
+</div>
+<ul>
+<li>Mean <span class="math inline">\(n\frac{K}{N}\)</span></li>
+<li>Variance <span class="math inline">\(n\frac{K}{N}\frac{N-K}{N}\frac{N-n}{N-1}\)</span></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><strong>Analogy</strong></p>
+<p>Choosing 5 red balls and 3 blue balls from total 10 red balls and 15 blue balls without replacement</p>
+</div></div>
+</section>
+<section id="example-fishers-exact-test" class="slide level2 smaller">
+<h2>Example: Fisher’s exact test</h2>
+<p>We can view the p-value in Fisher’s exact test as the cdf of a hypergeometric disstribution.</p>
+<div class="columns">
+<div class="column">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Tretment</th>
+<th>Control</th>
+<th>Row sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Y</td>
+<td>a</td>
+<td>b</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td>Not Y</td>
+<td>c</td>
+<td>d</td>
+<td>N-M</td>
+</tr>
+<tr class="odd">
+<td>Column sum</td>
+<td>n</td>
+<td>N-n</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column">
+<p>Fisher’s exact value assumes</p>
 <blockquote>
-<p>Why did the statistician join the army?</p>
+<p>the row sum&amp;column sum value fixed</p>
 </blockquote>
-<blockquote>
-<p>Because he heard they were looking for people who could fit into a strict Uniform !</p>
-</blockquote>
+<p>Observation of contingency table follows hypergeometric distribution with the probability:</p>
+<p><span class="math display">\[
+p(x=a) = \frac{\binom{M}{a}\binom{N-M}{n-a}}{\binom{N}{n}}
+\]</span></p>
+</div></div>
+</section>
+<section id="example-capture-and-re-capture-experiment-optional" class="slide level2 smaller">
+<h2>Example: Capture and Re-capture Experiment (Optional)</h2>
+<p>To estimate the population size of a specific animal in a certain region, the ecologists erform the following procedure (This methods were adopted in counting counting health survey, microbome)</p>
+<div class="columns">
+<div class="column">
+<ol type="1">
+<li>Catch <span class="math inline">\(m\)</span> animal from the site, label them with marker and release.</li>
+<li>After a couple of time, catch <span class="math inline">\(n\)</span> animal from the lake.</li>
+</ol>
+<p>We denoted the number of marked animal as <span class="math inline">\(X\)</span> and it is obvious that <span class="math inline">\(X\)</span> follow hypergeometric distribution</p>
+</div><div class="column">
+<p>In our experiment</p>
+<ul>
+<li><span class="math inline">\(n\)</span> animal caught</li>
+<li><span class="math inline">\(i\)</span> marked animal</li>
+</ul>
+<p>so the probability of having <span class="math inline">\(i\)</span> given the the unknown population parameter <span class="math inline">\(N\)</span> is</p>
+<p><span class="math display">\[
+P(X=i | N)\frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}}
+\]</span></p>
+</div></div>
+</section>
+<section id="example-capture-and-re-capture-experiment-optional-1" class="slide level2 smaller">
+<h2>Example: Capture and Re-capture Experiment (Optional)</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Finding optimal <span class="math inline">\(N\)</span> is tough<br>
+</li>
+<li>Trick: Consider</li>
+</ul>
+<p><span class="math display">\[r=\frac{P(X=i | N)}{P(X=i | N-1)}\]</span></p>
+<ul>
+<li><span class="math inline">\(P(X=i | N)\geq P(X=i | N-1)\)</span> (i.e.&nbsp;<span class="math inline">\(r\geq 1\)</span>) then we should use the parameter N as the estimation rather than <span class="math inline">\(N-1\)</span></li>
+<li>Optimal N will at the boundary condition</li>
+</ul>
+</div><div class="column">
+<p>The boundary condition will be</p>
+<p><span class="math display">\[
+\begin{aligned}
+(N-m)(N-n) \geq &amp; N(N-m-n+i) \\
+\rightarrow &amp; N \leq \frac{mn}{i}
+\end{aligned}
+\]</span></p>
+</div><p>The best estimation of population size the larget integer less than <span class="math inline">\(\frac{mn}{i}\)</span></p>
+</div>
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -558,6 +558,7 @@ P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
   <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -579,7 +580,8 @@ P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"theme":"whiteboard"},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -750,7 +752,7 @@ P(X) = \sum_{t} \frac{1}{N} \sum_{i=1}^N I(x_i = X_t) = \frac{N}{N}= 1
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

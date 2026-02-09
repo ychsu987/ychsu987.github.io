@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific computing – Yu Cheng Hsu</title>
+<title>Question sets – Yu Cheng Hsu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f9e6e4d29af3f5f6ee06eaf03ed5edd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f9e6e4d29af3f5f6ee06eaf03ed5edd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,66 +67,23 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-lecture .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-lecture'] = new List('listing-lecture', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-tutorial .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-tutorial'] = new List('listing-tutorial', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
   </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -157,16 +112,17 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="student_view.scss">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Yu Cheng Hsu</span>
     </a>
   </div>
@@ -177,7 +133,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -186,15 +142,15 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-courses">    
         <li>
-    <a class="dropdown-item" href="./programming.html">
+    <a class="dropdown-item" href="../programming.html">
  <span class="dropdown-text">Scientific computing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hybridPBL.html">
+    <a class="dropdown-item" href="../hybridPBL.html">
  <span class="dropdown-text">Hybrid PBL Lectures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./quant.html">
+    <a class="dropdown-item" href="../quant.html">
  <span class="dropdown-text">Quantitative analysis</span></a>
   </li>  
     </ul>
@@ -210,13 +166,40 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
+  <li><a href="#question-6-monty-hall-problem" id="toc-question-6-monty-hall-problem" class="nav-link" data-scroll-target="#question-6-monty-hall-problem">Question 6 (Monty Hall problem)</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8"></a></li>
+  <li><a href="#question-7-buffons-needle-problem" id="toc-question-7-buffons-needle-problem" class="nav-link" data-scroll-target="#question-7-buffons-needle-problem">Question 7 (Buffon’s needle problem)</a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9"></a></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10"></a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11"></a></li>
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12"></a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="3-Question sets_presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific computing</h1>
+<h1 class="title">Question sets</h1>
 </div>
 
 
@@ -233,84 +216,326 @@ window.Quarto = {
 </header>
 
 
-<p>I teach several fundamental computing modules</p>
-<section id="bbms1021-introduction-to-ai-and-biomedical-data-science" class="level2">
-<h2 class="anchored" data-anchor-id="bbms1021-introduction-to-ai-and-biomedical-data-science">BBMS1021 Introduction to AI and Biomedical Data Science</h2>
-<section id="lecture-materials" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-materials">Lecture materials</h3>
-<div id="listing-lecture" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1770566400000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2237">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">Introduction to ggplot2</a>
-</h3>
+<section id="question-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="question-1">Question 1</h2>
+<p>Suppose that the pmf (<span class="math inline">f_{X,Y}</span>) of joint distribution <span class="math inline">X</span> and <span class="math inline">Y</span> is given in the below table</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">Y=0</span></th>
+<th><span class="math inline">Y=1</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">X=0</span></td>
+<td><span class="math inline">\frac{2}{10}</span></td>
+<td><span class="math inline">\frac{3}{10}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">X=1</span></td>
+<td><span class="math inline">\frac{2}{10}</span></td>
+<td><span class="math inline">\frac{3}{10}</span></td>
+</tr>
+</tbody>
+</table>
+<p>please show that X and Y are statistically independent</p>
+<div class="hide">
+<p><span class="math display">
+\begin{align*}
+p_{X,Y}(0,0)=(\frac{2}{10}+\frac{3}{10})\times (\frac{2}{10}+\frac{2}{10})= 0.2 \\
+p_{X,Y}(0,1)=(\frac{2}{10}+\frac{3}{10})\times (\frac{3}{10}+\frac{3}{10})= 0.3 \\
+p_{X,Y}(1,0)=(\frac{2}{10}+\frac{3}{10})\times (\frac{2}{10}+\frac{2}{10})= 0.2 \\
+p_{X,Y}(1,1)=(\frac{2}{10}+\frac{3}{10})\times (\frac{3}{10}+\frac{3}{10})= 0.3
+\end{align*}
+</span></p>
 </div>
-<div class="metadata">
-<a href="./BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1754409600000" data-listing-file-modified-sort="1763693320312" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2102">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./BBMS1021/Real_case/Real-example.html" class="no-external">Real Example of Data Processing and Exploratory Data Analysis with R</a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./BBMS1021/Real_case/Real-example.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<p>The tutorial questions cover basic R programming techniques and data manipulation.</p>
 </section>
-<section id="tutorial-materials" class="level3">
-<h3 class="anchored" data-anchor-id="tutorial-materials">Tutorial materials</h3>
-<div id="listing-tutorial" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1757260800000" data-listing-file-modified-sort="1758010740291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./BBMS1021/tutorial/tutorial_1.html" class="no-external">Tutorial 1</a>
-</h3>
+<section id="question-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="question-2">Question 2</h2>
+<p>Suppose that the pmf (<span class="math inline">f_{X,Y}</span>) of joint distribution <span class="math inline">X</span> and <span class="math inline">Y</span> is given in the below table</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">Y=0</span></th>
+<th><span class="math inline">Y=1</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">X=0</span></td>
+<td><span class="math inline">\frac{1}{10}</span></td>
+<td><span class="math inline">\frac{1}{10}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">X=1</span></td>
+<td><span class="math inline">\frac{2}{10}</span></td>
+<td><span class="math inline">\frac{6}{10}</span></td>
+</tr>
+</tbody>
+</table>
+<p>What is the pmf of <span class="math inline">f_Y</span></p>
+<div class="hide">
+<p><span class="math display">
+p_Y(0)=\frac{3}{10}, p_Y(1)=\frac{7}{10}
+</span></p>
 </div>
-<div class="metadata">
-<a href="./BBMS1021/tutorial/tutorial_1.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1757865600000" data-listing-file-modified-sort="1763544243188" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1326">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./BBMS1021/tutorial/tutorial_2.html" class="no-external">Tutorial 2</a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./BBMS1021/tutorial/tutorial_2.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1757865600000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="559">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./BBMS1021/tutorial/tutorial_3.html" class="no-external">Tutorial 3</a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./BBMS1021/tutorial/tutorial_3.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
-
-
 </section>
+<section id="question-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="question-3">Question 3</h2>
+<p>For medical research on the effect of exposure to cancer, the research results are shown below:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Cancer</th>
+<th>No Cancer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exposure</td>
+<td>a</td>
+<td>b</td>
+</tr>
+<tr class="even">
+<td>Control</td>
+<td>c</td>
+<td>d</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section"></h2>
+<ol type="1">
+<li>Odds ratio (OR= <span class="math inline">\frac{ad}{bc}</span>) is a common indicator to the effectiveness of an intervention. Please show that OR=1 indicates that the outcome and treatment are statistically independent</li>
+</ol>
+<div class="hide">
+<p><span class="math display">
+\begin{align*}
+&amp; \frac{ad}{bc}=1 \\
+\rightarrow &amp; \frac{a}{b}=\frac{c}{d} \quad
+\text{Definition of statistical independent}
+\end{align*}
+</span></p>
+</div>
+</section>
+<section id="section-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-1"></h2>
+<ol start="2" type="1">
+<li>Another common indicator is relative risk (RR), defined as the fraction of the probability of developing cancer between exposure over control <span class="math inline">\frac{\frac{a}{a+b}}{\frac{c}{c+d}}</span>. Please show that RR=1 indicates that the outcome and treatment are statistically independent</li>
+</ol>
+<div class="hide">
+<p><span class="math display">
+\begin{align*}
+&amp; \frac{\frac{a}{a+b}}{\frac{c}{c+d}}=1 \\
+\rightarrow &amp; \frac{a}{a+b}=\frac{c}{c+d} \\
+\rightarrow &amp; ac+ad=ac+ab \\
+\rightarrow &amp; \frac{a}{b}=\frac{c}{d} \quad
+\text{Definition of statistical independent}
+\end{align*}
+</span></p>
+</div>
+</section>
+<section id="question-4" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="question-4">Question 4</h2>
+<p>Consider a random variable <span class="math inline">X</span> uniformly distributed on <span class="math inline">\{-1, 0, 1\}</span>, and let <span class="math inline">Y = X^2</span>.</p>
+</section>
+<section id="section-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-2"></h2>
+<ol type="1">
+<li>Show that <span class="math inline">\sigma_{xy}=0</span></li>
+</ol>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+\text{Cov}(X, Y) = &amp; \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y] \\
+\because &amp; \mathbb{E}(X) =0
+\therefore \text{Cov}(X, Y) = \mathbb{E}[XY] - 0 \\
+XY= &amp;X\times X^2 =X^3, \text{ The values of $X^3$ are $\{-1, 0, 1\}$.} \\
+\therefore &amp; E[XY] = \frac{1}{3}(-1) + \frac{1}{3}(0) + \frac{1}{3}(1) = 0
+\therefore \text{Cov}(X, Y)=0
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="section-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-3"></h2>
+<ol start="2" type="1">
+<li>Is X and Y statistically independent?</li>
+</ol>
+<div class="hide">
+<p>No, they are dependent. If you know <span class="math inline">X=0</span>, you know for certain that <span class="math inline">Y=0</span>. If you know <span class="math inline">X=1</span>, you know <span class="math inline">Y=1</span>. One variable conveys perfect information about the other (specifically, <span class="math inline">Y</span> is a deterministic function of <span class="math inline">X</span>).</p>
+</div>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<p>Marginal Density on a Unit Square: Let two continuous random variables <span class="math inline">X</span> and <span class="math inline">Y</span> have the joint probability density function (PDF):</p>
+<p><span class="math display">
+f_{X,Y}(x,y) = \begin{cases}
+x + y &amp; \text{for } 0 \le x \le 1, 0 \le y \le 1 \\
+0 &amp; \text{otherwise}
+\end{cases}
+</span></p>
+</section>
+<section id="section-4" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-4"></h2>
+<ol type="1">
+<li>Find the marginal PDF of <span class="math inline">X</span></li>
+</ol>
+<div class="hide">
+<p><span class="math display">
+f_X(x) = \int_{0}^{1} (x + y) dy = \left[ xy + \frac{y^2}{2} \right]_{y=0}^{y=1} = (x + 0.5) - 0 = x + 0.5
+</span></p>
+</div>
+</section>
+<section id="section-5" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-5"></h2>
+<ol start="2" type="1">
+<li>Calculate the probability <span class="math inline">P(X &gt; 0.5)</span></li>
+</ol>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(X &gt; 0.5) = &amp;\int_{0.5}^{1} (x + 0.5) dx  = \left[ \frac{x^2}{2} + 0.5x \right]_{0.5}^{1} \\ = &amp; (0.5 + 0.5) - (0.125 + 0.25) = 1 - 0.375 = 0.625
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="section-6" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-6"></h2>
+<ol start="3" type="1">
+<li>Determine if <span class="math inline">X</span> and <span class="math inline">Y</span> are independent.</li>
+</ol>
+<div class="hide">
+<p>NO <span class="math display">
+\begin{aligned}
+f_X(x) \cdot f_Y(y) = &amp; (x + 0.5)(y + 0.5) \\
+= &amp; xy + 0.5x + 0.5y + 0.25 \\
+\neq &amp; x+y
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="question-6-monty-hall-problem" class="level2">
+<h2 class="anchored" data-anchor-id="question-6-monty-hall-problem">Question 6 (Monty Hall problem)</h2>
+<p>Suppose you’re on a game show, and you’re given the choice of three doors: Behind one door is a Tesla; behind the others, goats. You pick a door, say No.&nbsp;1, and the host, who knows what’s behind the doors, opens another door, say No.&nbsp;2, which has a goat. He then says to you, “Do you want to pick door No.&nbsp;3?” Is it to your advantage to switch your choice?</p>
+</section>
+<section id="section-7" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-7"></h2>
+<ol type="1">
+<li>What is the probability that a Tesla is behind door 1 given that you choose door 1 and the host opens door 2?</li>
+</ol>
+<div class="hide">
+<p>We define the event <span class="math inline">C_1</span>, <span class="math inline">C_2</span>, and <span class="math inline">C_3</span> indicate car is at the door 1, 2, and 3, the event <span class="math inline">O_1</span>, <span class="math inline">O_2</span>, and <span class="math inline">O_3</span> indicate host open the door 1, 2, and 3</p>
+<p><span class="math display">
+\begin{align*}
+P(C_1 | O_2,B_1) &amp;=  \frac{P(C_1 \&amp; O_2 \&amp; B_1)}{P(O2 \&amp; B_1)} \\
+&amp;= \frac{\frac{1}{2}\times\frac{1}{3}\times\frac{1}{3}}{\frac{1}{2}\times\frac{1}{3}\times\frac{1}{3}+0\times\frac{1}{3}\times\frac{1}{3}+1\times\frac{1}{3}\times\frac{1}{3}}
+\end{align*}
+</span></p>
+</div>
+</section>
+<section id="section-8" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-8"></h2>
+<ol start="2" type="1">
+<li>Please show that switching door is always the best strategy for any number <span class="math inline">n</span> doors while the game works as follow:</li>
+</ol>
+<blockquote class="blockquote">
+<p>after you choose a door, the host will open rest of the doors, and leave the last one unopened</p>
+</blockquote>
+<div class="hide">
+<p>We define the event <span class="math inline">C_1</span>, <span class="math inline">C_2</span>, and <span class="math inline">C_n</span> indicate car is at the door 1, to n, the event <span class="math inline">O</span> indicate host open the door 2 to <span class="math inline">n-1</span> <span class="math display">
+\begin{align*}
+P(C_1 | O) &amp;=  \frac{P(C_1 \&amp; O)}{P(O)} \\
+&amp;= \frac{\frac{1}{n-1}\times\frac{1}{n}}{\frac{1}{n-1}\times\frac{1}{n} + 0 +0 + \dots +1\times\frac{1}{n}} \\
+&amp; = \frac{1}{n}
+\end{align*}
+</span></p>
+<p>so switching is a better strategy</p>
+</div>
+</section>
+<section id="question-7-buffons-needle-problem" class="level2">
+<h2 class="anchored" data-anchor-id="question-7-buffons-needle-problem">Question 7 (Buffon’s needle problem)</h2>
+<p>A table is ruled with equidistant parallel lines a distance D apart. A needle of length L, where <span class="math inline">L\leq D</span>, is randomly thrown on the table. What is the probability that the needle will intersect one of the lines (the other probability being that the needle will be completely contained in the strip between two lines)?</p>
+</section>
+<section id="section-9" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-9"></h2>
+<ol type="1">
+<li>We determine the position of the needle by specifying the distance <span class="math inline">X</span> from the middle point of the needle to the nearest parallel line</li>
+</ol>
+<p>What is the possible range of <span class="math inline">X</span>? What will be the probability distribution of <span class="math inline">X</span>?</p>
+<div class="hide">
+<ol type="1">
+<li>Range: <span class="math inline">[0,\frac{D}{2}]</span></li>
+<li>Uniform distribution: <span class="math inline">X \sim U(0,\frac{D}{2})</span></li>
+</ol>
+</div>
+</section>
+<section id="section-10" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-10"></h2>
+<ol start="2" type="1">
+<li>We determine the angle <span class="math inline">\theta</span> between the needle and the projected line of length X. What is the possible range of <span class="math inline">\theta</span>? What will be the probability distribution of <span class="math inline">\theta</span>?</li>
+</ol>
+<div class="hide">
+<ol type="1">
+<li>Range: <span class="math inline">[0,\frac{\pi}{2}]</span></li>
+<li>Uniform distribution: <span class="math inline">X \sim U(0,\frac{\pi}{2})</span></li>
+</ol>
+</div>
+</section>
+<section id="section-11" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-11"></h2>
+<ol start="3" type="1">
+<li>What is the joint probability distribution of <span class="math inline">f_{X,\theta}</span>?</li>
+</ol>
+<div class="hide">
+<p><span class="math display">
+f(x,\theta)=
+\begin{cases}
+\frac{4}{D\pi} &amp; \text{ while } 0 \leq x \leq \frac{D}{2}, 0 \leq \theta \leq \frac{\pi}{2} \\
+0 &amp; \text{elsewhere}
+\end{cases}
+</span></p>
+</div>
+</section>
+<section id="section-12" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-12"></h2>
+<ol start="4" type="1">
+<li>The needle will intersect a line for the following condition <span class="math inline">\frac{X}{\cos\theta}&lt;\frac{L}{2}</span>. What is the probability that <span class="math inline">X</span> intersects with a line</li>
+</ol>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(X &lt; \frac{L}{2}\cos\theta) = &amp; \int_{\theta=0}^{\frac{\pi}{2}}\int_{x=0}^{\frac{L}{2}\cos\theta}\frac{4}{D\pi}dxd\theta \\
+= &amp; \frac{4}{D\pi}\int_{\theta=0}^{\frac{\pi}{2}}\frac{L}{2}\cos\theta d\theta
+= \frac{4}{D\pi}\frac{L}{2}\sin\theta \big|^{\frac{\pi}{2}}_0 \\
+= &amp; \frac{2L}{D\pi}
+\end{aligned}
+</span></p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>This experiment provides a practical way to estimate <span class="math inline">\pi</span>.<br>
+</li>
+<li>What happens if we do not restrict the needle length?</li>
+</ol>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
