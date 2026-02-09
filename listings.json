@@ -1,5 +1,15 @@
 [
   {
+    "listing": "/quant.html",
+    "items": [
+      "/BBMS3009/System biology.html",
+      "/BIOF2014/0-Housekeeping.html",
+      "/BIOF2014/1-distribution.html",
+      "/BIOF2014/1-distribution_sketch.html",
+      "/BIOF2014/1-Question sets-discrete.html"
+    ]
+  },
+  {
     "listing": "/hybridPBL.html",
     "items": [
       "/BIOF4002/Global health informatics.html",
@@ -15,16 +25,6 @@
       "/BBMS1021/tutorial/tutorial_1.html",
       "/BBMS1021/tutorial/tutorial_2.html",
       "/BBMS1021/tutorial/tutorial_3.html"
-    ]
-  },
-  {
-    "listing": "/quant.html",
-    "items": [
-      "/BBMS3009/System biology.html",
-      "/BIOF2014/0-Housekeeping.html",
-      "/BIOF2014/1-distribution.html",
-      "/BIOF2014/1-distribution_sketch.html",
-      "/BIOF2014/1-Question sets-discrete.html"
     ]
   }
 ]
