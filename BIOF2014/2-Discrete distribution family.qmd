@@ -98,8 +98,13 @@ $$
 
 **Examples**
 
-Suppose we are tossing 5 unfair coins with the  $p(\text{head}) = 0.3$ and $p(\text{head}) = 0.7$. What is the probability of getting observation [T, T ,T, H, H]
+Suppose we are tossing 5 unfair coins with the  $p(\text{head}) = 0.3$ and $p(\text{tail}) = 0.7$. What is the probability of getting observation [T, T ,T, H, H]
 
+:::{.hide}
+
+$p(X=[T, T ,T, H, H])=0.7^3\times 0.7^2$=0.03087
+
+:::
 
 :::
 
@@ -314,7 +319,10 @@ def plot_negative_binomial_pmf(rs, ps, max_multiplier=5):
             axs[i, j].set_xlabel('x (total trials)')
             if j == 0:
                 axs[i, j].set_ylabel('Probability')
-    
+            elif j ==1:
+                axs[i, j].set_ylim(0,0.3)
+            elif j ==2:
+                axs[i, j].set_ylim(0,0.2)
     plt.tight_layout()
     plt.show()
 

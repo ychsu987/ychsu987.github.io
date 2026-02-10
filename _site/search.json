@@ -2252,5 +2252,96 @@
     "title": "Scientific computing",
     "section": "BBMS1021 Introduction to AI and Biomedical Data Science",
     "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nLecture materials\n\n\n\n\n\nIntroduction to ggplot2\n\n\n\n\n\n\n\n\n\n\nReal Example of Data Processing and Exploratory Data Analysis with R\n\n\n\n\n\n\n\n\nNo matching items\n\nThe tutorial questions cover basic R programming techniques and data manipulation.\n\n\nTutorial materials\n\n\n\n\n\nTutorial 1\n\n\n\n\n\n\n\n\n\n\nTutorial 2\n\n\n\n\n\n\n\n\n\n\nTutorial 3\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html",
+    "href": "BIOF2014/2-Question sets-binomial.html",
+    "title": "Question sets",
+    "section": "",
+    "text": "BIOF2014 consists of 20 multiple choice questions, with 4 choices for each question. A student goes into the examination and tries o randomly guess the answers It is obvious that the total correct answers the student can get follows Binomial distribution."
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#question-1",
+    "href": "BIOF2014/2-Question sets-binomial.html#question-1",
+    "title": "Question sets",
+    "section": "",
+    "text": "BIOF2014 consists of 20 multiple choice questions, with 4 choices for each question. A student goes into the examination and tries o randomly guess the answers It is obvious that the total correct answers the student can get follows Binomial distribution."
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#section",
+    "href": "BIOF2014/2-Question sets-binomial.html#section",
+    "title": "Question sets",
+    "section": "",
+    "text": "How likely can the student get exactly 10 correct answer?\n\n\n\n\\text{p-value}=\\binom{20}{10}0.25^{10}0.75^{10}"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#section-1",
+    "href": "BIOF2014/2-Question sets-binomial.html#section-1",
+    "title": "Question sets",
+    "section": "",
+    "text": "If each correct answer can get 5 marks, what is the expect grade of the student?\n\n\n\n\\text{E}(5x)=5*20*0.25=25"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#question-2",
+    "href": "BIOF2014/2-Question sets-binomial.html#question-2",
+    "title": "Question sets",
+    "section": "Question 2",
+    "text": "Question 2\nDuring the transportation process, The probability of an egg is cracked is 0.01"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#section-2",
+    "href": "BIOF2014/2-Question sets-binomial.html#section-2",
+    "title": "Question sets",
+    "section": "",
+    "text": "For a box of 8 eggs how likely can a box have at least one cracked egg?\n\n\n\nP(X\\geq 1) =1- P(x=0)= 1- \\binom{8}{0}0.99^80.1^0=0.08"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#section-3",
+    "href": "BIOF2014/2-Question sets-binomial.html#section-3",
+    "title": "Question sets",
+    "section": "",
+    "text": "If a product quality control is checking the quality of the eggs to ensure all eggs are not cracked, and in average how may boxes does he need to examine to find a box with at least a cracked egg? . What will be the probability distribution to model this outcome\n\n\n\nE(x)=\\frac{1}{0.08}=12.5"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#section-4",
+    "href": "BIOF2014/2-Question sets-binomial.html#section-4",
+    "title": "Question sets",
+    "section": "",
+    "text": "A product quality control is to continuously monitoring the quality of the eggs. They would liek to have a short review of the case once they have observed 4 boxes of egg with cracks. in average how may boxes does he need to examine to commence the review? What will be the probability distribution to model this situation?\n\n\n\nE(x)=\\frac{4*(1-0.08)}{0.08}"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#question-3",
+    "href": "BIOF2014/2-Question sets-binomial.html#question-3",
+    "title": "Question sets",
+    "section": "Question 3",
+    "text": "Question 3\nFor a X\\sim G(p), please show the following property\n\nP(X&gt;s|X&gt;t)=P(X&gt;s-t) \\quad \\forall s&gt;t\n\n\n\n\\begin{align*}\nP(X&gt;s|X&gt;t)&=\\frac{P(X&gt;s \\text{ and } X&gt;t)}{p(X&gt;t)}\n=\\frac{P(X&gt;s)}{p(X&gt;t)}\\\\\n&=\\frac{p(1-p)^{s-1}}{p(1-p)^{t-1}} = (1-p)^{s-t}\\\\\n&=P(X&gt;s-t)\n\\end{align*}"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#question-4-wright-fisher-model",
+    "href": "BIOF2014/2-Question sets-binomial.html#question-4-wright-fisher-model",
+    "title": "Question sets",
+    "section": "Question 4: Wright-Fisher Model",
+    "text": "Question 4: Wright-Fisher Model\nSuppose the population size is N=50 diploid individuals (so the total number of alleles is 2N=100). In the parent generation, the frequency of allele A is 0.4 (meaning n_{A0} = 40). Using the formula provided in the slides, write the expression for the probability that the number of A alleles in the next generation (n_{A1}) will remain exactly 40.\n\n\nP(n_{A1}=40) = \\binom{100}{40} (0.4)^{40} (0.6)^{60}"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#question-5-coalescent-theory",
+    "href": "BIOF2014/2-Question sets-binomial.html#question-5-coalescent-theory",
+    "title": "Question sets",
+    "section": "Question 5: Coalescent Theory",
+    "text": "Question 5: Coalescent Theory\nIf the effective population size N_e = 1000, calculate the probability that two randomly selected alleles coalesce exactly 3 generations ago (t=3).\n\nP(T=3) = (1 - 1/2000)^2 \\times (1/2000)"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#question-6-clinical-trial",
+    "href": "BIOF2014/2-Question sets-binomial.html#question-6-clinical-trial",
+    "title": "Question sets",
+    "section": "Question 6: Clinical trial",
+    "text": "Question 6: Clinical trial\nYou are analyzing a contingency table from a clinical trial comparing a Treatment vs. a Control group. Using the Hypergeometric probability mass function, calculate the probability of observing exactly a=4.\n\n\n\n\nImprovement (Y)\nNo Improvement (Not Y)\n\n\n\n\nTreatment\na=4\nb=6\n\n\nControl\nc=2\nd=8\n\n\n\n\nP(X=4) = \\frac{\\binom{10}{4}\\binom{10}{2}}{\\binom{20}{6}}"
+  },
+  {
+    "objectID": "BIOF2014/2-Question sets-binomial.html#question-7",
+    "href": "BIOF2014/2-Question sets-binomial.html#question-7",
+    "title": "Question sets",
+    "section": "Question 7:",
+    "text": "Question 7:\nwhy the combination term in the Negative Binomial PMF is \\binom{x-1}{r-1} rather than \\binom{x}{r}\n\nBecause the last trial must be a success. Therefore, we only need to arrange the previous r-1 successes among the previous x-1 trials."
   }
 ]
