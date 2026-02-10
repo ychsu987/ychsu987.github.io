@@ -68,8 +68,22 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -98,6 +112,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="student_view.scss">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -152,8 +167,25 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2-Question sets_presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4-wright-fisher-model" id="toc-question-4-wright-fisher-model" class="nav-link" data-scroll-target="#question-4-wright-fisher-model">Question 4: Wright-Fisher Model</a></li>
+  <li><a href="#question-5-coalescent-theory" id="toc-question-5-coalescent-theory" class="nav-link" data-scroll-target="#question-5-coalescent-theory">Question 5: Coalescent Theory</a></li>
+  <li><a href="#question-6-clinical-trial" id="toc-question-6-clinical-trial" class="nav-link" data-scroll-target="#question-6-clinical-trial">Question 6: Clinical trial</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7:</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2-Question sets_presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -186,9 +218,9 @@ window.Quarto = {
 <li>How likely can the student get <strong>exactly</strong> 10 correct answer?</li>
 </ol>
 <div class="hide">
-<p><span class="math display">\[
+<p><span class="math display">
 \text{p-value}=\binom{20}{10}0.25^{10}0.75^{10}
-\]</span></p>
+</span></p>
 </div>
 </section>
 <section id="section-1" class="level2 smaller">
@@ -197,9 +229,9 @@ window.Quarto = {
 <li>If each correct answer can get 5 marks, what is the expect grade of the student?</li>
 </ol>
 <div class="hide">
-<p><span class="math display">\[
+<p><span class="math display">
 \text{E}(5x)=5*20*0.25=25
-\]</span></p>
+</span></p>
 </div>
 </section>
 <section id="question-2" class="level2">
@@ -212,9 +244,9 @@ window.Quarto = {
 <li>For a box of 8 eggs how likely can a box have at least one cracked egg?</li>
 </ol>
 <div class="hide">
-<p><span class="math display">\[
+<p><span class="math display">
 P(X\geq 1) =1- P(x=0)= 1- \binom{8}{0}0.99^80.1^0=0.08
-\]</span></p>
+</span></p>
 </div>
 </section>
 <section id="section-3" class="level2 smaller">
@@ -223,9 +255,9 @@ P(X\geq 1) =1- P(x=0)= 1- \binom{8}{0}0.99^80.1^0=0.08
 <li>If a product quality control is checking the quality of the eggs to ensure all eggs are not cracked, and <strong>in average</strong> how may boxes does he need to examine to find a box with at least a cracked egg? . What will be the probability distribution to model this outcome</li>
 </ol>
 <div class="hide">
-<p><span class="math display">\[
+<p><span class="math display">
 E(x)=\frac{1}{0.08}=12.5
-\]</span></p>
+</span></p>
 </div>
 </section>
 <section id="section-4" class="level2 smaller">
@@ -234,47 +266,47 @@ E(x)=\frac{1}{0.08}=12.5
 <li>A product quality control is to continuously monitoring the quality of the eggs. They would liek to have a short review of the case once they have observed 4 boxes of egg with cracks. <strong>in average</strong> how may boxes does he need to examine to commence the review? What will be the probability distribution to model this situation?</li>
 </ol>
 <div class="hide">
-<p><span class="math display">\[
+<p><span class="math display">
 E(x)=\frac{4*(1-0.08)}{0.08}
-\]</span></p>
+</span></p>
 </div>
 </section>
 <section id="question-3" class="level2">
 <h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
-<p>For a <span class="math inline">\(X\sim G(p)\)</span>, please show the following property</p>
-<p><span class="math display">\[
+<p>For a <span class="math inline">X\sim G(p)</span>, please show the following property</p>
+<p><span class="math display">
 P(X&gt;s|X&gt;t)=P(X&gt;s-t) \quad \forall s&gt;t
-\]</span></p>
+</span></p>
 <div class="hide">
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{align*}
 P(X&gt;s|X&gt;t)&amp;=\frac{P(X&gt;s \text{ and } X&gt;t)}{p(X&gt;t)}
 =\frac{P(X&gt;s)}{p(X&gt;t)}\\
 &amp;=\frac{p(1-p)^{s-1}}{p(1-p)^{t-1}} = (1-p)^{s-t}\\
 &amp;=P(X&gt;s-t)
 \end{align*}
-\]</span></p>
+</span></p>
 </div>
 </section>
 <section id="question-4-wright-fisher-model" class="level2">
 <h2 class="anchored" data-anchor-id="question-4-wright-fisher-model">Question 4: Wright-Fisher Model</h2>
-<p>Suppose the population size is <span class="math inline">\(N=50\)</span> diploid individuals (so the total number of alleles is <span class="math inline">\(2N=100\)</span>). In the parent generation, the frequency of allele <span class="math inline">\(A\)</span> is 0.4 (meaning <span class="math inline">\(n_{A0} = 40\)</span>). Using the formula provided in the slides, write the expression for the probability that the number of <span class="math inline">\(A\)</span> alleles in the next generation (<span class="math inline">\(n_{A1}\)</span>) will remain exactly 40.</p>
+<p>Suppose the population size is <span class="math inline">N=50</span> diploid individuals (so the total number of alleles is <span class="math inline">2N=100</span>). In the parent generation, the frequency of allele <span class="math inline">A</span> is 0.4 (meaning <span class="math inline">n_{A0} = 40</span>). Using the formula provided in the slides, write the expression for the probability that the number of <span class="math inline">A</span> alleles in the next generation (<span class="math inline">n_{A1}</span>) will remain exactly 40.</p>
 <div class="hide">
-<p><span class="math display">\[
+<p><span class="math display">
 P(n_{A1}=40) = \binom{100}{40} (0.4)^{40} (0.6)^{60}
-\]</span></p>
+</span></p>
 </div>
 </section>
 <section id="question-5-coalescent-theory" class="level2">
 <h2 class="anchored" data-anchor-id="question-5-coalescent-theory">Question 5: Coalescent Theory</h2>
-<p>If the effective population size <span class="math inline">\(N_e = 1000\)</span>, calculate the probability that two randomly selected alleles coalesce exactly 3 generations ago (<span class="math inline">\(t=3\)</span>).</p>
+<p>If the effective population size <span class="math inline">N_e = 1000</span>, calculate the probability that two randomly selected alleles coalesce exactly 3 generations ago (<span class="math inline">t=3</span>).</p>
 <div class="hide">
-<p><span class="math display">\[P(T=3) = (1 - 1/2000)^2 \times (1/2000)\]</span></p>
+<p><span class="math display">P(T=3) = (1 - 1/2000)^2 \times (1/2000)</span></p>
 </div>
 </section>
 <section id="question-6-clinical-trial" class="level2">
 <h2 class="anchored" data-anchor-id="question-6-clinical-trial">Question 6: Clinical trial</h2>
-<p>You are analyzing a contingency table from a clinical trial comparing a Treatment vs.&nbsp;a Control group. Using the Hypergeometric probability mass function, calculate the probability of observing exactly <span class="math inline">\(a=4\)</span>.</p>
+<p>You are analyzing a contingency table from a clinical trial comparing a Treatment vs.&nbsp;a Control group. Using the Hypergeometric probability mass function, calculate the probability of observing exactly <span class="math inline">a=4</span>.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -286,107 +318,31 @@ P(n_{A1}=40) = \binom{100}{40} (0.4)^{40} (0.6)^{60}
 <tbody>
 <tr class="odd">
 <td>Treatment</td>
-<td><span class="math inline">\(a=4\)</span></td>
-<td><span class="math inline">\(b=6\)</span></td>
+<td><span class="math inline">a=4</span></td>
+<td><span class="math inline">b=6</span></td>
 </tr>
 <tr class="even">
 <td>Control</td>
-<td><span class="math inline">\(c=2\)</span></td>
-<td><span class="math inline">\(d=8\)</span></td>
+<td><span class="math inline">c=2</span></td>
+<td><span class="math inline">d=8</span></td>
 </tr>
 </tbody>
 </table>
 <div class="hide">
-<p><span class="math inline">\(P(X=4) = \frac{\binom{10}{4}\binom{10}{2}}{\binom{20}{6}}\)</span></p>
+<p><span class="math inline">P(X=4) = \frac{\binom{10}{4}\binom{10}{2}}{\binom{20}{6}}</span></p>
 </div>
 </section>
 <section id="question-7" class="level2">
 <h2 class="anchored" data-anchor-id="question-7">Question 7:</h2>
-<p>why the combination term in the Negative Binomial PMF is <span class="math inline">\(\binom{x-1}{r-1}\)</span> rather than <span class="math inline">\(\binom{x}{r}\)</span></p>
+<p>why the combination term in the Negative Binomial PMF is <span class="math inline">\binom{x-1}{r-1}</span> rather than <span class="math inline">\binom{x}{r}</span></p>
 <div class="hide">
-<p>Because the last trial must be a success. Therefore, we only need to arrange the previous <span class="math inline">\(r-1\)</span> successes among the previous <span class="math inline">\(x-1\)</span> trials.</p>
+<p>Because the last trial must be a success. Therefore, we only need to arrange the previous <span class="math inline">r-1</span> successes among the previous <span class="math inline">x-1</span> trials.</p>
 </div>
 
 
 </section>
 
 </main> <!-- /main -->
-
-
-<script>
-
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-  // slide changes (different for each slide format).
-
-  (function () {
-
-    // dispatch for htmlwidgets
-
-    function fireSlideEnter() {
-
-      const event = window.document.createEvent("Event");
-
-      event.initEvent("slideenter", true, true);
-
-      window.document.dispatchEvent(event);
-
-    }
-
-
-
-    function fireSlideChanged(previousSlide, currentSlide) {
-
-      fireSlideEnter();
-
-
-
-      // dispatch for shiny
-
-      if (window.jQuery) {
-
-        if (previousSlide) {
-
-          window.jQuery(previousSlide).trigger("hidden");
-
-        }
-
-        if (currentSlide) {
-
-          window.jQuery(currentSlide).trigger("shown");
-
-        }
-
-      }
-
-    }
-
-
-
-    // hookup for slidy
-
-    if (window.w3c_slidy) {
-
-      window.w3c_slidy.add_observer(function (slide_num) {
-
-        // slide_num starts at position 1
-
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-      });
-
-    }
-
-
-
-  })();
-
-</script>
-
-
-
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -459,7 +415,7 @@ P(n_{A1}=40) = \binom{100}{40} (0.4)^{40} (0.6)^{60}
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
