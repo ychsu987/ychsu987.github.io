@@ -6,10 +6,11 @@ format:
     html-math-method: katex
     css: [student_view.scss]
   revealjs:
-    output-file: 2-Question sets_presentation.html
+    output-file: 2-Question sets_presentation-sketch.html
     theme: [default, student_view.scss]
     chalkboard: 
       theme: whiteboard
+      src: compiled_pdf/chalkboard 4.json
 engine: knitr 
 ---
 

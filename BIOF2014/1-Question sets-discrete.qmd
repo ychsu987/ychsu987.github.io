@@ -1,5 +1,5 @@
 ---
-title: "Question sets"
+title: "Question sets-Uniform distribution and empirical distribution"
 format:
   revealjs:
     output-file: 1-Question sets_presentation.html

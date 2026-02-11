@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f9e6e4d29af3f5f6ee06eaf03ed5edd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title','listing-subtitle','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -170,6 +170,34 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-2014tutorial'] = new List('listing-2014tutorial', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-2014sketches-tutorial .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-2014sketches-tutorial'] = new List('listing-2014sketches-tutorial', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -293,7 +321,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="bbms3009-genome-science">BBMS3009 Genome Science</h2>
 <div id="listing-3009lecture" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1763695590131" data-listing-reading-time-sort="16" data-listing-word-count-sort="3060">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1763565912643" data-listing-reading-time-sort="16" data-listing-word-count-sort="3060">
 <div class="thumbnail"><a href="./BBMS3009/System biology.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -319,7 +347,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="blank-notes">Blank notes</h3>
 <div id="listing-2014lecture" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1770175479132" data-listing-reading-time-sort="5" data-listing-word-count-sort="802">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1770296801546" data-listing-reading-time-sort="5" data-listing-word-count-sort="802">
 <div class="thumbnail"><a href="./BIOF2014/0-Housekeeping.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -338,7 +366,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1770604102977" data-listing-reading-time-sort="8" data-listing-word-count-sort="1443">
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1770774315291" data-listing-reading-time-sort="8" data-listing-word-count-sort="1443">
 <div class="thumbnail"><a href="./BIOF2014/1-distribution.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -357,10 +385,10 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1770689969576" data-listing-reading-time-sort="13" data-listing-word-count-sort="2437">
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1770775285107" data-listing-reading-time-sort="13" data-listing-word-count-sort="2437">
 <div class="thumbnail"><a href="./BIOF2014/2-Discrete distribution family.html" class="no-external">
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<p class="card-img-top"><img src="BIOF2014/2-Discrete distribution family_files/figure-html/cell-2-output-1.png"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -376,7 +404,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1770602968444" data-listing-reading-time-sort="8" data-listing-word-count-sort="1509">
+<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1770774315293" data-listing-reading-time-sort="8" data-listing-word-count-sort="1509">
 <div class="thumbnail"><a href="./BIOF2014/3-multivariate.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -398,19 +426,18 @@ window.Quarto = {
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-</section>
-<section id="class-sketches" class="level3">
-<h3 class="anchored" data-anchor-id="class-sketches">Class sketches</h3>
+<section id="class-sketches" class="level4">
+<h4 class="anchored">Class sketches</h4>
 <div id="listing-2014sketches" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1770604039397" data-listing-reading-time-sort="12" data-listing-word-count-sort="2349">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1770299189197" data-listing-reading-time-sort="12" data-listing-word-count-sort="2349">
 <div class="thumbnail"><a href="./BIOF2014/1-distribution_sketch.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
-<h3 class="no-anchor listing-title">
+<h3 class="no-anchor listing-title" data-anchor-id="class-sketches">
 <a href="./BIOF2014/1-distribution_sketch.html" class="no-external">Uniform<br>Distribution</a>
 </h3>
 <div class="listing-subtitle">
@@ -422,18 +449,38 @@ window.Quarto = {
 </a>
 </div>
 </div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1770775136780" data-listing-reading-time-sort="14" data-listing-word-count-sort="2613">
+<div class="thumbnail"><a href="./BIOF2014/2-Discrete distribution family_sketch.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./BIOF2014/2-Discrete distribution family_sketch.html" class="no-external">Discrete <br>Distribution<br>Family</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./BIOF2014/2-Discrete distribution family_sketch.html" class="no-external">Binomial distribution family</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./BIOF2014/2-Discrete distribution family_sketch.html" class="no-external">
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
+</section>
 </section>
 <section id="tutorial-questions" class="level3">
 <h3 class="anchored" data-anchor-id="tutorial-questions">Tutorial questions</h3>
 <div id="listing-2014tutorial" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1770606001527" data-listing-reading-time-sort="9" data-listing-word-count-sort="1637">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1770776106996" data-listing-reading-time-sort="9" data-listing-word-count-sort="1637">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BIOF2014/1-Question sets_presentation.html" class="no-external">Question sets</a>
+<a href="./BIOF2014/1-Question sets_presentation.html" class="no-external">Question sets-Uniform distribution and empirical distribution</a>
 </h3>
 </div>
 <div class="metadata">
@@ -441,10 +488,10 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1770606577212" data-listing-reading-time-sort="3" data-listing-word-count-sort="435">
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1770776064146" data-listing-reading-time-sort="3" data-listing-word-count-sort="435">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BIOF2014/2-Question sets-binomial.html" class="no-external">Question sets</a>
+<a href="./BIOF2014/2-Question sets-binomial.html" class="no-external">Question sets-Discrete Distribution Family</a>
 </h3>
 </div>
 <div class="metadata">
@@ -452,7 +499,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1770606076010" data-listing-reading-time-sort="6" data-listing-word-count-sort="1062">
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1770774315292" data-listing-reading-time-sort="6" data-listing-word-count-sort="1062">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./BIOF2014/3-Question sets-multivariate.html" class="no-external">Question sets</a>
@@ -466,9 +513,28 @@ window.Quarto = {
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
+<section id="tutorial-sketches" class="level4">
+<h4 class="anchored">Tutorial sketches</h4>
+<div id="listing-2014sketches-tutorial" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1770776074960" data-listing-reading-time-sort="3" data-listing-word-count-sort="435">
+<div class="body">
+<h3 class="no-anchor listing-title" data-anchor-id="tutorial-sketches">
+<a href="./BIOF2014/2-Question sets-binomial-sketch.html" class="no-external">Question sets-Discrete Distribution Family</a>
+</h3>
+</div>
+<div class="metadata">
+<a href="./BIOF2014/2-Question sets-binomial-sketch.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 
 
 
+</section>
 </section>
 </section>
 
@@ -545,7 +611,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
