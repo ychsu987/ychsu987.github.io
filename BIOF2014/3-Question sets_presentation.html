@@ -32,8 +32,6 @@
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -129,6 +127,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Question sets</h1>
+  <p class="subtitle">Multivariate statistics</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -170,34 +169,12 @@ p_{X,Y}(1,1)=(\frac{2}{10}+\frac{3}{10})\times (\frac{3}{10}+\frac{3}{10})= 0.3
 \]</span></p>
 </div>
 </section>
-<section id="question-2" class="slide level2 smaller">
-<h2>Question 2</h2>
-<p>Suppose that the pmf (<span class="math inline">\(f_{X,Y}\)</span>) of joint distribution <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given in the below table</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th><span class="math inline">\(Y=0\)</span></th>
-<th><span class="math inline">\(Y=1\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(X=0\)</span></td>
-<td><span class="math inline">\(\frac{1}{10}\)</span></td>
-<td><span class="math inline">\(\frac{1}{10}\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(X=1\)</span></td>
-<td><span class="math inline">\(\frac{2}{10}\)</span></td>
-<td><span class="math inline">\(\frac{6}{10}\)</span></td>
-</tr>
-</tbody>
-</table>
+<section id="section" class="slide level2 smaller">
+<h2></h2>
 <p>What is the pmf of <span class="math inline">\(f_Y\)</span></p>
 <div class="hide">
 <p><span class="math display">\[
-p_Y(0)=\frac{3}{10}, p_Y(1)=\frac{7}{10}
+p_Y(0)=\frac{4}{10}, p_Y(1)=\frac{6}{10}
 \]</span></p>
 </div>
 </section>
@@ -226,7 +203,7 @@ p_Y(0)=\frac{3}{10}, p_Y(1)=\frac{7}{10}
 </tbody>
 </table>
 </section>
-<section id="section" class="slide level2 smaller">
+<section id="section-1" class="slide level2 smaller">
 <h2></h2>
 <ol type="1">
 <li>Odds ratio (OR= <span class="math inline">\(\frac{ad}{bc}\)</span>) is a common indicator to the effectiveness of an intervention. Please show that OR=1 indicates that the outcome and treatment are statistically independent</li>
@@ -241,7 +218,7 @@ p_Y(0)=\frac{3}{10}, p_Y(1)=\frac{7}{10}
 \]</span></p>
 </div>
 </section>
-<section id="section-1" class="slide level2 smaller">
+<section id="section-2" class="slide level2 smaller">
 <h2></h2>
 <ol start="2" type="1">
 <li>Another common indicator is relative risk (RR), defined as the fraction of the probability of developing cancer between exposure over control <span class="math inline">\(\frac{\frac{a}{a+b}}{\frac{c}{c+d}}\)</span>. Please show that RR=1 indicates that the outcome and treatment are statistically independent</li>
@@ -262,7 +239,7 @@ p_Y(0)=\frac{3}{10}, p_Y(1)=\frac{7}{10}
 <h2>Question 4</h2>
 <p>Consider a random variable <span class="math inline">\(X\)</span> uniformly distributed on <span class="math inline">\(\{-1, 0, 1\}\)</span>, and let <span class="math inline">\(Y = X^2\)</span>.</p>
 </section>
-<section id="section-2" class="slide level2 smaller">
+<section id="section-3" class="slide level2 smaller">
 <h2></h2>
 <ol type="1">
 <li>Show that <span class="math inline">\(\sigma_{xy}=0\)</span></li>
@@ -280,7 +257,7 @@ XY= &amp;X\times X^2 =X^3, \text{ The values of $X^3$ are $\{-1, 0, 1\}$.} \\
 \]</span></p>
 </div>
 </section>
-<section id="section-3" class="slide level2 smaller">
+<section id="section-4" class="slide level2 smaller">
 <h2></h2>
 <ol start="2" type="1">
 <li>Is X and Y statistically independent?</li>
@@ -299,7 +276,7 @@ x + y &amp; \text{for } 0 \le x \le 1, 0 \le y \le 1 \\
 \end{cases}
 \]</span></p>
 </section>
-<section id="section-4" class="slide level2 smaller">
+<section id="section-5" class="slide level2 smaller">
 <h2></h2>
 <ol type="1">
 <li>Find the marginal PDF of <span class="math inline">\(X\)</span></li>
@@ -310,7 +287,7 @@ f_X(x) = \int_{0}^{1} (x + y) dy = \left[ xy + \frac{y^2}{2} \right]_{y=0}^{y=1}
 \]</span></p>
 </div>
 </section>
-<section id="section-5" class="slide level2 smaller">
+<section id="section-6" class="slide level2 smaller">
 <h2></h2>
 <ol start="2" type="1">
 <li>Calculate the probability <span class="math inline">\(P(X &gt; 0.5)\)</span></li>
@@ -323,7 +300,7 @@ P(X &gt; 0.5) = &amp;\int_{0.5}^{1} (x + 0.5) dx  = \left[ \frac{x^2}{2} + 0.5x 
 \]</span></p>
 </div>
 </section>
-<section id="section-6" class="slide level2 smaller">
+<section id="section-7" class="slide level2 smaller">
 <h2></h2>
 <ol start="3" type="1">
 <li>Determine if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent.</li>
@@ -342,7 +319,7 @@ f_X(x) \cdot f_Y(y) = &amp; (x + 0.5)(y + 0.5) \\
 <h2>Question 6 (Monty Hall problem)</h2>
 <p>Suppose you’re on a game show, and you’re given the choice of three doors: Behind one door is a Tesla; behind the others, goats. You pick a door, say No.&nbsp;1, and the host, who knows what’s behind the doors, opens another door, say No.&nbsp;2, which has a goat. He then says to you, “Do you want to pick door No.&nbsp;3?” Is it to your advantage to switch your choice?</p>
 </section>
-<section id="section-7" class="slide level2 smaller">
+<section id="section-8" class="slide level2 smaller">
 <h2></h2>
 <ol type="1">
 <li>What is the probability that a Tesla is behind door 1 given that you choose door 1 and the host opens door 2?</li>
@@ -357,7 +334,7 @@ P(C_1 | O_2,B_1) &amp;=  \frac{P(C_1 \&amp; O_2 \&amp; B_1)}{P(O2 \&amp; B_1)} \
 \]</span></p>
 </div>
 </section>
-<section id="section-8" class="slide level2 smaller">
+<section id="section-9" class="slide level2 smaller">
 <h2></h2>
 <ol start="2" type="1">
 <li>Please show that switching door is always the best strategy for any number <span class="math inline">\(n\)</span> doors while the game works as follow:</li>
@@ -380,7 +357,7 @@ P(C_1 | O) &amp;=  \frac{P(C_1 \&amp; O)}{P(O)} \\
 <h2>Question 7 (Buffon’s needle problem)</h2>
 <p>A table is ruled with equidistant parallel lines a distance D apart. A needle of length L, where <span class="math inline">\(L\leq D\)</span>, is randomly thrown on the table. What is the probability that the needle will intersect one of the lines (the other probability being that the needle will be completely contained in the strip between two lines)?</p>
 </section>
-<section id="section-9" class="slide level2 smaller">
+<section id="section-10" class="slide level2 smaller">
 <h2></h2>
 <ol type="1">
 <li>We determine the position of the needle by specifying the distance <span class="math inline">\(X\)</span> from the middle point of the needle to the nearest parallel line</li>
@@ -393,7 +370,7 @@ P(C_1 | O) &amp;=  \frac{P(C_1 \&amp; O)}{P(O)} \\
 </ol>
 </div>
 </section>
-<section id="section-10" class="slide level2 smaller">
+<section id="section-11" class="slide level2 smaller">
 <h2></h2>
 <ol start="2" type="1">
 <li>We determine the angle <span class="math inline">\(\theta\)</span> between the needle and the projected line of length X. What is the possible range of <span class="math inline">\(\theta\)</span>? What will be the probability distribution of <span class="math inline">\(\theta\)</span>?</li>
@@ -405,7 +382,7 @@ P(C_1 | O) &amp;=  \frac{P(C_1 \&amp; O)}{P(O)} \\
 </ol>
 </div>
 </section>
-<section id="section-11" class="slide level2 smaller">
+<section id="section-12" class="slide level2 smaller">
 <h2></h2>
 <ol start="3" type="1">
 <li>What is the joint probability distribution of <span class="math inline">\(f_{X,\theta}\)</span>?</li>
@@ -420,7 +397,7 @@ f(x,\theta)=
 \]</span></p>
 </div>
 </section>
-<section id="section-12" class="slide level2 smaller">
+<section id="section-13" class="slide level2 smaller">
 <h2></h2>
 <ol start="4" type="1">
 <li>The needle will intersect a line for the following condition <span class="math inline">\(\frac{X}{\cos\theta}&lt;\frac{L}{2}\)</span>. What is the probability that <span class="math inline">\(X\)</span> intersects with a line</li>
@@ -469,7 +446,6 @@ P(X &lt; \frac{L}{2}\cos\theta) = &amp; \int_{\theta=0}^{\frac{\pi}{2}}\int_{x=0
   <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -491,8 +467,7 @@ P(X &lt; \frac{L}{2}\cos\theta) = &amp; \int_{\theta=0}^{\frac{\pi}{2}}\int_{x=0
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true,"theme":"whiteboard"},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -663,7 +638,7 @@ P(X &lt; \frac{L}{2}\cos\theta) = &amp; \int_{\theta=0}^{\frac{\pi}{2}}\int_{x=0
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,
