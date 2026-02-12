@@ -1,21 +1,5 @@
 [
   {
-    "listing": "/quant.html",
-    "items": [
-      "/BBMS3009/System biology.html",
-      "/BIOF2014/0-Housekeeping.html",
-      "/BIOF2014/1-distribution.html",
-      "/BIOF2014/2-Discrete distribution family.html",
-      "/BIOF2014/3-multivariate.html",
-      "/BIOF2014/1-distribution_sketch.html",
-      "/BIOF2014/2-Discrete distribution family_sketch.html",
-      "/BIOF2014/1-Question sets_presentation.html",
-      "/BIOF2014/2-Question sets-binomial.html",
-      "/BIOF2014/3-Question sets-multivariate.html",
-      "/BIOF2014/2-Question sets-binomial-sketch.html"
-    ]
-  },
-  {
     "listing": "/hybridPBL.html",
     "items": [
       "/BIOF4002/Global health informatics.html",
@@ -31,6 +15,23 @@
       "/BBMS1021/tutorial/tutorial_1.html",
       "/BBMS1021/tutorial/tutorial_2.html",
       "/BBMS1021/tutorial/tutorial_3.html"
+    ]
+  },
+  {
+    "listing": "/quant.html",
+    "items": [
+      "/BBMS3009/System biology.html",
+      "/BIOF2014/0-Housekeeping.html",
+      "/BIOF2014/1-distribution.html",
+      "/BIOF2014/2-Discrete distribution family.html",
+      "/BIOF2014/3-multivariate.html",
+      "/BIOF2014/1-distribution_sketch.html",
+      "/BIOF2014/2-Discrete distribution family_sketch.html",
+      "/BIOF2014/3-multivariate_sketch.html",
+      "/BIOF2014/1-Question sets_presentation.html",
+      "/BIOF2014/2-Question sets-binomial.html",
+      "/BIOF2014/3-Question sets-multivariate.html",
+      "/BIOF2014/2-Question sets-binomial-sketch.html"
     ]
   }
 ]

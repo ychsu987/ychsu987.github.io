@@ -1,5 +1,6 @@
 ---
 title: "Question sets"
+subtitle: "Multivariate statistics"
 format:
   html:
     toc: true
@@ -34,25 +35,16 @@ p_{X,Y}(1,0)=(\frac{2}{10}+\frac{3}{10})\times (\frac{2}{10}+\frac{2}{10})= 0.2 
 p_{X,Y}(1,1)=(\frac{2}{10}+\frac{3}{10})\times (\frac{3}{10}+\frac{3}{10})= 0.3
 \end{align*}
 $$
+
 :::
 
-## Question 2 {.smaller}
-
-Suppose that the pmf ($f_{X,Y}$) of joint distribution $X$ and $Y$ is given in the below table 
-
-
-|             |    $Y=0$    |  $Y=1$  |
-| ----------- | -----------  |----------- |
-|   $X=0$  |$\frac{1}{10}$|$\frac{1}{10}$|
-|   $X=1$    |$\frac{2}{10}$|$\frac{6}{10}$|
-
+##  {.smaller}
 
 What is the pmf of $f_Y$
 
-
 :::{.hide}
 $$
-p_Y(0)=\frac{3}{10}, p_Y(1)=\frac{7}{10}
+p_Y(0)=\frac{4}{10}, p_Y(1)=\frac{6}{10}
 $$
 :::
 
