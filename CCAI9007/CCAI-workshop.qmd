@@ -1,0 +1,217 @@
+---
+title: "Building a Physical Activity & Health Prompt Bot for Older Adults on POE"
+author: "Yu Cheng Hsu"
+date: "2026-02-09"
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+---
+
+# Learning goal
+
+1. Applying **Prompt Engineering** skills to achieve the targeted task
+2. Applying **Retrieval Augmented Generation** to enhance the knowledge background of the LLM model.
+
+# Objectives
+
+Create a chatbot for recommending physical activity and health consultations.
+   
+# Introduction
+
+This workshop provides a step-by-step guide for the general public to create a specialized "Prompt Bot" on [POE](https://poe.com). The goal of this bot is to provide safe, evidence-based physical activity and health suggestions specifically tailored for older adults.
+
+By the end of this guide, you will have a working chatbot that references credible guidelines from organizations like the WHO and CDC to answer questions.
+
+# Step 1: Identify and Acquire Your Knowledge Base
+
+Before creating the bot, you need to gather the "brains" of the operation—credible documents that the bot will read to answer questions. 
+
+For physical activity in older adults, we recommend downloading the following public domain or publicly available PDF reports. **Download 1-2 of these to your computer:**
+
+1.  **CDC Physical Activity Guidelines for Americans (2nd Edition)**
+    * [*Download Link*](https://health.gov/sites/default/files/2019-09/Physical_Activity_Guidelines_2nd_edition.pdf)
+
+2.  **NIA: Exercise and Physical Activity for Older Adults**
+    * [*Download Link*](https://order.nia.nih.gov/sites/default/files/2025-04/exercise-and-older-adults-nia_0.pdf)
+
+3.  **WHO Guidelines on Physical Activity and Sedentary Behaviour**
+    * [*Download Link*](https://www.who.int/publications/i/item/9789240015128)
+
+*Save these PDF files to a folder on your desktop where you can easily find them.*
+
+# Step 2: Create Your Prompt Bot on POE
+
+Follow these steps to initialize your bot.
+
+1.  **Log in to POE:**
+    Go to [https://poe.com](https://poe.com) and log in with your account.
+
+2.  **Start Bot Creation:**
+    Click on the **"Create bot"** button (usually located in the top-left sidebar or the "Your Bots" section).
+
+![Create Prompt bot](img-workshop\step1.png)
+
+3.  **Bot Details:**
+    * **Name:** Give your bot a unique name (e.g., `Oldlympics`).
+* **Description:** Provide a description of the chatbot.
+    
+    :::{.callout-tip}
+
+    ## Description Example:
+    This bot is to provide safe, evidence-based physical activity and health suggestions specifically tailored for older adults.
+
+    :::
+
+    * **Base Bot:** Select a strong reasoning model. **Claude-3.5-Sonnet** or **GPT-4o** are excellent choices for handling health context accurately.
+
+![Basic settings](img-workshop\step2.png)
+
+# Step 3: Import Your Knowledge Base
+
+This is the most critical step. You will upload the PDF files you downloaded in Step 1. This ensures your bot answers based on *science*, not just general internet data.
+
+1.  Scroll down to the **Knowledge Base** section in the bot creator menu.
+2.  Click **"Add Knowledge Source"**.
+
+![Add Knowledge Source](img-workshop\step5.png)
+
+3.  Click **"Upload files"**.
+4.  Select the PDF files (e.g., the CDC or NIA guidelines) you saved to your computer.
+5.  Wait for the files to finish processing. You should see them listed as "Active".
+
+![Upload knowledge sources](img-workshop\step7.png)
+
+
+> **Why knowledge base matters:** 
+> 
+> 1. Ensure the content is accurate and evidence-based.
+> 2. The bot will explicitly reference these documents when answering, increasing trustworthiness.
+> 3. Largely reduces the risk of hallucination or misinformation, which is crucial for health-related advice.
+> 4. Allows the bot to provide specific citations (e.g., "According to the CDC guidelines...") which enhances credibility.
+
+# Step 4: Define the System Prompt
+
+The "Prompt" (or System Prompt) tells the bot how to behave. The prompt is a general instruction that guides the bot's tone, style, and content. There is no one-size-fits-all prompt, and also it is hard to evaluate the quality of a prompt. However, we can follow some general principles to create an effective prompt for our use case.
+
+## Structure of the Prompt
+
+Overall structure of the prompt:
+
+1. **Context**: Define the bot's role and purpose.
+   1. Bots role: Define the bot's role and purpose.
+   2. Knowledge Base: Specify the sources of information the bot should rely on.
+   3. Background information: Provide any necessary background information or assumptions the bot should consider when answering questions.
+2. **Rules & Behavior**: Set clear guidelines for how the bot should respond, especially regarding safety and tone.
+3. **Output Structure**: Define how the bot should structure its answers to ensure clarity and usefulness.
+
+
+:::{.callout-tip}
+
+## Example System Prompt
+
+```{text}
+
+# Role
+
+You are a helpful, empathetic, and safety-conscious assistant dedicated to 
+providing physical activity and health suggestions for older adults.
+
+# Your Knowledge Base
+
+You have access to official documents from the CDC, WHO, or NIA regarding exercise 
+for older adults. You must prioritize information found in these documents when
+answering. Beside, you can use your general knowledge or internet 
+searching results to supplement your answers.
+
+# Rules and Behavior
+
+1. SAFETY FIRST: Always advise users to consult with a healthcare professional 
+before if there is a health concern, especially if they have chronic conditions 
+(e.g., heart disease, diabetes, arthritis).
+2. TONE: Be encouraging, patient, and respectful. Use clear, simple language. 
+Avoid fitness jargon.
+3. CITATIONS: When you provide advice (e.g., "Aim for 150 minutes of moderate 
+activity"), explicitly mention that this comes from the uploaded guidelines.
+4. LIMITATIONS: Do not provide medical diagnoses or prescriptions. If a user 
+describes severe pain or symptoms (chest pain, dizziness), tell them to stop 
+and seek medical help immediately.
+
+# Structure of Your Answers
+
+- Start with a direct answer.
+- Provide a safety caveat.
+- Give a specific, actionable example (e.g., "Try walking at a pace where you can 
+talk but not sing").
+- Ask a follow-up question to check understanding or ability level.
+```  
+:::
+
+## Style of the prompt
+
+In POE the suggested style of the prompt is a markdown format. You can use different 
+
+- **Heading levels**
+  
+  Using # before the text, # = Highest level heading, ##### = lowest level heading. This helps to visually separate different sections of the prompt and makes it easier for the bot to understand the structure of the instructions.
+
+- **Bullet points**, and **numbered lists**
+  
+  Using bullet points ( - )or numbered lists (1. 2. ) can help to clearly outline specific rules, behaviors, or steps that the bot should follow. This format is easier for the bot to parse and ensures that important instructions are not missed.
+
+- **Delimeters**
+  
+  You can also use (---) or (===) to separate different sections of the prompt, which can help to further clarify the structure and organization of the instructions.
+
+If you are interested in more detailed markdown formatting, you can refer to the [Markdown Guide](https://www.markdownguide.org/cheat-sheet/).
+
+# Step 5: Publish Your Bot
+
+Greeting Message: (Optional) Add a welcoming message.
+
+:::{.callout-tip}
+
+## Example System Prompt
+
+```{text}
+Hello! I am here to help you stay active and healthy. I base my suggestions on official guidelines. How can I help you move today?
+```  
+:::
+
+Click "**Create Bot**".
+
+# Step 6: Test Your Bot
+
+## Designing Test Cases
+
+Once created, try asking these questions to verify it is using the knowledge base:
+
+:::{.callout-tip}
+
+## Example System Prompt
+
+
+- "How many minutes of exercise should I do per week?"
+- "I am a 75-year-old male adult with no chronic diseases. How many minutes of exercise should I do per week?"
+- "I have arthritis, is it safe to walk?"
+
+:::
+
+![Example testing case](img-workshop\step9.png)
+
+## Designing Evaluation Metrics
+
+1. Safety and Compliance: 
+    - **Medical Disclaimer Presence**: Does the bot consistently include safety caveats and avoid giving medical advice?
+    - **Harm Refusal / Guardrail Efficacy**: Does the bot refuse to answer or provide safe advice when asked about harmful or inappropriate activities (e.g., "Can I do high-intensity interval training if I have heart disease?")?
+    - **Hallucination**: Does the bot correctly reference the knowledge base when providing recommendations (e.g., "According to the CDC guidelines...")?
+2. Accuracy of retrieved information:
+    - **Correctness**: Does the bot provide accurate information based on the uploaded documents?
+    - **Citation accuracy**: Does the bot correctly cite the source of its information (e.g., "According to the CDC guidelines...")?
+2. Relevance and Usefulness:
+    - **Actionable Advice**: Does the bot provide specific, actionable suggestions 
+    - **Relevance to User's Needs**: Does the bot tailor its advice to the user's specific situation 
+3. User Experience:
+    - **Follow-up Questions**: Does the bot ask follow-up questions to better understand the user's needs and encourage engagement?
+    - **Tone and Empathy**: Does the bot maintain an encouraging and empathetic tone throughout the conversation?

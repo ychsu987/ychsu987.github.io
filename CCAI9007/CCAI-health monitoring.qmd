@@ -1,0 +1,410 @@
+---
+title: "Older Adults</br>Health</br>Monitoring"
+title-slide-attributes:
+  data-background-image: img-adults/cover-older.png
+  data-background-size:  30% 100%
+  data-background-position: left
+author: Yu Cheng Hsu
+format: 
+  revealjs:
+    slide-number: true
+    reference-location: margin
+    chalkboard: true
+    css: [general_style.scss]
+bibliography: ref.bib
+lightbox: true
+---
+
+## Learning outcomes {.smaller}
+
+1. Understand the challenges and opportunities of health monitoring for older adults
+2. Learn about different types of health monitoring technologies and their applications
+3. Explore the ethical considerations and future perspectives of health monitoring for older adults
+
+
+# Aging Society
+
+## Population aging {.smaller}
+
+:::{.columns}
+:::{.column}
+- Aging is a global issue, especially in devleoped countries
+- **Definition**
+  - More than 7% of population aged 65 or more
+- **Reason**
+  - Longevity
+  - Lower fertility rate
+:::
+:::{.column}
+![aging society](img-adults\The_elderly_society.jpg)
+:::
+:::
+
+## Aging in place {.smaller}
+
+:::{.columns}
+:::{.column}
+- Aging in East and NE Asia is an urgent topics
+  - Hong Kong: more than 20% of residents aged 65 or above
+  - China:  more than 15% of residents aged 65 or above
+  - Japan:  more than 29% of residents aged 65 or above
+:::
+:::{.column}
+![aging in asia](img-adults\asia-aging.png)
+:::
+:::
+
+## Challenges - physical frailty {.smaller}
+
+:::{.columns}
+:::{.column}
+A practical challenges is decline of function along with aging 
+
+- Physcial
+  - Reduce muscle masss
+  - Lower bone density
+- Cognitive
+  - Reduce processing spped  
+  - Reduce working memory  
+  - Reduce execution speed 
+- Consequence
+  - Prone to injury
+:::
+:::{.column}
+![physical frailty](img-adults\fraility.jpg)
+:::
+:::
+
+## Challenges - caregiver burnout {.smaller}
+
+:::{.columns}
+:::{.column width=50%}
+Taking care of a people could result in
+
+- Physical burnout
+  - Physical exhaustion
+  - Somatic synptoms
+- Mentally burnout
+  - Stressed
+  - Depression
+
+:::
+:::{.column width=50%}
+![Caregiver nurnout [News link](https://www.scmp.com/news/hong-kong/society/article/3305397/i-could-only-cry-hong-kong-carers-pushed-limit-ngo-warns-stress-risks)](img-adults\scmp-caregiver.png)
+:::
+:::
+
+
+## Healthy aging {.smaller}
+
+:::{.columns}
+:::{.column}
+
+**Definition**: develping and maintaining functional ability
+
+- Functional ability
+  - Meet basic needs
+  - Learn,grow, and make decision
+  - mobility
+  - Build and maintain relationship
+  - Contribute to society
+:::
+:::{.column}
+![Healthy aging](img-adults\healthy aging.jpg)
+:::
+:::
+
+# Health monitoring of older adults
+
+## Health monitoring of older adults {.smaller}
+
+:::{.columns}
+:::{.column}
+
+- Technology could help
+  - Extend healthy aging duration
+  - Lowered threshold to acheive functional ability
+
+:::
+
+:::{.column}
+
+![aging society](img-adults\The_elderly_society.jpg)
+
+:::
+
+:::
+
+
+
+## Older adults health monitoring {.smaller}
+ 
+ Health monitoring assist older adults life in 
+
+:::{.columns}
+
+:::{.column}
+
+**Older adult health**
+
+- Continuous monitoring leads to
+  - Early prevention
+  - Chronic condition management
+
+:::
+
+:::{.column}
+
+**Caregiver perspective**
+
+- Reduce caring burden
+- Easier health information management
+- Remote management
+:::
+
+![health monitoring](img-adults\health monitoring.png){width=45%}
+
+:::
+
+## Wearable devices {.smaller}
+
+:::{.columns}
+
+:::{.column width=45%}
+
+Wearable devices monitoring 
+
+- Cardiovascular health
+  - Heart rate
+  - Blood pressure
+  - Electrocardiogram (ECG)
+- Respiratory health
+  - Blood oxygen level
+  - Respiratory rate
+- Activities
+  - Exercise
+  - Sleep
+:::
+
+:::{.column width=50%} 
+
+**Sensor technology**
+
+- Photoplethysmography
+![Photoplethysmography](img-adults\Photoplethysmography.png){width=70%}
+
+- Acclerometer
+- ECG
+
+:::
+
+:::
+
+
+## Domestic health monitoring machines for targeted purpose {.smaller}
+
+:::{.columns}
+
+:::{.column width=47%}
+
+**Spirometry**
+
+- Pulmonary functional test
+- Monitoring chronic pulmonary disease (COPD, asthma)
+
+![Spirometry ([Image link](https://commons.wikimedia.org/wiki/File:DoingSpirometry.JPG))](img-adults\DoingSpirometry.JPG){width=80%}
+:::
+
+:::{.column width=47%} 
+
+**Continuous glucose monitor (CGM)**
+
+- Glucose monitoring for diabete patients
+
+![CGM ([Image link](https://commons.wikimedia.org/wiki/File:BGM_twopart.JPG))](img-adults\cgm.JPG){width=70%}
+
+:::
+
+:::
+
+## Consideration of using wearable devices {.smaller}
+
+
+:::{.columns}
+
+:::{.column width=47%}
+
+- Data formatting
+- Interpretation of measured data
+- Integration of different data modality
+  - Android Health connect
+  - Apple Health
+
+:::
+
+:::{.column width=47%} 
+
+![Android health](img-adults/android health.png)
+
+![Apple Health](img-adults/apple-health.png)
+
+:::
+
+:::
+
+## Ambient assisted living{.smaller}
+
+:::{.columns}
+
+:::{.column width=40%}
+
+The other type of older adults monitoring gare environmental monitoring
+
+- Camera
+  - Fall
+- Gas
+  - Smoke
+  - Air Quality
+- Humidity
+- Light
+- Temperature
+
+
+
+:::
+
+:::{.column width=55%} 
+
+![Ambient sensors image from @alkhomsan2017situation](img-adults\ambient.png)
+
+
+:::
+
+:::
+
+
+## AI-enabled monitoring {.smaller}
+
+:::{.columns}
+
+The problem of the simply monitoring is that we don't take further steps.
+
+:::{.column width=40%}
+
+**Rule-based automation**
+
+Ppopular options include IFTTT(if, this, then ,that) or Apple/Goole home in built rule-based automation
+
+- Example
+  - IF "Temperature > 26"
+  - Then "Turn on Air con"
+
+:::
+
+:::{.column width=55%} 
+
+**LLM-enabled home automation**
+
+- Incorporate personal records, behavior to execute actions
+- Lowered coding requirementsfor automation
+
+:::
+
+:::
+
+## Online-offline collaboration {.smaller}
+
+:::{.columns}
+
+The other type of monitor-to-action is connecting to offline supports
+
+:::{.column width=47%}
+
+**Healthcare systems**
+
+- Reporting health monitoring records for clinician as extra evidence
+- Emergency calling for stroke, fall events 
+
+![Apple fall detection [image link](https://support.apple.com/en-hk/108896)](img-adults\appleFall.png)
+:::
+
+:::{.column width=47%} 
+
+**Socail support**
+
+- Connecting to social services
+- Emergency call service (平安鐘)
+
+![Emergency call service [image link](https://www.schsa.org.hk/tc/homepage)](img-adults\caeroncall.png)
+
+:::
+
+:::
+
+## Design your own scenario {.smaller}
+
+:::{.columns}
+
+The other type of monitor-to-action is connecting to offline supports
+
+:::{.column width=45%}
+
+- **Profile**: Mrs. Lin, 78 years old
+- **Living situation**: living alone in an apartment
+  - Two adult children live overseas
+- **Mobility**: Walking slow, need to use a cane
+- **Cognition**: Occasionally forget things
+- **Health**: Managed hypertension and diabete, early-stage hearing loss
+:::
+
+:::{.column width=50%} 
+
+**Problem**
+
+Her children are increasingly anxious. After the recent slip in the kitchen, they want to hire a full-time domestic helper, but Mrs. Lin refuses.
+
+1. What are the potential biological signs could be monitored 
+2. What are the potential house sensor could be installed to increase home safety
+3. After installing 1. and 2. what are the potential action we can do if something happens? 
+:::
+
+:::
+
+# Implementation aspects
+
+## Accepting new technology {.smaller}
+
+Older adults are usually less accepting new technology
+
+Factors affect older adults' attitude toward new technology
+
+- Perceived usefulness
+- Perceived ease of use
+
+The actual usefulness is not the key. The key is to facilitate older adults **perceive** its usefulness
+
+## Implementation
+
+Some useful way to increase adoption rate of health monitoring technology
+
+- Active communication with older adults
+- Incentives
+- Peer / authoritative engagement
+
+## Ethical consideration
+
+- Privacy vs. Safety Trade-off
+  - How much privacy are we willing to sacrifice for safety?
+- Data ownership
+  - Who owns the health data
+    - Older adults 
+    - Caregiver
+    - Child
+    - Device company
+
+## Future perspective
+
+- LLM integration
+- Mental health
+- More non-intrusive monitoring devices
+

@@ -1,0 +1,17 @@
+---
+title: Common core courses
+listing:
+    - id: 9007lecture
+      contents: 
+        - CCAI9007/CCAI-aging clock.qmd
+      fields: [title, image]
+      type: default
+      sort: false
+
+---
+
+## CCAI9007 Hacking Aging: Partnership of Human and Artificial Intelligence
+
+::: {#9007lecture}
+:::
+

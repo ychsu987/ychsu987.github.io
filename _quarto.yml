@@ -8,12 +8,15 @@ website:
         text: Home
       - text: Courses
         menu:
-        - text: Scientific computing
-          href: programming.qmd
+        - text: Common core
+          href: cc.qmd       
         - text: Hybrid PBL Lectures
           href: hybridPBL.qmd
         - text: Quantitative analysis
-          href: quant.qmd          
+          href: quant.qmd       
+        - text: Scientific computing
+          href: programming.qmd
+   
 format:
   html:
     theme: litera
