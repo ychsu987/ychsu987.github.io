@@ -356,7 +356,7 @@ Please record:
 - How does AI model inform younger biological age  
 - How does an AI model predict your age from your appearance
 
-## Guess who is younger? {visibility="hidden" .smaller}
+## Guess who is younger? {visibility="uncounted" .smaller}
 
 :::{.columns}
 
@@ -371,7 +371,7 @@ Please record:
 
 :::{.column width=30% hight=300px}
 
-![Mentimeter voting](img\QR_kpts.png){width=80%}
+![Mentimeter voting](img/QR_kpts.png){width=80%}
 :::
 
 :::{.column width=30% hight=300px}
@@ -384,12 +384,12 @@ Please record:
 
 :::
 
-##  {visability="hidden" .smaller}
+##  {visibility="uncounted" .smaller}
 
 <div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/aln7mf8xz8mejkkrpmj3fkqxow46ep1u/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
 
 
-## Guess who is younger? {visability="hidden" .smaller}
+## Guess who is younger? {visibility="uncounted" .smaller}
 
 :::{.columns}
 
@@ -401,7 +401,7 @@ Please record:
 :::
 
 :::{.column width=30% hight=300px}
-![Mentimeter voting](img\QR_esjb.png){width=75%}
+![Mentimeter voting](img/QR_esjb.png){width=75%}
 :::
 
 :::{.column width=30% hight=300px}
@@ -413,11 +413,11 @@ Please record:
 :::
 
 :::
-## {visability="hidden" .smaller}
+## {visibility="uncounted" .smaller}
 
 <div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alvtz64i2c6r5fcx7ptfa56yri9zj97x/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
 
-## Guess who is younger? {visability="hidden" .smaller}
+## Guess who is younger? {visibility="uncounted" .smaller}
 
 :::{.columns}
 
@@ -442,13 +442,11 @@ Please record:
 
 :::
 
-## {visability="hidden" .smaller}
+## {visibility="uncounted" .smaller}
 
 <div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alshzvmg7outp2eyph7261jfydqkofpm/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
 
-## {visability="hidden" .smaller}
-
-## DNA methylation - chemical switch {.smaller visability="hidden" } 
+## DNA methylation - chemical switch {visibility="uncounted" .smaller} 
 
 - Definition:  methyl group ($\text{-CH}_3$) attached to the DNA
 - Primarily refers to $\text{-CH}_3$ on the 5th carbon of cytosine (C), creating 5-methylcytosine (5mC)
@@ -456,7 +454,7 @@ Please record:
   
 ![DNA Methylation, modified from Wikipedia](img/methylation.png){width=70%}
 
-## DNA methylation - mechanism {.smaller visability="hidden" }
+## DNA methylation - mechanism {visibility="uncounted" .smaller }
 
 - Before the gene, there will be a lot of cytosine(C) before a gene, which control the gene is expressed or not
 - Methylation will force the switch to turn off.
@@ -464,4 +462,4 @@ Please record:
 ![DNA Methylation, modified from Wikipedia](img/methylation-2.png){width=70%}
 
 
-## Bibliography Notes {visability="hidden" .smaller}
+## Bibliography Notes { .smaller}
