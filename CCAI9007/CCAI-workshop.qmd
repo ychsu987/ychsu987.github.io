@@ -1,13 +1,14 @@
 ---
 title: "Building a Physical Activity & Health Prompt Bot for Older Adults on POE"
 author: "Yu Cheng Hsu"
-date: "2026-02-09"
+date: "2026-02-26"
 format: 
   html:
     theme: cosmo
     toc: true
     number-sections: true
 ---
+
 
 # Learning goal
 
@@ -57,12 +58,13 @@ Follow these steps to initialize your bot.
     * **Name:** Give your bot a unique name (e.g., `Oldlympics`).
 * **Description:** Provide a description of the chatbot.
     
-    :::{.callout-tip}
+:::{.callout-tip}
 
-    ## Description Example:
-    This bot is to provide safe, evidence-based physical activity and health suggestions specifically tailored for older adults.
+## Description Example
 
-    :::
+This bot is to provide safe, evidence-based physical activity and health suggestions specifically tailored for older adults.
+
+:::
 
     * **Base Bot:** Select a strong reasoning model. **Claude-3.5-Sonnet** or **GPT-4o** are excellent choices for handling health context accurately.
 
@@ -109,7 +111,7 @@ Overall structure of the prompt:
 
 :::{.callout-tip}
 
-## Example System Prompt
+## Example Prompt
 
 ```{text}
 
@@ -172,10 +174,12 @@ Greeting Message: (Optional) Add a welcoming message.
 
 :::{.callout-tip}
 
-## Example System Prompt
+## Example welcoming message
 
 ```{text}
-Hello! I am here to help you stay active and healthy. I base my suggestions on official guidelines. How can I help you move today?
+Hello! I am here to help you stay active and healthy. 
+I base my suggestions on official guidelines. 
+How can I help you move today?
 ```  
 :::
 
@@ -189,8 +193,7 @@ Once created, try asking these questions to verify it is using the knowledge bas
 
 :::{.callout-tip}
 
-## Example System Prompt
-
+## Example testing cases
 
 - "How many minutes of exercise should I do per week?"
 - "I am a 75-year-old male adult with no chronic diseases. How many minutes of exercise should I do per week?"
@@ -215,3 +218,31 @@ Once created, try asking these questions to verify it is using the knowledge bas
 3. User Experience:
     - **Follow-up Questions**: Does the bot ask follow-up questions to better understand the user's needs and encourage engagement?
     - **Tone and Empathy**: Does the bot maintain an encouraging and empathetic tone throughout the conversation?
+
+
+# Workshop completion submission
+
+1. Please share the link to your bot to Moodle. You can find the link to your bot on the bot's page on POE. It should look like this: `https://poe.com/YourBotName`.
+
+    <input type="text" id="name" value="https://poe.com/"/>
+
+2. Sharing a testing chat log: You can use the share a function to share a link to your chat log. You can find the share button in the top-right corner of the chat window. It should look like this: `https://poe.com/s/pc6mpxLg6UdaP7Q5HIu8`
+   
+    <input type="text" id="name" value="https://poe.com/"/>
+
+3. Please write down your evaluation results based on the metrics we discussed in Step 6. You can use the following template (add or delete the item as long as it makes sense)to organize your evaluation:
+
+    <textarea id="w3review" name="w3review" rows="20" cols="75">
+
+        - Medical Disclaimer Presence: [Yes/No], justification/comments here
+        - Harm Refusal / Guardrail Efficacy: [Yes/No], justification/comments here
+        - Hallucination: [Yes/No], justification/comments here
+        - Correctness: [Yes/No], justification/comments here
+        - Citation accuracy: [Yes/No], justification/comments here
+        - Actionable Advice: [Yes/No], justification/comments here
+        - Relevance to User's Needs: [Yes/No], justification/comments here
+        - Follow-up Questions: [Yes/No], justification/comments here
+        - Tone and Empathy: [Yes/No], justification/comments here
+    </textarea>
+
+4. Svae down your input to pdf (You can use Ctrl +P or cmd + P to print the page and save this page, i.e. starting from step 10 as a PDF file). Then upload the PDF file to Moodle.

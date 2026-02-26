@@ -7,7 +7,12 @@ listing:
       fields: [title, image]
       type: default
       sort: false
-
+    - id: 9007workshop
+      contents: 
+        - CCAI9007/CCAI-workshop.qmd
+      fields: [title, image]
+      type: default
+      sort: false
 ---
 
 ## CCAI9007 Hacking Aging: Partnership of Human and Artificial Intelligence
@@ -15,3 +20,7 @@ listing:
 ::: {#9007lecture}
 :::
 
+### Workshop worksheets
+
+::: {#9007workshop}
+:::
