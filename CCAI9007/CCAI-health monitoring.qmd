@@ -1,5 +1,5 @@
 ---
-title: "Older Adults</br>Health</br>Monitoring"
+title: "Older Adults Health Monitoring"
 title-slide-attributes:
   data-background-image: img-adults/cover-older.png
   data-background-size:  30% 100%
@@ -28,7 +28,7 @@ lightbox: true
 
 :::{.columns}
 :::{.column}
-- Aging is a global issue, especially in devleoped countries
+- Aging is a global issue, especially in developed countries
 - **Definition**
   - More than 7% of population aged 65 or more
 - **Reason**
@@ -36,43 +36,31 @@ lightbox: true
   - Lower fertility rate
 :::
 :::{.column}
-![aging society](img-adults\The_elderly_society.jpg)
-:::
-:::
-
-## Aging in place {.smaller}
-
-:::{.columns}
-:::{.column}
-- Aging in East and NE Asia is an urgent topics
-  - Hong Kong: more than 20% of residents aged 65 or above
-  - China:  more than 15% of residents aged 65 or above
-  - Japan:  more than 29% of residents aged 65 or above
-:::
-:::{.column}
-![aging in asia](img-adults\asia-aging.png)
+![Aging society](img-adults/The_elderly_society.jpg)
 :::
 :::
 
 ## Challenges - physical frailty {.smaller}
 
 :::{.columns}
-:::{.column}
+:::{.column width=45%}
 A practical challenges is decline of function along with aging 
 
-- Physcial
-  - Reduce muscle masss
+- Physical
+  - Reduce muscle mass
   - Lower bone density
 - Cognitive
-  - Reduce processing spped  
-  - Reduce working memory  
-  - Reduce execution speed 
+  - Reduce processing speed
+  - Reduce working memory
+  - Reduce execution speed
 - Consequence
   - Prone to injury
 :::
-:::{.column}
-![physical frailty](img-adults\fraility.jpg)
+
+:::{.column width=50%}
+![physical frailty](img-adults\fraility.jpg){width=75%}
 :::
+
 :::
 
 ## Challenges - caregiver burnout {.smaller}
@@ -83,14 +71,14 @@ Taking care of a people could result in
 
 - Physical burnout
   - Physical exhaustion
-  - Somatic synptoms
-- Mentally burnout
-  - Stressed
+  - Somatic symptoms
+- Mental burnout
+  - Stress
   - Depression
 
 :::
 :::{.column width=50%}
-![Caregiver nurnout [News link](https://www.scmp.com/news/hong-kong/society/article/3305397/i-could-only-cry-hong-kong-carers-pushed-limit-ngo-warns-stress-risks)](img-adults\scmp-caregiver.png)
+![Caregiver burnout [News link](https://www.scmp.com/news/hong-kong/society/article/3305397/i-could-only-cry-hong-kong-carers-pushed-limit-ngo-warns-stress-risks)](img-adults/scmp-caregiver.png)
 :::
 :::
 
@@ -100,7 +88,7 @@ Taking care of a people could result in
 :::{.columns}
 :::{.column}
 
-**Definition**: develping and maintaining functional ability
+**Definition**: Developing and maintaining functional ability
 
 - Functional ability
   - Meet basic needs
@@ -123,7 +111,7 @@ Taking care of a people could result in
 
 - Technology could help
   - Extend healthy aging duration
-  - Lowered threshold to acheive functional ability
+  - Lowered threshold to achieve functional ability
 
 :::
 
@@ -157,12 +145,12 @@ Taking care of a people could result in
 
 **Caregiver perspective**
 
-- Reduce caring burden
+- Reduced caring burden
 - Easier health information management
 - Remote management
 :::
 
-![health monitoring](img-adults\health monitoring.png){width=45%}
+![Health monitoring](img-adults/health monitoring.png){width=45%}
 
 :::
 
@@ -191,9 +179,9 @@ Wearable devices monitoring
 **Sensor technology**
 
 - Photoplethysmography
-![Photoplethysmography](img-adults\Photoplethysmography.png){width=70%}
+![Photoplethysmography](img-adults/Photoplethysmography.png){width=70%}
 
-- Acclerometer
+- Accelerometer
 - ECG
 
 :::
@@ -205,23 +193,23 @@ Wearable devices monitoring
 
 :::{.columns}
 
-:::{.column width=47%}
+:::{.column width=46%}
 
 **Spirometry**
 
 - Pulmonary functional test
 - Monitoring chronic pulmonary disease (COPD, asthma)
 
-![Spirometry ([Image link](https://commons.wikimedia.org/wiki/File:DoingSpirometry.JPG))](img-adults\DoingSpirometry.JPG){width=80%}
+![Spirometry ([Image link](https://commons.wikimedia.org/wiki/File:DoingSpirometry.JPG))](img-adults/DoingSpirometry.JPG){width=80%}
 :::
 
-:::{.column width=47%} 
+:::{.column width=46%} 
 
 **Continuous glucose monitor (CGM)**
 
 - Glucose monitoring for diabete patients
 
-![CGM ([Image link](https://commons.wikimedia.org/wiki/File:BGM_twopart.JPG))](img-adults\cgm.JPG){width=70%}
+![CGM ([Image link](https://commons.wikimedia.org/wiki/File:BGM_twopart.JPG))](img-adults/cgm.JPG){width=70%}
 
 :::
 
@@ -244,7 +232,7 @@ Wearable devices monitoring
 
 :::{.column width=47%} 
 
-![Android health](img-adults/android health.png)
+![Android Health](img-adults/android health.png)
 
 ![Apple Health](img-adults/apple-health.png)
 
@@ -258,7 +246,7 @@ Wearable devices monitoring
 
 :::{.column width=40%}
 
-The other type of older adults monitoring gare environmental monitoring
+The other type of older adults monitoring is environmental monitoring
 
 - Camera
   - Fall
@@ -275,7 +263,7 @@ The other type of older adults monitoring gare environmental monitoring
 
 :::{.column width=55%} 
 
-![Ambient sensors image from @alkhomsan2017situation](img-adults\ambient.png)
+![Ambient sensors image from @alkhomsan2017situation](img-adults/ambient.png)
 
 
 :::
@@ -293,7 +281,7 @@ The problem of the simply monitoring is that we don't take further steps.
 
 **Rule-based automation**
 
-Ppopular options include IFTTT(if, this, then ,that) or Apple/Goole home in built rule-based automation
+Popular options include IFTTT (if this, then that) or Apple/Google Home built-in rule-based automation
 
 - Example
   - IF "Temperature > 26"
@@ -306,7 +294,7 @@ Ppopular options include IFTTT(if, this, then ,that) or Apple/Goole home in buil
 **LLM-enabled home automation**
 
 - Incorporate personal records, behavior to execute actions
-- Lowered coding requirementsfor automation
+- Lowered coding requirements for automation
 
 :::
 
@@ -325,56 +313,28 @@ The other type of monitor-to-action is connecting to offline supports
 - Reporting health monitoring records for clinician as extra evidence
 - Emergency calling for stroke, fall events 
 
-![Apple fall detection [image link](https://support.apple.com/en-hk/108896)](img-adults\appleFall.png)
+![Apple Fall Detection [image link](https://support.apple.com/en-hk/108896)](img-adults/appleFall.png)
 :::
 
 :::{.column width=47%} 
 
-**Socail support**
+**Social support**
 
 - Connecting to social services
 - Emergency call service (平安鐘)
 
-![Emergency call service [image link](https://www.schsa.org.hk/tc/homepage)](img-adults\caeroncall.png)
+![Emergency call service [image link](https://www.schsa.org.hk/tc/homepage)](img-adults/caeroncall.png)
 
 :::
 
 :::
 
-## Design your own scenario {.smaller}
-
-:::{.columns}
-
-The other type of monitor-to-action is connecting to offline supports
-
-:::{.column width=45%}
-
-- **Profile**: Mrs. Lin, 78 years old
-- **Living situation**: living alone in an apartment
-  - Two adult children live overseas
-- **Mobility**: Walking slow, need to use a cane
-- **Cognition**: Occasionally forget things
-- **Health**: Managed hypertension and diabete, early-stage hearing loss
-:::
-
-:::{.column width=50%} 
-
-**Problem**
-
-Her children are increasingly anxious. After the recent slip in the kitchen, they want to hire a full-time domestic helper, but Mrs. Lin refuses.
-
-1. What are the potential biological signs could be monitored 
-2. What are the potential house sensor could be installed to increase home safety
-3. After installing 1. and 2. what are the potential action we can do if something happens? 
-:::
-
-:::
 
 # Implementation aspects
 
 ## Accepting new technology {.smaller}
 
-Older adults are usually less accepting new technology
+Older adults are usually less accepting of new technology
 
 Factors affect older adults' attitude toward new technology
 
@@ -391,7 +351,44 @@ Some useful way to increase adoption rate of health monitoring technology
 - Incentives
 - Peer / authoritative engagement
 
-## Ethical consideration
+## User interface design {.smaller}
+
+- Simple and intuitive interface for older adults
+- Clear and concise information display
+
+In-class reading: [FDA issues safety alert on Trividia blood glucose monitors](https://www.fiercebiotech.com/medtech/fda-issues-safety-alert-trividia-blood-glucose-monitors)
+
+Guided questions:
+
+- What are the difference between original instruction and revised instruction
+- What are the potential consequences of the original instruction?
+- Regulatory strategy for health monitoring devices, is the safety of the device is the only concern?  
+- Business perspectives: What are other ways to fix the error, and what are the potential costs?
+
+## ![QR-code](img-adults/qr_q1.png){ width="75" height="75"} {.smaller  visibility="uncounted"}
+
+
+<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-popups allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/aluj2h4bvnxoobqcuw7b5cgjg5mydszk/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
+
+## ![QR-code](img-adults/qr_q2.png){ width="75" height="75"} {.smaller  visibility="uncounted"}
+
+
+<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-popups allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alc95ttnt3is4ccet996emtkzh3otgj6/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
+
+## ![QR-code](img-adults/qr_q3.png){ width="75" height="75"} {.smaller  visibility="uncounted"}
+
+
+<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-popups allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alt535snvyzvhdce8f56shybe1abnqcx/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
+
+
+## ![QR-code](img-adults/qr_q4.png){ width="75" height="75"} {.smaller  visibility="uncounted"}
+
+
+<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-popups allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alevwea552pkrhj9fqp1igc41fos9pkr/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
+
+
+
+## Ethical consideration {.smaller}
 
 - Privacy vs. Safety Trade-off
   - How much privacy are we willing to sacrifice for safety?
@@ -402,9 +399,39 @@ Some useful way to increase adoption rate of health monitoring technology
     - Child
     - Device company
 
-## Future perspective
+## Future perspective {.smaller}
 
 - LLM integration
 - Mental health
 - More non-intrusive monitoring devices
 
+## Design your own scenario {.smaller visibility="uncounted"}
+
+:::{.columns}
+
+The other type of monitor-to-action is connecting to offline supports
+
+:::{.column width=45%}
+
+- **Profile**: Mrs. Lin, 78 years old
+- **Living situation**: living alone in an apartment
+  - Two adult children live overseas
+- **Mobility**: Walking slow, need to use a cane
+- **Cognition**: Occasionally forget things
+- **Health**: Managed hypertension and diabetes, early-stage hearing loss
+:::
+
+:::{.column width=50%} 
+
+**Problem**
+
+Her children are increasingly anxious. After the recent slip in the kitchen, they want to hire a full-time domestic helper, but Mrs. Lin refuses.
+
+1. What are the potential biological signs could be monitored 
+2. What are the potential house sensor could be installed to increase home safety
+3. After installing 1. and 2. what are the potential action we can do if something happens? 
+:::
+
+:::
+
+## Bibliography {.smaller}
