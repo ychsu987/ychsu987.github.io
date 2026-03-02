@@ -2982,13 +2982,6 @@
     "text": "Population aging\n\n\n\nAging is a global issue, especially in developed countries\nDefinition\n\nMore than 7% of population aged 65 or more\n\nReason\n\nLongevity\nLower fertility rate\n\n\n\n\n\n\nAging society"
   },
   {
-    "objectID": "CCAI9007/CCAI-health monitoring.html#aging-in-place",
-    "href": "CCAI9007/CCAI-health monitoring.html#aging-in-place",
-    "title": "Older AdultsHealthMonitoring",
-    "section": "Aging in place",
-    "text": "Aging in place\n\n\n\nAging in East and NE Asia is an urgent topics\n\nHong Kong: more than 20% of residents aged 65 or above\nChina: more than 15% of residents aged 65 or above\nJapan: more than 29% of residents aged 65 or above\n\n\n\n\n\n\naging in asia"
-  },
-  {
     "objectID": "CCAI9007/CCAI-health monitoring.html#challenges---physical-frailty",
     "href": "CCAI9007/CCAI-health monitoring.html#challenges---physical-frailty",
     "title": "Older Adults Health Monitoring",
@@ -3066,13 +3059,6 @@
     "text": "Online-offline collaboration\n\nThe other type of monitor-to-action is connecting to offline supports\nHealthcare systems\n\nReporting health monitoring records for clinician as extra evidence\nEmergency calling for stroke, fall events\n\n\n\n\nApple Fall Detection image link\n\n\n\nSocial support\n\nConnecting to social services\nEmergency call service (平安鐘)\n\n\n\n\nEmergency call service image link"
   },
   {
-    "objectID": "CCAI9007/CCAI-health monitoring.html#design-your-own-scenario",
-    "href": "CCAI9007/CCAI-health monitoring.html#design-your-own-scenario",
-    "title": "Older Adults Health Monitoring",
-    "section": "Design your own scenario",
-    "text": "Design your own scenario\n\nThe other type of monitor-to-action is connecting to offline supports\n\nProfile: Mrs. Lin, 78 years old\nLiving situation: living alone in an apartment\n\nTwo adult children live overseas\n\nMobility: Walking slow, need to use a cane\nCognition: Occasionally forget things\nHealth: Managed hypertension and diabetes, early-stage hearing loss\n\n\nProblem\nHer children are increasingly anxious. After the recent slip in the kitchen, they want to hire a full-time domestic helper, but Mrs. Lin refuses.\n\nWhat are the potential biological signs could be monitored\nWhat are the potential house sensor could be installed to increase home safety\nAfter installing 1. and 2. what are the potential action we can do if something happens?"
-  },
-  {
     "objectID": "CCAI9007/CCAI-health monitoring.html#accepting-new-technology",
     "href": "CCAI9007/CCAI-health monitoring.html#accepting-new-technology",
     "title": "Older Adults Health Monitoring",
@@ -3087,6 +3073,13 @@
     "text": "Implementation\nSome useful way to increase adoption rate of health monitoring technology\n\nActive communication with older adults\nIncentives\nPeer / authoritative engagement"
   },
   {
+    "objectID": "CCAI9007/CCAI-health monitoring.html#user-interface-design",
+    "href": "CCAI9007/CCAI-health monitoring.html#user-interface-design",
+    "title": "Older Adults Health Monitoring",
+    "section": "User interface design",
+    "text": "User interface design\n\nSimple and intuitive interface for older adults\nClear and concise information display\n\nIn-class reading: FDA issues safety alert on Trividia blood glucose monitors\nGuided questions:\n\nWhat are the difference between original instruction and revised instruction\nWhat are the potential consequences of the original instruction?\nRegulatory strategy for health monitoring devices, is the safety of the device is the only concern?\n\nBusiness perspectives: What are other ways to fix the error, and what are the potential costs?"
+  },
+  {
     "objectID": "CCAI9007/CCAI-health monitoring.html#ethical-consideration",
     "href": "CCAI9007/CCAI-health monitoring.html#ethical-consideration",
     "title": "Older Adults Health Monitoring",
@@ -3099,6 +3092,20 @@
     "title": "Older Adults Health Monitoring",
     "section": "Future perspective",
     "text": "Future perspective\n\nLLM integration\nMental health\nMore non-intrusive monitoring devices"
+  },
+  {
+    "objectID": "CCAI9007/CCAI-health monitoring.html#design-your-own-scenario",
+    "href": "CCAI9007/CCAI-health monitoring.html#design-your-own-scenario",
+    "title": "Older Adults Health Monitoring",
+    "section": "Design your own scenario",
+    "text": "Design your own scenario\n\nThe other type of monitor-to-action is connecting to offline supports\n\nProfile: Mrs. Lin, 78 years old\nLiving situation: living alone in an apartment\n\nTwo adult children live overseas\n\nMobility: Walking slow, need to use a cane\nCognition: Occasionally forget things\nHealth: Managed hypertension and diabetes, early-stage hearing loss\n\n\nProblem\nHer children are increasingly anxious. After the recent slip in the kitchen, they want to hire a full-time domestic helper, but Mrs. Lin refuses.\n\nWhat are the potential biological signs could be monitored\nWhat are the potential house sensor could be installed to increase home safety\nAfter installing 1. and 2. what are the potential action we can do if something happens?"
+  },
+  {
+    "objectID": "CCAI9007/CCAI-health monitoring.html#bibliography",
+    "href": "CCAI9007/CCAI-health monitoring.html#bibliography",
+    "title": "Older Adults Health Monitoring",
+    "section": "Bibliography",
+    "text": "Bibliography\n\n\n\n\nAlkhomsan, Mashail N, M Anwar Hossain, Sk Md Mizanur Rahman, and Mehedi Masud. 2017. “Situation Awareness in Ambient Assisted Living for Smart Healthcare.” IEEE Access 5: 20716–25."
   },
   {
     "objectID": "courses.html",
@@ -3127,26 +3134,5 @@
     "title": "Scientific computing",
     "section": "BBMS1021 Introduction to AI and Biomedical Data Science",
     "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nLecture materials\n\n\n\n\n\nIntroduction to ggplot2\n\n\n\n\n\n\n\n\n\n\nReal Example of Data Processing and Exploratory Data Analysis with R\n\n\n\n\n\n\n\n\nNo matching items\n\nThe tutorial questions cover basic R programming techniques and data manipulation.\n\n\nTutorial materials\n\n\n\n\n\nTutorial 1\n\n\n\n\n\n\n\n\n\n\nTutorial 2\n\n\n\n\n\n\n\n\n\n\nTutorial 3\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "CCAI9007/CCAI-health monitoring.html",
-    "href": "CCAI9007/CCAI-health monitoring.html",
-    "title": "Older Adults Health Monitoring",
-    "section": "",
-    "text": "Understand the challenges and opportunities of health monitoring for older adults\nLearn about different types of health monitoring technologies and their applications\nExplore the ethical considerations and future perspectives of health monitoring for older adults"
-  },
-  {
-    "objectID": "CCAI9007/CCAI-health monitoring.html#user-interface-design",
-    "href": "CCAI9007/CCAI-health monitoring.html#user-interface-design",
-    "title": "Older Adults Health Monitoring",
-    "section": "User interface design",
-    "text": "User interface design\n\nSimple and intuitive interface for older adults\nClear and concise information display\n\nIn-class reading: FDA issues safety alert on Trividia blood glucose monitors\nGuided questions:\n\nWhat are the difference between original instruction and revised instruction\nWhat are the potential consequences of the original instruction?\nRegulatory strategy for health monitoring devices, is the safety of the device is the only concern?\n\nBusiness perspectives: What are other ways to fix the error, and what are the potential costs?"
-  },
-  {
-    "objectID": "CCAI9007/CCAI-health monitoring.html#bibliography",
-    "href": "CCAI9007/CCAI-health monitoring.html#bibliography",
-    "title": "Older Adults Health Monitoring",
-    "section": "Bibliography",
-    "text": "Bibliography\n\n\n\n\nAlkhomsan, Mashail N, M Anwar Hossain, Sk Md Mizanur Rahman, and Mehedi Masud. 2017. “Situation Awareness in Ambient Assisted Living for Smart Healthcare.” IEEE Access 5: 20716–25."
   }
 ]
