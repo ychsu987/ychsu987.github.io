@@ -36,7 +36,7 @@ lightbox: true
   - Lower fertility rate
 :::
 :::{.column}
-![Aging society](img-adults/The_elderly_society.jpg)
+![Aging society](img-adults/The_elderly_society.jpg){.preview-image}
 :::
 :::
 

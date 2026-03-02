@@ -73,8 +73,8 @@
     "objectID": "CCAI9007/CCAI-aging clock.html#learning-outcomes",
     "href": "CCAI9007/CCAI-aging clock.html#learning-outcomes",
     "title": "Aging clock",
-    "section": "Learning outcomes",
-    "text": "Learning outcomes\n\nUnderstand basic concept of aging theory\nUnderstand the association between epigenetics and aging\nUnderstand factors that accelerate/decelerate biological age\nUnderstand AI’s application for predicting age-related outcomes through genes and images"
+    "section": "",
+    "text": "Understand basic concept of aging theory\nUnderstand the association between epigenetics and aging\nUnderstand factors that accelerate/decelerate biological age\nUnderstand AI’s application for predicting age-related outcomes through genes and images"
   },
   {
     "objectID": "CCAI9007/CCAI-aging clock.html#theory-of-aging",
@@ -186,7 +186,7 @@
     "href": "CCAI9007/CCAI-aging clock.html#guessing-age",
     "title": "Aging clock",
     "section": "Guessing age",
-    "text": "Guessing age\n\n\n\nYou can guess one’s age from\n\nAppearance\nSound\nBehavior\n\n\n\n\nAI can also guess from\n\nAppearance: skin texture, wrinkles\nSound: frequency and tones\n\n\n\nImplication\n\nWe want to look young !\n\nAI’s estimation and outliers could help\n\nEstimate age\nPotential reasons why some people look young/old"
+    "text": "Guessing age\n\n\n\nYou can guess one’s age from\n\nAppearance\nSound\nBehavior\n\n\n\n\nAI can also guess from\n\nAppearance: skin texture, wrinkles\nSound: frequency and tones\n\n\n\n\nImplication\n\nWe want to look young !\n\nAI’s estimation and outliers could help\n\nEstimate age\nPotential reasons why some people look young/old"
   },
   {
     "objectID": "CCAI9007/CCAI-aging clock.html#guessing-age-from-your-photo",
@@ -2971,8 +2971,8 @@
     "objectID": "CCAI9007/CCAI-health monitoring.html#learning-outcomes",
     "href": "CCAI9007/CCAI-health monitoring.html#learning-outcomes",
     "title": "Older Adults Health Monitoring",
-    "section": "Learning outcomes",
-    "text": "Learning outcomes\n\nUnderstand the challenges and opportunities of health monitoring for older adults\nLearn about different types of health monitoring technologies and their applications\nExplore the ethical considerations and future perspectives of health monitoring for older adults"
+    "section": "",
+    "text": "Understand the challenges and opportunities of health monitoring for older adults\nLearn about different types of health monitoring technologies and their applications\nExplore the ethical considerations and future perspectives of health monitoring for older adults"
   },
   {
     "objectID": "CCAI9007/CCAI-health monitoring.html#population-aging",
@@ -3134,5 +3134,19 @@
     "title": "Scientific computing",
     "section": "BBMS1021 Introduction to AI and Biomedical Data Science",
     "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nLecture materials\n\n\n\n\n\nIntroduction to ggplot2\n\n\n\n\n\n\n\n\n\n\nReal Example of Data Processing and Exploratory Data Analysis with R\n\n\n\n\n\n\n\n\nNo matching items\n\nThe tutorial questions cover basic R programming techniques and data manipulation.\n\n\nTutorial materials\n\n\n\n\n\nTutorial 1\n\n\n\n\n\n\n\n\n\n\nTutorial 2\n\n\n\n\n\n\n\n\n\n\nTutorial 3\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "CCAI9007/CCAI-health monitoring.html",
+    "href": "CCAI9007/CCAI-health monitoring.html",
+    "title": "Older Adults Health Monitoring",
+    "section": "",
+    "text": "Understand the challenges and opportunities of health monitoring for older adults\nLearn about different types of health monitoring technologies and their applications\nExplore the ethical considerations and future perspectives of health monitoring for older adults"
+  },
+  {
+    "objectID": "CCAI9007/CCAI-aging clock.html",
+    "href": "CCAI9007/CCAI-aging clock.html",
+    "title": "Aging clock",
+    "section": "",
+    "text": "Understand basic concept of aging theory\nUnderstand the association between epigenetics and aging\nUnderstand factors that accelerate/decelerate biological age\nUnderstand AI’s application for predicting age-related outcomes through genes and images"
   }
 ]

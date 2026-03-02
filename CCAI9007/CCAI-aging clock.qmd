@@ -38,7 +38,7 @@ lightbox: true
 - Our DNA has a "self-destruct" instruction 
 - Aging is controlled by our DNA
 
-![Programmed Theory](img/programmed theory.png){width=100%}
+![Programmed Theory](img/programmed theory.png){.preview-image width=100%}
 
 :::
 
@@ -49,7 +49,7 @@ lightbox: true
 - Aging is an accumulation of our body damages
 - Aging is controlled by our exposure to aging factors
 
-![Damage Theory](img/damage%20theory.png){width=100%}
+![Damage Theory](img/damage theory.png){width=100%}
 
 :::
 

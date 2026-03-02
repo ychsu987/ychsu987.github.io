@@ -4,7 +4,7 @@ listing:
     - id: 9007lecture
       contents: 
         - CCAI9007/CCAI-aging clock.qmd
-        - CCAI9007\CCAI-health monitoring.qmd
+        - CCAI9007/CCAI-health monitoring.qmd
       fields: [title, image]
       type: default
       sort: false
