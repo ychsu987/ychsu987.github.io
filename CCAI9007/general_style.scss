@@ -3,10 +3,13 @@
   
 
 /*-- scss:rules --*/
-.quarto-title-author{
+.quarto-title-authors{
   position: absolute;
   right: 10px
 }
 #title-slide{
+  position:absolute;
+  width: 60%;
+  right:10px;
   text-align: right;
   }
