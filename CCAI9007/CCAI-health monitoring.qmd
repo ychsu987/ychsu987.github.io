@@ -10,7 +10,7 @@ format:
     slide-number: true
     reference-location: margin
     chalkboard: true
-    css: [general_style.scss]
+    css: general_style.scss
 bibliography: ref.bib
 lightbox: true
 ---
@@ -36,7 +36,9 @@ lightbox: true
   - Lower fertility rate
 :::
 :::{.column}
+
 ![Aging society](img-adults/The_elderly_society.jpg){.preview-image}
+
 :::
 :::
 
