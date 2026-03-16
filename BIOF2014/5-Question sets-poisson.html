@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Question sets-Poisson Distribution – Yu Cheng Hsu</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="student_view.scss">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Yu Cheng Hsu</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-courses" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Courses</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-courses">    
+        <li>
+    <a class="dropdown-item" href="../cc.html">
+ <span class="dropdown-text">Common core</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hybridPBL.html">
+ <span class="dropdown-text">Hybrid PBL Lectures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../quant.html">
+ <span class="dropdown-text">Quantitative analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../programming.html">
+ <span class="dropdown-text">Scientific computing</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1.1</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">1.2</a>
+  <ul class="collapse">
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">1.3</a></li>
+  </ul></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a>
+  <ul class="collapse">
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2.1</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2.2</a></li>
+  </ul></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a>
+  <ul class="collapse">
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">3.1</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">3.2</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">3.3</a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">3.4</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="5-Question sets_presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Question sets-Poisson Distribution</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">1.1</h2>
+<p>Given <span class="math inline">X\sim\text{Exp}(\lambda)</span>, please show that <span class="math inline">P(X&gt;a+b|X&gt;a)=P(X &gt; b)</span></p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(X&gt;a+b|X&gt;a) =&amp; \frac{P(X&gt;a+b, X&gt;a)}{P(X&gt;a)} \\
+=&amp; \frac{P(X&gt;a+b)}{P(X&gt;a)} \\
+=&amp; \frac{e^{-\lambda(a+b)}}{e^{-\lambda}} \\
+=&amp; e^{-\lambda b} \\
+=&amp; P(X&gt;b)
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">1.2</h2>
+<p>Let <span class="math inline">X</span> be the failure time of a machine. Assume that X follows an exponential distribution with rate <span class="math inline">\lambda=2</span> failures per month. What is the probability that the machine can run over 4 months without any failure</p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(X&gt;4) =&amp; e^{-\lambda x} \\
+=&amp; e^{-2 \times 4} \\
+=&amp; e^{-8}=0.0003
+\end{aligned}
+</span></p>
+</div>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">1.3</h3>
+<p>Based on 1.2 what is the probability that the machine can run 4 months more given that it has run for 1 year already?</p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(X&gt;4|X&gt;12) =&amp; P(X&gt;4) \\
+=&amp; e^{-8}=0.0003
+\end{aligned}
+</span></p>
+</div>
+</section>
+</section>
+<section id="question-2" class="level1">
+<h1>Question 2</h1>
+<p>The number of alpha particle emissions of carbon-14 that are counted by a Geiger counter follows a Poisson distribution with rate 19.7 particles per second. Let W be the waiting time (in seconds) until the fifth count is made.</p>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">2.1</h2>
+<p>What distribution does W follow ?</p>
+<div class="hide">
+<p>W follows a Gamma distribution with shape parameter <span class="math inline">k=5</span> and rate parameter <span class="math inline">\lambda=19.7</span>. In other words, <span class="math inline">W \sim \text{Gamma}(5, 19.7)</span>.</p>
+</div>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">2.2</h2>
+<p>Find the probability that it takes less than 0.1 second to observe the fifth count</p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(W&lt;0.1) =&amp; F_W(0.1) \\
+=&amp; \int_0^{0.1} \frac{19.7^5}{\Gamma(5)} w^{5-1} e^{-19.7w} dw \
+=&amp; \int_0^{0.1} \frac{19.7^5}{4!} w^{4} e^{-19.7w} dw \\
+=&amp; 0.9999
+\end{aligned}
+</span></p>
+</div>
+</section>
+</section>
+<section id="question-3" class="level1">
+<h1>Question 3</h1>
+<p>The number of patients having influenza in Hong Kong is 10 thoundsands per month. For the below calculation you can simply using the unit of thousands.</p>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5">3.1</h2>
+<p>Determine the probability that there will be more than 12 thoundsands patients get influenza in a month.</p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(X&gt;12) =&amp; 1-P(X\leq 12) \\
+=&amp; 1-P  (X=0)+P(X=1)+\dots+P(X=12) \\
+=&amp; 1-\sum_{k=0}^{12} \frac{10^k e^{-10}}{k!} \\
+=&amp; 0.2084
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6">3.2</h2>
+<p>Determine the probability that there will be more than 5 thoundsands patients get influenza in the first two weeks.</p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(X&gt;5) =&amp; 1-P(X\leq 5) \\
+=&amp; 1-P(X=0)+P(X=1)+\dots+P(X=5) \\
+=&amp; 1-\sum_{k=0}^{5} \frac{5^k e^{-5}}{k!} \\
+=&amp; 0.3840
+</span></p>
+</div>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7">3.3</h2>
+<p>It is known that at least 1K patients had been reported between in the first two weeks. Determine the probability that totally there will be more than 5K patients having influenza in the first two weeks.</p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(Y &gt; 5 \mid Y \geq 1) &amp;= \frac{P(Y &gt; 5)}{1 - P(Y = 0)} \\
+&amp;= \frac{0.3840}{1 - e^{-5}} \\
+&amp;\approx \frac{0.3840}{1 - 0.0067} \\
+&amp;\approx \frac{0.3840}{0.9933} \\
+&amp;= \mathbf{0.3866}
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8">3.4</h2>
+<p>From the calculation in 3.3, what will the probability chnage if we have observed more than 1K patients in the first two weeks? What is the interpretation of observing partial information affects the final probability?</p>
+<div class="hide">
+<p>The probability will increase. As the denominator in the conditional probability formula becomes smaller (since we are conditioning on a more specific event), the overall probability will increase. In other words, observing more than 1K patients in the first two weeks provides additional information that makes it more likely for there to be more than 5K patients in total.</p>
+</div>
+</section>
+<section id="question-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<p>Please show that the Poisson distribution can be derived as a limit of the Binomial distribution when the number of trials goes to infinity and the probability of success goes to zero, while keeping the expected number of successes constant. In other words, show that if <span class="math inline">X_n \sim \text{Binomial}(n, \frac{\lambda}{n})</span>, then <span class="math inline">\lim_{n \to \infty} P(X_n = k) = \frac{\lambda^k e^{-\lambda}}{k!}</span> for <span class="math inline">k = 0, 1, 2, \dots</span>.</p>
+<p><em>Calculation hints: In the proof, you may find it useful to use the following limit:</em> <span class="math display">
+\lim_{n \to \infty} \left(1 - \frac{\lambda}{n}\right)^n = e^{-\lambda}
+</span></p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(X=k)= &amp;\lim_{n\rightarrow\infty}\binom{n}{k}p^k(1-p)^{n-k}\\
+= &amp;\lim_{n\rightarrow\infty}\frac{n!}{(n-k)!k!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}\\
+= &amp;\lim_{n\rightarrow\infty}\frac{n!}{n^k(n-k)!}\frac{\lambda^k}{k!}(1-\frac{\lambda}{n})^n(1-\frac{\lambda}{n})^{-k}\\
+= &amp;\lim_{n\rightarrow\infty}\frac{n}{n}\frac{n-1}{n}\dots\frac{n-k+1}{n}\frac{\lambda^k}{k!}(1-\frac{\lambda}{n})^n(1-\frac{\lambda}{n})^{-k}\\
+= &amp; \frac{\lambda^k}{k!}\exp(-\lambda)
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<p>Please show that the Negative Binomial distribution can be approximated by the Poisson distribution when the number of failures <span class="math inline">r</span> goes to infinity and the probability of success <span class="math inline">p</span> goes to 1, while keeping the mean of the Negative Binomial distribution constant. In other words, show that if <span class="math inline">X \sim \text{NegativeBinomial}(r, p)</span> with mean <span class="math inline">\lambda = r\frac{p}{1-p}</span>, then <span class="math inline">\lim_{r \to \infty, p \to 1} P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}</span> for <span class="math inline">k = 0, 1, 2, \dots</span>.</p>
+<p><em>Calculation hints: In the proof, you may find it useful to use the following limits:</em> <span class="math display">
+\lim_{r \to \infty, p \to 1} \left(\frac{\lambda}{r + \lambda}\right)^r = e^{-\lambda}
+</span> and <span class="math display">  
+\lim_{r\rightarrow\infty,p\rightarrow 1}\frac{(x+r-1)!}{x!(r-1)!}  \sim \frac{r^k}{k!}
+</span></p>
+<div class="hide">
+<p>We first define <span class="math inline">\lambda=r\frac{p}{1-p}</span> (i.e., mean of the NB). Consequently, <span class="math inline">p</span> can be expressed as <span class="math inline">\frac{r}{r+\lambda}</span>, and <span class="math inline">1-p</span> is <span class="math inline">\frac{\lambda}{r+\lambda}</span> <span class="math display">
+\small
+\begin{aligned}
+\lim_{r\rightarrow\infty,p\rightarrow 1}\frac{(x+r-1)!}{x!(r-1)!}(\frac{\lambda}{r+\lambda})^r(\frac{r}{r+\lambda})^x \\
+\end{aligned}
+</span></p>
+<p>Binomial coefficient term</p>
+<p><span class="math display">
+\small
+\lim_{r\rightarrow\infty,p\rightarrow 1}\frac{(x+r-1)!}{x!(r-1)!}  \sim \frac{r^k}{k!}
+</span></p>
+<p>Power terms</p>
+<ol type="1">
+<li><p><span class="math display">\begin{aligned}
+\small
+&amp;\lim_{r\rightarrow\infty,p\rightarrow 1}(\frac{\lambda}{r+\lambda})^r
+= \lim_{r\rightarrow\infty,p\rightarrow 1}(\frac{1}{1+\frac{\lambda}{r}})^r
+= \lim_{r\rightarrow\infty,p\rightarrow 1}(1+\frac{\lambda}{r})^{-r}
+=\exp(-\lambda)
+\end{aligned}
+</span></p></li>
+<li><p><span class="math display">\begin{aligned}
+\small
+\lim_{r\rightarrow\infty,p\rightarrow 1}(\frac{\lambda}{r+\lambda})^x = \lim_{r\rightarrow\infty,p\rightarrow 1}\lambda^x\frac{1}{(r+\lambda)^x} = \lambda^k(r(1+\frac{\lambda}{r}))^{-k} = &amp; \frac{\lambda^k}{r^k}(1+\frac{\lambda}{r})^{-k}\\
+= &amp;\frac{\lambda^k}{r^k}
+\end{aligned}
+</span></p></li>
+</ol>
+<p>Combining the three terms, you get <span class="math inline">\lim_{r\rightarrow\infty,p\rightarrow 1}NB(r,p) = Pois(r\frac{p}{1-p})</span></p>
+</div>
+</section>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<p>Please show that the sum of two independent Poisson random variables with parameters <span class="math inline">\lambda_1</span> and <span class="math inline">\lambda_2</span> is also a Poisson random variable with parameter <span class="math inline">\lambda_1 + \lambda_2</span>. In other words, if <span class="math inline">X \sim \text{Poisson}(\lambda_1)</span> and <span class="math inline">Y \sim \text{Poisson}(\lambda_2)</span> are independent, then <span class="math inline">Z = X + Y \sim \text{Poisson}(\lambda_1 + \lambda_2)</span>.</p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+P(Z=k) &amp;= P(X+Y=k) \\
+&amp;= \sum_{i=0}^k P(X=i, Y=k-i) \\
+&amp;= \sum_{i=0}^k P(X=i)P(Y=k-i) \\
+&amp;= \sum_{i=0}^k \frac{\lambda_1^i}{i!} \frac{\lambda_2^{k-i}}{k-i!} e^{-\lambda_1} e^{-\lambda_2} \\
+&amp;= \frac{\lambda_1^k}{k!} \frac{\lambda_2^{k}}{k!} e^{-\lambda_1-\lambda_2} \\
+&amp;= \frac{\lambda_1^k}{k!} \frac{\lambda_2^{ k}}{k!} e^{-(\lambda_1+\lambda_2)} \\
+&amp;= \frac{(\lambda_1 + \lambda_2)^k}{k!} e^{-(\lambda_1+\lambda_2)}
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="question-7" class="level2">
+<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<p>Please show that the negative binomial distribution can be derived as a Poisson distribution with a gamma distribution prior.</p>
+<p>You can started from the the conclusion we had in the class: if <span class="math inline">X | \lambda \sim \text{Poisson}(\lambda)</span> and <span class="math inline">\lambda \sim \text{Gamma}(\alpha, \beta)</span>, the posterior probability of <span class="math inline">\lambda</span> is <span class="math inline">\text{Gamma}(\alpha + \sum_{i=1}^n X_i, \beta + n)</span>.</p>
+<p><em>Calculation hints: In the proof, you may find it useful to use the following properties:</em></p>
+<p><span class="math display">\begin{aligned}
+\int_0^\infty x^{A-1}e^{-Bx}dx =&amp; \frac{\Gamma(A)}{B^A} \\
+\text{ ,and }
+\frac{\Gamma(a+b)}{a! \Gamma(b)} =&amp; \binom{a+b - 1}{a}
+\end{aligned}
+</span></p>
+<div class="hide">
+<p><span class="math display">
+\begin{aligned}
+p(\tilde{x})= &amp;\int_0^\infty\bigl[ \frac{\lambda^{\tilde{x}}e^{-\lambda}}{\tilde{x}!} \bigr]\bigl[  \frac{\beta^\alpha}{\Gamma(\alpha)}\lambda^{\alpha-1}e^{-\beta\lambda} \bigr]d\lambda \\
+=&amp; \frac{\beta^\alpha}{\tilde{x}!\Gamma(\alpha)}\int_0^\infty \lambda^{\tilde{x}+\alpha-1}e^{-(1+\beta)\lambda}d\lambda \\
+=&amp; \frac{\beta^\alpha}{\tilde{x}!\Gamma(\alpha)}\frac{\Gamma(\tilde{x}+\alpha)}{(1+\beta)^{\tilde{x}+\alpha}} \\
+=&amp; \binom{\tilde{x}+\alpha - 1}{\tilde{x}}\Bigl(\frac{\beta}{1+\beta}\Bigr)^{\alpha}\Bigl(\frac{1}{1+\beta}\Bigr)^{\tilde{x}}
+\end{aligned}
+</span></p>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

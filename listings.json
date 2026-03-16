@@ -1,27 +1,20 @@
 [
   {
-    "listing": "/quant.html",
-    "items": [
-      "/BBMS3009/System biology.html",
-      "/BIOF2014/0-Housekeeping.html",
-      "/BIOF2014/1-distribution.html",
-      "/BIOF2014/2-Discrete distribution family.html",
-      "/BIOF2014/3-multivariate.html",
-      "/BIOF2014/1-distribution_sketch.html",
-      "/BIOF2014/2-Discrete distribution family_sketch.html",
-      "/BIOF2014/3-multivariate_sketch.html",
-      "/BIOF2014/1-Question sets_presentation.html",
-      "/BIOF2014/2-Question sets-binomial.html",
-      "/BIOF2014/3-Question sets-multivariate.html",
-      "/BIOF2014/2-Question sets-binomial-sketch.html"
-    ]
-  },
-  {
     "listing": "/hybridPBL.html",
     "items": [
       "/BIOF4002/Global health informatics.html",
       "/BIOF4002/mHealth and telemedicine.html",
       "/BIOF3001/suicide-media-slides.html"
+    ]
+  },
+  {
+    "listing": "/programming.html",
+    "items": [
+      "/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
+      "/BBMS1021/Real_case/Real-example.html",
+      "/BBMS1021/tutorial/tutorial_1.html",
+      "/BBMS1021/tutorial/tutorial_2.html",
+      "/BBMS1021/tutorial/tutorial_3.html"
     ]
   },
   {
@@ -33,13 +26,24 @@
     ]
   },
   {
-    "listing": "/programming.html",
+    "listing": "/quant.html",
     "items": [
-      "/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
-      "/BBMS1021/Real_case/Real-example.html",
-      "/BBMS1021/tutorial/tutorial_1.html",
-      "/BBMS1021/tutorial/tutorial_2.html",
-      "/BBMS1021/tutorial/tutorial_3.html"
+      "/BBMS3009/System biology.html",
+      "/BIOF2014/0-Housekeeping.html",
+      "/BIOF2014/1-distribution.html",
+      "/BIOF2014/2-Discrete distribution family.html",
+      "/BIOF2014/3-multivariate.html",
+      "/BIOF2014/4-Discrete distribution family-2.html",
+      "/BIOF2014/5-Discrete distribution family-3.html",
+      "/BIOF2014/1-distribution_sketch.html",
+      "/BIOF2014/2-Discrete distribution family_sketch.html",
+      "/BIOF2014/3-multivariate_sketch.html",
+      "/BIOF2014/1-Question sets_presentation.html",
+      "/BIOF2014/2-Question sets-binomial.html",
+      "/BIOF2014/3-Question sets-multivariate.html",
+      "/BIOF2014/4-Q-sets-multinomial.html",
+      "/BIOF2014/5-Question sets-poisson.html",
+      "/BIOF2014/2-Question sets-binomial-sketch.html"
     ]
   }
 ]
