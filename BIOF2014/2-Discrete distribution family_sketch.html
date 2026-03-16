@@ -31,72 +31,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9cb3bbe7ede7fcf9806b40b2b458214b.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -368,48 +302,11 @@ P_Y \left( y \right)
 </section>
 <section id="illustration" class="slide level2">
 <h2>Illustration</h2>
-<div id="3ad3188b" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="kw">def</span> plot_binomial_pmf(ns, ps):</span>
-<span id="cb1-6"><a></a>    <span class="co">"""</span></span>
-<span id="cb1-7"><a></a><span class="co">    Plot the PMF of binomial distributions for different n and p values.</span></span>
-<span id="cb1-8"><a></a><span class="co">    </span></span>
-<span id="cb1-9"><a></a><span class="co">    Parameters:</span></span>
-<span id="cb1-10"><a></a><span class="co">    - ns: list of integers, different number of trials (N)</span></span>
-<span id="cb1-11"><a></a><span class="co">    - ps: list of floats, different success probabilities (p)</span></span>
-<span id="cb1-12"><a></a><span class="co">    """</span></span>
-<span id="cb1-13"><a></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="bu">len</span>(ns), <span class="bu">len</span>(ps), figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">6</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-14"><a></a>    fig.suptitle(<span class="st">'Binomial Distribution PMF for Different n and p'</span>)</span>
-<span id="cb1-15"><a></a>    </span>
-<span id="cb1-16"><a></a>    <span class="cf">for</span> i, n <span class="kw">in</span> <span class="bu">enumerate</span>(ns):</span>
-<span id="cb1-17"><a></a>        <span class="cf">for</span> j, p <span class="kw">in</span> <span class="bu">enumerate</span>(ps):</span>
-<span id="cb1-18"><a></a>            <span class="co"># Possible k values</span></span>
-<span id="cb1-19"><a></a>            k <span class="op">=</span> np.arange(<span class="dv">0</span>, n<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb1-20"><a></a>            <span class="co"># PMF values</span></span>
-<span id="cb1-21"><a></a>            pmf <span class="op">=</span> binom.pmf(k, n, p)</span>
-<span id="cb1-22"><a></a>            </span>
-<span id="cb1-23"><a></a>            <span class="co"># Plot as bar chart</span></span>
-<span id="cb1-24"><a></a>            axs[i, j].bar(k, pmf, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb1-25"><a></a>            <span class="cf">if</span> j <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb1-26"><a></a>                axs[i, j].set_ylabel(<span class="ss">f'Probability,n=</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb1-27"><a></a>            <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb1-28"><a></a>                axs[i, j].set_title(<span class="ss">f'Probability,p=</span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb1-29"><a></a>    </span>
-<span id="cb1-30"><a></a>    plt.tight_layout()</span>
-<span id="cb1-31"><a></a>    plt.show()</span>
-<span id="cb1-32"><a></a></span>
-<span id="cb1-33"><a></a><span class="co"># Example usage</span></span>
-<span id="cb1-34"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb1-35"><a></a>    ns <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>]  <span class="co"># Different N values</span></span>
-<span id="cb1-36"><a></a>    ps <span class="op">=</span> [<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>]  <span class="co"># Different p values</span></span>
-<span id="cb1-37"><a></a>    plot_binomial_pmf(ns, ps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="44e95148" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="2-Discrete distribution family_sketch_files/figure-html/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="2-Discrete distribution family_sketch_files/figure-html/cell-2-output-1.png"></a></p>
+<p><a href="2-Discrete distribution family_sketch_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="2-Discrete distribution family_sketch_files/figure-revealjs/cell-2-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -466,60 +363,11 @@ P\left( X = x \mid r, p \right) \; = \;
 </section>
 <section id="illustration-1" class="slide level2">
 <h2>Illustration</h2>
-<div id="df396060" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> nbinom</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="kw">def</span> plot_negative_binomial_pmf(rs, ps, max_multiplier<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb2-6"><a></a>    <span class="co">"""</span></span>
-<span id="cb2-7"><a></a><span class="co">    Plot the PMF of negative binomial distributions for different r (number of successes) and p values.</span></span>
-<span id="cb2-8"><a></a><span class="co">    Here, X = k + r, where k is the number of failures before r successes, and X is the total number of trials.</span></span>
-<span id="cb2-9"><a></a><span class="co">    </span></span>
-<span id="cb2-10"><a></a><span class="co">    Parameters:</span></span>
-<span id="cb2-11"><a></a><span class="co">    - rs: list of integers, different number of successes (r, often denoted as n in some contexts)</span></span>
-<span id="cb2-12"><a></a><span class="co">    - ps: list of floats, different success probabilities (p)</span></span>
-<span id="cb2-13"><a></a><span class="co">    - max_multiplier: int, multiplier for max_k to truncate the plot (default 5)</span></span>
-<span id="cb2-14"><a></a><span class="co">    """</span></span>
-<span id="cb2-15"><a></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="bu">len</span>(rs), <span class="bu">len</span>(ps), figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">6</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-16"><a></a>    fig.suptitle(<span class="st">'Negative Binomial Distribution PMF for Different r and p'</span>)</span>
-<span id="cb2-17"><a></a>    </span>
-<span id="cb2-18"><a></a>    <span class="cf">for</span> i, r <span class="kw">in</span> <span class="bu">enumerate</span>(rs):</span>
-<span id="cb2-19"><a></a>        <span class="cf">for</span> j, p <span class="kw">in</span> <span class="bu">enumerate</span>(ps):</span>
-<span id="cb2-20"><a></a>            <span class="co"># Mean and variance for truncation</span></span>
-<span id="cb2-21"><a></a>            mean_failures <span class="op">=</span> r <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> p) <span class="op">/</span> p</span>
-<span id="cb2-22"><a></a>            var_failures <span class="op">=</span> r <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> p) <span class="op">/</span> p<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb2-23"><a></a>            max_k <span class="op">=</span> <span class="bu">int</span>(mean_failures <span class="op">+</span> max_multiplier <span class="op">*</span> np.sqrt(var_failures))</span>
-<span id="cb2-24"><a></a>            </span>
-<span id="cb2-25"><a></a>            <span class="co"># k values (failures)</span></span>
-<span id="cb2-26"><a></a>            k <span class="op">=</span> np.arange(<span class="dv">0</span>, max_k <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-27"><a></a>            <span class="co"># x values (total trials)</span></span>
-<span id="cb2-28"><a></a>            x <span class="op">=</span> k <span class="op">+</span> r</span>
-<span id="cb2-29"><a></a>            <span class="co"># PMF values for X (same as for k)</span></span>
-<span id="cb2-30"><a></a>            pmf <span class="op">=</span> nbinom.pmf(k, r, p)</span>
-<span id="cb2-31"><a></a>            </span>
-<span id="cb2-32"><a></a>            <span class="co"># Plot as bar chart</span></span>
-<span id="cb2-33"><a></a>            axs[i, j].bar(x, pmf, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb2-34"><a></a>            axs[i, j].set_title(<span class="ss">f'r=</span><span class="sc">{</span>r<span class="sc">}</span><span class="ss">, p=</span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb2-35"><a></a>            axs[i, j].set_xlabel(<span class="st">'x (total trials)'</span>)</span>
-<span id="cb2-36"><a></a>            <span class="cf">if</span> j <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-37"><a></a>                axs[i, j].set_ylabel(<span class="st">'Probability'</span>)</span>
-<span id="cb2-38"><a></a>            <span class="cf">elif</span> j <span class="op">==</span><span class="dv">1</span>:</span>
-<span id="cb2-39"><a></a>                axs[i, j].set_ylim(<span class="dv">0</span>,<span class="fl">0.3</span>)</span>
-<span id="cb2-40"><a></a>            <span class="cf">elif</span> j <span class="op">==</span><span class="dv">2</span>:</span>
-<span id="cb2-41"><a></a>                axs[i, j].set_ylim(<span class="dv">0</span>,<span class="fl">0.2</span>)</span>
-<span id="cb2-42"><a></a>    plt.tight_layout()</span>
-<span id="cb2-43"><a></a>    plt.show()</span>
-<span id="cb2-44"><a></a></span>
-<span id="cb2-45"><a></a><span class="co"># Example usage</span></span>
-<span id="cb2-46"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb2-47"><a></a>    rs <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>]  <span class="co"># Different r values (number of successes)</span></span>
-<span id="cb2-48"><a></a>    ps <span class="op">=</span> [<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>]  <span class="co"># Different p values</span></span>
-<span id="cb2-49"><a></a>    plot_negative_binomial_pmf(rs, ps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="16cdeb64" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="2-Discrete distribution family_sketch_files/figure-html/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="2-Discrete distribution family_sketch_files/figure-html/cell-3-output-1.png"></a></p>
+<p><a href="2-Discrete distribution family_sketch_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="2-Discrete distribution family_sketch_files/figure-revealjs/cell-3-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -554,55 +402,11 @@ p (1 - p)^{x - 1}
 </section>
 <section id="illustration-2" class="slide level2">
 <h2>Illustration</h2>
-<div id="aa109618" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> geom</span>
-<span id="cb3-4"><a></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> ticker</span>
-<span id="cb3-5"><a></a><span class="kw">def</span> plot_geometric_pmf(ps, max_multiplier<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb3-6"><a></a>    <span class="co">"""</span></span>
-<span id="cb3-7"><a></a><span class="co">    Plot the PMF of geometric distributions for different p values.</span></span>
-<span id="cb3-8"><a></a><span class="co">    Here, X is the number of trials until the first success.</span></span>
-<span id="cb3-9"><a></a><span class="co">    </span></span>
-<span id="cb3-10"><a></a><span class="co">    Parameters:</span></span>
-<span id="cb3-11"><a></a><span class="co">    - ps: list of floats, different success probabilities (p)</span></span>
-<span id="cb3-12"><a></a><span class="co">    - max_multiplier: int, multiplier for max_x to truncate the plot (default 5)</span></span>
-<span id="cb3-13"><a></a><span class="co">    """</span></span>
-<span id="cb3-14"><a></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="bu">len</span>(ps), figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-15"><a></a>    fig.suptitle(<span class="st">'Geometric Distribution PMF for Different p (X = trials until success)'</span>)</span>
-<span id="cb3-16"><a></a>    </span>
-<span id="cb3-17"><a></a>    <span class="cf">for</span> j, p <span class="kw">in</span> <span class="bu">enumerate</span>(ps):</span>
-<span id="cb3-18"><a></a>        <span class="co"># Mean and variance for truncation</span></span>
-<span id="cb3-19"><a></a>        mean <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> p</span>
-<span id="cb3-20"><a></a>        var <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> p) <span class="op">/</span> p<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb3-21"><a></a>        max_x <span class="op">=</span> <span class="bu">int</span>(mean <span class="op">+</span> max_multiplier <span class="op">*</span> np.sqrt(var))</span>
-<span id="cb3-22"><a></a>        </span>
-<span id="cb3-23"><a></a>        <span class="co"># x values (trials)</span></span>
-<span id="cb3-24"><a></a>        x <span class="op">=</span> np.arange(<span class="dv">1</span>, max_x <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb3-25"><a></a>        <span class="co"># PMF values</span></span>
-<span id="cb3-26"><a></a>        pmf <span class="op">=</span> geom.pmf(x, p)</span>
-<span id="cb3-27"><a></a>        </span>
-<span id="cb3-28"><a></a>        <span class="co"># Plot as bar chart</span></span>
-<span id="cb3-29"><a></a>        axs[j].bar(x, pmf, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb3-30"><a></a>        axs[j].set_title(<span class="ss">f'p=</span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb3-31"><a></a>        axs[j].set_xlabel(<span class="st">'x (trials until success)'</span>)</span>
-<span id="cb3-32"><a></a>        <span class="cf">if</span> j <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb3-33"><a></a>            axs[j].set_ylabel(<span class="st">'Probability'</span>)</span>
-<span id="cb3-34"><a></a></span>
-<span id="cb3-35"><a></a>        <span class="co"># Adjust xticks to only show at integers</span></span>
-<span id="cb3-36"><a></a>        axs[j].xaxis.set_major_locator(ticker.MaxNLocator(integer<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb3-37"><a></a></span>
-<span id="cb3-38"><a></a>    plt.tight_layout()</span>
-<span id="cb3-39"><a></a>    plt.show()</span>
-<span id="cb3-40"><a></a></span>
-<span id="cb3-41"><a></a><span class="co"># Example usage</span></span>
-<span id="cb3-42"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb3-43"><a></a>    ps <span class="op">=</span> [<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>]  <span class="co"># Different p values</span></span>
-<span id="cb3-44"><a></a>    plot_geometric_pmf(ps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="204ac713" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="2-Discrete distribution family_sketch_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="2-Discrete distribution family_sketch_files/figure-html/cell-4-output-1.png"></a></p>
+<p><a href="2-Discrete distribution family_sketch_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="2-Discrete distribution family_sketch_files/figure-revealjs/cell-4-output-1.png"></a></p>
 </figure>
 </div>
 </div>

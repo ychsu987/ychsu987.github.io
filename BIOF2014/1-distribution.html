@@ -31,72 +31,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-53082a6bf275a1e4c5bfd6eccb1a97b7.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -445,19 +379,11 @@ f_X(x) =
 </ul>
 </div><div class="column" style="width:50%;">
 <div id="cell-fig-unifm" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> uniform</span>
-<span id="cb1-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>,figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">3</span>))</span>
-<span id="cb1-5"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,</span>
-<span id="cb1-6"><a></a>                <span class="dv">10</span>, <span class="dv">100</span>)</span>
-<span id="cb1-7"><a></a>ax.plot(x, uniform.pdf(x,<span class="dv">3</span>,<span class="dv">4</span>),</span>
-<span id="cb1-8"><a></a>       <span class="st">'r-'</span>, lw<span class="op">=</span><span class="dv">5</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">'uniform pdf'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-unifm" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-unifm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="1-distribution_files/figure-html/fig-unifm-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: uniform(3,7)"><img data-src="1-distribution_files/figure-html/fig-unifm-output-1.png"></a>
+<a href="1-distribution_files/figure-revealjs/fig-unifm-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: uniform(3,7)"><img data-src="1-distribution_files/figure-revealjs/fig-unifm-output-1.png"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unifm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: uniform(3,7)
@@ -526,51 +452,11 @@ Figure&nbsp;1: uniform(3,7)
 </div><div class="column" style="width:50%;">
 <p><strong>Example</strong></p>
 <p>Suppose we have observations <span class="math inline">\([1,2,2,2,3,3,4]\)</span> Please plot the empirical pdf and cdf of the observations</p>
-<div id="28c8629e" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># Observations</span></span>
-<span id="cb2-5"><a></a>data <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># Compute unique values and their frequencies</span></span>
-<span id="cb2-8"><a></a>unique, counts <span class="op">=</span> np.unique(data, return_counts<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a><span class="co"># Total number of observations</span></span>
-<span id="cb2-11"><a></a>n <span class="op">=</span> <span class="bu">len</span>(data)</span>
-<span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="co"># Empirical PMF: probabilities</span></span>
-<span id="cb2-14"><a></a>pmf <span class="op">=</span> counts <span class="op">/</span> n</span>
-<span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a><span class="co"># Empirical CDF: cumulative probabilities</span></span>
-<span id="cb2-17"><a></a>cdf <span class="op">=</span> np.cumsum(pmf)</span>
-<span id="cb2-18"><a></a></span>
-<span id="cb2-19"><a></a><span class="co"># Plotting</span></span>
-<span id="cb2-20"><a></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">3</span>))</span>
-<span id="cb2-21"><a></a></span>
-<span id="cb2-22"><a></a><span class="co"># Plot PMF as bar chart</span></span>
-<span id="cb2-23"><a></a>axs[<span class="dv">0</span>].bar(unique, pmf, width<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'blue'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb2-24"><a></a>axs[<span class="dv">0</span>].set_title(<span class="st">'Empirical PMF'</span>)</span>
-<span id="cb2-25"><a></a>axs[<span class="dv">0</span>].set_xlabel(<span class="st">'Value'</span>)</span>
-<span id="cb2-26"><a></a>axs[<span class="dv">0</span>].set_ylabel(<span class="st">'Probability'</span>)</span>
-<span id="cb2-27"><a></a>axs[<span class="dv">0</span>].set_xticks(unique)</span>
-<span id="cb2-28"><a></a>axs[<span class="dv">0</span>].grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb2-29"><a></a></span>
-<span id="cb2-30"><a></a><span class="co"># Plot CDF as step function</span></span>
-<span id="cb2-31"><a></a>axs[<span class="dv">1</span>].step(unique, cdf, where<span class="op">=</span><span class="st">'post'</span>, color<span class="op">=</span><span class="st">'green'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb2-32"><a></a>axs[<span class="dv">1</span>].set_title(<span class="st">'Empirical CDF'</span>)</span>
-<span id="cb2-33"><a></a>axs[<span class="dv">1</span>].set_xlabel(<span class="st">'Value'</span>)</span>
-<span id="cb2-34"><a></a>axs[<span class="dv">1</span>].set_ylabel(<span class="st">'Cumulative Probability'</span>)</span>
-<span id="cb2-35"><a></a>axs[<span class="dv">1</span>].set_xticks(unique)</span>
-<span id="cb2-36"><a></a>axs[<span class="dv">1</span>].set_ylim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
-<span id="cb2-37"><a></a>axs[<span class="dv">1</span>].grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb2-38"><a></a></span>
-<span id="cb2-39"><a></a>plt.tight_layout()</span>
-<span id="cb2-40"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="211a2144" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="1-distribution_files/figure-html/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="1-distribution_files/figure-html/cell-3-output-1.png"></a></p>
+<p><a href="1-distribution_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="1-distribution_files/figure-revealjs/cell-3-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -588,28 +474,6 @@ Figure&nbsp;1: uniform(3,7)
 <li>Scaling the distribution to the width 4 <span class="math inline">\(X\rightarrow 4X\)</span></li>
 <li>Translate it from [0,4] to [3,7]: <span class="math inline">\(X \rightarrow 4X+3\)</span></li>
 </ol>
-<div id="675beded" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> random</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="kw">def</span> generate_uniform_samples(num_samples, a<span class="op">=</span><span class="dv">3</span>, b<span class="op">=</span><span class="dv">7</span>):</span>
-<span id="cb3-4"><a></a>    <span class="co">"""</span></span>
-<span id="cb3-5"><a></a><span class="co">    Generate random samples from Uniform(a, b) using only Uniform(0,1).</span></span>
-<span id="cb3-6"><a></a><span class="co">    </span></span>
-<span id="cb3-7"><a></a><span class="co">    Parameters:</span></span>
-<span id="cb3-8"><a></a><span class="co">    - num_samples: int, number of samples to generate</span></span>
-<span id="cb3-9"><a></a><span class="co">    - a: float, lower bound (default 3)</span></span>
-<span id="cb3-10"><a></a><span class="co">    - b: float, upper bound (default 7)</span></span>
-<span id="cb3-11"><a></a><span class="co">    </span></span>
-<span id="cb3-12"><a></a><span class="co">    Returns:</span></span>
-<span id="cb3-13"><a></a><span class="co">    - list of floats: samples from Uniform(a, b)</span></span>
-<span id="cb3-14"><a></a><span class="co">    """</span></span>
-<span id="cb3-15"><a></a>    samples <span class="op">=</span> []</span>
-<span id="cb3-16"><a></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_samples):</span>
-<span id="cb3-17"><a></a>        u <span class="op">=</span> random.random()  <span class="co"># U ~ Uniform(0,1)</span></span>
-<span id="cb3-18"><a></a>        x <span class="op">=</span> (b <span class="op">-</span> a) <span class="op">*</span> u <span class="op">+</span> a   <span class="co"># Transform to X ~ Uniform(a,b)</span></span>
-<span id="cb3-19"><a></a>        samples.append(x)</span>
-<span id="cb3-20"><a></a>    <span class="cf">return</span> samples</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="inverse-transform-methods" class="slide level2 smaller">
 <h2>Inverse transform methods</h2>
@@ -630,55 +494,11 @@ v = F^{-1}(x)
 \]</span></p>
 <p><strong>Example</strong></p>
 <p>Suppose we have observations <span class="math inline">\([1,2,2,2,3,3,4]\)</span> Please plot the empirical cdf and inverse cdf of the observations</p>
-<div id="66b95e56" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a><span class="co"># Observations</span></span>
-<span id="cb4-5"><a></a>data <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
-<span id="cb4-6"><a></a></span>
-<span id="cb4-7"><a></a><span class="co"># Compute unique values and their frequencies</span></span>
-<span id="cb4-8"><a></a>unique, counts <span class="op">=</span> np.unique(data, return_counts<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-9"><a></a>unique<span class="op">=</span>np.append([<span class="dv">0</span>],unique)</span>
-<span id="cb4-10"><a></a>counts<span class="op">=</span>np.append([<span class="dv">0</span>],counts)</span>
-<span id="cb4-11"><a></a></span>
-<span id="cb4-12"><a></a><span class="co"># Total number of observations</span></span>
-<span id="cb4-13"><a></a>n <span class="op">=</span> <span class="bu">len</span>(data)</span>
-<span id="cb4-14"><a></a></span>
-<span id="cb4-15"><a></a><span class="co"># Empirical PMF: probabilities</span></span>
-<span id="cb4-16"><a></a>pmf <span class="op">=</span> counts <span class="op">/</span> n</span>
-<span id="cb4-17"><a></a></span>
-<span id="cb4-18"><a></a><span class="co"># Empirical CDF: cumulative probabilities</span></span>
-<span id="cb4-19"><a></a>cdf <span class="op">=</span> np.cumsum(pmf)</span>
-<span id="cb4-20"><a></a></span>
-<span id="cb4-21"><a></a><span class="co"># Plotting</span></span>
-<span id="cb4-22"><a></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">3</span>))</span>
-<span id="cb4-23"><a></a><span class="co"># Plot CDF as step function</span></span>
-<span id="cb4-24"><a></a>axs[<span class="dv">0</span>].step(unique, cdf, where<span class="op">=</span><span class="st">'post'</span>, color<span class="op">=</span><span class="st">'green'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb4-25"><a></a>axs[<span class="dv">0</span>].set_title(<span class="st">'Empirical CDF'</span>)</span>
-<span id="cb4-26"><a></a>axs[<span class="dv">0</span>].set_xlabel(<span class="st">'Value'</span>)</span>
-<span id="cb4-27"><a></a>axs[<span class="dv">0</span>].set_ylabel(<span class="st">'Cumulative Probability'</span>)</span>
-<span id="cb4-28"><a></a>axs[<span class="dv">0</span>].set_xticks(unique)</span>
-<span id="cb4-29"><a></a>axs[<span class="dv">0</span>].set_ylim(<span class="dv">0</span>, <span class="fl">1.1</span>)</span>
-<span id="cb4-30"><a></a>axs[<span class="dv">0</span>].grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb4-31"><a></a></span>
-<span id="cb4-32"><a></a>axs[<span class="dv">1</span>].step(cdf,unique<span class="op">+</span><span class="dv">1</span>, where<span class="op">=</span><span class="st">'post'</span>, color<span class="op">=</span><span class="st">'green'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb4-33"><a></a>axs[<span class="dv">1</span>].set_title(<span class="st">'Empirical inverse CDF'</span>)</span>
-<span id="cb4-34"><a></a>axs[<span class="dv">1</span>].set_xlabel(<span class="st">'Cumulative Probability'</span>)</span>
-<span id="cb4-35"><a></a>axs[<span class="dv">1</span>].set_ylabel(<span class="st">'Value'</span>)</span>
-<span id="cb4-36"><a></a>axs[<span class="dv">1</span>].set_yticks(unique)</span>
-<span id="cb4-37"><a></a>axs[<span class="dv">1</span>].set_xlim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb4-38"><a></a>axs[<span class="dv">1</span>].set_ylim(<span class="dv">0</span>, <span class="dv">4</span>)</span>
-<span id="cb4-39"><a></a>axs[<span class="dv">1</span>].grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb4-40"><a></a></span>
-<span id="cb4-41"><a></a></span>
-<span id="cb4-42"><a></a></span>
-<span id="cb4-43"><a></a>plt.tight_layout()</span>
-<span id="cb4-44"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c7a7fe05" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="1-distribution_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="1-distribution_files/figure-html/cell-5-output-1.png"></a></p>
+<p><a href="1-distribution_files/figure-revealjs/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="1-distribution_files/figure-revealjs/cell-5-output-1.png"></a></p>
 </figure>
 </div>
 </div>

@@ -31,72 +31,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -273,55 +207,11 @@ P( X = x) = \frac{\lambda^x}{x!}\exp(-\lambda)
 </section>
 <section id="illustration" class="slide level2">
 <h2>Illustration</h2>
-<div id="eff06278" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span>
-<span id="cb1-4"><a></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> ticker</span>
-<span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a><span class="kw">def</span> plot_poisson_pmf(lambdas, max_multiplier<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb1-7"><a></a>    <span class="co">"""</span></span>
-<span id="cb1-8"><a></a><span class="co">    Plot the PMF of Poisson distributions for different lambda values.</span></span>
-<span id="cb1-9"><a></a><span class="co">    </span></span>
-<span id="cb1-10"><a></a><span class="co">    Parameters:</span></span>
-<span id="cb1-11"><a></a><span class="co">    - lambdas: list of floats, different lambda values (mean and variance)</span></span>
-<span id="cb1-12"><a></a><span class="co">    - max_multiplier: int, multiplier for max_k to truncate the plot (default 5)</span></span>
-<span id="cb1-13"><a></a><span class="co">    """</span></span>
-<span id="cb1-14"><a></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="bu">len</span>(lambdas), figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-15"><a></a>    fig.suptitle(<span class="st">'Poisson Distribution PMF for Different λ'</span>)</span>
-<span id="cb1-16"><a></a>    </span>
-<span id="cb1-17"><a></a>    <span class="cf">for</span> j, lam <span class="kw">in</span> <span class="bu">enumerate</span>(lambdas):</span>
-<span id="cb1-18"><a></a>        <span class="co"># Mean and variance are both lambda</span></span>
-<span id="cb1-19"><a></a>        mean <span class="op">=</span> lam</span>
-<span id="cb1-20"><a></a>        var <span class="op">=</span> lam</span>
-<span id="cb1-21"><a></a>        max_k <span class="op">=</span> <span class="bu">int</span>(mean <span class="op">+</span> max_multiplier <span class="op">*</span> np.sqrt(var))</span>
-<span id="cb1-22"><a></a>        </span>
-<span id="cb1-23"><a></a>        <span class="co"># k values</span></span>
-<span id="cb1-24"><a></a>        k <span class="op">=</span> np.arange(<span class="dv">0</span>, max_k <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb1-25"><a></a>        <span class="co"># PMF values</span></span>
-<span id="cb1-26"><a></a>        pmf <span class="op">=</span> poisson.pmf(k, lam)</span>
-<span id="cb1-27"><a></a>        </span>
-<span id="cb1-28"><a></a>        <span class="co"># Plot as bar chart</span></span>
-<span id="cb1-29"><a></a>        axs[j].bar(k, pmf, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb1-30"><a></a>        axs[j].set_title(<span class="ss">f'λ=</span><span class="sc">{</span>lam<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb1-31"><a></a>        axs[j].set_xlabel(<span class="st">'k (number of events)'</span>)</span>
-<span id="cb1-32"><a></a>        <span class="cf">if</span> j <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb1-33"><a></a>            axs[j].set_ylabel(<span class="st">'Probability'</span>)</span>
-<span id="cb1-34"><a></a>        </span>
-<span id="cb1-35"><a></a>        <span class="co"># Adjust xticks to only show at integers</span></span>
-<span id="cb1-36"><a></a>        axs[j].xaxis.set_major_locator(ticker.MaxNLocator(integer<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb1-37"><a></a>    </span>
-<span id="cb1-38"><a></a>    plt.tight_layout()</span>
-<span id="cb1-39"><a></a>    plt.show()</span>
-<span id="cb1-40"><a></a></span>
-<span id="cb1-41"><a></a><span class="co"># Example usage</span></span>
-<span id="cb1-42"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb1-43"><a></a>    lambdas <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>]  <span class="co"># Different lambda values</span></span>
-<span id="cb1-44"><a></a>    plot_poisson_pmf(lambdas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ede4a87d" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="5-Discrete distribution family-3_files/figure-html/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="5-Discrete distribution family-3_files/figure-html/cell-2-output-1.png"></a></p>
+<p><a href="5-Discrete distribution family-3_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="5-Discrete distribution family-3_files/figure-revealjs/cell-2-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -338,67 +228,11 @@ P( X = x) = \frac{\lambda^x}{x!}\exp(-\lambda)
 </section>
 <section id="illustration-1" class="slide level2">
 <h2>Illustration</h2>
-<div id="58c5b1c9" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom, poisson</span>
-<span id="cb2-4"><a></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> ticker</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="kw">def</span> plot_binomial_poisson_approximation(lam, ns, max_multiplier<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb2-7"><a></a>    <span class="co">"""</span></span>
-<span id="cb2-8"><a></a><span class="co">    Plot the PMF of binomial distributions for different n (with p = lambda/n) </span></span>
-<span id="cb2-9"><a></a><span class="co">    and overlay the Poisson PMF to illustrate the approximation.</span></span>
-<span id="cb2-10"><a></a><span class="co">    </span></span>
-<span id="cb2-11"><a></a><span class="co">    Parameters:</span></span>
-<span id="cb2-12"><a></a><span class="co">    - lam: float, fixed mean lambda for Poisson and np for binomial</span></span>
-<span id="cb2-13"><a></a><span class="co">    - ns: list of integers, different number of trials n (increasing)</span></span>
-<span id="cb2-14"><a></a><span class="co">    - max_multiplier: int, multiplier for max_k to truncate the plot (default 5)</span></span>
-<span id="cb2-15"><a></a><span class="co">    """</span></span>
-<span id="cb2-16"><a></a>    <span class="co"># Determine max_k based on Poisson</span></span>
-<span id="cb2-17"><a></a>    mean <span class="op">=</span> lam</span>
-<span id="cb2-18"><a></a>    var <span class="op">=</span> lam</span>
-<span id="cb2-19"><a></a>    max_k <span class="op">=</span> <span class="bu">int</span>(mean <span class="op">+</span> max_multiplier <span class="op">*</span> np.sqrt(var))</span>
-<span id="cb2-20"><a></a>    </span>
-<span id="cb2-21"><a></a>    <span class="co"># k values</span></span>
-<span id="cb2-22"><a></a>    k <span class="op">=</span> np.arange(<span class="dv">0</span>, max_k <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-23"><a></a>    </span>
-<span id="cb2-24"><a></a>    <span class="co"># Poisson PMF</span></span>
-<span id="cb2-25"><a></a>    pmf_poisson <span class="op">=</span> poisson.pmf(k, lam)</span>
-<span id="cb2-26"><a></a>    </span>
-<span id="cb2-27"><a></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="bu">len</span>(ns), figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-28"><a></a>    fig.suptitle(<span class="ss">f'Binomial Approximation to Poisson (λ=</span><span class="sc">{</span>lam<span class="sc">}</span><span class="ss">) for Increasing n'</span>)</span>
-<span id="cb2-29"><a></a>    </span>
-<span id="cb2-30"><a></a>    <span class="cf">for</span> j, n <span class="kw">in</span> <span class="bu">enumerate</span>(ns):</span>
-<span id="cb2-31"><a></a>        p <span class="op">=</span> lam <span class="op">/</span> n</span>
-<span id="cb2-32"><a></a>        <span class="co"># Binomial PMF</span></span>
-<span id="cb2-33"><a></a>        pmf_binom <span class="op">=</span> binom.pmf(k, n, p)</span>
-<span id="cb2-34"><a></a>        </span>
-<span id="cb2-35"><a></a>        <span class="co"># Plot binomial as bars</span></span>
-<span id="cb2-36"><a></a>        axs[j].bar(k, pmf_binom, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Binomial'</span>)</span>
-<span id="cb2-37"><a></a>        <span class="co"># Plot Poisson as stems (or bars)</span></span>
-<span id="cb2-38"><a></a>        axs[j].bar(k, pmf_poisson, alpha<span class="op">=</span><span class="fl">0.5</span>,  label<span class="op">=</span><span class="st">'Poisson'</span>)</span>
-<span id="cb2-39"><a></a>        </span>
-<span id="cb2-40"><a></a>        axs[j].set_title(<span class="ss">f'n=</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, p=</span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb2-41"><a></a>        axs[j].set_xlabel(<span class="st">'k (number of events/successes)'</span>)</span>
-<span id="cb2-42"><a></a>        <span class="cf">if</span> j <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-43"><a></a>            axs[j].set_ylabel(<span class="st">'Probability'</span>)</span>
-<span id="cb2-44"><a></a>        axs[j].legend()</span>
-<span id="cb2-45"><a></a>        </span>
-<span id="cb2-46"><a></a>        <span class="co"># Adjust xticks to only show at integers</span></span>
-<span id="cb2-47"><a></a>        axs[j].xaxis.set_major_locator(ticker.MaxNLocator(integer<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb2-48"><a></a>    </span>
-<span id="cb2-49"><a></a>    plt.tight_layout()</span>
-<span id="cb2-50"><a></a>    plt.show()</span>
-<span id="cb2-51"><a></a></span>
-<span id="cb2-52"><a></a><span class="co"># Example usage</span></span>
-<span id="cb2-53"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb2-54"><a></a>    lam <span class="op">=</span> <span class="dv">5</span>  <span class="co"># Fixed lambda</span></span>
-<span id="cb2-55"><a></a>    ns <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>]  <span class="co"># Increasing n</span></span>
-<span id="cb2-56"><a></a>    plot_binomial_poisson_approximation(lam, ns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="af2046f7" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="5-Discrete distribution family-3_files/figure-html/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="5-Discrete distribution family-3_files/figure-html/cell-3-output-1.png"></a></p>
+<p><a href="5-Discrete distribution family-3_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="5-Discrete distribution family-3_files/figure-revealjs/cell-3-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -416,67 +250,11 @@ P( X = x) = \frac{\lambda^x}{x!}\exp(-\lambda)
 </section>
 <section id="illustration-2" class="slide level2">
 <h2>Illustration</h2>
-<div id="4dcdaa36" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> nbinom, poisson</span>
-<span id="cb3-4"><a></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> ticker</span>
-<span id="cb3-5"><a></a></span>
-<span id="cb3-6"><a></a><span class="kw">def</span> plot_negative_binomial_poisson_approximation(lam, rs, max_multiplier<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb3-7"><a></a>    <span class="co">"""</span></span>
-<span id="cb3-8"><a></a><span class="co">    Plot the PMF of negative binomial distributions for different r (with p = r/(r + lambda)) </span></span>
-<span id="cb3-9"><a></a><span class="co">    and overlay the Poisson PMF to illustrate the approximation.</span></span>
-<span id="cb3-10"><a></a><span class="co">    </span></span>
-<span id="cb3-11"><a></a><span class="co">    Parameters:</span></span>
-<span id="cb3-12"><a></a><span class="co">    - lam: float, fixed mean lambda for Poisson and r(1-p)/p for negative binomial</span></span>
-<span id="cb3-13"><a></a><span class="co">    - rs: list of integers, different number of successes r (increasing)</span></span>
-<span id="cb3-14"><a></a><span class="co">    - max_multiplier: int, multiplier for max_k to truncate the plot (default 5)</span></span>
-<span id="cb3-15"><a></a><span class="co">    """</span></span>
-<span id="cb3-16"><a></a>    <span class="co"># Determine max_k based on Poisson</span></span>
-<span id="cb3-17"><a></a>    mean <span class="op">=</span> lam</span>
-<span id="cb3-18"><a></a>    var <span class="op">=</span> lam</span>
-<span id="cb3-19"><a></a>    max_k <span class="op">=</span> <span class="bu">int</span>(mean <span class="op">+</span> max_multiplier <span class="op">*</span> np.sqrt(var))</span>
-<span id="cb3-20"><a></a>    </span>
-<span id="cb3-21"><a></a>    <span class="co"># k values</span></span>
-<span id="cb3-22"><a></a>    k <span class="op">=</span> np.arange(<span class="dv">0</span>, max_k <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb3-23"><a></a>    </span>
-<span id="cb3-24"><a></a>    <span class="co"># Poisson PMF</span></span>
-<span id="cb3-25"><a></a>    pmf_poisson <span class="op">=</span> poisson.pmf(k, lam)</span>
-<span id="cb3-26"><a></a>    </span>
-<span id="cb3-27"><a></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="bu">len</span>(rs), figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-28"><a></a>    fig.suptitle(<span class="ss">f'Negative Binomial Approximation to Poisson (λ=</span><span class="sc">{</span>lam<span class="sc">}</span><span class="ss">) for Increasing r'</span>)</span>
-<span id="cb3-29"><a></a>    </span>
-<span id="cb3-30"><a></a>    <span class="cf">for</span> j, r <span class="kw">in</span> <span class="bu">enumerate</span>(rs):</span>
-<span id="cb3-31"><a></a>        p <span class="op">=</span> r <span class="op">/</span> (r <span class="op">+</span> lam)</span>
-<span id="cb3-32"><a></a>        <span class="co"># Negative Binomial PMF (number of failures k)</span></span>
-<span id="cb3-33"><a></a>        pmf_nbinom <span class="op">=</span> nbinom.pmf(k, r, p)</span>
-<span id="cb3-34"><a></a>        </span>
-<span id="cb3-35"><a></a>        <span class="co"># Plot negative binomial as bars</span></span>
-<span id="cb3-36"><a></a>        axs[j].bar(k, pmf_nbinom, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Negative Binomial'</span>)</span>
-<span id="cb3-37"><a></a>        <span class="co"># Plot Poisson as stems</span></span>
-<span id="cb3-38"><a></a>        axs[j].bar(k, pmf_poisson, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Poisson'</span>)</span>
-<span id="cb3-39"><a></a>        </span>
-<span id="cb3-40"><a></a>        axs[j].set_title(<span class="ss">f'r=</span><span class="sc">{</span>r<span class="sc">}</span><span class="ss">, p=</span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb3-41"><a></a>        axs[j].set_xlabel(<span class="st">'k (number of failures/events)'</span>)</span>
-<span id="cb3-42"><a></a>        <span class="cf">if</span> j <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb3-43"><a></a>            axs[j].set_ylabel(<span class="st">'Probability'</span>)</span>
-<span id="cb3-44"><a></a>        axs[j].legend()</span>
-<span id="cb3-45"><a></a>        </span>
-<span id="cb3-46"><a></a>        <span class="co"># Adjust xticks to only show at integers</span></span>
-<span id="cb3-47"><a></a>        axs[j].xaxis.set_major_locator(ticker.MaxNLocator(integer<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb3-48"><a></a>    </span>
-<span id="cb3-49"><a></a>    plt.tight_layout()</span>
-<span id="cb3-50"><a></a>    plt.show()</span>
-<span id="cb3-51"><a></a></span>
-<span id="cb3-52"><a></a><span class="co"># Example usage</span></span>
-<span id="cb3-53"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb3-54"><a></a>    lam <span class="op">=</span> <span class="dv">5</span>  <span class="co"># Fixed lambda</span></span>
-<span id="cb3-55"><a></a>    rs <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>]  <span class="co"># Increasing r</span></span>
-<span id="cb3-56"><a></a>    plot_negative_binomial_poisson_approximation(lam, rs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7340c743" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="5-Discrete distribution family-3_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="5-Discrete distribution family-3_files/figure-html/cell-4-output-1.png"></a></p>
+<p><a href="5-Discrete distribution family-3_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="5-Discrete distribution family-3_files/figure-revealjs/cell-4-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -588,65 +366,11 @@ e^{-n\lambda}\lambda^{\sum x_i}\lambda^{\alpha-1}e^{-\beta\lambda} \\ \propto &a
 </section>
 <section id="illustration-3" class="slide level2 smaller">
 <h2>Illustration</h2>
-<div id="2e9864cb" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> gamma</span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a><span class="co"># 1. Define Data: Observed counts</span></span>
-<span id="cb4-6"><a></a>data <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
-<span id="cb4-7"><a></a>n <span class="op">=</span> <span class="bu">len</span>(data)</span>
-<span id="cb4-8"><a></a>sum_x <span class="op">=</span> np.<span class="bu">sum</span>(data)</span>
-<span id="cb4-9"><a></a>mle <span class="op">=</span> sum_x <span class="op">/</span> n  <span class="co"># MLE = 14/4 = 3.5</span></span>
-<span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a><span class="co"># 2. Define Priors (Gamma parameters: alpha, beta)</span></span>
-<span id="cb4-12"><a></a>priors <span class="op">=</span> [</span>
-<span id="cb4-13"><a></a>    {<span class="st">'name'</span>: <span class="st">'Weak/Broad Prior'</span>, <span class="st">'alpha'</span>: <span class="fl">1.0</span>, <span class="st">'beta'</span>: <span class="fl">0.1</span>},</span>
-<span id="cb4-14"><a></a>    {<span class="st">'name'</span>: <span class="st">'Informative (Matching)'</span>, <span class="st">'alpha'</span>: <span class="fl">14.0</span>, <span class="st">'beta'</span>: <span class="fl">4.0</span>},</span>
-<span id="cb4-15"><a></a>    {<span class="st">'name'</span>: <span class="st">'Informative (Biased)'</span>, <span class="st">'alpha'</span>: <span class="fl">20.0</span>, <span class="st">'beta'</span>: <span class="fl">2.0</span>}</span>
-<span id="cb4-16"><a></a>]</span>
-<span id="cb4-17"><a></a></span>
-<span id="cb4-18"><a></a><span class="co"># X-axis for lambda (rate parameter)</span></span>
-<span id="cb4-19"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">14</span>, <span class="dv">1000</span>)</span>
-<span id="cb4-20"><a></a></span>
-<span id="cb4-21"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">5</span>))</span>
-<span id="cb4-22"><a></a></span>
-<span id="cb4-23"><a></a><span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(priors):</span>
-<span id="cb4-24"><a></a>    ax <span class="op">=</span> axes[i]</span>
-<span id="cb4-25"><a></a>    <span class="co"># Prior Parameters</span></span>
-<span id="cb4-26"><a></a>    a_prior, b_prior <span class="op">=</span> p[<span class="st">'alpha'</span>], p[<span class="st">'beta'</span>]</span>
-<span id="cb4-27"><a></a>    </span>
-<span id="cb4-28"><a></a>    <span class="co"># Posterior Parameters: alpha + sum(x), beta + n</span></span>
-<span id="cb4-29"><a></a>    a_post <span class="op">=</span> a_prior <span class="op">+</span> sum_x</span>
-<span id="cb4-30"><a></a>    b_post <span class="op">=</span> b_prior <span class="op">+</span> n</span>
-<span id="cb4-31"><a></a>    </span>
-<span id="cb4-32"><a></a>    <span class="co"># Calculate PDFs (scipy uses scale = 1/beta)</span></span>
-<span id="cb4-33"><a></a>    y_prior <span class="op">=</span> gamma.pdf(x, a_prior, scale<span class="op">=</span><span class="dv">1</span><span class="op">/</span>b_prior)</span>
-<span id="cb4-34"><a></a>    y_post <span class="op">=</span> gamma.pdf(x, a_post, scale<span class="op">=</span><span class="dv">1</span><span class="op">/</span>b_post)</span>
-<span id="cb4-35"><a></a>    </span>
-<span id="cb4-36"><a></a>    <span class="co"># Likelihood (Normalized for visualization as Gamma(sum_x+1, n))</span></span>
-<span id="cb4-37"><a></a>    y_like <span class="op">=</span> gamma.pdf(x, sum_x <span class="op">+</span> <span class="dv">1</span>, scale<span class="op">=</span><span class="dv">1</span><span class="op">/</span>n)</span>
-<span id="cb4-38"><a></a>    </span>
-<span id="cb4-39"><a></a>    <span class="co"># Plot</span></span>
-<span id="cb4-40"><a></a>    ax.plot(x, y_prior, <span class="st">'g--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Prior $</span><span class="ch">\\</span><span class="ss">alpha=</span><span class="sc">{</span>a_prior<span class="sc">:.1f}</span><span class="ss">, </span><span class="ch">\\</span><span class="ss">beta=</span><span class="sc">{</span>b_prior<span class="sc">:.1f}</span><span class="ss">$'</span>)</span>
-<span id="cb4-41"><a></a>    ax.fill_between(x, y_like, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, label<span class="op">=</span><span class="st">'Likelihood (Data)'</span>)</span>
-<span id="cb4-42"><a></a>    ax.plot(x, y_post, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="ss">f'Posterior  $</span><span class="ch">\\</span><span class="ss">alpha=</span><span class="sc">{</span>a_post<span class="sc">:.1f}</span><span class="ss">, </span><span class="ch">\\</span><span class="ss">beta=</span><span class="sc">{</span>b_post<span class="sc">:.1f}</span><span class="ss">$'</span>)</span>
-<span id="cb4-43"><a></a>    </span>
-<span id="cb4-44"><a></a>    <span class="co"># Mark MLE</span></span>
-<span id="cb4-45"><a></a>    ax.axvline(mle, color<span class="op">=</span><span class="st">'k'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, label<span class="op">=</span><span class="ss">f'MLE=</span><span class="sc">{</span>mle<span class="sc">:.1f}</span><span class="ss">'</span>)</span>
-<span id="cb4-46"><a></a>    </span>
-<span id="cb4-47"><a></a>    ax.set_title(p[<span class="st">'name'</span>])</span>
-<span id="cb4-48"><a></a>    ax.set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">lambda</span><span class="dv">$</span><span class="vs"> </span><span class="kw">(</span><span class="vs">Rate</span><span class="kw">)</span><span class="vs">'</span>)</span>
-<span id="cb4-49"><a></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>: ax.set_ylabel(<span class="st">'Density'</span>)</span>
-<span id="cb4-50"><a></a>    ax.legend()</span>
-<span id="cb4-51"><a></a>    ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-52"><a></a></span>
-<span id="cb4-53"><a></a>plt.suptitle(<span class="ss">f'Gamma-Poisson Bayesian Update (Data: </span><span class="sc">{</span><span class="bu">list</span>(<span class="bu">map</span>(<span class="bu">str</span>,data))<span class="sc">}</span><span class="ss">)'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb4-54"><a></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ec7838e1" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="5-Discrete distribution family-3_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="5-Discrete distribution family-3_files/figure-html/cell-5-output-1.png"></a></p>
+<p><a href="5-Discrete distribution family-3_files/figure-revealjs/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="5-Discrete distribution family-3_files/figure-revealjs/cell-5-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -655,77 +379,11 @@ e^{-n\lambda}\lambda^{\sum x_i}\lambda^{\alpha-1}e^{-\beta\lambda} \\ \propto &a
 <section id="posterior-predictive-distribution" class="slide level2 smaller">
 <h2>Posterior predictive distribution</h2>
 <p>The posterior predicitive distribution of <span class="math inline">\(p(\tilde{x}|\text{data})\)</span> follows Negative binomial distribution</p>
-<div id="cecfb7c2" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> nbinom</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a><span class="co"># 1. Define Data</span></span>
-<span id="cb5-6"><a></a>data <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
-<span id="cb5-7"><a></a>n_data <span class="op">=</span> <span class="bu">len</span>(data)</span>
-<span id="cb5-8"><a></a>sum_x <span class="op">=</span> np.<span class="bu">sum</span>(data)</span>
-<span id="cb5-9"><a></a></span>
-<span id="cb5-10"><a></a><span class="co"># 2. Define Priors</span></span>
-<span id="cb5-11"><a></a>priors <span class="op">=</span> [</span>
-<span id="cb5-12"><a></a>    {<span class="st">'name'</span>: <span class="st">'Weak Prior'</span>, <span class="st">'alpha'</span>: <span class="fl">1.0</span>, <span class="st">'beta'</span>: <span class="fl">0.1</span>},</span>
-<span id="cb5-13"><a></a>    {<span class="st">'name'</span>: <span class="st">'Matching Prior'</span>, <span class="st">'alpha'</span>: <span class="fl">14.0</span>, <span class="st">'beta'</span>: <span class="fl">4.0</span>},</span>
-<span id="cb5-14"><a></a>    {<span class="st">'name'</span>: <span class="st">'Biased Prior'</span>, <span class="st">'alpha'</span>: <span class="fl">20.0</span>, <span class="st">'beta'</span>: <span class="fl">2.0</span>}</span>
-<span id="cb5-15"><a></a>]</span>
-<span id="cb5-16"><a></a></span>
-<span id="cb5-17"><a></a><span class="co"># Grid setup</span></span>
-<span id="cb5-18"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">3</span>))</span>
-<span id="cb5-19"><a></a>x_counts <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">20</span>)  <span class="co"># Discrete range for counts</span></span>
-<span id="cb5-20"><a></a></span>
-<span id="cb5-21"><a></a><span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(priors):</span>
-<span id="cb5-22"><a></a>    ax <span class="op">=</span> axes[i]</span>
-<span id="cb5-23"><a></a>    </span>
-<span id="cb5-24"><a></a>    <span class="co"># Parameters</span></span>
-<span id="cb5-25"><a></a>    prior_a, prior_b <span class="op">=</span> p[<span class="st">'alpha'</span>], p[<span class="st">'beta'</span>]</span>
-<span id="cb5-26"><a></a>    post_a <span class="op">=</span> prior_a <span class="op">+</span> sum_x</span>
-<span id="cb5-27"><a></a>    post_b <span class="op">=</span> prior_b <span class="op">+</span> n_data</span>
-<span id="cb5-28"><a></a>    </span>
-<span id="cb5-29"><a></a>    <span class="co"># 1. Observed Data (Normalized Histogram)</span></span>
-<span id="cb5-30"><a></a>    obs_counts <span class="op">=</span> np.bincount(data, minlength<span class="op">=</span><span class="bu">len</span>(x_counts))</span>
-<span id="cb5-31"><a></a>    obs_freq <span class="op">=</span> obs_counts <span class="op">/</span> n_data</span>
-<span id="cb5-32"><a></a>    obs_freq <span class="op">=</span> obs_freq[:<span class="bu">len</span>(x_counts)]</span>
-<span id="cb5-33"><a></a>    </span>
-<span id="cb5-34"><a></a>    <span class="co"># 2. Prior Predictive (Negative Binomial)</span></span>
-<span id="cb5-35"><a></a>    <span class="co"># n = alpha, p = beta / (beta + 1)</span></span>
-<span id="cb5-36"><a></a>    pp_n <span class="op">=</span> prior_a</span>
-<span id="cb5-37"><a></a>    pp_p <span class="op">=</span> prior_b <span class="op">/</span> (prior_b <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb5-38"><a></a>    pmf_prior_pred <span class="op">=</span> nbinom.pmf(x_counts, pp_n, pp_p)</span>
-<span id="cb5-39"><a></a>    </span>
-<span id="cb5-40"><a></a>    <span class="co"># 3. Posterior Predictive (Negative Binomial)</span></span>
-<span id="cb5-41"><a></a>    post_n <span class="op">=</span> post_a</span>
-<span id="cb5-42"><a></a>    post_p <span class="op">=</span> post_b <span class="op">/</span> (post_b <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb5-43"><a></a>    pmf_post_pred <span class="op">=</span> nbinom.pmf(x_counts, post_n, post_p)</span>
-<span id="cb5-44"><a></a>    </span>
-<span id="cb5-45"><a></a>    <span class="co"># Plotting</span></span>
-<span id="cb5-46"><a></a>    width <span class="op">=</span> <span class="fl">0.35</span></span>
-<span id="cb5-47"><a></a>    </span>
-<span id="cb5-48"><a></a>    <span class="co"># Bar 1: Observed Data</span></span>
-<span id="cb5-49"><a></a>    ax.bar(x_counts <span class="op">-</span> width<span class="op">/</span><span class="dv">2</span>, obs_freq, width<span class="op">=</span>width, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, label<span class="op">=</span><span class="st">'Observed Data'</span>)</span>
-<span id="cb5-50"><a></a>    </span>
-<span id="cb5-51"><a></a>    <span class="co"># Bar 2: Posterior Predictive (Distinct Color)</span></span>
-<span id="cb5-52"><a></a>    ax.bar(x_counts <span class="op">+</span> width<span class="op">/</span><span class="dv">2</span>, pmf_post_pred, width<span class="op">=</span>width, color<span class="op">=</span><span class="st">'#3498db'</span>, alpha<span class="op">=</span><span class="fl">0.9</span>, label<span class="op">=</span><span class="st">'Posterior Predictive'</span>)</span>
-<span id="cb5-53"><a></a>    </span>
-<span id="cb5-54"><a></a>    <span class="co"># Line: Prior Predictive</span></span>
-<span id="cb5-55"><a></a>    ax.plot(x_counts, pmf_prior_pred, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>, label<span class="op">=</span><span class="st">'Prior'</span>)</span>
-<span id="cb5-56"><a></a>    </span>
-<span id="cb5-57"><a></a>    ax.set_title(<span class="ss">f"Predictive Distribution</span><span class="ch">\n</span><span class="ss">(</span><span class="sc">{</span>p[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb5-58"><a></a>    ax.set_xlabel(<span class="st">'Count (x)'</span>)</span>
-<span id="cb5-59"><a></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb5-60"><a></a>        ax.set_ylabel(<span class="st">'Probability'</span>)</span>
-<span id="cb5-61"><a></a>        ax.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
-<span id="cb5-62"><a></a>    </span>
-<span id="cb5-63"><a></a>    ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb5-64"><a></a></span>
-<span id="cb5-65"><a></a>plt.suptitle(<span class="st">'Bayesian Update: Posterior Predictive Distributions'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb5-66"><a></a>plt.tight_layout(rect<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.95</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3bfc8215" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="5-Discrete distribution family-3_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="5-Discrete distribution family-3_files/figure-html/cell-6-output-1.png"></a></p>
+<p><a href="5-Discrete distribution family-3_files/figure-revealjs/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="5-Discrete distribution family-3_files/figure-revealjs/cell-6-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -757,70 +415,11 @@ p(\lambda\mid x_1\dots x_i) \propto &amp; \quad p( x_1\dots x_i \mid\lambda)\tex
 </section>
 <section id="illustration-4" class="slide level2">
 <h2>Illustration</h2>
-<div id="2942ff6a" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> gamma</span>
-<span id="cb6-4"><a></a></span>
-<span id="cb6-5"><a></a><span class="co"># 1. Define Data</span></span>
-<span id="cb6-6"><a></a><span class="co"># Synthetic data: n=5, sum(x)=2.5 -&gt; MLE = 5/2.5 = 2.0</span></span>
-<span id="cb6-7"><a></a>data_points <span class="op">=</span> np.array([<span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>]) </span>
-<span id="cb6-8"><a></a>n <span class="op">=</span> <span class="bu">len</span>(data_points)</span>
-<span id="cb6-9"><a></a>sum_x <span class="op">=</span> np.<span class="bu">sum</span>(data_points)</span>
-<span id="cb6-10"><a></a>mle <span class="op">=</span> n <span class="op">/</span> sum_x  <span class="co"># MLE for exponential rate lambda</span></span>
-<span id="cb6-11"><a></a></span>
-<span id="cb6-12"><a></a><span class="co"># 2. Define Priors (Gamma parameters: alpha, beta)</span></span>
-<span id="cb6-13"><a></a>priors <span class="op">=</span> [</span>
-<span id="cb6-14"><a></a>    {<span class="st">'name'</span>: <span class="st">'Weak/Broad Prior'</span>, <span class="st">'alpha'</span>: <span class="fl">1.0</span>, <span class="st">'beta'</span>: <span class="fl">0.1</span>},</span>
-<span id="cb6-15"><a></a>    {<span class="st">'name'</span>: <span class="st">'Informative (Matching)'</span>, <span class="st">'alpha'</span>: <span class="fl">4.0</span>, <span class="st">'beta'</span>: <span class="fl">2.0</span>},</span>
-<span id="cb6-16"><a></a>    {<span class="st">'name'</span>: <span class="st">'Informative (Biased)'</span>, <span class="st">'alpha'</span>: <span class="fl">10.0</span>, <span class="st">'beta'</span>: <span class="fl">2.0</span>}</span>
-<span id="cb6-17"><a></a>]</span>
-<span id="cb6-18"><a></a></span>
-<span id="cb6-19"><a></a><span class="co"># X-axis for lambda</span></span>
-<span id="cb6-20"><a></a>x_axis <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">1000</span>)</span>
-<span id="cb6-21"><a></a></span>
-<span id="cb6-22"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">6</span>))</span>
-<span id="cb6-23"><a></a></span>
-<span id="cb6-24"><a></a><span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(priors):</span>
-<span id="cb6-25"><a></a>    ax <span class="op">=</span> axes[i]</span>
-<span id="cb6-26"><a></a>    </span>
-<span id="cb6-27"><a></a>    <span class="co"># Prior Parameters</span></span>
-<span id="cb6-28"><a></a>    prior_a, prior_b <span class="op">=</span> p[<span class="st">'alpha'</span>], p[<span class="st">'beta'</span>]</span>
-<span id="cb6-29"><a></a>    </span>
-<span id="cb6-30"><a></a>    <span class="co"># Posterior Parameters (Gamma conjugate update for Exponential)</span></span>
-<span id="cb6-31"><a></a>    <span class="co"># alpha_new = alpha + n</span></span>
-<span id="cb6-32"><a></a>    <span class="co"># beta_new = beta + sum(x)</span></span>
-<span id="cb6-33"><a></a>    post_a <span class="op">=</span> prior_a <span class="op">+</span> n</span>
-<span id="cb6-34"><a></a>    post_b <span class="op">=</span> prior_b <span class="op">+</span> sum_x</span>
-<span id="cb6-35"><a></a>    </span>
-<span id="cb6-36"><a></a>    <span class="co"># Calculate PDFs (scipy uses scale = 1/beta)</span></span>
-<span id="cb6-37"><a></a>    y_prior <span class="op">=</span> gamma.pdf(x_axis, prior_a, scale<span class="op">=</span><span class="fl">1.0</span><span class="op">/</span>prior_b)</span>
-<span id="cb6-38"><a></a>    y_post <span class="op">=</span> gamma.pdf(x_axis, post_a, scale<span class="op">=</span><span class="fl">1.0</span><span class="op">/</span>post_b)</span>
-<span id="cb6-39"><a></a>    </span>
-<span id="cb6-40"><a></a>    <span class="co"># Likelihood (Normalized to integrate to 1 for comparison)</span></span>
-<span id="cb6-41"><a></a>    <span class="co"># Shape is Gamma(n+1, sum(x))</span></span>
-<span id="cb6-42"><a></a>    y_like <span class="op">=</span> gamma.pdf(x_axis, n <span class="op">+</span> <span class="dv">1</span>, scale<span class="op">=</span><span class="fl">1.0</span><span class="op">/</span>sum_x)</span>
-<span id="cb6-43"><a></a>    </span>
-<span id="cb6-44"><a></a>    <span class="co"># Plotting</span></span>
-<span id="cb6-45"><a></a>    ax.plot(x_axis, y_prior, <span class="st">'g--'</span>, lw<span class="op">=</span><span class="dv">2</span>,  label<span class="op">=</span><span class="ss">f'Prior $</span><span class="ch">\\</span><span class="ss">alpha=</span><span class="sc">{</span>a_prior<span class="sc">:.1f}</span><span class="ss">, </span><span class="ch">\\</span><span class="ss">beta=</span><span class="sc">{</span>b_prior<span class="sc">:.1f}</span><span class="ss">$'</span>)</span>
-<span id="cb6-46"><a></a>    ax.fill_between(x_axis, y_like, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.2</span>, label<span class="op">=</span><span class="st">'Likelihood (Data)'</span>)</span>
-<span id="cb6-47"><a></a>    ax.plot(x_axis, y_post, <span class="st">'b-'</span>, lw<span class="op">=</span><span class="dv">3</span>,label<span class="op">=</span><span class="ss">f'Posterior  $</span><span class="ch">\\</span><span class="ss">alpha=</span><span class="sc">{</span>a_post<span class="sc">:.1f}</span><span class="ss">, </span><span class="ch">\\</span><span class="ss">beta=</span><span class="sc">{</span>b_post<span class="sc">:.1f}</span><span class="ss">$'</span>)</span>
-<span id="cb6-48"><a></a>    </span>
-<span id="cb6-49"><a></a>    <span class="co"># MLE Line</span></span>
-<span id="cb6-50"><a></a>    ax.axvline(mle, color<span class="op">=</span><span class="st">'k'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, label<span class="op">=</span><span class="ss">f'MLE=</span><span class="sc">{</span>mle<span class="sc">:.1f}</span><span class="ss">'</span>)</span>
-<span id="cb6-51"><a></a>    </span>
-<span id="cb6-52"><a></a>    ax.set_title(p[<span class="st">'name'</span>])</span>
-<span id="cb6-53"><a></a>    ax.set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">lambda</span><span class="dv">$</span><span class="vs"> </span><span class="kw">(</span><span class="vs">Rate</span><span class="kw">)</span><span class="vs">'</span>)</span>
-<span id="cb6-54"><a></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>: ax.set_ylabel(<span class="st">'Density'</span>)</span>
-<span id="cb6-55"><a></a>    ax.legend()</span>
-<span id="cb6-56"><a></a>    ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb6-57"><a></a></span>
-<span id="cb6-58"><a></a>plt.suptitle(<span class="ss">f'Gamma-Exponential Bayesian Update (n=</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, sum(x)=</span><span class="sc">{</span>sum_x<span class="sc">:.1f}</span><span class="ss">)'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb6-59"><a></a>plt.tight_layout(rect<span class="op">=</span>[<span class="dv">0</span>, <span class="fl">0.03</span>, <span class="dv">1</span>, <span class="fl">0.95</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ce65bbd5" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="5-Discrete distribution family-3_files/figure-html/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="5-Discrete distribution family-3_files/figure-html/cell-7-output-1.png"></a></p>
+<p><a href="5-Discrete distribution family-3_files/figure-revealjs/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="5-Discrete distribution family-3_files/figure-revealjs/cell-7-output-1.png"></a></p>
 </figure>
 </div>
 </div>
