@@ -1628,7 +1628,7 @@
     "href": "BIOF2014/1-distribution.html#continuous-uniform-distribution",
     "title": "Uniform Distribution",
     "section": "Continuous Uniform Distribution",
-    "text": "Continuous Uniform Distribution\n\nWe write a random variable \\(X\\) follows a continuous uniform distribution over an interval \\([a, b]\\) as \\(X \\sim \\text{Uniform}\\left(a, b\\right)\\) if\nDefinition\n\nSupport: \\([a,b]\\)\nParameter: \\(a,b\\) range\npdf \\[\nf_X(x) =\n\\begin{cases}\n\\frac{1}{b - a} & \\text{ if } x \\in [a, b] \\\\\n0 & \\text{otherwise} ,\n\\end{cases}\n\\]\nMean: \\((a+b)/2\\)\nVariance: \\((b-a)^2/12\\)\n\n\n\n\n\n\n\n\n\n\nFigure 1: uniform(3,7)"
+    "text": "Continuous Uniform Distribution\n\nWe write a random variable \\(X\\) follows a continuous uniform distribution over an interval \\([a, b]\\) as \\(X \\sim \\text{Uniform}\\left(a, b\\right)\\) if\nDefinition\n\nSupport: \\([a,b]\\)\nParameter: \\(a,b\\) range\npdf \\[\nf_X(x) =\n\\begin{cases}\n\\frac{1}{b - a} & \\text{ if } x \\in [a, b] \\\\\n0 & \\text{otherwise} ,\n\\end{cases}\n\\]\nMean: \\((a+b)/2\\)\nVariance: \\((b-a)^2/12\\)"
   },
   {
     "objectID": "BIOF2014/1-distribution.html#example",
@@ -2636,7 +2636,7 @@
     "href": "BIOF2014/1-distribution_sketch.html#continuous-uniform-distribution",
     "title": "Uniform Distribution",
     "section": "Continuous Uniform Distribution",
-    "text": "Continuous Uniform Distribution\n\nWe write a random variable \\(X\\) follows a continuous uniform distribution over an interval \\([a, b]\\) as \\(X \\sim \\text{Uniform}\\left(a, b\\right)\\) if\nDefinition\n\nSupport: \\([a,b]\\)\nParameter: \\(a,b\\) range\npdf \\[\nf_X(x) =\n\\begin{cases}\n\\frac{1}{b - a} & \\text{ if } x \\in [a, b] \\\\\n0 & \\text{otherwise} ,\n\\end{cases}\n\\]\nMean: \\((a+b)/2\\)\nVariance: \\((b-a)^2/12\\)\n\n\n\n\n\n\n\n\n\n\nFigure 1: uniform(3,7)"
+    "text": "Continuous Uniform Distribution\n\nWe write a random variable \\(X\\) follows a continuous uniform distribution over an interval \\([a, b]\\) as \\(X \\sim \\text{Uniform}\\left(a, b\\right)\\) if\nDefinition\n\nSupport: \\([a,b]\\)\nParameter: \\(a,b\\) range\npdf \\[\nf_X(x) =\n\\begin{cases}\n\\frac{1}{b - a} & \\text{ if } x \\in [a, b] \\\\\n0 & \\text{otherwise} ,\n\\end{cases}\n\\]\nMean: \\((a+b)/2\\)\nVariance: \\((b-a)^2/12\\)"
   },
   {
     "objectID": "BIOF2014/1-distribution_sketch.html#example",
