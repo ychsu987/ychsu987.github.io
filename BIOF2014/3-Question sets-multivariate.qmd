@@ -1,5 +1,5 @@
 ---
-title: "Question sets"
+title: "Question sets-Multivariate Statistics"
 subtitle: "Multivariate statistics"
 format:
   html:

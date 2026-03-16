@@ -13,6 +13,8 @@ listing:
         - BIOF2014/1-distribution.qmd
         - BIOF2014/2-Discrete distribution family.qmd
         - BIOF2014/3-multivariate.qmd
+        - BIOF2014/4-Discrete distribution family-2.qmd
+        - BIOF2014/5-Discrete distribution family-3.qmd
       fields: [title, subtitle, image]
       type: default
       sort: false
@@ -29,6 +31,8 @@ listing:
         - BIOF2014/1-Question sets-discrete.qmd
         - BIOF2014/2-Question sets-binomial.qmd
         - BIOF2014/3-Question sets-multivariate.qmd
+        - BIOF2014/4-Q-sets-multinomial.qmd
+        - BIOF2014/5-Question sets-poisson.qmd
       fields: [title]
       type: default
       sort: false

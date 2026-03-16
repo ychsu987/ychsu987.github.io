@@ -1,5 +1,5 @@
 ---
-title: "Multivariate <br/> statistics"
+title: "Multivariate statistics"
 author: Yu Cheng Hsu
 title-slide-attributes:
     data-background-image: img/cover-multivariate.jpg

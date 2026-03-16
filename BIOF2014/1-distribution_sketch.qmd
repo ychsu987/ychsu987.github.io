@@ -1,5 +1,5 @@
 ---
-title: "Uniform<br/>Distribution"
+title: "Uniform Distribution"
 title-slide-attributes:
     data-background-image: img/cover-distribution.jpg
     data-background-size:  35% 100%

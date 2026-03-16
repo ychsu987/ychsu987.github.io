@@ -1,5 +1,5 @@
 ---
-title: "Discrete </br>Distribution</br>Family"
+title: "Discrete Distribution Family"
 subtitle: "Binomial distribution family"
 author: Yu Cheng Hsu
 title-slide-attributes:
