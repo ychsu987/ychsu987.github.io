@@ -324,6 +324,8 @@ $$
 ::: {.column width="50%"}
 
 ```{python}
+#| echo: false
+
 #| label: fig-unifm
 #| fig-cap: "uniform(3,7)"
 
@@ -417,6 +419,8 @@ where $I$ is the indicator function.
 Suppose we have observations $[1,2,2,2,3,3,4]$ Please plot the empirical pdf and cdf of the observations
 
 ```{python}
+#| echo: false
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -477,6 +481,8 @@ We want to generate random samples $X\sim\text{uniform}(3,7)$
 2. Translate it from [0,4] to [3,7]: $X \rightarrow 4X+3$
 
 ```{python}
+#| echo: false
+
 import random
 
 def generate_uniform_samples(num_samples, a=3, b=7):
@@ -526,6 +532,8 @@ $$
 Suppose we have observations $[1,2,2,2,3,3,4]$ Please plot the empirical cdf and inverse cdf of the observations
 
 ```{python}
+#| echo: false
+
 import numpy as np
 import matplotlib.pyplot as plt
 

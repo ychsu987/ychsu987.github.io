@@ -6,7 +6,7 @@ format:
     html-math-method: katex
     css: [student_view.scss]
   revealjs:
-    output-file: 3-Question sets_presentation.html
+    output-file: 5-Question sets_presentation.html
     theme: [default, student_view.scss]
 engine: knitr 
 ---

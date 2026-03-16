@@ -131,12 +131,16 @@
     "5-Discrete distribution family-3.html": "bed8ac77"
   },
   "BIOF2014/4-Q-sets-multinomial.qmd": {
-    "4-Q-sets-multinomial.html": "d1662185"
+    "4-Q-sets-multinomial.html": "d1662185",
+    "3-Question sets_presentation.html": "65a7d3e9",
+    "4-Question sets_presentation.html": "a4195427"
   },
   "BIOF2014/4-Discrete distribution family-2.qmd": {
     "4-Discrete distribution family-2.html": "51a8f75e"
   },
   "BIOF2014/5-Question sets-poisson.qmd": {
-    "5-Question sets-poisson.html": "7a34afa7"
+    "5-Question sets-poisson.html": "7a34afa7",
+    "3-Question sets_presentation.html": "24dab709",
+    "5-Question sets_presentation.html": "ffd23b83"
   }
 }

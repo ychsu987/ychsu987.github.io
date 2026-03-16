@@ -160,6 +160,8 @@ We are tossing an unfair coins for 10 times with $p(H) = 0.3$. What is the proba
 ## Illustration
 
 ```{python}
+#| echo: false
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import binom
@@ -252,6 +254,8 @@ $$
 ## Illustration
 
 ```{python}
+#| echo: false
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import nbinom
@@ -338,6 +342,8 @@ A mobile game has a 5% draw a SSR card. In average, how many draws do you need t
 ## Illustration
 
 ```{python}
+#| echo: false
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import geom
