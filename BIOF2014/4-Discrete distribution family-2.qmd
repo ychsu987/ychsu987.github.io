@@ -10,8 +10,9 @@ format:
   revealjs:
     theme: 
         - default
-        - general_style.scss
-        - student_view.scss
+    css:
+        - general_style.css
+        - solution_view.css
     slide-number: true
     reference-location: margin
     chalkboard:
@@ -127,8 +128,6 @@ The Dirichlet distribution is the conjugate prior of the Categorical and Multino
 
 
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import dirichlet
@@ -332,8 +331,6 @@ $$
 Dirichlet prior adds a psuedo $\alpha$ observations. (The observed data is [8,2,2])
 
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -434,8 +431,6 @@ $$
 **Interpretation**: The $\alpha_i$ values act as "imaginary" observations seen before the experiment.
 
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.tri as tri
@@ -619,8 +614,6 @@ $$
 For a dichotomous predictor $x$ with values 0 and 1, $\beta$ is the log odds ratio ($\log(\text{OR})$).
 
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
  
@@ -737,8 +730,6 @@ In clinical practice, for stone diameters less than 2cm, doctors usually conduct
 
 Model: (Success/Fail) ~ Stone size + Treatment
 ```{python}
-#| echo: false
-
 # 1. Create the dataset
 from io import StringIO
 import pandas as pd
@@ -819,8 +810,6 @@ $$
 Illustration: $\alpha_{-1}=-3,\alpha_{0}=2, \beta=1.5$
 
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
  

@@ -1,11 +1,11 @@
 ---
-title: "Question sets-Multivariate Discrete Distributions"
+title: "Question sets"
 subtitle: "Multivariate discrete distributions"
 format:
   html:
     toc: true
     html-math-method: katex
-    css: [student_view.scss]
+    css: [solution_view.scss]
   revealjs:
     output-file: 4-Question sets_presentation.html
     theme: [default, student_view.scss]
@@ -23,9 +23,9 @@ Let $X = \{x_1, \dots, x_N\}$ be $N$ independent observations following a Catego
 
 :::{.hide}
 
-The likelihood function for $N$ independent categorical observations is the product of the probabilities of the observed classes. Let $n_k$ be the count of observations in class $k$ such that $\sum_{k=1}^K n_k = N$.
+The probability for $N$ independent categorical observations is the product of the probabilities of the observed classes. Let $n_k$ be the count of observations in class $k$ such that $\sum_{k=1}^K n_k = N$.
 $$ 
-L(\mathbf{p} | X) = \prod_{i=1}^N P(x_i | \mathbf{p}) = \prod_{k=1}^K p_k^{n_k}
+P(\mathbf{p} | X) = \prod_{i=1}^N P(x_i | \mathbf{p}) = \prod_{k=1}^K p_k^{n_k}
 $$
 
 The prior distribution for $\mathbf{p}$ is Dirichlet with parameters $\boldsymbol{\alpha}$
@@ -36,7 +36,7 @@ $$
 The posterior distribution is proportional to the product of the likelihood and the prior:
 $$
   \begin{aligned}
-  P(\mathbf{p} | X) &\propto L(\mathbf{p} | X) \times P(\mathbf{p}) \\
+  P(\mathbf{p} | X) &\propto P(\mathbf{p} | X) \times P(\mathbf{p}) \\
   &\propto \left( \prod_{k=1}^K p_k^{n_k} \right) \left( \prod_{k=1}^K p_k^{\alpha_k - 1} \right) \\
   &\propto \prod_{k=1}^K p_k^{(n_k + \alpha_k) - 1}
   \end{aligned}
@@ -49,7 +49,7 @@ $$
 
 :::
 
-2. Show that the posterior predictive probability of a new observation $\tilde{x}$ belonging to class $k$ is:
+1. Show that the posterior predictive probability of a new observation $\tilde{x}$ belonging to class $k$ is:
 
   $$
   P(\tilde{x} = k | X) = \frac{\alpha_k + n_k}{\sum_{j=1}^K \alpha_j + N}

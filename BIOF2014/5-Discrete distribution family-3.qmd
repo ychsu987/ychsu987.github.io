@@ -66,8 +66,6 @@ $$
 ## Illustration
 
 ```{python}
-#| echo: false
-
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import poisson
@@ -127,8 +125,6 @@ When $n \rightarrow \infty$ and $p \rightarrow 0$, the Binomial distribution app
 ## Illustration
 
 ```{python}
-#| echo: false
-
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import binom, poisson
@@ -204,8 +200,6 @@ In practice, the negative binomial distribution is more popular than Poisson dis
 ## Illustration
 
 ```{python}
-#| echo: false
-
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import nbinom, poisson
@@ -388,8 +382,6 @@ Adding pseudo Poisson observations with total $\alpha$ occurrences in the $\beta
 
 ## Illustration {.smaller}
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import gamma
@@ -451,8 +443,6 @@ plt.tight_layout()
 The posterior predicitive distribution of $p(\tilde{x}|\text{data})$ follows Negative binomial distribution
 
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import nbinom
@@ -554,8 +544,6 @@ Adding pseudo observations with total $\alpha$ observations over total time $\be
 
 
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import gamma

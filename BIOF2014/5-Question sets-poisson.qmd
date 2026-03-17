@@ -1,5 +1,5 @@
 ---
-title: "Question sets-Poisson Distribution"
+title: "Question sets"
 format:
   html:
     toc: true

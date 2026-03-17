@@ -2,10 +2,6 @@
 title: "Question sets-Multivariate Statistics"
 subtitle: "Multivariate statistics"
 format:
-  html:
-    toc: true
-    html-math-method: katex
-    css: [student_view.scss]
   revealjs:
     output-file: 3-Question sets_presentation.html
     theme: [default, student_view.scss]
