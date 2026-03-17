@@ -5,15 +5,20 @@ format:
   html:
     toc: true
     html-math-method: katex
-    css: [solution_view.scss]
+    css: student_view.css
   revealjs:
+    smaller: true
     output-file: 4-Question sets_presentation.html
-    theme: [default, student_view.scss]
+    theme: [default]
+    css: student_view.css
+    chalkboard: 
+      theme: whiteboard
 engine: knitr 
 ---
 
 # Question 1: Categorical distribution with Dirichlet prior
 
+##
 Let $X = \{x_1, \dots, x_N\}$ be $N$ independent observations following a Categorical distribution with $K$ classes and parameter vector $\mathbf{p} = (p_1, \dots, p_K)$, where $\sum p_k = 1$. Let the prior on $\mathbf{p}$ be a Dirichlet distribution with hyperparameters $\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_K)$. Let $n_k$ denote the number of observations in class $k$.
 
 1. Show that the posterior distribution of the parameter vector $\mathbf{p}$ follows a Dirichlet distribution:
@@ -49,6 +54,7 @@ $$
 
 :::
 
+##
 1. Show that the posterior predictive probability of a new observation $\tilde{x}$ belonging to class $k$ is:
 
   $$
@@ -82,6 +88,7 @@ $$
 
 # Question 2: Multinomial distribution with Dirichlet prior
 
+##
 Let $\mathbf{X}$ be a vector of counts $(n_1, \dots, n_K)$ resulting from $N$ independent trials, modeled by a Multinomial distribution with parameter vector $\mathbf{p} = (p_1, \dots, p_K)$, where $\sum p_k = 1$. Suppose we place a Dirichlet prior on $\mathbf{p}$ with hyperparameters $\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_K)$. Show that the posterior distribution of the parameter vector $\mathbf{p}$ given the data $\mathbf{X}$ is a Dirichlet distribution with parameters $(\alpha_1 + n_1, \dots, \alpha_K + n_K)$.
 
 
@@ -120,6 +127,7 @@ This demonstrates that the Dirichlet distribution is the conjugate prior for the
 
 # Question 3
 
+##
 Let $X \sim \text{Cat}(\mathbf{p})$ with $k$ outcomes and probabilities $\mathbf{p} = (p_1, \dots, p_k)$. 
 
 Identify the distribution followed by the indicator variable $\mathbb{I}(X=j)$ and specify its parameters.
@@ -156,6 +164,8 @@ Thus, we have shown that $Y \sim \text{Bernoulli}(p_j)$.
 :::
 
 # Question 4: Base calling (Simplified version)
+
+## 
 We are analyzing a specific site in a DNA sequence which can be one of $K=4$ distinct nucleotides (A, T, C, G). The probability of observing each nucleotide is given by the vector $P = (p_A, p_T, p_C, p_G)$.
 
 We treat the observation of $N$ independent sites as drawing from a Categorical distribution. To model our uncertainty about the vector $P$, we assign a Dirichlet prior with hyperparameters $\alpha = (\alpha_A, \alpha_T, \alpha_C, \alpha_G)$.

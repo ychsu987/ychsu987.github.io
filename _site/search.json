@@ -879,60 +879,95 @@
     "href": "BIOF2014/4-Q-sets-multinomial.html",
     "title": "Question sets",
     "section": "",
-    "text": "Let X = \\{x_1, \\dots, x_N\\} be N independent observations following a Categorical distribution with K classes and parameter vector \\mathbf{p} = (p_1, \\dots, p_K), where \\sum p_k = 1. Let the prior on \\mathbf{p} be a Dirichlet distribution with hyperparameters \\boldsymbol{\\alpha} = (\\alpha_1, \\dots, \\alpha_K). Let n_k denote the number of observations in class k.\n\nShow that the posterior distribution of the parameter vector \\mathbf{p} follows a Dirichlet distribution: \n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\n\n\nThe probability for N independent categorical observations is the product of the probabilities of the observed classes. Let n_k be the count of observations in class k such that \\sum_{k=1}^K n_k = N. \nP(\\mathbf{p} | X) = \\prod_{i=1}^N P(x_i | \\mathbf{p}) = \\prod_{k=1}^K p_k^{n_k}\n\nThe prior distribution for \\mathbf{p} is Dirichlet with parameters \\boldsymbol{\\alpha} \nP(\\mathbf{p}) \\propto \\prod_{k=1}^K p_k^{\\alpha_k - 1}\n\nThe posterior distribution is proportional to the product of the likelihood and the prior: \n  \\begin{aligned}\n  P(\\mathbf{p} | X) &\\propto P(\\mathbf{p} | X) \\times P(\\mathbf{p}) \\\\\n  &\\propto \\left( \\prod_{k=1}^K p_k^{n_k} \\right) \\left( \\prod_{k=1}^K p_k^{\\alpha_k - 1} \\right) \\\\\n  &\\propto \\prod_{k=1}^K p_k^{(n_k + \\alpha_k) - 1}\n  \\end{aligned}\n\nThis is the kernel of a Dirichlet distribution with updated parameters \\alpha'_k = \\alpha_k + n_k. Therefore: \n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\n\n\nShow that the posterior predictive probability of a new observation \\tilde{x} belonging to class k is:\n\n\n  P(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}\n  \n\nThe posterior predictive probability for a new observation \\tilde{x} = k is the expected value of the parameter p_k under the posterior distribution. \n\\begin{aligned}\nP(\\tilde{x} = k | X) &= \\int P(\\tilde{x} = k | \\mathbf{p}) P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= \\int p_k P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= E[p_k | X]\n\\end{aligned}\n\nThe expected value of the k-th component of a Dirichlet distribution with parameters \\boldsymbol{\\alpha}' = (\\alpha'_1, \\dots, \\alpha'_K) is:\n\nE[p_k] = \\frac{\\alpha'_k}{\\sum_{j=1}^K \\alpha'_j}\n\nSubstituting our posterior parameters \\alpha'_k = \\alpha_k + n_k: \nP(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K (\\alpha_j + n_j)} = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}"
+    "text": "Let X = \\{x_1, \\dots, x_N\\} be N independent observations following a Categorical distribution with K classes and parameter vector \\mathbf{p} = (p_1, \\dots, p_K), where \\sum p_k = 1. Let the prior on \\mathbf{p} be a Dirichlet distribution with hyperparameters \\boldsymbol{\\alpha} = (\\alpha_1, \\dots, \\alpha_K). Let n_k denote the number of observations in class k.\n\nShow that the posterior distribution of the parameter vector \\mathbf{p} follows a Dirichlet distribution: \n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\n\n\nThe probability for N independent categorical observations is the product of the probabilities of the observed classes. Let n_k be the count of observations in class k such that \\sum_{k=1}^K n_k = N. \nP(\\mathbf{p} | X) = \\prod_{i=1}^N P(x_i | \\mathbf{p}) = \\prod_{k=1}^K p_k^{n_k}\n\nThe prior distribution for \\mathbf{p} is Dirichlet with parameters \\boldsymbol{\\alpha} \nP(\\mathbf{p}) \\propto \\prod_{k=1}^K p_k^{\\alpha_k - 1}\n\nThe posterior distribution is proportional to the product of the likelihood and the prior: \n  \\begin{aligned}\n  P(\\mathbf{p} | X) &\\propto P(\\mathbf{p} | X) \\times P(\\mathbf{p}) \\\\\n  &\\propto \\left( \\prod_{k=1}^K p_k^{n_k} \\right) \\left( \\prod_{k=1}^K p_k^{\\alpha_k - 1} \\right) \\\\\n  &\\propto \\prod_{k=1}^K p_k^{(n_k + \\alpha_k) - 1}\n  \\end{aligned}\n\nThis is the kernel of a Dirichlet distribution with updated parameters \\alpha'_k = \\alpha_k + n_k. Therefore: \n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\n\n\n\n\n\nShow that the posterior predictive probability of a new observation \\tilde{x} belonging to class k is:\n\n\n  P(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}\n  \n\nThe posterior predictive probability for a new observation \\tilde{x} = k is the expected value of the parameter p_k under the posterior distribution. \n\\begin{aligned}\nP(\\tilde{x} = k | X) &= \\int P(\\tilde{x} = k | \\mathbf{p}) P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= \\int p_k P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= E[p_k | X]\n\\end{aligned}\n\nThe expected value of the k-th component of a Dirichlet distribution with parameters \\boldsymbol{\\alpha}' = (\\alpha'_1, \\dots, \\alpha'_K) is:\n\nE[p_k] = \\frac{\\alpha'_k}{\\sum_{j=1}^K \\alpha'_j}\n\nSubstituting our posterior parameters \\alpha'_k = \\alpha_k + n_k: \nP(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K (\\alpha_j + n_j)} = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}"
   },
   {
     "objectID": "BIOF2014/4-Q-sets-multinomial.html#section",
     "href": "BIOF2014/4-Q-sets-multinomial.html#section",
     "title": "Question sets",
-    "section": "4.1",
-    "text": "4.1\nWrite down the likelihood function for the observed data X given P.\n\n\np(X|P) = \\frac{20!}{10!5!0!5!}p_A^{10} \\cdot p_T^{5} \\cdot p_C^{0} \\cdot p_G^{5}"
+    "section": "",
+    "text": "Let X = \\{x_1, \\dots, x_N\\} be N independent observations following a Categorical distribution with K classes and parameter vector \\mathbf{p} = (p_1, \\dots, p_K), where \\sum p_k = 1. Let the prior on \\mathbf{p} be a Dirichlet distribution with hyperparameters \\boldsymbol{\\alpha} = (\\alpha_1, \\dots, \\alpha_K). Let n_k denote the number of observations in class k.\n\nShow that the posterior distribution of the parameter vector \\mathbf{p} follows a Dirichlet distribution: \n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\n\n\nThe probability for N independent categorical observations is the product of the probabilities of the observed classes. Let n_k be the count of observations in class k such that \\sum_{k=1}^K n_k = N. \nP(\\mathbf{p} | X) = \\prod_{i=1}^N P(x_i | \\mathbf{p}) = \\prod_{k=1}^K p_k^{n_k}\n\nThe prior distribution for \\mathbf{p} is Dirichlet with parameters \\boldsymbol{\\alpha} \nP(\\mathbf{p}) \\propto \\prod_{k=1}^K p_k^{\\alpha_k - 1}\n\nThe posterior distribution is proportional to the product of the likelihood and the prior: \n  \\begin{aligned}\n  P(\\mathbf{p} | X) &\\propto P(\\mathbf{p} | X) \\times P(\\mathbf{p}) \\\\\n  &\\propto \\left( \\prod_{k=1}^K p_k^{n_k} \\right) \\left( \\prod_{k=1}^K p_k^{\\alpha_k - 1} \\right) \\\\\n  &\\propto \\prod_{k=1}^K p_k^{(n_k + \\alpha_k) - 1}\n  \\end{aligned}\n\nThis is the kernel of a Dirichlet distribution with updated parameters \\alpha'_k = \\alpha_k + n_k. Therefore: \n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)"
   },
   {
     "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-1",
     "href": "BIOF2014/4-Q-sets-multinomial.html#section-1",
     "title": "Question sets",
-    "section": "4.2",
-    "text": "4.2\nBased on the likelihood function (Maximum Likelihood Estimation), what are the estimates for \\hat{p}_A, \\hat{p}_T, \\hat{p}_C, and \\hat{p}_G?\n\n\n\\begin{aligned}\n\\hat{p}_A = & \\frac{10}{20} = 0.5 \\\\\n\\hat{p}_T = & \\frac{5}{20} = 0.25 \\\\\n\\hat{p}_C = & \\frac{0}{20} = 0 \\\\\n\\hat{p}_G = & \\frac{5}{20} = 0.25\n\\end{aligned}"
+    "section": "",
+    "text": "Show that the posterior predictive probability of a new observation \\tilde{x} belonging to class k is:\n\n\n  P(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}\n  \n\nThe posterior predictive probability for a new observation \\tilde{x} = k is the expected value of the parameter p_k under the posterior distribution. \n\\begin{aligned}\nP(\\tilde{x} = k | X) &= \\int P(\\tilde{x} = k | \\mathbf{p}) P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= \\int p_k P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= E[p_k | X]\n\\end{aligned}\n\nThe expected value of the k-th component of a Dirichlet distribution with parameters \\boldsymbol{\\alpha}' = (\\alpha'_1, \\dots, \\alpha'_K) is:\n\nE[p_k] = \\frac{\\alpha'_k}{\\sum_{j=1}^K \\alpha'_j}\n\nSubstituting our posterior parameters \\alpha'_k = \\alpha_k + n_k: \nP(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K (\\alpha_j + n_j)} = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}"
   },
   {
     "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-2",
     "href": "BIOF2014/4-Q-sets-multinomial.html#section-2",
     "title": "Question sets",
-    "section": "4.3",
-    "text": "4.3\nDerive the posterior distribution p(P|X, \\boldsymbol{\\alpha}).\n\n\np(P|X, \\boldsymbol{\\alpha}) \\propto p_A^{10+2-1} \\cdot p_T^{5+2-1} \\cdot p_C^{0+2-1} \\cdot p_G^{5+2-1} = p_A^{11} \\cdot p_T^{6} \\cdot p_C^{1} \\cdot p_G^{6}"
+    "section": "",
+    "text": "Let \\mathbf{X} be a vector of counts (n_1, \\dots, n_K) resulting from N independent trials, modeled by a Multinomial distribution with parameter vector \\mathbf{p} = (p_1, \\dots, p_K), where \\sum p_k = 1. Suppose we place a Dirichlet prior on \\mathbf{p} with hyperparameters \\boldsymbol{\\alpha} = (\\alpha_1, \\dots, \\alpha_K). Show that the posterior distribution of the parameter vector \\mathbf{p} given the data \\mathbf{X} is a Dirichlet distribution with parameters (\\alpha_1 + n_1, \\dots, \\alpha_K + n_K).\n\nTo find the posterior distribution P(\\mathbf{p} | \\mathbf{X}), we use Bayes’ theorem: \nP(\\mathbf{p} | \\mathbf{X}) \\propto P(\\mathbf{X} | \\mathbf{p}) \\cdot P(\\mathbf{p})\n\nWhere \nP(\\mathbf{X} | \\mathbf{p}) = \\frac{N!}{n_1! \\dots n_K!} \\prod_{k=1}^K p_k^{n_k}  \\propto \\prod_{k=1}^K p_k^{n_k}\n\n, and \nP(\\mathbf{p}) = \\frac{1}{B(\\boldsymbol{\\alpha})} \\prod_{k=1}^K p_k^{\\alpha_k - 1}\n\nSubsituting them into Bayes’ theorem \n\\begin{aligned}\nP(\\mathbf{p} | \\mathbf{X}) &\\propto \\left( \\prod_{k=1}^K p_k^{n_k} \\right) \\cdot \\left( \\prod_{k=1}^K p_k^{\\alpha_k - 1} \\right) \\\\\n&\\propto \\prod_{k=1}^K p_k^{n_k + \\alpha_k - 1}\n\\end{aligned}\n\nThe resulting expression, \\prod_{k=1}^K p_k^{(n_k + \\alpha_k) - 1}, is the kernel (functional form) of a Dirichlet distribution with new parameters \\alpha'_k = \\alpha_k + n_k. Thus, the posterior distribution is: \n\\mathbf{p} | \\mathbf{X} \\sim \\text{Dirichlet}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n This demonstrates that the Dirichlet distribution is the conjugate prior for the Multinomial distribution."
   },
   {
     "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-3",
     "href": "BIOF2014/4-Q-sets-multinomial.html#section-3",
     "title": "Question sets",
-    "section": "4.4",
-    "text": "4.4\nCalculate the posterior predictive probability of observing each nucleotide in a new sequence: p(\\tilde{x}=A|X,\\boldsymbol{\\alpha}), p(\\tilde{x}=T|X,\\boldsymbol{\\alpha}), p(\\tilde{x}=C|X,\\boldsymbol{\\alpha}), and p(\\tilde{x}=G|X,\\boldsymbol{\\alpha}).\n\n\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}) = & \\frac{10+2}{20+8} = \\frac{12}{28} \\approx 0.4286 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}) = & \\frac{0+2}{20+8} = \\frac{2}{28} \\approx 0.0714 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500\n\\end{aligned}"
+    "section": "",
+    "text": "Let X \\sim \\text{Cat}(\\mathbf{p}) with k outcomes and probabilities \\mathbf{p} = (p_1, \\dots, p_k).\nIdentify the distribution followed by the indicator variable \\mathbb{I}(X=j) and specify its parameters.\nInstruction: Use an intuitive guess (layman’s terms) to determine the answer before starting the formal mathematical proof.\n\nWe define a new random variable Y as the indicator for the event that X takes the specific value j: \nY = \\mathbb{I}(X = j) =\n\\begin{cases}\n1 & \\text{if } X = j \\\\\n0 & \\text{if } X \\neq j\n\\end{cases}\n\nThe probability mass function P(Y = y) is found by summing the probabilities of all outcomes in the sample space of X that map to the value y.\nP(Y=1): The only x such that Y(x)=1 is x=j. P(Y=1) = P(X=j) = p_j\nP(Y=0) The set of x such that Y(x)=0 is \\{i \\in \\{1, \\dots, k\\} : i \\neq j\\}. \n   P(Y=0) = \\sum_{i \\neq j} P(X=i) = \\left( \\sum_{i=1}^k p_i \\right) - p_j = 1 - p_j\n   \nConclusion: The distribution of Y is: P(Y=y) = p_j^y (1-p_j)^{1-y}, \\quad y \\in \\{0, 1\\} which is the PMF of \\text{Bernoulli}(p_j). Thus, we have shown that Y \\sim \\text{Bernoulli}(p_j)."
   },
   {
     "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-4",
     "href": "BIOF2014/4-Q-sets-multinomial.html#section-4",
     "title": "Question sets",
-    "section": "4.5",
-    "text": "4.5\nCompare the posterior predictive probabilities with the MLE estimates from 4.2. How does the prior belief affect the estimation of rare events (e.g., n_C = 0)?\n\nPrior belief adjusts the estimation of rare events. Without a prior, the MLE for p_C is 0, implying ‘C’ is impossible. The Dirichlet prior (acting as pseudocounts or Laplace smoothing) assigns a non-zero probability to ‘C’, acknowledging that a zero count may result from a small sample size. This prevents the “zero-frequency” problem."
+    "section": "",
+    "text": "We are analyzing a specific site in a DNA sequence which can be one of K=4 distinct nucleotides (A, T, C, G). The probability of observing each nucleotide is given by the vector P = (p_A, p_T, p_C, p_G).\nWe treat the observation of N independent sites as drawing from a Categorical distribution. To model our uncertainty about the vector P, we assign a Dirichlet prior with hyperparameters \\alpha = (\\alpha_A, \\alpha_T, \\alpha_C, \\alpha_G).\nGiven:\n\nPrior Belief:\n\nDirichlet prior: \\boldsymbol{\\alpha} = (2, 2, 2, 2).\n\nObserved Data (X): We observe N=20 sequences with the following counts\n\nA: n_A = 10\nT: n_T = 5\nC: n_C = 0\nG: n_G = 5 (Note: 10+5+0+5=20)"
   },
   {
     "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-5",
     "href": "BIOF2014/4-Q-sets-multinomial.html#section-5",
     "title": "Question sets",
-    "section": "4.6",
-    "text": "4.6\nAfter talking with a genomic researcher, you realize that this sequence is suspected to be a CpG island, where the frequency of ‘C’ and ‘G’ is higher. How would you adjust your prior belief to reflect this?\n\nWe can increase the hyperparameters for ‘C’ and ‘G’. For example, setting \\boldsymbol{\\alpha}' = (2, 2, 5, 5) gives more weight to ‘C’ and ‘G’ relative to ‘A’ and ‘T’, reflecting the biological expectation of a CpG island."
+    "section": "4.1",
+    "text": "4.1\nWrite down the likelihood function for the observed data X given P.\n\n\np(X|P) = \\frac{20!}{10!5!0!5!}p_A^{10} \\cdot p_T^{5} \\cdot p_C^{0} \\cdot p_G^{5}"
   },
   {
     "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-6",
     "href": "BIOF2014/4-Q-sets-multinomial.html#section-6",
     "title": "Question sets",
-    "section": "4.7",
-    "text": "4.7\nConsider an extreme case where the Dirichlet prior is \\boldsymbol{\\alpha}'' = (2, 2, 18, 18), strongly favoring ‘C’ and ‘G’. Calculate the new posterior predictive probabilities.\n\n\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}'') = & \\frac{10+2}{20+40} = \\frac{12}{60} = 0.2000 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}'') = & \\frac{5+2}{20+40} = \\frac{7}{60} \\approx 0.1167 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}'') = & \\frac{0+18}{20+40} = \\frac{18}{60} = 0.3000 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}'') = & \\frac{5+18}{20+40} = \\frac{23}{60} \\approx 0.3833\n\\end{aligned}"
+    "section": "4.2",
+    "text": "4.2\nBased on the likelihood function (Maximum Likelihood Estimation), what are the estimates for \\hat{p}_A, \\hat{p}_T, \\hat{p}_C, and \\hat{p}_G?\n\n\n\\begin{aligned}\n\\hat{p}_A = & \\frac{10}{20} = 0.5 \\\\\n\\hat{p}_T = & \\frac{5}{20} = 0.25 \\\\\n\\hat{p}_C = & \\frac{0}{20} = 0 \\\\\n\\hat{p}_G = & \\frac{5}{20} = 0.25\n\\end{aligned}"
   },
   {
     "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-7",
     "href": "BIOF2014/4-Q-sets-multinomial.html#section-7",
+    "title": "Question sets",
+    "section": "4.3",
+    "text": "4.3\nDerive the posterior distribution p(P|X, \\boldsymbol{\\alpha}).\n\n\np(P|X, \\boldsymbol{\\alpha}) \\propto p_A^{10+2-1} \\cdot p_T^{5+2-1} \\cdot p_C^{0+2-1} \\cdot p_G^{5+2-1} = p_A^{11} \\cdot p_T^{6} \\cdot p_C^{1} \\cdot p_G^{6}"
+  },
+  {
+    "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-8",
+    "href": "BIOF2014/4-Q-sets-multinomial.html#section-8",
+    "title": "Question sets",
+    "section": "4.4",
+    "text": "4.4\nCalculate the posterior predictive probability of observing each nucleotide in a new sequence: p(\\tilde{x}=A|X,\\boldsymbol{\\alpha}), p(\\tilde{x}=T|X,\\boldsymbol{\\alpha}), p(\\tilde{x}=C|X,\\boldsymbol{\\alpha}), and p(\\tilde{x}=G|X,\\boldsymbol{\\alpha}).\n\n\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}) = & \\frac{10+2}{20+8} = \\frac{12}{28} \\approx 0.4286 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}) = & \\frac{0+2}{20+8} = \\frac{2}{28} \\approx 0.0714 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500\n\\end{aligned}"
+  },
+  {
+    "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-9",
+    "href": "BIOF2014/4-Q-sets-multinomial.html#section-9",
+    "title": "Question sets",
+    "section": "4.5",
+    "text": "4.5\nCompare the posterior predictive probabilities with the MLE estimates from 4.2. How does the prior belief affect the estimation of rare events (e.g., n_C = 0)?\n\nPrior belief adjusts the estimation of rare events. Without a prior, the MLE for p_C is 0, implying ‘C’ is impossible. The Dirichlet prior (acting as pseudocounts or Laplace smoothing) assigns a non-zero probability to ‘C’, acknowledging that a zero count may result from a small sample size. This prevents the “zero-frequency” problem."
+  },
+  {
+    "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-10",
+    "href": "BIOF2014/4-Q-sets-multinomial.html#section-10",
+    "title": "Question sets",
+    "section": "4.6",
+    "text": "4.6\nAfter talking with a genomic researcher, you realize that this sequence is suspected to be a CpG island, where the frequency of ‘C’ and ‘G’ is higher. How would you adjust your prior belief to reflect this?\n\nWe can increase the hyperparameters for ‘C’ and ‘G’. For example, setting \\boldsymbol{\\alpha}' = (2, 2, 5, 5) gives more weight to ‘C’ and ‘G’ relative to ‘A’ and ‘T’, reflecting the biological expectation of a CpG island."
+  },
+  {
+    "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-11",
+    "href": "BIOF2014/4-Q-sets-multinomial.html#section-11",
+    "title": "Question sets",
+    "section": "4.7",
+    "text": "4.7\nConsider an extreme case where the Dirichlet prior is \\boldsymbol{\\alpha}'' = (2, 2, 18, 18), strongly favoring ‘C’ and ‘G’. Calculate the new posterior predictive probabilities.\n\n\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}'') = & \\frac{10+2}{20+40} = \\frac{12}{60} = 0.2000 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}'') = & \\frac{5+2}{20+40} = \\frac{7}{60} \\approx 0.1167 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}'') = & \\frac{0+18}{20+40} = \\frac{18}{60} = 0.3000 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}'') = & \\frac{5+18}{20+40} = \\frac{23}{60} \\approx 0.3833\n\\end{aligned}"
+  },
+  {
+    "objectID": "BIOF2014/4-Q-sets-multinomial.html#section-12",
+    "href": "BIOF2014/4-Q-sets-multinomial.html#section-12",
     "title": "Question sets",
     "section": "4.8",
     "text": "4.8\nCompared with the case where \\boldsymbol{\\alpha} = (2, 2, 2, 2), how does this strong prior influence the final inference?\n\nA strong prior (large \\alpha values) can dominate the observed data. Despite ‘A’ being the most frequent observation (n_A=10), the heavy prior weight on ‘C’ and ‘G’ makes them the most probable outcomes in the posterior predictive distribution, effectively overriding the evidence from the small sample."
@@ -941,54 +976,89 @@
     "objectID": "BIOF2014/4-Question sets_presentation.html#section",
     "href": "BIOF2014/4-Question sets_presentation.html#section",
     "title": "Question sets",
-    "section": "4.1",
-    "text": "4.1\nWrite down the likelihood function for the observed data \\(X\\) given \\(P\\).\n\n\\[\np(X|P) = \\frac{20!}{10!5!0!5!}p_A^{10} \\cdot p_T^{5} \\cdot p_C^{0} \\cdot p_G^{5}\n\\]"
+    "section": "",
+    "text": "Let \\(X = \\{x_1, \\dots, x_N\\}\\) be \\(N\\) independent observations following a Categorical distribution with \\(K\\) classes and parameter vector \\(\\mathbf{p} = (p_1, \\dots, p_K)\\), where \\(\\sum p_k = 1\\). Let the prior on \\(\\mathbf{p}\\) be a Dirichlet distribution with hyperparameters \\(\\boldsymbol{\\alpha} = (\\alpha_1, \\dots, \\alpha_K)\\). Let \\(n_k\\) denote the number of observations in class \\(k\\).\n\nShow that the posterior distribution of the parameter vector \\(\\mathbf{p}\\) follows a Dirichlet distribution: \\[\n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\\]\n\n\nThe probability for \\(N\\) independent categorical observations is the product of the probabilities of the observed classes. Let \\(n_k\\) be the count of observations in class \\(k\\) such that \\(\\sum_{k=1}^K n_k = N\\). \\[\nP(\\mathbf{p} | X) = \\prod_{i=1}^N P(x_i | \\mathbf{p}) = \\prod_{k=1}^K p_k^{n_k}\n\\]\nThe prior distribution for \\(\\mathbf{p}\\) is Dirichlet with parameters \\(\\boldsymbol{\\alpha}\\) \\[\nP(\\mathbf{p}) \\propto \\prod_{k=1}^K p_k^{\\alpha_k - 1}\n\\]\nThe posterior distribution is proportional to the product of the likelihood and the prior: \\[\n  \\begin{aligned}\n  P(\\mathbf{p} | X) &\\propto P(\\mathbf{p} | X) \\times P(\\mathbf{p}) \\\\\n  &\\propto \\left( \\prod_{k=1}^K p_k^{n_k} \\right) \\left( \\prod_{k=1}^K p_k^{\\alpha_k - 1} \\right) \\\\\n  &\\propto \\prod_{k=1}^K p_k^{(n_k + \\alpha_k) - 1}\n  \\end{aligned}\n\\]\nThis is the kernel of a Dirichlet distribution with updated parameters \\(\\alpha'_k = \\alpha_k + n_k\\). Therefore: \\[\n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\\]"
   },
   {
     "objectID": "BIOF2014/4-Question sets_presentation.html#section-1",
     "href": "BIOF2014/4-Question sets_presentation.html#section-1",
     "title": "Question sets",
-    "section": "4.2",
-    "text": "4.2\nBased on the likelihood function (Maximum Likelihood Estimation), what are the estimates for \\(\\hat{p}_A\\), \\(\\hat{p}_T\\), \\(\\hat{p}_C\\), and \\(\\hat{p}_G\\)?\n\n\\[\n\\begin{aligned}\n\\hat{p}_A = & \\frac{10}{20} = 0.5 \\\\\n\\hat{p}_T = & \\frac{5}{20} = 0.25 \\\\\n\\hat{p}_C = & \\frac{0}{20} = 0 \\\\\n\\hat{p}_G = & \\frac{5}{20} = 0.25\n\\end{aligned}\n\\]"
+    "section": "",
+    "text": "Show that the posterior predictive probability of a new observation \\(\\tilde{x}\\) belonging to class \\(k\\) is:\n\n\\[\n  P(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}\n  \\]\n\nThe posterior predictive probability for a new observation \\(\\tilde{x} = k\\) is the expected value of the parameter \\(p_k\\) under the posterior distribution. \\[\n\\begin{aligned}\nP(\\tilde{x} = k | X) &= \\int P(\\tilde{x} = k | \\mathbf{p}) P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= \\int p_k P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= E[p_k | X]\n\\end{aligned}\n\\]\nThe expected value of the \\(k\\)-th component of a Dirichlet distribution with parameters \\(\\boldsymbol{\\alpha}' = (\\alpha'_1, \\dots, \\alpha'_K)\\) is:\n\\[\nE[p_k] = \\frac{\\alpha'_k}{\\sum_{j=1}^K \\alpha'_j}\n\\]\nSubstituting our posterior parameters \\(\\alpha'_k = \\alpha_k + n_k\\): \\[\nP(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K (\\alpha_j + n_j)} = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}\n\\]"
   },
   {
     "objectID": "BIOF2014/4-Question sets_presentation.html#section-2",
     "href": "BIOF2014/4-Question sets_presentation.html#section-2",
     "title": "Question sets",
-    "section": "4.3",
-    "text": "4.3\nDerive the posterior distribution \\(p(P|X, \\boldsymbol{\\alpha})\\).\n\n\\[\np(P|X, \\boldsymbol{\\alpha}) \\propto p_A^{10+2-1} \\cdot p_T^{5+2-1} \\cdot p_C^{0+2-1} \\cdot p_G^{5+2-1} = p_A^{11} \\cdot p_T^{6} \\cdot p_C^{1} \\cdot p_G^{6}\n\\]"
+    "section": "",
+    "text": "Let \\(\\mathbf{X}\\) be a vector of counts \\((n_1, \\dots, n_K)\\) resulting from \\(N\\) independent trials, modeled by a Multinomial distribution with parameter vector \\(\\mathbf{p} = (p_1, \\dots, p_K)\\), where \\(\\sum p_k = 1\\). Suppose we place a Dirichlet prior on \\(\\mathbf{p}\\) with hyperparameters \\(\\boldsymbol{\\alpha} = (\\alpha_1, \\dots, \\alpha_K)\\). Show that the posterior distribution of the parameter vector \\(\\mathbf{p}\\) given the data \\(\\mathbf{X}\\) is a Dirichlet distribution with parameters \\((\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\\).\n\nTo find the posterior distribution \\(P(\\mathbf{p} | \\mathbf{X})\\), we use Bayes’ theorem: \\[\nP(\\mathbf{p} | \\mathbf{X}) \\propto P(\\mathbf{X} | \\mathbf{p}) \\cdot P(\\mathbf{p})\n\\]\nWhere \\[\nP(\\mathbf{X} | \\mathbf{p}) = \\frac{N!}{n_1! \\dots n_K!} \\prod_{k=1}^K p_k^{n_k}  \\propto \\prod_{k=1}^K p_k^{n_k}\n\\]\n, and \\[\nP(\\mathbf{p}) = \\frac{1}{B(\\boldsymbol{\\alpha})} \\prod_{k=1}^K p_k^{\\alpha_k - 1}\n\\]\nSubsituting them into Bayes’ theorem \\[\n\\begin{aligned}\nP(\\mathbf{p} | \\mathbf{X}) &\\propto \\left( \\prod_{k=1}^K p_k^{n_k} \\right) \\cdot \\left( \\prod_{k=1}^K p_k^{\\alpha_k - 1} \\right) \\\\\n&\\propto \\prod_{k=1}^K p_k^{n_k + \\alpha_k - 1}\n\\end{aligned}\n\\]\nThe resulting expression, \\(\\prod_{k=1}^K p_k^{(n_k + \\alpha_k) - 1}\\), is the kernel (functional form) of a Dirichlet distribution with new parameters \\(\\alpha'_k = \\alpha_k + n_k\\). Thus, the posterior distribution is: \\[\n\\mathbf{p} | \\mathbf{X} \\sim \\text{Dirichlet}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\\] This demonstrates that the Dirichlet distribution is the conjugate prior for the Multinomial distribution."
   },
   {
     "objectID": "BIOF2014/4-Question sets_presentation.html#section-3",
     "href": "BIOF2014/4-Question sets_presentation.html#section-3",
     "title": "Question sets",
-    "section": "4.4",
-    "text": "4.4\nCalculate the posterior predictive probability of observing each nucleotide in a new sequence: \\(p(\\tilde{x}=A|X,\\boldsymbol{\\alpha})\\), \\(p(\\tilde{x}=T|X,\\boldsymbol{\\alpha})\\), \\(p(\\tilde{x}=C|X,\\boldsymbol{\\alpha})\\), and \\(p(\\tilde{x}=G|X,\\boldsymbol{\\alpha})\\).\n\n\\[\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}) = & \\frac{10+2}{20+8} = \\frac{12}{28} \\approx 0.4286 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}) = & \\frac{0+2}{20+8} = \\frac{2}{28} \\approx 0.0714 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500\n\\end{aligned}\n\\]"
+    "section": "",
+    "text": "Let \\(X \\sim \\text{Cat}(\\mathbf{p})\\) with \\(k\\) outcomes and probabilities \\(\\mathbf{p} = (p_1, \\dots, p_k)\\).\nIdentify the distribution followed by the indicator variable \\(\\mathbb{I}(X=j)\\) and specify its parameters.\nInstruction: Use an intuitive guess (layman’s terms) to determine the answer before starting the formal mathematical proof.\n\nWe define a new random variable \\(Y\\) as the indicator for the event that \\(X\\) takes the specific value \\(j\\): \\[\nY = \\mathbb{I}(X = j) =\n\\begin{cases}\n1 & \\text{if } X = j \\\\\n0 & \\text{if } X \\neq j\n\\end{cases}\n\\]\nThe probability mass function \\(P(Y = y)\\) is found by summing the probabilities of all outcomes in the sample space of \\(X\\) that map to the value \\(y\\).\n\\(P(Y=1)\\): The only \\(x\\) such that \\(Y(x)=1\\) is \\(x=j\\). \\[P(Y=1) = P(X=j) = p_j\\]\n\\(P(Y=0)\\) The set of \\(x\\) such that \\(Y(x)=0\\) is \\(\\{i \\in \\{1, \\dots, k\\} : i \\neq j\\}\\). \\[\n   P(Y=0) = \\sum_{i \\neq j} P(X=i) = \\left( \\sum_{i=1}^k p_i \\right) - p_j = 1 - p_j\n   \\]\nConclusion: The distribution of \\(Y\\) is: \\[P(Y=y) = p_j^y (1-p_j)^{1-y}, \\quad y \\in \\{0, 1\\}\\] which is the PMF of \\(\\text{Bernoulli}(p_j)\\). Thus, we have shown that \\(Y \\sim \\text{Bernoulli}(p_j)\\)."
   },
   {
     "objectID": "BIOF2014/4-Question sets_presentation.html#section-4",
     "href": "BIOF2014/4-Question sets_presentation.html#section-4",
     "title": "Question sets",
-    "section": "4.5",
-    "text": "4.5\nCompare the posterior predictive probabilities with the MLE estimates from 4.2. How does the prior belief affect the estimation of rare events (e.g., \\(n_C = 0\\))?\n\nPrior belief adjusts the estimation of rare events. Without a prior, the MLE for \\(p_C\\) is 0, implying ‘C’ is impossible. The Dirichlet prior (acting as pseudocounts or Laplace smoothing) assigns a non-zero probability to ‘C’, acknowledging that a zero count may result from a small sample size. This prevents the “zero-frequency” problem."
+    "section": "",
+    "text": "We are analyzing a specific site in a DNA sequence which can be one of \\(K=4\\) distinct nucleotides (A, T, C, G). The probability of observing each nucleotide is given by the vector \\(P = (p_A, p_T, p_C, p_G)\\).\nWe treat the observation of \\(N\\) independent sites as drawing from a Categorical distribution. To model our uncertainty about the vector \\(P\\), we assign a Dirichlet prior with hyperparameters \\(\\alpha = (\\alpha_A, \\alpha_T, \\alpha_C, \\alpha_G)\\).\nGiven:\n\nPrior Belief:\n\nDirichlet prior: \\(\\boldsymbol{\\alpha} = (2, 2, 2, 2)\\).\n\nObserved Data (\\(X\\)): We observe \\(N=20\\) sequences with the following counts\n\nA: \\(n_A = 10\\)\nT: \\(n_T = 5\\)\nC: \\(n_C = 0\\)\nG: \\(n_G = 5\\) (Note: \\(10+5+0+5=20\\))"
   },
   {
     "objectID": "BIOF2014/4-Question sets_presentation.html#section-5",
     "href": "BIOF2014/4-Question sets_presentation.html#section-5",
     "title": "Question sets",
-    "section": "4.6",
-    "text": "4.6\nAfter talking with a genomic researcher, you realize that this sequence is suspected to be a CpG island, where the frequency of ‘C’ and ‘G’ is higher. How would you adjust your prior belief to reflect this?\n\nWe can increase the hyperparameters for ‘C’ and ‘G’. For example, setting \\(\\boldsymbol{\\alpha}' = (2, 2, 5, 5)\\) gives more weight to ‘C’ and ‘G’ relative to ‘A’ and ‘T’, reflecting the biological expectation of a CpG island."
+    "section": "4.1",
+    "text": "4.1\nWrite down the likelihood function for the observed data \\(X\\) given \\(P\\).\n\n\\[\np(X|P) = \\frac{20!}{10!5!0!5!}p_A^{10} \\cdot p_T^{5} \\cdot p_C^{0} \\cdot p_G^{5}\n\\]"
   },
   {
     "objectID": "BIOF2014/4-Question sets_presentation.html#section-6",
     "href": "BIOF2014/4-Question sets_presentation.html#section-6",
     "title": "Question sets",
-    "section": "4.7",
-    "text": "4.7\nConsider an extreme case where the Dirichlet prior is \\(\\boldsymbol{\\alpha}'' = (2, 2, 18, 18)\\), strongly favoring ‘C’ and ‘G’. Calculate the new posterior predictive probabilities.\n\n\\[\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}'') = & \\frac{10+2}{20+40} = \\frac{12}{60} = 0.2000 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}'') = & \\frac{5+2}{20+40} = \\frac{7}{60} \\approx 0.1167 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}'') = & \\frac{0+18}{20+40} = \\frac{18}{60} = 0.3000 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}'') = & \\frac{5+18}{20+40} = \\frac{23}{60} \\approx 0.3833\n\\end{aligned}\n\\]"
+    "section": "4.2",
+    "text": "4.2\nBased on the likelihood function (Maximum Likelihood Estimation), what are the estimates for \\(\\hat{p}_A\\), \\(\\hat{p}_T\\), \\(\\hat{p}_C\\), and \\(\\hat{p}_G\\)?\n\n\\[\n\\begin{aligned}\n\\hat{p}_A = & \\frac{10}{20} = 0.5 \\\\\n\\hat{p}_T = & \\frac{5}{20} = 0.25 \\\\\n\\hat{p}_C = & \\frac{0}{20} = 0 \\\\\n\\hat{p}_G = & \\frac{5}{20} = 0.25\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "BIOF2014/4-Question sets_presentation.html#section-7",
     "href": "BIOF2014/4-Question sets_presentation.html#section-7",
+    "title": "Question sets",
+    "section": "4.3",
+    "text": "4.3\nDerive the posterior distribution \\(p(P|X, \\boldsymbol{\\alpha})\\).\n\n\\[\np(P|X, \\boldsymbol{\\alpha}) \\propto p_A^{10+2-1} \\cdot p_T^{5+2-1} \\cdot p_C^{0+2-1} \\cdot p_G^{5+2-1} = p_A^{11} \\cdot p_T^{6} \\cdot p_C^{1} \\cdot p_G^{6}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation.html#section-8",
+    "href": "BIOF2014/4-Question sets_presentation.html#section-8",
+    "title": "Question sets",
+    "section": "4.4",
+    "text": "4.4\nCalculate the posterior predictive probability of observing each nucleotide in a new sequence: \\(p(\\tilde{x}=A|X,\\boldsymbol{\\alpha})\\), \\(p(\\tilde{x}=T|X,\\boldsymbol{\\alpha})\\), \\(p(\\tilde{x}=C|X,\\boldsymbol{\\alpha})\\), and \\(p(\\tilde{x}=G|X,\\boldsymbol{\\alpha})\\).\n\n\\[\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}) = & \\frac{10+2}{20+8} = \\frac{12}{28} \\approx 0.4286 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}) = & \\frac{0+2}{20+8} = \\frac{2}{28} \\approx 0.0714 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation.html#section-9",
+    "href": "BIOF2014/4-Question sets_presentation.html#section-9",
+    "title": "Question sets",
+    "section": "4.5",
+    "text": "4.5\nCompare the posterior predictive probabilities with the MLE estimates from 4.2. How does the prior belief affect the estimation of rare events (e.g., \\(n_C = 0\\))?\n\nPrior belief adjusts the estimation of rare events. Without a prior, the MLE for \\(p_C\\) is 0, implying ‘C’ is impossible. The Dirichlet prior (acting as pseudocounts or Laplace smoothing) assigns a non-zero probability to ‘C’, acknowledging that a zero count may result from a small sample size. This prevents the “zero-frequency” problem."
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation.html#section-10",
+    "href": "BIOF2014/4-Question sets_presentation.html#section-10",
+    "title": "Question sets",
+    "section": "4.6",
+    "text": "4.6\nAfter talking with a genomic researcher, you realize that this sequence is suspected to be a CpG island, where the frequency of ‘C’ and ‘G’ is higher. How would you adjust your prior belief to reflect this?\n\nWe can increase the hyperparameters for ‘C’ and ‘G’. For example, setting \\(\\boldsymbol{\\alpha}' = (2, 2, 5, 5)\\) gives more weight to ‘C’ and ‘G’ relative to ‘A’ and ‘T’, reflecting the biological expectation of a CpG island."
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation.html#section-11",
+    "href": "BIOF2014/4-Question sets_presentation.html#section-11",
+    "title": "Question sets",
+    "section": "4.7",
+    "text": "4.7\nConsider an extreme case where the Dirichlet prior is \\(\\boldsymbol{\\alpha}'' = (2, 2, 18, 18)\\), strongly favoring ‘C’ and ‘G’. Calculate the new posterior predictive probabilities.\n\n\\[\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}'') = & \\frac{10+2}{20+40} = \\frac{12}{60} = 0.2000 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}'') = & \\frac{5+2}{20+40} = \\frac{7}{60} \\approx 0.1167 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}'') = & \\frac{0+18}{20+40} = \\frac{18}{60} = 0.3000 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}'') = & \\frac{5+18}{20+40} = \\frac{23}{60} \\approx 0.3833\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation.html#section-12",
+    "href": "BIOF2014/4-Question sets_presentation.html#section-12",
     "title": "Question sets",
     "section": "4.8",
     "text": "4.8\nCompared with the case where \\(\\boldsymbol{\\alpha} = (2, 2, 2, 2)\\), how does this strong prior influence the final inference?\n\nA strong prior (large \\(\\alpha\\) values) can dominate the observed data. Despite ‘A’ being the most frequent observation (\\(n_A=10\\)), the heavy prior weight on ‘C’ and ‘G’ makes them the most probable outcomes in the posterior predictive distribution, effectively overriding the evidence from the small sample."
