@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <title>Yu Cheng Hsu – Question sets-Multivariate Discrete Distributions</title>
+  <title>Yu Cheng Hsu – Question sets</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -126,7 +126,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Question sets-Multivariate Discrete Distributions</h1>
+  <h1 class="title">Question sets</h1>
   <p class="subtitle">Multivariate discrete distributions</p>
 
 <div class="quarto-title-authors">
@@ -142,15 +142,15 @@
 \]</span></li>
 </ol>
 <div class="hide">
-<p>The likelihood function for <span class="math inline">\(N\)</span> independent categorical observations is the product of the probabilities of the observed classes. Let <span class="math inline">\(n_k\)</span> be the count of observations in class <span class="math inline">\(k\)</span> such that <span class="math inline">\(\sum_{k=1}^K n_k = N\)</span>. <span class="math display">\[
-L(\mathbf{p} | X) = \prod_{i=1}^N P(x_i | \mathbf{p}) = \prod_{k=1}^K p_k^{n_k}
+<p>The probability for <span class="math inline">\(N\)</span> independent categorical observations is the product of the probabilities of the observed classes. Let <span class="math inline">\(n_k\)</span> be the count of observations in class <span class="math inline">\(k\)</span> such that <span class="math inline">\(\sum_{k=1}^K n_k = N\)</span>. <span class="math display">\[
+P(\mathbf{p} | X) = \prod_{i=1}^N P(x_i | \mathbf{p}) = \prod_{k=1}^K p_k^{n_k}
 \]</span></p>
 <p>The prior distribution for <span class="math inline">\(\mathbf{p}\)</span> is Dirichlet with parameters <span class="math inline">\(\boldsymbol{\alpha}\)</span> <span class="math display">\[
 P(\mathbf{p}) \propto \prod_{k=1}^K p_k^{\alpha_k - 1}
 \]</span></p>
 <p>The posterior distribution is proportional to the product of the likelihood and the prior: <span class="math display">\[
   \begin{aligned}
-  P(\mathbf{p} | X) &amp;\propto L(\mathbf{p} | X) \times P(\mathbf{p}) \\
+  P(\mathbf{p} | X) &amp;\propto P(\mathbf{p} | X) \times P(\mathbf{p}) \\
   &amp;\propto \left( \prod_{k=1}^K p_k^{n_k} \right) \left( \prod_{k=1}^K p_k^{\alpha_k - 1} \right) \\
   &amp;\propto \prod_{k=1}^K p_k^{(n_k + \alpha_k) - 1}
   \end{aligned}
@@ -159,7 +159,7 @@ P(\mathbf{p}) \propto \prod_{k=1}^K p_k^{\alpha_k - 1}
 \mathbf{p} | X \sim \text{Dir}(\alpha_1 + n_1, \dots, \alpha_K + n_K)
 \]</span></p>
 </div>
-<ol start="2" type="1">
+<ol type="1">
 <li>Show that the posterior predictive probability of a new observation <span class="math inline">\(\tilde{x}\)</span> belonging to class <span class="math inline">\(k\)</span> is:</li>
 </ol>
 <p><span class="math display">\[
