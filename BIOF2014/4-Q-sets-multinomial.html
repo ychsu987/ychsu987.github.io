@@ -112,7 +112,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="solution_view.scss">
+<link rel="stylesheet" href="student_view.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -175,19 +175,30 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#question-1-categorical-distribution-with-dirichlet-prior" id="toc-question-1-categorical-distribution-with-dirichlet-prior" class="nav-link active" data-scroll-target="#question-1-categorical-distribution-with-dirichlet-prior">Question 1: Categorical distribution with Dirichlet prior</a></li>
-  <li><a href="#question-2-multinomial-distribution-with-dirichlet-prior" id="toc-question-2-multinomial-distribution-with-dirichlet-prior" class="nav-link" data-scroll-target="#question-2-multinomial-distribution-with-dirichlet-prior">Question 2: Multinomial distribution with Dirichlet prior</a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-1-categorical-distribution-with-dirichlet-prior" id="toc-question-1-categorical-distribution-with-dirichlet-prior" class="nav-link active" data-scroll-target="#question-1-categorical-distribution-with-dirichlet-prior">Question 1: Categorical distribution with Dirichlet prior</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  </ul></li>
+  <li><a href="#question-2-multinomial-distribution-with-dirichlet-prior" id="toc-question-2-multinomial-distribution-with-dirichlet-prior" class="nav-link" data-scroll-target="#question-2-multinomial-distribution-with-dirichlet-prior">Question 2: Multinomial distribution with Dirichlet prior</a>
+  <ul class="collapse">
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  </ul></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a>
+  <ul class="collapse">
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  </ul></li>
   <li><a href="#question-4-base-calling-simplified-version" id="toc-question-4-base-calling-simplified-version" class="nav-link" data-scroll-target="#question-4-base-calling-simplified-version">Question 4: Base calling (Simplified version)</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">4.1</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">4.2</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">4.3</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">4.4</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">4.5</a></li>
-  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">4.6</a></li>
-  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">4.7</a></li>
-  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">4.8</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">4.1</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">4.2</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">4.3</a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">4.4</a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9">4.5</a></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10">4.6</a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11">4.7</a></li>
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12">4.8</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="4-Question sets_presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -217,6 +228,8 @@ window.Quarto = {
 
 <section id="question-1-categorical-distribution-with-dirichlet-prior" class="level1">
 <h1>Question 1: Categorical distribution with Dirichlet prior</h1>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 <p>Let <span class="math inline">X = \{x_1, \dots, x_N\}</span> be <span class="math inline">N</span> independent observations following a Categorical distribution with <span class="math inline">K</span> classes and parameter vector <span class="math inline">\mathbf{p} = (p_1, \dots, p_K)</span>, where <span class="math inline">\sum p_k = 1</span>. Let the prior on <span class="math inline">\mathbf{p}</span> be a Dirichlet distribution with hyperparameters <span class="math inline">\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_K)</span>. Let <span class="math inline">n_k</span> denote the number of observations in class <span class="math inline">k</span>.</p>
 <ol type="1">
 <li>Show that the posterior distribution of the parameter vector <span class="math inline">\mathbf{p}</span> follows a Dirichlet distribution: <span class="math display">
@@ -241,6 +254,9 @@ P(\mathbf{p}) \propto \prod_{k=1}^K p_k^{\alpha_k - 1}
 \mathbf{p} | X \sim \text{Dir}(\alpha_1 + n_1, \dots, \alpha_K + n_K)
 </span></p>
 </div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
 <ol type="1">
 <li>Show that the posterior predictive probability of a new observation <span class="math inline">\tilde{x}</span> belonging to class <span class="math inline">k</span> is:</li>
 </ol>
@@ -264,8 +280,11 @@ P(\tilde{x} = k | X) = \frac{\alpha_k + n_k}{\sum_{j=1}^K (\alpha_j + n_j)} = \f
 </span></p>
 </div>
 </section>
+</section>
 <section id="question-2-multinomial-distribution-with-dirichlet-prior" class="level1">
 <h1>Question 2: Multinomial distribution with Dirichlet prior</h1>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"></h2>
 <p>Let <span class="math inline">\mathbf{X}</span> be a vector of counts <span class="math inline">(n_1, \dots, n_K)</span> resulting from <span class="math inline">N</span> independent trials, modeled by a Multinomial distribution with parameter vector <span class="math inline">\mathbf{p} = (p_1, \dots, p_K)</span>, where <span class="math inline">\sum p_k = 1</span>. Suppose we place a Dirichlet prior on <span class="math inline">\mathbf{p}</span> with hyperparameters <span class="math inline">\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_K)</span>. Show that the posterior distribution of the parameter vector <span class="math inline">\mathbf{p}</span> given the data <span class="math inline">\mathbf{X}</span> is a Dirichlet distribution with parameters <span class="math inline">(\alpha_1 + n_1, \dots, \alpha_K + n_K)</span>.</p>
 <div class="hide">
 <p>To find the posterior distribution <span class="math inline">P(\mathbf{p} | \mathbf{X})</span>, we use Bayes’ theorem: <span class="math display">
@@ -288,8 +307,11 @@ P(\mathbf{p} | \mathbf{X}) &amp;\propto \left( \prod_{k=1}^K p_k^{n_k} \right) \
 </span> This demonstrates that the Dirichlet distribution is the conjugate prior for the Multinomial distribution.</p>
 </div>
 </section>
+</section>
 <section id="question-3" class="level1">
 <h1>Question 3</h1>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3"></h2>
 <p>Let <span class="math inline">X \sim \text{Cat}(\mathbf{p})</span> with <span class="math inline">k</span> outcomes and probabilities <span class="math inline">\mathbf{p} = (p_1, \dots, p_k)</span>.</p>
 <p>Identify the distribution followed by the indicator variable <span class="math inline">\mathbb{I}(X=j)</span> and specify its parameters.</p>
 <p><em>Instruction: Use an intuitive guess (layman’s terms) to determine the answer before starting the formal mathematical proof.</em></p>
@@ -309,8 +331,11 @@ Y = \mathbb{I}(X = j) =
 <p><strong>Conclusion:</strong> The distribution of <span class="math inline">Y</span> is: <span class="math display">P(Y=y) = p_j^y (1-p_j)^{1-y}, \quad y \in \{0, 1\}</span> which is the PMF of <span class="math inline">\text{Bernoulli}(p_j)</span>. Thus, we have shown that <span class="math inline">Y \sim \text{Bernoulli}(p_j)</span>.</p>
 </div>
 </section>
+</section>
 <section id="question-4-base-calling-simplified-version" class="level1">
 <h1>Question 4: Base calling (Simplified version)</h1>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4"></h2>
 <p>We are analyzing a specific site in a DNA sequence which can be one of <span class="math inline">K=4</span> distinct nucleotides (A, T, C, G). The probability of observing each nucleotide is given by the vector <span class="math inline">P = (p_A, p_T, p_C, p_G)</span>.</p>
 <p>We treat the observation of <span class="math inline">N</span> independent sites as drawing from a Categorical distribution. To model our uncertainty about the vector <span class="math inline">P</span>, we assign a Dirichlet prior with hyperparameters <span class="math inline">\alpha = (\alpha_A, \alpha_T, \alpha_C, \alpha_G)</span>.</p>
 <p>Given:</p>
@@ -327,8 +352,9 @@ Y = \mathbb{I}(X = j) =
 <li>G: <span class="math inline">n_G = 5</span> (Note: <span class="math inline">10+5+0+5=20</span>)</li>
 </ul></li>
 </ul>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">4.1</h2>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5">4.1</h2>
 <p>Write down the likelihood function for the observed data <span class="math inline">X</span> given <span class="math inline">P</span>.</p>
 <div class="hide">
 <p><span class="math display">
@@ -336,8 +362,8 @@ p(X|P) = \frac{20!}{10!5!0!5!}p_A^{10} \cdot p_T^{5} \cdot p_C^{0} \cdot p_G^{5}
 </span></p>
 </div>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">4.2</h2>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6">4.2</h2>
 <p>Based on the likelihood function (Maximum Likelihood Estimation), what are the estimates for <span class="math inline">\hat{p}_A</span>, <span class="math inline">\hat{p}_T</span>, <span class="math inline">\hat{p}_C</span>, and <span class="math inline">\hat{p}_G</span>?</p>
 <div class="hide">
 <p><span class="math display">
@@ -350,8 +376,8 @@ p(X|P) = \frac{20!}{10!5!0!5!}p_A^{10} \cdot p_T^{5} \cdot p_C^{0} \cdot p_G^{5}
 </span></p>
 </div>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">4.3</h2>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7">4.3</h2>
 <p>Derive the posterior distribution <span class="math inline">p(P|X, \boldsymbol{\alpha})</span>.</p>
 <div class="hide">
 <p><span class="math display">
@@ -359,8 +385,8 @@ p(P|X, \boldsymbol{\alpha}) \propto p_A^{10+2-1} \cdot p_T^{5+2-1} \cdot p_C^{0+
 </span></p>
 </div>
 </section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">4.4</h2>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8">4.4</h2>
 <p>Calculate the posterior predictive probability of observing each nucleotide in a new sequence: <span class="math inline">p(\tilde{x}=A|X,\boldsymbol{\alpha})</span>, <span class="math inline">p(\tilde{x}=T|X,\boldsymbol{\alpha})</span>, <span class="math inline">p(\tilde{x}=C|X,\boldsymbol{\alpha})</span>, and <span class="math inline">p(\tilde{x}=G|X,\boldsymbol{\alpha})</span>.</p>
 <div class="hide">
 <p><span class="math display">
@@ -373,22 +399,22 @@ p(\tilde{x}=G|X,\boldsymbol{\alpha}) = &amp; \frac{5+2}{20+8} = \frac{7}{28} = 0
 </span></p>
 </div>
 </section>
-<section id="section-4" class="level2">
-<h2 class="anchored" data-anchor-id="section-4">4.5</h2>
+<section id="section-9" class="level2">
+<h2 class="anchored" data-anchor-id="section-9">4.5</h2>
 <p>Compare the posterior predictive probabilities with the MLE estimates from 4.2. How does the prior belief affect the estimation of rare events (e.g., <span class="math inline">n_C = 0</span>)?</p>
 <div class="hide">
 <p>Prior belief adjusts the estimation of rare events. Without a prior, the MLE for <span class="math inline">p_C</span> is 0, implying ‘C’ is impossible. The Dirichlet prior (acting as pseudocounts or Laplace smoothing) assigns a non-zero probability to ‘C’, acknowledging that a zero count may result from a small sample size. This prevents the “zero-frequency” problem.</p>
 </div>
 </section>
-<section id="section-5" class="level2">
-<h2 class="anchored" data-anchor-id="section-5">4.6</h2>
+<section id="section-10" class="level2">
+<h2 class="anchored" data-anchor-id="section-10">4.6</h2>
 <p>After talking with a genomic researcher, you realize that this sequence is suspected to be a CpG island, where the frequency of ‘C’ and ‘G’ is higher. How would you adjust your prior belief to reflect this?</p>
 <div class="hide">
 <p>We can increase the hyperparameters for ‘C’ and ‘G’. For example, setting <span class="math inline">\boldsymbol{\alpha}' = (2, 2, 5, 5)</span> gives more weight to ‘C’ and ‘G’ relative to ‘A’ and ‘T’, reflecting the biological expectation of a CpG island.</p>
 </div>
 </section>
-<section id="section-6" class="level2">
-<h2 class="anchored" data-anchor-id="section-6">4.7</h2>
+<section id="section-11" class="level2">
+<h2 class="anchored" data-anchor-id="section-11">4.7</h2>
 <p>Consider an extreme case where the Dirichlet prior is <span class="math inline">\boldsymbol{\alpha}'' = (2, 2, 18, 18)</span>, strongly favoring ‘C’ and ‘G’. Calculate the new posterior predictive probabilities.</p>
 <div class="hide">
 <p><span class="math display">
@@ -401,8 +427,8 @@ p(\tilde{x}=G|X,\boldsymbol{\alpha}'') = &amp; \frac{5+18}{20+40} = \frac{23}{60
 </span></p>
 </div>
 </section>
-<section id="section-7" class="level2">
-<h2 class="anchored" data-anchor-id="section-7">4.8</h2>
+<section id="section-12" class="level2">
+<h2 class="anchored" data-anchor-id="section-12">4.8</h2>
 <p>Compared with the case where <span class="math inline">\boldsymbol{\alpha} = (2, 2, 2, 2)</span>, how does this strong prior influence the final inference?</p>
 <div class="hide">
 <p>A strong prior (large <span class="math inline">\alpha</span> values) can dominate the observed data. Despite ‘A’ being the most frequent observation (<span class="math inline">n_A=10</span>), the heavy prior weight on ‘C’ and ‘G’ makes them the most probable outcomes in the posterior predictive distribution, effectively overriding the evidence from the small sample.</p>
