@@ -228,8 +228,8 @@ window.Quarto = {
 
 <section id="question-1-categorical-distribution-with-dirichlet-prior" class="level1">
 <h1>Question 1: Categorical distribution with Dirichlet prior</h1>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<section id="section" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section"></h2>
 <p>Let <span class="math inline">X = \{x_1, \dots, x_N\}</span> be <span class="math inline">N</span> independent observations following a Categorical distribution with <span class="math inline">K</span> classes and parameter vector <span class="math inline">\mathbf{p} = (p_1, \dots, p_K)</span>, where <span class="math inline">\sum p_k = 1</span>. Let the prior on <span class="math inline">\mathbf{p}</span> be a Dirichlet distribution with hyperparameters <span class="math inline">\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_K)</span>. Let <span class="math inline">n_k</span> denote the number of observations in class <span class="math inline">k</span>.</p>
 <ol type="1">
 <li>Show that the posterior distribution of the parameter vector <span class="math inline">\mathbf{p}</span> follows a Dirichlet distribution: <span class="math display">
@@ -255,8 +255,8 @@ P(\mathbf{p}) \propto \prod_{k=1}^K p_k^{\alpha_k - 1}
 </span></p>
 </div>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1"></h2>
+<section id="section-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-1"></h2>
 <ol type="1">
 <li>Show that the posterior predictive probability of a new observation <span class="math inline">\tilde{x}</span> belonging to class <span class="math inline">k</span> is:</li>
 </ol>
@@ -283,8 +283,8 @@ P(\tilde{x} = k | X) = \frac{\alpha_k + n_k}{\sum_{j=1}^K (\alpha_j + n_j)} = \f
 </section>
 <section id="question-2-multinomial-distribution-with-dirichlet-prior" class="level1">
 <h1>Question 2: Multinomial distribution with Dirichlet prior</h1>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2"></h2>
+<section id="section-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-2"></h2>
 <p>Let <span class="math inline">\mathbf{X}</span> be a vector of counts <span class="math inline">(n_1, \dots, n_K)</span> resulting from <span class="math inline">N</span> independent trials, modeled by a Multinomial distribution with parameter vector <span class="math inline">\mathbf{p} = (p_1, \dots, p_K)</span>, where <span class="math inline">\sum p_k = 1</span>. Suppose we place a Dirichlet prior on <span class="math inline">\mathbf{p}</span> with hyperparameters <span class="math inline">\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_K)</span>. Show that the posterior distribution of the parameter vector <span class="math inline">\mathbf{p}</span> given the data <span class="math inline">\mathbf{X}</span> is a Dirichlet distribution with parameters <span class="math inline">(\alpha_1 + n_1, \dots, \alpha_K + n_K)</span>.</p>
 <div class="hide">
 <p>To find the posterior distribution <span class="math inline">P(\mathbf{p} | \mathbf{X})</span>, we use Bayes’ theorem: <span class="math display">
@@ -310,8 +310,8 @@ P(\mathbf{p} | \mathbf{X}) &amp;\propto \left( \prod_{k=1}^K p_k^{n_k} \right) \
 </section>
 <section id="question-3" class="level1">
 <h1>Question 3</h1>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3"></h2>
+<section id="section-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-3"></h2>
 <p>Let <span class="math inline">X \sim \text{Cat}(\mathbf{p})</span> with <span class="math inline">k</span> outcomes and probabilities <span class="math inline">\mathbf{p} = (p_1, \dots, p_k)</span>.</p>
 <p>Identify the distribution followed by the indicator variable <span class="math inline">\mathbb{I}(X=j)</span> and specify its parameters.</p>
 <p><em>Instruction: Use an intuitive guess (layman’s terms) to determine the answer before starting the formal mathematical proof.</em></p>
@@ -334,8 +334,8 @@ Y = \mathbb{I}(X = j) =
 </section>
 <section id="question-4-base-calling-simplified-version" class="level1">
 <h1>Question 4: Base calling (Simplified version)</h1>
-<section id="section-4" class="level2">
-<h2 class="anchored" data-anchor-id="section-4"></h2>
+<section id="section-4" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-4"></h2>
 <p>We are analyzing a specific site in a DNA sequence which can be one of <span class="math inline">K=4</span> distinct nucleotides (A, T, C, G). The probability of observing each nucleotide is given by the vector <span class="math inline">P = (p_A, p_T, p_C, p_G)</span>.</p>
 <p>We treat the observation of <span class="math inline">N</span> independent sites as drawing from a Categorical distribution. To model our uncertainty about the vector <span class="math inline">P</span>, we assign a Dirichlet prior with hyperparameters <span class="math inline">\alpha = (\alpha_A, \alpha_T, \alpha_C, \alpha_G)</span>.</p>
 <p>Given:</p>

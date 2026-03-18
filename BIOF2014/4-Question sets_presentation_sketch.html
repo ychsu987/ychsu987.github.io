@@ -141,7 +141,7 @@
 <h1>Question 1: Categorical distribution with Dirichlet prior</h1>
 
 </section>
-<section id="section" class="slide level2 smaller">
+<section id="section" class="slide level2">
 <h2></h2>
 <p>Let <span class="math inline">\(X = \{x_1, \dots, x_N\}\)</span> be <span class="math inline">\(N\)</span> independent observations following a Categorical distribution with <span class="math inline">\(K\)</span> classes and parameter vector <span class="math inline">\(\mathbf{p} = (p_1, \dots, p_K)\)</span>, where <span class="math inline">\(\sum p_k = 1\)</span>. Let the prior on <span class="math inline">\(\mathbf{p}\)</span> be a Dirichlet distribution with hyperparameters <span class="math inline">\(\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_K)\)</span>. Let <span class="math inline">\(n_k\)</span> denote the number of observations in class <span class="math inline">\(k\)</span>.</p>
 <ol type="1">
@@ -168,7 +168,7 @@ P(\mathbf{p}) \propto \prod_{k=1}^K p_k^{\alpha_k - 1}
 \]</span></p>
 </div>
 </section>
-<section id="section-1" class="slide level2 smaller">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <ol type="1">
 <li>Show that the posterior predictive probability of a new observation <span class="math inline">\(\tilde{x}\)</span> belonging to class <span class="math inline">\(k\)</span> is:</li>
@@ -198,7 +198,7 @@ P(\tilde{x} = k | X) = \frac{\alpha_k + n_k}{\sum_{j=1}^K (\alpha_j + n_j)} = \f
 <h1>Question 2: Multinomial distribution with Dirichlet prior</h1>
 
 </section>
-<section id="section-2" class="slide level2 smaller">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <p>Let <span class="math inline">\(\mathbf{X}\)</span> be a vector of counts <span class="math inline">\((n_1, \dots, n_K)\)</span> resulting from <span class="math inline">\(N\)</span> independent trials, modeled by a Multinomial distribution with parameter vector <span class="math inline">\(\mathbf{p} = (p_1, \dots, p_K)\)</span>, where <span class="math inline">\(\sum p_k = 1\)</span>. Suppose we place a Dirichlet prior on <span class="math inline">\(\mathbf{p}\)</span> with hyperparameters <span class="math inline">\(\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_K)\)</span>. Show that the posterior distribution of the parameter vector <span class="math inline">\(\mathbf{p}\)</span> given the data <span class="math inline">\(\mathbf{X}\)</span> is a Dirichlet distribution with parameters <span class="math inline">\((\alpha_1 + n_1, \dots, \alpha_K + n_K)\)</span>.</p>
 <div class="hide">
@@ -227,7 +227,7 @@ P(\mathbf{p} | \mathbf{X}) &amp;\propto \left( \prod_{k=1}^K p_k^{n_k} \right) \
 <h1>Question 3</h1>
 
 </section>
-<section id="section-3" class="slide level2 smaller">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <p>Let <span class="math inline">\(X \sim \text{Cat}(\mathbf{p})\)</span> with <span class="math inline">\(k\)</span> outcomes and probabilities <span class="math inline">\(\mathbf{p} = (p_1, \dots, p_k)\)</span>.</p>
 <p>Identify the distribution followed by the indicator variable <span class="math inline">\(\mathbb{I}(X=j)\)</span> and specify its parameters.</p>
@@ -253,7 +253,7 @@ Y = \mathbb{I}(X = j) =
 <h1>Question 4: Base calling (Simplified version)</h1>
 
 </section>
-<section id="section-4" class="slide level2 smaller">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <p>We are analyzing a specific site in a DNA sequence which can be one of <span class="math inline">\(K=4\)</span> distinct nucleotides (A, T, C, G). The probability of observing each nucleotide is given by the vector <span class="math inline">\(P = (p_A, p_T, p_C, p_G)\)</span>.</p>
 <p>We treat the observation of <span class="math inline">\(N\)</span> independent sites as drawing from a Categorical distribution. To model our uncertainty about the vector <span class="math inline">\(P\)</span>, we assign a Dirichlet prior with hyperparameters <span class="math inline">\(\alpha = (\alpha_A, \alpha_T, \alpha_C, \alpha_G)\)</span>.</p>
@@ -392,7 +392,7 @@ p(\tilde{x}=G|X,\boldsymbol{\alpha}'') = &amp; \frac{5+18}{20+40} = \frac{23}{60
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true,"theme":"whiteboard"},
+'chalkboard': {"buttons":true,"theme":"whiteboard","src":"compiled_pdf/4t-chalkboard.json"},
 'smaller': true,
  
         // Display controls in the bottom right corner
@@ -413,7 +413,7 @@ p(\tilde{x}=G|X,\boldsymbol{\alpha}'') = &amp; \frac{5+18}{20+40} = \frac{23}{60
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -572,6 +572,82 @@ p(\tilde{x}=G|X,\boldsymbol{\alpha}'') = &amp; \frac{5+18}{20+40} = \frac{23}{60
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

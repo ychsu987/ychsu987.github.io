@@ -18,7 +18,7 @@
     "href": "quant.html#biof2014-statistical-modelling-for-bioinformatics",
     "title": "Quantitative analysis",
     "section": "BIOF2014 Statistical Modelling for Bioinformatics",
-    "text": "BIOF2014 Statistical Modelling for Bioinformatics\n\nBlank notes\n\n\n\n\n\n\n\n\n\n\nHousekeeping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUniform Distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscrete Distribution Family\n\n\nBinomial distribution family\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultivariate statistics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscrete Distribution Family\n\n\nMultivariate discrete distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeasuring in Intervals\n\n\nPoisson and Related Distributions\n\n\n\n\n\n\n\n\nNo matching items\n\n\nClass sketches\n\n\n\n\n\n\n\n\n\n\nUniform Distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscrete Distribution Family\n\n\nBinomial distribution family\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultivariate statistics\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\nTutorial questions\n\n\n\n\n\nQuestion sets-Uniform distribution and empirical distribution\n\n\n\n\n\n\n\n\n\n\nQuestion sets-Discrete Distribution Family\n\n\n\n\n\n\n\n\n\n\nQuestion sets-Multivariate Statistics\n\n\n\n\n\n\n\n\n\n\nQuestion sets\n\n\n\n\n\n\n\n\n\n\nQuestion sets\n\n\n\n\n\n\n\n\nNo matching items\n\n\nTutorial sketches\n\n\n\n\n\nQuestion sets-Discrete Distribution Family\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "BIOF2014 Statistical Modelling for Bioinformatics\n\nBlank notes\n\n\n\n\n\n\n\n\n\n\nHousekeeping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUniform Distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscrete Distribution Family\n\n\nBinomial distribution family\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultivariate statistics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscrete Distribution Family\n\n\nMultivariate discrete distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeasuring in Intervals\n\n\nPoisson and Related Distributions\n\n\n\n\n\n\n\n\nNo matching items\n\n\nClass sketches\n\n\n\n\n\n\n\n\n\n\nUniform Distribution\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscrete Distribution Family\n\n\nBinomial distribution family\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultivariate statistics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscrete Distribution Family\n\n\nMultivariate discrete distribution\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\nTutorial questions\n\n\n\n\n\nQuestion sets-Uniform distribution and empirical distribution\n\n\n\n\n\n\n\n\n\n\nQuestion sets-Discrete Distribution Family\n\n\n\n\n\n\n\n\n\n\nQuestion sets-Multivariate Statistics\n\n\n\n\n\n\n\n\n\n\nQuestion sets\n\n\n\n\n\n\n\n\n\n\nQuestion sets\n\n\n\n\n\n\n\n\nNo matching items\n\n\nTutorial sketches\n\n\n\n\n\nQuestion sets-Discrete Distribution Family\n\n\n\n\n\n\n\n\n\n\nQuestion sets\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "hybridPBL.html",
@@ -1062,6 +1062,153 @@
     "title": "Question sets",
     "section": "4.8",
     "text": "4.8\nCompared with the case where \\(\\boldsymbol{\\alpha} = (2, 2, 2, 2)\\), how does this strong prior influence the final inference?\n\nA strong prior (large \\(\\alpha\\) values) can dominate the observed data. Despite ‘A’ being the most frequent observation (\\(n_A=10\\)), the heavy prior weight on ‘C’ and ‘G’ makes them the most probable outcomes in the posterior predictive distribution, effectively overriding the evidence from the small sample."
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#intended-learning-outcomes",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#intended-learning-outcomes",
+    "title": "Discrete Distribution Family",
+    "section": "Intended learning outcomes",
+    "text": "Intended learning outcomes\n\nDefine the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#categorical-distribution",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#categorical-distribution",
+    "title": "Discrete Distribution Family",
+    "section": "Categorical distribution",
+    "text": "Categorical distribution\nIf a random variable \\(X\\) has \\(k\\) distinct outcomes (\\(k \\geq 2\\)), then \\(X\\) follows a Categorical distribution.\n\n\n\nSupport: \\(x \\in \\{1,\\dots, k\\}\\)\nParameters:\n\n\\(p_1, p_2, \\dots, p_k\\) (noting that \\(\\sum_{i=1}^k p_i = 1\\) and \\(p_i \\ge 0\\))\n\npmf\n\n\n\\[\np(X=i)=p_i\n\\]\n\n\n\nYou can view the categorical distribution as a multivariate version of the Bernoulli distribution.\nThere are only \\(k-1\\) free parameters since \\(p_k = 1 - \\sum_{i=1}^{k-1} p_i\\).\n\nExample\n\nPhenotypes (e.g. A, B, O blood types)\nNucleotide bases (e.g. A, T, C, G)"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#multinomial-distribution",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#multinomial-distribution",
+    "title": "Discrete Distribution Family",
+    "section": "Multinomial distribution",
+    "text": "Multinomial distribution\nSimilar to the univariate case, if we summarize the counts from repeated categorical trials, we obtain the Multinomial distribution.\n\n\n\nSupport: \\(x_1,\\dots,x_k \\mid \\sum_{i=1}^k x_i =n,\\; x_i \\in \\mathbb{N}\\)\nParameters:\n\n\\(p_1, p_2, \\dots, p_k\\) (noting \\(\\sum_{i=1}^k p_i = 1\\) and \\(p_i \\ge 0\\))\n\\(n\\): number of trials\n\npmf\n\n\n\\[\n  \\frac{n!}{x_1!\\dots x_k!}p_1^{x_1}\\dots p_k^{x_k}\n  \\]\n\n\n\nAgain, there are only \\(k-1\\) free parameters since \\(p_k = 1 - \\sum_{i=1}^{k-1} p_i\\).\n\nExample\nSummary of categorical data"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-distribution",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-distribution",
+    "title": "Discrete Distribution Family",
+    "section": "Dirichlet distribution",
+    "text": "Dirichlet distribution\nThe Dirichlet distribution is the conjugate prior of the Categorical and Multinomial distributions. It describes the belief about the probability vector \\(p\\) in these models.\n\n\n\nSupport: \\(p_1,\\dots, p_k\\)\nParameters: \\(\\alpha_1,\\dots, \\alpha_k\\)\npdf \\[\n  \\frac{1}{B(\\mathbf{\\alpha})}\\prod_{i=1}^{k} p_i^{\\alpha_i-1}\n  \\]\n\n\n\nYou can view the Dirichlet distribution as a multivariate version of the Beta distribution."
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#bayesian-estimation",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#bayesian-estimation",
+    "title": "Discrete Distribution Family",
+    "section": "Bayesian estimation",
+    "text": "Bayesian estimation\n\nMotivation: We tries to incorporate our knowledge and experience to estimate the parameters of a distribution.\nFrom Bayes’ theorem, we can use the prior distribution to update our belief about the parameters after observing the data. In mathematical terms, we have\n\n\n\\[\np(\\theta|X) = \\frac{\n\\underbrace{p(X|\\theta)}_{\\text{Evidence from the data}}\\cdot\\underbrace{p(\\theta)}_{\\text{Prior belief about $\\theta$}}\n}{\\underbrace{p(X)}_{\\text{Marginal likelihood of the data, not a function of $\\theta$}}}\n\\]\n\nin short, in most of the calculation, we can write\n\n\\[\np(\\theta|X) \\propto p(X|\\theta) \\cdot p(\\theta)\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-as-categorical-distribution-prior",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-as-categorical-distribution-prior",
+    "title": "Discrete Distribution Family",
+    "section": "Dirichlet as categorical distribution prior",
+    "text": "Dirichlet as categorical distribution prior\n\n\nSet up\n\n\\(X = x_1,\\dots,x_N\\) are \\(N\\) independent observations.\nDrawn from a Categorical distribution with \\(\\textbf{p}=(p_1,\\dots,p_K)\\) and \\(K\\) classes.\nLet \\(n_k\\) be the count of observations in category \\(k\\).\n\nPrior\n\nA Dirichlet prior \\(P(\\textbf{p} \\mid \\mathbf{\\alpha}) = \\text{Dir}(\\textbf{p} \\mid \\mathbf{\\alpha}) = \\frac{1}{\\text{B}(\\mathbf{\\alpha})} \\prod_{i=1}^K p_i^{\\alpha_i - 1}\\)\n\n\nFrom Bayes’ theorem, we have\n\n\\[\n\\small\nP(\\textbf{p} \\mid X) \\propto P(X \\mid \\textbf{p}) P(\\mathbf{p} \\mid \\mathbf{\\alpha})\n\\]\n\nFor simplification, let \\(c=(c_1,\\dots,c_k)\\) as the count of observations in each category, and the posterior distribution of the parameter is\n\n\\[\n\\small\n\\begin{aligned}\nP(\\textbf{p} \\mid \\textbf{X} ) \\propto & \\left( \\prod_{i=1}^K p_i^{c_i} \\right) \\left( \\prod_{i=1}^K p_i^{\\alpha_i - 1} \\right) \\\\\n\\propto & \\prod_{i=1}^K p_i^{c_i + \\alpha_i - 1}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#the-posterior-predictive-distribution",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#the-posterior-predictive-distribution",
+    "title": "Discrete Distribution Family",
+    "section": "The Posterior Predictive Distribution",
+    "text": "The Posterior Predictive Distribution\nThep posterior distribution has the kernel (functional form) of a Dirichlet distribution with updated parameters \\(\\mathbf{\\alpha}'\\):\n\n\\[\n\\small\n\\mathbf{\\alpha}' = (\\alpha_1 + c_1, \\alpha_2 + c_2, \\dots, \\alpha_K + c_K)\n\\]\n\nInterpretation: adding \\(\\alpha_i\\) pseudo-counts to the observed counts \\(c_i\\) for each category \\(i\\). \nPosterior predictive distribution\nIntuitively speaking if we want to guess the probability of the next observation \\(x_{N+1}\\) being category \\(j\\) is still a Categorical distribution,\nbut we need to use the updated parameters \\(\\mathbf{\\alpha}'\\) to calculate the :\n\n\\[\nP(x_{N+1} = j \\mid D, \\mathbf{\\alpha}) = \\frac{\\alpha_j + c_j}{\\sum_{i=1}^K (\\alpha_i + c_i)}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#illustration-of-dirichlet-prior",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#illustration-of-dirichlet-prior",
+    "title": "Discrete Distribution Family",
+    "section": "Illustration of Dirichlet Prior",
+    "text": "Illustration of Dirichlet Prior\nDirichlet prior adds a psuedo \\(\\alpha\\) observations. (The observed data is [8,2,2])"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-as-a-multinomial-distribution-prior",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-as-a-multinomial-distribution-prior",
+    "title": "Discrete Distribution Family",
+    "section": "Dirichlet as a multinomial distribution prior",
+    "text": "Dirichlet as a multinomial distribution prior\n\n\nSet up\n\n\\(X = x_1,\\dots,x_n\\) are observations drawn from a Multinomial distribution with \\(P=(p_1,\\dots,p_K)\\) and \\(K\\) classes.\n\nPrior\nA Dirichlet prior \\(P(\\textbf{p} \\mid \\mathbf{\\alpha}) = \\text{Dir}(\\textbf{p} \\mid \\mathbf{\\alpha}) = \\frac{1}{\\text{B}(\\mathbf{\\alpha})} \\prod_{i=1}^K p_i^{\\alpha_i - 1}\\)\nThe probability of observing this data is\n\n\\[\n\\small\np(X|p)= \\frac{n!}{x_1!\\dots x_k!}\\prod_{j=1}^K p_j^{x_j} \\propto \\prod_{j=1}^K p_j^{x_j}\n\\]\n\n\nUsing Bayes’ Rule, the posterior is proportional to the Likelihood times the Prior: \\[\nP(\\textbf{p} \\mid \\textbf{X}, \\mathbf{\\alpha}) \\propto P(\\textbf{X} \\mid \\textbf{p}) P(\\textbf{p} \\mid \\mathbf{\\alpha})\n\\]\nDropping the constants (terms not involving \\(\\textbf{p}\\)) to find the kernel:\n\n\\[\nP(\\textbf{p} \\mid \\mathbf{x}, \\mathbf{\\alpha}) \\propto \\left( \\prod_{i=1}^K p_i^{x_i} \\right) \\left( \\prod_{i=1}^K p_i^{\\alpha_i - 1} \\right)\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#illustration",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#illustration",
+    "title": "Discrete Distribution Family",
+    "section": "Illustration",
+    "text": "Illustration\nThep posterior distribution has the kernel (functional form) of a Dirichlet distribution with updated parameters \\(\\mathbf{\\alpha}'\\):\n\n\\[\n\\begin{aligned}\n\\mathbf{\\alpha}' = (\\mathbf{\\alpha} + \\textbf{x}) = (\\alpha_1 + x_1, \\alpha_2 + x_2, \\dots, \\alpha_K + x_K)\n\\end{aligned}\n\\]\n\nInterpretation: The \\(\\alpha_i\\) values act as “imaginary” observations seen before the experiment."
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#interpretation-of-dirichlet-prior",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#interpretation-of-dirichlet-prior",
+    "title": "Discrete Distribution Family",
+    "section": "Interpretation of Dirichlet prior",
+    "text": "Interpretation of Dirichlet prior\n\n\n\n\n\n\n\n\n\nCategorical\nMultinomial\n\n\n\n\nPrior\nDirichlet\nDirichlet\n\n\nPosterior\n\\(\\prod_{k=1}^Kp_k^{n_k+\\alpha_k-1}\\)\n\\(\\prod_{k=1}^Kp_k^{x_k+\\alpha_k-1}\\)\n\n\nPosterior predictive\nCategorical\nDirichlet-multinomial\n\n\n\n\nInterpretation:\n\nAdding a Dirichlet prior is equivalent to adding \\(\\alpha\\) pseudo-observations to the data.\nAs the number of observations increases, the influence of the prior decreases."
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#application-in-bioinformatics",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#application-in-bioinformatics",
+    "title": "Discrete Distribution Family",
+    "section": "Application in bioinformatics",
+    "text": "Application in bioinformatics\n\n\nMotif discovery\n\n\n\nMotif discovery from D’haeseleer (2006)\n\n\n\nMetagenomics\n\n\n\nGut microbiome composition of different types from Arumugam et al. (2011)"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#generalized-linear-model",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#generalized-linear-model",
+    "title": "Discrete Distribution Family",
+    "section": "Generalized linear model",
+    "text": "Generalized linear model\n\n\nLimitations of ordinary linear regression\n\nCount data (Multinomial/Poisson)\nDichotomous or Multinomial outcomes (Bernoulli)\nProportions (values between 0 and 1)\n\nA generalized linear model (GLM) can model different kinds of data.\n\nComponents of GLM\n\nRandom components\n\nIdentify \\(Y\\) and its distribution\n\nSystematic components\n\nLinear predictor \\(\\alpha + \\beta_1 x_1 + \\dots + \\beta_k x_k\\)\n\nLink function\n\nGiven \\(\\mu=E(Y)\\), the link function \\(g(\\cdot)\\) satisfies \\[g(\\mu)=\\alpha+\\beta_1x_1+\\dots+\\beta_kx_k\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression",
+    "title": "Discrete Distribution Family",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\n\nIn logistic regression (binomial outcomes), the link function is\nLogit link function\n\\[\n\\log\\frac{p(x)}{1-p(x)}=\\alpha+\\beta x\n\\]\nTransform them back to get \\(p(x)\\)\n\\[\np(x)=\\frac{e^{\\alpha+\\beta x}}{1+e^{\\alpha+\\beta x}}\n\\]\n\nFor a dichotomous predictor \\(x\\) with values 0 and 1, \\(\\beta\\) is the log odds ratio (\\(\\log(\\text{OR})\\)).\n\n\n\n\n\n\n\n\n\n\nDiscussion: if we model \\(p(x)=\\alpha+\\beta x\\), is it causing any trouble?\n\nPotential estimate for \\(p(x)&gt;1\\) or \\(p(x)&lt;0\\)"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#multinomial-logistic-regression",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#multinomial-logistic-regression",
+    "title": "Discrete Distribution Family",
+    "section": "Multinomial logistic regression",
+    "text": "Multinomial logistic regression\n\nHow do we compare multiple categories?\n\n1 vs. n\nn vs. n\n\nThere are \\(k(k-1)/2\\) pairs of comparisons, but actually, you only need \\(k-1\\) non-redundant comparisons.\n\nLet the category \\(K\\) as the baseline, for each comparison of \\(k = 1,\\dots,k-1\\)\nBaseline-category logit model are \\[\n\\log(\\frac{p_k(x)}{p_K(x)})=\\alpha_k+\\beta_kx \\quad k=1,\\dots,K-1\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#interpretation-of-beta",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#interpretation-of-beta",
+    "title": "Discrete Distribution Family",
+    "section": "Interpretation of \\(\\beta\\)",
+    "text": "Interpretation of \\(\\beta\\)\nThe model assumes \\(\\ln(\\frac{p(x)}{1-p(x)})=\\alpha+\\beta x\\), so for a given change \\(\\Delta x\\),\nThe odds at \\(x + \\Delta x\\) is\n\\[\n\\frac{p(x + \\Delta x)}{1-p(x + \\Delta x)}=\\exp(\\alpha+\\beta(x+\\Delta x)) = \\exp(\\alpha+\\beta(x))\\exp(\\beta\\Delta x)\n\\]\nThe odds ratio (OR) for \\(x\\) is\n\\[\n\\text{OR}=\\frac{\\text{odds at}(x+\\Delta x)}{\\text{odds at}(x)}=\\frac{\\exp(\\alpha+\\beta(x+\\Delta x))}{\\exp(\\alpha+\\beta(x))} = \\exp(\\beta\\Delta x)\n\\]\n\n\\(\\beta\\) is the change in the log odds when x increases by 1 unit.\nConfidence interval of OR is not symmetric to the mean.\n\nHow about alpha ?"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression-v.s.-contingency-table",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression-v.s.-contingency-table",
+    "title": "Discrete Distribution Family",
+    "section": "Logistic regression v.s. Contingency table",
+    "text": "Logistic regression v.s. Contingency table\n\n\n\n\n\n\n\n\n\nLogistic regression\nContingency table\n\n\n\n\nEstimating\nOR\nOR\n\n\nTest on esstimation\nt-test/\\(\\chi^2\\) test\nFisher’s exact test/\\(\\chi^2\\) test\n\n\n\n\nAdvantage of logistic regression\n\nControlling other confounders\n\nEstimating OR for continuous variables\nCompatible with multinomial outcomes"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#back-to-the-kidney-stone-example",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#back-to-the-kidney-stone-example",
+    "title": "Discrete Distribution Family",
+    "section": "Back to the kidney stone example",
+    "text": "Back to the kidney stone example\n\nIn clinical practice, for stone diameters less than 2cm, doctors usually conduct PCNL, while open surgery is used for stone diameters of 2cm or greater.\n\n\n\nStone size\nTreatment\nSuccess\nFail\n\n\n\n\nSmall\nOS\n81\n6\n\n\nSmall\nPCNL\n234\n36\n\n\nLarge\nOS\n192\n71\n\n\nLarge\nPCNL\n55\n25\n\n\n\n\nModel: (Success/Fail) ~ Stone size + Treatment\n\n\n\n-- Log Odds Ratios & CI w/o Control Stone Size --\n              2.5%  97.5%  Odds Ratio\nIntercept     1.28   1.83        1.56\nTreatment_OS -0.66   0.08       -0.29\n\n-- Log Odds Ratios & CI with Control Stone Size  --\n                  2.5%  97.5%  Odds Ratio\nIntercept         1.60   2.27        1.94\nStone_Size_Large -1.73  -0.79       -1.26\nTreatment_OS     -0.09   0.81        0.36"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#ordinal-logistic-regression",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#ordinal-logistic-regression",
+    "title": "Discrete Distribution Family",
+    "section": "Ordinal logistic regression",
+    "text": "Ordinal logistic regression\nFor ordinal data (e.g., a scale with scores “No”, “Neutral”, and “Yes”), the following rules apply:\n\\[\nP(x \\leq k)=p(x=1) + \\dots + p(x=k), \\text{where } p(x\\leq K) = 1\n\\]\nIntuitively, we can think that the regression is measuring the same thing, but the cutoff for making decisions is different. So, we only need to estimate the cumulative logits:\n\\[\n\\log(\\frac{p(x\\leq j)}{p(x &gt; j)}) =\\alpha_j+\\beta x\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#ordinal-logistic-regression-1",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#ordinal-logistic-regression-1",
+    "title": "Discrete Distribution Family",
+    "section": "Ordinal logistic regression",
+    "text": "Ordinal logistic regression\nIllustration: \\(\\alpha_{-1}=-3,\\alpha_{0}=2, \\beta=1.5\\)\n\n\n\n\n\n\n\n\n\nImplications\n\nFinding cut-offs for different ordinal outcomes\nIf we extend to really continuous case, then we do not need that cut-offs to specific class"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html#bibliography",
+    "href": "BIOF2014/4-Discrete distribution family-2.html#bibliography",
+    "title": "Discrete Distribution Family",
+    "section": "Bibliography",
+    "text": "Bibliography\n\n\n\n\nArumugam, Manimozhiyan, Jeroen Raes, Eric Pelletier, Denis Le Paslier, Takuji Yamada, Daniel R Mende, Gabriel R Fernandes, et al. 2011. “Enterotypes of the Human Gut Microbiome.” Nature 473 (7346): 174–80.\n\n\nD’haeseleer, Patrik. 2006. “How Does DNA Sequence Motif Discovery Work?” Nature Biotechnology 24 (8): 959–61."
   },
   {
     "objectID": "BIOF2014/3-Question sets_presentation.html#question-1",
@@ -2926,151 +3073,242 @@
     "text": "Bibliography Note\n\n\n\n\nBonovas, Stefanos, and Daniele Piovani. 2023. “Simpson’s Paradox in Clinical Research: A Cautionary Tale.” Journal of Clinical Medicine. MDPI.\n\n\nTacq, J. 2010. “Multivariate Normal Distribution.” In International Encyclopedia of Education (Third Edition), edited by Penelope Peterson, Eva Baker, and Barry McGaw, Third Edition, 332–38. Oxford: Elsevier. https://doi.org/https://doi.org/10.1016/B978-0-08-044894-7.01351-8."
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#intended-learning-outcomes",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#intended-learning-outcomes",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#intended-learning-outcomes",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#intended-learning-outcomes",
     "title": "Discrete Distribution Family",
     "section": "Intended learning outcomes",
     "text": "Intended learning outcomes\n\nDefine the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#categorical-distribution",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#categorical-distribution",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#categorical-distribution",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#categorical-distribution",
     "title": "Discrete Distribution Family",
     "section": "Categorical distribution",
     "text": "Categorical distribution\nIf a random variable \\(X\\) has \\(k\\) distinct outcomes (\\(k \\geq 2\\)), then \\(X\\) follows a Categorical distribution.\n\n\n\nSupport: \\(x \\in \\{1,\\dots, k\\}\\)\nParameters:\n\n\\(p_1, p_2, \\dots, p_k\\) (noting that \\(\\sum_{i=1}^k p_i = 1\\) and \\(p_i \\ge 0\\))\n\npmf\n\n\n\\[\np(X=i)=p_i\n\\]\n\n\n\nYou can view the categorical distribution as a multivariate version of the Bernoulli distribution.\nThere are only \\(k-1\\) free parameters since \\(p_k = 1 - \\sum_{i=1}^{k-1} p_i\\).\n\nExample\n\nPhenotypes (e.g. A, B, O blood types)\nNucleotide bases (e.g. A, T, C, G)"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#multinomial-distribution",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#multinomial-distribution",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#multinomial-distribution",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#multinomial-distribution",
     "title": "Discrete Distribution Family",
     "section": "Multinomial distribution",
     "text": "Multinomial distribution\nSimilar to the univariate case, if we summarize the counts from repeated categorical trials, we obtain the Multinomial distribution.\n\n\n\nSupport: \\(x_1,\\dots,x_k \\mid \\sum_{i=1}^k x_i =n,\\; x_i \\in \\mathbb{N}\\)\nParameters:\n\n\\(p_1, p_2, \\dots, p_k\\) (noting \\(\\sum_{i=1}^k p_i = 1\\) and \\(p_i \\ge 0\\))\n\\(n\\): number of trials\n\npmf\n\n\n\\[\n  \\frac{n!}{x_1!\\dots x_k!}p_1^{x_1}\\dots p_k^{x_k}\n  \\]\n\n\n\nAgain, there are only \\(k-1\\) free parameters since \\(p_k = 1 - \\sum_{i=1}^{k-1} p_i\\).\n\nExample\nSummary of categorical data"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-distribution",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-distribution",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#dirichlet-distribution",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#dirichlet-distribution",
     "title": "Discrete Distribution Family",
     "section": "Dirichlet distribution",
     "text": "Dirichlet distribution\nThe Dirichlet distribution is the conjugate prior of the Categorical and Multinomial distributions. It describes the belief about the probability vector \\(p\\) in these models.\n\n\n\nSupport: \\(p_1,\\dots, p_k\\)\nParameters: \\(\\alpha_1,\\dots, \\alpha_k\\)\npdf \\[\n  \\frac{1}{B(\\mathbf{\\alpha})}\\prod_{i=1}^{k} p_i^{\\alpha_i-1}\n  \\]\n\n\n\nYou can view the Dirichlet distribution as a multivariate version of the Beta distribution."
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#bayesian-estimation",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#bayesian-estimation",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#bayesian-estimation",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#bayesian-estimation",
     "title": "Discrete Distribution Family",
     "section": "Bayesian estimation",
     "text": "Bayesian estimation\n\nMotivation: We tries to incorporate our knowledge and experience to estimate the parameters of a distribution.\nFrom Bayes’ theorem, we can use the prior distribution to update our belief about the parameters after observing the data. In mathematical terms, we have\n\n\n\\[\np(\\theta|X) = \\frac{\n\\underbrace{p(X|\\theta)}_{\\text{Evidence from the data}}\\cdot\\underbrace{p(\\theta)}_{\\text{Prior belief about $\\theta$}}\n}{\\underbrace{p(X)}_{\\text{Marginal likelihood of the data, not a function of $\\theta$}}}\n\\]\n\nin short, in most of the calculation, we can write\n\n\\[\np(\\theta|X) \\propto p(X|\\theta) \\cdot p(\\theta)\n\\]"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-as-categorical-distribution-prior",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-as-categorical-distribution-prior",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#dirichlet-as-categorical-distribution-prior",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#dirichlet-as-categorical-distribution-prior",
     "title": "Discrete Distribution Family",
     "section": "Dirichlet as categorical distribution prior",
     "text": "Dirichlet as categorical distribution prior\n\n\nSet up\n\n\\(X = x_1,\\dots,x_N\\) are \\(N\\) independent observations.\nDrawn from a Categorical distribution with \\(\\textbf{p}=(p_1,\\dots,p_K)\\) and \\(K\\) classes.\nLet \\(n_k\\) be the count of observations in category \\(k\\).\n\nPrior\n\nA Dirichlet prior \\(P(\\textbf{p} \\mid \\mathbf{\\alpha}) = \\text{Dir}(\\textbf{p} \\mid \\mathbf{\\alpha}) = \\frac{1}{\\text{B}(\\mathbf{\\alpha})} \\prod_{i=1}^K p_i^{\\alpha_i - 1}\\)\n\n\nFrom Bayes’ theorem, we have\n\n\\[\n\\small\nP(\\textbf{p} \\mid X) \\propto P(X \\mid \\textbf{p}) P(\\mathbf{p} \\mid \\mathbf{\\alpha})\n\\]\n\nFor simplification, let \\(c=(c_1,\\dots,c_k)\\) as the count of observations in each category, and the posterior distribution of the parameter is\n\n\\[\n\\small\n\\begin{aligned}\nP(\\textbf{p} \\mid \\textbf{X} ) \\propto & \\left( \\prod_{i=1}^K p_i^{c_i} \\right) \\left( \\prod_{i=1}^K p_i^{\\alpha_i - 1} \\right) \\\\\n\\propto & \\prod_{i=1}^K p_i^{c_i + \\alpha_i - 1}\n\\end{aligned}\n\\]"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#the-posterior-predictive-distribution",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#the-posterior-predictive-distribution",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#the-posterior-predictive-distribution",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#the-posterior-predictive-distribution",
     "title": "Discrete Distribution Family",
     "section": "The Posterior Predictive Distribution",
     "text": "The Posterior Predictive Distribution\nThep posterior distribution has the kernel (functional form) of a Dirichlet distribution with updated parameters \\(\\mathbf{\\alpha}'\\):\n\n\\[\n\\small\n\\mathbf{\\alpha}' = (\\alpha_1 + c_1, \\alpha_2 + c_2, \\dots, \\alpha_K + c_K)\n\\]\n\nInterpretation: adding \\(\\alpha_i\\) pseudo-counts to the observed counts \\(c_i\\) for each category \\(i\\). \nPosterior predictive distribution\nIntuitively speaking if we want to guess the probability of the next observation \\(x_{N+1}\\) being category \\(j\\) is still a Categorical distribution,\nbut we need to use the updated parameters \\(\\mathbf{\\alpha}'\\) to calculate the :\n\n\\[\nP(x_{N+1} = j \\mid D, \\mathbf{\\alpha}) = \\frac{\\alpha_j + c_j}{\\sum_{i=1}^K (\\alpha_i + c_i)}\n\\]"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#illustration-of-dirichlet-prior",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#illustration-of-dirichlet-prior",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#illustration-of-dirichlet-prior",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#illustration-of-dirichlet-prior",
     "title": "Discrete Distribution Family",
     "section": "Illustration of Dirichlet Prior",
     "text": "Illustration of Dirichlet Prior\nDirichlet prior adds a psuedo \\(\\alpha\\) observations. (The observed data is [8,2,2])"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-as-a-multinomial-distribution-prior",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#dirichlet-as-a-multinomial-distribution-prior",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#dirichlet-as-a-multinomial-distribution-prior",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#dirichlet-as-a-multinomial-distribution-prior",
     "title": "Discrete Distribution Family",
     "section": "Dirichlet as a multinomial distribution prior",
     "text": "Dirichlet as a multinomial distribution prior\n\n\nSet up\n\n\\(X = x_1,\\dots,x_n\\) are observations drawn from a Multinomial distribution with \\(P=(p_1,\\dots,p_K)\\) and \\(K\\) classes.\n\nPrior\nA Dirichlet prior \\(P(\\textbf{p} \\mid \\mathbf{\\alpha}) = \\text{Dir}(\\textbf{p} \\mid \\mathbf{\\alpha}) = \\frac{1}{\\text{B}(\\mathbf{\\alpha})} \\prod_{i=1}^K p_i^{\\alpha_i - 1}\\)\nThe probability of observing this data is\n\n\\[\n\\small\np(X|p)= \\frac{n!}{x_1!\\dots x_k!}\\prod_{j=1}^K p_j^{x_j} \\propto \\prod_{j=1}^K p_j^{x_j}\n\\]\n\n\nUsing Bayes’ Rule, the posterior is proportional to the Likelihood times the Prior: \\[\nP(\\textbf{p} \\mid \\textbf{X}, \\mathbf{\\alpha}) \\propto P(\\textbf{X} \\mid \\textbf{p}) P(\\textbf{p} \\mid \\mathbf{\\alpha})\n\\]\nDropping the constants (terms not involving \\(\\textbf{p}\\)) to find the kernel:\n\n\\[\nP(\\textbf{p} \\mid \\mathbf{x}, \\mathbf{\\alpha}) \\propto \\left( \\prod_{i=1}^K p_i^{x_i} \\right) \\left( \\prod_{i=1}^K p_i^{\\alpha_i - 1} \\right)\n\\]"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#illustration",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#illustration",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#illustration",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#illustration",
     "title": "Discrete Distribution Family",
     "section": "Illustration",
     "text": "Illustration\nThep posterior distribution has the kernel (functional form) of a Dirichlet distribution with updated parameters \\(\\mathbf{\\alpha}'\\):\n\n\\[\n\\begin{aligned}\n\\mathbf{\\alpha}' = (\\mathbf{\\alpha} + \\textbf{x}) = (\\alpha_1 + x_1, \\alpha_2 + x_2, \\dots, \\alpha_K + x_K)\n\\end{aligned}\n\\]\n\nInterpretation: The \\(\\alpha_i\\) values act as “imaginary” observations seen before the experiment."
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#interpretation-of-dirichlet-prior",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#interpretation-of-dirichlet-prior",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#interpretation-of-dirichlet-prior",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#interpretation-of-dirichlet-prior",
     "title": "Discrete Distribution Family",
     "section": "Interpretation of Dirichlet prior",
     "text": "Interpretation of Dirichlet prior\n\n\n\n\n\n\n\n\n\nCategorical\nMultinomial\n\n\n\n\nPrior\nDirichlet\nDirichlet\n\n\nPosterior\n\\(\\prod_{k=1}^Kp_k^{n_k+\\alpha_k-1}\\)\n\\(\\prod_{k=1}^Kp_k^{x_k+\\alpha_k-1}\\)\n\n\nPosterior predictive\nCategorical\nDirichlet-multinomial\n\n\n\n\nInterpretation:\n\nAdding a Dirichlet prior is equivalent to adding \\(\\alpha\\) pseudo-observations to the data.\nAs the number of observations increases, the influence of the prior decreases."
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#application-in-bioinformatics",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#application-in-bioinformatics",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#application-in-bioinformatics",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#application-in-bioinformatics",
     "title": "Discrete Distribution Family",
     "section": "Application in bioinformatics",
     "text": "Application in bioinformatics\n\n\nMotif discovery\n\n\n\nMotif discovery from D’haeseleer (2006)\n\n\n\nMetagenomics\n\n\n\nGut microbiome composition of different types from Arumugam et al. (2011)"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#generalized-linear-model",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#generalized-linear-model",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#generalized-linear-model",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#generalized-linear-model",
     "title": "Discrete Distribution Family",
     "section": "Generalized linear model",
     "text": "Generalized linear model\n\n\nLimitations of ordinary linear regression\n\nCount data (Multinomial/Poisson)\nDichotomous or Multinomial outcomes (Bernoulli)\nProportions (values between 0 and 1)\n\nA generalized linear model (GLM) can model different kinds of data.\n\nComponents of GLM\n\nRandom components\n\nIdentify \\(Y\\) and its distribution\n\nSystematic components\n\nLinear predictor \\(\\alpha + \\beta_1 x_1 + \\dots + \\beta_k x_k\\)\n\nLink function\n\nGiven \\(\\mu=E(Y)\\), the link function \\(g(\\cdot)\\) satisfies \\[g(\\mu)=\\alpha+\\beta_1x_1+\\dots+\\beta_kx_k\\]"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#logistic-regression",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#logistic-regression",
     "title": "Discrete Distribution Family",
     "section": "Logistic regression",
     "text": "Logistic regression\n\n\nIn logistic regression (binomial outcomes), the link function is\nLogit link function\n\\[\n\\log\\frac{p(x)}{1-p(x)}=\\alpha+\\beta x\n\\]\nTransform them back to get \\(p(x)\\)\n\\[\np(x)=\\frac{e^{\\alpha+\\beta x}}{1+e^{\\alpha+\\beta x}}\n\\]\n\nFor a dichotomous predictor \\(x\\) with values 0 and 1, \\(\\beta\\) is the log odds ratio (\\(\\log(\\text{OR})\\)).\n\n\n\n\n\n\n\n\n\n\nDiscussion: if we model \\(p(x)=\\alpha+\\beta x\\), is it causing any trouble?\n\nPotential estimate for \\(p(x)&gt;1\\) or \\(p(x)&lt;0\\)"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#multinomial-logistic-regression",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#multinomial-logistic-regression",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#multinomial-logistic-regression",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#multinomial-logistic-regression",
     "title": "Discrete Distribution Family",
     "section": "Multinomial logistic regression",
     "text": "Multinomial logistic regression\n\nHow do we compare multiple categories?\n\n1 vs. n\nn vs. n\n\nThere are \\(k(k-1)/2\\) pairs of comparisons, but actually, you only need \\(k-1\\) non-redundant comparisons.\n\nLet the category \\(K\\) as the baseline, for each comparison of \\(k = 1,\\dots,k-1\\)\nBaseline-category logit model are \\[\n\\log(\\frac{p_k(x)}{p_K(x)})=\\alpha_k+\\beta_kx \\quad k=1,\\dots,K-1\n\\]"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#interpretation-of-beta",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#interpretation-of-beta",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#interpretation-of-beta",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#interpretation-of-beta",
     "title": "Discrete Distribution Family",
     "section": "Interpretation of \\(\\beta\\)",
     "text": "Interpretation of \\(\\beta\\)\nThe model assumes \\(\\ln(\\frac{p(x)}{1-p(x)})=\\alpha+\\beta x\\), so for a given change \\(\\Delta x\\),\nThe odds at \\(x + \\Delta x\\) is\n\\[\n\\frac{p(x + \\Delta x)}{1-p(x + \\Delta x)}=\\exp(\\alpha+\\beta(x+\\Delta x)) = \\exp(\\alpha+\\beta(x))\\exp(\\beta\\Delta x)\n\\]\nThe odds ratio (OR) for \\(x\\) is\n\\[\n\\text{OR}=\\frac{\\text{odds at}(x+\\Delta x)}{\\text{odds at}(x)}=\\frac{\\exp(\\alpha+\\beta(x+\\Delta x))}{\\exp(\\alpha+\\beta(x))} = \\exp(\\beta\\Delta x)\n\\]\n\n\\(\\beta\\) is the change in the log odds when x increases by 1 unit.\nConfidence interval of OR is not symmetric to the mean.\n\nHow about alpha ?"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression-v.s.-contingency-table",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression-v.s.-contingency-table",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#logistic-regression-v.s.-contingency-table",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#logistic-regression-v.s.-contingency-table",
     "title": "Discrete Distribution Family",
     "section": "Logistic regression v.s. Contingency table",
     "text": "Logistic regression v.s. Contingency table\n\n\n\n\n\n\n\n\n\nLogistic regression\nContingency table\n\n\n\n\nEstimating\nOR\nOR\n\n\nTest on esstimation\nt-test/\\(\\chi^2\\) test\nFisher’s exact test/\\(\\chi^2\\) test\n\n\n\n\nAdvantage of logistic regression\n\nControlling other confounders\n\nEstimating OR for continuous variables\nCompatible with multinomial outcomes"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#back-to-the-kidney-stone-example",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#back-to-the-kidney-stone-example",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#back-to-the-kidney-stone-example",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#back-to-the-kidney-stone-example",
     "title": "Discrete Distribution Family",
     "section": "Back to the kidney stone example",
     "text": "Back to the kidney stone example\n\nIn clinical practice, for stone diameters less than 2cm, doctors usually conduct PCNL, while open surgery is used for stone diameters of 2cm or greater.\n\n\n\nStone size\nTreatment\nSuccess\nFail\n\n\n\n\nSmall\nOS\n81\n6\n\n\nSmall\nPCNL\n234\n36\n\n\nLarge\nOS\n192\n71\n\n\nLarge\nPCNL\n55\n25\n\n\n\n\nModel: (Success/Fail) ~ Stone size + Treatment\n\n\n\n-- Log Odds Ratios & CI w/o Control Stone Size --\n              2.5%  97.5%  Odds Ratio\nIntercept     1.28   1.83        1.56\nTreatment_OS -0.66   0.08       -0.29\n\n-- Log Odds Ratios & CI with Control Stone Size  --\n                  2.5%  97.5%  Odds Ratio\nIntercept         1.60   2.27        1.94\nStone_Size_Large -1.73  -0.79       -1.26\nTreatment_OS     -0.09   0.81        0.36"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#ordinal-logistic-regression",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#ordinal-logistic-regression",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#ordinal-logistic-regression",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#ordinal-logistic-regression",
     "title": "Discrete Distribution Family",
     "section": "Ordinal logistic regression",
     "text": "Ordinal logistic regression\nFor ordinal data (e.g., a scale with scores “No”, “Neutral”, and “Yes”), the following rules apply:\n\\[\nP(x \\leq k)=p(x=1) + \\dots + p(x=k), \\text{where } p(x\\leq K) = 1\n\\]\nIntuitively, we can think that the regression is measuring the same thing, but the cutoff for making decisions is different. So, we only need to estimate the cumulative logits:\n\\[\n\\log(\\frac{p(x\\leq j)}{p(x &gt; j)}) =\\alpha_j+\\beta x\n\\]"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#ordinal-logistic-regression-1",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#ordinal-logistic-regression-1",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#ordinal-logistic-regression-1",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#ordinal-logistic-regression-1",
     "title": "Discrete Distribution Family",
     "section": "Ordinal logistic regression",
     "text": "Ordinal logistic regression\nIllustration: \\(\\alpha_{-1}=-3,\\alpha_{0}=2, \\beta=1.5\\)\n\n\n\n\n\n\n\n\n\nImplications\n\nFinding cut-offs for different ordinal outcomes\nIf we extend to really continuous case, then we do not need that cut-offs to specific class"
   },
   {
-    "objectID": "BIOF2014/4-Discrete distribution family-2.html#bibliography",
-    "href": "BIOF2014/4-Discrete distribution family-2.html#bibliography",
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#bibliography",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#bibliography",
     "title": "Discrete Distribution Family",
     "section": "Bibliography",
     "text": "Bibliography\n\n\n\n\nArumugam, Manimozhiyan, Jeroen Raes, Eric Pelletier, Denis Le Paslier, Takuji Yamada, Daniel R Mende, Gabriel R Fernandes, et al. 2011. “Enterotypes of the Human Gut Microbiome.” Nature 473 (7346): 174–80.\n\n\nD’haeseleer, Patrik. 2006. “How Does DNA Sequence Motif Discovery Work?” Nature Biotechnology 24 (8): 959–61."
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section",
+    "title": "Question sets",
+    "section": "",
+    "text": "Let \\(X = \\{x_1, \\dots, x_N\\}\\) be \\(N\\) independent observations following a Categorical distribution with \\(K\\) classes and parameter vector \\(\\mathbf{p} = (p_1, \\dots, p_K)\\), where \\(\\sum p_k = 1\\). Let the prior on \\(\\mathbf{p}\\) be a Dirichlet distribution with hyperparameters \\(\\boldsymbol{\\alpha} = (\\alpha_1, \\dots, \\alpha_K)\\). Let \\(n_k\\) denote the number of observations in class \\(k\\).\n\nShow that the posterior distribution of the parameter vector \\(\\mathbf{p}\\) follows a Dirichlet distribution: \\[\n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\\]\n\n\nThe probability for \\(N\\) independent categorical observations is the product of the probabilities of the observed classes. Let \\(n_k\\) be the count of observations in class \\(k\\) such that \\(\\sum_{k=1}^K n_k = N\\). \\[\nP(\\mathbf{p} | X) = \\prod_{i=1}^N P(x_i | \\mathbf{p}) = \\prod_{k=1}^K p_k^{n_k}\n\\]\nThe prior distribution for \\(\\mathbf{p}\\) is Dirichlet with parameters \\(\\boldsymbol{\\alpha}\\) \\[\nP(\\mathbf{p}) \\propto \\prod_{k=1}^K p_k^{\\alpha_k - 1}\n\\]\nThe posterior distribution is proportional to the product of the likelihood and the prior: \\[\n  \\begin{aligned}\n  P(\\mathbf{p} | X) &\\propto P(\\mathbf{p} | X) \\times P(\\mathbf{p}) \\\\\n  &\\propto \\left( \\prod_{k=1}^K p_k^{n_k} \\right) \\left( \\prod_{k=1}^K p_k^{\\alpha_k - 1} \\right) \\\\\n  &\\propto \\prod_{k=1}^K p_k^{(n_k + \\alpha_k) - 1}\n  \\end{aligned}\n\\]\nThis is the kernel of a Dirichlet distribution with updated parameters \\(\\alpha'_k = \\alpha_k + n_k\\). Therefore: \\[\n\\mathbf{p} | X \\sim \\text{Dir}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-1",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-1",
+    "title": "Question sets",
+    "section": "",
+    "text": "Show that the posterior predictive probability of a new observation \\(\\tilde{x}\\) belonging to class \\(k\\) is:\n\n\\[\n  P(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}\n  \\]\n\nThe posterior predictive probability for a new observation \\(\\tilde{x} = k\\) is the expected value of the parameter \\(p_k\\) under the posterior distribution. \\[\n\\begin{aligned}\nP(\\tilde{x} = k | X) &= \\int P(\\tilde{x} = k | \\mathbf{p}) P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= \\int p_k P(\\mathbf{p} | X) \\, d\\mathbf{p} \\\\\n&= E[p_k | X]\n\\end{aligned}\n\\]\nThe expected value of the \\(k\\)-th component of a Dirichlet distribution with parameters \\(\\boldsymbol{\\alpha}' = (\\alpha'_1, \\dots, \\alpha'_K)\\) is:\n\\[\nE[p_k] = \\frac{\\alpha'_k}{\\sum_{j=1}^K \\alpha'_j}\n\\]\nSubstituting our posterior parameters \\(\\alpha'_k = \\alpha_k + n_k\\): \\[\nP(\\tilde{x} = k | X) = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K (\\alpha_j + n_j)} = \\frac{\\alpha_k + n_k}{\\sum_{j=1}^K \\alpha_j + N}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-2",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-2",
+    "title": "Question sets",
+    "section": "",
+    "text": "Let \\(\\mathbf{X}\\) be a vector of counts \\((n_1, \\dots, n_K)\\) resulting from \\(N\\) independent trials, modeled by a Multinomial distribution with parameter vector \\(\\mathbf{p} = (p_1, \\dots, p_K)\\), where \\(\\sum p_k = 1\\). Suppose we place a Dirichlet prior on \\(\\mathbf{p}\\) with hyperparameters \\(\\boldsymbol{\\alpha} = (\\alpha_1, \\dots, \\alpha_K)\\). Show that the posterior distribution of the parameter vector \\(\\mathbf{p}\\) given the data \\(\\mathbf{X}\\) is a Dirichlet distribution with parameters \\((\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\\).\n\nTo find the posterior distribution \\(P(\\mathbf{p} | \\mathbf{X})\\), we use Bayes’ theorem: \\[\nP(\\mathbf{p} | \\mathbf{X}) \\propto P(\\mathbf{X} | \\mathbf{p}) \\cdot P(\\mathbf{p})\n\\]\nWhere \\[\nP(\\mathbf{X} | \\mathbf{p}) = \\frac{N!}{n_1! \\dots n_K!} \\prod_{k=1}^K p_k^{n_k}  \\propto \\prod_{k=1}^K p_k^{n_k}\n\\]\n, and \\[\nP(\\mathbf{p}) = \\frac{1}{B(\\boldsymbol{\\alpha})} \\prod_{k=1}^K p_k^{\\alpha_k - 1}\n\\]\nSubsituting them into Bayes’ theorem \\[\n\\begin{aligned}\nP(\\mathbf{p} | \\mathbf{X}) &\\propto \\left( \\prod_{k=1}^K p_k^{n_k} \\right) \\cdot \\left( \\prod_{k=1}^K p_k^{\\alpha_k - 1} \\right) \\\\\n&\\propto \\prod_{k=1}^K p_k^{n_k + \\alpha_k - 1}\n\\end{aligned}\n\\]\nThe resulting expression, \\(\\prod_{k=1}^K p_k^{(n_k + \\alpha_k) - 1}\\), is the kernel (functional form) of a Dirichlet distribution with new parameters \\(\\alpha'_k = \\alpha_k + n_k\\). Thus, the posterior distribution is: \\[\n\\mathbf{p} | \\mathbf{X} \\sim \\text{Dirichlet}(\\alpha_1 + n_1, \\dots, \\alpha_K + n_K)\n\\] This demonstrates that the Dirichlet distribution is the conjugate prior for the Multinomial distribution."
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-3",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-3",
+    "title": "Question sets",
+    "section": "",
+    "text": "Let \\(X \\sim \\text{Cat}(\\mathbf{p})\\) with \\(k\\) outcomes and probabilities \\(\\mathbf{p} = (p_1, \\dots, p_k)\\).\nIdentify the distribution followed by the indicator variable \\(\\mathbb{I}(X=j)\\) and specify its parameters.\nInstruction: Use an intuitive guess (layman’s terms) to determine the answer before starting the formal mathematical proof.\n\nWe define a new random variable \\(Y\\) as the indicator for the event that \\(X\\) takes the specific value \\(j\\): \\[\nY = \\mathbb{I}(X = j) =\n\\begin{cases}\n1 & \\text{if } X = j \\\\\n0 & \\text{if } X \\neq j\n\\end{cases}\n\\]\nThe probability mass function \\(P(Y = y)\\) is found by summing the probabilities of all outcomes in the sample space of \\(X\\) that map to the value \\(y\\).\n\\(P(Y=1)\\): The only \\(x\\) such that \\(Y(x)=1\\) is \\(x=j\\). \\[P(Y=1) = P(X=j) = p_j\\]\n\\(P(Y=0)\\) The set of \\(x\\) such that \\(Y(x)=0\\) is \\(\\{i \\in \\{1, \\dots, k\\} : i \\neq j\\}\\). \\[\n   P(Y=0) = \\sum_{i \\neq j} P(X=i) = \\left( \\sum_{i=1}^k p_i \\right) - p_j = 1 - p_j\n   \\]\nConclusion: The distribution of \\(Y\\) is: \\[P(Y=y) = p_j^y (1-p_j)^{1-y}, \\quad y \\in \\{0, 1\\}\\] which is the PMF of \\(\\text{Bernoulli}(p_j)\\). Thus, we have shown that \\(Y \\sim \\text{Bernoulli}(p_j)\\)."
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-4",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-4",
+    "title": "Question sets",
+    "section": "",
+    "text": "We are analyzing a specific site in a DNA sequence which can be one of \\(K=4\\) distinct nucleotides (A, T, C, G). The probability of observing each nucleotide is given by the vector \\(P = (p_A, p_T, p_C, p_G)\\).\nWe treat the observation of \\(N\\) independent sites as drawing from a Categorical distribution. To model our uncertainty about the vector \\(P\\), we assign a Dirichlet prior with hyperparameters \\(\\alpha = (\\alpha_A, \\alpha_T, \\alpha_C, \\alpha_G)\\).\nGiven:\n\nPrior Belief:\n\nDirichlet prior: \\(\\boldsymbol{\\alpha} = (2, 2, 2, 2)\\).\n\nObserved Data (\\(X\\)): We observe \\(N=20\\) sequences with the following counts\n\nA: \\(n_A = 10\\)\nT: \\(n_T = 5\\)\nC: \\(n_C = 0\\)\nG: \\(n_G = 5\\) (Note: \\(10+5+0+5=20\\))"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-5",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-5",
+    "title": "Question sets",
+    "section": "4.1",
+    "text": "4.1\nWrite down the likelihood function for the observed data \\(X\\) given \\(P\\).\n\n\\[\np(X|P) = \\frac{20!}{10!5!0!5!}p_A^{10} \\cdot p_T^{5} \\cdot p_C^{0} \\cdot p_G^{5}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-6",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-6",
+    "title": "Question sets",
+    "section": "4.2",
+    "text": "4.2\nBased on the likelihood function (Maximum Likelihood Estimation), what are the estimates for \\(\\hat{p}_A\\), \\(\\hat{p}_T\\), \\(\\hat{p}_C\\), and \\(\\hat{p}_G\\)?\n\n\\[\n\\begin{aligned}\n\\hat{p}_A = & \\frac{10}{20} = 0.5 \\\\\n\\hat{p}_T = & \\frac{5}{20} = 0.25 \\\\\n\\hat{p}_C = & \\frac{0}{20} = 0 \\\\\n\\hat{p}_G = & \\frac{5}{20} = 0.25\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-7",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-7",
+    "title": "Question sets",
+    "section": "4.3",
+    "text": "4.3\nDerive the posterior distribution \\(p(P|X, \\boldsymbol{\\alpha})\\).\n\n\\[\np(P|X, \\boldsymbol{\\alpha}) \\propto p_A^{10+2-1} \\cdot p_T^{5+2-1} \\cdot p_C^{0+2-1} \\cdot p_G^{5+2-1} = p_A^{11} \\cdot p_T^{6} \\cdot p_C^{1} \\cdot p_G^{6}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-8",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-8",
+    "title": "Question sets",
+    "section": "4.4",
+    "text": "4.4\nCalculate the posterior predictive probability of observing each nucleotide in a new sequence: \\(p(\\tilde{x}=A|X,\\boldsymbol{\\alpha})\\), \\(p(\\tilde{x}=T|X,\\boldsymbol{\\alpha})\\), \\(p(\\tilde{x}=C|X,\\boldsymbol{\\alpha})\\), and \\(p(\\tilde{x}=G|X,\\boldsymbol{\\alpha})\\).\n\n\\[\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}) = & \\frac{10+2}{20+8} = \\frac{12}{28} \\approx 0.4286 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}) = & \\frac{0+2}{20+8} = \\frac{2}{28} \\approx 0.0714 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}) = & \\frac{5+2}{20+8} = \\frac{7}{28} = 0.2500\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-9",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-9",
+    "title": "Question sets",
+    "section": "4.5",
+    "text": "4.5\nCompare the posterior predictive probabilities with the MLE estimates from 4.2. How does the prior belief affect the estimation of rare events (e.g., \\(n_C = 0\\))?\n\nPrior belief adjusts the estimation of rare events. Without a prior, the MLE for \\(p_C\\) is 0, implying ‘C’ is impossible. The Dirichlet prior (acting as pseudocounts or Laplace smoothing) assigns a non-zero probability to ‘C’, acknowledging that a zero count may result from a small sample size. This prevents the “zero-frequency” problem."
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-10",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-10",
+    "title": "Question sets",
+    "section": "4.6",
+    "text": "4.6\nAfter talking with a genomic researcher, you realize that this sequence is suspected to be a CpG island, where the frequency of ‘C’ and ‘G’ is higher. How would you adjust your prior belief to reflect this?\n\nWe can increase the hyperparameters for ‘C’ and ‘G’. For example, setting \\(\\boldsymbol{\\alpha}' = (2, 2, 5, 5)\\) gives more weight to ‘C’ and ‘G’ relative to ‘A’ and ‘T’, reflecting the biological expectation of a CpG island."
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-11",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-11",
+    "title": "Question sets",
+    "section": "4.7",
+    "text": "4.7\nConsider an extreme case where the Dirichlet prior is \\(\\boldsymbol{\\alpha}'' = (2, 2, 18, 18)\\), strongly favoring ‘C’ and ‘G’. Calculate the new posterior predictive probabilities.\n\n\\[\n\\begin{aligned}\np(\\tilde{x}=A|X,\\boldsymbol{\\alpha}'') = & \\frac{10+2}{20+40} = \\frac{12}{60} = 0.2000 \\\\\np(\\tilde{x}=T|X,\\boldsymbol{\\alpha}'') = & \\frac{5+2}{20+40} = \\frac{7}{60} \\approx 0.1167 \\\\\np(\\tilde{x}=C|X,\\boldsymbol{\\alpha}'') = & \\frac{0+18}{20+40} = \\frac{18}{60} = 0.3000 \\\\\np(\\tilde{x}=G|X,\\boldsymbol{\\alpha}'') = & \\frac{5+18}{20+40} = \\frac{23}{60} \\approx 0.3833\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "BIOF2014/4-Question sets_presentation_sketch.html#section-12",
+    "href": "BIOF2014/4-Question sets_presentation_sketch.html#section-12",
+    "title": "Question sets",
+    "section": "4.8",
+    "text": "4.8\nCompared with the case where \\(\\boldsymbol{\\alpha} = (2, 2, 2, 2)\\), how does this strong prior influence the final inference?\n\nA strong prior (large \\(\\alpha\\) values) can dominate the observed data. Despite ‘A’ being the most frequent observation (\\(n_A=10\\)), the heavy prior weight on ‘C’ and ‘G’ makes them the most probable outcomes in the posterior predictive distribution, effectively overriding the evidence from the small sample."
   },
   {
     "objectID": "BIOF2014/5-Discrete distribution family-3.html#intended-learning-outcomes",
