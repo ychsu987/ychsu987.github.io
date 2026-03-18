@@ -46,7 +46,7 @@
     "href": "CCAI9007/CCAI-workshop.html#structure-of-the-prompt",
     "title": "Building a Physical Activity & Health Prompt Bot for Older Adults on POE",
     "section": "7.1 Structure of the Prompt",
-    "text": "7.1 Structure of the Prompt\nOverall structure of the prompt:\n\nContext: Define the bot’s role and purpose.\n\nBots role: Define the bot’s role and purpose.\nKnowledge Base: Specify the sources of information the bot should rely on.\nBackground information: Provide any necessary background information or assumptions the bot should consider when answering questions.\n\nRules & Behavior: Set clear guidelines for how the bot should respond, especially regarding safety and tone.\nOutput Structure: Define how the bot should structure its answers to ensure clarity and usefulness.\n\n\n\n\n\n\n\nExample Prompt\n\n\n\n\n# Role\n\nYou are a helpful, empathetic, and safety-conscious assistant dedicated to \nproviding physical activity and health suggestions for older adults.\n\n# Your Knowledge Base\n\nYou have access to official documents from the CDC, WHO, or NIA regarding exercise \nfor older adults. You must prioritize information found in these documents when\nanswering. Beside, you can use your general knowledge or internet \nsearching results to supplement your answers.\n\n# Rules and Behavior\n\n1. SAFETY FIRST: Always advise users to consult with a healthcare professional \nbefore if there is a health concern, especially if they have chronic conditions \n(e.g., heart disease, diabetes, arthritis).\n2. TONE: Be encouraging, patient, and respectful. Use clear, simple language. \nAvoid fitness jargon.\n3. CITATIONS: When you provide advice (e.g., \"Aim for 150 minutes of moderate \nactivity\"), explicitly mention that this comes from the uploaded guidelines.\n4. LIMITATIONS: Do not provide medical diagnoses or prescriptions. If a user \ndescribes severe pain or symptoms (chest pain, dizziness), tell them to stop \nand seek medical help immediately.\n\n# Structure of Your Answers\n\n- Start with a direct answer.\n- Provide a safety caveat.\n- Give a specific, actionable example (e.g., \"Try walking at a pace where you can \ntalk but not sing\").\n- Ask a follow-up question to check understanding or ability level."
+    "text": "7.1 Structure of the Prompt\nOverall structure of the prompt:\n\nContext: Define the bot’s role and purpose.\n\nBots role: Define the bot’s role and purpose.\nKnowledge Base: Specify the sources of information the bot should rely on.\nBackground information: Provide any necessary background information or assumptions the bot should consider when answering questions.\n\nRules & Behavior: Set clear guidelines for how the bot should respond, especially regarding safety and tone.\nOutput Structure: Define how the bot should structure its answers to ensure clarity and usefulness.\n\n\n\n\n\n\n\nTipExample Prompt\n\n\n\n\n# Role\n\nYou are a helpful, empathetic, and safety-conscious assistant dedicated to \nproviding physical activity and health suggestions for older adults.\n\n# Your Knowledge Base\n\nYou have access to official documents from the CDC, WHO, or NIA regarding exercise \nfor older adults. You must prioritize information found in these documents when\nanswering. Beside, you can use your general knowledge or internet \nsearching results to supplement your answers.\n\n# Rules and Behavior\n\n1. SAFETY FIRST: Always advise users to consult with a healthcare professional \nbefore if there is a health concern, especially if they have chronic conditions \n(e.g., heart disease, diabetes, arthritis).\n2. TONE: Be encouraging, patient, and respectful. Use clear, simple language. \nAvoid fitness jargon.\n3. CITATIONS: When you provide advice (e.g., \"Aim for 150 minutes of moderate \nactivity\"), explicitly mention that this comes from the uploaded guidelines.\n4. LIMITATIONS: Do not provide medical diagnoses or prescriptions. If a user \ndescribes severe pain or symptoms (chest pain, dizziness), tell them to stop \nand seek medical help immediately.\n\n# Structure of Your Answers\n\n- Start with a direct answer.\n- Provide a safety caveat.\n- Give a specific, actionable example (e.g., \"Try walking at a pace where you can \ntalk but not sing\").\n- Ask a follow-up question to check understanding or ability level."
   },
   {
     "objectID": "CCAI9007/CCAI-workshop.html#style-of-the-prompt",
@@ -60,7 +60,7 @@
     "href": "CCAI9007/CCAI-workshop.html#designing-test-cases",
     "title": "Building a Physical Activity & Health Prompt Bot for Older Adults on POE",
     "section": "9.1 Designing Test Cases",
-    "text": "9.1 Designing Test Cases\nOnce created, try asking these questions to verify it is using the knowledge base:\n\n\n\n\n\n\nExample testing cases\n\n\n\n\n“How many minutes of exercise should I do per week?”\n“I am a 75-year-old male adult with no chronic diseases. How many minutes of exercise should I do per week?”\n“I have arthritis, is it safe to walk?”\n\n\n\n\n\n\nExample testing case"
+    "text": "9.1 Designing Test Cases\nOnce created, try asking these questions to verify it is using the knowledge base:\n\n\n\n\n\n\nTipExample testing cases\n\n\n\n\n“How many minutes of exercise should I do per week?”\n“I am a 75-year-old male adult with no chronic diseases. How many minutes of exercise should I do per week?”\n“I have arthritis, is it safe to walk?”\n\n\n\n\n\n\nExample testing case"
   },
   {
     "objectID": "CCAI9007/CCAI-workshop.html#designing-evaluation-metrics",
@@ -73,8 +73,8 @@
     "objectID": "CCAI9007/CCAI-aging clock.html#learning-outcomes",
     "href": "CCAI9007/CCAI-aging clock.html#learning-outcomes",
     "title": "Aging clock",
-    "section": "Learning outcomes",
-    "text": "Learning outcomes\n\nUnderstand basic concept of aging theory\nUnderstand the association between epigenetics and aging\nUnderstand factors that accelerate/decelerate biological age\nUnderstand AI’s application for predicting age-related outcomes through genes and images"
+    "section": "",
+    "text": "Understand basic concept of aging theory\nUnderstand the association between epigenetics and aging\nUnderstand factors that accelerate/decelerate biological age\nUnderstand AI’s application for predicting age-related outcomes through genes and images"
   },
   {
     "objectID": "CCAI9007/CCAI-aging clock.html#theory-of-aging",
@@ -172,7 +172,7 @@
     "href": "CCAI9007/CCAI-aging clock.html#lifestyle-factors",
     "title": "Aging clock",
     "section": "Lifestyle factors",
-    "text": "Lifestyle factors\n\n\n\nSmoking/vaping: hypomethylation of AHHR (Philibert, Beach, and Brody 2012)\nDiet and Nutrients: Vitamins E, B12, affect epigenetic features (Bishop and Ferguson 2015)\nExercise: Regular exercise is associated with a younger biological age Światowy et al. (2021)\nMaternal diet: Nutrient deficiency during maternal diet affects offspring’s DNA methylation patterns (Chmurzynska 2010)\nStress: Stress-induced epigenetic changes can accumulate throughout life span (Zannas and Chrousos 2017)\nSleep: Insufficient sleep duration at 6 months postpartum(Carroll et al. 2021)\n\n\n\n\n\nLifestyle Factors Affecting Epigenetic Clock"
+    "text": "Lifestyle factors\n\n\n\nSmoking/vaping: hypomethylation of AHHR (Philibert et al. 2012)\nDiet and Nutrients: Vitamins E, B12, affect epigenetic features (Bishop and Ferguson 2015)\nExercise: Regular exercise is associated with a younger biological age Światowy et al. (2021)\nMaternal diet: Nutrient deficiency during maternal diet affects offspring’s DNA methylation patterns (Chmurzynska 2010)\nStress: Stress-induced epigenetic changes can accumulate throughout life span (Zannas and Chrousos 2017)\nSleep: Insufficient sleep duration at 6 months postpartum(Carroll et al. 2021)\n\n\n\n\n\nLifestyle Factors Affecting Epigenetic Clock"
   },
   {
     "objectID": "CCAI9007/CCAI-aging clock.html#appearance-and-gene",
@@ -186,14 +186,14 @@
     "href": "CCAI9007/CCAI-aging clock.html#guessing-age",
     "title": "Aging clock",
     "section": "Guessing age",
-    "text": "Guessing age\n\n\n\nYou can guess one’s age from\n\nAppearance\nSound\nBehavior\n\n\n\n\nAI can also guess from\n\nAppearance: skin texture, wrinkles\nSound: frequency and tones\n\n\n\nImplication\n\nWe want to look young !\n\nAI’s estimation and outliers could help\n\nEstimate age\nPotential reasons why some people look young/old"
+    "text": "Guessing age\n\n\n\nYou can guess one’s age from\n\nAppearance\nSound\nBehavior\n\n\n\n\nAI can also guess from\n\nAppearance: skin texture, wrinkles\nSound: frequency and tones\n\n\n\n\nImplication\n\nWe want to look young !\n\nAI’s estimation and outliers could help\n\nEstimate age\nPotential reasons why some people look young/old"
   },
   {
     "objectID": "CCAI9007/CCAI-aging clock.html#guessing-age-from-your-photo",
     "href": "CCAI9007/CCAI-aging clock.html#guessing-age-from-your-photo",
     "title": "Aging clock",
     "section": "Guessing age from your photo",
-    "text": "Guessing age from your photo\n\n\nMechanism\n\nAI will extract relevant features from the image\nMaking predictions based on the features\n\n\n\n\nFace Age Detector & Generator (Sharma, Sharma, and Jindal 2021)\n\n\n\nPlay around !\n\nFace age detector\nFaceAgeMeter\nFacialage\n\nInstruction\nPlease record:\n\nWhich website you use\nAI underestimate/overestimate/ perfectly predict your age\nTry repeating a few times using different models/pictures"
+    "text": "Guessing age from your photo\n\n\nMechanism\n\nAI will extract relevant features from the image\nMaking predictions based on the features\n\n\n\n\nFace Age Detector & Generator (Sharma et al. 2021)\n\n\n\nPlay around !\n\nFace age detector\nFaceAgeMeter\nFacialage\n\nInstruction\nPlease record:\n\nWhich website you use\nAI underestimate/overestimate/ perfectly predict your age\nTry repeating a few times using different models/pictures"
   },
   {
     "objectID": "CCAI9007/CCAI-aging clock.html#learning-from-error",
@@ -2509,8 +2509,8 @@
     "objectID": "BIOF2014/2-Discrete distribution family_sketch.html#intended-learning-outcomes",
     "href": "BIOF2014/2-Discrete distribution family_sketch.html#intended-learning-outcomes",
     "title": "Discrete Distribution Family",
-    "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nRecognize and apply Bernoulli and binomial distributions in statistical models\nDerive the binomial and negative binomial distributions"
+    "section": "",
+    "text": "Recognize and apply Bernoulli and binomial distributions in statistical models\nDerive the binomial and negative binomial distributions"
   },
   {
     "objectID": "BIOF2014/2-Discrete distribution family_sketch.html#bernoulli-distribution",
@@ -2803,8 +2803,8 @@
     "objectID": "BIOF2014/3-multivariate_sketch.html#intended-learning-outcomes",
     "href": "BIOF2014/3-multivariate_sketch.html#intended-learning-outcomes",
     "title": "Multivariate statistics",
-    "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nApply definitions and theorems regarding joint, conditional, and marginal distributions.\nRecognize and explain Simpson’s paradox."
+    "section": "",
+    "text": "Apply definitions and theorems regarding joint, conditional, and marginal distributions.\nRecognize and explain Simpson’s paradox."
   },
   {
     "objectID": "BIOF2014/3-multivariate_sketch.html#random-vector",
@@ -3070,14 +3070,14 @@
     "href": "BIOF2014/4-Discrete distribution family-2.html#bibliography",
     "title": "Discrete Distribution Family",
     "section": "Bibliography",
-    "text": "Bibliography\n\n\n\n\nArumugam, Manimozhiyan, Jeroen Raes, Eric Pelletier, Denis Le Paslier, Takuji Yamada, Daniel R Mende, Gabriel R Fernandes, et al. 2011. “Enterotypes of the Human Gut Microbiome.” Nature 473 (7346): 174–80.\n\n\nD’haeseleer, Patrik. 2006. “How Does DNA Sequence Motif Discovery Work?” Nature Biotechnology 24 (8): 959–61."
+    "text": "Bibliography\n\n\n\n\nArumugam, Manimozhiyan, Jeroen Raes, Eric Pelletier, et al. 2011. “Enterotypes of the Human Gut Microbiome.” Nature 473 (7346): 174–80.\n\n\nD’haeseleer, Patrik. 2006. “How Does DNA Sequence Motif Discovery Work?” Nature Biotechnology 24 (8): 959–61."
   },
   {
     "objectID": "BIOF2014/5-Discrete distribution family-3.html#intended-learning-outcomes",
     "href": "BIOF2014/5-Discrete distribution family-3.html#intended-learning-outcomes",
     "title": "Measuring in Intervals",
-    "section": "Intended Learning Outcomes",
-    "text": "Intended Learning Outcomes\n\nCharacterize Poisson, Exponential, and Gamma distribution\nApply Bayesian priors for Poisson, Exponential, and Gamma distribution"
+    "section": "",
+    "text": "Characterize Poisson, Exponential, and Gamma distribution\nApply Bayesian priors for Poisson, Exponential, and Gamma distribution"
   },
   {
     "objectID": "BIOF2014/5-Discrete distribution family-3.html#poisson-distribution",
@@ -3140,7 +3140,7 @@
     "href": "BIOF2014/5-Discrete distribution family-3.html#gamma-distribution",
     "title": "Measuring in Intervals",
     "section": "Gamma Distribution",
-    "text": "Gamma Distribution\nLet \\(x_1,\\dots x_n\\) be i.i.d random variables from an exponential distribution \\(\\lambda\\), then \\(\\sum_{i=1}^nx_n \\sim \\text{Gamma}(n, n\\lambda)\\). Gamma distribution can be used to describe time elapsing until the accumulation of a specific number of unpredictable events.\n\n\nProperties\n\nSupport \\(x \\in \\mathbb{R}\\)\nParameters \\(\\alpha, \\lambda\\)\npdf\n\n\n\\[\nf_X\\left( x \\right)\n= \\frac{\\lambda^\\alpha}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{-\\lambda x} ,\n\\]\n\n\n\nIt is clear that \\(\\text{Gamma}(1,\\lambda)\\sim \\text{EXP}(\\lambda)\\)\nMeasurement on time and count.1\n\n\\(X\\sim\\text{Gamma}(\\alpha,\\lambda)\\), and \\(Y\\sim\\text{Pois}(x\\lambda)\\)\n\\(P(X&gt;x) =P(Y&lt;\\alpha)\\)\n\n\n\nAn example is that we describe the time to see a bus, so the probability of waiting for more than \\(x\\) minutes is equivalent to the probability of seeing no bus in \\(x\\) minutes."
+    "text": "Gamma Distribution\nLet \\(x_1,\\dots x_n\\) be i.i.d random variables from an exponential distribution \\(\\lambda\\), then \\(\\sum_{i=1}^nx_n \\sim \\text{Gamma}(n, n\\lambda)\\). Gamma distribution can be used to describe time elapsing until the accumulation of a specific number of unpredictable events.\n\n\nProperties\n\nSupport \\(x \\in \\mathbb{R}\\)\nParameters \\(\\alpha, \\lambda\\)\npdf\n\n\n\\[\nf_X\\left( x \\right)\n= \\frac{\\lambda^\\alpha}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{-\\lambda x} ,\n\\]\n\n\n\nIt is clear that \\(\\text{Gamma}(1,\\lambda)\\sim \\text{EXP}(\\lambda)\\)\nMeasurement on time and count.1\n\n\\(X\\sim\\text{Gamma}(\\alpha,\\lambda)\\), and \\(Y\\sim\\text{Pois}(x\\lambda)\\)\n\\(P(X&gt;x) =P(Y&lt;\\alpha)\\)"
   },
   {
     "objectID": "BIOF2014/5-Discrete distribution family-3.html#poisson-distribution-with-gamma-distribution-prior",
@@ -3468,8 +3468,8 @@
     "objectID": "CCAI9007/CCAI-health monitoring.html#learning-outcomes",
     "href": "CCAI9007/CCAI-health monitoring.html#learning-outcomes",
     "title": "Older Adults Health Monitoring",
-    "section": "Learning outcomes",
-    "text": "Learning outcomes\n\nUnderstand the challenges and opportunities of health monitoring for older adults\nLearn about different types of health monitoring technologies and their applications\nExplore the ethical considerations and future perspectives of health monitoring for older adults"
+    "section": "",
+    "text": "Understand the challenges and opportunities of health monitoring for older adults\nLearn about different types of health monitoring technologies and their applications\nExplore the ethical considerations and future perspectives of health monitoring for older adults"
   },
   {
     "objectID": "CCAI9007/CCAI-health monitoring.html#population-aging",
@@ -3631,5 +3631,54 @@
     "title": "Scientific computing",
     "section": "BBMS1021 Introduction to AI and Biomedical Data Science",
     "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nLecture materials\n\n\n\n\n\nIntroduction to ggplot2\n\n\n\n\n\n\n\n\n\n\nReal Example of Data Processing and Exploratory Data Analysis with R\n\n\n\n\n\n\n\n\nNo matching items\n\nThe tutorial questions cover basic R programming techniques and data manipulation.\n\n\nTutorial materials\n\n\n\n\n\nTutorial 1\n\n\n\n\n\n\n\n\n\n\nTutorial 2\n\n\n\n\n\n\n\n\n\n\nTutorial 3\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "CCAI9007/CCAI-aging clock.html",
+    "href": "CCAI9007/CCAI-aging clock.html",
+    "title": "Aging clock",
+    "section": "",
+    "text": "Understand basic concept of aging theory\nUnderstand the association between epigenetics and aging\nUnderstand factors that accelerate/decelerate biological age\nUnderstand AI’s application for predicting age-related outcomes through genes and images"
+  },
+  {
+    "objectID": "BIOF2014/3-multivariate_sketch.html",
+    "href": "BIOF2014/3-multivariate_sketch.html",
+    "title": "Multivariate statistics",
+    "section": "",
+    "text": "Apply definitions and theorems regarding joint, conditional, and marginal distributions.\nRecognize and explain Simpson’s paradox."
+  },
+  {
+    "objectID": "BIOF2014/2-Discrete distribution family_sketch.html",
+    "href": "BIOF2014/2-Discrete distribution family_sketch.html",
+    "title": "Discrete Distribution Family",
+    "section": "",
+    "text": "Recognize and apply Bernoulli and binomial distributions in statistical models\nDerive the binomial and negative binomial distributions"
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2.html",
+    "href": "BIOF2014/4-Discrete distribution family-2.html",
+    "title": "Discrete Distribution Family",
+    "section": "",
+    "text": "Define the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3.html",
+    "href": "BIOF2014/5-Discrete distribution family-3.html",
+    "title": "Measuring in Intervals",
+    "section": "",
+    "text": "Characterize Poisson, Exponential, and Gamma distribution\nApply Bayesian priors for Poisson, Exponential, and Gamma distribution"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3.html#footnotes",
+    "href": "BIOF2014/5-Discrete distribution family-3.html#footnotes",
+    "title": "Measuring in Intervals",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAn example is that we describe the time to see a bus, so the probability of waiting for more than \\(x\\) minutes is equivalent to the probability of seeing no bus in \\(x\\) minutes.↩︎"
+  },
+  {
+    "objectID": "CCAI9007/CCAI-health monitoring.html",
+    "href": "CCAI9007/CCAI-health monitoring.html",
+    "title": "Older Adults Health Monitoring",
+    "section": "",
+    "text": "Understand the challenges and opportunities of health monitoring for older adults\nLearn about different types of health monitoring technologies and their applications\nExplore the ethical considerations and future perspectives of health monitoring for older adults"
   }
 ]
