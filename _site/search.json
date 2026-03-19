@@ -2929,8 +2929,8 @@
     "objectID": "BIOF2014/4-Discrete distribution family-2.html#intended-learning-outcomes",
     "href": "BIOF2014/4-Discrete distribution family-2.html#intended-learning-outcomes",
     "title": "Discrete Distribution Family",
-    "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nDefine the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
+    "section": "",
+    "text": "Define the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
   },
   {
     "objectID": "BIOF2014/4-Discrete distribution family-2.html#categorical-distribution",
@@ -3021,7 +3021,7 @@
     "href": "BIOF2014/4-Discrete distribution family-2.html#logistic-regression",
     "title": "Discrete Distribution Family",
     "section": "Logistic regression",
-    "text": "Logistic regression\n\n\nIn logistic regression (binomial outcomes), the link function is\nLogit link function\n\\[\n\\log\\frac{p(x)}{1-p(x)}=\\alpha+\\beta x\n\\]\nTransform them back to get \\(p(x)\\)\n\\[\np(x)=\\frac{e^{\\alpha+\\beta x}}{1+e^{\\alpha+\\beta x}}\n\\]\n\nFor a dichotomous predictor \\(x\\) with values 0 and 1, \\(\\beta\\) is the log odds ratio (\\(\\log(\\text{OR})\\)).\n\n\n\n\n\n\n\n\n\n\nDiscussion: if we model \\(p(x)=\\alpha+\\beta x\\), is it causing any trouble?\n\nPotential estimate for \\(p(x)&gt;1\\) or \\(p(x)&lt;0\\)"
+    "text": "Logistic regression\n\n\nIn logistic regression (binomial outcomes), the link function is\nLogit link function\n\\[\n\\log\\frac{p(x)}{1-p(x)}=\\alpha+\\beta x\n\\]\nTransform them back to get \\(p(x)\\)\n\\[\np(x)=\\frac{e^{\\alpha+\\beta x}}{1+e^{\\alpha+\\beta x}}\n\\]\n\nFor a dichotomous predictor \\(x\\) with values 0 and 1, \\(\\beta\\) is the log odds ratio (\\(\\log(\\text{OR})\\)).\n\n\n\n\n\n\n\n\n\n\n\nDiscussion: if we model \\(p(x)=\\alpha+\\beta x\\), is it causing any trouble?\n\nPotential estimate for \\(p(x)&gt;1\\) or \\(p(x)&lt;0\\)"
   },
   {
     "objectID": "BIOF2014/4-Discrete distribution family-2.html#multinomial-logistic-regression",
@@ -3076,8 +3076,8 @@
     "objectID": "BIOF2014/5-Discrete distribution family-3.html#intended-learning-outcomes",
     "href": "BIOF2014/5-Discrete distribution family-3.html#intended-learning-outcomes",
     "title": "Measuring in Intervals",
-    "section": "",
-    "text": "Characterize Poisson, Exponential, and Gamma distribution\nApply Bayesian priors for Poisson, Exponential, and Gamma distribution"
+    "section": "Intended Learning Outcomes",
+    "text": "Intended Learning Outcomes\n\nCharacterize Poisson, Exponential, and Gamma distribution\nApply Bayesian priors for Poisson, Exponential, and Gamma distribution"
   },
   {
     "objectID": "BIOF2014/5-Discrete distribution family-3.html#poisson-distribution",
@@ -3140,7 +3140,7 @@
     "href": "BIOF2014/5-Discrete distribution family-3.html#gamma-distribution",
     "title": "Measuring in Intervals",
     "section": "Gamma Distribution",
-    "text": "Gamma Distribution\nLet \\(x_1,\\dots x_n\\) be i.i.d random variables from an exponential distribution \\(\\lambda\\), then \\(\\sum_{i=1}^nx_n \\sim \\text{Gamma}(n, n\\lambda)\\). Gamma distribution can be used to describe time elapsing until the accumulation of a specific number of unpredictable events.\n\n\nProperties\n\nSupport \\(x \\in \\mathbb{R}\\)\nParameters \\(\\alpha, \\lambda\\)\npdf\n\n\n\\[\nf_X\\left( x \\right)\n= \\frac{\\lambda^\\alpha}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{-\\lambda x} ,\n\\]\n\n\n\nIt is clear that \\(\\text{Gamma}(1,\\lambda)\\sim \\text{EXP}(\\lambda)\\)\nMeasurement on time and count.1\n\n\\(X\\sim\\text{Gamma}(\\alpha,\\lambda)\\), and \\(Y\\sim\\text{Pois}(x\\lambda)\\)\n\\(P(X&gt;x) =P(Y&lt;\\alpha)\\)"
+    "text": "Gamma Distribution\nLet \\(x_1,\\dots x_n\\) be i.i.d random variables from an exponential distribution \\(\\lambda\\), then \\(\\sum_{i=1}^nx_n \\sim \\text{Gamma}(n, n\\lambda)\\). Gamma distribution can be used to describe time elapsing until the accumulation of a specific number of unpredictable events.\n\n\nProperties\n\nSupport \\(x \\in \\mathbb{R}\\)\nParameters \\(\\alpha, \\lambda\\)\npdf\n\n\n\\[\nf_X\\left( x \\right)\n= \\frac{\\lambda^\\alpha}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{-\\lambda x} ,\n\\]\n\n\n\nIt is clear that \\(\\text{Gamma}(1,\\lambda)\\sim \\text{EXP}(\\lambda)\\)\nMeasurement on time and count.1\n\n\\(X\\sim\\text{Gamma}(\\alpha,\\lambda)\\), and \\(Y\\sim\\text{Pois}(x\\lambda)\\)\n\\(P(X&gt;x) =P(Y&lt;\\alpha)\\)\n\n\n\nAn example is that we describe the time to see a bus, so the probability of waiting for more than \\(x\\) minutes is equivalent to the probability of seeing no bus in \\(x\\) minutes."
   },
   {
     "objectID": "BIOF2014/5-Discrete distribution family-3.html#poisson-distribution-with-gamma-distribution-prior",
@@ -3685,8 +3685,8 @@
     "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#intended-learning-outcomes",
     "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#intended-learning-outcomes",
     "title": "Discrete Distribution Family",
-    "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nDefine the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
+    "section": "",
+    "text": "Define the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
   },
   {
     "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#categorical-distribution",
@@ -3777,7 +3777,7 @@
     "href": "BIOF2014/4-Discrete distribution family-2-sketch.html#logistic-regression",
     "title": "Discrete Distribution Family",
     "section": "Logistic regression",
-    "text": "Logistic regression\n\n\nIn logistic regression (binomial outcomes), the link function is\nLogit link function\n\\[\n\\log\\frac{p(x)}{1-p(x)}=\\alpha+\\beta x\n\\]\nTransform them back to get \\(p(x)\\)\n\\[\np(x)=\\frac{e^{\\alpha+\\beta x}}{1+e^{\\alpha+\\beta x}}\n\\]\n\nFor a dichotomous predictor \\(x\\) with values 0 and 1, \\(\\beta\\) is the log odds ratio (\\(\\log(\\text{OR})\\)).\n\n\n\n\n\n\n\n\n\n\nDiscussion: if we model \\(p(x)=\\alpha+\\beta x\\), is it causing any trouble?\n\nPotential estimate for \\(p(x)&gt;1\\) or \\(p(x)&lt;0\\)"
+    "text": "Logistic regression\n\n\nIn logistic regression (binomial outcomes), the link function is\nLogit link function\n\\[\n\\log\\frac{p(x)}{1-p(x)}=\\alpha+\\beta x\n\\]\nTransform them back to get \\(p(x)\\)\n\\[\np(x)=\\frac{e^{\\alpha+\\beta x}}{1+e^{\\alpha+\\beta x}}\n\\]\n\nFor a dichotomous predictor \\(x\\) with values 0 and 1, \\(\\beta\\) is the log odds ratio (\\(\\log(\\text{OR})\\)).\n\n\n\n\n\n\n\n\n\n\n\nDiscussion: if we model \\(p(x)=\\alpha+\\beta x\\), is it causing any trouble?\n\nPotential estimate for \\(p(x)&gt;1\\) or \\(p(x)&lt;0\\)"
   },
   {
     "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html#multinomial-logistic-regression",
@@ -4016,5 +4016,12 @@
     "title": "Question sets",
     "section": "4.8",
     "text": "4.8\nCompared with the case where \\(\\boldsymbol{\\alpha} = (2, 2, 2, 2)\\), how does this strong prior influence the final inference?\n\nA strong prior (large \\(\\alpha\\) values) can dominate the observed data. Despite ‘A’ being the most frequent observation (\\(n_A=10\\)), the heavy prior weight on ‘C’ and ‘G’ makes them the most probable outcomes in the posterior predictive distribution, effectively overriding the evidence from the small sample."
+  },
+  {
+    "objectID": "BIOF2014/4-Discrete distribution family-2-sketch.html",
+    "href": "BIOF2014/4-Discrete distribution family-2-sketch.html",
+    "title": "Discrete Distribution Family",
+    "section": "",
+    "text": "Define the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
   }
 ]
