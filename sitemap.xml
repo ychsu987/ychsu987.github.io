@@ -1,163 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ychsu987.github.io/quant.html</loc>
-    <lastmod>2026-03-18T04:48:11.464Z</lastmod>
-  </url>
-  <url>
     <loc>https://ychsu987.github.io/hybridPBL.html</loc>
-    <lastmod>2025-11-21T02:48:41.696Z</lastmod>
+    <lastmod>2026-02-22T15:43:02.152Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/CCAI9007/CCAI-workshop.html</loc>
-    <lastmod>2026-03-11T05:36:49.173Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/CCAI9007/CCAI-aging clock.html</loc>
-    <lastmod>2026-03-03T01:24:13.425Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF4002/mHealth and telemedicine.html</loc>
-    <lastmod>2025-09-16T08:19:00.514Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF3001/suicide-media-slides.html</loc>
-    <lastmod>2025-11-19T09:24:03.238Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/5-Question sets-poisson.html</loc>
-    <lastmod>2026-03-17T07:02:38.138Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/5-Question sets_presentation.html</loc>
-    <lastmod>2026-03-17T07:02:38.138Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/4-Q-sets-multinomial.html</loc>
-    <lastmod>2026-03-18T04:51:18.765Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/4-Question sets_presentation.html</loc>
-    <lastmod>2026-03-18T04:51:18.765Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/4-Discrete distribution family-2.html</loc>
-    <lastmod>2026-03-18T04:39:29.235Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/3-Question sets_presentation.html</loc>
-    <lastmod>2026-03-17T07:00:36.434Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/3-multivariate.html</loc>
-    <lastmod>2026-03-17T06:54:18.904Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/2-Question sets-binomial-sketch.html</loc>
-    <lastmod>2026-02-12T06:40:06.744Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/2-Question sets_presentation-sketch.html</loc>
-    <lastmod>2026-02-12T06:40:06.744Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/2-Discrete distribution family.html</loc>
-    <lastmod>2026-03-17T06:54:18.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/1-distribution_sketch.html</loc>
-    <lastmod>2026-03-17T06:54:18.859Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/0-Housekeeping.html</loc>
-    <lastmod>2026-02-04T03:24:39.132Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BBMS1021/tutorial/tutorial_3.html</loc>
-    <lastmod>2025-11-21T02:48:40.345Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BBMS1021/tutorial/tutorial_1.html</loc>
-    <lastmod>2025-09-16T08:19:00.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html</loc>
-    <lastmod>2025-11-21T02:48:40.345Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/about.html</loc>
-    <lastmod>2026-03-02T08:59:45.069Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BBMS1021/Real_case/Real-example.html</loc>
-    <lastmod>2025-11-21T02:48:40.312Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BBMS1021/tutorial/tutorial_2.html</loc>
-    <lastmod>2025-11-19T09:24:03.188Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BBMS3009/System biology.html</loc>
-    <lastmod>2025-11-21T03:26:30.131Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/1-distribution.html</loc>
-    <lastmod>2026-03-17T06:54:18.856Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/1-Question sets_presentation.html</loc>
-    <lastmod>2026-02-12T06:40:06.728Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/2-Discrete distribution family_sketch.html</loc>
-    <lastmod>2026-03-17T06:54:18.883Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/2-Question sets_presentation.html</loc>
-    <lastmod>2026-02-12T06:40:06.747Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/2-Question sets-binomial.html</loc>
-    <lastmod>2026-02-12T06:40:06.747Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/3-multivariate_sketch.html</loc>
-    <lastmod>2026-03-17T06:54:18.926Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/4-Discrete distribution family-2-sketch.html</loc>
-    <lastmod>2026-03-18T04:41:14.432Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/4-Question sets_presentation_sketch.html</loc>
-    <lastmod>2026-03-18T04:46:04.368Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/5-Discrete distribution family-3.html</loc>
-    <lastmod>2026-03-16T07:04:42.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF2014/Question sets-discrete.html</loc>
-    <lastmod>2026-01-14T08:20:45.881Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/BIOF4002/Global health informatics.html</loc>
-    <lastmod>2025-09-16T08:19:00.295Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ychsu987.github.io/cc.html</loc>
-    <lastmod>2026-03-03T01:24:06.472Z</lastmod>
+    <lastmod>2026-03-16T07:04:12.856Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/CCAI9007/CCAI-health monitoring.html</loc>
-    <lastmod>2026-03-03T01:33:33.168Z</lastmod>
+    <lastmod>2026-03-16T07:04:12.855Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF4002/Global health informatics.html</loc>
+    <lastmod>2025-09-14T07:32:16.492Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BBMS1021/Real_case/Real-example.html</loc>
+    <lastmod>2025-11-20T14:45:48.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BBMS1021/tutorial/tutorial_1.html</loc>
+    <lastmod>2025-09-12T01:51:16.365Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BBMS1021/tutorial/tutorial_2.html</loc>
+    <lastmod>2025-09-18T16:49:21.463Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/3-multivariate_sketch.html</loc>
+    <lastmod>2026-03-16T07:32:15.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/2-Question sets-binomial.html</loc>
+    <lastmod>2026-02-11T02:14:24.146Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/2-Question sets_presentation.html</loc>
+    <lastmod>2026-02-11T02:14:24.146Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/2-Discrete distribution family.html</loc>
+    <lastmod>2026-03-16T07:32:17.700Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/3-multivariate.html</loc>
+    <lastmod>2026-03-16T07:32:13.604Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/1-distribution_sketch.html</loc>
+    <lastmod>2026-03-19T15:56:01.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/5-Discrete distribution family-3-sketch.html</loc>
+    <lastmod>2026-03-19T17:58:15.519Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/4-Question sets_presentation_sketch.html</loc>
+    <lastmod>2026-03-19T02:14:39.494Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/1-Question sets_presentation.html</loc>
+    <lastmod>2026-02-11T02:15:06.996Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/4-Q-sets-multinomial.html</loc>
+    <lastmod>2026-03-19T02:14:39.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/4-Question sets_presentation.html</loc>
+    <lastmod>2026-03-19T02:14:39.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/5-Discrete distribution family-3.html</loc>
+    <lastmod>2026-03-19T17:57:42.532Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BBMS3009/System biology.html</loc>
+    <lastmod>2025-11-19T15:25:12.643Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/courses.html</loc>
-    <lastmod>2026-01-14T08:20:46.463Z</lastmod>
+    <lastmod>2026-01-14T03:53:58.401Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/programming.html</loc>
-    <lastmod>2026-01-14T08:21:09.087Z</lastmod>
+    <lastmod>2026-02-05T13:06:41.615Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/about.html</loc>
+    <lastmod>2026-02-22T15:47:31.653Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/1-distribution.html</loc>
+    <lastmod>2026-03-16T07:32:22.977Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/0-Housekeeping.html</loc>
+    <lastmod>2026-02-05T13:06:41.546Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/4-Discrete distribution family-2.html</loc>
+    <lastmod>2026-03-19T02:14:39.480Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/5-Question sets_presentation.html</loc>
+    <lastmod>2026-03-19T16:57:30.580Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/5-Question sets-poisson.html</loc>
+    <lastmod>2026-03-19T16:57:30.580Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/2-Discrete distribution family_sketch.html</loc>
+    <lastmod>2026-03-16T07:32:20.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/2-Question sets_presentation-sketch.html</loc>
+    <lastmod>2026-02-11T02:14:34.960Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/2-Question sets-binomial-sketch.html</loc>
+    <lastmod>2026-02-11T02:14:34.960Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/3-Question sets_presentation.html</loc>
+    <lastmod>2026-03-19T02:14:39.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/4-Discrete distribution family-2-sketch.html</loc>
+    <lastmod>2026-03-19T02:14:39.479Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF2014/Question sets-discrete.html</loc>
+    <lastmod>2026-01-14T03:56:50.992Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/cc.html</loc>
+    <lastmod>2026-03-16T07:04:12.943Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BBMS1021/tutorial/tutorial_3.html</loc>
+    <lastmod>2025-11-20T15:06:35.784Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html</loc>
+    <lastmod>2025-11-20T14:41:16.875Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF4002/mHealth and telemedicine.html</loc>
+    <lastmod>2025-09-14T08:44:21.778Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/BIOF3001/suicide-media-slides.html</loc>
+    <lastmod>2025-09-29T15:23:22.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/CCAI9007/CCAI-aging clock.html</loc>
+    <lastmod>2026-03-16T07:04:12.855Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/quant.html</loc>
+    <lastmod>2026-03-19T16:57:30.581Z</lastmod>
   </url>
 </urlset>
