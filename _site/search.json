@@ -4023,5 +4023,285 @@
     "title": "Discrete Distribution Family",
     "section": "",
     "text": "Define the properties of Categorical, Multinomial, and Dirichlet distributions.\nExplain the use of the Dirichlet distribution as a conjugate prior and the concept of pseudo-counts."
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#intended-learning-outcomes",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#intended-learning-outcomes",
+    "title": "Measuring in Intervals",
+    "section": "Intended Learning Outcomes",
+    "text": "Intended Learning Outcomes\n\nCharacterize Poisson, Exponential, and Gamma distribution\nApply Bayesian priors for Poisson, Exponential, and Gamma distribution"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#poisson-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#poisson-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Poisson Distribution",
+    "text": "Poisson Distribution\nThe Poisson distribution expresses the probability of a given number of events occurring in a fixed interval of time if these events occur with a known constant mean rate and independently of the time since the last event.\n\n\n\nSupport \\(x \\in \\mathbb{N}\\)\nParameter \\(\\lambda\\), arrival rate.\npmf\n\n\n\\[\nP( X = x) = \\frac{\\lambda^x}{x!}\\exp(-\\lambda)\n\\]\n\nProperties\n\nMean \\(\\lambda\\)\nVariance \\(\\lambda\\)\n\n\nAnalogy\n\nNumber of cars waiting for traffic lights\nBiological signals (neuron spike, ECG spike)\nPrevalence rate of a disease"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#binomial-distribution-approximates-poisson-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#binomial-distribution-approximates-poisson-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Binomial Distribution Approximates Poisson Distribution",
+    "text": "Binomial Distribution Approximates Poisson Distribution\nWhen \\(n \\rightarrow \\infty\\) and \\(p \\rightarrow 0\\), the Binomial distribution approximates the Poisson distribution. In this case, \\(\\lambda = np\\). (Proofs is in the tutorial question)\nImplication\n\n\\(n \\rightarrow \\infty\\), and \\(p \\rightarrow 0\\) implies rare event for Poisson distribution\nRule of thumb: \\(n \\geq 100\\) and \\(np \\leq 10\\)"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration-1",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration-1",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#negative-binomial-distribution-approximates-poisson-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#negative-binomial-distribution-approximates-poisson-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Negative Binomial Distribution Approximates Poisson Distribution",
+    "text": "Negative Binomial Distribution Approximates Poisson Distribution\nWhen \\(r \\rightarrow \\infty\\) and \\(p \\rightarrow 0\\), the Negative Binomial distribution approximates the Poisson distribution. (Proofs is in the tutorial question)\nImplication\n\n\\(r \\rightarrow \\infty\\) implies rare event to call a stop\nRule of thembs: \\(r \\geq 10\\) and \\(rp \\leq 10\\)\n\nIn practice, the negative binomial distribution is more popular than Poisson distribution"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration-2",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration-2",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#exponential-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#exponential-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Exponential Distribution",
+    "text": "Exponential Distribution\nA random variable describing the time (or distance) between two Poisson arrivals. If \\(X\\) is an event count that follows \\(X \\sim \\text{Poisson}\\left( \\mu \\right)\\), then the time \\(T\\) between events follows \\(T \\sim \\text{Exponential}( \\frac{1}{\\mu})\\).\n\n\nProperties\n\nSupport \\(x &gt; 0\\)\nParameter \\(\\lambda\\), arrival rate.\npdf\n\n\n\\[\nf_X( x ) = \\lambda e^{-\\lambda x}\n\\]\n\n\nMean \\(\\text{E}(X) = \\frac{1}{\\lambda}\\)\nVariance \\(\\text{V}(X) = \\frac{1}{\\lambda^2}\\)\n\n\nExample\n\nWaiting time for the next bus if arrivals are Poisson\nWaiting time for developing cancer after exposure"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#example-in-population-genetics",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#example-in-population-genetics",
+    "title": "Measuring in Intervals",
+    "section": "Example in population genetics",
+    "text": "Example in population genetics\nOur dog is dog or wolf Lin et al. (2025)\n\nTraaditional theory think dog (Canis lupus familiaris) and wolf (Canis lupus) are two differnet species (i.e Monophyly)\n\n\n\n\nRecent study shows that from a wild range of village dogs gene we can almost reconstruct a wolf’s gene\nWolf’s gene are just fragmented in dogs gene depends on species\nBased on the fragmented size we can estimate how long does it happened (i.e. small fragmented means happened in long time ago)\n\n\n\n\n\ndog-wolf introgression"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#gamma-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#gamma-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Gamma Distribution",
+    "text": "Gamma Distribution\nLet \\(x_1,\\dots x_n\\) be i.i.d random variables from an exponential distribution \\(\\lambda\\), then \\(\\sum_{i=1}^nx_n \\sim \\text{Gamma}(n, n\\lambda)\\). Gamma distribution can be used to describe time elapsing until the accumulation of a specific number of unpredictable events.\n\n\nProperties\n\nSupport \\(x \\in \\mathbb{R}\\)\nParameters \\(\\alpha, \\lambda\\)\npdf\n\n\n\\[\nf_X\\left( x \\right)\n= \\frac{\\lambda^\\alpha}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{-\\lambda x} ,\n\\]\n\n\n\nIt is clear that \\(\\text{Gamma}(1,\\lambda)\\sim \\text{EXP}(\\lambda)\\)\nMeasurement on time and count.1\n\n\\(X\\sim\\text{Gamma}(\\alpha,\\lambda)\\), and \\(Y\\sim\\text{Pois}(x\\lambda)\\)\n\\(P(X&gt;x) =P(Y&lt;\\alpha)\\)\n\n\n\nAn example is that we describe the time to see a bus, so the probability of waiting for more than \\(x\\) minutes is equivalent to the probability of seeing no bus in \\(x\\) minutes."
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#poisson-distribution-with-gamma-distribution-prior",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#poisson-distribution-with-gamma-distribution-prior",
+    "title": "Measuring in Intervals",
+    "section": "Poisson Distribution with Gamma Distribution Prior",
+    "text": "Poisson Distribution with Gamma Distribution Prior\nThe Gamma distribution is a conjugate prior to the Poisson distribution. Let’s say we have \\(n\\) observations \\(x_1, \\dots x_n\\) from an unknown Poisson distribution, and we assume the prior probability of \\(\\lambda \\sim \\text{Gamma}(\\alpha,\\beta)\\). The posterior estimation of parameter \\(\\lambda\\)\n\n\\[\n\\begin{align}\np(\\lambda\\mid x_1\\dots x_i) \\propto & \\quad p( x_1\\dots x_i \\mid\\lambda)\\text{Gamma}(\\alpha,\\beta) \\\\ \\propto & \\quad\ne^{-n\\lambda}\\lambda^{\\sum x_i}\\lambda^{\\alpha-1}e^{-\\beta\\lambda} \\\\ \\propto & \\quad\n\\lambda^{\\alpha+\\sum x_i-1}e^{-(n+\\beta)\\lambda}\n\\end{align}\n\\]\n\nThe posterior distribution: \\(\\lambda \\sim \\text{Gamma}(\\alpha+\\sum x_i,\\beta+n)\\)\nAnalogy\nAdding pseudo Poisson observations with total \\(\\alpha\\) occurrences in the \\(\\beta\\) time intervals."
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration-3",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration-3",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#posterior-predictive-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#posterior-predictive-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Posterior predictive distribution",
+    "text": "Posterior predictive distribution\nThe posterior predicitive distribution of \\(p(\\tilde{x}|\\text{data})\\) follows Negative binomial distribution\n\n\n\n\n\n\n\n\n\nThe prove is trivial, but the takeaway is\n\nNegative binomial distribution can be seen as a Poisson with prior distribution\nRelaxation on variance\nRelatxation comes form the uncertainty of \\(\\lambda\\)\nZero-inflated data"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#exponential-distribution-with-gamma-distribution-prior",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#exponential-distribution-with-gamma-distribution-prior",
+    "title": "Measuring in Intervals",
+    "section": "Exponential Distribution with Gamma Distribution Prior",
+    "text": "Exponential Distribution with Gamma Distribution Prior\nLet’s say we have \\(n\\) observations \\(x_1, \\dots x_n\\) from an unknown Exponential distribution, and we assume the prior probability of \\(\\lambda \\sim \\text{Gamma}(\\alpha,\\beta)\\). The posterior estimation of parameter \\(\\lambda\\)\n\n\\[\n\\begin{align}\np(\\lambda\\mid x_1\\dots x_i) \\propto & \\quad p( x_1\\dots x_i \\mid\\lambda)\\text{Gamma}(\\alpha,\\beta) \\\\ \\propto & \\quad\n\\lambda^n e^{-\\lambda \\sum x_i }\\lambda^{\\alpha-1}e^{-\\lambda\\beta}\\\\\n= & \\quad\n\\lambda^{n+\\alpha-1}e^{-(\\sum x_i+\\beta)\\lambda}\n\\end{align}\n\\]\n\nPosterior distribution: \\(\\text{Gamma}(n+\\alpha,\\sum x_i +\\beta)\\)\nAnalogy\nAdding pseudo observations with total \\(\\alpha\\) observations over total time \\(\\beta\\)"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration-4",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#illustration-4",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#quick-review",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#quick-review",
+    "title": "Measuring in Intervals",
+    "section": "Quick Review",
+    "text": "Quick Review\n\n\n\n\n\n\n\nG\n\n\n\nbin\n\nBinomial(n,p)\n\n\n\nber\n\nBernoulli(p)\n\n\n\nbin-&gt;ber\n\n\nn=1\n\n\n\npos\n\nPoisson(λ)\n\n\n\nbin-&gt;pos\n\n\nλ=np, n→∞\n\n\n\nber-&gt;bin\n\n\nΣx\n\n\n\nhyp\n\nHypergeometric(M,N,K)\n\n\n\nhyp-&gt;bin\n\n\np=M/N, n=k, N→∞\n\n\n\nnb\n\nNegative Binomial(n,p)\n\n\n\nnb-&gt;pos\n\n\nλ=n(1-p), n→∞\n\n\n\ngeo\n\nGeometric(p)\n\n\n\nnb-&gt;geo\n\n\nn=1\n\n\n\ngeo-&gt;nb\n\n\nΣx\n\n\n\ngam\n\nGamma(r,λ)\n\n\n\ngam-&gt;pos\n\n\n\n\n\ngam-&gt;gam\n\n\nknown α\n\n\n\nexp\n\nExponential(λ)\n\n\n\ngam-&gt;exp\n\n\nr=1\n\n\n\ngam-&gt;exp\n\n\n\n\n\nbet\n\nBeta(α,β)\n\n\n\nbet-&gt;bin\n\n\n\n\n\nbet-&gt;ber\n\n\n\n\n\nbet-&gt;nb\n\n\n\n\n\nbet-&gt;geo\n\n\n\n\n\nbet-&gt;gam\n\n\nnX, n→∞\n\n\n\nexp-&gt;gam\n\n\nΣx"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#quick-review-1",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#quick-review-1",
+    "title": "Measuring in Intervals",
+    "section": "Quick Review",
+    "text": "Quick Review\n\n\n\n\n\n\n\n\n\n\nDistribution\nParameter\nConjugate Prior\nPosterior Hyperparameters\nPosterior Predictive\n\n\n\n\nBernoulli\n\\(p\\)\n\\(\\small\\text{Beta}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+\\sum x_i, \\\\ \\beta'=\\beta+n-\\sum x_i\\end{aligned}\\)\n\\(\\small\\text{Bern}(\\frac{\\alpha'}{\\alpha'+\\beta'})\\)\n\n\nBinomial\n\\(p\\)\n\\(\\small\\text{Beta}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+\\sum x_i, \\\\ \\beta'=\\beta+\\sum n-\\sum x_i\\end{aligned}\\)\n\\(\\small\\text{Beta-binomial}(\\alpha',\\beta')\\)\n\n\nNegative Binomial\n\\(p\\)\n\\(\\small\\text{Beta}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+rn, \\\\ \\beta'=\\beta+\\sum x_i\\end{aligned}\\)\n\n\n\nGeometric\n\\(p\\)\n\\(\\small\\text{Beta}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+n, \\\\ \\beta'=\\beta+\\sum x_i\\end{aligned}\\)"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#quick-review-2",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#quick-review-2",
+    "title": "Measuring in Intervals",
+    "section": "Quick Review",
+    "text": "Quick Review\n\n\n\n\n\n\n\n\n\n\nDistribution\nParameter\nConjugate Prior\nPosterior Hyperparameters\nPosterior Predictive\n\n\n\n\nPoisson\n\\(\\lambda\\)\n\\(\\small\\text{Gamma}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+\\sum x_i, \\\\ \\beta'=\\beta+n\\end{aligned}\\)\n\\(\\small\\text{NB}(\\alpha',\\frac{\\beta'}{1+\\beta'})\\)\n\n\nExponential\n\\(\\lambda\\)\n\\(\\small\\text{Gamma}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+n, \\\\ \\beta'=\\beta+\\sum x_i\\end{aligned}\\)\n\\(\\small\\frac{\\beta'}{\\alpha'}(1+\\frac{x}{\\alpha'})^{-\\beta'-1}\\)"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#bibilography-notes",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#bibilography-notes",
+    "title": "Measuring in Intervals",
+    "section": "Bibilography notes",
+    "text": "Bibilography notes\n\n\n\n\nLin, Audrey T, Regina A Fairbanks, Jose Barba-Montoya, Hsiao-Lei Liu, and Logan Kistler. 2025. “A Legacy of Genetic Entanglement with Wolves Shapes Modern Dogs.” Proceedings of the National Academy of Sciences 122 (48): e2421768122."
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html",
+    "title": "Measuring in Intervals",
+    "section": "",
+    "text": "Characterize Poisson, Exponential, and Gamma distribution\nApply Bayesian priors for Poisson, Exponential, and Gamma distribution"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3 copy.html#footnotes",
+    "href": "BIOF2014/5-Discrete distribution family-3 copy.html#footnotes",
+    "title": "Measuring in Intervals",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAn example is that we describe the time to see a bus, so the probability of waiting for more than \\(x\\) minutes is equivalent to the probability of seeing no bus in \\(x\\) minutes.↩︎"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#intended-learning-outcomes",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#intended-learning-outcomes",
+    "title": "Measuring in Intervals",
+    "section": "Intended Learning Outcomes",
+    "text": "Intended Learning Outcomes\n\nCharacterize Poisson, Exponential, and Gamma distribution\nApply Bayesian priors for Poisson, Exponential, and Gamma distribution"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#poisson-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#poisson-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Poisson Distribution",
+    "text": "Poisson Distribution\nThe Poisson distribution expresses the probability of a given number of events occurring in a fixed interval of time if these events occur with a known constant mean rate and independently of the time since the last event.\n\n\n\nSupport \\(x \\in \\mathbb{N}\\)\nParameter \\(\\lambda\\), arrival rate.\npmf\n\n\n\\[\nP( X = x) = \\frac{\\lambda^x}{x!}\\exp(-\\lambda)\n\\]\n\nProperties\n\nMean \\(\\lambda\\)\nVariance \\(\\lambda\\)\n\n\nAnalogy\n\nNumber of cars waiting for traffic lights\nBiological signals (neuron spike, ECG spike)\nPrevalence rate of a disease"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#binomial-distribution-approximates-poisson-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#binomial-distribution-approximates-poisson-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Binomial Distribution Approximates Poisson Distribution",
+    "text": "Binomial Distribution Approximates Poisson Distribution\nWhen \\(n \\rightarrow \\infty\\) and \\(p \\rightarrow 0\\), the Binomial distribution approximates the Poisson distribution. In this case, \\(\\lambda = np\\). (Proofs is in the tutorial question)\nImplication\n\n\\(n \\rightarrow \\infty\\), and \\(p \\rightarrow 0\\) implies rare event for Poisson distribution\nRule of thumb: \\(n \\geq 100\\) and \\(np \\leq 10\\)"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration-1",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration-1",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#negative-binomial-distribution-approximates-poisson-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#negative-binomial-distribution-approximates-poisson-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Negative Binomial Distribution Approximates Poisson Distribution",
+    "text": "Negative Binomial Distribution Approximates Poisson Distribution\nWhen \\(r \\rightarrow \\infty\\) and \\(p \\rightarrow 0\\), the Negative Binomial distribution approximates the Poisson distribution. (Proofs is in the tutorial question)\nImplication\n\n\\(r \\rightarrow \\infty\\) implies rare event to call a stop\nRule of thembs: \\(r \\geq 10\\) and \\(rp \\leq 10\\)\n\nIn practice, the negative binomial distribution is more popular than Poisson distribution"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration-2",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration-2",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#exponential-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#exponential-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Exponential Distribution",
+    "text": "Exponential Distribution\nA random variable describing the time (or distance) between two Poisson arrivals. If \\(X\\) is an event count that follows \\(X \\sim \\text{Poisson}\\left( \\mu \\right)\\), then the time \\(T\\) between events follows \\(T \\sim \\text{Exponential}( \\frac{1}{\\mu})\\).\n\n\nProperties\n\nSupport \\(x &gt; 0\\)\nParameter \\(\\lambda\\), arrival rate.\npdf\n\n\n\\[\nf_X( x ) = \\lambda e^{-\\lambda x}\n\\]\n\n\nMean \\(\\text{E}(X) = \\frac{1}{\\lambda}\\)\nVariance \\(\\text{V}(X) = \\frac{1}{\\lambda^2}\\)\n\n\nExample\n\nWaiting time for the next bus if arrivals are Poisson\nWaiting time for developing cancer after exposure"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#example-in-population-genetics",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#example-in-population-genetics",
+    "title": "Measuring in Intervals",
+    "section": "Example in population genetics",
+    "text": "Example in population genetics\nOur dog is dog or wolf Lin et al. (2025)\n\nTraaditional theory think dog (Canis lupus familiaris) and wolf (Canis lupus) are two differnet species (i.e Monophyly)\n\n\n\n\nRecent study shows that from a wild range of village dogs gene we can almost reconstruct a wolf’s gene\nWolf’s gene are just fragmented in dogs gene depends on species\nBased on the fragmented size we can estimate how long does it happened (i.e. small fragmented means happened in long time ago)\n\n\n\n\n\ndog-wolf introgression"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#gamma-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#gamma-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Gamma Distribution",
+    "text": "Gamma Distribution\nLet \\(x_1,\\dots x_n\\) be i.i.d random variables from an exponential distribution \\(\\lambda\\), then \\(\\sum_{i=1}^nx_n \\sim \\text{Gamma}(n, n\\lambda)\\). Gamma distribution can be used to describe time elapsing until the accumulation of a specific number of unpredictable events.\n\n\nProperties\n\nSupport \\(x \\in \\mathbb{R}\\)\nParameters \\(\\alpha, \\lambda\\)\npdf\n\n\n\\[\nf_X\\left( x \\right)\n= \\frac{\\lambda^\\alpha}{\\Gamma(\\alpha)} x^{\\alpha - 1} e^{-\\lambda x} ,\n\\]\n\n\n\nIt is clear that \\(\\text{Gamma}(1,\\lambda)\\sim \\text{EXP}(\\lambda)\\)\nMeasurement on time and count.1\n\n\\(X\\sim\\text{Gamma}(\\alpha,\\lambda)\\), and \\(Y\\sim\\text{Pois}(x\\lambda)\\)\n\\(P(X&gt;x) =P(Y&lt;\\alpha)\\)\n\n\n\nAn example is that we describe the time to see a bus, so the probability of waiting for more than \\(x\\) minutes is equivalent to the probability of seeing no bus in \\(x\\) minutes."
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#poisson-distribution-with-gamma-distribution-prior",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#poisson-distribution-with-gamma-distribution-prior",
+    "title": "Measuring in Intervals",
+    "section": "Poisson Distribution with Gamma Distribution Prior",
+    "text": "Poisson Distribution with Gamma Distribution Prior\nThe Gamma distribution is a conjugate prior to the Poisson distribution. Let’s say we have \\(n\\) observations \\(x_1, \\dots x_n\\) from an unknown Poisson distribution, and we assume the prior probability of \\(\\lambda \\sim \\text{Gamma}(\\alpha,\\beta)\\). The posterior estimation of parameter \\(\\lambda\\)\n\n\\[\n\\begin{align}\np(\\lambda\\mid x_1\\dots x_i) \\propto & \\quad p( x_1\\dots x_i \\mid\\lambda)\\text{Gamma}(\\alpha,\\beta) \\\\ \\propto & \\quad\ne^{-n\\lambda}\\lambda^{\\sum x_i}\\lambda^{\\alpha-1}e^{-\\beta\\lambda} \\\\ \\propto & \\quad\n\\lambda^{\\alpha+\\sum x_i-1}e^{-(n+\\beta)\\lambda}\n\\end{align}\n\\]\n\nThe posterior distribution: \\(\\lambda \\sim \\text{Gamma}(\\alpha+\\sum x_i,\\beta+n)\\)\nAnalogy\nAdding pseudo Poisson observations with total \\(\\alpha\\) occurrences in the \\(\\beta\\) time intervals."
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration-3",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration-3",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#posterior-predictive-distribution",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#posterior-predictive-distribution",
+    "title": "Measuring in Intervals",
+    "section": "Posterior predictive distribution",
+    "text": "Posterior predictive distribution\nThe posterior predicitive distribution of \\(p(\\tilde{x}|\\text{data})\\) follows Negative binomial distribution\n\n\n\n\n\n\n\n\n\nThe prove is trivial, but the takeaway is\n\nNegative binomial distribution can be seen as a Poisson with prior distribution\nRelaxation on variance\nRelatxation comes form the uncertainty of \\(\\lambda\\)\nZero-inflated data"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#exponential-distribution-with-gamma-distribution-prior",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#exponential-distribution-with-gamma-distribution-prior",
+    "title": "Measuring in Intervals",
+    "section": "Exponential Distribution with Gamma Distribution Prior",
+    "text": "Exponential Distribution with Gamma Distribution Prior\nLet’s say we have \\(n\\) observations \\(x_1, \\dots x_n\\) from an unknown Exponential distribution, and we assume the prior probability of \\(\\lambda \\sim \\text{Gamma}(\\alpha,\\beta)\\). The posterior estimation of parameter \\(\\lambda\\)\n\n\\[\n\\begin{align}\np(\\lambda\\mid x_1\\dots x_i) \\propto & \\quad p( x_1\\dots x_i \\mid\\lambda)\\text{Gamma}(\\alpha,\\beta) \\\\ \\propto & \\quad\n\\lambda^n e^{-\\lambda \\sum x_i }\\lambda^{\\alpha-1}e^{-\\lambda\\beta}\\\\\n= & \\quad\n\\lambda^{n+\\alpha-1}e^{-(\\sum x_i+\\beta)\\lambda}\n\\end{align}\n\\]\n\nPosterior distribution: \\(\\text{Gamma}(n+\\alpha,\\sum x_i +\\beta)\\)\nAnalogy\nAdding pseudo observations with total \\(\\alpha\\) observations over total time \\(\\beta\\)"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration-4",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#illustration-4",
+    "title": "Measuring in Intervals",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#quick-review",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#quick-review",
+    "title": "Measuring in Intervals",
+    "section": "Quick Review",
+    "text": "Quick Review\n\n\n\n\n\n\n\nG\n\n\n\nbin\n\nBinomial(n,p)\n\n\n\nber\n\nBernoulli(p)\n\n\n\nbin-&gt;ber\n\n\nn=1\n\n\n\npos\n\nPoisson(λ)\n\n\n\nbin-&gt;pos\n\n\nλ=np, n→∞\n\n\n\nber-&gt;bin\n\n\nΣx\n\n\n\nhyp\n\nHypergeometric(M,N,K)\n\n\n\nhyp-&gt;bin\n\n\np=M/N, n=k, N→∞\n\n\n\nnb\n\nNegative Binomial(n,p)\n\n\n\nnb-&gt;pos\n\n\nλ=n(1-p), n→∞\n\n\n\ngeo\n\nGeometric(p)\n\n\n\nnb-&gt;geo\n\n\nn=1\n\n\n\ngeo-&gt;nb\n\n\nΣx\n\n\n\ngam\n\nGamma(r,λ)\n\n\n\ngam-&gt;pos\n\n\n\n\n\ngam-&gt;gam\n\n\nknown α\n\n\n\nexp\n\nExponential(λ)\n\n\n\ngam-&gt;exp\n\n\nr=1\n\n\n\ngam-&gt;exp\n\n\n\n\n\nbet\n\nBeta(α,β)\n\n\n\nbet-&gt;bin\n\n\n\n\n\nbet-&gt;ber\n\n\n\n\n\nbet-&gt;nb\n\n\n\n\n\nbet-&gt;geo\n\n\n\n\n\nbet-&gt;gam\n\n\nnX, n→∞\n\n\n\nexp-&gt;gam\n\n\nΣx"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#quick-review-1",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#quick-review-1",
+    "title": "Measuring in Intervals",
+    "section": "Quick Review",
+    "text": "Quick Review\n\n\n\n\n\n\n\n\n\n\nDistribution\nParameter\nConjugate Prior\nPosterior Hyperparameters\nPosterior Predictive\n\n\n\n\nBernoulli\n\\(p\\)\n\\(\\small\\text{Beta}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+\\sum x_i, \\\\ \\beta'=\\beta+n-\\sum x_i\\end{aligned}\\)\n\\(\\small\\text{Bern}(\\frac{\\alpha'}{\\alpha'+\\beta'})\\)\n\n\nBinomial\n\\(p\\)\n\\(\\small\\text{Beta}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+\\sum x_i, \\\\ \\beta'=\\beta+\\sum n-\\sum x_i\\end{aligned}\\)\n\\(\\small\\text{Beta-binomial}(\\alpha',\\beta')\\)\n\n\nNegative Binomial\n\\(p\\)\n\\(\\small\\text{Beta}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+rn, \\\\ \\beta'=\\beta+\\sum x_i\\end{aligned}\\)\n\n\n\nGeometric\n\\(p\\)\n\\(\\small\\text{Beta}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+n, \\\\ \\beta'=\\beta+\\sum x_i\\end{aligned}\\)"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#quick-review-2",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#quick-review-2",
+    "title": "Measuring in Intervals",
+    "section": "Quick Review",
+    "text": "Quick Review\n\n\n\n\n\n\n\n\n\n\nDistribution\nParameter\nConjugate Prior\nPosterior Hyperparameters\nPosterior Predictive\n\n\n\n\nPoisson\n\\(\\lambda\\)\n\\(\\small\\text{Gamma}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+\\sum x_i, \\\\ \\beta'=\\beta+n\\end{aligned}\\)\n\\(\\small\\text{NB}(\\alpha',\\frac{\\beta'}{1+\\beta'})\\)\n\n\nExponential\n\\(\\lambda\\)\n\\(\\small\\text{Gamma}(\\alpha,\\beta)\\)\n\\(\\small\\begin{aligned}\\alpha' = \\alpha+n, \\\\ \\beta'=\\beta+\\sum x_i\\end{aligned}\\)\n\\(\\small\\frac{\\beta'}{\\alpha'}(1+\\frac{x}{\\alpha'})^{-\\beta'-1}\\)"
+  },
+  {
+    "objectID": "BIOF2014/5-Discrete distribution family-3-sketch.html#bibilography-notes",
+    "href": "BIOF2014/5-Discrete distribution family-3-sketch.html#bibilography-notes",
+    "title": "Measuring in Intervals",
+    "section": "Bibilography notes",
+    "text": "Bibilography notes\n\n\n\n\nLin, Audrey T, Regina A Fairbanks, Jose Barba-Montoya, Hsiao-Lei Liu, and Logan Kistler. 2025. “A Legacy of Genetic Entanglement with Wolves Shapes Modern Dogs.” Proceedings of the National Academy of Sciences 122 (48): e2421768122."
   }
 ]

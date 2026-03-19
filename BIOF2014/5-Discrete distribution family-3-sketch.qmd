@@ -10,12 +10,14 @@ format:
   revealjs:
     theme: 
         - default
-        - general_style.scss
-        - student_view.scss
+    css:
+        - general_style.css
+        - student_view.css
     slide-number: true
     reference-location: margin
     chalkboard:
       theme: whiteboard
+      src: compiled_pdf/chalkboard 8.json
 lightbox: true
 bibliography: ref.bib
 ---
