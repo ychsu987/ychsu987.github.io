@@ -15,6 +15,8 @@ listing:
         - BIOF2014/3-multivariate.qmd
         - BIOF2014/4-Discrete distribution family-2.qmd
         - BIOF2014/5-Discrete distribution family-3.qmd
+        - BIOF2014/6-Continuous distribution family.qmd
+        - BIOF2014/7-Model fitting.qmd
       fields: [title, subtitle, image]
       type: default
       sort: false
@@ -25,6 +27,8 @@ listing:
         - BIOF2014/3-multivariate_sketch.qmd
         - BIOF2014/4-Discrete distribution family-2-sketch.qmd
         - BIOF2014/5-Discrete distribution family-3-sketch.qmd
+        - BIOF2014/6-Continuous distribution family-sketch.qmd
+        - BIOF2014/7-Model fitting-sketch.qmd
       fields: [title, subtitle, image]
       type: default
       sort: false
@@ -35,6 +39,8 @@ listing:
         - BIOF2014/3-Question sets-multivariate.qmd
         - BIOF2014/4-Q-sets-multinomial.qmd
         - BIOF2014/5-Question sets-poisson.qmd
+        - BIOF2014/6-Question sets-continuous.qmd
+        - BIOF2014/7-Question sets-model.qmd
       fields: [title]
       type: default
       sort: false

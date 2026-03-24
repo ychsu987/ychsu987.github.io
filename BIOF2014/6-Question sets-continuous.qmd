@@ -1,0 +1,277 @@
+---
+title: "Question sets"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: student_view.css
+  revealjs:
+    output-file: 6-Question sets_presentation.html
+    theme: [default, student_view.scss]
+engine: knitr 
+---
+
+## Question 1
+
+Consider flipping a coin for which the probability of heads is $p$. Let $X_i$ be the outcome of the $i$-th single toss, where $X_i \in \{0, 1\}$. Thus, $p = P(X_i=1) = \mathbb{E}[X_i]$. 
+
+- The sample proportion (fraction of heads) after $n$ tosses is defined as $\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i$, 
+- The sample variance is $\mathbb{V}(\bar{X}_n) = \frac{p(1-p)}{n}$. 
+
+### 1.1 
+
+State the type of convergence and the value to which $\bar{X}_n$ converges as $n \to \infty$.
+
+:::{.hide}
+By the Weak Law of Large Numbers (WLLN), $\bar{X}_n$ converges in probability to the true parameter $p$:
+$$
+\bar{X}_n \xrightarrow{P} p
+$$
+:::
+
+### 1.2 
+
+Suppose the coin is fair ($p = 0.5$). Use Chebyshev's Inequality to find the required sample size $n$ such that $P(0.475 \leq \bar{X}_n \leq 0.525) \geq 0.95$.
+
+:::{.hide}
+$$
+\begin{aligned}
+P(0.475 \leq \bar{X}_n \leq 0.525) &= P(|\bar{X}_n - 0.5| \leq 0.025) \\
+& = 1 - P(|\bar{X}_n - 0.5| > 0.025) 
+\end{aligned}
+$$
+By Chebyshev's Inequality, $P(|\bar{X}_n - 0.5| \geq 0.025) \leq \frac{\mathbb{V}(\bar{X}_n)}{0.025^2}$.
+$$
+\begin{aligned}
+P(|\bar{X}_n - 0.5| > 0.025) & \leq \frac{1}{4n(0.000625)} = \frac{400}{n} \\
+\end{aligned}
+$$
+We want the probability to be at least $0.95$:
+$$
+\begin{aligned}
+1 - \frac{400}{n} & \geq 0.95 \\
+0.05 & \geq \frac{400}{n} \\
+n & \geq 8000
+\end{aligned}
+$$
+:::
+
+## Question 2: Sample Size Estimation 
+
+We want to survey what percentage ($p\%$) of people in Hong Kong like coriander (a dichotomous outcome). The acceptable margin of error is $2.5\%$ ($\alpha=0.05$), meaning the total width of the $95\%$ confidence interval should be $5\%$.
+
+### 2.1
+
+What is the probability distribution of a single survey outcome? 
+
+:::{.hide}
+Bernoulli distribution.
+:::
+
+### 2.2
+
+What is the approximate distribution of the sample proportion $\hat{p}$?
+
+:::{.hide}
+By the Central Limit Theorem, for a sufficiently large sample size $n$:
+$$
+\hat{p} \sim N\left(p, \frac{p(1-p)}{n}\right)
+$$
+:::
+
+### 2.3
+
+Given the critical value $Z_{1-\alpha/2} = 1.96$, what is the formula for the confidence interval of the estimation?
+
+:::{.hide}
+$$
+\hat{p} \pm Z_{1-\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+$$
+:::
+
+### 2.4
+
+What condition yields the maximum possible width for this confidence interval?
+
+:::{.hide}
+The width is maximized when the standard error is maximized:
+$$
+\text{Width} = 2 \times Z_{1-\alpha/2}\sqrt{\frac{p(1-p)}{n}}
+$$
+By the AM-GM inequality (or simple calculus), the term $p(1-p)$ reaches its maximum when $p=0.5$.
+:::
+
+### 2.5
+
+In the worst-case scenario (maximum variance), what is the necessary sample size to ensure the confidence interval has a total width of no more than $5\%$?
+
+:::{.hide}
+Using the worst-case proportion $p=0.5$:
+$$
+\begin{aligned}
+0.05 &= 2 \times 1.96 \times \sqrt{\frac{0.5(1-0.5)}{n}} \\
+0.05 &= 3.92 \times \frac{0.5}{\sqrt{n}} \\
+\sqrt{n} &= \frac{1.96}{0.05} = 39.2 \\
+n &= 39.2^2 = 1536.64
+\end{aligned}
+$$
+Rounding up, the required sample size is $1537$.
+:::
+
+### 2.6
+
+Please briefly explain the marginal effect of increasing the sample size by one unit on the improvement of estimation accuracy.
+
+:::{.hide}
+Accuracy (inversely related to standard error) improves at a rate proportional to $1/\sqrt{n}$. The marginal gain in accuracy is the derivative $\frac{d}{dn}(n^{-1/2}) \propto -n^{-3/2}$. As $n$ grows larger, the marginal benefit of adding a single extra sample diminishes rapidly (diminishing returns). For example, adding 1 sample to $n=1500$ yields almost no noticeable improvement compared to adding 1 sample to $n=10$.
+:::
+
+### 2.7
+
+Comparing the sample size results from Question 4 and Question 5, why is there such a large difference ($8000$ vs $1537$)?
+
+:::{.hide}
+Question 4 uses Chebyshev's Inequality, which provides a non-parametric, conservative upper bound that holds true for *any* underlying probability distribution, making it statistically less efficient. 
+
+Question 5 uses the Normal Approximation via the Central Limit Theorem. By assuming the sample mean follows a specific distribution (the Normal curve), we can calculate a much tighter, more "efficient" probability bound, thus requiring a significantly smaller sample size to guarantee the same margin of error.
+:::
+
+## Question 3
+
+Assume that our prior belief about the mean human body temperature ($\mu$) is normally distributed: $\mu \sim N(36.5, 6.25)$ in degrees Celsius. The known population variance of body temperature is also $6.25$. 
+
+Older adults usually possess lower body temperatures due to factors such as slower metabolism or reduced muscle mass. We conduct a brief survey of $100$ older adults to find a better estimate of their average body temperature. The sample mean from this survey is $36^\circ\text{C}$. Assuming the body temperature of older adults shares the same known variance ($\sigma^2 = 6.25$), what is the posterior estimate for the mean body temperature of older adults?
+
+:::{.hide}
+**Prior Distribution:** $\mu \sim N(\mu_0, \sigma_0^2)$
+- Prior Mean ($\mu_0$): $36.5^\circ\text{C}$
+- Prior Variance ($\sigma_0^2$): $6.25$
+
+**Sample Data (Likelihood):** - Sample Mean ($\bar{x}$): $36.0^\circ\text{C}$
+- Sample Size ($n$): $100$
+- Population Variance ($\sigma^2$): $6.25$
+
+**Posterior Precision** (Inverse of Variance):
+$$
+\text{Precision}_{post} = \frac{1}{\sigma_0^2} + \frac{n}{\sigma^2} = \frac{1}{6.25} + \frac{100}{6.25} = 0.16 + 16 = 16.16
+$$
+
+**Posterior Mean** (Precision-Weighted Average):
+$$
+\begin{aligned}
+\mu_{post} &= \frac{\frac{1}{\sigma_0^2}}{\frac{1}{\sigma_0^2} + \frac{n}{\sigma^2}} \mu_0 + \frac{\frac{n}{\sigma^2}}{\frac{1}{\sigma_0^2} + \frac{n}{\sigma^2}} \bar{x} \\
+&= \left(\frac{0.16}{16.16}\right) 36.5 + \left(\frac{16}{16.16}\right) 36.0 \\
+&= (0.0099 \times 36.5) + (0.9901 \times 36.0) \\
+&\approx 0.36135 + 35.6436 = 36.005^\circ\text{C}
+\end{aligned}
+$$
+The posterior mean strongly shifts toward the sample mean due to the large sample size providing high precision compared to the prior.
+:::
+
+## Question 4 
+
+Please show that the normal distribution is the conjugate prior for the mean of a normal distribution when the variance is known. Given IID observations $x_1,\dots,x_n \sim N(\mu,\sigma^2)$, where $\sigma^2$ is known but $\mu$ is unknown. Let the prior distribution be $\mu \sim N(\mu_0,\sigma^2_0)$.
+
+*Calculation tips: You can define the sample mean as $\bar{x}=\frac{1}{n}\sum_{i=1}^n x_i$, which implies $\sum_{i=1}^n x_i =n\bar{x}$.*
+
+:::{.hide}
+$$
+\begin{aligned}
+p(\mu|X) & \propto p(X|\mu)p(\mu) \\
+& \propto \left[ \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x_i-\mu)^2}{2\sigma^2}\right) \right] \frac{1}{\sqrt{2\pi\sigma^2_0}} \exp\left(-\frac{(\mu-\mu_0)^2}{2\sigma^2_0}\right) \\
+& \propto \exp\left( -\frac{1}{2\sigma^2}\sum_{i=1}^n(x_i^2 - 2x_i\mu + \mu^2) \right) \exp\left( -\frac{1}{2\sigma^2_0}(\mu^2 - 2\mu\mu_0 + \mu_0^2) \right) \\
+& \propto \exp\left( -\frac{1}{2\sigma^2}(n\mu^2 - 2n\bar{x}\mu) - \frac{1}{2\sigma^2_0}(\mu^2 - 2\mu\mu_0) \right) \\
+\end{aligned}
+$$
+Grouping the $\mu^2$ and $\mu$ terms to complete the square with respect to $\mu$:
+$$
+\begin{aligned}
+p(\mu|X) & \propto \exp\left( -\frac{1}{2} \left[ \left(\frac{n}{\sigma^2} + \frac{1}{\sigma^2_0}\right)\mu^2 - 2\left(\frac{n\bar{x}}{\sigma^2} + \frac{\mu_0}{\sigma^2_0}\right)\mu \right] \right) \\
+& \propto \exp\left( -\frac{1}{2} \left(\frac{n}{\sigma^2} + \frac{1}{\sigma^2_0}\right) \left[ \mu^2 - 2\frac{\frac{n\bar{x}}{\sigma^2} + \frac{\mu_0}{\sigma^2_0}}{\frac{n}{\sigma^2} + \frac{1}{\sigma^2_0}}\mu \right] \right)
+\end{aligned}
+$$
+This takes the form of the kernel of a normal distribution $\exp\left(-\frac{(\mu - \mu_{post})^2}{2\sigma_{post}^2}\right)$, proving conjugacy.
+:::
+
+## Question 5 
+
+Please show that the Gamma distribution is the conjugate prior for the precision of a normal distribution when the mean is known. Given IID observations $x_1,\dots,x_n \sim N(\mu,\sigma^2)$, where $\mu$ is known but the variance $\sigma^2$ is unknown. Let the prior distribution on the precision $\lambda = \frac{1}{\sigma^2}$ be $\lambda \sim \text{Gamma}(\alpha_0,\beta_0)$. Please derive the posterior distribution of $\lambda$.
+
+:::{.hide}
+$$
+\begin{aligned}
+p(\mathbf{x}|\lambda) & = \prod_{i=1}^n \frac{\sqrt{\lambda}}{\sqrt{2\pi}} \exp\left(-\frac{\lambda(x_i-\mu)^2}{2}\right) \\
+ & \propto \lambda^{n/2} \exp\left( -\lambda \frac{\sum_{i=1}^n (x_i - \mu)^2}{2} \right) \\
+p(\lambda | \mathbf{x}) & \propto p(\mathbf{x}|\lambda)p(\lambda) \\ 
+& \propto \left[ \lambda^{n/2} \exp\left( -\lambda \frac{\sum_{i=1}^n (x_i - \mu)^2}{2} \right) \right] \times \left[ \lambda^{\alpha_0-1} \exp(-\beta_0\lambda) \right] \\ 
+& \propto \lambda^{(\alpha_0 + \frac{n}{2}) - 1} \exp\left( -\lambda \left( \beta_0 + \frac{\sum_{i=1}^n (x_i - \mu)^2}{2} \right) \right)
+\end{aligned}
+$$
+
+The resulting expression is the kernel of a Gamma distribution with updated parameters:
+
+- Updated $\alpha_{post}$: $\alpha_0 + \frac{n}{2}$
+- Updated $\beta_{post}$: $\beta_0 + \frac{\sum_{i=1}^n (x_i - \mu)^2}{2}$
+
+Therefore, the posterior distribution is:
+$$
+\lambda | \mathbf{x} \sim \text{Gamma}\left(\alpha_0 + \frac{n}{2}, \beta_0 + \frac{\sum_{i=1}^n (x_i - \mu)^2}{2}\right)
+$$
+:::
+
+## Question 6
+
+### 6.1 
+
+Let $X$ be a non-negative continuous random variable and suppose $\mathbb{E}(X)$ exists. For any $t>0$, please show that Markov's inequality holds:
+
+$$
+P(X \geq t) \leq \frac{\mathbb{E}(X)}{t}
+$$
+
+:::{.hide}
+By the definition of expectation for a continuous random variable:
+$$
+\begin{aligned}
+\mathbb{E}(X) & = \int_0^\infty x f(x) dx = \int_0^t x f(x) dx + \int_t^\infty x f(x) dx \\
+& \geq \int_t^\infty x f(x) dx \\
+& \geq \int_t^\infty t f(x) dx \\
+& = t \int_t^\infty f(x) dx = t P(X \geq t)
+\end{aligned}
+$$
+Dividing both sides by $t$ yields $P(X \geq t) \leq \frac{\mathbb{E}(X)}{t}$. *(Note: The proof logic is identical for discrete variables using summations).*
+:::
+
+### 6.2
+
+Let $\mu=\mathbb{E}(X)$ and $\sigma^2=\mathbb{V}(X)$. Please show that Chebyshev's inequality holds for any $t>0$:
+$$
+P(|X-\mu| \geq t) \leq \frac{\sigma^2}{t^2}
+$$
+
+:::{.hide}
+Define a new non-negative random variable $Y = (X-\mu)^2$. Applying Markov's inequality to $Y$ with the threshold $t^2$:
+$$
+\begin{aligned}
+P(|X-\mu| \geq t) & = P((X-\mu)^2 \geq t^2) \\
+& \leq \frac{\mathbb{E}[(X-\mu)^2]}{t^2} \\
+& = \frac{\sigma^2}{t^2}
+\end{aligned}
+$$
+:::
+
+### 6.3
+
+Let $X_1,\dots,X_n$ be IID random variables where $\mu=\mathbb{E}(X_1)$ and $\sigma^2=\mathbb{V}(X_1)$. Let the sample mean be $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$. 
+
+Please show the Weak Law of Large Numbers (WLLN):
+> If $X_1,\dots,X_n$ are IID with finite variance, then $\bar{X}_n \xrightarrow{P} \mu$
+
+:::{.hide}
+Assuming $\sigma^2 < \infty$, we know that $\mathbb{E}(\bar{X}_n) = \mu$ and $\mathbb{V}(\bar{X}_n) = \frac{\sigma^2}{n}$. 
+Applying Chebyshev's inequality to the sample mean $\bar{X}_n$ for any $\epsilon > 0$:
+$$
+P(|\bar{X}_n-\mu| \geq \epsilon) \leq \frac{\mathbb{V}(\bar{X}_n)}{\epsilon^2} = \frac{\sigma^2}{n\epsilon^2}
+$$
+As $n \rightarrow \infty$, the term $\frac{\sigma^2}{n\epsilon^2} \rightarrow 0$. Therefore, $\lim_{n \rightarrow \infty} P(|\bar{X}_n-\mu| \geq \epsilon) = 0$, which is the definition of convergence in probability ($\bar{X}_n \xrightarrow{P} \mu$).
+:::
