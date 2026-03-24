@@ -12,7 +12,7 @@ format:
     theme: [default]
     css:
       - general_style.css
-      - student_view.css
+      - solution_view.css
     slide-number: true
     reference-location: margin
     chalkboard:

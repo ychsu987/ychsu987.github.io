@@ -4625,5 +4625,26 @@
     "title": "Scientific computing",
     "section": "BBMS1021 Introduction to AI and Biomedical Data Science",
     "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nLecture materials\n\n\n\n\n\nIntroduction to ggplot2\n\n\n\n\n\n\n\n\n\n\nReal Example of Data Processing and Exploratory Data Analysis with R\n\n\n\n\n\n\n\n\nNo matching items\n\nThe tutorial questions cover basic R programming techniques and data manipulation.\n\n\nTutorial materials\n\n\n\n\n\nTutorial 1\n\n\n\n\n\n\n\n\n\n\nTutorial 2\n\n\n\n\n\n\n\n\n\n\nTutorial 3\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "BIOF2014/5-Question sets-poisson.html",
+    "href": "BIOF2014/5-Question sets-poisson.html",
+    "title": "Question sets",
+    "section": "",
+    "text": "The number of alpha particle emissions of carbon-14 that are counted by a Geiger counter follows a Poisson distribution with rate 19.7 particles per second. Let W be the waiting time (in seconds) until the fifth count is made.\n\n\nWhat distribution does W follow ?\n\nW follows a Gamma distribution with shape parameter k=5 and rate parameter \\lambda=19.7. In other words, W \\sim \\text{Gamma}(5, 19.7).\n\n\n\n\nFind the probability that it takes less than 0.1 second to observe the fifth count\n\n\n\\begin{aligned}\nP(W&lt;0.1) =& F_W(0.1) \\\\\n=& \\int_0^{0.1} \\frac{19.7^5}{\\Gamma(5)} w^{5-1} e^{-19.7w} dw \\\n=& \\int_0^{0.1} \\frac{19.7^5}{4!} w^{4} e^{-19.7w} dw \\\\\n=& 0.9999\n\\end{aligned}"
+  },
+  {
+    "objectID": "BIOF2014/5-Question sets-poisson.html#section-2",
+    "href": "BIOF2014/5-Question sets-poisson.html#section-2",
+    "title": "Question sets",
+    "section": "3.1",
+    "text": "3.1\nDetermine the probability that there will be more than 12 thoundsands patients get influenza in a month.\n\n\n\\begin{aligned}\nP(X&gt;12) =& 1-P(X\\leq 12) \\\\\n=& 1-P  (X=0)+P(X=1)+\\dots+P(X=12) \\\\\n=& 1-\\sum_{k=0}^{12} \\frac{10^k e^{-10}}{k!} \\\\\n=& 0.2084\n\\end{aligned}"
+  },
+  {
+    "objectID": "BIOF2014/5-Question sets_presentation.html#section-2",
+    "href": "BIOF2014/5-Question sets_presentation.html#section-2",
+    "title": "Question sets",
+    "section": "3.1",
+    "text": "3.1\nDetermine the probability that there will be more than 12 thoundsands patients get influenza in a month.\n\n\\[\n\\begin{aligned}\nP(X&gt;12) =& 1-P(X\\leq 12) \\\\\n=& 1-P  (X=0)+P(X=1)+\\dots+P(X=12) \\\\\n=& 1-\\sum_{k=0}^{12} \\frac{10^k e^{-10}}{k!} \\\\\n=& 0.2084\n\\end{aligned}\n\\]"
   }
 ]

@@ -4,7 +4,7 @@ format:
   html:
     toc: true
     html-math-method: katex
-    css: [student_view.scss]
+    css: [solution_view.css]
   revealjs:
     output-file: 5-Question sets_presentation.html
     theme: [default, student_view.scss]
@@ -114,6 +114,7 @@ P(X>5) =& 1-P(X\leq 5) \\
 =& 1-P(X=0)+P(X=1)+\dots+P(X=5) \\
 =& 1-\sum_{k=0}^{5} \frac{5^k e^{-5}}{k!} \\
 =& 0.3840
+\end{aligned}
 $$
 :::
 
@@ -231,8 +232,8 @@ P(Z=k) &= P(X+Y=k) \\
 &= \sum_{i=0}^k P(X=i, Y=k-i) \\
 &= \sum_{i=0}^k P(X=i)P(Y=k-i) \\
 &= \sum_{i=0}^k \frac{\lambda_1^i}{i!} \frac{\lambda_2^{k-i}}{k-i!} e^{-\lambda_1} e^{-\lambda_2} \\
-&= \frac{\lambda_1^k}{k!} \frac{\lambda_2^{k}}{k!} e^{-\lambda_1-\lambda_2} \\
-&= \frac{\lambda_1^k}{k!} \frac{\lambda_2^{ k}}{k!} e^{-(\lambda_1+\lambda_2)} \\
+&= \frac{k!}{k!}\sum_{i=0}^k \frac{\lambda_1^i}{i!} \frac{\lambda_2^{k-i}}{k-i!} e^{-\lambda_1} e^{-\lambda_2} \\
+&= \sum_{i=0}^k k!\frac{\lambda_1^i}{i!} \frac{\lambda_2^{k-i}}{k-i!} \frac{e^{-(\lambda_1+\lambda_2)}}{k!} \\
 &= \frac{(\lambda_1 + \lambda_2)^k}{k!} e^{-(\lambda_1+\lambda_2)}
 \end{aligned}
 $$
