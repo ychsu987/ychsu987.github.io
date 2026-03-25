@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
-  <title>Yu Cheng Hsu – ParametricEstimation</title>
+  <title>Yu Cheng Hsu – Continuous distribution family</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,7 +34,7 @@
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
   <link rel="stylesheet" href="general_style.css">
-  <link rel="stylesheet" href="solution_view.css">
+  <link rel="stylesheet" href="student_view.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -134,8 +134,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="img/cover-normal.jpg" data-background-position="left" data-background-size="35% 100%" class="quarto-title-block center">
-  <h1 class="title">Parametric<br>Estimation</h1>
-  <p class="subtitle">MLE and hypothesis testing</p>
+  <h1 class="title">Continuous distribution family</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -146,281 +145,311 @@ Yu Cheng Hsu
 </div>
 
 </section>
-<section id="intended-learning-outcomes" class="slide level2 smaller">
+<section id="intended-learning-outcomes" class="slide level2">
 <h2>Intended learning outcomes</h2>
 <ul>
-<li>Define and formulate the likelihood function (<span class="math inline">\(\mathcal{L}_n(\theta)\)</span>) as the joint density of IID observations</li>
-<li>Differentiate between MLE and Maximum A Posteriori (MAP) estimates, specifically how MAP incorporates a Bayesian prior</li>
-<li>Understand different hypothesis testing approach</li>
+<li>Identify key properties of Normal and <span class="math inline">\(\chi^2\)</span> distributions.</li>
+<li>Understand the application of conjugate priors in Bayesian estimation for Normal parameters.</li>
+<li>Apply Markov’s and Chebyshev’s inequalities to bound probabilities.</li>
+<li>Explain the Law of Large Numbers (LLN) and Central Limit Theorem (CLT) and their implications for statistical inference.</li>
 </ul>
 </section>
-<section id="estimating-distribution-parameter-from-data" class="slide level2 smaller">
-<h2>Estimating distribution parameter from data</h2>
-<ul>
-<li>In this session we focus on how to estimate the distribution parameters from the IID observed data <span class="math inline">\(X=x_1,\dots,x_n\)</span></li>
-<li>We assume <span class="math inline">\(X\)</span> follows a specific distribution how can we know the paparemeter?
-<ul>
-<li>If it follows a normal distribution, then what is the procedure</li>
-</ul></li>
-</ul>
-<p><strong>Intuitive guess</strong></p>
-<div class="hide">
-<blockquote>
-<p>Using the sample mean, variance as the best guess</p>
-</blockquote>
-</div>
-</section>
-<section id="likelihood" class="slide level2 smaller">
-<h2>Likelihood</h2>
-<p>The <strong>likelihood function</strong> (<span class="math inline">\(\mathcal{L}_n(\theta)\)</span>) is the joint density of IID observations <span class="math inline">\(X=x_1,\dots,x_n\)</span> with PDF <span class="math inline">\(f(x;\theta)\)</span>, treated as a function of the parameter <span class="math inline">\(\theta\)</span> given the fixed data.</p>
-<div class="hide">
-<blockquote>
-<p><span class="math inline">\(\mathcal{L}_n(\theta)=\prod_{i=1}^nf(x_i|\theta)\)</span></p>
-</blockquote>
-</div>
-<ul>
-<li>Likelihood is the product of the probabilities of observing <span class="math inline">\(X\)</span> as a function of different <span class="math inline">\(\theta\)</span>.</li>
-<li>This is the observed data we see in calculating Bayesian posterior</li>
-</ul>
-<p><strong>Example</strong> if <span class="math inline">\(X \sim \text{Bern}(p)\)</span>, and we observed <span class="math inline">\([1,0,0,1,1]\)</span></p>
-<p>then the likelihood is</p>
-<div class="hide">
-<p><span class="math display">\[
-\mathcal{L}_n(\theta) = p^3(1-p)^2
-\]</span></p>
-</div>
-</section>
-<section id="maximum-likelihood" class="slide level2 smaller">
-<h2>Maximum likelihood</h2>
-<ul>
-<li>The ideal <span class="math inline">\(\theta\)</span> is the one (<span class="math inline">\(\hat{\theta}\)</span>) that maximizes the likelihood (i.e., makes the observed data most probable). We call this the <strong>Maximum Likelihood Estimate (MLE)</strong>.</li>
-<li>Calculus tells us the maximum of a function occurs where:</li>
-</ul>
-<div class="hide">
-<blockquote>
-<p><span class="math inline">\(\small\frac{d\mathcal{L}_n(\theta)}{d\theta}=0 \quad \text{and} \quad \frac{d^2\mathcal{L}_n(\theta)}{d\theta^2}&lt;0\)</span></p>
-</blockquote>
-</div>
-<p><strong>Calculation notes</strong></p>
-<ol type="1">
-<li>Any positive constant multiplier <span class="math inline">\(c\)</span> won’t affect the location of the maximum, so constants can be ignored.</li>
-<li>Taking the logarithm of the likelihood is often easier for calculation. We define the <strong>log-likelihood function</strong> as <span class="math inline">\(\ell_n(\theta)=\ln(\mathcal{L}_n(\theta))\)</span>. Reasons:
-<ol type="1">
-<li>Numerical stability</li>
-<li>Logarithms transform products into sums.</li>
-</ol></li>
-</ol>
-</section>
-<section id="example-bernoulli-mle" class="slide level2 smaller">
-<h2>Example: Bernoulli MLE</h2>
-<p>if <span class="math inline">\(X \sim \text{Bern}(p)\)</span>, and we observed <span class="math inline">\([1,0,0,1,1]\)</span></p>
-<p>we would like to maximize the likelihood</p>
+<section id="normal-distribution" class="slide level2 smaller">
+<h2>Normal distribution</h2>
+<p>If a random variable follows a normal distribution: <span class="math inline">\(X \sim N(\mu,\sigma^2)\)</span></p>
 <div class="columns">
 <div class="column">
+<p><strong>Properties</strong></p>
+<ul>
+<li>Support <span class="math inline">\(x \in \mathbb{R}\)</span></li>
+<li>Parameter <span class="math inline">\(\mu, \sigma\)</span></li>
+<li>pdf</li>
+</ul>
 <div class="hide">
 <p><span class="math display">\[
-\begin{aligned}
-\max_\theta\mathcal{L}_n(\theta) =&amp; \max_\theta p^3(1-p)^2\\
-\frac{d\mathcal{L}_n(p)}{dp} =&amp; p^2(5p^2-8p+3) =0 \\
-p = &amp; 0,0.6, \text{or } 1 \\
-\frac{d^2\mathcal{L}_n(p)}{dp^2} =&amp; 20p^3-24p^2+6p \\
-\mathcal{L}^{''}_n(0) =  0 ,  &amp; \mathcal{L}^{''}_n(0.6) =  -0.72, \\
-\mathcal{L}^{''}_n(1) =&amp;  2
-\end{aligned}
+f_X\left( x \right)
+= \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 \]</span></p>
 </div>
 </div><div class="column">
-<div id="cbcfca46" class="cell" data-execution_count="1">
+<p>The Binomial distribution approximates the normal distribution when <span class="math inline">\(np\)</span> and <span class="math inline">\(n(1-p)\)</span> are large enough (usually <span class="math inline">\(\ge 10\)</span>).</p>
+<iframe width="500" height="300" src="https://www.youtube.com/embed/EvHiee7gs9Y" title="Galton Board" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div></div>
+
+<aside><div>
+<p>Since the Poisson distribution can approximate the Binomial, it can also approximate the Normal distribution under large <span class="math inline">\(\lambda\)</span>.</p>
+</div></aside></section>
+<section id="chi2-distribution" class="slide level2 smaller">
+<h2><span class="math inline">\(\chi^2\)</span> distribution</h2>
+<p>Let <span class="math inline">\(Z_1, \dots, Z_k\)</span> be independent standard Normal variables. Let <span class="math inline">\(V=\sum_{i=1}^k Z_i^2\)</span>. Then <span class="math inline">\(V\)</span> follows a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(k\)</span> degrees of freedom: <span class="math inline">\(V \sim \chi^2(k)\)</span>.</p>
+<div class="columns">
+<div class="column">
+<p><strong>Properties</strong></p>
+<ul>
+<li>Support <span class="math inline">\(x \in [0;+\infty)\)</span></li>
+<li>Parameter <span class="math inline">\(k\)</span></li>
+<li>pdf <span class="math display">\[
+f_X\left( x \right)
+= \frac{1}{2^{\frac{k}{2}}\Gamma(\frac{k}{2})}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}
+\]</span></li>
+</ul>
+</div><div class="column">
+<ul>
+<li><span class="math inline">\(\chi^2\)</span> distribution is a special case of Gamma distribution where <span class="math inline">\(\lambda =  \frac{1}{2}\)</span> and <span class="math inline">\(\alpha=\frac{k}{2}\)</span></li>
+</ul>
+</div></div>
+</section>
+<section id="prior-on-mean" class="slide level2 smaller">
+<h2>Prior on mean</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p>The Normal distribution is the conjugate prior for the mean <span class="math inline">\(\mu\)</span> (given known <span class="math inline">\(\sigma^2\)</span>). Consider IID observations <span class="math inline">\(x_i \sim N(\mu, \sigma^2)\)</span> where <span class="math inline">\(\sigma^2\)</span> is known. If the prior is <span class="math inline">\(\mu \sim N(\mu_0,\sigma^2_0)\)</span>:</p></li>
+<li><p>Posterior: <span class="math inline">\(\mu' \sim N\left(\frac{\frac{n\bar{x}}{\sigma^2}+\frac{\mu_0}{\sigma^2_0}}{\frac{n}{\sigma^2}+\frac{1}{\sigma^2_0}}, \left(\frac{n}{\sigma^2}+\frac{1}{\sigma^2_0}\right)^{-1}\right)\)</span></p></li>
+<li><p>The posterior predictive distribution follows <span class="hide"> <span class="math inline">\(p(\tilde{x}|X)\sim N(\mu', \sigma^{2'} + \sigma^2)\)</span> </span></p></li>
+<li><p><strong>Interpretation:</strong> <span class="hide"> The posterior mean is a weighted average of the prior mean and the sample mean, weighted by their respective precisions. </span></p></li>
+</ul>
+</div><div class="column">
+<div id="9747d4fb" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="7-Model fitting_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="7-Model fitting_files/figure-revealjs/cell-2-output-1.png" width="757" height="370"></a></p>
+<p><a href="6-Continuous distribution family-sketch_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="6-Continuous distribution family-sketch_files/figure-revealjs/cell-2-output-1.png" width="812" height="526"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-<p>The MLE estimation is 0.6, which is exactly the sample mean</p>
 </section>
-<section id="maximum-a-posteriori-map-estimate" class="slide level2 smaller">
-<h2>Maximum A Posteriori (MAP) Estimate</h2>
-<ul>
-<li>The idea of maximizing <span class="math inline">\(p(\theta|x)\)</span> is called maximum a posteriori (MAP) estimate, the problem has the following format</li>
-</ul>
-<div class="hide">
-<p><span class="math display">\[
-\begin{aligned}
-\hat{\theta}_{MAP}= &amp;\arg\max_\theta p(\theta|x) = \arg\max_\theta \frac{p(x|\theta)p(\theta)}{\int_\Theta p(x|\theta)p(\theta)d\theta} \\
-= &amp; \arg\max_\theta p(x|\theta)p(\theta)
-\end{aligned}
-\]</span></p>
-</div>
-<p><strong>Implication</strong></p>
-<ul>
-<li>MAP is the mode of the <strong>posterior distribution</strong>.</li>
-<li>It acts as a bridge between Frequentist MLE and full Bayesian inference.</li>
-</ul>
-</section>
-<section id="example-bernoulli-map" class="slide level2 smaller">
-<h2>Example: Bernoulli MAP</h2>
-<p>if <span class="math inline">\(X \sim \text{Bern}(p)\)</span>, and we observed <span class="math inline">\([1,0,0,1,1]\)</span>, We have a prior on <span class="math inline">\(p\sim \text{Beta}(2,2)\)</span></p>
-<p>What is the MAP estimate of <span class="math inline">\(p\)</span></p>
-<p><strong>Hardcore calculus</strong></p>
-<div class="hide">
-<p><span class="math display">\[
-\begin{aligned}
-\arg\max_p p(p|x) &amp; = \arg\max_p p^3(1-p)^2 \cdot p^{2-1}(1-p)^{2-1} \\
-\frac{d}{dp} [p^4(1-p)^3] &amp;= 4p^3(1-p)^3 - 3p^4(1-p)^2 \\
-&amp; = p^3(1-p)(p-1)(7p-4) =0 \\
-p &amp; = 0, 1, 4/7 \\
-\text{Second derivative test confirms} &amp; \text{ maximum at } p = 4/7
-\end{aligned}
-\]</span></p>
-</div>
-</section>
-<section id="example-bernoulli-map-1" class="slide level2 smaller">
-<h2>Example: Bernoulli MAP</h2>
-<p><strong>Using Conjugate Priors</strong></p>
-<div class="hide">
-<p><span class="math display">\[
-\begin{aligned}
-p(p|x) &amp; \sim  \text{Beta}(\alpha', \beta') \\
-\alpha' &amp;= \alpha + \sum x_i = 2 + 3 = 5 \\
-\beta' &amp;= \beta + (n - \sum x_i) = 2 + 2 = 4
-\end{aligned}
-\]</span></p>
-</div>
-<p>The MAP (mode) for <span class="math inline">\(\text{Beta}(\alpha, \beta)\)</span> is <span class="math inline">\(\frac{\alpha-1}{\alpha+\beta-2} = \frac{5-1}{5+4-2} = \frac{4}{7} \approx 0.57\)</span>.</p>
-</section>
-<section id="takeawys" class="slide level2 smaller">
-<h2>Takeawys</h2>
+<section id="prior-on-variance" class="slide level2 smaller">
+<h2>Prior on variance</h2>
 <div class="columns">
 <div class="column">
-<p><strong>MLE</strong></p>
 <ul>
-<li>Maximizes the probability of the data given parameters: <span class="math inline">\(p(x|\theta)\)</span>.</li>
-<li>For common distributions, MLE often corresponds to:
-<ul>
-<li>Sample mean (<span class="math inline">\(\bar{x}\)</span>)</li>
-<li>Sample variance (<span class="math inline">\(s^2\)</span>)</li>
-</ul></li>
-<li>Guaranteed to have asymptotic properties (consistency and efficiency) as <span class="math inline">\(n \to \infty\)</span>.</li>
+<li><p>The Gamma distribution is the conjugate prior for the precision <span class="math inline">\(\lambda = \frac{1}{\sigma^2}\)</span>. Consider IID observations <span class="math inline">\(x_i \sim N(\mu, \sigma^2)\)</span> where <span class="math inline">\(\mu\)</span> is known. Let the prior be <span class="math inline">\(\lambda \sim \text{Gamma}(\alpha, \beta)\)</span>.</p></li>
+<li><p>Posterior: <span class="hide"> <span class="math inline">\(\lambda \sim \text{Gamma}\left(\alpha + \frac{n}{2}, \beta + \frac{\sum_{i=1}^n (x_i - \mu)^2}{2}\right)\)</span> </span></p></li>
+<li><p><strong>Interpretation:</strong> The prior acts as if we had <span class="math inline">\(2\alpha\)</span> prior observations with a sum of squared deviations equal to <span class="math inline">\(2\beta\)</span>.</p></li>
+<li><p>The posterior predictive distribution follows a non-standardized Student’s t-distribution.</p></li>
 </ul>
 </div><div class="column">
-<p><strong>MAP</strong></p>
-<p>Maximizing the posterior (observed data+ prior)</p>
-<p><span class="math display">\[
-p(\theta|x)\propto p(x|\theta)p(\theta)
-\]</span></p>
-<ul>
-<li>MLE only maximize the <span class="math inline">\(p(x|\theta)\)</span> without considering <span class="math inline">\(p(\theta)\)</span></li>
-<li>Intuitively, the <span class="math inline">\(p(\theta|x)\)</span> has the maximum at the posterior mean</li>
-<li>Not the optimal estimation but incorporate with prior</li>
-</ul>
+<div id="1c2d6043" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="6-Continuous distribution family-sketch_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="6-Continuous distribution family-sketch_files/figure-revealjs/cell-3-output-1.png" width="666" height="550"></a></p>
+</figure>
+</div>
+</div>
+</div>
 </div></div>
 </section>
 <section>
-<section id="statistical-inference" class="title-slide slide level1 center">
-<h1>Statistical inference</h1>
+<section id="inequalities-convergence-and-law-of-large-number" class="title-slide slide level1 center">
+<h1>Inequalities, convergence, and law of large number</h1>
 
 </section>
 <section id="preface" class="slide level2 smaller">
 <h2>Preface</h2>
+<p>This section covers properties of probability bounds and convergence. These are helpful for:</p>
 <ul>
-<li>This topic is highly correlated with BIOF2013, but we will focus more on the underlying mechanics of why these tests work.</li>
-<li>In BIOF2013, we have introduced several hypothesis test methods</li>
+<li>Knowing the estimation boundary</li>
+<li>Understanding how estimators behave as sample size increases.</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="img\hypothesis testing.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Hypothesis test image link"><img data-src="img\hypothesis testing.png" style="width:50.0%" alt="Hypothesis test image link"></a></p>
-<figcaption>Hypothesis test <a href="https://tales.nmc.unibas.ch/de/conducting-psychological-research-6/statistics-and-analyses-22/which-test-for-which-hypothesis-71">image link</a></figcaption>
-</figure>
-</div>
+<p>On the other hand, the mathematical proof for this part is relatively simple (and brings little insight to our practice) So we will only cover the intuition and implication of these properties, and leave the mathematical proof to the tutorial questions.</p>
 </section>
-<section id="the-wald-test" class="slide level2 smaller">
-<h2>The Wald Test</h2>
-<p>Considering a two-tailed test</p>
-<p><span class="math display">\[
-H_0=\theta=\theta_0 \text{ v.s. } H_1=\theta\neq\theta_0
-\]</span></p>
-<p><strong>Assumes <span class="math inline">\(\hat{\theta}\)</span> is asymptotically Normal</strong></p>
-<p><span class="math display">\[
-W=\frac{\hat{\theta}-\theta_0}{\hat{se}}\leadsto N(0,1)
-\]</span></p>
-<p><strong>Important thing</strong></p>
+<section id="markovs-inequality" class="slide level2 smaller">
+<h2>Markov’s inequality</h2>
 <ul>
-<li>Requires sufficient sample size for the CLT to ensure <span class="math inline">\(\hat{\theta}\)</span> is asymptotically Normal.</li>
-<li>The <strong>p-value</strong> is <span class="math inline">\(P(|W| \geq |W_{obs}| \mid H_0)\)</span>, not the probability that the null hypothesis is true.</li>
+<li>Let <span class="math inline">\(X\)</span> be a non-negative r.v. and suppose <span class="math inline">\(\mathbb{E}(X)\)</span> exists. For any <span class="math inline">\(t&gt;0\)</span></li>
 </ul>
-</section>
-<section id="likelihood-ratio-test-lrt" class="slide level2 smaller">
-<h2>Likelihood ratio test (LRT)</h2>
-<p>A more general way incorporating for a multivariate parameters (i.e.&nbsp;a vector-based parameter <span class="math inline">\(\theta=(\theta_1,\dots,\theta_n)\)</span>) is likelihood ratio test. The general form is</p>
-<p><span class="math display">\[
-H_0=\theta\in\Theta_0 \text{ v.s. } H_1=\theta\notin \Theta_0
-\]</span></p>
-<p>The test statistics</p>
 <div class="hide">
 <p><span class="math display">\[
-\Lambda = -2\ln\left(\frac{\mathcal{L}(\hat{\theta}_0)}{\mathcal{L}(\hat{\theta})}\right) \leadsto \chi^2_{df}
+P(X&gt;t)\leq\frac{\mathbb{E}(X)}{t}
+\]</span></p>
+</div>
+<div class="columns">
+<div class="column">
+<p><strong>Implication</strong></p>
+<ul>
+<li>Extreme events are:
+<ul>
+<li>Rare</li>
+<li>Bounded by the mean<br>
+</li>
+<li>The probability of an event decays at least inversely proportional to its magnitude.</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<p><strong>Example question</strong> If the average survival time for a specific cancer is 5 years, what is the upper bound of the probability of a patient surviving more than 20 years?</p>
+<div class="hide">
+<p>0.25 = 5/20</p>
+</div>
+</div></div>
+</section>
+<section id="chebyshevs-inequality" class="slide level2 smaller">
+<h2>Chebyshev’s inequality</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Let <span class="math inline">\(\mu=\mathbb{E}(X)\)</span> and <span class="math inline">\(\sigma^2=\mathbb{V}(X)\)</span>, then:</li>
+</ul>
+<div class="hide">
+<p><span class="math display">\[
+P(|X-\mu|\geq t)\leq\frac{\sigma^2}{t^2}
+\]</span></p>
+</div>
+<p>or in the other words</p>
+<p><span class="math display">\[
+\small
+P(|Z|\geq k)\leq\frac{1}{k^2}, \text{ where } Z=(X-\mu)/\sigma
+\]</span></p>
+</div><div class="column">
+<p><strong>A clear bound for outliers:</strong></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 40%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Deviations (k)</th>
+<th>Chebyshev Guarantee (Minimum)</th>
+<th>Normal Distribution (Actual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2 σ</td>
+<td>At least 75% inside</td>
+<td>95.4% inside</td>
+</tr>
+<tr class="even">
+<td>3 σ</td>
+<td>At least 89% inside</td>
+<td>99.7% inside</td>
+</tr>
+<tr class="odd">
+<td>5 σ</td>
+<td>At least 96% inside</td>
+<td>99.9999% inside</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>These inequalities allow for quick sanity checks on statistical claims without assuming a specific distribution.</li>
+</ul>
+</div></div>
+</section>
+<section id="convergence" class="slide level2 smaller">
+<h2>Convergence</h2>
+<p>Convergence studies the behavior for a series of IID random variables <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> with CDF <span class="math inline">\(F_n\)</span>, while Let <span class="math inline">\(X\)</span> be another r.v.s, with CDF <span class="math inline">\(F\)</span>. There are three types of convergence</p>
+<ol type="1">
+<li><span class="math inline">\(X_n\)</span> converges to <span class="math inline">\(X\)</span> in qudratic mean <span class="math inline">\(X_n \xrightarrow{qm} X\)</span> if <span class="math display">\[
+\mathbb{E}(X_n-X)^2\rightarrow 0
+\]</span></li>
+<li><span class="math inline">\(X_n\)</span> converges to <span class="math inline">\(X\)</span> in probabiliity <span class="math inline">\(X_n \xrightarrow{P} X\)</span> if, for every <span class="math inline">\(\epsilon&gt;0\)</span> <span class="math display">\[
+\mathbb{P}(|X_n-X|&gt;\epsilon)\rightarrow 0
+\]</span></li>
+<li><span class="math inline">\(X_n\)</span> converges to <span class="math inline">\(X\)</span> in distribution <span class="math inline">\(X_n \leadsto X\)</span> if <span class="math display">\[
+\lim_{n\rightarrow\infty}F_n(t)=F(t)
+\]</span></li>
+</ol>
+</section>
+<section id="weak-law-of-large-numbers-wlln" class="slide level2 smaller">
+<h2>Weak Law of large numbers (WLLN)</h2>
+<p>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be IID with <span class="math inline">\(\mathbb{E}(X_i) = \mu\)</span> and <span class="math inline">\(\mathbb{V}(X_i) = \sigma^2\)</span>. The sample mean is <span class="math inline">\(\bar{X}_n = \frac{1}{n}\sum X_i\)</span>.</p>
+<p><strong>WLLN states</strong></p>
+<div class="hide">
+<p><span class="math inline">\(\bar{X}_n \xrightarrow{P} \mu\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p>
+</div>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Implications
+<ul>
+<li><strong>Probability as long-run frequency</strong>: The core of the Frequentist perspective.</li>
+<li>The variance of the sample mean, <span class="math inline">\(\frac{\sigma^2}{n}\)</span>, shrinks as <span class="math inline">\(n\)</span> increases.</li>
+<li>Larger datasets provide more accurate parameter estimates.</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<p><strong>Bayesian perspective of probability</strong></p>
+<ul>
+<li>Probability is a degree of belief, which can be updated by new evidence.</li>
+<li>Parameters themselves are random variables, estimated using data and prior beliefs.</li>
+</ul>
+</div></div>
+</section>
+<section id="central-limit-theorem-clt" class="slide level2 smaller">
+<h2>Central limit theorem (CLT)</h2>
+<p><strong>Theorm</strong></p>
+<p>Let <span class="math inline">\(X_1, X_2, \dots, X_i\)</span> be a sequence of iid random variables with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. The sample mean of the observarion <span class="math inline">\(\bar{X}_n=\frac{\sum_i^n X_i}{n}\)</span>, then</p>
+<div class="hide">
+<p><span class="math display">\[
+\small
+\bar{X}_n \leadsto \text{Normal}(\mu, \frac{\sigma^2}{n})
 \]</span></p>
 </div>
 <p><strong>Implication</strong></p>
 <ul>
-<li>Likelihood ratios provide a powerful framework for comparing nested models.</li>
-<li>This method can be used in test regression</li>
-<li>Asymptotic assumption</li>
+<li>Great sample size provide accurate estimation to “population mean”</li>
+<li>The marginal benefit of increasing sample size decreases (due to the <span class="math inline">\(\sqrt{n}\)</span> term).</li>
+<li><strong>Distribution-free</strong>: The sample mean becomes normal regardless of the underlying distribution (given finite variance).</li>
+<li>Foundation for hypothesis testing and confidence intervals.</li>
 </ul>
 </section>
-<section id="application-of-lrt" class="slide level2 smaller">
-<h2>Application of LRT</h2>
-<ul>
-<li>Chi-square test on 2x2 contingency table
-<ul>
-<li>We can treat each cell as multinomial distribution outcome</li>
-<li>We are simultaneously estimating 2 probability on two variables</li>
-</ul></li>
-<li>Multinomial distribution parameter hypothesis testing</li>
-<li>Regression: goodness-of-fit test</li>
-</ul>
-<p><strong>Discussion question</strong></p>
-<p>Why do we use Fisher’s exact test instead of the <span class="math inline">\(\chi^2\)</span> test for small sample sizes?</p>
+<section id="equivalent-statements" class="slide level2 smaller">
+<h2>Equivalent Statements</h2>
+<p>Define <span class="math display">\[
+\small
+Z = \frac{(\bar{X}_n - \mu)}{\sigma / \sqrt{n}} .
+\]</span></p>
+<p>then the following statements are equivalent to CLT <span class="math display">\[\begin{aligned}
+\small
+Z \leadsto N(0,1) \\
+\bar{X}_n -\mu \leadsto N(0, \frac{\sigma^2}{n})\\
+\sqrt{n}(\bar{X}_n -\mu) \leadsto N(0, \sigma^2)\\
+\end{aligned}
+\]</span></p>
+<p><em>Tip: Any proper algebraic transformation applied to both sides results in a valid equivalent statement.</em></p>
 </section>
-<section id="comparison-of-lrt-and-wald-test" class="slide level2 smaller">
-<h2>Comparison of LRT and Wald Test</h2>
+<section id="curse-of-big-data" class="slide level2 smaller">
+<h2>Curse of big data</h2>
+<p>When the sample size is extremely large, almost any tiny difference becomes “statistically significant” (<span class="math inline">\(p &lt; 0.05\)</span>).</p>
+<p><strong>Reason</strong></p>
 <ul>
-<li>In a single parameter setting, both Wald test and LRT have similar power and results.</li>
+<li>The Standard Error (<span class="math inline">\(\sigma/\sqrt{n}\)</span>) becomes so small that the confidence interval is incredibly narrow.</li>
+<li>Even biologically irrelevant differences can reject the null hypothesis.</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
+<p><strong>Implication</strong></p>
+<ul>
+<li>Distinguish between <strong>statistical significance</strong> and <strong>clinical/scientific significance</strong>.</li>
+<li>Effect size becomes more important than p-values in large datasets.</li>
+</ul>
+</section>
+<section id="curse-of-big-data-1" class="slide level2 smaller">
+<h2>Curse of big data</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>We try to estimate the true <span class="math inline">\(\mu\)</span> from a population <span class="math inline">\(N(0.2, 0.2^2)\)</span>.</p>
+<ul>
+<li>As <span class="math inline">\(n\)</span> goes greater, we can estiamte the mean more accurately</li>
+<li><span class="math inline">\(P(x\leq 0) = 0.15\)</span> You might observe observations less or equal to 0</li>
+<li>You can still have an accurate estimation of truen men <em>0.2</em>, which different from zero</li>
+<li>Does this 0.2 difference from 0 so important?</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div id="58a330f0" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
 <figure>
-<p><a href="img\waldLRT.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Comparison of LRT and wald test image Link"><img data-src="img\waldLRT.gif" alt="Comparison of LRT and wald test image Link"></a></p>
-<figcaption>Comparison of LRT and wald test <a href="https://stats.oarc.ucla.edu/other/mult-pkg/faq/general/faqhow-are-the-likelihood-ratio-wald-and-lagrange-multiplier-score-tests-different-andor-similar/">image Link</a></figcaption>
+<p><a href="6-Continuous distribution family-sketch_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="6-Continuous distribution family-sketch_files/figure-revealjs/cell-4-output-1.png" width="980" height="547"></a></p>
 </figure>
 </div>
-<p><strong>Discussion question</strong></p>
-<p>What are the difference of Wald test with multiple comparison correction and LRT?</p>
-</section>
-<section id="permutation-test" class="slide level2 smaller">
-<h2>Permutation test</h2>
-<p>The permutation test is a non-parametric method with minimal assumptions about the underlying distribution.</p>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Suppose that <span class="math inline">\(X \sim F_X\)</span> and <span class="math inline">\(Y \sim F_Y\)</span></li>
-<li>The hypothesis is <span class="math inline">\(H_0: F_X = F_Y, H_1  \neq F_Y,\)</span></li>
-<li>Observed samples <span class="math inline">\(x_1,\dots, x_m\)</span> and <span class="math inline">\(y_1,\dots, y_n\)</span>.</li>
-<li>Test statistic <span class="math inline">\(T_{obs} = |\bar{x}_m - \bar{y}_n|\)</span>.</li>
-</ul>
-</div><div class="column">
-<p><strong>Procedure</strong></p>
-<ol type="1">
-<li>Compute the observed test statistic <span class="math inline">\(T_{obs}\)</span>.</li>
-<li>Randomly shuffle (permute) the group labels many times (<span class="math inline">\(B\)</span>).</li>
-<li>Calculate the statistic <span class="math inline">\(T_j\)</span> for each permutation.</li>
-<li>The approximate p-value is <span class="math display">\[
-\frac{1}{B}\sum_{j=1}^B I(T_j \geq T_{obs})
-\]</span></li>
-</ol>
+</div>
+</div>
 </div></div>
 
 
@@ -462,7 +491,7 @@ H_0=\theta\in\Theta_0 \text{ v.s. } H_1=\theta\notin \Theta_0
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true,"theme":"whiteboard","src":"x.json"},
+'chalkboard': {"buttons":true,"theme":"whiteboard","src":"compiled_pdf/chalkboard_9.json"},
 'smaller': false,
  
         // Display controls in the bottom right corner
