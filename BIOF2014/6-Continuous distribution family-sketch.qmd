@@ -1,0 +1,524 @@
+---
+title: "Continuous distribution family"
+author: Yu Cheng Hsu
+title-slide-attributes:
+    data-background-image: img/cover-normal.jpg
+    data-background-size:  35% 100%
+    data-background-position: left
+format: 
+  revealjs:
+    theme: [default]
+    css:
+      - general_style.css
+      - student_view.css
+    slide-number: true
+    reference-location: margin
+    chalkboard:
+      theme: whiteboard
+      src: compiled_pdf/chalkboard 9.json
+lightbox: true
+---
+
+## Intended learning outcomes
+
+- Identify key properties of Normal and $\chi^2$ distributions.
+- Understand the application of conjugate priors in Bayesian estimation for Normal parameters.
+- Apply Markov's and Chebyshev's inequalities to bound probabilities.
+- Explain the Law of Large Numbers (LLN) and Central Limit Theorem (CLT) and their implications for statistical inference.
+
+## Normal distribution {.smaller}
+
+If a random variable follows a normal distribution: $X \sim N(\mu,\sigma^2)$  
+
+:::{.columns}
+
+:::{.column}
+
+**Properties**
+
+- Support $x \in \mathbb{R}$
+- Parameter $\mu, \sigma$
+- pdf
+
+:::{.hide}
+$$
+f_X\left( x \right) 
+= \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+$$
+:::
+
+:::
+
+:::{.column}
+
+The Binomial distribution approximates the normal distribution when $np$ and $n(1-p)$ are large enough (usually $\ge 10$).
+
+<iframe width="500" height="300" src="https://www.youtube.com/embed/EvHiee7gs9Y" title="Galton Board" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+:::
+
+:::
+
+::: {.aside}
+Since the Poisson distribution can approximate the Binomial, it can also approximate the Normal distribution under large $\lambda$.
+:::
+
+## $\chi^2$ distribution {.smaller}
+
+Let $Z_1, \dots, Z_k$ be independent standard Normal variables. Let $V=\sum_{i=1}^k Z_i^2$. Then $V$ follows a $\chi^2$ distribution with $k$ degrees of freedom: $V \sim \chi^2(k)$.
+
+:::{.columns}
+
+:::{.column}
+
+**Properties**
+
+- Support $x \in [0;+\infty)$
+- Parameter $k$
+- pdf
+$$
+f_X\left( x \right) 
+= \frac{1}{2^{\frac{k}{2}}\Gamma(\frac{k}{2})}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}
+$$
+
+:::
+
+:::{.column}
+
+- $\chi^2$ distribution is a special case of Gamma distribution where $\lambda =  \frac{1}{2}$ and $\alpha=\frac{k}{2}$
+
+:::
+
+:::
+
+## Prior on mean{.smaller}
+
+
+:::{.columns}
+
+:::{.column}
+- The Normal distribution is the conjugate prior for the mean $\mu$ (given known $\sigma^2$).  Consider IID observations $x_i \sim N(\mu, \sigma^2)$ where $\sigma^2$ is known. If the prior is $\mu \sim N(\mu_0,\sigma^2_0)$:
+- Posterior: $\mu' \sim N\left(\frac{\frac{n\bar{x}}{\sigma^2}+\frac{\mu_0}{\sigma^2_0}}{\frac{n}{\sigma^2}+\frac{1}{\sigma^2_0}}, \left(\frac{n}{\sigma^2}+\frac{1}{\sigma^2_0}\right)^{-1}\right)$
+
+  
+- The posterior predictive distribution follows <span class="hide"> $p(\tilde{x}|X)\sim N(\mu', \sigma^{2'} + \sigma^2)$ </span>
+- **Interpretation:** <span class="hide"> The posterior mean is a weighted average of the prior mean and the sample mean, weighted by their respective precisions. </span>
+:::
+
+:::{.column}
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+# Setup parameters
+np.random.seed(42)
+
+# True parameters of the data (unknown to the observer)
+true_mu = 5.0
+true_sigma = 1.0 # Assuming known variance for this example
+
+# Prior belief (Guessing the mean is 2.0, with some uncertainty)
+prior_mu = 2.0
+prior_sigma = 1.5
+
+# Generate observed data (Evidence)
+n_samples = 10
+data = np.random.normal(true_mu, true_sigma, n_samples)
+sample_mean = np.mean(data)
+
+# Calculate Posterior parameters (Conjugate Prior formulas)
+# 1/sigma_post^2 = 1/sigma_prior^2 + n/sigma_data^2
+posterior_precision = (1/prior_sigma**2) + (n_samples/true_sigma**2)
+posterior_sigma = np.sqrt(1/posterior_precision)
+
+# mu_post = (mu_prior/sigma_prior^2 + n*mean_data/sigma_data^2) / posterior_precision
+posterior_mu = ((prior_mu/prior_sigma**2) + (n_samples*sample_mean/true_sigma**2)) / posterior_precision
+
+# Plotting
+x = np.linspace(-2, 8, 1000)
+
+plt.figure(figsize=(10, 6))
+
+# Plot Prior
+plt.plot(x, norm.pdf(x, prior_mu, prior_sigma), label=f'Prior $N(\\mu={prior_mu}, \\sigma={prior_sigma})$', color='blue', linestyle='--')
+
+# Plot Likelihood (Normalized to appear as a distribution over the mean)
+# The likelihood of the mean is proportional to N(sample_mean, true_sigma/sqrt(n))
+likelihood_sigma = true_sigma / np.sqrt(n_samples)
+plt.plot(x, norm.pdf(x, sample_mean, likelihood_sigma), label=f'Likelihood (Data Mean) $\\bar{{x}}={sample_mean:.2f}$', color='green', alpha=0.6)
+
+# Plot Posterior
+plt.plot(x, norm.pdf(x, posterior_mu, posterior_sigma), label=f'Posterior $N(\\mu={posterior_mu:.2f}, \\sigma={posterior_sigma:.2f})$', color='red', linewidth=2)
+
+plt.title(f'Bayesian Update: Normal Prior + Normal Likelihood ($n={n_samples}$)')
+plt.xlabel('Value of $\\mu$')
+plt.ylabel('Density')
+plt.legend()
+plt.grid(True, alpha=0.3)
+```
+
+:::
+
+:::
+
+## Prior on variance {.smaller}
+
+:::{.columns}
+
+:::{.column}
+- The Gamma distribution is the conjugate prior for the precision $\lambda = \frac{1}{\sigma^2}$. Consider IID observations $x_i \sim N(\mu, \sigma^2)$ where $\mu$ is known. Let the prior be $\lambda \sim \text{Gamma}(\alpha, \beta)$.
+
+- Posterior: <span class="hide"> $\lambda \sim \text{Gamma}\left(\alpha + \frac{n}{2}, \beta + \frac{\sum_{i=1}^n (x_i - \mu)^2}{2}\right)$ </span>
+
+- **Interpretation:** The prior acts as if we had $2\alpha$ prior observations with a sum of squared deviations equal to $2\beta$.
+
+- The posterior predictive distribution follows a non-standardized Student's t-distribution.
+  
+:::
+
+:::{.column}
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import gamma, norm, t
+
+# 1. Setup Ground Truth
+np.random.seed(42)
+true_mu = 0
+true_tau = 1.0  # True precision = 1 (Standard Deviation = 1)
+n_samples = 5   # Small sample size to make the Prior's effect visible
+
+# Generate small dataset
+data = np.random.normal(true_mu, 1/np.sqrt(true_tau), n_samples)
+sse = np.sum((data - true_mu)**2)
+
+# 2. Define 3 Different Priors (Alpha, Beta)
+priors = [
+    {"label": "Weak Prior",       "alpha": 0.1,  "beta": 0.1,  "color": "green"},
+    {"label": "Strong Correct",   "alpha": 10.0, "beta": 10.0, "color": "blue"}, # Expects tau=1
+    {"label": "Strong Incorrect", "alpha": 10.0, "beta": 1.0,  "color": "red"}   # Expects tau=10 (Very narrow)
+]
+
+# 3. Plotting
+plt.figure(figsize=(8,6))
+x_axis = np.linspace(-4, 4, 1000)
+
+# Plot True Data Generating Process (The Target)
+plt.plot(x_axis, norm.pdf(x_axis, true_mu, 1/np.sqrt(true_tau)), 
+         'k--', lw=2, label='True Distribution N(0, 1)')
+
+# Calculate and Plot Posterior Predictive for each Prior
+for p in priors:
+    # Update Posterior Parameters
+    # alpha_n = alpha_0 + n/2
+    # beta_n  = beta_0 + SSE/2
+    alpha_post = p["alpha"] + n_samples / 2
+    beta_post = p["beta"] + sse / 2
+    
+    # Define Predictive t-distribution parameters
+    df = 2 * alpha_post
+    loc = true_mu
+    scale = np.sqrt(beta_post / alpha_post)
+    
+    # Calculate PDF
+    y = t.pdf(x_axis, df, loc=loc, scale=scale)
+    
+    plt.plot(x_axis, y, label=f'{p["label"]} (Pred. SD={scale:.2f})', 
+             color=p["color"], lw=2.5, alpha=0.8)
+
+# Formatting
+plt.title(f'Posterior Predictive Distributions (n={n_samples})\nHow Prior Beliefs affect Future Predictions', fontsize=14)
+plt.xlabel('Future Data Value ($\~{x}$)', fontsize=12)
+plt.ylabel('Density', fontsize=12)
+plt.legend(fontsize=11)
+plt.grid(True, alpha=0.3)
+plt.axvline(true_mu, color='k', alpha=0.1) # Center line
+
+# Visualize Data points
+plt.scatter(data, np.zeros_like(data), color='black', marker='|', s=100, label='Observed Data')
+
+plt.show()
+```
+
+:::
+
+:::
+
+
+
+
+
+# Inequalities, convergence, and law of large number 
+
+## Preface {.smaller}
+
+This section covers properties of probability bounds and convergence. These are helpful for:
+
+- Knowing the estimation boundary
+- Understanding how estimators behave as sample size increases.
+
+On the other hand, the mathematical proof for this part is relatively simple (and brings little insight to our practice) So we will only cover the intuition and implication of these properties, and leave the mathematical proof to the tutorial questions.
+
+## Markov's inequality {.smaller}
+
+-  Let $X$ be a non-negative r.v. and suppose $\mathbb{E}(X)$ exists. For any $t>0$
+
+:::{.hide}
+$$
+P(X>t)\leq\frac{\mathbb{E}(X)}{t}
+$$
+:::
+
+:::{.columns}
+
+:::{.column}
+**Implication**
+
+- Extreme events are:
+  - Rare
+  - Bounded by the mean  
+  - The probability of an event decays at least inversely proportional to its magnitude.
+:::
+
+:::{.column}
+
+**Example question**
+If the average survival time for a specific cancer is 5 years, what is the upper bound of the probability of a patient surviving more than 20 years?
+
+:::{.hide}
+0.25 = 5/20
+:::
+
+:::
+:::
+
+## Chebyshev's inequality {.smaller}
+
+:::{.columns}
+
+:::{.column}
+
+- Let $\mu=\mathbb{E}(X)$ and $\sigma^2=\mathbb{V}(X)$, then:
+
+:::{.hide}
+$$
+P(|X-\mu|\geq t)\leq\frac{\sigma^2}{t^2}
+$$
+:::
+
+or in the other words 
+
+$$
+\small
+P(|Z|\geq k)\leq\frac{1}{k^2}, \text{ where } Z=(X-\mu)/\sigma
+$$
+:::
+
+:::{.column}
+**A clear bound for outliers:**
+
+  
+| Deviations (k) | Chebyshev Guarantee (Minimum) | Normal Distribution (Actual) | 
+| -------------- | ----------------------------- | ---------------------------- | 
+|2 σ | At least 75% inside | 95.4% inside  | 
+|3 σ | At least 89% inside | 99.7% inside | 
+|5 σ | At least 96% inside | 99.9999% inside | 
+
+- These inequalities allow for quick sanity checks on statistical claims without assuming a specific distribution.
+
+:::
+
+:::
+
+## Convergence {.smaller}
+Convergence studies the behavior for a series of IID random variables $X_1, X_2, \dots, X_n$ with CDF $F_n$, while Let $X$ be another r.v.s, with CDF $F$. There are three types of convergence
+
+1. $X_n$ converges to $X$ in qudratic mean $X_n \xrightarrow{qm} X$ if
+   $$
+   \mathbb{E}(X_n-X)^2\rightarrow 0
+   $$
+2. $X_n$ converges to $X$ in probabiliity $X_n \xrightarrow{P} X$ if, for every $\epsilon>0$
+   $$
+   \mathbb{P}(|X_n-X|>\epsilon)\rightarrow 0
+   $$
+3. $X_n$ converges to $X$ in distribution $X_n \leadsto X$ if
+   $$
+   \lim_{n\rightarrow\infty}F_n(t)=F(t)
+   $$
+
+## Weak Law of large numbers (WLLN) {.smaller}
+
+Let $X_1, \dots, X_n$ be IID with $\mathbb{E}(X_i) = \mu$ and $\mathbb{V}(X_i) = \sigma^2$. The sample mean is $\bar{X}_n = \frac{1}{n}\sum X_i$.
+
+**WLLN states** 
+
+:::{.hide}
+
+$\bar{X}_n \xrightarrow{P} \mu$ as $n \to \infty$.
+
+:::
+
+:::{.columns}
+:::{.column}
+- Implications
+  - **Probability as long-run frequency**: The core of the Frequentist perspective.
+  - The variance of the sample mean, $\frac{\sigma^2}{n}$, shrinks as $n$ increases.
+  - Larger datasets provide more accurate parameter estimates.
+:::
+:::{.column}
+
+**Bayesian perspective of probability**
+
+- Probability is a degree of belief, which can be updated by new evidence.
+- Parameters themselves are random variables, estimated using data and prior beliefs.
+:::
+
+:::
+
+
+## Central limit theorem (CLT) {.smaller}
+
+**Theorm**
+
+Let $X_1, X_2, \dots, X_i$ be a sequence of iid random variables with mean 
+$\mu$ and variance $\sigma^2$. The sample mean of the observarion $\bar{X}_n=\frac{\sum_i^n X_i}{n}$, then
+
+:::{.hide}
+$$
+\small
+\bar{X}_n \leadsto \text{Normal}(\mu, \frac{\sigma^2}{n})
+$$
+
+:::
+
+**Implication**
+
+- Great sample size provide accurate estimation to "population mean"
+- The marginal benefit of increasing sample size decreases (due to the $\sqrt{n}$ term).
+- **Distribution-free**: The sample mean becomes normal regardless of the underlying distribution (given finite variance).
+- Foundation for hypothesis testing and confidence intervals.
+
+## Equivalent Statements {.smaller}
+
+Define
+$$
+\small
+Z = \frac{(\bar{X}_n - \mu)}{\sigma / \sqrt{n}} .
+$$
+
+then the following statements are equivalent to CLT
+$$\begin{aligned}
+\small
+Z \leadsto N(0,1) \\
+\bar{X}_n -\mu \leadsto N(0, \frac{\sigma^2}{n})\\
+\sqrt{n}(\bar{X}_n -\mu) \leadsto N(0, \sigma^2)\\
+\end{aligned}
+$$
+
+*Tip: Any proper algebraic transformation applied to both sides results in a valid equivalent statement.*
+
+## Curse of big data {.smaller}
+
+When the sample size is extremely large, almost any tiny difference becomes "statistically significant" ($p < 0.05$).
+
+**Reason**
+
+- The Standard Error ($\sigma/\sqrt{n}$) becomes so small that the confidence interval is incredibly narrow.
+- Even biologically irrelevant differences can reject the null hypothesis.
+
+**Implication**
+
+- Distinguish between **statistical significance** and **clinical/scientific significance**.
+- Effect size becomes more important than p-values in large datasets.
+
+
+## Curse of big data {.smaller}
+
+:::{.columns}
+
+:::{.column width=45%}
+We try to estimate the true $\mu$ from a population $N(0.2, 0.2^2)$.
+
+- As $n$ goes greater, we can estiamte the mean more accurately
+- $P(x\leq 0) = 0.15$ You might observe observations less or equal to 0
+- You can still have an accurate estimation of truen men *0.2*, which different from zero 
+- Does this 0.2 difference from 0 so important?
+:::
+
+:::{.column width=55%}
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+
+# Set style
+sns.set(style="whitegrid", font_scale=1.4)
+np.random.seed(123)
+
+# Population parameters
+mu_true = 0.2
+sigma_true = 0.2
+
+# Sample sizes and number of simulated samples
+sample_sizes = [10, 30, 90, 270]
+n_simulations = 2000
+
+# Colors for each sample size
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']  # Blue, Orange, Green, Red
+labels = [f'n = {n}' for n in sample_sizes]
+
+# Create figure
+plt.figure(figsize=(10.5, 6))
+
+# Generate and plot sampling distributions
+for i, n in enumerate(sample_sizes):
+    # Simulate sample means
+    samples = np.random.normal(mu_true, sigma_true, size=(n_simulations, n))
+    sample_means = samples.mean(axis=1)
+    
+    # KDE plot
+    sns.kdeplot(sample_means, color=colors[i], linewidth=2.8, label=f'{labels[i]} (SE = {sigma_true/np.sqrt(n):.3f})')
+    
+    # Optional: add light histogram underneath
+    plt.hist(sample_means, bins=80, density=True, alpha=0.15, color=colors[i])
+
+    # Add one example 95% CI per sample size (slightly shifted vertically for visibility)
+    example_sample = samples[0]
+    x_bar = example_sample.mean()
+    se = sigma_true / np.sqrt(n)
+    margin = 1.96 * se
+    ci_low, ci_high = x_bar - margin, x_bar + margin
+    
+    y_level = 0.03 + i*1.1 
+    plt.hlines(y_level, ci_low, ci_high, color=colors[i], linewidth=5, label='95% CI' if i == 0 else "")
+    plt.plot(x_bar, y_level, 'o', color=colors[i], markersize=8)
+    plt.plot([ci_low, ci_high], [y_level, y_level], color='black', linewidth=1.5)
+
+# Overlay theoretical normal distributions (from CLT)
+  
+x= np.linspace(mu_true-2*sigma_true,mu_true+2*sigma_true)
+# Formatting
+plt.axvline(mu_true, color='black', linestyle='-', linewidth=2, label='True μ = 2.0', alpha=0.8)
+plt.plot(x,10*stats.Normal(mu=mu_true, sigma=sigma_true).pdf(x),color='#000000',alpha=0.9, linestyle='--', label="True distribution (10 * pdf(x))"
+)
+plt.title('Central Limit Theorem in Action\n'
+          'Population ~ N(%i, %i) | %i simulated samples per distribution'%(mu_true,sigma_true,n_simulations),
+          fontsize=18, pad=20)
+plt.xlabel('Sample Mean')
+plt.ylabel('Density')
+plt.xlim(-0.1, 0.5)
+plt.ylim(0, 30)
+plt.legend(fontsize=11, loc="upper right")
+plt.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+:::
+:::

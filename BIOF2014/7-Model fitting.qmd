@@ -1,5 +1,5 @@
 ---
-title: "Parametric</br>Estimation"
+title: "Parametric Estimation"
 subtitle: "MLE and hypothesis testing"
 
 author: Yu Cheng Hsu
@@ -12,7 +12,7 @@ format:
     theme: [default]
     css:
       - general_style.css
-      - solution_view.css
+      - student_view.css
     slide-number: true
     reference-location: margin
     chalkboard:
