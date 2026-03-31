@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
-  <title>Yu Cheng Hsu – ParametricEstimation</title>
+  <title>Yu Cheng Hsu – Parametric Estimation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -200,7 +200,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="img/cover-normal.jpg" data-background-position="left" data-background-size="35% 100%" class="quarto-title-block center">
-  <h1 class="title">Parametric<br>Estimation</h1>
+  <h1 class="title">Parametric Estimation</h1>
   <p class="subtitle">Expectation-Maximization Algorithm</p>
 
 <div class="quarto-title-authors">
@@ -238,50 +238,10 @@ Yu Cheng Hsu
 <p>Height differences across different populations (e.g., Genotype/Ancestry).</p>
 <p>Modeling an overall population mean and variance does not reveal the underlying differences among your observations.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load necessary libraries</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># 1. Data Generation</span></span>
-<span id="cb1-6"><a></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">140</span>, <span class="dv">210</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
-<span id="cb1-7"><a></a>y1 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="dv">165</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
-<span id="cb1-8"><a></a>y2 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="dv">185</span>, <span class="at">sd =</span> <span class="dv">6</span>)</span>
-<span id="cb1-9"><a></a>y_mixture <span class="ot">&lt;-</span> <span class="fl">0.6</span> <span class="sc">*</span> y1 <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> y2</span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y1, y2, y_mixture)</span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="co"># 2. Left Plot: Observed Mixture</span></span>
-<span id="cb1-14"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y_mixture)) <span class="sc">+</span></span>
-<span id="cb1-15"><a></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb1-16"><a></a>  <span class="fu">geom_area</span>(<span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb1-17"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"What we observe (Mixture)"</span>, <span class="at">x =</span> <span class="st">"Height (cm)"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
-<span id="cb1-18"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># 3. Right Plot: Latent Components</span></span>
-<span id="cb3-2"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> y1), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb3-4"><a></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">y =</span> y1), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb3-5"><a></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> y2), <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">y =</span> y2), <span class="at">fill =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb3-7"><a></a>  <span class="co"># Annotations</span></span>
-<span id="cb3-8"><a></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">145</span>, <span class="at">y =</span> <span class="fl">0.07</span>, <span class="at">xend =</span> <span class="dv">165</span>, <span class="at">yend =</span> <span class="fu">dnorm</span>(<span class="dv">165</span>, <span class="dv">165</span>, <span class="dv">5</span>), </span>
-<span id="cb3-9"><a></a>           <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">"cm"</span>))) <span class="sc">+</span></span>
-<span id="cb3-10"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">145</span>, <span class="at">y =</span> <span class="fl">0.075</span>, <span class="at">label =</span> <span class="st">"Genotype A"</span>) <span class="sc">+</span></span>
-<span id="cb3-11"><a></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">195</span>, <span class="at">y =</span> <span class="fl">0.06</span>, <span class="at">xend =</span> <span class="dv">185</span>, <span class="at">yend =</span> <span class="fu">dnorm</span>(<span class="dv">185</span>, <span class="dv">185</span>, <span class="dv">6</span>), </span>
-<span id="cb3-12"><a></a>           <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">"cm"</span>))) <span class="sc">+</span></span>
-<span id="cb3-13"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">195</span>, <span class="at">y =</span> <span class="fl">0.065</span>, <span class="at">label =</span> <span class="st">"Genotype B"</span>) <span class="sc">+</span></span>
-<span id="cb3-14"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Latent Classes"</span>, <span class="at">x =</span> <span class="st">"Height (cm)"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb3-15"><a></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb3-16"><a></a></span>
-<span id="cb3-17"><a></a><span class="co"># 4. Display side-by-side (the patchwork magic)</span></span>
-<span id="cb3-18"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="8-EM_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="8-EM_files/figure-html/unnamed-chunk-1-1.png" width="1152"></a></p>
+<p><a href="8-EM_files/figure-revealjs/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="8-EM_files/figure-revealjs/unnamed-chunk-1-1.png" width="1152"></a></p>
 </figure>
 </div>
 </div>
@@ -360,30 +320,30 @@ P(X | \theta) = \sum_Z P(X, Z | \theta)
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="|5,7,9|6,8,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># 1. Observed data</span></span>
-<span id="cb4-2"><a></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">166</span>, <span class="dv">190</span>, <span class="dv">185</span>, <span class="dv">180</span>)</span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a><span class="co"># 2. Initialization</span></span>
-<span id="cb4-5"><a></a>mu_a <span class="ot">&lt;-</span> <span class="fl">160.0</span>; </span>
-<span id="cb4-6"><a></a>mu_e <span class="ot">&lt;-</span> <span class="fl">190.0</span></span>
-<span id="cb4-7"><a></a>sigma_a <span class="ot">&lt;-</span> <span class="fl">5.0</span></span>
-<span id="cb4-8"><a></a>sigma_e <span class="ot">&lt;-</span> <span class="fl">5.0</span></span>
-<span id="cb4-9"><a></a>p_a <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb4-10"><a></a>p_e <span class="ot">&lt;-</span> <span class="fl">0.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|5,7,9|6,8,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># 1. Observed data</span></span>
+<span id="cb1-2"><a></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">166</span>, <span class="dv">190</span>, <span class="dv">185</span>, <span class="dv">180</span>)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># 2. Initialization</span></span>
+<span id="cb1-5"><a></a>mu_a <span class="ot">&lt;-</span> <span class="fl">160.0</span>; </span>
+<span id="cb1-6"><a></a>mu_e <span class="ot">&lt;-</span> <span class="fl">190.0</span></span>
+<span id="cb1-7"><a></a>sigma_a <span class="ot">&lt;-</span> <span class="fl">5.0</span></span>
+<span id="cb1-8"><a></a>sigma_e <span class="ot">&lt;-</span> <span class="fl">5.0</span></span>
+<span id="cb1-9"><a></a>p_a <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb1-10"><a></a>p_e <span class="ot">&lt;-</span> <span class="fl">0.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co">#| echo: true</span></span>
-<span id="cb5-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a><span class="co"># 1. Observed data</span></span>
-<span id="cb5-6"><a></a>X <span class="op">=</span> np.array([<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">166</span>, <span class="dv">190</span>, <span class="dv">185</span>, <span class="dv">180</span>])</span>
-<span id="cb5-7"><a></a></span>
-<span id="cb5-8"><a></a><span class="co"># 2. Initialization</span></span>
-<span id="cb5-9"><a></a>mu_a, mu_e <span class="op">=</span> <span class="fl">160.0</span>, <span class="fl">190.0</span></span>
-<span id="cb5-10"><a></a>sigma_a, sigma_e <span class="op">=</span> <span class="fl">5.0</span>, <span class="fl">5.0</span></span>
-<span id="cb5-11"><a></a>p_a, p_e <span class="op">=</span> <span class="fl">0.4</span>, <span class="fl">0.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb2-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a><span class="co"># 1. Observed data</span></span>
+<span id="cb2-6"><a></a>X <span class="op">=</span> np.array([<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">166</span>, <span class="dv">190</span>, <span class="dv">185</span>, <span class="dv">180</span>])</span>
+<span id="cb2-7"><a></a></span>
+<span id="cb2-8"><a></a><span class="co"># 2. Initialization</span></span>
+<span id="cb2-9"><a></a>mu_a, mu_e <span class="op">=</span> <span class="fl">160.0</span>, <span class="fl">190.0</span></span>
+<span id="cb2-10"><a></a>sigma_a, sigma_e <span class="op">=</span> <span class="fl">5.0</span>, <span class="fl">5.0</span></span>
+<span id="cb2-11"><a></a>p_a, p_e <span class="op">=</span> <span class="fl">0.4</span>, <span class="fl">0.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -430,25 +390,25 @@ P(X | \theta) = \sum_Z P(X, Z | \theta)
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|2-3|4-5|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>e_step <span class="ot">&lt;-</span> <span class="cf">function</span>(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e) {</span>
-<span id="cb6-2"><a></a>  prob_x_given_a <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(X, mu_a, sigma_a)</span>
-<span id="cb6-3"><a></a>  prob_x_given_e <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(X, mu_e, sigma_e)</span>
-<span id="cb6-4"><a></a>  resp_a <span class="ot">&lt;-</span> (prob_x_given_a <span class="sc">*</span> p_a) <span class="sc">/</span> (prob_x_given_a <span class="sc">*</span> p_a <span class="sc">+</span> prob_x_given_e <span class="sc">*</span> p_e)</span>
-<span id="cb6-5"><a></a>  resp_e <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> resp_a</span>
-<span id="cb6-6"><a></a>  ll <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">log</span>(p_a <span class="sc">*</span> prob_x_given_a <span class="sc">+</span> p_e <span class="sc">*</span> prob_x_given_e))</span>
-<span id="cb6-7"><a></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">resp_a =</span> resp_a, <span class="at">resp_e =</span> resp_e, <span class="at">ll =</span> ll))</span>
-<span id="cb6-8"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|2-3|4-5|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>e_step <span class="ot">&lt;-</span> <span class="cf">function</span>(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e) {</span>
+<span id="cb3-2"><a></a>  prob_x_given_a <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(X, mu_a, sigma_a)</span>
+<span id="cb3-3"><a></a>  prob_x_given_e <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(X, mu_e, sigma_e)</span>
+<span id="cb3-4"><a></a>  resp_a <span class="ot">&lt;-</span> (prob_x_given_a <span class="sc">*</span> p_a) <span class="sc">/</span> (prob_x_given_a <span class="sc">*</span> p_a <span class="sc">+</span> prob_x_given_e <span class="sc">*</span> p_e)</span>
+<span id="cb3-5"><a></a>  resp_e <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> resp_a</span>
+<span id="cb3-6"><a></a>  ll <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">log</span>(p_a <span class="sc">*</span> prob_x_given_a <span class="sc">+</span> p_e <span class="sc">*</span> prob_x_given_e))</span>
+<span id="cb3-7"><a></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">resp_a =</span> resp_a, <span class="at">resp_e =</span> resp_e, <span class="at">ll =</span> ll))</span>
+<span id="cb3-8"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co">#| echo: true</span></span>
-<span id="cb7-2"><a></a><span class="kw">def</span> e_step(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e):</span>
-<span id="cb7-3"><a></a>    prob_x_given_a <span class="op">=</span> norm.pdf(X, mu_a, sigma_a)</span>
-<span id="cb7-4"><a></a>    prob_x_given_e <span class="op">=</span> norm.pdf(X, mu_e, sigma_e)</span>
-<span id="cb7-5"><a></a>    resp_a <span class="op">=</span> (prob_x_given_a <span class="op">*</span> p_a) <span class="op">/</span> (prob_x_given_a <span class="op">*</span> p_a <span class="op">+</span> prob_x_given_e <span class="op">*</span> p_e)</span>
-<span id="cb7-6"><a></a>    resp_e <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> resp_a</span>
-<span id="cb7-7"><a></a>    ll <span class="op">=</span> np.<span class="bu">sum</span>(np.log(p_a <span class="op">*</span> prob_x_given_a <span class="op">+</span> p_e <span class="op">*</span> prob_x_given_e))</span>
-<span id="cb7-8"><a></a>    <span class="cf">return</span> resp_a, resp_e, ll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb4-2"><a></a><span class="kw">def</span> e_step(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e):</span>
+<span id="cb4-3"><a></a>    prob_x_given_a <span class="op">=</span> norm.pdf(X, mu_a, sigma_a)</span>
+<span id="cb4-4"><a></a>    prob_x_given_e <span class="op">=</span> norm.pdf(X, mu_e, sigma_e)</span>
+<span id="cb4-5"><a></a>    resp_a <span class="op">=</span> (prob_x_given_a <span class="op">*</span> p_a) <span class="op">/</span> (prob_x_given_a <span class="op">*</span> p_a <span class="op">+</span> prob_x_given_e <span class="op">*</span> p_e)</span>
+<span id="cb4-6"><a></a>    resp_e <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> resp_a</span>
+<span id="cb4-7"><a></a>    ll <span class="op">=</span> np.<span class="bu">sum</span>(np.log(p_a <span class="op">*</span> prob_x_given_a <span class="op">+</span> p_e <span class="op">*</span> prob_x_given_e))</span>
+<span id="cb4-8"><a></a>    <span class="cf">return</span> resp_a, resp_e, ll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -488,37 +448,37 @@ P(X | \theta) = \sum_Z P(X, Z | \theta)
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|2-3|5-6|8-9|11-12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>m_step <span class="ot">&lt;-</span> <span class="cf">function</span>(X, resp_a, resp_e) {</span>
-<span id="cb8-2"><a></a>  sum_resp_a <span class="ot">&lt;-</span> <span class="fu">sum</span>(resp_a)</span>
-<span id="cb8-3"><a></a>  sum_resp_e <span class="ot">&lt;-</span> <span class="fu">sum</span>(resp_e)</span>
-<span id="cb8-4"><a></a>  </span>
-<span id="cb8-5"><a></a>  mu_a <span class="ot">&lt;-</span> <span class="fu">sum</span>(resp_a <span class="sc">*</span> X) <span class="sc">/</span> sum_resp_a</span>
-<span id="cb8-6"><a></a>  mu_e <span class="ot">&lt;-</span> <span class="fu">sum</span>(resp_e <span class="sc">*</span> X) <span class="sc">/</span> sum_resp_e</span>
-<span id="cb8-7"><a></a>  </span>
-<span id="cb8-8"><a></a>  sigma_a <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(resp_a <span class="sc">*</span> (X <span class="sc">-</span> mu_a)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> sum_resp_a)</span>
-<span id="cb8-9"><a></a>  sigma_e <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(resp_e <span class="sc">*</span> (X <span class="sc">-</span> mu_e)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> sum_resp_e)</span>
-<span id="cb8-10"><a></a>  </span>
-<span id="cb8-11"><a></a>  p_a <span class="ot">&lt;-</span> sum_resp_a <span class="sc">/</span> <span class="fu">length</span>(X)</span>
-<span id="cb8-12"><a></a>  p_e <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> p_a</span>
-<span id="cb8-13"><a></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">mu_a=</span>mu_a, <span class="at">sigma_a=</span>sigma_a, <span class="at">p_a=</span>p_a, <span class="at">mu_e=</span>mu_e, <span class="at">sigma_e=</span>sigma_e, <span class="at">p_e=</span>p_e))</span>
-<span id="cb8-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="|2-3|5-6|8-9|11-12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>m_step <span class="ot">&lt;-</span> <span class="cf">function</span>(X, resp_a, resp_e) {</span>
+<span id="cb5-2"><a></a>  sum_resp_a <span class="ot">&lt;-</span> <span class="fu">sum</span>(resp_a)</span>
+<span id="cb5-3"><a></a>  sum_resp_e <span class="ot">&lt;-</span> <span class="fu">sum</span>(resp_e)</span>
+<span id="cb5-4"><a></a>  </span>
+<span id="cb5-5"><a></a>  mu_a <span class="ot">&lt;-</span> <span class="fu">sum</span>(resp_a <span class="sc">*</span> X) <span class="sc">/</span> sum_resp_a</span>
+<span id="cb5-6"><a></a>  mu_e <span class="ot">&lt;-</span> <span class="fu">sum</span>(resp_e <span class="sc">*</span> X) <span class="sc">/</span> sum_resp_e</span>
+<span id="cb5-7"><a></a>  </span>
+<span id="cb5-8"><a></a>  sigma_a <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(resp_a <span class="sc">*</span> (X <span class="sc">-</span> mu_a)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> sum_resp_a)</span>
+<span id="cb5-9"><a></a>  sigma_e <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(resp_e <span class="sc">*</span> (X <span class="sc">-</span> mu_e)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> sum_resp_e)</span>
+<span id="cb5-10"><a></a>  </span>
+<span id="cb5-11"><a></a>  p_a <span class="ot">&lt;-</span> sum_resp_a <span class="sc">/</span> <span class="fu">length</span>(X)</span>
+<span id="cb5-12"><a></a>  p_e <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> p_a</span>
+<span id="cb5-13"><a></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">mu_a=</span>mu_a, <span class="at">sigma_a=</span>sigma_a, <span class="at">p_a=</span>p_a, <span class="at">mu_e=</span>mu_e, <span class="at">sigma_e=</span>sigma_e, <span class="at">p_e=</span>p_e))</span>
+<span id="cb5-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-3-2">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co">#| echo: true</span></span>
-<span id="cb9-2"><a></a><span class="kw">def</span> m_step(X, resp_a, resp_e):</span>
-<span id="cb9-3"><a></a>    sum_resp_a <span class="op">=</span> np.<span class="bu">sum</span>(resp_a)</span>
-<span id="cb9-4"><a></a>    sum_resp_e <span class="op">=</span> np.<span class="bu">sum</span>(resp_e)</span>
-<span id="cb9-5"><a></a></span>
-<span id="cb9-6"><a></a>    mu_a <span class="op">=</span> np.<span class="bu">sum</span>(resp_a <span class="op">*</span> X) <span class="op">/</span> sum_resp_a</span>
-<span id="cb9-7"><a></a>    mu_e <span class="op">=</span> np.<span class="bu">sum</span>(resp_e <span class="op">*</span> X) <span class="op">/</span> sum_resp_e</span>
-<span id="cb9-8"><a></a></span>
-<span id="cb9-9"><a></a>    sigma_a <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>(resp_a <span class="op">*</span> (X <span class="op">-</span> mu_a)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> sum_resp_a)</span>
-<span id="cb9-10"><a></a>    sigma_e <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>(resp_e <span class="op">*</span> (X <span class="op">-</span> mu_e)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> sum_resp_e)</span>
-<span id="cb9-11"><a></a></span>
-<span id="cb9-12"><a></a>    p_a <span class="op">=</span> sum_resp_a <span class="op">/</span> <span class="bu">len</span>(X)</span>
-<span id="cb9-13"><a></a>    p_e <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> p_a</span>
-<span id="cb9-14"><a></a>    <span class="cf">return</span> mu_a, sigma_a, p_a, mu_e, sigma_e, p_e</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb6-2"><a></a><span class="kw">def</span> m_step(X, resp_a, resp_e):</span>
+<span id="cb6-3"><a></a>    sum_resp_a <span class="op">=</span> np.<span class="bu">sum</span>(resp_a)</span>
+<span id="cb6-4"><a></a>    sum_resp_e <span class="op">=</span> np.<span class="bu">sum</span>(resp_e)</span>
+<span id="cb6-5"><a></a></span>
+<span id="cb6-6"><a></a>    mu_a <span class="op">=</span> np.<span class="bu">sum</span>(resp_a <span class="op">*</span> X) <span class="op">/</span> sum_resp_a</span>
+<span id="cb6-7"><a></a>    mu_e <span class="op">=</span> np.<span class="bu">sum</span>(resp_e <span class="op">*</span> X) <span class="op">/</span> sum_resp_e</span>
+<span id="cb6-8"><a></a></span>
+<span id="cb6-9"><a></a>    sigma_a <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>(resp_a <span class="op">*</span> (X <span class="op">-</span> mu_a)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> sum_resp_a)</span>
+<span id="cb6-10"><a></a>    sigma_e <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>(resp_e <span class="op">*</span> (X <span class="op">-</span> mu_e)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> sum_resp_e)</span>
+<span id="cb6-11"><a></a></span>
+<span id="cb6-12"><a></a>    p_a <span class="op">=</span> sum_resp_a <span class="op">/</span> <span class="bu">len</span>(X)</span>
+<span id="cb6-13"><a></a>    p_e <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> p_a</span>
+<span id="cb6-14"><a></a>    <span class="cf">return</span> mu_a, sigma_a, p_a, mu_e, sigma_e, p_e</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -542,49 +502,49 @@ P(X | \theta) = \sum_Z P(X, Z | \theta)
 <div class="tab-content">
 <div id="tabset-4-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|4|8|4|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>log_likelihoods <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb10-2"><a></a><span class="cf">for</span> (iteration <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb10-3"><a></a>  <span class="co"># E-Step</span></span>
-<span id="cb10-4"><a></a>  results_e <span class="ot">&lt;-</span> <span class="fu">e_step</span>(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e)</span>
-<span id="cb10-5"><a></a>  log_likelihoods <span class="ot">&lt;-</span> <span class="fu">c</span>(log_likelihoods, results_e<span class="sc">$</span>ll)</span>
-<span id="cb10-6"><a></a>  </span>
-<span id="cb10-7"><a></a>  <span class="co"># M-Step</span></span>
-<span id="cb10-8"><a></a>  results_m <span class="ot">&lt;-</span> <span class="fu">m_step</span>(X, results_e<span class="sc">$</span>resp_a, results_e<span class="sc">$</span>resp_e)</span>
-<span id="cb10-9"><a></a>  </span>
-<span id="cb10-10"><a></a>  <span class="co"># Update parameters</span></span>
-<span id="cb10-11"><a></a>  mu_a <span class="ot">&lt;-</span> results_m<span class="sc">$</span>mu_a; sigma_a <span class="ot">&lt;-</span> results_m<span class="sc">$</span>sigma_a; p_a <span class="ot">&lt;-</span> results_m<span class="sc">$</span>p_a</span>
-<span id="cb10-12"><a></a>  mu_e <span class="ot">&lt;-</span> results_m<span class="sc">$</span>mu_e; sigma_e <span class="ot">&lt;-</span> results_m<span class="sc">$</span>sigma_e; p_e <span class="ot">&lt;-</span> results_m<span class="sc">$</span>p_e</span>
-<span id="cb10-13"><a></a>}</span>
-<span id="cb10-14"><a></a></span>
-<span id="cb10-15"><a></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Converged Means: Asian=%.2f, Euro=%.2f</span><span class="sc">\n</span><span class="st">"</span>, mu_a, mu_e))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|4|8|4|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>log_likelihoods <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb7-2"><a></a><span class="cf">for</span> (iteration <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb7-3"><a></a>  <span class="co"># E-Step</span></span>
+<span id="cb7-4"><a></a>  results_e <span class="ot">&lt;-</span> <span class="fu">e_step</span>(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e)</span>
+<span id="cb7-5"><a></a>  log_likelihoods <span class="ot">&lt;-</span> <span class="fu">c</span>(log_likelihoods, results_e<span class="sc">$</span>ll)</span>
+<span id="cb7-6"><a></a>  </span>
+<span id="cb7-7"><a></a>  <span class="co"># M-Step</span></span>
+<span id="cb7-8"><a></a>  results_m <span class="ot">&lt;-</span> <span class="fu">m_step</span>(X, results_e<span class="sc">$</span>resp_a, results_e<span class="sc">$</span>resp_e)</span>
+<span id="cb7-9"><a></a>  </span>
+<span id="cb7-10"><a></a>  <span class="co"># Update parameters</span></span>
+<span id="cb7-11"><a></a>  mu_a <span class="ot">&lt;-</span> results_m<span class="sc">$</span>mu_a; sigma_a <span class="ot">&lt;-</span> results_m<span class="sc">$</span>sigma_a; p_a <span class="ot">&lt;-</span> results_m<span class="sc">$</span>p_a</span>
+<span id="cb7-12"><a></a>  mu_e <span class="ot">&lt;-</span> results_m<span class="sc">$</span>mu_e; sigma_e <span class="ot">&lt;-</span> results_m<span class="sc">$</span>sigma_e; p_e <span class="ot">&lt;-</span> results_m<span class="sc">$</span>p_e</span>
+<span id="cb7-13"><a></a>}</span>
+<span id="cb7-14"><a></a></span>
+<span id="cb7-15"><a></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Converged Means: Asian=%.2f, Euro=%.2f</span><span class="sc">\n</span><span class="st">"</span>, mu_a, mu_e))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Converged Means: Asian=163.67, Euro=185.00</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|4|8|4|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Converged Mixing: p(Asian)=%.2f</span><span class="sc">\n</span><span class="st">"</span>, p_a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|4|8|4|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Converged Mixing: p(Asian)=%.2f</span><span class="sc">\n</span><span class="st">"</span>, p_a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Converged Mixing: p(Asian)=0.50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="|4|8|4|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">cat</span>(<span class="st">"Log-Likelihoods: "</span>, <span class="fu">round</span>(log_likelihoods, <span class="dv">5</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|4|8|4|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">cat</span>(<span class="st">"Log-Likelihoods: "</span>, <span class="fu">round</span>(log_likelihoods, <span class="dv">5</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Log-Likelihoods:  -23.16991 -19.78781 -19.78747 -19.78747 -19.78747 -19.78747 -19.78747 -19.78747 -19.78747 -19.78747 </code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-4-2">
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co">#| echo: true</span></span>
-<span id="cb16-2"><a></a></span>
-<span id="cb16-3"><a></a>log_likelihoods <span class="op">=</span> []</span>
-<span id="cb16-4"><a></a><span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb16-5"><a></a>    <span class="co"># E-Step</span></span>
-<span id="cb16-6"><a></a>    resp_a, resp_e, ll <span class="op">=</span> e_step(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e)</span>
-<span id="cb16-7"><a></a>    log_likelihoods.append(ll)</span>
-<span id="cb16-8"><a></a></span>
-<span id="cb16-9"><a></a>    <span class="co"># M-Step</span></span>
-<span id="cb16-10"><a></a>    mu_a, sigma_a, p_a, mu_e, sigma_e, p_e <span class="op">=</span> m_step(X, resp_a, resp_e)</span>
-<span id="cb16-11"><a></a></span>
-<span id="cb16-12"><a></a><span class="bu">print</span>(<span class="ss">f"Converged Means: Asian=</span><span class="sc">{</span>mu_a<span class="sc">:.2f}</span><span class="ss">, Euro=</span><span class="sc">{</span>mu_e<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb16-13"><a></a><span class="bu">print</span>(<span class="ss">f"Converged Mixing: p(Asian)=</span><span class="sc">{</span>p_a<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb16-14"><a></a><span class="bu">print</span>(<span class="ss">f"Log-Likelihoods: </span><span class="sc">{</span>[<span class="bu">round</span>(x, <span class="dv">2</span>) <span class="cf">for</span> x <span class="kw">in</span> log_likelihoods]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb13-2"><a></a></span>
+<span id="cb13-3"><a></a>log_likelihoods <span class="op">=</span> []</span>
+<span id="cb13-4"><a></a><span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb13-5"><a></a>    <span class="co"># E-Step</span></span>
+<span id="cb13-6"><a></a>    resp_a, resp_e, ll <span class="op">=</span> e_step(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e)</span>
+<span id="cb13-7"><a></a>    log_likelihoods.append(ll)</span>
+<span id="cb13-8"><a></a></span>
+<span id="cb13-9"><a></a>    <span class="co"># M-Step</span></span>
+<span id="cb13-10"><a></a>    mu_a, sigma_a, p_a, mu_e, sigma_e, p_e <span class="op">=</span> m_step(X, resp_a, resp_e)</span>
+<span id="cb13-11"><a></a></span>
+<span id="cb13-12"><a></a><span class="bu">print</span>(<span class="ss">f"Converged Means: Asian=</span><span class="sc">{</span>mu_a<span class="sc">:.2f}</span><span class="ss">, Euro=</span><span class="sc">{</span>mu_e<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb13-13"><a></a><span class="bu">print</span>(<span class="ss">f"Converged Mixing: p(Asian)=</span><span class="sc">{</span>p_a<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb13-14"><a></a><span class="bu">print</span>(<span class="ss">f"Log-Likelihoods: </span><span class="sc">{</span>[<span class="bu">round</span>(x, <span class="dv">2</span>) <span class="cf">for</span> x <span class="kw">in</span> log_likelihoods]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -841,6 +801,82 @@ P(X | \theta) = \sum_Z P(X, Z | \theta)
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
