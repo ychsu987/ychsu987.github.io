@@ -17,6 +17,7 @@ listing:
         - BIOF2014/5-Discrete distribution family-3.qmd
         - BIOF2014/6-Continuous distribution family.qmd
         - BIOF2014/7-Model fitting.qmd
+        - BIOF2014/8-EM.qmd
       fields: [title, subtitle, image]
       type: default
       sort: false
@@ -29,6 +30,7 @@ listing:
         - BIOF2014/5-Discrete distribution family-3-sketch.qmd
         - BIOF2014/6-Continuous distribution family-sketch.qmd
         - BIOF2014/7-Model fitting-sketch.qmd
+        - BIOF2014/8-EM-sketch.qmd
       fields: [title, subtitle, image]
       type: default
       sort: false

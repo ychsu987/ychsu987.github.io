@@ -1,0 +1,504 @@
+---
+title: "Parametric Estimation"
+subtitle: "Expectation-Maximization Algorithm"
+
+author: Yu Cheng Hsu
+title-slide-attributes:
+    data-background-image: img/cover-normal.jpg
+    data-background-size:  35% 100%
+    data-background-position: left
+format: 
+  revealjs:
+    theme: [default]
+    css: 
+        - student_view.css
+        - general_style.css
+    slide-number: true
+    reference-location: margin
+    chalkboard: true
+    code-line-numbers: true
+engine: knitr
+lightbox: true
+---
+
+## Intended learning outcomes {.smaller}
+
+
+- Understand the conceptual framework of latent variables and missing data.
+- Explain the mathematical objective of the Expectation-Maximization (EM) algorithm.
+- Step through the E-step and M-step to update parameter estimates.
+- Implement a basic EM algorithm for a Gaussian Mixture Model in Python/R.
+
+## Estimating Distribution Parameters from Data {.smaller}
+
+The **Expectation-Maximization (EM) algorithm** is an iterative method used to find the **potential** Maximum Likelihood Estimates (MLE) or Maximum a Posteriori (MAP) estimates of parameters in statistical models, specifically when the model depends on **unobserved latent variables**.
+
+It is widely used in:
+
+* **Missing Data Problems:** Where data points are missing at random.
+* **Mixture Models:** Such as Gaussian Mixture Models (GMM), where the sub-population (cluster) assignments are unknown.
+* **Hidden Markov Models (HMM):** The Baum-Welch algorithm is a classic application of the EM framework.
+
+
+## Motivations {.smaller}
+
+In real life, our observations might come from different subgroups (latent variables).
+
+Example: 
+
+Height differences across different populations (e.g., Genotype/Ancestry).
+
+Modeling an overall population mean and variance does not reveal the underlying differences among your observations.
+
+```{r, fig.width=12, fig.height=4}
+#| echo: false
+#| warning: false
+#| eval: true
+# Load necessary libraries
+library(ggplot2)
+library(patchwork)
+
+# 1. Data Generation
+x <- seq(140, 210, length.out = 1000)
+y1 <- dnorm(x, mean = 165, sd = 5)
+y2 <- dnorm(x, mean = 185, sd = 6)
+y_mixture <- 0.6 * y1 + 0.5 * y2
+
+df <- data.frame(x, y1, y2, y_mixture)
+
+# 2. Left Plot: Observed Mixture
+p1 <- ggplot(df, aes(x = x, y = y_mixture)) +
+  geom_line(color = "gray40", size = 1) +
+  geom_area(fill = "gray", alpha = 0.2) +
+  labs(title = "What we observe (Mixture)", x = "Height (cm)", y = "Density") +
+  theme_minimal()
+
+# 3. Right Plot: Latent Components
+p2 <- ggplot(df, aes(x = x)) +
+  geom_line(aes(y = y1), color = "blue") +
+  geom_area(aes(y = y1), fill = "blue", alpha = 0.2) +
+  geom_line(aes(y = y2), color = "red") +
+  geom_area(aes(y = y2), fill = "red", alpha = 0.2) +
+  # Annotations
+  annotate("segment", x = 145, y = 0.07, xend = 165, yend = dnorm(165, 165, 5), 
+           arrow = arrow(length = unit(0.2, "cm"))) +
+  annotate("text", x = 145, y = 0.075, label = "Genotype A") +
+  annotate("segment", x = 195, y = 0.06, xend = 185, yend = dnorm(185, 185, 6), 
+           arrow = arrow(length = unit(0.2, "cm"))) +
+  annotate("text", x = 195, y = 0.065, label = "Genotype B") +
+  labs(title = "Latent Classes", x = "Height (cm)", y = NULL) +
+  theme_minimal()
+
+# 4. Display side-by-side (the patchwork magic)
+p1 + p2
+```
+
+
+## Problem formation {.smaller}
+
+:::{.columns}
+
+:::{.column width=49%}
+
+**General format**
+
+Suppose we have:
+
+1.  **Observed data** $X = \{x_1, x_2, \dots, x_n\}$.
+2.  **Latent (unobserved) variables** $Z = \{z_1, z_2, \dots, z_n\}$.
+3.  **Unknown parameters** $\theta$ that we want to estimate.
+
+Our goal is to maximize the **observed data likelihood**:
+$$
+\arg\max_\theta  P(X | \theta)
+$$
+:::
+
+:::{.column width=49%}
+
+**Example**
+
+1.  **Observed height of people** $X = {160,165,166,190,185,180}$.
+2.  **Latent (unobserved) variables** $Z = \text{"Asian", "European"}$.
+3.  **Unknown parameters**: Height distribution of Asian and European $N(\mu_A,\sigma_A^2), N(\mu_E,\sigma_E^2)$.
+
+**Goal**:
+1. Estimate the probability of each person belonging to a group.
+2. Estimate the mean and variance for each group.
+:::
+
+:::
+
+
+## The Challenge {.smaller}
+
+Directly maximizing the log-likelihood $\ell(\theta; X)$ is difficult because:
+
+$$
+P(X | \theta) = \sum_Z P(X, Z | \theta)
+$$
+The summation (or integral) over $Z$ occurs *inside* the logarithm of the likelihood function $\log P(X|\theta)$.
+
+- There is often no closed-form analytical solution.
+
+**Intuition:** 
+
+- If we know $Z$, then estimating $\theta$ is straightforward (standard MLE).
+- If we know $\theta$ then estimate $Z$ is also straightforward. 
+
+**Tricks: Pretend as if we know $Z$ (latent) class**
+
+
+# Step-by-Step Derivation
+
+## 1. Initialization {.smaller}
+
+:::{.columns}
+
+:::{.column width=49%}
+
+**General format**
+
+Choose an initial guess for the parameters
+
+- $\theta^{(0)}$
+- $P(Z|X,\theta^t)$
+
+
+:::
+
+:::{.column width=49%}
+
+**Example**
+
+We initialize with 
+
+- Asian height: $N(160, 5^2)$
+- European height: $N(190, 5^2)$
+- $p(Asian)=0.4$
+- $p(European)=0.6$
+:::
+
+:::
+
+## Implementation Example - Initialization {.smaller}
+
+
+::: {.panel-tabset}
+
+### R
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-line-numbers: "|5,7,9|6,8,10"
+# 1. Observed data
+X <- c(160, 165, 166, 190, 185, 180)
+
+# 2. Initialization
+mu_a <- 160.0; 
+mu_e <- 190.0
+sigma_a <- 5.0
+sigma_e <- 5.0
+p_a <- 0.4
+p_e <- 0.6
+```
+
+### Python
+
+```{.python}
+#| echo: true
+import numpy as np
+from scipy.stats import norm
+
+# 1. Observed data
+X = np.array([160, 165, 166, 190, 185, 180])
+
+# 2. Initialization
+mu_a, mu_e = 160.0, 190.0
+sigma_a, sigma_e = 5.0, 5.0
+p_a, p_e = 0.4, 0.6
+```
+
+:::
+
+
+## 2. The E-Step {.smaller}
+
+:::{.columns}
+
+:::{.column width=49%}
+
+**General format**
+
+Compute the responsibility of the latent variables given the data and current parameters:
+$$
+\small
+\gamma =P(Z | X, \theta^{(t)})
+$$
+
+Then, use this to construct the Q-function (Responsibility X likelihood):
+
+:::{.hide}
+$$
+\small
+\begin{aligned}
+& Q(\theta | \theta^{(t)}) \\ 
+& =  \sum_{Z} \log P(Z | X, \theta^{(t)}) P(X, Z | \theta)
+\end{aligned}
+$$
+:::
+
+:::
+
+:::{.column width=49%}
+
+**Example**
+
+For each person $i$, we calculate the "responsibility" (posterior probability) of being Asian or European:
+
+:::{.hide}
+$$
+\small
+\begin{aligned}
+& \gamma_{i,A} = P(\text{Asian} | x_i, \theta^{(t)}) \\
+& \frac{p(x_i | \text{Asian}) p(\text{Asian})}{p(x_i | \text{Asian}) p(\text{Asian}) + p(x_i | \text{Euro}) p(\text{Euro})}
+\end{aligned}
+$$
+:::
+
+**Tricks**
+
+The likelihood of the observed data is a weighted average of different normal distributions. Calculate likelihood is unnecessary.
+
+:::
+
+:::
+
+## EM Iteration - E step {.smaller}
+
+::: {.panel-tabset}
+
+
+
+### R
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-line-numbers: "|2-3|4-5|6"
+e_step <- function(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e) {
+  prob_x_given_a <- dnorm(X, mu_a, sigma_a)
+  prob_x_given_e <- dnorm(X, mu_e, sigma_e)
+  resp_a <- (prob_x_given_a * p_a) / (prob_x_given_a * p_a + prob_x_given_e * p_e)
+  resp_e <- 1 - resp_a
+  ll <- sum(log(p_a * prob_x_given_a + p_e * prob_x_given_e))
+  return(list(resp_a = resp_a, resp_e = resp_e, ll = ll))
+}
+```
+
+### Python
+
+```{.python}
+#| echo: true
+def e_step(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e):
+    prob_x_given_a = norm.pdf(X, mu_a, sigma_a)
+    prob_x_given_e = norm.pdf(X, mu_e, sigma_e)
+    resp_a = (prob_x_given_a * p_a) / (prob_x_given_a * p_a + prob_x_given_e * p_e)
+    resp_e = 1 - resp_a
+    ll = np.sum(np.log(p_a * prob_x_given_a + p_e * prob_x_given_e))
+    return resp_a, resp_e, ll
+
+```
+:::
+
+
+## 3. The M-Step {.smaller}
+
+:::{.columns}
+
+:::{.column width=49%}
+
+**General format**
+
+Find the new parameters $\theta^{(t+1)}$ that maximize the Q-function:
+$$
+\small
+\theta^{(t+1)} = \operatorname{argmax}_{\theta} Q(\theta | \theta^{(t)})
+$$
+
+:::
+
+:::{.column width=49%}
+
+**Example**
+
+Using the responsibilities $\gamma_{i,A}$ calculated in the E-step, we update the parameters. For example, the mean height for Asians:
+
+:::{.hide}
+$$
+\small
+\begin{aligned}
+& \mu_A^{(t+1)} = \\
+& = \frac{\sum_{i=1}^n \gamma_{i,A} x_i}{\sum_{i=1}^n \gamma_{i,A}}           
+\end{aligned}
+$$  
+:::
+
+Similarly, we update:
+
+1. the variance of each group, and
+2. the mixing proportions $p(Asian)$ and $p(European)$.
+   
+::: 
+
+:::
+## EM Iteration - M step {.smaller}
+
+::: {.panel-tabset}
+
+### R
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-line-numbers: "|2-3|5-6|8-9|11-12"
+m_step <- function(X, resp_a, resp_e) {
+  sum_resp_a <- sum(resp_a)
+  sum_resp_e <- sum(resp_e)
+  
+  mu_a <- sum(resp_a * X) / sum_resp_a
+  mu_e <- sum(resp_e * X) / sum_resp_e
+  
+  sigma_a <- sqrt(sum(resp_a * (X - mu_a)^2) / sum_resp_a)
+  sigma_e <- sqrt(sum(resp_e * (X - mu_e)^2) / sum_resp_e)
+  
+  p_a <- sum_resp_a / length(X)
+  p_e <- 1 - p_a
+  return(list(mu_a=mu_a, sigma_a=sigma_a, p_a=p_a, mu_e=mu_e, sigma_e=sigma_e, p_e=p_e))
+}
+```
+
+
+### Python
+
+```{.python}
+#| echo: true
+def m_step(X, resp_a, resp_e):
+    sum_resp_a = np.sum(resp_a)
+    sum_resp_e = np.sum(resp_e)
+
+    mu_a = np.sum(resp_a * X) / sum_resp_a
+    mu_e = np.sum(resp_e * X) / sum_resp_e
+
+    sigma_a = np.sqrt(np.sum(resp_a * (X - mu_a)**2) / sum_resp_a)
+    sigma_e = np.sqrt(np.sum(resp_e * (X - mu_e)**2) / sum_resp_e)
+
+    p_a = sum_resp_a / len(X)
+    p_e = 1 - p_a
+    return mu_a, sigma_a, p_a, mu_e, sigma_e, p_e
+```
+
+
+:::
+
+## 4. Convergence Check {.smaller}
+
+:::{.columns}
+
+:::{.column width=49%}
+
+**General format**
+
+Repeat steps 2 and 3 until the change in log-likelihood is below a threshold $\epsilon$:
+$$|\ell(\theta^{(t+1)}) - \ell(\theta^{(t)})| < \epsilon$$
+
+Typical choices for $\epsilon$ are $10^{-4}$ to $10^{-6}$.
+
+:::
+
+:::{.column width=49%}
+
+**Example**
+
+Iterate until the parameters $\mu, \sigma, p$ stabilize.
+
+:::
+
+:::
+
+
+## EM Iteration - Convergence {.smaller}
+
+::: {.panel-tabset}
+
+
+
+
+### R
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-line-numbers: "|4|8|4|8"
+log_likelihoods <- c()
+for (iteration in 1:10) {
+  # E-Step
+  results_e <- e_step(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e)
+  log_likelihoods <- c(log_likelihoods, results_e$ll)
+  
+  # M-Step
+  results_m <- m_step(X, results_e$resp_a, results_e$resp_e)
+  
+  # Update parameters
+  mu_a <- results_m$mu_a; sigma_a <- results_m$sigma_a; p_a <- results_m$p_a
+  mu_e <- results_m$mu_e; sigma_e <- results_m$sigma_e; p_e <- results_m$p_e
+}
+
+cat(sprintf("Converged Means: Asian=%.2f, Euro=%.2f\n", mu_a, mu_e))
+cat(sprintf("Converged Mixing: p(Asian)=%.2f\n", p_a))
+cat("Log-Likelihoods: ", round(log_likelihoods, 5), "\n")
+```
+
+### Python
+
+```{.python}
+#| echo: true
+
+log_likelihoods = []
+for iteration in range(10):
+    # E-Step
+    resp_a, resp_e, ll = e_step(X, mu_a, sigma_a, p_a, mu_e, sigma_e, p_e)
+    log_likelihoods.append(ll)
+
+    # M-Step
+    mu_a, sigma_a, p_a, mu_e, sigma_e, p_e = m_step(X, resp_a, resp_e)
+
+print(f"Converged Means: Asian={mu_a:.2f}, Euro={mu_e:.2f}")
+print(f"Converged Mixing: p(Asian)={p_a:.2f}")
+print(f"Log-Likelihoods: {[round(x, 2) for x in log_likelihoods]}")
+```
+
+:::
+
+## Discussion-Assumption of EM {.smaller}
+
+- We assumes that the data is generated from a mixture of distributions, 
+  - Assume the number of components in the mixture
+  - Assume the form of the distribution (e.g., Gaussian, Poisson, etc.)
+- Latent variables are independent given the observed data.
+  
+
+## Discussion-Convergence {.smaller}
+
+- EM is guaranteed to converge to a local maximum of the likelihood function, but **NOT** necessarily the global maximum.
+- The choice of initial parameters can affect the convergence and the final solution,
+- Run EM multiple times with
+  - Different initializations
+  - Domain knowledge guess
+
+## Applicatiions of EM {.smaller}
+
+- **Clustering** In our example we implictly did a Gaussian Mixture Models (GMM)
+  - Other application inckudes MCMC, Hidden Markov, k-means, they are all special cases of EM algorithm
+- **Missing Data Imputation**: EM can be used to estimate parameters and impute missing data points in datasets with incomplete observations.
