@@ -15,7 +15,9 @@ format:
         - general_style.css
     slide-number: true
     reference-location: margin
-    chalkboard: true
+    chalkboard: 
+      theme: whiteboard
+      src: compiled_pdf/chalkboard 11.json
     code-line-numbers: true
 engine: knitr
 lightbox: true
