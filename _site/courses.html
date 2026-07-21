@@ -157,24 +157,24 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><strong>BBMS1021 Introduction to AI and Biomedical Data Science</strong>
 <ul>
-<li><a href="./BBMS1021/ggplot2_intro/introduction_to_ggplot2.html">Introduction to ggplot2</a></li>
+<li><a href="./courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html">Introduction to ggplot2</a></li>
 </ul></li>
 <li><strong>BIOF2014 Statistical Modelling in Bioinformaticss</strong>
 <ul>
-<li><a href="./BIOF2014/Question sets-discrete.html">Real life example</a></li>
+<li><a href="./courses/2025/BIOF2014/Question sets-discrete.html">Real life example</a></li>
 </ul></li>
 <li><strong>BIOF3001 Big Data Biomedical Informatics</strong>
 <ul>
-<li><a href="./BIOF3001/suicide-media-slides.html">Suicide news reporting and natural language processing</a></li>
+<li><a href="./courses/2025/BIOF3001/suicide-media-slides.html">Suicide news reporting and natural language processing</a></li>
 </ul></li>
 <li><strong>BBMS3009 Genome Science</strong>
 <ul>
-<li><a href="./BBMS3009/System biology.html">Enrichment analysis</a></li>
+<li><a href="./courses/2025/BBMS3009/System biology.html">Enrichment analysis</a></li>
 </ul></li>
 <li><strong>BIOF4002 Informatics Applications in Global Health</strong>
 <ul>
-<li><a href="BIOF4002/mHealth and telemedicine.html">Health technologies in the global health context</a></li>
-<li><a href="BIOF4002/Global health informatics.html">Introduction to global health informatics and resources and data visualization</a></li>
+<li><a href="courses/2025/BIOF4002/mHealth and telemedicine.html">Health technologies in the global health context</a></li>
+<li><a href="courses/2025/BIOF4002/Global health informatics.html">Introduction to global health informatics and resources and data visualization</a></li>
 </ul></li>
 </ul>
 
@@ -255,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

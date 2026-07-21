@@ -1,0 +1,176 @@
+
+## Learning objectives
+
+- Define epidemiology
+- Describe basic terminology and concepts of epidemiology
+- Describe epidemiological study designs
+
+## What is epidemiology?
+
+**Definition**
+
+Study of the **distribution** and **determinants** of health-related states among specified **populations** and the application of that study to the control of health problems. 
+
+Some common questions that epidemiologists ask include:
+
+:::{.columns}
+
+:::{.column width="50%"}
+- Who gets sick? 
+- When do they get sick? 
+- Where do they get sick?
+- How do they get sick?
+- Why do they get sick?
+- How can we prevent them from getting sick?
+:::
+
+:::{.column width="50%"}
+
+![Epidemiology](https://s3.amazonaws.com/libapps/accounts/25667/images/epi.png)
+
+:::
+
+
+:::
+
+## Epidemiological tools
+
+Based on these questions we can categorize epidemiological tools into three main types:
+
+- **Descriptive epidemiology**: Describes the distribution of disease in a population by person, place, and time.
+
+- **Analytic epidemiology**: Identifies the determinants of disease by testing hypotheses about the relationship between exposures and outcomes.
+
+- **Experimental epidemiology**: Tests the efficacy of interventions to prevent or treat disease by manipulating the exposure of interest and observing the outcome.
+  
+## Describe a disease 
+
+![JHU COVID-19 dashboard](https://cdn.arstechnica.net/wp-content/uploads/2020/04/Screen-Shot-2020-04-13-at-5.40.40-PM-2048x762.jpeg)
+
+- What kind of disease information can we get? 
+  
+## Getting disease descriptions
+
+- **Case study**
+  - Common tools: Interview with case
+  - Purpose: In depth investigate the disease process and identify potential causes and risk factors.
+- **Cross-sectional study**
+  - Common tools: Survey (one single time)
+  - Purpose: Assess the prevalence of disease and its association with potential risk factors at certain time.
+- **Ecological study**
+  - Common tools: health records, government statisticss
+  - Purpose: **Population level** to assess the trend, association of a disease.
+
+
+## Understand association
+
+- Cohort study 
+  - Common tools: health records, participant recruit (optional)
+  - Perspective: Control on the exposure and test the outcome is developed
+- Case-control study
+  - Common tools: health records
+  - Perspective: Control on the **outcome** and test what exposure is **associated** with the outcome
+
+## Cohort study
+
+**Cohort**
+
+A group of people who share a common characteristic or experience within a defined period of time.
+
+**Idea**
+
+1. Select a group of people (cohort)
+   1. with shared similar characteristics (Age, sex, etc.)
+   2. with different **exposures** (e.g., smoking vs. non-smoking)
+2. Follow them over time to see who develops the disease of interest (e.g., lung cancer).
+
+
+## Restrospective cohort study
+
+Looking back from the history of the cohort to determine exposure status and  outcome.
+
+1. Find out who get exposured and who do not get exposed in the past.
+2. Find out who develops the disease of interest after the exposure.
+
+![Illustration of retrospective cohort study](/assets/images/epi1/retro_edit.png){width=65%}
+
+## Prospective cohort study
+
+Looking back from the history of the cohort to determine exposure status and looking forward to track outcome.
+
+1. Find out who get exposured and who do not get exposed in the past.
+2. Find out who develops the disease of interest after the exposure. (Usually after the study starts)
+
+![Illustration of prospective cohort study](/assets/images/epi1/prospective - edit.png){width=65%}
+
+## Case control study
+
+1. we select a group of people with 
+   - similar characteristics (e.g., age, sex)
+   - with different **disease** (e.g., cancer vs. non-cancer), 
+2. Check what kind of exposure they had before the disease
+
+![Illustration of case-control study](/assets/images/epi1/case-control.png){width=65%}
+
+## Comparison 
+
+| Feature                |            Cohort            | Case-Control                  |
+|------------------------|------------------------------|-------------------------------|
+| Starting Point         | Exposure status              | Disease status (Outcome)      |
+| Direction of Inquiry   | Forward (Exposure → Outcome) | Backward (Outcome → Exposure) |
+| Primary Metric         | Relative Risk (RR)           | Odds Ratio (OR)               |
+| Ideal Use Case         | Rare exposures               | Rare diseases                 |
+| Can measure incidence? | Yes                          | No                            |
+
+
+
+# Experimental epidemiology
+
+
+## Randomized controlled trial (RCT)
+
+**Idea**
+
+1. Select a group of people with similar characteristics (e.g., age, sex) 
+2. Randomly assign them to  **treatment** (e.g., drug) or **control** (e.g.,placebo, reference point), 
+3. Follow-up to see improvement in health outcomes to test the efficacy of the treatment.
+
+![Illustration of RCT](/assets/images/epi1/rct.png){width=65%}
+
+## Evidence level of different tools
+
+::: {.columns}
+
+:::{.column width="50%"}
+
+::: {.incremental}
+1. RCTs
+2. Cohort studies
+3. Case-control Studies
+4. Case study
+:::
+
+:::
+
+:::{.column width="50%"}
+
+- Higher-level evidence in terms of
+  - Ability to establish causality
+  - Higher control for confounding factors 
+  - Less prone to bias 
+- Lower-level evidence 
+  - Cheaper and easier to conduct 
+  - Useful for generating hypotheses and exploring rare diseases 
+  - Less ethical concerns 
+:::
+
+:::
+
+## Wrap-up
+
+- Define epidemiology
+- Describe basic terminology and concepts of epidemiology
+- Describe epidemiological study designs
+
+- What's next?
+  - We are doing code and quantitative analysis for the next class

@@ -188,5 +188,125 @@
   },
   "AILT9015/PCA_ojs.qmd": {
     "PCA_ojs.html": "3166c0a9"
+  },
+  "courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd": {
+    "introduction_to_ggplot2.html": "f341a183"
+  },
+  "courses/2025/BBMS1021/Real_case/Real-example.qmd": {
+    "Real-example.html": "95b4b179"
+  },
+  "courses/2025/BBMS1021/tutorial/tutorial_1.qmd": {
+    "tutorial_1.html": "fc44406c"
+  },
+  "courses/2025/BBMS1021/tutorial/tutorial_2.qmd": {
+    "tutorial_2.html": "a1b2b3f6"
+  },
+  "courses/2025/BBMS1021/tutorial/tutorial_3.qmd": {
+    "tutorial_3.html": "eab8574d"
+  },
+  "courses/2025/BBMS3009/System biology.qmd": {
+    "System biology.html": "9640b0d8"
+  },
+  "courses/2025/BIOF2014/0-Housekeeping.qmd": {
+    "0-Housekeeping.html": "7bb5bbfb"
+  },
+  "courses/2025/BIOF2014/1-distribution-sketch.qmd": {
+    "1-distribution-sketch.html": "f167cf42"
+  },
+  "courses/2025/BIOF2014/1-distribution.qmd": {
+    "1-distribution.html": "75740821"
+  },
+  "courses/2025/BIOF2014/1-Question sets-discrete.qmd": {
+    "1-Question sets-discrete.html": "abc1fafd"
+  },
+  "courses/2025/BIOF2014/2-Discrete distribution family-sketch.qmd": {
+    "2-Discrete distribution family-sketch.html": "bf962fe7"
+  },
+  "courses/2025/BIOF2014/2-Discrete distribution family.qmd": {
+    "2-Discrete distribution family.html": "c4608fe0"
+  },
+  "courses/2025/BIOF2014/2-Question sets-binomial-sketch.qmd": {
+    "2-Question sets-binomial-sketch.html": "1228de24"
+  },
+  "courses/2025/BIOF2014/2-Question sets-binomial.qmd": {
+    "2-Question sets-binomial.html": "21020b55"
+  },
+  "courses/2025/BIOF2014/3-multivariate-sketch.qmd": {
+    "3-multivariate-sketch.html": "e853ee39"
+  },
+  "courses/2025/BIOF2014/3-multivariate.qmd": {
+    "3-multivariate.html": "5bdf4212"
+  },
+  "courses/2025/BIOF2014/3-Question sets-multivariate.qmd": {
+    "3-Question sets-multivariate.html": "4f5ec5fc"
+  },
+  "courses/2025/BIOF2014/4-Discrete distribution family-2-sketch.qmd": {
+    "4-Discrete distribution family-2-sketch.html": "b9526f04"
+  },
+  "courses/2025/BIOF2014/4-Discrete distribution family-2.qmd": {
+    "4-Discrete distribution family-2.html": "2739646e"
+  },
+  "courses/2025/BIOF2014/4-Question sets-multinomial-sketch.qmd": {
+    "4-Question sets-multinomial-sketch.html": "7d387818"
+  },
+  "courses/2025/BIOF2014/4-Question sets-multinomial.qmd": {
+    "4-Question sets-multinomial.html": "fa4f75fc"
+  },
+  "courses/2025/BIOF2014/5-Discrete distribution family-3-sketch.qmd": {
+    "5-Discrete distribution family-3-sketch.html": "8730b2ce"
+  },
+  "courses/2025/BIOF2014/5-Discrete distribution family-3.qmd": {
+    "5-Discrete distribution family-3.html": "bd5a1737"
+  },
+  "courses/2025/BIOF2014/5-Question sets-poisson.qmd": {
+    "5-Question sets-poisson.html": "bbaf29a0"
+  },
+  "courses/2025/BIOF2014/6-Continuous distribution family-sketch.qmd": {
+    "6-Continuous distribution family-sketch.html": "ae0c3a43"
+  },
+  "courses/2025/BIOF2014/6-Continuous distribution family.qmd": {
+    "6-Continuous distribution family.html": "e60d1bb8"
+  },
+  "courses/2025/BIOF2014/6-Question sets-continuous.qmd": {
+    "6-Question sets-continuous.html": "73dbd5e2"
+  },
+  "courses/2025/BIOF2014/7-Model fitting-sketch.qmd": {
+    "7-Model fitting-sketch.html": "a0120178"
+  },
+  "courses/2025/BIOF2014/7-Model fitting.qmd": {
+    "7-Model fitting.html": "744a91cf"
+  },
+  "courses/2025/BIOF2014/7-Question sets-model.qmd": {
+    "7-Question sets-model.html": "3e941fb5"
+  },
+  "courses/2025/BIOF2014/8-EM-sketch.qmd": {
+    "8-EM-sketch.html": "1b35caa9"
+  },
+  "courses/2025/BIOF2014/8-EM.qmd": {
+    "8-EM.html": "790706d2"
+  },
+  "courses/2025/BIOF2014/Question sets-discrete.qmd": {
+    "Question sets-discrete.html": "1f62e612"
+  },
+  "courses/2025/BIOF3001/suicide-media-slides.qmd": {
+    "suicide-media-slides.html": "865e97ef"
+  },
+  "courses/2025/BIOF4002/Global health informatics.qmd": {
+    "Global health informatics.html": "ec289ab1"
+  },
+  "courses/2025/BIOF4002/mHealth and telemedicine.qmd": {
+    "mHealth and telemedicine.html": "53b7f9a6"
+  },
+  "courses/2025/CCAI9007/CCAI-aging clock.qmd": {
+    "CCAI-aging clock.html": "532dfdee"
+  },
+  "courses/2025/CCAI9007/CCAI-health monitoring.qmd": {
+    "CCAI-health monitoring.html": "636d15da"
+  },
+  "courses/2025/CCAI9007/CCAI-workshop.qmd": {
+    "CCAI-workshop.html": "a4fdccbf"
+  },
+  "courses/2026/BBMS1021/intro-to-epi.qmd": {
+    "intro-to-epi.html": "c59fd42f"
   }
 }

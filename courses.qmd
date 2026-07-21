@@ -1,12 +1,133 @@
 ---
-title: "Courses"
+title: "Courses & Teaching Resources"
+subtitle: "Lecture slides, interactive hand-outs, and computational notes"
+page-layout: full
 ---
 
 # Course materials
 
-Below are list of my teaching materials. Feel free to us and modify the contents (with acknowledgment). They are prone to mistakes.   
+Below is a curated list of teaching materials. Feel free to use and modify the contents (with acknowledgment). They are still prone to mistakes.
 
-## Course List
+## Current Term + Archive
+
+以下彙整你的課程講義與互動練習。網站採用「當前重點（Current Term）+ 歷年存檔（Archive）」架構，並用「對象（大學部/碩士班）」作為分類依據，讓訪客能更快定位目標講義。
+
+::: {.callout-note}
+**說明**：目前 `courses.qmd` 會優先顯示 `courses/2026/` 的內容；若某門課尚未有 2026 講義，卡片會自動導向 2025 存檔（避免連結失效）。
+:::
+
+## 🟢 Current Term (2026)
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-body}
+### BBMS1021 Introduction to AI and Biomedical Data Science
+
+**對象**：大學部 | *Current Term: 2026*
+
+* [最新講義（2026 模組）](courses/2026/BBMS1021/intro-to-epi.qmd){.btn .btn-primary .btn-sm}
+* [2025 存檔（Slides）](courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-body}
+### BIOF2014 Statistical Modelling in Bioinformatics
+
+**對象**：大學部 | *Current Term: 2026*
+
+* [最新講義（2025 暫代）](quant.qmd#2014lecture){.btn .btn-primary .btn-sm}
+* [手寫筆記 / Annotated Sketches](quant.qmd#2014sketches){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-body}
+### BIOF3001 Big Data Biomedical Informatics
+
+**對象**：碩士班 | *Current Term: 2026*
+
+* [最新講義（2025 暫代）](courses/2025/BIOF3001/suicide-media-slides.qmd){.btn .btn-primary .btn-sm}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-body}
+### BBMS3009 Genome Science
+
+**對象**：碩士班 | *Current Term: 2026*
+
+* [最新講義（2025 暫代）](courses/2025/BBMS3009/System biology.qmd){.btn .btn-primary .btn-sm}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-body}
+### BIOF4002 Informatics Applications in Global Health
+
+**對象**：碩士班 | *Current Term: 2026*
+
+* [最新講義（2025 暫代）](courses/2025/BIOF4002/Global health informatics.qmd){.btn .btn-primary .btn-sm}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-body}
+### CCAI9007 Hacking Aging: Partnering Human and Artificial Intelligence
+
+**對象**：碩士班 | *Current Term: 2026*
+
+* [最新講義（2025 暫代）](courses/2025/CCAI9007/CCAI-aging clock.qmd){.btn .btn-primary .btn-sm}
+* [Workshop Worksheets](courses/2025/CCAI9007/CCAI-workshop.qmd){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+:::
+
+:::
+
+## 📜 Course Archives（按學年/對象分類）
+
+::: {.panel-tabset}
+
+### 2025 Academic Year
+
+::: {.callout-note}
+**對象標籤**目前使用課程代碼的級距推斷（1xxx/2xxx→大學部；3xxx/4xxx/9xxx→碩士班）。若未來你希望改成「以實際授課年級為準」，只要同步更新文件與本頁即可。
+:::
+
+#### Undergraduate（大學部）
+
+| 課程代碼 | 課程名稱 | 講義/Slides | 手寫筆記/Annotated |
+|---|---|---|---|
+| BBMS1021 | Introduction to AI and Biomedical Data Science | [2025 講義](courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd) | — |
+| BIOF2014 | Statistical Modelling in Bioinformatics | [2025 講義](quant.qmd#2014lecture) | [Annotated Sketches](quant.qmd#2014sketches) |
+
+#### Master / Postgraduate（碩士班）
+
+| 課程代碼 | 課程名稱 | 講義/Slides | 手寫筆記/Annotated |
+|---|---|---|---|
+| BIOF3001 | Big Data Biomedical Informatics | [2025 講義](courses/2025/BIOF3001/suicide-media-slides.qmd) | — |
+| BBMS3009 | Genome Science | [2025 講義](courses/2025/BBMS3009/System biology.qmd) | — |
+| BIOF4002 | Informatics Applications in Global Health | [2025 講義](courses/2025/BIOF4002/Global health informatics.qmd) | — |
+| CCAI9007 | Hacking Aging: Partnering Human and Artificial Intelligence | [2025 講義](courses/2025/CCAI9007/CCAI-aging clock.qmd) | — |
+
+:::
+
+<details>
+<summary><strong>Legacy course list (for reference)</strong></summary>
+
 
 - **BBMS1021 Introduction to AI and Biomedical Data Science**
   - [Introduction to ggplot2](courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd)
@@ -19,3 +140,5 @@ Below are list of my teaching materials. Feel free to us and modify the contents
 - **BIOF4002 Informatics Applications in Global Health**
   - [Health technologies in the global health context](courses/2025/BIOF4002/mHealth and telemedicine.html)
   - [Introduction to global health informatics and resources and data visualization](courses/2025/BIOF4002/Global health informatics.html)
+
+</details>

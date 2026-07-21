@@ -17,6 +17,8 @@ website:
           href: hybridPBL.qmd
         - text: Quantitative analysis
           href: quant.qmd       
+        - text: Course overview (Current Term + Archive)
+          href: courses.qmd
         - text: Scientific computing
           href: programming.qmd
    

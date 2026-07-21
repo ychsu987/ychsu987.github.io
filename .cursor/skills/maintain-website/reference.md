@@ -42,7 +42,20 @@ ychsu987.github.io/
 
 ## Course catalog
 
-### BIOF2014 — Statistical Modelling for Bioinformatics
+### Course code ↔ title mapping (used by `courses.qmd`)
+
+| Course code | Course title (official) | Audience label on website* | Primary hub page |
+|---|---|---|---|
+| BBMS1021 | Introduction to AI and Biomedical Data Science | 大學部 | `programming.qmd` |
+| BIOF4002 | Informatics Applications in Global Health | 碩士班 | `hybridPBL.qmd` |
+| BIOF3001 | Big Data Biomedical Informatics | 碩士班 | `hybridPBL.qmd` |
+| BIOF2014 | Statistical Modelling in Bioinformatics | 大學部 | `quant.qmd` |
+| BBMS3009 | Genome Science | 碩士班 | `quant.qmd` |
+| CCAI9007 | Hacking Aging: Partnering Human and Artificial Intelligence | 碩士班 | `cc.qmd` |
+
+\*The audience label currently follows a simple inference rule based on the course number (1xxx/2xxx→大學部; 3xxx/4xxx/9xxx→碩士班). If you need a different mapping, update both this table and `courses.qmd`.
+
+### BIOF2014 — Statistical Modelling in Bioinformatics
 
 **Hub**: `quant.qmd`
 
@@ -99,7 +112,7 @@ bibliography: ref.bib
 ---
 ```
 
-### BBMS1021 — Intro to AI and Biomedical Data Science
+### BBMS1021 — Introduction to AI and Biomedical Data Science
 
 **Hub**: `programming.qmd`
 
@@ -140,7 +153,7 @@ lightbox: true
 
 - `courses/2025/BIOF3001/suicide-media-slides.qmd` — revealjs, `courses/2025/BIOF3001/style.scss`
 
-### BIOF4002 — Global Health Informatics
+### BIOF4002 — Informatics Applications in Global Health
 
 **Hub**: `hybridPBL.qmd`
 
@@ -148,7 +161,7 @@ lightbox: true
 - `courses/2025/BIOF4002/mHealth and telemedicine.qmd`
 - Assets: `courses/2025/BIOF4002/ghealth.bib`, `courses/2025/BIOF4002/style.scss`
 
-### CCAI9007 — Hacking Aging
+### CCAI9007 — Hacking Aging: Partnering Human and Artificial Intelligence
 
 **Hub**: `cc.qmd`
 
@@ -183,7 +196,7 @@ listing:
 Body placement:
 
 ```markdown
-## BIOF2014 Statistical Modelling for Bioinformatics
+## BIOF2014 Statistical Modelling in Bioinformatics
 
 ### Blank notes
 

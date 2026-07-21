@@ -1,0 +1,20 @@
+---
+title: "Introduction to epidemiology"
+title-slide-attributes:
+    data-background: /assets/images/epi1/background-1.png
+    data-background-size:  35% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+author: Yu Cheng Hsu
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+---
+
+{{< include /_content/modules/bdata/intro-to-epi.qmd >}}
