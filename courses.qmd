@@ -9,13 +9,13 @@ Below are list of my teaching materials. Feel free to us and modify the contents
 ## Course List
 
 - **BBMS1021 Introduction to AI and Biomedical Data Science**
-  - [Introduction to ggplot2](BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd)
+  - [Introduction to ggplot2](courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd)
 - **BIOF2014 Statistical Modelling in Bioinformaticss**
-  - [Real life example](BIOF2014/Question sets-discrete.qmd)
+  - [Real life example](courses/2025/BIOF2014/Question sets-discrete.qmd)
 - **BIOF3001 Big Data Biomedical Informatics**
-  - [Suicide news reporting and natural language processing](BIOF3001/suicide-media-slides.qmd)
+  - [Suicide news reporting and natural language processing](courses/2025/BIOF3001/suicide-media-slides.qmd)
 - **BBMS3009 Genome Science**
-  - [Enrichment analysis](BBMS3009/System biology.qmd) 
+  - [Enrichment analysis](courses/2025/BBMS3009/System biology.qmd) 
 - **BIOF4002 Informatics Applications in Global Health**
-  - [Health technologies in the global health context](BIOF4002/mHealth and telemedicine.html)
-  - [Introduction to global health informatics and resources and data visualization](BIOF4002/Global health informatics.html)
+  - [Health technologies in the global health context](courses/2025/BIOF4002/mHealth and telemedicine.html)
+  - [Introduction to global health informatics and resources and data visualization](courses/2025/BIOF4002/Global health informatics.html)

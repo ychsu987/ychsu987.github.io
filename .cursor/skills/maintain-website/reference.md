@@ -11,15 +11,22 @@ ychsu987.github.io/
 ├── programming.qmd            # Scientific computing hub
 ├── hybridPBL.qmd              # Hybrid PBL hub
 ├── courses.qmd                # Legacy course list (not in navbar)
-├── _extensions/r-wasm/live/     # Quarto Live (webr) extension
-├── _freeze/                   # Frozen execution cache
-│
-├── BIOF2014/                  # Statistical Modelling for Bioinformatics
-├── BBMS1021/                  # Intro to AI and Biomedical Data Science
-├── BBMS3009/                  # Genome Science
-├── BIOF3001/                  # Big Data Biomedical Informatics
-├── BIOF4002/                  # Global Health Informatics
-├── CCAI9007/                  # Hacking Aging (common core)
+├── assets/
+│   ├── css/                   # Shared stylesheets
+│   └── images/                # Shared images (e.g. bio.jpeg)
+├── _content/
+│   └── modules/               # Reusable content modules (future)
+├── courses/
+│   ├── 2025/                  # Current teaching materials
+│   │   ├── BIOF2014/
+│   │   ├── BBMS1021/
+│   │   ├── BBMS3009/
+│   │   ├── BIOF3001/
+│   │   ├── BIOF4002/
+│   │   └── CCAI9007/
+│   └── 2026/                  # Future courses
+├── _extensions/r-wasm/live/   # Quarto Live (webr) extension
+├── _freeze/                   # Frozen execution cache (mirrors course paths)
 └── AILT9015/                  # Static HTML demos (resource only)
 ```
 
@@ -47,7 +54,7 @@ ychsu987.github.io/
 | Tutorials | `N-Question sets-topic.qmd` | html (katex) or revealjs |
 | Tutorial sketches | `N-Question sets-topic-sketch.qmd` | revealjs |
 
-Shared assets: `BIOF2014/img/`, `BIOF2014/ref.bib`, `BIOF2014/general_style.scss`, `BIOF2014/student_view.scss`
+Shared assets: `courses/2025/BIOF2014/img/`, `courses/2025/BIOF2014/ref.bib`, `courses/2025/BIOF2014/general_style.scss`, `courses/2025/BIOF2014/student_view.scss`
 
 Lecture YAML template:
 
@@ -125,21 +132,21 @@ lightbox: true
 
 **Hub**: `quant.qmd` (listing `3009lecture`)
 
-- `BBMS3009/System biology.qmd` — revealjs with `student_view.scss`, chalkboard
+- `courses/2025/BBMS3009/System biology.qmd` — revealjs with `student_view.scss`, chalkboard
 
 ### BIOF3001 — Big Data Biomedical Informatics
 
 **Hub**: `hybridPBL.qmd`
 
-- `BIOF3001/suicide-media-slides.qmd` — revealjs, `BIOF3001/style.scss`
+- `courses/2025/BIOF3001/suicide-media-slides.qmd` — revealjs, `courses/2025/BIOF3001/style.scss`
 
 ### BIOF4002 — Global Health Informatics
 
 **Hub**: `hybridPBL.qmd`
 
-- `BIOF4002/Global health informatics.qmd`
-- `BIOF4002/mHealth and telemedicine.qmd`
-- Assets: `BIOF4002/ghealth.bib`, `BIOF4002/style.scss`
+- `courses/2025/BIOF4002/Global health informatics.qmd`
+- `courses/2025/BIOF4002/mHealth and telemedicine.qmd`
+- Assets: `courses/2025/BIOF4002/ghealth.bib`, `courses/2025/BIOF4002/style.scss`
 
 ### CCAI9007 — Hacking Aging
 
@@ -165,8 +172,8 @@ title: Quantitative analysis
 listing:
   - id: 2014lecture
     contents:
-      - BIOF2014/0-Housekeeping.qmd
-      - BIOF2014/1-distribution.qmd
+      - courses/2025/BIOF2014/0-Housekeeping.qmd
+      - courses/2025/BIOF2014/1-distribution.qmd
     fields: [title, subtitle, image]
     type: default
     sort: false
@@ -203,7 +210,7 @@ Installed at `_extensions/r-wasm/live/`. Provides:
 - `{webr}` knitr engine for in-browser R via WebR
 - Optional `{pyodide}` for Python (templates in extension)
 
-Subfolders (`BBMS1021/tutorial/_extensions/`, etc.) contain local copies. When updating the extension, update the root copy; subfolder copies may lag.
+Subfolders (`courses/2025/BBMS1021/tutorial/_extensions/`, etc.) contain local copies. When updating the extension, update the root copy; subfolder copies may lag.
 
 ### shinylive
 
@@ -240,11 +247,11 @@ img/, data/ ─┘                        copied assets)
 
 | Category | Examples | Count (approx.) |
 |----------|----------|-----------------|
-| Quarto sources | `about.qmd`, `BIOF2014/8-EM.qmd` | ~51 `.qmd` |
+| Quarto sources | `about.qmd`, `courses/2025/BIOF2014/8-EM.qmd` | ~51 `.qmd` |
 | Site config | `_quarto.yml` | 1 |
 | Root extensions | `_extensions/r-wasm/live/` | 1 copy |
-| Frozen execution | `_freeze/BIOF2014/.../execute-results/` | ~251 files |
-| Course assets | `BIOF2014/img/`, `*.bib`, `*.scss`, `data/*.csv` | varies |
+| Frozen execution | `_freeze/courses/2025/BIOF2014/.../execute-results/` | ~251 files |
+| Course assets | `courses/2025/BIOF2014/img/`, `*.bib`, `*.scss`, `data/*.csv` | varies |
 
 ### Exclude from `main` (generated / local)
 
@@ -267,7 +274,7 @@ img/, data/ ─┘                        copied assets)
 
 #### Duplicate extensions (consolidate over time)
 
-Nested copies exist under `BBMS1021/Real_case/_extensions/`, `BBMS1021/tutorial/_extensions/`, `BBMS1021/ggplot2_intro/_extensions/`. They duplicate the root `_extensions/r-wasm/live/`. Only the root copy needs to be maintained; subfolder copies can be deleted once documents render without them.
+Nested copies exist under `courses/2025/BBMS1021/Real_case/_extensions/`, `courses/2025/BBMS1021/tutorial/_extensions/`, `courses/2025/BBMS1021/ggplot2_intro/_extensions/`. They duplicate the root `_extensions/r-wasm/live/`. Only the root copy needs to be maintained; subfolder copies can be deleted once documents render without them.
 
 ### Published on `gh-pages` only
 
@@ -276,7 +283,7 @@ Everything under `_site/` after `quarto render`:
 | Content | Example paths on gh-pages |
 |---------|---------------------------|
 | Hub pages | `about.html`, `quant.html`, `programming.html` |
-| Course pages | `BIOF2014/8-EM.html`, `BBMS1021/tutorial/tutorial_1.html` |
+| Course pages | `courses/2025/BIOF2014/8-EM.html`, `courses/2025/BBMS1021/tutorial/tutorial_1.html` |
 | Site libraries | `site_libs/bootstrap/`, `site_libs/quarto-contrib/live-runtime/` |
 | Search index | `search.json` |
 | Copied static assets | images, CSVs, bib files referenced by pages |

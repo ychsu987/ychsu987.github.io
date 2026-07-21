@@ -3,12 +3,12 @@ title: Scientific computing
 listing:
     - id: lecture
       contents: 
-        - BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd
-        - BBMS1021/Real_case/Real-example.qmd
+        - courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.qmd
+        - courses/2025/BBMS1021/Real_case/Real-example.qmd
       fields: [title]
     - id: tutorial
       contents: 
-        - BBMS1021/tutorial/*.qmd
+        - courses/2025/BBMS1021/tutorial/*.qmd
       fields: [title]
     - id: ai-lecture
       contents: 

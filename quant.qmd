@@ -3,53 +3,53 @@ title: Quantitative analysis
 listing:
     - id: 3009lecture
       contents: 
-        - BBMS3009/System biology.qmd
+        - courses/2025/BBMS3009/System biology.qmd
       fields: [title, image]
       type: default
       sort: false
     - id: 2014lecture
       contents: 
-        - BIOF2014/0-Housekeeping.qmd
-        - BIOF2014/1-distribution.qmd
-        - BIOF2014/2-Discrete distribution family.qmd
-        - BIOF2014/3-multivariate.qmd
-        - BIOF2014/4-Discrete distribution family-2.qmd
-        - BIOF2014/5-Discrete distribution family-3.qmd
-        - BIOF2014/6-Continuous distribution family.qmd
-        - BIOF2014/7-Model fitting.qmd
-        - BIOF2014/8-EM.qmd
+        - courses/2025/BIOF2014/0-Housekeeping.qmd
+        - courses/2025/BIOF2014/1-distribution.qmd
+        - courses/2025/BIOF2014/2-Discrete distribution family.qmd
+        - courses/2025/BIOF2014/3-multivariate.qmd
+        - courses/2025/BIOF2014/4-Discrete distribution family-2.qmd
+        - courses/2025/BIOF2014/5-Discrete distribution family-3.qmd
+        - courses/2025/BIOF2014/6-Continuous distribution family.qmd
+        - courses/2025/BIOF2014/7-Model fitting.qmd
+        - courses/2025/BIOF2014/8-EM.qmd
       fields: [title, subtitle, image]
       type: default
       sort: false
     - id: 2014sketches 
       contents: 
-        - BIOF2014/1-distribution-sketch.qmd
-        - BIOF2014/2-Discrete distribution family-sketch.qmd
-        - BIOF2014/3-multivariate-sketch.qmd
-        - BIOF2014/4-Discrete distribution family-2-sketch.qmd
-        - BIOF2014/5-Discrete distribution family-3-sketch.qmd
-        - BIOF2014/6-Continuous distribution family-sketch.qmd
-        - BIOF2014/7-Model fitting-sketch.qmd
-        - BIOF2014/8-EM-sketch.qmd
+        - courses/2025/BIOF2014/1-distribution-sketch.qmd
+        - courses/2025/BIOF2014/2-Discrete distribution family-sketch.qmd
+        - courses/2025/BIOF2014/3-multivariate-sketch.qmd
+        - courses/2025/BIOF2014/4-Discrete distribution family-2-sketch.qmd
+        - courses/2025/BIOF2014/5-Discrete distribution family-3-sketch.qmd
+        - courses/2025/BIOF2014/6-Continuous distribution family-sketch.qmd
+        - courses/2025/BIOF2014/7-Model fitting-sketch.qmd
+        - courses/2025/BIOF2014/8-EM-sketch.qmd
       fields: [title, subtitle, image]
       type: default
       sort: false
     - id: 2014tutorial
       contents: 
-        - BIOF2014/1-Question sets-discrete.qmd
-        - BIOF2014/2-Question sets-binomial.qmd
-        - BIOF2014/3-Question sets-multivariate.qmd
-        - BIOF2014/4-Question sets-multinomial.qmd
-        - BIOF2014/5-Question sets-poisson.qmd
-        - BIOF2014/6-Question sets-continuous.qmd
-        - BIOF2014/7-Question sets-model.qmd
+        - courses/2025/BIOF2014/1-Question sets-discrete.qmd
+        - courses/2025/BIOF2014/2-Question sets-binomial.qmd
+        - courses/2025/BIOF2014/3-Question sets-multivariate.qmd
+        - courses/2025/BIOF2014/4-Question sets-multinomial.qmd
+        - courses/2025/BIOF2014/5-Question sets-poisson.qmd
+        - courses/2025/BIOF2014/6-Question sets-continuous.qmd
+        - courses/2025/BIOF2014/7-Question sets-model.qmd
       fields: [title]
       type: default
       sort: false
     - id: 2014sketches-tutorial
       contents: 
-        - BIOF2014/2-Question sets-binomial-sketch.qmd
-        - BIOF2014/4-Question sets-multinomial-sketch.qmd
+        - courses/2025/BIOF2014/2-Question sets-binomial-sketch.qmd
+        - courses/2025/BIOF2014/4-Question sets-multinomial-sketch.qmd
       fields: [title]
       type: default
       sort: false

@@ -3,14 +3,14 @@ title: Common core courses
 listing:
     - id: 9007lecture
       contents: 
-        - CCAI9007/CCAI-aging clock.qmd
-        - CCAI9007/CCAI-health monitoring.qmd
+        - courses/2025/CCAI9007/CCAI-aging clock.qmd
+        - courses/2025/CCAI9007/CCAI-health monitoring.qmd
       fields: [title, image]
       type: default
       sort: false
     - id: 9007workshop
       contents: 
-        - CCAI9007/CCAI-workshop.qmd
+        - courses/2025/CCAI9007/CCAI-workshop.qmd
       fields: [title, image]
       type: default
       sort: false

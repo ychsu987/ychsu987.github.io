@@ -19,7 +19,9 @@ Live site: https://ychsu987.github.io
 |-------|----------|------|
 | Site config | `_quarto.yml` | Navbar, theme, freeze, resources |
 | Hub pages | `about.qmd`, `cc.qmd`, `quant.qmd`, `programming.qmd`, `hybridPBL.qmd` | Course index pages with listings |
-| Course content | `{COURSE_CODE}/` folders | Lectures, tutorials, assets |
+| Course content | `courses/{YEAR}/{COURSE_CODE}/` | Lectures, tutorials, assets |
+| Shared assets | `assets/css/`, `assets/images/` | Site-wide styles and images |
+| Content modules | `_content/modules/` | Reusable content blocks (future) |
 | Extensions | `_extensions/` | Quarto Live (`r-wasm/live`) for in-browser R |
 | Frozen output | `_freeze/` | Cached execution results (`freeze: auto`) |
 | Build output | `_site/` | Rendered site (gitignored) |
@@ -39,7 +41,7 @@ For the full course catalog and per-format templates, see [reference.md](referen
 
 ### Add a new lecture slide (revealjs)
 
-1. Create `COURSE/filename.qmd` next to sibling lectures.
+1. Create `courses/{YEAR}/COURSE/filename.qmd` next to sibling lectures.
 2. Use the course's revealjs YAML pattern (theme, chalkboard, title-slide background).
 3. Put images in the course's `img/` folder; use relative paths.
 4. Add the file to the hub page `listing.contents` in the correct order.
@@ -78,7 +80,7 @@ Place the listing on the page with a div: `::: {#my-list}`
 
 ### Add a new course section
 
-1. Create a course folder (e.g. `NEWT101/`) with `img/` for assets.
+1. Create a course folder under `courses/{YEAR}/` (e.g. `courses/2026/NEWT101/`) with `img/` for assets.
 2. Create or extend a hub page with listings.
 3. Add a navbar entry in `_quarto.yml` if it needs a top-level menu item.
 4. If the course has static assets outside Quarto render paths, add the folder under `project.resources` in `_quarto.yml`.
@@ -121,9 +123,10 @@ Commit `_freeze/` changes when execution output legitimately changed.
 
 | File | Purpose |
 |------|---------|
-| `BIOF2014/general_style.scss` | Title slide layout, shared revealjs rules |
-| `BIOF2014/student_view.scss` / `.css` | Hide solution blocks (`.hide { visibility: hidden }`) |
-| Per-course `style.scss` | Course-specific overrides (e.g. `BIOF3001/`, `BIOF4002/`) |
+| `courses/2025/BIOF2014/general_style.scss` | Title slide layout, shared revealjs rules |
+| `courses/2025/BIOF2014/student_view.scss` / `.css` | Hide solution blocks (`.hide { visibility: hidden }`) |
+| Per-course `style.scss` | Course-specific overrides (e.g. `courses/2025/BIOF3001/`) |
+| `assets/images/` | Site-wide images (e.g. about page photo) |
 
 - Use `:::{.hide}` to wrap answers/solutions students should not see on blank lecture slides.
 - Use `:::{.smaller}` on slides for dense content.

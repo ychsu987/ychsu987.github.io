@@ -3,9 +3,9 @@ title: Hybrid PBL Lectures
 listing:
     - id: lecture
       contents: 
-        - BIOF3001/suicide-media-slides.qmd
-        - BIOF4002/Global health informatics.qmd
-        - BIOF4002/mHealth and telemedicine.qmd
+        - courses/2025/BIOF3001/suicide-media-slides.qmd
+        - courses/2025/BIOF4002/Global health informatics.qmd
+        - courses/2025/BIOF4002/mHealth and telemedicine.qmd
       fields: [title]
 ---
 

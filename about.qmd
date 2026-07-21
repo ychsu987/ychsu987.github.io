@@ -4,7 +4,7 @@ title: "Yu Cheng Hsu"
 about:
     id: headingtop
     template: trestles
-    image: img/bio.jpeg
+    image: assets/images/bio.jpeg
     image-width: 15em
     links:
     - icon: envelope
