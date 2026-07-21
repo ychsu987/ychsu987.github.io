@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - "AILT9015/"
 website:
   title: "Yu Cheng Hsu"
   navbar:

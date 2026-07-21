@@ -125,6 +125,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-ai-lecture .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-filename","listing-file-modified"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-ai-lecture'] = new List('listing-ai-lecture', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -244,7 +272,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="lecture-materials">Lecture materials</h3>
 <div id="listing-lecture" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1774972800000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2237">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1782144000000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2237">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">Introduction to ggplot2</a>
@@ -305,6 +333,28 @@ window.Quarto = {
 </div>
 <div class="metadata">
 <a href="./BBMS1021/tutorial/tutorial_3.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+</section>
+<section id="ailt9015" class="level2">
+<h2 class="anchored" data-anchor-id="ailt9015">AILT9015</h2>
+<section id="class-demonstrations" class="level3">
+<h3 class="anchored" data-anchor-id="class-demonstrations">Class demonstrations</h3>
+<div id="listing-ai-lecture" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1782192802178">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./AILT9015\index.html" class="no-external"></a>
+</h3>
+</div>
+<div class="metadata">
+<a href="./AILT9015\index.html" class="no-external">
 </a>
 </div>
 </div>
@@ -390,7 +440,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

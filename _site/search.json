@@ -703,8 +703,8 @@
     "objectID": "BIOF2014/8-EM.html#intended-learning-outcomes",
     "href": "BIOF2014/8-EM.html#intended-learning-outcomes",
     "title": "Parametric Estimation",
-    "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nUnderstand the conceptual framework of latent variables and missing data.\nExplain the mathematical objective of the Expectation-Maximization (EM) algorithm.\nStep through the E-step and M-step to update parameter estimates.\nImplement a basic EM algorithm for a Gaussian Mixture Model in Python/R."
+    "section": "",
+    "text": "Understand the conceptual framework of latent variables and missing data.\nExplain the mathematical objective of the Expectation-Maximization (EM) algorithm.\nStep through the E-step and M-step to update parameter estimates.\nImplement a basic EM algorithm for a Gaussian Mixture Model in Python/R."
   },
   {
     "objectID": "BIOF2014/8-EM.html#estimating-distribution-parameters-from-data",
@@ -5052,5 +5052,68 @@
     "title": "Scientific computing",
     "section": "BBMS1021 Introduction to AI and Biomedical Data Science",
     "text": "BBMS1021 Introduction to AI and Biomedical Data Science\n\nLecture materials\n\n\n\n\n\nIntroduction to ggplot2\n\n\n\n\n\n\n\n\n\n\nReal Example of Data Processing and Exploratory Data Analysis with R\n\n\n\n\n\n\n\n\nNo matching items\n\nThe tutorial questions cover basic R programming techniques and data manipulation.\n\n\nTutorial materials\n\n\n\n\n\nTutorial 1\n\n\n\n\n\n\n\n\n\n\nTutorial 2\n\n\n\n\n\n\n\n\n\n\nTutorial 3\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "programming.html#ailt9015",
+    "href": "programming.html#ailt9015",
+    "title": "Scientific computing",
+    "section": "AILT9015",
+    "text": "AILT9015\n\nClass demonstrations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "AILT9015/PCA.html#column",
+    "href": "AILT9015/PCA.html#column",
+    "title": "PCA & Batch Effect Explorer",
+    "section": "Column",
+    "text": "Column"
+  },
+  {
+    "objectID": "BIOF2014/8-EM.html",
+    "href": "BIOF2014/8-EM.html",
+    "title": "Parametric Estimation",
+    "section": "",
+    "text": "Understand the conceptual framework of latent variables and missing data.\nExplain the mathematical objective of the Expectation-Maximization (EM) algorithm.\nStep through the E-step and M-step to update parameter estimates.\nImplement a basic EM algorithm for a Gaussian Mixture Model in Python/R."
+  },
+  {
+    "objectID": "AILT9015/PCA.html",
+    "href": "AILT9015/PCA.html",
+    "title": "PCA & Batch Effect Explorer",
+    "section": "",
+    "text": ":::"
+  },
+  {
+    "objectID": "AILT9015/PCA_ojs.html",
+    "href": "AILT9015/PCA_ojs.html",
+    "title": "PCA & Batch Effect Explorer",
+    "section": "",
+    "text": "//| panel: sidebar\nviewof selectedScenario = Inputs.radio(\n  new Map([\n    [\"Normal (Clean Data)\", \"normal\"],\n    [\"Batch Effect (Large Technical Var)\", \"batch_effect\"],\n    [\"Selection Bias (Confounded)\", \"selection_bias\"]\n  ]), \n  { label: \"Select Scenario:\", value: \"batch_effect\" }\n)\n\nviewof colorBy = Inputs.select(\n  [\"Condition\", \"Batch\"], \n  { label: \"Color points by:\", value: \"Condition\" }\n)\n:::"
+  },
+  {
+    "objectID": "AILT9015/PCA_ojs.html#markdown",
+    "href": "AILT9015/PCA_ojs.html#markdown",
+    "title": "PCA & Batch Effect Explorer (OJS)",
+    "section": "",
+    "text": "title: “PCA & Batch Effect Explorer (OJS)” author: “Biomedical Data Science” format: html echo: false —\n\n// Import third-party PCA library via jsDelivr CDN\nPCA = {\n  const ML = await require(\"ml-pca@4.0.0\");\n  return ML.PCA;\n}\n\n\n\n\n\n\n\n\n\nviewof scenario = Inputs.radio(\n  new Map([\n    [\"Normal (Clean Data)\", \"normal\"],\n    [\"Batch Effect (Large Technical Variation)\", \"batch_effect\"],\n    [\"Selection Bias (Confounded Condition & Batch)\", \"selection_bias\"]\n  ]), \n  { label: \"Select Scenario:\", value: \"batch_effect\" }\n)\n\n// Data Source Selector Input\nviewof data_source = Inputs.radio(\n  new Map([\n    [\"Built-in Scenario\", \"builtin\"],\n    [\"Upload Custom Dataset\", \"upload\"]\n  ]), \n  { label: \"Data Source:\", value: \"builtin\" }\n)\n\n// Conditional panel for file upload\nhtml`${data_source === \"upload\" ? viewof user_file : \"\"}`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhtml`${data_source === \"upload\" ? viewof cond_col : \"\"}`\n\n\n\n\n\n\n\nhtml`${data_source === \"upload\" ? viewof batch_col : \"\"}`\n\n\n\n\n\n\n\n\n\n\n\n// Dynamic display of the chart based on column selection\nPlot.plot({\n  grid: true,\n  width: 650,\n  height: 500,\n  style: { fontSize: \"14px\" },\n  color: {\n    legend: true,\n    label: current_cond_col\n  },\n  shape: {\n    legend: current_batch_col !== \"None\",\n    label: current_batch_col\n  },\n  marks: [\n    Plot.dot(pca_result.data, {\n      x: \"PC1\",\n      y: \"PC2\",\n      fill: current_cond_col,\n      symbol: current_batch_col !== \"None\" ? current_batch_col : undefined,\n      r: 6,\n      opacity: 0.85\n    })\n  ],\n  x: { label: `PC1 (${pca_result.varExplained[0]}% Variance)` },\n  y: { label: `PC2 (${pca_result.varExplained[1]}% Variance)` }\n})\n\n\n\n\n\n\n\n\n\nviewof user_file = Inputs.file({label: \"Upload Custom Dataset (CSV)\", accept: \".csv\", required: true})\n\nuploaded_data = user_file ? user_file.csv({typed: true}) : []\n\n// Infer categorical columns from custom uploaded file\ncategorical_choices = {\n  if (!uploaded_data.length) return [];\n  const sample = uploaded_data[0];\n  return Object.keys(sample).filter(key =&gt; typeof sample[key] === \"string\");\n}\n\nviewof cond_col = Inputs.select(categorical_choices, {\n  label: \"Select Biological Condition:\", \n  value: categorical_choices.includes(\"Condition\") ? \"Condition\" : categorical_choices[0]\n})\n\nviewof batch_col = Inputs.select([\"None\", ...categorical_choices], {\n  label: \"Select Processing Batch:\", \n  value: categorical_choices.includes(\"Batch\") ? \"Batch\" : \"None\"\n})\n\ncurrent_cond_col = data_source === \"builtin\" ? \"Condition\" : cond_col\ncurrent_batch_col = data_source === \"builtin\" ? \"Batch\" : batch_col\n\n// Synthetic Data Generator (Replicating the R script logic)\nfunction generate_scenario_data(mode) {\n  const n_samples = 100;\n  const n_genes = 50;\n  let data = [];\n  \n  // Normal Distribution Box-Muller transform\n  function randn() {\n    let u = 0, v = 0;\n    while(u === 0) u = Math.random(); \n    while(v === 0) v = Math.random();\n    return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);\n  }\n\n  for (let i = 0; i &lt; n_samples; i++) {\n    let row = {\n      SampleID: `S${i+1}`,\n      Condition: i &lt; n_samples / 2 ? \"Healthy\" : \"Disease\",\n      Batch: i % 2 === 0 ? \"Batch A\" : \"Batch B\"\n    };\n\n    if (mode === \"selection_bias\") {\n      if (row.Condition === \"Disease\") {\n        row.Batch = Math.random() &lt; 0.8 ? \"Batch B\" : \"Batch A\";\n      } else {\n        row.Batch = Math.random() &lt; 0.8 ? \"Batch A\" : \"Batch B\";\n      }\n    }\n\n    // Baseline expressions\n    for (let g = 1; g &lt;= n_genes; g++) {\n      row[`Gene_${g}`] = randn() * 2 + 10;\n    }\n\n    // Inject variance conditions mimicking original script\n    if (mode === \"normal\") {\n      if (row.Condition === \"Healthy\") {\n        for(let g=1; g&lt;=5; g++) row[`Gene_${g}`] += 3;\n      }\n      if (row.Batch === \"Batch B\") {\n        for(let g=6; g&lt;=10; g++) row[`Gene_${g}`] += 0.5;\n      }\n    } else if (mode === \"batch_effect\") {\n      if (row.Condition === \"Healthy\") {\n        for(let g=1; g&lt;=5; g++) row[`Gene_${g}`] += 2;\n      }\n      if (row.Batch === \"Batch B\") {\n        for(let g=6; g&lt;=25; g++) row[`Gene_${g}`] += 8; // Large technical noise\n      }\n    } else if (mode === \"selection_bias\") {\n      if (row.Condition === \"Disease\") {\n        for(let g=1; g&lt;=5; g++) row[`Gene_${g}`] += 2.5;\n      }\n      if (row.Batch === \"Batch B\") {\n        for(let g=6; g&lt;=15; g++) row[`Gene_${g}`] += 3;\n      }\n    }\n    data.push(row);\n  }\n  return data;\n}\n\n// Core Application Pipeline: Reactive Data Pipeline & Math Execution\nactive_dataset = data_source === \"builtin\" ? generate_scenario_data(scenario) : uploaded_data\n\npca_result = {\n  if (!active_dataset || !active_dataset.length) return { data: [], varExplained: [0,0] };\n  \n  // Extract all numeric feature names\n  const keys = Object.keys(active_dataset[0]);\n  const num_keys = keys.filter(k =&gt; typeof active_dataset[0][k] === \"number\");\n  \n  // Convert dataset format to a numeric 2D Matrix Array\n  let matrix = active_dataset.map(row =&gt; num_keys.map(k =&gt; row[k]));\n  \n  // Column-wise Standardizing: Center (mean=0) and Scale (sd=1)\n  const numRows = matrix.length;\n  const numCols = matrix[0].length;\n  \n  let cleaned_matrix = [];\n  let valid_indices = [];\n\n  // Drop non-variance columns to prevent structural matrix breakdown\n  for(let j=0; j&lt;numCols; j++) {\n    let sum = 0;\n    for(let i=0; i&lt;numRows; i++) sum += matrix[i][j];\n    let mean = sum / numRows;\n    \n    let vSum = 0;\n    for(let i=0; i&lt;numRows; i++) vSum += Math.pow(matrix[i][j] - mean, 2);\n    let variance = vSum / (numRows - 1);\n    let sd = Math.sqrt(variance);\n    \n    if(variance !== 0) {\n      valid_indices.push({colIndex: j, mean: mean, sd: sd});\n    }\n  }\n\n  // Construct working matrix\n  for(let i=0; i&lt;numRows; i++) {\n    let scaledRow = [];\n    valid_indices.forEach(info =&gt; {\n      scaledRow.push((matrix[i][info.colIndex] - info.mean) / info.sd);\n    });\n    cleaned_matrix.push(scaledRow);\n  }\n\n  // Run SVD/PCA through JavaScript library instance\n  const pca = new PCA(cleaned_matrix, { center: false, scale: false });\n  const pctExplained = pca.getExplainedVariance().map(v =&gt; (v * 100).toFixed(1));\n  const projections = pca.predict(cleaned_matrix).to2DArray();\n\n  // Combine calculated metrics back into visual array structure\n  const processedData = active_dataset.map((row, idx) =&gt; ({\n    ...row,\n    PC1: projections[idx][0],\n    PC2: projections[idx][1]\n  }));\n\n  return {\n    data: processedData,\n    varExplained: pctExplained\n  };\n}"
+  },
+  {
+    "objectID": "AILT9015/PCA_ojs.html#section",
+    "href": "AILT9015/PCA_ojs.html#section",
+    "title": "PCA & Batch Effect Explorer",
+    "section": "",
+    "text": "//| panel: sidebar\nviewof selectedScenario = Inputs.radio(\n  new Map([\n    [\"Normal (Clean Data)\", \"normal\"],\n    [\"Batch Effect (Large Technical Var)\", \"batch_effect\"],\n    [\"Selection Bias (Confounded)\", \"selection_bias\"]\n  ]), \n  { label: \"Select Scenario:\", value: \"batch_effect\" }\n)\n\nviewof colorBy = Inputs.select(\n  [\"Condition\", \"Batch\"], \n  { label: \"Color points by:\", value: \"Condition\" }\n)\n:::"
+  },
+  {
+    "objectID": "AILT9015/PCA_ojs.html#column",
+    "href": "AILT9015/PCA_ojs.html#column",
+    "title": "PCA & Batch Effect Explorer",
+    "section": "Column",
+    "text": "Column"
+  },
+  {
+    "objectID": "AILT9015/PCA_ojs.html#row",
+    "href": "AILT9015/PCA_ojs.html#row",
+    "title": "PCA & Batch Effect Explorer",
+    "section": "Row",
+    "text": "Row\n\ndata = transpose(combined_data)\n\n// Filter data on the client side based on the sidebar selection\nfilteredData = data.filter(d =&gt; d.Scenario === selectedScenario)\n\n// Get variance labels dynamically from the filtered rows\npc1_label = filteredData[0] ? filteredData[0].PC1_var : \"\"\npc2_label = filteredData[0] ? filteredData[0].PC2_var : \"\"\n\n// Render the interactive plot using Observable Plot\nPlot.plot({\n  grid: true,\n  x: { label: `PC1 (${pc1_label}% Variance)` },\n  y: { label: `PC2 (${pc2_label}% Variance)` },\n  color: { legend: true },\n  marks: [\n    Plot.dot(filteredData, {\n      x: \"PC1\",\n      y: \"PC2\",\n      fill: colorBy,\n      stroke: \"white\",\n      r: 6,\n      channels: { Sample: \"SampleID\", Batch: \"Batch\", Condition: \"Condition\" },\n      tip: true // Built-in client-side interactive tooltips!\n    })\n  ]\n})"
   }
 ]

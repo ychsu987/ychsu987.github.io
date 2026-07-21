@@ -10,6 +10,10 @@ listing:
       contents: 
         - BBMS1021/tutorial/*.qmd
       fields: [title]
+    - id: ai-lecture
+      contents: 
+        - AILT9015/index.html
+      fields: [title]
 ---
 
 I teach several fundamental computing modules
@@ -27,3 +31,10 @@ The tutorial questions cover basic R programming techniques and data manipulatio
 
 ::: {#tutorial}
 :::
+
+## AILT9015 
+### Class demonstrations
+
+::: {#ai-lecture}
+:::
+
