@@ -1,0 +1,335 @@
+## Introduction to ggplot2
+
+**About `ggplot2`**
+
+- Visualization library in R for creating elegant and complex visualizations. 
+- `ggplot2` is part of the tidyverse collection of R packages.
+- Developed by Hadley Wickham [@wickham2010layered]. He received the COPSS Presidents' Award for his contributions to the tidyverse collection.
+- Flexible and intuitive once you understand its core concepts.
+
+```{r}
+#| echo: true
+#| eval: true
+library(ggplot2)
+```
+
+
+## About the data
+
+`iris` is a dataset introduced by Ronald Fisher in 1936 collect the iris flower morphology measurements from 3 species 
+
+:::{.columns}
+
+:::{.column}  
+
+- `Setosa`, 
+- `Versicolor` 
+- `Virginica` 
+
+it measures the length and width of iris's sepal and petal
+ 
+
+```{r}
+#| echo: true
+#| eval: true
+data(iris)
+head(iris)
+```
+
+:::
+
+:::{.column}
+![Iris flower](/assets/images/ggplot2/iris.jpg){width=55%}
+:::
+:::
+## `ggplot2` example
+
+- What are the elements in a graph ?
+
+```{r}
+#| echo: false
+#| eval: true
+ggplot(data=iris, mapping = aes(x = Sepal.Length, y = Petal.Width, colour = Species))+
+geom_point()+
+  labs(colour = "Species")
+
+```
+
+## Components in the graph
+
+![Common components of a figure, figure from @ggplot2](/assets/images/ggplot2/fig_element.png){.lightbox}
+
+
+## Choosing the Visualization
+
+:::{.columns}
+
+:::{.column width=50%}
+
+Thinking process and decision flowchart will help you determine which type of graph to use (at least within the scope of this course):
+
+1. What is the purpose of displaying the graph?
+2. What types of data are you going to present?
+
+:::
+
+:::{.column width=48%}
+
+
+```{mermaid}
+flowchart LR
+  A{Data type} -->|Continuous| B{Purpose}
+  A{Data type}  -->|Discrete| C{Purpose}
+
+  B{Purpose}-->|Exploration| D((Histogram/Boxpot))
+  B{Purpose} -->|Association| E((Scatter plot))
+  B{Purpose} -->|Association+time| T((Line plot))
+
+  C{Purpose}-->|Exploration| F((Bar chart))
+  C{Purpose} -->|Association| G((Tree map))
+```
+
+:::
+
+:::
+
+## Overview of ggplot2 logics
+
+:::{.columns}
+
+:::{.column}
+
+`ggplot2` desgined as you are plotting by hands, so the process will looks like
+
+1. Defining coordinate systems
+2. Plotting dots, lines, bars, and etc.
+3. Adding legend and axis informations
+
+:::
+
+:::{.column}
+
+![Layer features of ggplot2](/assets/images/ggplot2/layer.png)
+
+:::
+
+:::
+
+## Layer 1: Coordinate system
+
+:::{.columns}
+
+:::{.column width=40%}
+First, we define the coordinate system for our `iris` data in R
+
+The function is `ggplot()`, which takes two arguments ^[Actually, you can provide them in the later stage instead of here]
+
+- `data`: The data you are going to use
+- `mapping`: Should be wrapped in `aes()` specifying how each column maps to the coordinate. 
+  
+:::
+
+:::{.column width=57%}
+
+```{r}
+#| echo: true
+#| eval: true
+#| label: fig-1
+#| fig-cap: "Showing coordinate systems in ggplot2"
+#| message: false
+
+# Initialize a ggplot object with 
+# data and aesthetic mappings
+p <- ggplot(data=iris, 
+  mapping = aes(x = Sepal.Length))
+p  # Display the base plot (no layers added yet)
+
+# Alternative 
+# p <- ggplot(iris, aes(Sepal.Length))
+# p
+```
+:::
+
+:::
+
+::: .aside
+
+:::
+
+## Layer 2: Plotting data
+
+::: {.columns}
+
+:::{.column}
+
+The general format for plotting items will be 
+
+`geom_XXX(mapping=aes())`
+
+In `aes()`, you can map anything to the figure, common terms could be 
+
+- `x`
+- `y`
+- `color`, or `colour`
+- `fill`, `shape`, etc.
+:::
+
+
+:::{.column}
+These functions are named in the format `geom_XXXX`:
+
+|                 |  Function name  | 
+|-----------------|-----------------|
+|    Histogram    | `geom_histogram()`   |
+|    Box chart    | `geom_boxplot()`|
+|    Bar chart    | `geom_bar()`    |
+|  Scatter chart  | `geom_point()`|
+|   Line chart    | `geom_line()`   |
+:::
+
+
+:::
+
+
+## Layer 2: Example
+
+:::{.columns}
+::: {.column}
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-cap: Scatter plot for Sepal length and Pedal width
+p+geom_point(aes(y = Petal.Width, color=Species))
+```
+:::
+
+:::{.column}
+```{r}
+#| echo: true
+#| eval: true
+#| fig-cap: Box plot for Sepal length
+p+geom_boxplot()
+```
+:::
+
+:::
+
+- `+` operator to stack on the original `ggplot()`
+- Adding additional mapping in the `geom_XXX()`
+- Overwriting mapping in the `ggplot()`
+
+## More examples
+
+
+:::{.columns}
+::: {.column}
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-cap: Histogram for Petal length
+ggplot(data=iris)+
+  geom_histogram(aes(x=Petal.Length, color=Species))
+```
+:::
+
+
+:::{.column}
+```{r}
+#| echo: true
+#| eval: true
+#| fig-cap: Histogram for Petal length
+ggplot(data=iris)+
+  geom_bar(aes(x=Species,fill=Species))
+```
+
+:::
+
+:::
+
+**Some notes** ^[If you find the figure behave not as expected. The best choice is alwayslook up on the documentation, or ask AI.]: `color` affects the border color (dots/lines), `fill` affects the rectangle color
+  
+
+::: .aside
+:::
+
+## Layer 3: Legends and axis
+
+
+Scales are functions indicate how each variable behave and presents on the graph. The function usually in the format `scale_(AES)_(datatype)`:
+
+|                 |         Discrete           |        Continuous        |
+|-----------------|----------------------------|--------------------------|
+|    X            |    `scale_x_discrete()`    |  `scale_x_continuous()`  |
+|    Y            |    `scale_y_discrete()`    |  `scale_y_continuous()`  |
+|  color          | `scale_color_discrete()`   | `scale_color_continuous()` |
+
+:::{.columns}
+
+:::{.column}
+
+Most of time you only need to handle the presentation in 
+![Elements in the scale](img/fig_element.png)
+
+:::
+
+:::{.column}
+
+| Argument name	  |     Axis     |   Legend  |
+|-----------------|--------------|-----------|
+| name            |     Label    |   Title   |
+| breaks          |     Ticks    |    Key    |
+| labels          |  Tick label  | Key Label |
+
+:::
+
+:::
+
+## Example
+
+```{r}
+#| echo: true
+#| eval: true
+#| label: fig-5
+#| fig-cap: "Scatter plot of MPG vs cylinders with customized axis and legend labels."
+#| message: false
+# Create a scatter plot with customized axis and color legend labels
+   p +
+  geom_point(aes(y = Petal.Width, color=Species)) +  # Add points layer for data representation
+  scale_x_continuous(name="Sepal Length") +  # Customize x-axis label
+  scale_y_continuous(name="Petal Width") + # Customize y-axis label
+  scale_colour_discrete(name="Species name")  # Customize color legend title
+
+```
+
+## Save figure
+
+:::{.columns}
+
+:::{.column width=60%}
+
+Add the function `ggsave("FILE_PATH+FILE_NAME.png")` after your ggplot instructions:
+
+```{r}
+#| echo: true
+#| eval: false
+# Saving plots as figure_theme_grey.png at the folder figure
+ggsave("figure_1.png",p)
+```
+
+- It support most of the common image formats like `pdf`, `jpeg`, `png`
+:::
+
+:::{.column width=38%}
+
+![Saved figure location](/assets/images/ggplot2/figure_loc.png)
+
+:::
+
+:::
+
+## Final notes 
+
+- There are far more things you can do in `ggplot2`
+- Try to look up on the reference (or even use AI) when you need it.

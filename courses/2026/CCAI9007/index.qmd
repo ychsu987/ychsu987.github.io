@@ -1,0 +1,12 @@
+---
+title: "CCAI9007 Hacking Aging: Partnering Human and Artificial Intelligence"
+subtitle: "Course index — slides and annotated notes"
+---
+
+Lecture materials for CCAI9007. Use **Blank** for student-facing slides and **✍️ Annotated** when an in-class / sketch version is available.
+
+| Topic | Slides | Annotated slides |
+|---|---|---|
+| Aging clock | [Blank](../../2025/CCAI9007/CCAI-aging clock.qmd) | — |
+| Older Adults Health Monitoring | [Blank](../../2025/CCAI9007/CCAI-health monitoring.qmd) | — |
+| Workshop: Physical Activity & Health Prompt Bot | [Blank](../../2025/CCAI9007/CCAI-workshop.qmd) | — |

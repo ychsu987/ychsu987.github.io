@@ -55,6 +55,18 @@ ychsu987.github.io/
 
 \*The audience label currently follows a simple inference rule based on the course number (1xxx/2xxx→大學部; 3xxx/4xxx/9xxx→碩士班). If you need a different mapping, update both this table and `courses.qmd`.
 
+### Course index pages (`courses/2026/{CODE}/index.qmd`)
+
+Each course card on `courses.qmd` links only to `courses/2026/{COURSE_CODE}/index.qmd`. That index page lists topics in a table:
+
+| Topic | Slides | Annotated slides |
+|---|---|---|
+| … | Blank | ✍️ Annotated (or —) |
+
+- **Blank** → blank / student-facing lecture (or tutorial) `.qmd`
+- **✍️ Annotated** → `-sketch.qmd` when it exists; otherwise `—`
+- Until 2026 copies exist, indexes may point at `../../2025/{COURSE}/…` materials
+
 ### BIOF2014 — Statistical Modelling in Bioinformatics
 
 **Hub**: `quant.qmd`

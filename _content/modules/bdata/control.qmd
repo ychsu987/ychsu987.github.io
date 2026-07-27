@@ -1,0 +1,155 @@
+## Comparison
+
+| Operator | Description              | Example  | Returns |
+|----------|--------------------------|----------|---------|
+| `==`     | Equal to                 | `5 == 5` | TRUE    |
+| `!=`     | Not equal to             | `5 != 7` | TRUE    |
+| `>`      | Greater than             | `10 > 8` | TRUE    |
+| `<`      | Less than                | `2 < 4`  | TRUE    |
+| `>=`     | Greater than or equal to | `5 >= 5` | TRUE    |
+| `<=`     | Less than or equal to    | `3 <= 5` | TRUE    |
+
+## Logical operators
+
+ **Logic operators** are used for operating on logic data type (i.e. TRUE or FALSE). The three logical operators are:
+
+- AND `&`
+- OR `|`
+- NOT `!`
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+# To test if Ray will have to lecture on Zoom
+zoomClass <- function(blackRain, Typhoon8){
+  return (blackRain | Typhoon8)
+}
+
+zoomClass(TRUE, TRUE) # It is Black Rain and Typhoon 8
+```
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+zoomClass(FALSE, TRUE) # It is only Typhoon 8
+```
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+zoomClass(TRUE, FALSE) # It is only Black Rain
+```
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+zoomClass(FALSE, FALSE) # It is neither
+```
+
+
+## If/else
+
+Link logical outcome to an action given the condition. This is where the `if` and `else` statement comes in. The format is like
+
+```R
+if (CONDITIION) {
+  # If CONDITIION==TRUE: codes inside this bracket will be executed
+} else {
+ # If CONDITIION==FALSE: codes inside this bracket will be executed (You can akso omit this part if needed)
+}
+```
+**Example**
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+# example of if/else based on passing exam
+zoomClass <- function(blackRain, Typhoon8){
+  if  (blackRain | Typhoon8) {
+    print("Zoom link:XXXX")
+  }else{
+    print("We will have offline class")
+  }
+
+}
+zoomClass(TRUE, TRUE)
+```
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+zoomClass(FALSE, FALSE)
+```
+
+## Chained conditions
+
+It is also possible to chain if/else statements if there are multiple conditions:
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+# example of multiple if else conditions
+ageCategory <- function(age){
+  if (age <= 12){
+    print("Child")
+  } else if (age > 12 & age <= 19){
+    print("Teenage")
+  } else if (age > 20 & age <= 60) {
+    print("Adult")
+  } else {                                # > 60
+    print("Elderly")
+  }                              
+}
+```
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ageCategory(5)
+```
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ageCategory(45)
+```
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ageCategory(70)
+```
+
+## Loop
+
+- Using loop to reduce redundant code
+
+Here are some simple examples of a for loop in R:
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+# examples of loop
+# Loop printing a series of numbers from 1 to 10
+for (i in 1:10){
+  print(i)
+}
+```
+You can also iterater on vectors
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+# Loop printing a vector of names
+names <- c("Jason","Ray","Yuanhua")
+for (i in names){
+  print(i)
+}
+```

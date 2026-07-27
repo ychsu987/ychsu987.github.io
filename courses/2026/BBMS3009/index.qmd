@@ -1,0 +1,10 @@
+---
+title: "BBMS3009 Genome Science"
+subtitle: "Course index — slides and annotated notes"
+---
+
+Lecture materials for BBMS3009. Use **Blank** for student-facing slides and **✍️ Annotated** when an in-class / sketch version is available.
+
+| Topic | Slides | Annotated slides |
+|---|---|---|
+| Bridging Genome to Function: Post-Genome Science | [Blank](../../2025/BBMS3009/System biology.qmd) | — |

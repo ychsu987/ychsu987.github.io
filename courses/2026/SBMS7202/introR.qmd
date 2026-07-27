@@ -1,0 +1,64 @@
+---
+title: "Introduction to R"
+subtitle: Ecosystem, Variables, and Operations
+title-slide-attributes:
+    data-background: /assets/images/IntroR/background-1.png
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+author: Yu Cheng Hsu
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+lightbox: true
+---
+
+## About me {.smaller}
+
+- My background: 
+  - Applied statistician 
+  - Data scientist
+- My research focus
+  - Population mental health
+  - Text-based counseling 
+- Office hour: By appointment 
+
+
+## AI-policy {.smaller}
+
+- Large language models (LLMs) perform well in answering most programming questions.
+- LLMs could potentially help you finish your assignments.
+- Their comments can sometimes be inspiring.
+- Using LLMs can assist your learning and research.
+
+### Core competency in the AI era
+
+- Understand how R works
+- Evaluate the outputs from AI
+- Articulate the question to instruct AI
+
+{{< include /_content/modules/bdata/reco.qmd >}}
+
+{{< include /_content/modules/bdata/introR.qmd >}}
+
+{{< include /_content/modules/bdata/data-structure.qmd >}}
+
+{{< include /_content/modules/bdata/control.qmd >}}
+
+{{< include /_content/modules/bdata/ai-guide.qmd >}}
+
+## Resource links
+
+This notebook adapts contents from these resources:
+
+-   <https://www.datamentor.io/r-programming/>
+-   <https://www.geeksforgeeks.org/r-data-types/>
+-   <https://data-flair.training/blogs/r-data-types/>
+
+Special thanks to Prof. Yuanhua Huang, and Prof Jason Wong.

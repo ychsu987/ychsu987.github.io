@@ -1,0 +1,24 @@
+# R ecosystem {background-image="/assets/images/reco/background-2.png" data-background-position="right" data-background-opacity="0.8" data-background-size="40% 100%" text-align='left'}
+
+## R files
+
+R code can be saved in a text file with the extension `.R`. You can then run the code in the R console or RStudio by sourcing the file using the `source()` function. For example, if you have a file named `my_script.R`, run it with `source("my_script.R")` in the R console.
+
+![Illustration of my_script.R in RStudio](/assets/images/reco/R_scripts.png)
+
+## Rmd/QMD files
+
+You can save your R code in a file with the extension `.Rmd` or `.qmd`. This allows you to create dynamic documents that combine R code, text, and output. For example, the presentation slides are made from an improved version of `.qmd`.
+
+![Illustration of lecture slide (.qmd) in RStudio](/assets/images/reco/md_scipts.png)
+
+## RData files
+
+You may save your data or functions to an `.RData` file and load it with `load("PATH/TO/THE/DATA_FILE.RData")`.
+
+- RStudio may save your last working session, which can sometimes cause trouble.
+- The file path can be relative to the current working directory or an absolute path.
+
+**Pro tips**
+
+- Always clean up your environment while starting new works

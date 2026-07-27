@@ -1,0 +1,833 @@
+# Functional View in Genomics
+
+## Connecting Differences to Pathways {.smaller}
+
+**Motivation**
+
+
+- What are the implications of DNA-microarray/ChIP-seq results in the clinical perspective?
+- If 300 genes are differentially expressed, what kind of biological pathways are affected?  
+
+![ChIP-seq Data Visualization](/assets/images/functional-genomics/chip-seq.png){.absolute .fragment .fade-in width=200 height=100 top=300 left=200}
+![Differentially Expressed Genes Heatmap](/assets/images/functional-genomics/deg.png){.absolute .fragment .fade-in width=200 height=200 top=450 left=200}
+![Gene Ontology Logo](/assets/images/functional-genomics/go-logo.png){.absolute .fragment .fade-in width=300 height=100 top=350 left=400}
+![KEGG Pathway Model](/assets/images/functional-genomics/kegg_model.png){.absolute .fragment .fade-in width=300 height=250 top=400 left=400}
+
+::: {.fragment .fade-in .absolute width=300 height=100 top=400 left=750}
+
+- I cannot lose weight because my genes involved in **fat synthesis** are upregulated compared to others.
+:::
+
+
+## Need for an Encyclopedia
+
+- We have databases to annotate each gene with its:
+  - Location in the genome
+  - Molecular function 
+  - Biological pathways it involves
+  - Co-regulated/expressed genes
+  - Properties  
+
+## Databases Recording All Information {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Kyoto Encyclopedia of Genes and Genomes (KEGG)**
+
+- Integrates genomic, biological pathway, disease, and drug information
+- Pathway maps depict molecular interaction networks including metabolic, signaling, and genetic information pathways.
+:::
+
+::: {.column width="50%"}
+**Gene Ontology (GO)**
+
+- GO is a standardized, hierarchical ontology for annotating gene products across species
+- Annotates from three perspectives:
+  - Biological process  
+  - Cellular component
+  - Molecular functions
+:::
+
+::::
+
+## Example of KEGG Pathways {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{=html}
+<iframe src="https://www.kegg.jp/entry/K04526/" width="500" height="500"></iframe>
+```
+:::
+
+::: {.column width="50%"}
+![Insulin Secretion Process](/assets/images/functional-genomics/insulin.png)
+:::
+
+Example of insulin annotation and insulin secretion process in KEGG
+::::
+
+
+## Example of GO Pathways {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![Gene Ontology Annotation for Insulin Secretion](/assets/images/functional-genomics/GO_insulin.png)
+:::
+
+::: {.column width="50%"}
+
+<iframe src="https://amigo.geneontology.org/amigo/search/bioentity?q=*%3A*&fq=isa_partof_closure:%22GO%3A0030073%22&sfq=document_category:%22bioentity%22" width="550" height="500"></iframe>
+:::
+
+Example of insulin annotation and insulin secretion process in GO
+::::
+
+
+# Enrichment Analysis
+
+## Connecting Genes to Biological Functions
+
+**Enrichment Analysis**
+Summarizes identified differences in genes associated with common functions.
+
+![Overview of Enrichment Analysis @khatri2012ten](/assets/images/functional-genomics/enrichment.png){height=350}
+
+# Enrichment in the Sequence
+
+## Genomic Regions Enrichment of Annotations Tool {.smaller}
+
+- **Motivation**: Do cis-regulatory elements associate with specific pathways?
+
+![ChIP-seq Data Visualization](/assets/images/functional-genomics/chip-seq.png){height=400}
+
+
+
+## Problem Formulation {.smaller}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![Motivation Example @welch2014chip](/assets/images/functional-genomics/GREAT.png)
+:::
+
+::: {.column width="60%"}
+
+- Given a 1000 bp sequence
+- From the existing database, 600 bp (located in the figure) is annotated with the functional path $\pi$ 
+- ChIP-seq identified 6 enriched regions bound by protein, among them, 5 are in the annotated region $\pi$ 
+- **Question**: If the ChIP-Seq identified regions occur randomly, what is the probability that ChIP-Seq identified regions fall into the regulatory domain $\pi$? 
+:::
+
+
+::::
+
+
+## Binomial Test {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Analogy:** You are flipping an unfair coin
+
+1. Chance of having a head: 0.6
+2. Times you flip: 6
+3. Heads you get: 5
+:::
+
+::: {.column width="50%"}
+ **ChIP-seq:** Identified Region
+
+1. Chance to be in the regulatory domain: $p = \frac{\text{Annotated length}}{\text{Total ChIP-seq length}} = \frac{600}{1000}$
+2. Number of genomic regions identified: $n = 6$
+3. Number of genomic regions falling into the annotated area: $k = 5$
+
+:::
+
+The probability of getting exactly k heads out of n with the probability $p$:
+
+:::{.hide .t}
+$$
+P(X = k) = \binom{n}{k}(p)^k(1-p)^{n-k} 
+$$
+:::
+
+::::
+
+
+## Back to Our Example {.smaller}
+- We can derive the p-value (probability) to test:
+  **How likely is it to get at least $k$ annotations in the regulatory region out of $n$ attempts**, if the ChIP-Seq peaks occur randomly?
+
+$$
+\text{p-value} = P(X \geq k) = \sum_{i=k}^{n}\binom{n}{i}(p)^i(1-p)^{n-i} 
+$$
+
+In our example, it will be
+
+:::{.hide .t}
+$$
+P(X\geq 5) = \binom{6}{5}(0.6)^5(1-0.6)^{1} +\binom{6}{6}(0.6)^6(1-0.6)^{0}=0.23
+$$
+:::
+
+For a given false discovery rate (FDR, typically 0.05), if $\text{p-value} < FDR$, we will say that **the regulatory element is enriched in the pathway $\pi$**.
+
+
+## Wrap-up: Enrichment Analysis of a Set of Cis-Regulatory Regions {.smaller}
+
+- For a sequence with length $N$ with $K_\pi$ of them annotated with pathway $\pi$ 
+- ChIP-seq selected $n$ genomic regions and $k_\pi$ of them fall into the annotation of pathway $\pi$
+- $p_\pi$ is the probability of selecting a base pair annotated with $\pi$ when selecting a single base pair uniformly from all base pairs in the genome
+$$
+ \text{p-value} = P(X \geq k_\pi) = \sum_{i=k_\pi}^{n}\binom{n}{i}(p_\pi)^i(1-p_\pi)^{n-i} 
+$$
+
+- Each pathway needs to be tested once, and when **testing on more than one pathway, P-value correction** (e.g., Bonferroni or other methods) should be applied.
+
+## Exercise Question {.smaller}
+
+- On a sequence with length $100$, with $14$ of them annotated with the pathway *multicellular organismal development* 
+- ChIP-seq on this sequence showed that 10 enriched regions are bound by protein in older adults compared to young adults; among them, 6 fall into the annotated regions
+
+**Q1** What is the p-value of the binomial test that at least 6 out of 10 fall into the annotated regions?
+
+:::{.hide .t}
+$$
+P(X\geq 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
+$$
+:::
+
+**Q2** Given the p-value, is the protein enriched in the pathway *multicellular organismal development* at the 0.05 false discovery rate?
+
+:::{.hide .t}
+Protein is enriched in the pathway *multicellular organismal development*
+:::
+
+## Code example
+
+This enrichment analysis is implemented in `chipenrich` library
+```{r}
+# Install chipenrich and its data package
+if (!requireNamespace(c("BiocManager","chipenrich","chipenrich.data"), quietly = TRUE)) {
+    install.packages("BiocManager")
+    BiocManager::install(c("chipenrich","chipenrich.data"))
+}
+# Load the package
+library(chipenrich)
+data(peaks_E2F4,package = "chipenrich.data")
+# Run the ChIP-Enrich analysis
+results <- chipenrich(
+  peaks = peaks_E2F4, # Can be a data frame or a file path to a BED/txt file
+  genome = "hg19",  # Reference genome (e.g., "hg19", "hg38", "mm10")
+  genesets = "GOBP", # Gene sets to test (e.g., "GOBP" for GO Biological Process)
+  locusdef = "nearest_tss", # Defines the region assigned to each gene
+  qc_plots = FALSE,  # Set to TRUE to generate diagnostic spline plots
+  out_name = NULL,   # Provide a prefix (e.g., "E2F4_run") to save output files to disk
+  n_cores = 1      # Number of cores for parallel processing
+)
+```
+
+## Code results
+```{r}
+# Extract and view the top enriched gene sets
+enrichment_table <- results$results
+head(enrichment_table)
+```
+
+- `results$results`: The primary output. It contains the Gene Set ID, description, p-value, False Discovery Rate (FDR), effect size (positive means enriched, negative means depleted), and the specific genes driving the enrichment.
+`results$peaks`: A detailed mapping showing exactly which gene locus each individual peak was assigned to.
+`results$peaks_per_gene`: A summary table showing the aggregate count of peaks assigned to each specific gene.
+
+# Enrichment in the Protein
+
+## Over-Representation Analysis {.smaller}
+
+- **Motivation**: Are biological pathways enriched (over-represented) in an experimentally-derived gene list, e.g., a list of differentially expressed genes (DEGs)?
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![Pathway Enrichment](/assets/images/functional-genomics/ora.png)
+
+:::
+
+::: {.column width="50%"}
+
+- $N$: Background set 
+- $n$: Differentially expressed genes
+- $K$: Genes in the Pathway $\pi$ 
+- $k$: Overlapping set
+:::
+
+::::
+
+## Problem Formulation {.smaller}
+
+**Problem Statement** 
+
+:::{.columns}
+
+:::{.column width=60%}
+- 100 ($N$) genes detected in a microarray study
+  - 10 ($M$, G1-G10) of them belong to pathway <span style="color: red;">$\pi$</span>
+  - 40 ($n$, G1-G8, G11-G42) genes were differentially expressed
+
+|        | DE | NOT DE | Row sum |
+|--|--|--|--|
+| In $\pi$ | <span class="hide t">8(a)</span> |<span class="hide t"> 2(b)</span> | <span class="hide t">10 ($M$)</span> |
+| NOT in $\pi$ | <span class="hide t">32(c)</span> | <span class="hide t">58(d)</span> | <span class="hide t">90 ($N-M$)</span>|
+| Column sum | <span class="hide t"> 40 ($n$)</span> |<span class="hide t"> 60 ($N-n$)</span> | <span class="hide t">100 ($N$)</span> |
+:::
+
+:::{.column width=38%}
+
+| Gene | Log2FC | Adjusted p-value |
+| ---- | ------ | ---------------- |
+| <span style="color: red;">G1</span>   | \-2.8  | 0.010            |
+| <span style="color: red;">G2</span>    | 2.6    | 0.028            |
+| <span style="color: red;">G3</span>    | 2.5    | 0.031            |
+|<span style="color: red;">G4</span>   | 2.4    | 0.040            |
+|$\vdots$   | $\vdots$    | $\vdots$     |
+| G99 | 0.1    | 0.849            |
+| G100| 0.4    | 0.733            |
+
+:::
+
+:::
+
+## Fisher's Exact Test {.smaller}
+
+- If $a:c \geq b:d$, then the gene set is enriched with pathway $\pi$ ^[$a:c \geq b:d$ is equivalent to $\frac{a}{c} \geq \frac{b}{d} \text{ or } ad \geq bc$, so you can swap the columns and rows in the previous table]
+- The observation of cells follows a **hypergeometric distribution**
+- Fisher's exact test (as one of the cells is less than 5) ^[For any cell with a larger number, Fisher's exact test approximates to the Chi-square test ]
+- The p-value is the probability of the table being more uneven than the observation
+
+$$
+P = \sum_{i=a}^M \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1- \sum_{i=0}^{a-1} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}}
+$$
+
+::: aside
+
+:::
+
+
+## Back to Our Example {.smaller}
+
+:::{.hide}
+$$
+P = \sum_{i=8}^{10}\frac{\binom{10}{i}\binom{90}{40-i}}{\binom{100}{40}} = 1- \sum_{i=0}^{7} \frac{\binom{10}{i}\binom{90}{40-i}}{\binom{100}{40}}
+= 0.0015
+$$
+:::
+
+- At 5% FDR, the differentially expressed gene is enriched in the pathway $\pi$
+
+|        | Differentially Expressed | NOT Differentially Expressed | Row Sum |
+|--|--|--|--|
+| In the pathway $\pi$ | 8 | 2 | 10 |
+| NOT in the pathway $\pi$ | 32 | 58 | 90 |
+| Column Sum | 40  | 60 | 100 | 
+
+## Wrap-up: ORA {.smaller}
+
+- Background gene list with size $N$, 
+- Pathway gene list $M$
+- Within the background gene list, $n$ are differentially expressed and $a$ of them are in the pathway
+
+
+$$
+P = \sum_{i=a}^M \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1- \sum_{i=0}^{a-1} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}}
+$$
+
+
+- Each pathway needs to be tested once, and when **testing on more than one pathway, P-value correction** (e.g., Bonferroni or other methods) should be applied.
+
+## Pitfalls of ORA
+
+- Arbitrary cutoff of the interested gene list
+- Cannot determine the regulation direction:
+  - Downregulation
+  - Upregulation
+- Even deeper consideration:
+  - Gene expressions are not independent events
+
+
+## Exercise Question {.smaller}
+
+
+:::{.columns}
+
+:::{.column width=60%}
+
+Consider a genome with 30 genes, where the functional pathway "PATH_X" contains 5 genes, **G1, G2, G3, G4, G5**. 10, **G1, G2, G3, G4, G25, ... , G30** are differentially expressed genes in males, with Log2 fold change (Log2FC) and adjusted p-values as follows
+
+**Q1** Derive the contingency table for the study above to conduct over-representation analysis. use $p<0.05$ as selection criteria
+
+**Q2**   What is the p-value for the over-representation analysis 
+:::
+
+:::{.column width=38%}
+| Gene | Log2FC | Adjusted p-value |
+| ---- | ------ | ---------------- |
+| G1   | \-2.2  | 0.049            |
+| G2   | \-2.3  | 0.049            |
+| G3   | \-2.8  | 0.010            |
+| G4  | 2.3    | 0.049            |
+| $\vdots$  | $\vdots$    | $\vdots$           |
+| G30  | 2.4    | 0.033            |
+:::
+
+:::
+
+## Solution {.smaller}
+
+
+:::{.columns}
+
+:::{.column }
+
+**Q1** 
+
+|        | DE | NOT DE |
+|--|--|--|
+| In the pathway  | <span class="hide">4</span> | <span class="hide">1</span> |
+| NOT in the pathway| <span class="hide">6</span> | <span class="hide">19</span> |
+
+:::
+
+:::{.column}
+
+**Q2** 
+
+:::{.hide}
+$$\begin{aligned}
+P & = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
+& = \frac{\binom{5}{4}\binom{25}{10-4}}{\binom{30}{10}}+ \frac{\binom{5}{5}\binom{25}{10-5}}{\binom{30}{10}} =0.03124 \\
+& = 1-\sum_{i=0}^3 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
+& = 1 - \biggl(
+\frac{\binom{5}{0}\binom{25}{10-0}}{\binom{30}{10}}+ \frac{\binom{5}{1}\binom{25}{10-1}}{\binom{30}{10}} \\
+&+
+\frac{\binom{5}{2}\binom{25}{10-2}}{\binom{30}{10}}+ \frac{\binom{5}{3}\binom{25}{10-3}}{\binom{30}{10}}\biggr) =0.03124 
+\end{aligned}
+$$
+:::
+
+:::
+
+:::
+
+## Functional Class Scoring {.smaller}
+
+- **Motivation**: Genes in the same pathway are usually co-expressed together, but they do not necessarily pass the DEGs threshold selection.
+
+
+
+## Gene Set Enrichment Analysis (GSEA) {.smaller}
+
+:::{.columns}
+
+:::{.column}
+
+1. Sort genes (by log fold change)
+2. Calculate running sum from the sorted gene list:
+   1. Increase while in the pathway
+   2. Decrease while not in the pathway
+3. Find the maximum running sum
+4. Permute the label to calculate p-value
+
+
+:::
+
+:::{.column}
+![Illustration of GSEA @subramanian2005gene; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation](/assets/images/functional-genomics/gsea.png){height="400"}
+:::
+
+:::
+
+## Calculate Running Sum {.smaller}
+Consider our gene set with size $N$, and the pathway $\pi$ has $M$ genes in it.
+
+1. Initial running sum of enrichment score is $ES_0 = 0$, the denominator $N_R=\sum |r_j|$, where $r_j$ is the log fold change of genes that are in the pathway $\pi$ 
+   
+2. Going through the ordered gene $n_i$ list, do:
+   a. If gene $n_i$ is in the list, $ES_i = ES_{i-1} + \frac{|r_j|}{N_R}$
+   b. If gene $n_i$ is **NOT** in the list, $ES_i = ES_{i-1} - \frac{1}{N - M}$
+
+The final enrichment score is $ES = \max(|ES_i|)$
+
+## Calculating P-values {.smaller}
+
+**Permutation Test**: Randomly shuffle the gene label for each expression level for $k$ times and plot the $ES$ distribution for these $k$ permutations, and the p-value will be 
+
+$$
+\small
+\text{P-value} = \frac{\text{# of times} ES \geq ES_o}{k}
+$$
+
+:::{.columns}
+
+:::{.column width=33%}
+| Gene | Log2FC |
+| ---- | ------ |
+| G1   | 2.3  |
+| G2   | 0.7  |
+| G3   | 2.6  |
+| G4   | 1.4  |
+| G5   | 1.2  |
+| G6  | 0.1    |
+
+
+: Original results
+:::
+
+:::{.column width=33% .fragment .fade-in}
+| Gene | Log2FC |
+| ---- | ------ |
+| G4   | 2.3  |
+| G2   | 0.7  |
+| G6   | 2.6  |
+| G1   | 1.4  |
+| G5   | 1.2  |
+| G3  | 0.1    |
+
+: Permutation
+:::
+
+:::{.column width=33% .fragment .fade-in}
+| Gene | Log2FC |
+| ---- | ------ |
+| G4   | 2.3  |
+| G1   | 0.7  |
+| G6   | 2.6  |
+| G2   | 1.4  |
+| G3  | 0.1    |
+| G5  | 0.6    |
+
+: Permutation 2
+:::
+
+
+:::
+
+
+## Example {.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+
+Consider a DEG for 8 genes {G1 to G8}, where the functional pathway "PATH_A" contains 4 genes {G1, G2, G3, G4}. With the readings on the right, please calculate the enrichment score of PATH_A on this array.
+
+:::
+
+::: {.column width="40%"}
+
+
+
+| Gene | Log2FC |
+| ---- | ------ |
+| G1   | 2.3  |
+| G2   | 0.7  |
+| G3   | 2.6  |
+| G4   | 1.4  |
+| G5   | 1.2  |
+| G6  | 0.1    |
+| G7  | 0.3    |
+| G8  | 0.6    |
+
+:::
+
+::::
+
+## Example {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+| Rank | Gene | Hit/Miss | Score |
+| ---- | ---- | -------- | ----- |
+| 1    |  <span class="hide">G3</span>  |   <span class="hide">Hit</span>    | <span class="hide">2.6/7</span> |
+| 2    |  <span class="hide">G1</span>  |   <span class="hide">Hit</span>    | <span class="hide">2.3/7</span> |
+| 3    |  <span class="hide">G4</span>  |   <span class="hide">Hit</span>    | <span class="hide">1.4/7</span> |
+| 4    |  <span class="hide">G5</span>  |  <span class="hide">Miss</span>    | <span class="hide">-1/4</span>  |
+| 5    |  <span class="hide">G2</span>  |   <span class="hide">Hit</span>    | <span class="hide">0.7/7</span> |
+| 6    |  <span class="hide">G8</span>  |  <span class="hide">Miss</span>    | <span class="hide">-1/4</span>  |
+| 7    |  <span class="hide">G7</span>  |  <span class="hide">Miss</span>    | <span class="hide">-1/4</span>  |
+| 8    |  <span class="hide">G6</span>  |  <span class="hide">Miss</span>    | <span class="hide">-1/4</span>  |
+
+
+:::
+
+::: {.column width="50%"}
+
+- Score deducted if the gene is not in the pathway  <span class="hide">1/(8-4)</span>
+- Normalized term ($N_R$) if the gene is in the pathway:  <span class="hide">2.6+2.3+1.4+0.7=7</span>
+- ES
+  
+:::{.hide}
+\begin{aligned}
+ES & = \\
+  & \frac{|2.6}{7} + \frac{2.3}{7} + \frac{1.4}{7} \\
+  & =0.9
+\end{aligned}
+:::
+
+:::
+
+::::
+
+
+## Example 2{.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+
+Consider a DEG for 8 genes {G1 to G8}, where the functional pathway "PATH_B" contains 5 genes {G1, G2, G3, G4, G5}. With the readings on the right, please calculate the enrichment score of PATH_B on this array.
+
+:::
+
+::: {.column width="40%"}
+
+
+
+| Gene | Log2FC |
+| ---- | ------ |
+| G1   | -2.0  |
+| G2   | -0.1  |
+| G3   | -2.3  |
+| G4   | -1.7  |
+| G5   | -0.9  |
+| G6  | 0.1    |
+| G7  | 0.3    |
+| G8  | 0.6    |
+
+
+
+:::
+
+::::
+
+## Example 2{.smaller}
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+| Rank | Gene | Hit/Miss | Score |
+| ---- | ---- | -------- | ----- |
+| 1    |  <span class="hide">G8</span>  |   <span class="hide">Miss</span>    | <span class="hide">-1/3</span> |
+| 2    |  <span class="hide">G7</span>  |   <span class="hide">Miss</span>    | <span class="hide">-1/3</span> |
+| 3    |  <span class="hide">G6</span>  |   <span class="hide">Miss</span>    | <span class="hide">-1/3</span> |
+| 4    |  <span class="hide">G2</span>  |  <span class="hide">Hit</span>    | <span class="hide">0.1/7</span>  |
+| 5    |  <span class="hide">G5</span>  |   <span class="hide">Hit</span>    | <span class="hide">0.9/7</span> |
+| 6    |  <span class="hide">G4</span>  |  <span class="hide">Hit</span>    | <span class="hide">1.7/7</span>  |
+| 7    |  <span class="hide">G1</span>  |  <span class="hide">Hit</span>    | <span class="hide">2/7</span>  |
+| 8    |  <span class="hide">G3</span>  |  <span class="hide">Hit</span>    | <span class="hide">2.3/7</span>  |
+
+
+:::
+
+::: {.column width="50%"}
+
+- Score deducted if the gene is not in the pathway: <span class="hide">1/(8-5)</span>
+- Normalized term ($N_R$) if the gene is in the pathway  <span class="hide">|-2|+|-0.1|+|-2.3|+|-1.7|+|-0.9|=7</span>
+- ES
+  
+:::{.hide}
+\begin{aligned}
+ES & = \\
+  & |\frac{-1}{3}| + |\frac{-1}{3}| + |\frac{-1}{3}| \\
+  & = 1
+\end{aligned}
+:::
+
+:::
+
+::::
+
+
+
+## Comparison of ORA and GSEA {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**ORA**
+
+- A hard threshold
+- Provides a list of interested genes instead of DEG result
+
+:::
+
+::: {.column width="50%"}
+**GSEA**
+
+- A soft threshold
+- Needs a DEG result
+- Computationally expensive
+- Can determine the regulation direction
+
+:::
+
+Different results in ORA and GSEA might implies subtle difference at the boundary of **arbitrary** cut-off  (i.e. some genes with p-value like 0.051)
+
+::::
+
+# Biological Networks
+
+## Complexity of Interactions {.smaller}
+
+In reality, proteins can interact together, and it's more complex than what we've seen in KEGG.
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.r-stack}
+![Simplified Insulin Pathway](/assets/images/functional-genomics/insulin.png){.fragment }
+
+![Complex Insulin Pathway](/assets/images/functional-genomics/insulin_2.png){.fragment}
+:::
+
+:::
+
+::: {.column width="50%"}
+
+**Reasons**
+
+- Proteins could interact with each other in other pathways (e.g., some interactions can be related to insulin resistance but not insulin secretion, so KEGG does not show it)
+
+- Scientific advancements and experiments:
+  - Gene co-expression
+  - Co-occurrenceperg
+:::
+
+:::
+
+## Getting Networks {.smaller}
+
+
+
+**Getting Protein-Protein Interaction (PPI) Network**
+
+[STRING](https://string-db.org/): A database to document interactions between proteins 
+
+- Interactions:
+  - Physical and functional associations
+- Sources: 
+  - Computational prediction
+  - Knowledge transfer between organisms 
+  - Databases
+
+**Definition of the Network**
+
+\begin{equation*}
+\begin{split}
+    G&=(V,E) \\
+    V&=\text{All the nodes (Proteins)}\\
+    E&=\{(s,e)\} \quad \text{All the edges from s to e (interactions between two)}
+\end{split}
+\end{equation*}
+
+
+
+## Importance of a Node {.smaller}
+
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+![STRING Protein-Protein Interaction Network for Color Blindness](/assets/images/functional-genomics/string_color_blindness.png)
+
+
+:::
+
+::: {.column width="60%"}
+**Degree**
+
+- An intuitive measurement of the importance of a node
+- Number of edges connected to the node
+
+\begin{equation*}
+    \text{Degree(i)}=\sum_{j=0}^{\vert N\vert}e_{ij}
+\end{equation*}
+
+Degree of:
+
+  - GNAT2:  <span class="hide">7</span>
+  - TEX28:  <span class="hide">2</span>
+:::
+
+:::
+
+## Local Community of a Network {.smaller}
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+![STRING Protein-Protein Interaction Network for Color Blindness](/assets/images/functional-genomics/string_color_blindness.png)
+
+
+:::
+
+::: {.column width="60%"}
+
+**Clustering Coefficient**
+
+- How many friends of friends are also my friends (Triangles)
+
+\begin{equation*}
+\begin{split}
+        \text{Clustering coefficient(i)}&=\frac{L_i}{\frac{k_i(k_i-1)}{2}}\\
+        &=\frac{2L_i}{k_i(k_i-1)}
+\end{split}
+\end{equation*}
+
+- $L_i$: Number of triangles including node $i$
+- $k_i$: Number of nodes connected to node $i$
+
+Clustering coefficient of:
+
+  - GNAT2: <span class="hide">$\frac{7*2}{7*6}=0.33$</span>, TEX28: <span class="hide">$0$</span>
+
+:::
+
+:::
+
+
+## Why They Are Important
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+**Degree**
+
+- Importance of a protein
+- Identifying potential drug targets
+
+:::
+
+::: {.column width="60%"}
+
+**Clustering Coefficient**
+
+- Identifies potential clusters (sub-functions)
+- Identifying potential drug targets
+
+
+:::
+
+:::
+
+## Application of PPI
+
+- Exploring disease mechanisms
+- Drug discovery
+
+![Application of PPI](/assets/images/functional-genomics/ppi.jpg){height=300}

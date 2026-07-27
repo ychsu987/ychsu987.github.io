@@ -1,10 +1,3 @@
-
-## Learning objectives
-
-- Define epidemiology
-- Describe basic terminology and concepts of epidemiology
-- Describe epidemiological study designs
-
 ## What is epidemiology?
 
 **Definition**
@@ -166,11 +159,3 @@ Looking back from the history of the cohort to determine exposure status and loo
 
 :::
 
-## Wrap-up
-
-- Define epidemiology
-- Describe basic terminology and concepts of epidemiology
-- Describe epidemiological study designs
-
-- What's next?
-  - We are doing code and quantitative analysis for the next class

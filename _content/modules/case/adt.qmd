@@ -1,0 +1,150 @@
+# Tumor Evolution and Adaptive Therapy
+
+
+## Branched expansion
+
+:::{.columns}
+
+:::{.column width="70%"}
+@nowell1976clonal proposed tumor evolution model. Tumors expansion are:
+
+ - Expansion in branches
+ - Multiple subclones with splitting mechanisms
+  
+:::
+
+:::{.column width="28%"}
+
+![](/assets/images/adt/cancer.png){width="65%"}
+
+:::
+
+:::
+
+![Phylogenetic evidence of branched expansion, image from @gerlinger2012intratumor](/assets/images/adt/branch.jpg){width="90%"}
+
+## Implication of ITH - diagnostics
+
+:::{.columns}
+
+:::{.column width=48%}
+- Spatial and temporal monitor on tumor cells
+  - Radiomics, habitat imaging @sala2017unravelling
+- Longitudinal tracking on cancer development 
+  - Circulating tumor DNA (ctDNA) @kim2022dynamic
+
+![Habitat imaging](/assets/images/adt/cancer_image.png){width="40%"}
+
+:::
+
+:::{.column width=48%}
+
+![ctDNA](/assets/images/adt/ctdna.png){width="65%"}
+
+:::
+
+:::
+
+
+## Implication of ITH - Lamarckism
+:::{.columns}
+
+:::{.column width="48%"}
+- Treatment-resistance is not simply Darwinian evolution. [@valcz2025adaptive]
+- Evidence: Adoption to low-dose treatment in short time
+- Epigenetic plasticity:  Modifying epigenetic features, transfer, and inherit among tumor cell 
+:::
+
+:::{.column width="48%"}
+![Green: treatment sensitive cell @pisco2013non](/assets/images/adt/lamarkian-dye.png){width=60%}
+:::
+
+:::
+
+![Lamarckism from @bell2020principles](/assets/images/adt/lamarkian.png){width=60%}
+
+## Evolutionary therapeutics
+
+:::{.columns}
+
+::: {.column width="48%"}
+
+**Adaptive therapy**
+
+Giving "breathing room" to drug-sensitive tumors. During the low-dosage periods, drug-sensitive cells can outcompete resistant ones.
+
+- Adjust time (Intermittent therapy)
+- Dosage 
+
+**Applications**
+
+- Breast cancer [@enriquez2016exploiting] 
+- Prostate cancer [@zhang2017integrating]
+
+:::
+
+:::{.column width="48%"}
+
+![Adaptive therapy, figure from @mcgehee2024mathematical](/assets/images/adt/adaptive.png)
+
+:::
+
+:::
+
+## Monitoring tumor progress
+
+- Adaptive therapy rely on close monitor on tumor progression
+- Current practice:
+  - Monitoring on tumor biomarkers
+  - Monitoring on dosage levels of the drug in the blood
+
+|  Tumor type | Monitor parameter | Study |
+|  ---------- | ----------------- | ----- |
+| Ovarian cancer | Serum biomarker + Tumor size  | @mukherjee2024study |
+| Prostate cancer | Blood biomarker  | @zhang2017integrating |
+| Melanoma | Tumor size | @smalley2019leveraging |
+| Breast cancer | Tumor size | @enriquez2016exploiting |
+
+- Implication: Some tumor are not a good target of adaptive therapy due to the management cost
+
+## Adaptive strategy
+
+Designing strategy to turn on- and off- the therapy also varies
+
+
+|  Tumor type | Type | Study |
+|  ------- | ----- | --------- |
+| @mukherjee2024study | Continuous | Porportion to biomarkers |
+| @zhang2017integrating | Intermittent | Porportion to Tumor size |
+| @smalley2019leveraging | Intermittent | Tumor size + mathmatical simulation |
+| @enriquez2016exploiting | Continuous | Porportion to Tumor size |
+
+## Benefits of adaptive therapy
+
+:::{.columns}
+
+:::{.column width="48%"}
+
+- Delayed drug resistance
+  - Delayed tumor progression
+- Better clinical outcome 
+- Improve quality of life @hussain2013intermittent
+  - Side effects of the treatment may be reduced during off-cycles
+
+:::
+
+::: {.column width="48%"}
+![Better outcome in metastatic colorectal cancer @avallone2025intermittent](/assets/images/adt/intermittent%20threrapy.png)
+:::
+
+:::
+
+## Challenges in adaptive therapy
+
+- Identifying heterogeneity in the tumor and monitoring the response to the treatment
+- Ultimately kill all cancer cells is extremely challenging 
+  - **Analogy**: Antibiotics, antiviral drug resistance
+- Adaptive therapy tries to
+  - Make the tumor manageable
+  - **Not** necessarily fully cure cancer
+

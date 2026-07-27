@@ -1,0 +1,287 @@
+# Fuoundation of R
+
+## Introduction to R
+
+R is a programming language popular for statistical computing, elegant graphics, and genomic data analysis.
+
+**Features** 
+
+- Free and open-source software
+- Easy to get started for scientific computing
+
+**Slide conventions**
+
+- Use code formatting for special terms and examples, such as `This` or **`This are code`**.
+
+```{r}
+#| echo: true
+#| eval: true
+# This is a code chunk
+```
+
+## Arithmetic operations
+
+R provides many arithmetic and statistical operations like `+`, `-`, `*`, `/`, `%%`, and `^`
+
+```{r}
+#| echo: true
+#| eval: true
+# example of basic operation
+2+2
+5*3
+10/3
+10%%3 # %% returns the remainder of the division
+2^3 # ^ is the power operation
+```
+
+
+## Variables
+
+Variables store information. To save a value, assign it to a variable. The assignment operator in R is `<-`. Occasionally, you may also see `=` used for assignment, but `<-` is the preferred style in R.
+
+$$
+\small
+\text{Variable <- Value}
+$$
+
+Benefits of using variables:
+
+- Store and manipulate data in a flexible way.
+- Make code more readable and maintainable.
+- Allow dynamic programming and automation.
+```{r}
+#| echo: true
+#| eval: true
+
+# example of assigning variable called age
+
+age <- 18
+age
+
+name <- "John"
+name
+```
+
+## Naming conventions for variables
+
+Variables can be called just about anything, but there are some rules in R:
+
+-   Special characters like **`$`**, **`#`**, **`%`**, or spaces are **not allowed**.
+-   A variable name must **start with a letter or a dot (.)**, but if it starts with a dot, the next character cannot be a digit.
+-   Variable names are **case-sensitive** (e.g., **`age`**, **`Age`**, and **`AGE`** are different variables).
+-   You cannot use particular keywords such as **`TRUE`**, **`FALSE`**, **`if`**, **`else`**, or **`function`** as variable names as they are reserved for other purposes in R.
+
+
+## Data types
+
+Variables can store different types of data, and R has several built-in data types to support them. The data type of a variable determines what kind of values it can hold and what operations can be performed on it.
+
+You can use the `class()` and `typeof()` functions to check the class and data type of any variable. R has five common data types:
+
+1. Numeric
+2. Integer
+3. Complex
+4. Logical
+5. Character
+
+## Numeric (double)
+
+The `numeric` data type is for numbers.
+
+- Can be whole numbers or decimals.
+- The **default** numeric type in R.
+- Stores values in double precision, so `typeof()` reports `double`.
+
+```{r}
+#| echo: true
+#| eval: true
+# example of numeric type
+
+height <- 1.70
+height
+class(height)
+typeof(height)
+```
+
+## Integer
+
+The `integer` data type stores whole numbers.
+
+- Use the capital `L` suffix to create an integer value.
+- Convert a numeric value to integer using `as.integer()`.
+- Convert an integer to numeric using `as.numeric()`.
+```{r}
+#| echo: true
+#| eval: true
+# example of integer type
+
+siblings <- 2L
+siblings 
+typeof(siblings)
+siblings <- as.numeric(siblings)
+typeof(siblings)
+```
+
+## Logical
+
+In R, the `logical` data type can be:
+
+- `TRUE` (carries a value of 1)
+- `FALSE` (carries a value of 0)
+
+*Tips*: Logical values can behave like numbers. Numeric operations are possible on logical values, but use caution.
+
+```{r}
+#| echo: true
+#| eval: true
+# example of logic type
+
+male <- TRUE
+male
+typeof(male)
+male <- male-1
+male
+typeof(male)
+```
+
+## Character
+
+The `character` data type stores text strings, including letters, numbers, and symbols. Strings in R can be written with single or double quotes.
+
+```{r}
+#| echo: true
+#| eval: true
+# example of character type
+
+name <- "Ray"
+name
+typeof(name)
+age <- "25"
+age
+typeof(age)
+```
+
+## Comparison operations
+
+Comparison operators compare two values and return a logical value `TRUE` or `FALSE`.
+```{r}
+#| echo: true
+#| eval: true
+# example of basic operations
+2 == 2 # Equal
+5 < 3 # Less than
+10 >= 3 # Greater than or equal to
+10 != 3 # Not equal
+## Weird behavior !!
+1 == "1"
+1 == TRUE
+"1" == TRUE
+```
+
+
+## Coercion
+
+while performing any operations mixed with different data types in R, the values are automatically converted to the most general data type by **coercion**. The order is as below
+
+$$
+\text{logical} < \text{integer} < \text{numeric} < \text{character}
+$$
+
+
+```{r}
+#| echo: true
+#| eval: true
+1.2 + TRUE
+# 2.3 + "1" <= This line will result in error
+## Weird behavior !!
+1 == "1"
+1 == TRUE
+"1" == TRUE
+```
+
+## Functions
+
+Functions are used to perform tasks on input values. For example, the `sin()` function calculates the sine of a number. The input to the function is given inside the parentheses.
+
+:::{.columns}
+:::{.column width="49%"}
+$$
+\sin (\pi) = 0
+$$
+
+:::
+
+:::{.column width="49%"}
+
+```{r}
+#| echo: true
+#| eval: true
+# example of sin() function
+sin(pi)
+```
+
+:::
+
+:::
+
+- `sin` is the name of the function, and `pi` is the input. The output of the function is `0`.
+- Why is the output not exactly `0`? This is because π is stored as a double and is accurate to about 15–16 decimal places. As a result, `sin(pi)` is a very small number close to zero, but not exactly zero.
+
+## More function examples
+
+Another example is `floor()`, which rounds a number down to the nearest whole number.
+
+
+```{r}
+#| echo: true
+#| eval: true
+# example of floor(sin(pi)) function
+sin_pi <- sin(pi)
+floor(sin_pi)
+```
+
+
+- The output of `floor(sin(pi))` is `0`. This is because the `floor()` function rounds down the value of `sin(pi)` to the nearest whole number.
+- R has many predefined functions, and you can also create your own functions. See the official [documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html) for more information.
+- Within RStudio, you can use `?` to get help on a function. For example, `?floor` gives information about the `floor()` function.
+
+## Writing your own function
+
+You can customize functions in R to perform specific tasks. Benefits of using functions:
+
+- Make your code more organized and readable.
+- Allow for code reusability and modularity.
+
+The format for writing a function in R is:
+
+$$
+\begin{aligned}
+\textit{function_name} &\leftarrow \text{function}(\textit{arguments}) \{ \\
+& \textit{your code} \\
+& \}
+\end{aligned}
+$$
+
+## BMI example
+
+Consider the following example of a function that calculates BMI:
+
+```{r}
+#| echo: true
+#| eval: true
+# First define a function to calculate BMI
+
+# weight in kg, height in meters
+calculate_bmi <- function(weight, height) {
+  bmi <- weight / (height^2)
+  return(bmi)
+}
+# Example usage:
+yuanhua_weight <- 66.2
+yuanhua_height <- 1.71
+ray_weight <- 68.1
+ray_height <- 1.85
+calculate_bmi(yuanhua_weight, yuanhua_height)
+calculate_bmi(ray_weight, ray_height)
+
+```

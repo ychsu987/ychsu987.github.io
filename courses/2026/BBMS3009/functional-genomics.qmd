@@ -1,0 +1,39 @@
+---
+title: "Functional genomics"
+author: Yu Cheng Hsu
+title-slide-attributes:
+    data-background: /assets/images/functional-genomics/background-1.png
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+engine: knitr
+bibliography: ref.bib
+lightbox: true
+--- 
+
+## Learning Objectives
+
+- Identify potential ontology databases
+- Analyze functional pathways of: 
+  - ChIP-Seq
+  - DEG
+- Describe basic protein-protein interaction networks
+
+{{< include /_content/modules/application/enrichment.qmd >}}
+
+## Wrap Up 
+
+- Connecting sequencing results to more informative clinical information:
+  - Enrichment in ChIP-Seq and DEG
+  - PPI
+  
+## Bibliography Notes

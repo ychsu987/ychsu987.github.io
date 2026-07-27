@@ -1,0 +1,9 @@
+---
+title: "SBMS7202 Foundations in Biomedical Data Science"
+subtitle: "Course index — slides and annotated notes"
+---
+
+Lecture materials for SBMS7202. **Blank** is student-facing slides and **Annotated** when an in-class / sketch version is available.
+
+| Topic | Slides | Annotated slides |
+|---|---|---|

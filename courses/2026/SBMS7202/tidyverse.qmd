@@ -1,0 +1,52 @@
+---
+title: "Introduction to R"
+subtitle: Tidyverse
+title-slide-attributes:
+    data-background: /assets/images/ggplot2/background-1.png
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+author: Yu Cheng Hsu
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+lightbox: true
+---
+
+## Learning objectives
+
+By the end of this session, you will
+
+- Understand the basic grammar and layered structure of ggplot2
+- Create simple plots using data, aesthetics, and geometric layers
+- Understand how to read and write data in R
+- Reflect on goodcoing practice in data wrangling
+
+We **DO NOT** expect:
+
+- Memorize functions in the `ggplot2` or `dplyr`
+
+::: aside
+
+**Acknowledgement**
+
+This lecture slides are partially adopted and inspired from 
+
+  - @laurent_gatto_2021_5532658, @peng2016r, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0
+  - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version 
+
+:::
+
+{{< include /_content/modules/bdata/package.qmd >}}
+
+{{< include /_content/modules/bdata/dplyr.qmd >}}
+
+{{< include /_content/modules/bdata/ggplot2.qmd >}}
+
+

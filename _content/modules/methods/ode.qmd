@@ -1,0 +1,618 @@
+# Modeling ecology dynamics
+
+## Preface
+
+- Predicting the population in the 
+  - microbiome
+  - cells (tumors, donor-recipient interactions)
+
+The idea of using these models is to estimate the potential growth of the cells of interest and provide insights into the underlying mechanisms of growth.
+
+The modeling techniques in this topic are largely borrowed from ecology, where the study of species populations is of crucial interest:
+
+  - Interactions between species
+  - Environment
+
+## Simple model of tumor growth
+
+:::{.columns}
+
+::: {.column width="48%"}
+A simple model to describe the change in a tumor cell population ($\frac{dC}{dt}$) is 
+
+$$
+\frac{dC}{dt}=gC(t)-dC(t)=\alpha C(t)
+$$
+
+- $g$ is the growth rate of the tumor cells
+- $d$ is the death rate of the tumor cells
+- $\alpha$ is the net growth rate of the tumor cells
+
+:::
+
+:::{.column width="48%"}
+
+```{dot}
+//| fig-width: 5
+digraph  G {
+  cell [fontsize = 9, shape = circle]
+  die [fontsize = 9, shape = circle]
+  cell -> cell [label = "growth (g)", fontsize = 9]
+  cell -> die [label = "death (d)", fontsize = 9]
+}
+```
+
+:::
+
+:::
+
+## Implication of the simple model
+
+
+:::{.columns}
+
+:::{.column width="48%"}
+
+- The population of the tumor cells at time $t$ can be expressed as
+$$
+C(t) = C(0)e^{\alpha t}
+$$
+:::
+
+:::{.column width="48%"}
+- If $\alpha > 0$, the population will grow exponentially.
+- If $\alpha < 0$, the population will decline exponentially.
+- If $\alpha = 0$, the population will remain constant.
+:::
+
+:::
+
+**Limitations**
+
+- The model assumes that growth and death rates are constant over time, which may not be true in reality.
+- The model does not account for interactions with other cell types or the environment.
+- The model assumes there is no maximum population in a given environment.
+
+## Redesigning the model
+
+From empirical observation, the growth of tumor cells usually follows these steps:
+
+1. Starting rapid growth from a single/small collections of cells
+2. The growth slows down as the population increases
+3. Eventually, the population reaches a plateau
+
+**How to redesign the model**
+
+1. The growth rate is not constant; it is negatively proportional to the population size.
+2. At a large enough population size, the growth rate will be zero.
+
+## Logistic growth model
+
+An improved version of the simple model is the logistic growth model, which can be expressed as:
+
+$$
+\frac{dC}{dt}= \alpha(1-\frac{C(t)}{K}) C(t)
+$$
+
+- $K$ is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.
+- $\alpha$ is the intrinsic growth rate of the tumor cells.
+
+## Qualitative inspection of the logistic growth model
+
+:::{.columns}
+
+:::{.column width="48%"}
+The analytical solution of the logistic growth model is
+
+$$
+C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
+$$
+
+:::
+
+:::{.column width="48%"}
+-  $C(t) < K$, the population will grow and reach the carrying capacity $K$.
+-  $C(t) > K$, the population will decline and reach the carrying capacity $K$.
+-  $C(t) = K$, the population will remain constant.
+:::
+
+:::
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def logistic_growth(t, C0, K, alpha):
+    return K / (1 + ((K - C0) / C0) * np.exp(-alpha * t))
+
+# Parameters
+t = np.linspace(0, 50, 100)
+K = 1000
+alpha = 0.2
+initial_conditions = [10, 100, 1500]
+
+plt.figure(figsize=(12, 2.5))
+for C0 in initial_conditions:
+    C = logistic_growth(t, C0, K, alpha)
+    plt.plot(t, C, label=f'C(0) = {C0}')
+
+plt.axhline(y=K, color='r', linestyle='--', label=f'Carrying Capacity (K={K})')
+plt.title('Logistic Growth Model of Tumor Cells')
+plt.xlabel('Time (t)')
+plt.ylabel('Population Size C(t)')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+## What are missing ?
+
+- The model does not account for interactions with other cell types or the environment.
+
+Consider two populations with following interactions
+
+1. **Prey and predator**  
+
+   - Predator population growth is *positively* affected by the prey population size
+   - Prey population growth is *negatively* affected by the predator population size
+
+2. **Competition between two species**
+
+  - The growth of each species is *negatively* affected by the population size of the other species.
+
+$\rightarrow$ The ODE needs to be modified to account for the interactions between populations.
+
+## Lotka-Volterra competition model
+
+Given two species, $C_1$ and $C_2$ in competition with each other, the competitive Lotka-Volterra model can be expressed as
+
+$$
+\begin{aligned}
+\frac{dC_1}{dt} = \alpha_1 C_1(t) (1 - \frac{C_1(t) + \beta_{12} C_2(t)}{K_1}) \\
+\frac{dC_2}{dt} = \alpha_2 C_2(t) (1 - \frac{C_2(t) + \beta_{21} C_1(t)}{K_2})
+\end{aligned}
+$$
+
+- $\alpha_1$ and $\alpha_2$ are the intrinsic growth rates of species 1 and 2, respectively.
+- $K_1$ and $K_2$ are the carrying capacities of the environment for species 1 and 2, respectively.
+- $\beta_{12}$ and $\beta_{21}$ are the competition rates between species 1 and 2,
+  - $\beta_{12}$ represents the effect of species 2 on the growth of species 1.
+  - $\beta_{21}$ represents the effect of species 1 on the growth of species 2.
+
+## Lotka-Volterra prey-predator model
+
+Given two species, $C_1$ (prey) and $C_2$ (predator), the prey-predator Lotka-Volterra model can be expressed as
+
+$$
+\begin{aligned}
+\frac{dC_1}{dt} &= \alpha_1 C_1(t)(1 - \frac{C_1(t)}{K_1}) - \beta_{12} C_1(t) C_2(t) \\
+\frac{dC_2}{dt} &= -\alpha_2 C_2(t) + \beta_{21} C_1(t) C_2(t)
+\end{aligned}
+$$
+
+- $\alpha_1$ is the intrinsic growth rate of the prey population
+- $\alpha_2$ is the intrinsic **death** rate of the predator population in the absence of prey.
+- $\beta_{12}$ is the effect of the presence of predators on the **prey death** rate.
+- $\beta_{21}$ is the effect of the presence of prey on the *predator's growth* rate.
+
+# Evaluating system of Ordinary Differential Equations (ODEs) 
+
+## Qualitative inspection on ODEs
+
+- Systems of ODEs rarely have analytical solutions.
+- In many cases where ODEs do not have analytical solutions, we can use qualitative inspection to understand the behavior of the system.
+- **Phase diagram**: Plotting derivatives as an arrow field, which can provide insights into 
+  - the stability
+  - behavior
+  - Initial points
+
+## Phase diagram
+
+- For a logistic growth model
+$$
+C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
+$$
+
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def logistic_growth(t, C0, K, alpha):
+    return K / (1 + ((K - C0) / C0) * np.exp(-alpha * t))
+
+# Parameters
+t = np.linspace(0, 50, 100)
+K = 1000
+alpha = 0.2
+initial_conditions = [10, 100, 1500]
+
+# Create a 1x2 subplot layout sharing the Y-axis
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 3), sharey=True, 
+                               gridspec_kw={'width_ratios': [5, 1]})
+
+# --- LEFT PANEL: Time-Series Trajectories ---
+for C0 in initial_conditions:
+    C = logistic_growth(t, C0, K, alpha)
+    ax1.plot(t, C, label=f'C(0) = {C0}', linewidth=2)
+
+ax1.axhline(y=K, color='r', linestyle='--', alpha=0.7, label=f'Carrying Capacity (K={K})')
+ax1.set_title('Logistic Growth Model of Tumor Cells', fontsize=12, fontweight='bold')
+ax1.set_xlabel('Time (t)')
+ax1.set_ylabel('Population Size C(t)')
+ax1.legend(loc='upper right')
+ax1.grid(True, alpha=0.3)
+
+# --- RIGHT PANEL: Phase Line ---
+# Draw the vertical phase axis line
+ax2.axvline(x=0, color='black', linewidth=1.5)
+
+# 1. Unstable Equilibrium at C = 0 (Open Circle)
+ax2.plot(0, 0, marker='o', color='green', markersize=8, 
+         markerfacecolor='white', markeredgewidth=2, label='Unstable')
+
+# 2. Stable Equilibrium at C = K (Solid Circle)
+ax2.plot(0, K, marker='o', color='green', markersize=8, label='Stable')
+
+# 3. Directional Arrows
+# Flow between 0 and K (increasing population -> pointing UP)
+ax2.annotate('', xy=(0, K * 0.65), xytext=(0, K * 0.45),
+             arrowprops=dict(arrowstyle="->", color="blue", lw=2.5))
+
+# Flow above K (decreasing population -> pointing DOWN)
+ax2.annotate('', xy=(0, K * 1.15), xytext=(0, K * 1.35),
+             arrowprops=dict(arrowstyle="->", color="blue", lw=2.5))
+
+# Clean up phase line axis styling
+ax2.set_xlim(-0.5, 0.5)
+ax2.set_xticks([])  # Hide X ticks since the X axis holds no numerical meaning here
+ax2.set_title('Phase Line', fontsize=12, fontweight='bold')
+
+# Remove outer borders for the phase line subplot to keep it clean
+for spine in ['top', 'right', 'bottom', 'left']:
+    ax2.spines[spine].set_visible(False)
+
+plt.tight_layout()
+plt.show()
+
+```
+
+  
+## Discussion on Lotka-Volterra competition model
+
+:::{.columns}
+
+:::{.column width="48%"}
+We can find the equilibrium points of the system by setting $\frac{dC_1}{dt} = 0$ and $\frac{dC_2}{dt} = 0$, which gives us the following equations:
+
+$$
+\begin{aligned}
+C_1(t) &= K_1 - \beta_{12} C_2(t) \\
+C_2(t) &= K_2 - \beta_{21} C_1(t) \\
+\end{aligned}
+$$
+
+The intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in @mcgehee2024mathematical)
+:::
+
+:::{.column width="48%"}
+```{python}
+x_points = np.arange(0.1, 2., 0.2)    # grid lines for x-axis
+y_points = np.arange(0.1, 2., 0.2)    # grid lines for y-axis
+
+
+
+def lv_function(x_points, y_points, params):
+    a1, k1, b12, a2, k2, b21 = params 
+    x_grid, y_grid = np.meshgrid(x_points, y_points)    # generate a grid of x, y values
+
+    x_flow = x_grid * (a1 - (b12 * y_grid+ x_grid) / k1)
+    y_flow = y_grid * (a2 - (b21 * x_grid + y_grid) / k2)
+
+    return x_grid, y_grid, x_flow, y_flow, k1/b12-x_points/b12, k2-b21*x_points
+
+fig, ax = plt.subplots(figsize=(6, 6),ncols=2,nrows=2)
+
+a1 , k1, b12, a2, k2, b21 = 1., 1., 0.5, 1., 1., 2 
+x_grid, y_grid, x_flow, y_flow, line1, line2 = lv_function(x_points, y_points, (a1 , k1, b12, a2, k2, b21))
+
+ax[0,0].streamplot(x_grid, y_grid, x_flow, y_flow)
+ax[0,0].plot(x_points, line1, label=r'$C_1$-nullcline')
+ax[0,0].plot(x_points, line2, label=r'$C_2$-nullcline')
+
+ax[0,0].set_ylim(0, 2)
+ax[0,0].set_xlabel(r'$C_1$')
+ax[0,0].set_ylabel(r'$C_2$')
+
+a1 , k1, b12, a2, k2, b21 =  1., 1., 2, 1., 1., 0.5
+x_grid, y_grid, x_flow, y_flow, line1, line2 = lv_function(x_points, y_points, (a1 , k1, b12, a2, k2, b21))
+
+ax[0,1].streamplot(x_grid, y_grid, x_flow, y_flow)
+ax[0,1].plot(x_points, line1, label=r'$C_1$-nullcline')
+ax[0,1].plot(x_points, line2, label=r'$C_2$-nullcline')
+
+ax[0,1].set_ylim(0, 2)
+ax[0,1].set_xlabel(r'$C_1$')
+ax[0,1].set_ylabel(r'$C_2$')
+
+a1 , k1, b12, a2, k2, b21 =  1., 1.5, 1.5, 1., 1.5, 1.5
+x_grid, y_grid, x_flow, y_flow, line1, line2 = lv_function(x_points, y_points, (a1 , k1, b12, a2, k2, b21))
+
+ax[1,0].streamplot(x_grid, y_grid, x_flow, y_flow)
+ax[1,0].plot(x_points, line1, label=r'$C_1$-nullcline')
+ax[1,0].plot(x_points, line2, label=r'$C_2$-nullcline')
+
+ax[1,0].set_ylim(0, 2)
+ax[1,0].set_xlabel(r'$C_1$')
+ax[1,0].set_ylabel(r'$C_2$')
+
+a1 , k1, b12, a2, k2, b21 =  1., 1., 0.67, 1., 1., 0.67
+x_grid, y_grid, x_flow, y_flow, line1, line2 = lv_function(x_points, y_points, (a1 , k1, b12, a2, k2, b21))
+
+ax[1,1].streamplot(x_grid, y_grid, x_flow, y_flow)
+ax[1,1].plot(x_points, line1, label=r'$C_1$-nullcline')
+ax[1,1].plot(x_points, line2, label=r'$C_2$-nullcline')
+
+ax[1,1].set_ylim(0, 2)
+ax[1,1].set_xlabel(r'$C_1$')
+ax[1,1].set_ylabel(r'$C_2$')
+
+
+
+
+plt.show()
+```
+:::
+
+:::
+
+## Exclusion of one species ($C_1$ or $C_2$ wins)
+
+:::{.columns}
+:::{.column}
+**$C_1$  wins**
+
+- Condition: $\beta_{12} < \frac{K_1}{K_2}$ and $\beta_{21} > \frac{K_2}{K_1}$
+- Mechanism: Species 1 exerts strong competitive pressure on Species 2 ($\beta_{21}$ is large), while Species 2 exerts weak pressure on Species 1 ($\beta_{12}$ is small).
+- Equilibria: 
+  - $(K_1, 0)$ is a globally stable node.
+  - $(0, K_2)$ is an unstable node.
+  - $(0, 0)$ is an unstable saddle.
+:::
+:::{.column}
+**$C_2$  wins**
+
+- Condition: $\beta_{12} > \frac{K_1}{K_2}$ and $\beta_{21} < \frac{K_2}{K_1}$
+- Mechanism: Species 2 exerts strong competitive pressure on Species 1 ($\beta_{12}$ is large), whereas Species 1 exerts weak pressure on Species 2 ($\beta_{21}$ is small).
+- Equilibria: 
+  - $(K_1, 0)$ is an unstable node.
+  - $(0, K_2)$ is a globally stable node.
+  - $(0, 0)$ is an unstable saddle.
+:::
+:::
+
+## Bistability / Competitive Exclusion
+
+
+:::{.columns}
+:::{.column width=65%}
+
+- Condition: $\beta_{12} > \frac{K_1}{K_2}$ and $\beta_{21} > \frac{K_2}{K_1}$ 
+- Mechanism: Interspecific competition is stronger than intraspecific competition for both species. Each species inhibits the other more than it inhibits itself.
+- Equilibria: 
+  - $(K_1, 0)$, $(0, K_2)$ are locally stable nodes.
+  - The interior intersection point $(C_1^*, C_2^*)$ exists but is a saddle point (unstable):
+  $$C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}$$
+- Outcome: Priority Effect / Founders' Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point.
+:::
+:::{.column width=33%}
+
+```{python}
+x_points = np.arange(0.1, 2., 0.2)    # grid lines for x-axis
+y_points = np.arange(0.1, 2., 0.2)    # grid lines for y-axis
+
+a1 , k1, b12, a2, k2, b21 =  1., 1.5, 1.5, 1., 1.5, 1.5
+x_grid, y_grid, x_flow, y_flow, line1, line2 = lv_function(x_points, y_points, (a1 , k1, b12, a2, k2, b21))
+
+fig, ax = plt.subplots(figsize=(4, 4))
+ax.streamplot(x_grid, y_grid, x_flow, y_flow)
+ax.plot(x_points, line1, label=r'$C_1$-nullcline')
+ax.plot(x_points, line2, label=r'$C_2$-nullcline')
+ax.set_ylim(0, 2)
+
+```
+:::
+:::
+
+## Stable Coexistence
+
+
+:::{.columns}
+:::{.column width=65%}
+
+- Condition: Condition: $\beta_{12} < \frac{K_1}{K_2}$ and $\beta_{21} < \frac{K_2}{K_1}$
+- Mechanism: Intraspecific competition is stronger than interspecific competition for both species. Each population limits its own growth more than it limits the growth of its competitor.
+- Equilibria: 
+  - $(K_1, 0)$, $(0, K_2)$ are unstable nodes.
+  - The interior intersection point $(C_1^*, C_2^*)$ is a globally stable node.
+- Outcome: Both species coexist indefinitely at reduced population levels relative to their single-species carrying capacities.
+
+:::
+
+:::{.column width=33%}
+
+```{python}
+x_points = np.arange(0.1, 2., 0.2)    # grid lines for x-axis
+y_points = np.arange(0.1, 2., 0.2)    # grid lines for y-axis
+
+a1 , k1, b12, a2, k2, b21 =  1., 1., 0.67, 1., 1., 0.67
+x_grid, y_grid, x_flow, y_flow, line1, line2 = lv_function(x_points, y_points, (a1 , k1, b12, a2, k2, b21))
+
+fig, ax = plt.subplots(figsize=(4, 4))
+ax.streamplot(x_grid, y_grid, x_flow, y_flow)
+ax.plot(x_points, line1, label=r'$C_1$-nullcline')
+ax.plot(x_points, line2, label=r'$C_2$-nullcline')
+ax.set_ylim(0, 2)
+
+```
+:::
+:::
+
+# Solving ODEs in computer
+
+## Preface
+
+Before we really go into the modeling, we need to understand how to solve ordinary differential equations (ODEs) in computer.
+
+:::{.columns}
+::: {.column width="48%"}
+**In mathematics**
+
+- ODEs can be solved analytically (e.g., separation of variables, integrating factor, etc.)
+- If ODE does not have an analytical solution, mathematical techniques can be used to qualitatively analyze the behavior of the system (e.g., phase diagram, stability analysis, etc.)
+:::
+
+::: {.column width="48%"}
+**In computer**
+
+- ODEs can be solved numerically (Computer can only perform a finite number of calculations, so we need to approximate the solution at discrete time steps)
+- Numerical methods can be used to solve ODEs that do not have an analytical solution, or to simulate the behavior of a system over time.
+:::
+
+:::
+
+## The Initial Value Problem (IVP)
+
+We aim to solve an ordinary differential equation (ODE) of the form:
+
+$$\frac{dy}{dt} = f(t, y), \quad y(t_0) = y_0$$
+
+* **Analytical solutions** are sometimes difficult or impossible to find for non-linear systems
+* **Numerical methods** approximate the solution at discrete time steps: 
+  $$t_0, t_1, t_2, \dots, t_n, t_{n+1}$$
+* Where $h = t_{n+1} - t_n$ represents the **step size**.
+* Again, the computer can only perform a finite number of calculations, in any case computing the solution at discrete time steps is necessary.
+
+## Overview of Numerical Integration
+
+The fundamental problem is to evaluate the integral over a single time step:
+
+$$y(t_{n+1}) = y(t_n) + \int_{t_n}^{t_{n+1}} f(t, y(t)) \, dt$$
+
+Numerical integration methods approximate the area under the curve $f(t, y(t))$ using different strategies:
+
+Where
+
+$$
+\frac{dy}{dt} = f(t, y(t))
+$$
+
+Intuitively, we can think of $f(t, y(t))$ as the slope of the solution curve at time $t$. The integral represents the total change in $y$ over the interval from $t_n$ to $t_{n+1}$.
+
+## Evaluating different methods of numerical integration
+
+Imaging we are doing a integration like Reimann sum. In Reimann sum we assume $dt$ is small enough to accurately approximate the area under the curve. In numeric integration, we need to consider how good is it.
+
+- **Stability**
+  Error is bound and does not grow exponentially with time steps. Important for long-term simulations. (As an analogy in statistics, we want to make sure the estimator is consistent)
+- **Accuracy**
+  The numerical methods should be close to the true solution. 
+- **Computational cost**
+  The method should be computationally efficient, especially for large systems or long simulations.
+
+## The Simplest Method: Euler's Forward Method
+
+By approximating the derivative with a forward finite difference:
+
+$$\frac{y_{n+1} - y_n}{h} \approx f(t_n, y_n)$$
+
+We obtain the explicit **Euler update rule**:
+
+$$y_{n+1} = y_n + h \cdot f(t_n, y_n)$$
+
+**Limitations**
+
+::: {.incremental}
+* Demands very small $h$ to avoid numerical divergence in dynamic systems.
+* **Local Truncation Error (LTE):** $\mathcal{O}(h^2)$
+* **Global Truncation Error (GTE):** $\mathcal{O}(h)$ (First-order accurate)
+:::
+
+## Runge-Kutta (RK) Methods
+
+
+::: {.incremental}
+* **Core Idea:** Instead of evaluating the derivative only at the beginning of the interval ($t_n$), evaluate $f(t,y)$ at several carefully chosen **intermediate trial points** within $[t_n, t_{n+1}]$.
+* A weighted average of these intermediate slopes is used to compute the final step update.
+* Naming convention: $RKX$ denotes a Runge-Kutta method that evaluates $f(t,y)$ at $X$ intermediate points.
+* e.g. **Euler's Method** is simply a first-order Runge-Kutta method ($RK1$).
+:::
+
+::: aside
+Developed around 1900 by Carl Runge and Martin Kutta, this family of methods improves accuracy without requiring higher-order derivatives of $f(t,y)$.
+:::
+
+## The Classic RK4 Method
+
+The most widely used explicit RK method balances computational cost and high accuracy. To step from $y_n$ to $y_{n+1}$, calculate four intermediate slopes:
+
+$$\begin{aligned}
+k_1 &= f(t_n, y_n) \\
+k_2 &= f\left(t_n + \frac{h}{2}, y_n + h\frac{k_1}{2}\right) \\
+k_3 &= f\left(t_n + \frac{h}{2}, y_n + h\frac{k_2}{2}\right) \\
+k_4 &= f(t_n + h, y_n + h k_3)
+\end{aligned}$$
+
+Once the four slopes are computed, the next value is calculated via a weighted average resembling Simpson's Rule:
+
+$$y_{n+1} = y_n + \frac{h}{6} \left(k_1 + 2k_2 + 2k_3 + k_4\right)$$
+
+
+## The RK4 Update Rule
+
+
+::: {.columns}
+::: {.column width="60%"}
+### Geometric Intuition
+* $k_1$ is the slope at the left boundary.
+* $k_2$ and $k_3$ are trial slopes at the midpoint.
+* $k_4$ is a trial slope at the right boundary.
+:::
+
+::: {.column width="40%"}
+### Error Properties
+* **LTE:** $\mathcal{O}(h^5)$
+* **GTE:** $\mathcal{O}(h^4)$
+* **Order:** $4^{\text{th}}$-Order accurate.
+:::
+:::
+
+---
+
+## Summary and Comparison
+
+| Method | Type | Global Error (GTE) | Evaluations per Step | Ideal Use Case |
+|---|---|---|---|---|
+| **Forward Euler** | Explicit | $\mathcal{O}(h)$ | 1 | Quick prototyping, highly linear models |
+| **Backward Euler** | Implicit | $\mathcal{O}(h)$ | 1 (plus solver) | Stiff equations, absolute stability |
+| **RK2 (Heun's)** | Explicit | $\mathcal{O}(h^2)$ | 2 | Moderate accuracy balance |
+| **RK4** | Explicit | $\mathcal{O}(h^4)$ | 4 | General purpose, non-stiff dynamic systems |
+
+: Table: Comparison of Fundamental Numerical Integration Methods {.striped .hover}
+
+## Explicit vs Implicit Methods
+
+::: {.columns}
+::: {.column width="50%"}
+**Explicit Methods**
+
+Evaluate $f(t,y)$ at known, previous time steps. Easy to compute but require small step sizes for stability.
+:::
+
+::: {.column width="50%"}
+**Implicit Methods**
+
+Evaluate $f(t,y)$ involving the unknown future state $y_{n+1}$. Computationally intensive but highly stable for stiff equations.
+:::
+:::

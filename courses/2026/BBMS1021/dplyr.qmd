@@ -1,0 +1,78 @@
+---
+title: "Introduction to R"
+subtitle: Data Wrangling in tidyverse
+title-slide-attributes:
+    data-background: /assets/images/dplyr/background-1.png
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+author: Yu Cheng Hsu
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+bibliography: ref.bib
+lightbox: true
+engine: knitr
+---
+
+## Learning objectives
+
+- Understand how to read and write data in R
+- Perform fundamental data wrangling task in R
+- Reflect on goodcoing practice in data wrangling
+
+::: aside
+
+**Acknowledgement**
+
+This lecture slides are partially adopted and inspired from 
+
+  - @laurent_gatto_2021_5532658, @peng2016r, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0
+  - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version 
+
+:::
+
+
+## Preamble
+
+**About Ray's part**
+
+I am responsibile for introducing commonly used library in R. So most of the time we will keep using some functions that is predefined by others. 
+
+Questions that Ray could **barely** give you an explanation better than AI/documentation:
+  
+- "What does this function do" -> Go to find the documentation `?FUNCTION_NAME` or ask AI
+- "Why does this name as XXXX()" -> The developer named it at that way
+
+Questions and competency you need to develop:
+
+- "Why we need to do this?"
+- Describe the task so AI can help you generate code
+- Comprehand and literate to the code and make your own judgement
+
+
+## Slide conventions
+
+- Use code formatting for special terms and examples, such as `This` or **`This are code`**.
+
+- Code chunk, and it is excutable while you open the file in RStudio
+```{r}
+#| echo: true
+#| eval: true
+# Title: Example code chunk
+# This chunk shows the basic structure of an executable R block.
+```
+
+- `.qmd` version file won't have the image display but the content is the same
+- In-class sketch might or might not be uploaded
+
+
+{{< include /_content/modules/bdata/dplyr.qmd >}}
+
+## Bibilography notes

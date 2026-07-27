@@ -1,0 +1,138 @@
+## File structure
+
+ - `count_matrix.csv`
+  
+  RNA (In rows) expresion level for each sample (in column)
+
+ - `sample_metadata.csv`
+  
+  Information for each mouse
+
+  
+## Loading/saving data from folders
+
+- By default, R sets the working directory to your `Documents` folder.
+- Use `setwd(PATH/TO/NEW/WORKING/DIRECTORY)` to change the working directory.
+- Use `getwd()` to see your current working directory.
+
+Consider the following file structure
+
+:::{.columns}
+
+:::{.column}
+```md
+/ (root)
+├── home
+│   └── user
+│       ├── documents
+│       │   ├── course
+│       │   │   ├── THIS_MARKDOWN.rmd
+│       │   │   └── IMAGE.png
+│       │   └── notes.txt
+│       └── downloads
+|           └── data.csv
+└── var
+```
+:::
+
+
+:::{.column}
+
+There are two ways of specifying a path:
+
+1. **Absolute path**
+   The full location of the file or directory.
+2. **Relative path**
+   The location of the file or directory relative to the current directory.
+
+:::
+
+:::
+
+
+##  Absolute Path
+
+:::{.columns}
+
+:::{.column}
+
+```md
+/ (root)
+├── home
+│   └── user
+│       ├── documents
+│       │   ├── course
+│       │   │   ├── THIS_MARKDOWN.rmd
+│       │   │   └── IMAGE.png
+│       │   └── notes.txt
+│       └── downloads
+|           └── data.csv
+└── var
+```
+
+:::{.callout-tip}
+## Reminder for Windows system
+
+- You will find your file path using `\` instead of `/` in your file explorer. In R, you need to transform these `\`s to `/` if you directly copy and paste the file path.
+- You need to indicate your drive so it usually looks like `C:\Users\Ray\Blah\Blah`
+::: 
+
+
+:::
+
+
+:::{.column}
+
+**Absolute Path**
+
+An absolute path starts from the root directory (`/`) and specifies the full path to a file or directory. 
+
+- Path to `THIS_MARKDOWN.rmd`: `/home/user/documents/course /THIS_MARKDOWN.rmd`
+- Path to `data.csv`: `/home/user/downloads/data.csv`
+
+:::
+
+:::
+
+
+
+
+##  Relative path
+
+:::{.columns}
+
+:::{.column}
+
+```md
+/ (root)
+├── home
+│   └── user
+│       ├── documents
+│       │   ├── course
+│       │   │   ├── THIS_MARKDOWN.rmd
+│       │   │   └── IMAGE.png
+│       │   └── notes.txt
+│       └── downloads
+|           └── data.csv
+└── var
+```
+:::
+
+
+:::{.column}
+
+**Relative Path**
+
+A relative path is defined relative to the current working directory. 
+
+- `./` refer to the current directory,
+- `../` means "go up one directory level".
+
+:::
+
+:::
+
+Assume that we are working on `THIS_MARKDOWN.rmd`, so the current directory is `/home/user/documents /course`.
+
+- Path to `IMAGE.png` : `./IMAGE.png` or `IMAGE.png`
+- Path to `data.csv`: `../../data.csv`

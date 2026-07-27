@@ -1,0 +1,55 @@
+## Package
+
+:::{.columns}
+:::{.column}
+
+- A package is a bundle of functions, data, and documentation. You can import them through
+
+```R
+library(package_name)
+```
+
+- while using functions under the package you can use
+
+```R
+package_name::function_name()
+```
+or
+
+```R
+library(package_name)
+function_name()
+```
+:::
+
+:::{.column}
+
+- You can check what packages has been installed, imported to your environment using the tab `Packages`
+
+![Checking packages](/assets/images/package/package.png){width=55%}
+:::
+
+:::
+## Installing package
+
+**Golden rule**:  refers to the 
+documentation of the specific package
+
+-  CRAN (the Comprehensive R Archive Network) (**Major package channel**)  
+
+```R
+install.packages("ggplot2")
+install.packages("tidyverse")
+```
+
+-  Bioconductor (**Biomedical packages**)  
+
+```R
+BiocManager::install("DESeq2")
+```
+
+-  Github (**Codes at developmental stage**)  
+
+```R
+devtools::install_github("tidyverse/ggplot2")
+```

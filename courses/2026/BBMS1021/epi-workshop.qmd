@@ -1,0 +1,29 @@
+---
+title: "Epidemiology workshop"
+title-slide-attributes:
+    data-background: /assets/images/epi_workshop/background-1.png
+    data-background-size:  35% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+author: Yu Cheng Hsu
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+bibliography: ref.bib
+engine: knitr
+---
+## Learning objectives
+
+- Analyze data from cohort study 
+- Analyze data from case-control study 
+- Justify the use cohort or case-control study 
+- 
+{{< include /_content/modules/bdata/epi_workshop.qmd >}}
+
+## Bibilography notes

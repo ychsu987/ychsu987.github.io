@@ -1,0 +1,305 @@
+## Background: Darwin's Experiment
+
+::: {.content-visible while-format="revealjs"}
+
+- Source: *The Effects of Cross and Self Fertilization in the Vegetable Kingdom* by Charles Darwin in 1876.
+- Hypothesis: Cross-pollination could make their offspring stronger (in terms of height). 
+  
+:::{.columns}
+
+:::{.column}
+- Experiment deisgn
+  - 15 pairs of corn, 
+    - one by **self-pollination**
+    - one by **cross-pollination**.  
+  - Each pair of observations was grown in the same pots,
+  - 4 pots in this study.
+:::
+
+:::{.column}
+![Illustration of experiment design](/assets/images/real-example/darwin.pngdarwin.png){width=100%}
+:::
+
+:::
+
+:::
+
+
+::: {.content-visible unless-format="revealjs"}
+
+The data were presented in Charles Darwin's book *The Effects of Cross and Self Fertilization in the Vegetable Kingdom* in 1876. He hypothesized that cross-pollination could make their offspring stronger (in terms of height, in his opinion back then). 
+
+To show this idea, he planted 15 pairs of Zea mays, one by self-pollination and the other by cross-pollination. Crucially, each pair of observations was grown in the same pots, and there were a total of 4 pots in this study. This means the plants in the same pot shared the exact same sunlight, soil, and water conditions.
+
+:::
+
+
+## The Data Science Workflow
+
+Before diving into the code, let's look at the roadmap. Every robust data science project follows a structured life cycle.
+
+As a professional scientist to
+
+ - Translate the experiment into actionable analysis plan 
+   - Outline the potential plan on
+     - Processing
+     - Analysis
+     - Visualization
+ - Convey the scientific findings
+
+::: {.content-visible unless-format="revealjs"}
+
+In this module, we will walk through each of these critical steps using Darwin's Zea mays dataset. We will start by importing the raw data, manipulating it to extract the relevant biological signals (the paired differences), visually exploring the patterns, and finally applying the correct statistical model to draw a scientifically sound conclusion.
+
+:::
+
+## Project Roadmap
+
+Some potential steps we need to perform:
+
+1. **Data Import & Inspection:** Load the experiment data and ensure data integrity.
+2. **Data Manipulation (Processing):** Calculate the height difference, capturing the paired experimental design.
+3. **Exploratory Data Analysis (EDA):** Visualize the paired nature of the plants and the distribution of their height differences.
+4. **Statistical test:**  Formulate our hypothesis and conduct statistical inference
+5. **Conclusion & Reporting:** Interpret the statistical output (p-value, mean difference).
+
+
+<!-- ## A Famous "Wrong" Experiment
+
+This study is famous not because of its contribution to plant biology; instead, it is a famous **wrong** experiment in statistics. 
+
+- **Darwin's Mistake:** He calculated the overall average height of all cross-pollinated plants and compared it to the average of all self-pollinated plants, completely ignoring the fact that they were planted in pairs.
+- **Fisher's Correction:** Ronald A. Fisher (a renowned biostatistician) later pointed out that by ignoring the pairs, Darwin failed to account for the environmental differences between different pots. Fisher used this exact dataset to demonstrate the importance of the **Paired design** in statistics. -->
+
+## Data Import and Inspection
+
+Before any analysis, the absolute first step is to inspect the data to ensure its integrity.
+
+Something you need check before you do anything:
+
+- Missing values
+- Typos and human errors
+- Data structures
+```{r}
+#| echo: true
+#| eval: true
+# Load necessary libraries and the dataset
+library(tidyverse)
+zea_mays = read.csv("../../../assets/data/real-example/zea_mays.csv", header = TRUE)
+head(zea_mays)
+```
+
+## Inspecting Data
+
+::: {.content-visible unless-format="revealjs"}
+Never blindly run statistical models. Always check the structure, look for missing values (NAs), and review summary statistics to catch extreme outliers or data entry errors.
+:::
+
+```{r}
+#| echo: true
+#| eval: true
+# Check the data structure and look for missing values
+## Apparently you can use zea_mays %>% anyNA() and so on
+str(zea_mays)
+anyNA(zea_mays) # Returns FALSE if there are no missing values
+```
+
+- There is NA data being identified  
+
+```{r}
+#| echo: true
+#| eval: true
+zea_mays %>% 
+  filter(is.na(Cross.fertilized.plant) | is.na(Self.fertilized.plant))
+```
+
+## Data wrangling plan
+
+After inspecting the data here are some data wrangling (manipulation) works need to be done
+
+1. Handeling missing data
+2. Make a long tabke so that Each observation (Zea mays) must have its own row.
+   1. Currently there are two observations in a row
+
+And you will see the reasons later on
+
+## Removing Missing Data
+
+Let's remove the broken pairs before calculating our differences.
+
+:::{.columns}
+
+:::{.column}
+**Good practice of coding**
+```{r}
+#| echo: true
+#| eval: true
+# 1. Drop any incomplete pairs
+zea_mays <- zea_mays %>% 
+  drop_na()
+# 2. Verify the clean-up was successful
+anyNA(zea_mays)
+```
+:::
+
+:::{.column}
+**Not recommended way**
+```{r}
+#| echo: true
+#| eval: false
+# Not recommended approach
+zea_mays <- zea_mays[-1,]
+# 2. Verify the clean-up was successful
+anyNA(zea_mays)
+```
+:::
+:::
+
+- Try to avoid **hard code** on specific columns, rows by indexing
+
+**Reasons**
+
+- Not robust to the change of data
+- Hard to understand the intention of the code
+
+
+## Data Preparation for Analysis
+
+For our visual and statistical analysis, we need to calculate the true biological signal we care about: the height difference within each pair. We will also pivot the data for plotting.
+```{r}
+#| echo: true
+#| eval: true
+# Calculate the paired difference
+zea_mays <- zea_mays %>%
+  mutate(diff.height = Cross.fertilized.plant - Self.fertilized.plant)
+
+# Reshape for visualization
+zea_mays_long <- zea_mays %>%
+  pivot_longer(cols = c(Cross.fertilized.plant, Self.fertilized.plant), 
+               names_to = "Type", values_to = "Height")
+```
+
+# Analysis and Visualization
+
+## Scatter Plot with Pair Information
+
+```{r}
+#| echo: true
+#| eval: true
+ggplot(zea_mays_long, aes(x = Type, y = Height, group = Pair)) +
+  geom_point(aes(color = Type), size = 3) +
+  geom_line(color = "grey") +
+  labs(title = "Paired Heights of Zea mays", x = "Pollination Type", y = "Height (inches)") +
+  theme_minimal()
+```
+
+## The Wrong Approach: Paired t-test
+
+We have 30 plants in total. Let's see what happens if we adopts Darwin's way' (i.e. wrong statistical test).
+
+- The **Wrong** Approach: Independent t-test
+
+:::{.columns}
+
+:::{.column}
+
+**Hypothesis**:
+$$
+\begin{aligned}
+H_0: & \mu_{\text{cross}} \leq \mu_{\text{self}} \\
+H_a: & \mu_{\text{cross}} > \mu_{\text{self}}
+\end{aligned}
+$$
+
+::: {.content-visible unless-format="revealjs"}
+If we forget that the plants were grown in pairs (sharing the same pots), we might mista kenly assume we have two completely independent groups of 15 plants. Let's run a standard independent t-test (which is what Darwin conceptually did).
+:::
+:::
+
+:::{.column}
+```{r}
+#| echo: true
+#| eval: true
+# INCORRECT: Running an unpaired 
+# (independent) t-test
+t.test(zea_mays$Cross.fertilized.plant, 
+       zea_mays$Self.fertilized.plant, 
+       alternative = "greater",
+       paired = FALSE)
+```
+:::
+:::
+
+## The Right Approach: Paired t-test
+
+
+:::{.columns}
+
+:::{.column}
+
+
+The problem with Darwin's fallacy is that
+
+- Zea mays in the same pot shared 
+  - Same nutritient 
+  - Same weather condition
+
+Violating the **independent sample** assumption of t-test. The corrected way is proposed by Ronald Fisher
+
+**Hypothesis**:
+$$
+\begin{aligned}
+H_0: &  \mu_{\text{diff}} \leq 0 \\
+H_a: & \mu_{\text{diff}} > 0
+\end{aligned}
+$$
+
+:::
+
+:::{.column}
+```{r}
+#| echo: true
+#| eval: true
+# CORRECT: Running a paired t-test
+t.test(zea_mays$Cross.fertilized.plant, 
+       zea_mays$Self.fertilized.plant, 
+       alternative = "greater",
+       paired = TRUE)
+```
+:::
+:::
+
+## Discussion on the results
+
+- Using wrong statistical test could draw opposite interpretation
+  - Darwin: $p=0.086$ (Fail to reject $H_0$)
+  - Fisher: $p=0.029$ (Reject $H_0$)
+- Cross fertilization could make the plant bigger
+- Limitation of the experiments
+  - Control of genotypes
+  - Sample size
+
+## A full picture of analytics
+
+@griffin2018best proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.
+
+:::{.columns}
+
+:::{.column}
+
+![Data lifecycle, figure from @griffin2018best](/assets/images/real-example/data_lifecycle.png){.lightbox}
+
+:::
+
+:::{.column}
+
+| Life Cycle Stage | Example                      |
+|------------------|------------------------------|
+| Collecting       | Read the data                |
+| Integrating      | -                            |
+| Processing       | Manipulating tables          |
+| Analyzing        | Reporting statistics         |
+| Publishing       | Generating report and figures| 
+
+:::
+:::

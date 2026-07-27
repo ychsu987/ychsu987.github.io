@@ -1,0 +1,76 @@
+# Survival Guide: R Debugging & AI Assistance
+
+## Preface
+
+- You **will** encounter errors. 
+- Getting an error in R is not a sign of failure; 
+- it is simply R's way of asking for clarification, or
+- The program is not desgined to work in that way
+ 
+## Part 1: How to Read the Red Text Without Panicking
+
+When R throws red text at you, first determine what kind of message it is:
+
+1.  **Message / Note:** Just R talking to you (e.g., "The tidyverse packages have been loaded"). **Action: Ignore.**
+2.  **Warning:** The code *did* run, but something looks suspicious to R (e.g., `Removed 5 rows containing missing values`). **Action: Read it, verify if it affects your analysis, but no immediate panic.**
+3.  **Error:** The code *stopped*. R cannot proceed. **Action: Time to debug.**
+
+## Identifying the key of the Error
+
+Don't read the whole error if it looks messsy. Look for the recognizable words at the end of the message. 
+
+**Common Biomedical Data Errors translated to plain English:**
+
+*   **`Error: object 'XXX' not found`**
+    *   *Translation:* You either haven't run the line of code that creates/loads `XXX` yet, or you made a typo (e.g., you typed `xxx`).
+*   **`Error in read_csv("FILE") : could not find function "read_csv"`**
+    *   *Key:* `could not find function`
+    *   *Translation:* You forgot to load the package! Run `library(tidyverse)` or `library(readr)` first.
+*   **`Error: unexpected symbol in "ggplot(data = clinical_df aes(x = treatment))"`**
+    *   *Key:* `unexpected symbol`
+    *   *Translation:* You missed a comma. (There should be a comma after `clinical_df`).
+
+---
+
+## Part 2: The AI Lifeline 
+
+When the error is confusing, Large Language Models (LLMs) are your best teaching assistants. However, "Garbage In = Garbage Out."
+
+**Bad example**
+
+
+> My R code doesn't work!!!!!
+
+**Asking right question** 
+
+To get an immediate, accurate fix, always provide the AI with these three components:
+
+1.  **The Goal:** What you are trying to do (briefly).
+2.  **The Code:** The exact lines that failed.
+3.  **The Error:** The exact copy-pasted red text.
+
+## Copy-Paste Prompt Template:
+
+> **Act as an expert R programmer**
+> 
+> **Goal:** I am trying to [e.g., create a scatterplot of gene expression versus patient age using ggplot2]. 
+> 
+> **Here is my code:**
+> ```r
+> [Paste your code here]
+> ```
+> 
+> **Here is the error message I received:**
+> ```text
+> [Paste the EXACT error message here]
+> ```
+> 
+> **Please tell me what went wrong and provide the corrected code.**
+
+---
+
+## Part 3: Best Practices for AI-Assisted Coding
+
+1.  **Don't just copy-paste the fix:** Always read the AI's explanation. If you just copy-paste, you will make the exact same error tomorrow. Ask yourself: *"What was the key of my mistake?"*
+2.  **Watch out for Hallucinations:** AI sometimes invents R functions that don't exist. If the AI's code throws a *new* error saying `could not find function...`, reply to the AI with that new error!
+3.  **Protect Sensitive Data:** **NEVER** paste real, identifiable patient data or confidential research results into LLM. If the AI asks to see your data structure, use `str(your_data)` or `head(your_data)` and mock up the values, or simply provide the column names.

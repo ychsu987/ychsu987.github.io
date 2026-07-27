@@ -1,0 +1,42 @@
+---
+title: "Introduction to R"
+subtitle: Data visualization in ggplot2
+title-slide-attributes:
+    data-background: /assets/images/ggplot2/background-1.png
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+author: Yu Cheng Hsu
+format: 
+  revealjs:
+    theme: [default, ../../../assets/css/general_style.css]
+    slide-number: true
+    reference-location: margin
+    chalkboard: true
+    smaller: true
+bibliography: ref.bib
+lightbox: true
+---
+
+## Learning objectives
+
+By the end of this session, you will
+
+- Understand the basic grammar and layered structure of ggplot2
+- Identify common graph components and choose an appropriate chart type
+- Create simple plots using data, aesthetics, and geometric layers
+- Interpret the main elements of a `ggplot2` figure
+
+We **DO NOT** expect:
+
+- Memorize functions in the `ggplot2`
+
+{{< include /_content/modules/bdata/package.qmd >}}
+
+{{< include /_content/modules/bdata/ggplot2.qmd >}}
+
+{{< include /_content/modules/bdata/file.qmd >}}
+
+
+## Bibilography notes
+

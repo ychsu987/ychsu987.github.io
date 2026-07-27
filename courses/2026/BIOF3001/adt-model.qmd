@@ -1,0 +1,134 @@
+---
+title: "Cancer cell population monitoring"
+subtitle: "An ecology perspective"
+author: "Yu Cheng Hsu"
+title-slide-attributes:
+    data-background: /assets/images/functional-genomics/background-1.png
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+bibliography: ref.bib
+lightbox: true
+engine: jupyter
+---
+
+## Intended learning outcomes
+- Bullet point one
+- Bullet point two
+- Bullet point three
+
+# Project background
+
+## Tumor evolution
+:::{.columns}
+
+::: {.column width="48%"}
+
+Tumor grows and evolves under evolution pressure
+  
+  - Trophic
+  - Metabolic
+  - Immunological
+  - Therapeutic
+:::
+
+:::{.column width="48%"}
+
+**Intratumor heterogeneity** (ITH), diversity in genetics, phenotypic or even epigenetic profiles, could equip tumor cells to adapt to different selection pressures.
+
+**Consequences of ITH**
+
+- Therapeutic failure
+- Drug resistance
+:::
+
+:::
+
+![Intratumor heterogeneity of tumor cells from @walshaccurate ](/assets/images/adt/ith.png)
+
+## Implication of ITH - Treatment
+
+- ITH implies that tumor cells could (Darwinian):
+  - Possess a genetic reservoir (accumulating different variations).
+  - Adapt to different evolutionary pressures.
+
+- **Treatment** is a selective evolutionary pressure (therapeutic pressure).
+- Natural selection favors treatment-resistant tumor cells.
+
+![Selective pressure and drug resistance, image from @greaves2012clonal](/assets/images/adt/drug%20resistance.png){width="70%"}
+
+## Prostate Cancer
+
+:::{.columns}
+
+::: {.column width="55%"}
+**Prostate Cancer in Hong Kong**
+In 2023
+
+- Prevalence rate (crude): 88.2 per 100K 
+- Mortality rate (crude): 15 per 100K
+
+**Treatment**
+
+- Radiotherapy
+- Surgery
+- Chemotherapy
+- Hormone therapy
+  - Prostate cancers are usually androgen-dependent. Hormone therapy works by reducing/blocking androgens, which can slow down or stop the growth of the cancer.
+  
+:::
+
+::: {.column width="42%"}
+![Prostate cancer](/assets/images/adt/prostate%20cancer.png){width=80%}
+:::
+
+:::
+
+## Hormone therapy for prostate cancer
+
+- Androgen deprivation therapy (ADT) is used for advanced prostate cancer
+- Continuous ADT
+  - Disadvantages
+    - Side effects (e.g., hot flashes, loss of libido)
+    - Drug resistance (e.g., castration-resistant prostate cancer)
+-  Intermittent ADT (IADT)
+   - Advantages @perera2020intermittent
+     - Delayed drug resistance
+     - Reduced side effects (Improved quality of life) 
+
+## Data sources
+
+@bruchovsky2006final implemented a clinical trial of IADT
+
+:::{.columns}
+::: {.column width="48%"}
+
+
+- **Total participants**: 103 eligible patients with prostate cancer
+- Monitoring biomarkers:
+  - Prostate-specific antigen (PSA) levels (indicates the activity of prostate cancer cells)
+  - Testosterone (Effectiveness of ADT)
+- Treatment protocol:
+  - ADT is given for a fixed time (36 weeks) until PSA levels drop to 4 $\mu$g/mL
+  - ADT is stopped until PSA levels rise to 10 $\mu$g/mL
+:::
+
+::: {.column width="48%"}
+![IADT protocol, image from @bruchovsky2006final](/assets/images/adt/iadt.png)
+:::
+
+:::
+
+{{< include /_content/modules/methods/ode.qmd >}}
+
+
+## Bibilography notes

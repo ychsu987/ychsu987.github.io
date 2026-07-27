@@ -1,0 +1,17 @@
+---
+title: "BBMS1021 Introduction to AI and Biomedical Data Science"
+subtitle: "Course index — slides and annotated notes"
+---
+
+Lecture materials for BBMS1021. **Blank** is student-facing slides and **Annotated** when an in-class / sketch version is available.
+
+| Topic | Slides | Annotated slides |
+|---|---|---|
+| Introduction to ggplot2 | [Blank](ggplot2.qmd) | — |
+| Introduction to dplyr | [Blank](dplyr.qmd) | — |
+| Real example: data processing & EDA with R | [Blank](real-example.qmd) | — |
+| Introduction to epidemiology | [Blank](intro-to-epi.qmd) | — |
+| Epidemiology workshop| [Blank](epi-workshop.qmd) | — |
+| Tutorial 1 | [Blank](../../2025/BBMS1021/tutorial/tutorial_1.qmd) | — |
+| Tutorial 2 | [Blank](../../2025/BBMS1021/tutorial/tutorial_2.qmd) | — |
+| Tutorial 3 | [Blank](../../2025/BBMS1021/tutorial/tutorial_3.qmd) | — |

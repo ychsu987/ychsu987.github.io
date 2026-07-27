@@ -1,0 +1,17 @@
+{
+  "hash": "f6740d3775f335a5943f2d3b711108f0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Introduction to R\"\nsubtitle: Intergrative mini project\ntitle-slide-attributes:\n    data-background: /assets/images/real-example/background-1.png\n    data-background-size:  40% 100%\n    data-background-position: right\n    data-background-opacity: \"0.8\"\nauthor: \"Yu Cheng Hsu\"\nformat: \n    revealjs:\n        theme: [default, ../../../assets/css/general_style.css]\n        slide-number: true\n        smaller: true\n        lightbox: true\n        chalkboard:\n            theme: whiteboard\n            src: None\nengine: knitr\nbibliography: ref.bib\nlightbox: true\n---\n\n\n## Learning goal\n\n- Designing analysis pipeline from experiment\n- Applying R to perform data analysis\n\n \n## Readinig list\n\n**Acknowledge**\n\nThis case is inspired and adopted from @ross2017introductory\n\n**Bibilography notes**",
+    "supporting": [
+      "real-example_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

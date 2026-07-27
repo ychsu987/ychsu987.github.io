@@ -1,0 +1,329 @@
+# Linear Regression & Diagnostics
+
+## Introduction to the Linear Regression Model
+
+Linear regression model is formally defined as
+$$
+\begin{aligned}
+y_{i} = & \beta_{0} + \beta_{1}x_{1i} + \beta_{2}x_{2i} + \dots + \beta_{p}x_{pi} + \epsilon_{i} \text{, or}\\
+\mathbb{y} = &\mathbb{\beta}\mathbb{X}+ \mathbb{\epsilon}
+\end{aligned}
+$$
+
+- Systematic Part (Independent variable, predictor)
+- Random Part: Individual observations of the outcome vary by an error term $\epsilon_{i}$. 
+- It is assumed that $\epsilon_{i} \sim \mathcal{N}(0, \sigma_{\epsilon}^{2})$
+
+## Prediction in regression
+
+:::{.columns}
+:::{.column}
+**Confidence Interval (CI) for the Mean Response:**
+
+- Definition:  the average expected outcome for all individuals with a specific predictor value $x$
+- Uncertainty: Estimated regression line
+:::
+
+:::{.column}
+**Prediction Interval (PI) for a New Observation:**
+
+- Definition: Predict the specific outcome $y$ for **a** single, new individual with a specific predictor value $x$.
+- Uncertainty: Estimated regression line, and **and** random scatter of individual data points around that line
+
+:::
+:::
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+# 1. Generate synthetic data
+np.random.seed(42)
+x = np.linspace(1, 10, 50)
+# True relationship with some random noise
+y = 3 * x + 10 + np.random.normal(0, 4, size=len(x))
+
+# 2. Fit the Ordinary Least Squares (OLS) model
+# statsmodels requires manually adding a constant for the intercept
+X_with_const = sm.add_constant(x)
+model = sm.OLS(y, X_with_const).fit()
+
+# 3. Generate predictions and intervals
+# get_prediction calculates standard errors for both the mean and new observations
+predictions = model.get_prediction(X_with_const)
+summary_frame = predictions.summary_frame(alpha=0.05) # 95% intervals
+
+# Extract the calculated components
+y_pred = summary_frame['mean']
+ci_lower = summary_frame['mean_ci_lower']
+ci_upper = summary_frame['mean_ci_upper']
+pi_lower = summary_frame['obs_ci_lower']
+pi_upper = summary_frame['obs_ci_upper']
+
+# 4. Create the visualization
+fig, ax = plt.subplots(figsize=(12, 4))
+
+# Plot the actual data points
+ax.scatter(x, y, color='dodgerblue', alpha=0.7, label='Actual Data Points')
+
+# Plot the regression line
+ax.plot(x, y_pred, color='crimson', linewidth=2.5, label='Regression Line (Mean Response)')
+
+# Plot the 95% Confidence Interval (CI)
+ax.fill_between(x, ci_lower, ci_upper, color='crimson', alpha=0.3, 
+                label='95% Confidence Interval (Uncertainty of the Line)')
+
+# Plot the 95% Prediction Interval (PI)
+ax.fill_between(x, pi_lower, pi_upper, color='gray', alpha=0.2, 
+                label='95% Prediction Interval (Uncertainty of New Data)')
+
+# Formatting the plot
+ax.set_title('Confidence Interval vs. Prediction Interval in Linear Regression', fontsize=16, fontweight='bold')
+ax.set_xlabel('Predictor (X)', fontsize=12)
+ax.set_ylabel('Outcome (Y)', fontsize=12)
+ax.legend(loc='upper left', fontsize=11)
+ax.grid(True, linestyle='--', alpha=0.5)
+
+plt.tight_layout()
+plt.show()
+```
+
+## Evaluating regression
+
+:::{.columns}
+:::{.column}
+- $y_i$: The actual observed value.
+- $\hat{y}_i$: The predicted value on the regression line.
+- $\bar{y}$: The mean of all observed $y$ values.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Generate synthetic data
+np.random.seed(2)
+x = np.linspace(1, 10, 15)
+y = 3 * x + 5 + np.random.normal(0, 2, size=len(x))
+
+# 2. Calculate Mean and Regression Line
+y_mean = np.mean(y)
+coeffs = np.polyfit(x, y, 1)
+y_pred = np.polyval(coeffs, x)
+
+# 3. Select the point furthest from the regression line for better visualization
+# Using np.argmax to find the data point with the largest positive residual
+idx = np.argmax(y - y_pred)
+xi = x[idx]
+yi = y[idx]
+y_pred_i = y_pred[idx]
+
+# 4. Create the plot
+fig, ax = plt.subplots(figsize=(10, 7))
+
+# Plot data, mean line, and regression line
+ax.scatter(x, y, color='dodgerblue', alpha=0.4, label='Data points')
+ax.scatter(xi, yi, color='red', s=100, zorder=5, label='Highlighted Point ($y_i$)')
+ax.axhline(y_mean, color='green', linestyle='--', linewidth=2, label='Mean ($\overline{y}$)')
+ax.plot(x, y_pred, color='darkorange', linewidth=2, label='Regression Line ($\hat{y}_i$)')
+
+# Draw the decomposition lines for the highlighted point
+# ESS component (Mean to Regression Line)
+ax.annotate('', xy=(xi, y_pred_i), xytext=(xi, y_mean),
+            arrowprops=dict(arrowstyle='<->', color='purple', lw=2.5))
+ax.text(xi - 0.2, (y_pred_i + y_mean) / 2, 'Explained\n($\hat{y}_i - \overline{y}$)', 
+        color='purple', ha='right', va='center', fontweight='bold')
+
+# RSS component (Regression Line to Actual Point)
+ax.annotate('', xy=(xi, yi), xytext=(xi, y_pred_i),
+            arrowprops=dict(arrowstyle='<->', color='crimson', lw=2.5))
+ax.text(xi - 0.2, (yi + y_pred_i) / 2, 'Residual\n($y_i - \hat{y}_i$)', 
+        color='crimson', ha='right', va='center', fontweight='bold')
+
+# TSS component (Bracket on the right side)
+ax.annotate('', xy=(xi + 0.1, yi), xytext=(xi + 0.1, y_mean),
+            arrowprops=dict(arrowstyle=']-[, widthB=0.5, widthA=0.5', color='black', lw=1.5))
+ax.text(xi + 0.3, (yi + y_mean) / 2, 'Total Deviation\n($y_i - \overline{y}$)', 
+        color='black', ha='left', va='center', fontweight='bold')
+
+# Formatting
+ax.set_title('Decomposition of Total Deviation for a High-Residual Point', fontsize=14, fontweight='bold')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.legend(loc='upper left')
+
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+:::{.column}
+The following relationship holds
+$$TSS = ESS + RSS$$
+TSS (Total Sum of Squares):
+$$\sum (y_i - \bar{y})^2$$
+ESS (Explained Sum of Squares):
+$$\sum (\hat{y}_i - \bar{y})^2$$
+RSS (Residual Sum of Squares):$$\sum (y_i - \hat{y}_i)^2$$
+
+:::
+:::
+
+## $R^2$: The Coefficient of Determination
+
+- $R^2$ is the percentage of variance explaine dby the linear model
+
+$$
+R^2 = \frac{ESS}{TSS} = 1 - \frac{RSS}{TSS}
+$$
+
+-$R^2 = 0$: the model explains none of the variance in the outcome (the regression line is flat at the mean, $\bar{y}$).
+- $R^2 = 1$: the model explains 100% of the variance (every data point falls exactly on the regression line, meaning RSS is zero).
+
+## Inference on linear model
+
+- Even we have $R^2$, we need to know if explained variance s statistically significant.
+
+- Null Hypothesis
+$$
+H_0: \beta_1 = \beta_2 = \dots = \beta_p = 0
+$$
+
+- Test statistics 
+
+$$
+F = \frac{ESS / df_{ESS}}{RSS / df_{RSS}} \sim F_{df_{ESS},df_{RSS}}
+$$
+
+- $df_{ESS} = p$ (the number of predictor variables)
+- $df_{RSS} = n - (p + 1)$ (the number of observations minus the total number of estimated parameters, including the intercept)
+
+## Inference on individual $\beta_i$
+
+- Investigate each predictor makes statisticaly significant contribution toward outcome
+
+- Null Hypothesis
+$$
+H_0: \beta_i = 0
+$$
+
+- Test statistics 
+
+$$
+\beta_i \sim t_{n-(p+1)}(0,\frac{s_{y\vert{}x}^{2}}{(n-1)s_{x_i}^{2}(1-r_{i}^{2})})
+$$
+
+- Implication in linear model: Including other predictors to control for confounding commonly has the effect of  difficult to reject the null hypothesis
+- Some of the unadjusted association is explained by those other predictors. 
+
+## Assumption on linear regression
+
+1. Linearity
+2. Normality of erros
+3. Independece of errors
+4. Homoscedasticity
+5. No multicollinearity
+   
+## Linearity
+
+The model assumes that the average value of the outcome changes linearly with each continuous predictor. 
+
+Checking:
+
+- Residual versus Predictor (RVP) plots
+- Component-Plus-Residual (CPR) plots. 
+
+Mitigation plan
+
+- Smoothing 
+- Transformations to the predictor (e.g., adding quadratic terms, log transformations) 
+- Categorize the continuous predictor.
+
+## Normality of Errors
+The error term $\epsilon$ is assumed to have a normal distribution.  This can be assessed using histograms, boxplots, kernel density estimates, and normal quantile-quantile (Q-Q) plots applied to the residuals.  In a normal Q-Q plot, upward curvature is diagnostic of right-skewness.  Transforming the outcome variable (e.g., replacing $y$ with $log(y)$) is often successful for reducing the skewness of residuals.
+
+## Constant Variance (Homoscedasticity)
+
+The model assumes that the variance of the error term, $\sigma_{\epsilon}^{2}$, is constant across all observations.  Violations of this assumption are known as heteroscedasticity, which can affect the validity of confidence intervals and P-values.  Homoscedasticity is evaluated using RVP plots and Residual versus Fitted (RVF) plots.  A horizontal funnel shape in these scatterplots is a signal of heteroscedasticity.
+
+## Influential Points and Outliers
+
+High leverage points are x-outliers with the potential to exert undue influence on regression coefficient estimates.  Influential points are specific observations that have actually exerted an undue influence on the estimates.  DFBETA statistics are recommended to quantify how much each coefficient would change if a specific observation were omitted from the dataset.  IV. Code Illustrations: Python and RBelow are examples of how to fit a multiple linear regression model and generate the necessary diagnostic plots in both Python
+
+##
+```{python}
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+import seaborn as sns
+
+# 1. Generate Synthetic Data
+np.random.seed(42)
+x1 = np.random.normal(50, 10, 200)
+x2 = np.random.normal(100, 20, 200)
+# Create a continuous outcome with some normal noise
+y = 15 + 2.5 * x1 - 1.2 * x2 + np.random.normal(0, 15, 200)
+
+data = pd.DataFrame({'Y': y, 'X1': x1, 'X2': x2})
+
+# 2. Fit the Linear Regression Model
+X = sm.add_constant(data[['X1', 'X2']])
+model = sm.OLS(data['Y'], X).fit()
+
+# Print model summary (Contains F-test, R-squared, and coefficients)
+print(model.summary())
+
+# 3. Residual Diagnostics
+residuals = model.resid
+fitted = model.fittedvalues
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4))
+
+# A. Residuals vs Fitted (Checking Constant Variance / Homoscedasticity)
+sns.residplot(x=fitted, y=residuals, lowess=True, ax=axes[0], line_kws={'color': 'red'})
+axes[0].set_title('Residuals vs Fitted (RVF)')
+axes[0].set_xlabel('Fitted Values')
+axes[0].set_ylabel('Residuals')
+
+# B. Normal Q-Q Plot (Checking Normality)
+sm.qqplot(residuals, line='45', fit=True, ax=axes[1])
+axes[1].set_title('Normal Q-Q Plot')
+
+# C. Residual Histogram (Checking Normality)
+sns.histplot(residuals, kde=True, ax=axes[2])
+axes[2].set_title('Residual Distribution')
+
+plt.tight_layout()
+plt.show()
+```
+##
+```{r}
+# 1. Generate Synthetic Data
+set.seed(42)
+n <- 200
+X1 <- rnorm(n, mean=50, sd=10)
+X2 <- rnorm(n, mean=100, sd=20)
+# Create outcome with normal noise
+Y <- 15 + 2.5*X1 - 1.2*X2 + rnorm(n, mean=0, sd=15)
+
+data <- data.frame(Y, X1, X2)
+
+# 2. Fit the Linear Regression Model
+model <- lm(Y ~ X1 + X2, data=data)
+
+# Print model summary (Contains F-test, RSS, and coefficients)
+print(summary(model))
+
+# 3. Residual Diagnostics
+# R has built-in diagnostic plots that are generated by plotting the model object
+par(mfrow=c(2,2)) # Set up a 2x2 grid for plots
+
+# Plot 1: Residuals vs Fitted (checks linearity and constant variance)
+# Plot 2: Normal Q-Q (checks normality of residuals)
+# Plot 3: Scale-Location (checks homoscedasticity)
+# Plot 4: Residuals vs Leverage (checks for influential points / high leverage)
+plot(model)
+```

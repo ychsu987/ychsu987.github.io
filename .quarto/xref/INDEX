@@ -308,5 +308,50 @@
   },
   "courses/2026/BBMS1021/intro-to-epi.qmd": {
     "intro-to-epi.html": "c59fd42f"
+  },
+  "courses/2026/BBMS1021/index.qmd": {
+    "index.html": "3dd635f8"
+  },
+  "courses/2026/BBMS3009/index.qmd": {
+    "index.html": "87789690"
+  },
+  "courses/2026/BIOF2014/index.qmd": {
+    "index.html": "2c1f10eb"
+  },
+  "courses/2026/BIOF3001/index.qmd": {
+    "index.html": "41e0ec18"
+  },
+  "courses/2026/BIOF4002/index.qmd": {
+    "index.html": "f212f93f"
+  },
+  "courses/2026/CCAI9007/index.qmd": {
+    "index.html": "e5e746d7"
+  },
+  "courses/2026/BBMS1021/epi-workshop.qmd": {
+    "epi-workshop.html": "b6b06afe"
+  },
+  "courses/2026/BBMS1021/dplyr.qmd": {
+    "dplyr.html": "cedaca68"
+  },
+  "courses/2026/BBMS1021/ggplot2.qmd": {
+    "ggplot2.html": "03036dd3"
+  },
+  "courses/2026/BBMS1021/real-example.qmd": {
+    "real-example.html": "a6661e97"
+  },
+  "courses/2026/SBMS7202/introR.qmd": {
+    "introR.html": "54263526"
+  },
+  "courses/2026/SBMS7202/tidyverse.qmd": {
+    "tidyverse.html": "cf5ac5be"
+  },
+  "courses/2026/BBMS3009/functional-genomics.qmd": {
+    "functional-genomics.html": "62a5fda2"
+  },
+  "courses/2026/BIOF3001/adt-model.qmd": {
+    "adt-model.html": "b0e8f697"
+  },
+  "courses/2026/SBMS7402/lr.qmd": {
+    "lr.html": "446fe93e"
   }
 }

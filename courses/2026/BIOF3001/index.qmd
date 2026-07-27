@@ -1,0 +1,10 @@
+---
+title: "BIOF3001 Big Data Biomedical Informatics"
+subtitle: "Course index — slides and annotated notes"
+---
+
+Lecture materials for BIOF3001. Use **Blank** for student-facing slides and **✍️ Annotated** when an in-class / sketch version is available.
+
+| Topic | Slides | Annotated slides |
+|---|---|---|
+| Media Reporting and Suicide (NLP evaluation and monitoring) | [Blank](../../2025/BIOF3001/suicide-media-slides.qmd) | — |

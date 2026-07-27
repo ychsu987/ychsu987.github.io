@@ -1,0 +1,11 @@
+---
+title: "BIOF4002 Informatics Applications in Global Health"
+subtitle: "Course index — slides and annotated notes"
+---
+
+Lecture materials for BIOF4002. Use **Blank** for student-facing slides and **✍️ Annotated** when an in-class / sketch version is available.
+
+| Topic | Slides | Annotated slides |
+|---|---|---|
+| Global Health Informatics and Visualization | [Blank](../../2025/BIOF4002/Global health informatics.qmd) | — |
+| Health technologies in the global health context | [Blank](../../2025/BIOF4002/mHealth and telemedicine.qmd) | — |

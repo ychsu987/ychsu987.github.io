@@ -1,0 +1,25 @@
+---
+title: "BIOF2014 Statistical Modelling in Bioinformatics"
+subtitle: "Course index — slides and annotated notes"
+---
+
+Lecture materials for BIOF2014. Use **Blank** for student-facing slides and **✍️ Annotated** for in-class sketch versions.
+
+| Topic | Slides | Annotated slides |
+|---|---|---|
+| Housekeeping | [Blank](../../2025/BIOF2014/0-Housekeeping.qmd) | — |
+| Uniform Distribution | [Blank](../../2025/BIOF2014/1-distribution.qmd) | [✍️ Annotated](../../2025/BIOF2014/1-distribution-sketch.qmd) |
+| Discrete Distribution Family (Binomial) | [Blank](../../2025/BIOF2014/2-Discrete distribution family.qmd) | [✍️ Annotated](../../2025/BIOF2014/2-Discrete distribution family-sketch.qmd) |
+| Multivariate statistics | [Blank](../../2025/BIOF2014/3-multivariate.qmd) | [✍️ Annotated](../../2025/BIOF2014/3-multivariate-sketch.qmd) |
+| Discrete Distribution Family (Multivariate discrete) | [Blank](../../2025/BIOF2014/4-Discrete distribution family-2.qmd) | [✍️ Annotated](../../2025/BIOF2014/4-Discrete distribution family-2-sketch.qmd) |
+| Measuring in Intervals (Poisson and related) | [Blank](../../2025/BIOF2014/5-Discrete distribution family-3.qmd) | [✍️ Annotated](../../2025/BIOF2014/5-Discrete distribution family-3-sketch.qmd) |
+| Continuous distribution family | [Blank](../../2025/BIOF2014/6-Continuous distribution family.qmd) | [✍️ Annotated](../../2025/BIOF2014/6-Continuous distribution family-sketch.qmd) |
+| Parametric Estimation (MLE and hypothesis testing) | [Blank](../../2025/BIOF2014/7-Model fitting.qmd) | [✍️ Annotated](../../2025/BIOF2014/7-Model fitting-sketch.qmd) |
+| Parametric Estimation (EM algorithm) | [Blank](../../2025/BIOF2014/8-EM.qmd) | [✍️ Annotated](../../2025/BIOF2014/8-EM-sketch.qmd) |
+| Question sets — Uniform / empirical distribution | [Blank](../../2025/BIOF2014/1-Question sets-discrete.qmd) | — |
+| Question sets — Discrete Distribution Family | [Blank](../../2025/BIOF2014/2-Question sets-binomial.qmd) | [✍️ Annotated](../../2025/BIOF2014/2-Question sets-binomial-sketch.qmd) |
+| Question sets — Multivariate statistics | [Blank](../../2025/BIOF2014/3-Question sets-multivariate.qmd) | — |
+| Question sets — Multivariate discrete distributions | [Blank](../../2025/BIOF2014/4-Question sets-multinomial.qmd) | [✍️ Annotated](../../2025/BIOF2014/4-Question sets-multinomial-sketch.qmd) |
+| Question sets — Poisson | [Blank](../../2025/BIOF2014/5-Question sets-poisson.qmd) | — |
+| Question sets — Continuous | [Blank](../../2025/BIOF2014/6-Question sets-continuous.qmd) | — |
+| Question sets — Model fitting | [Blank](../../2025/BIOF2014/7-Question sets-model.qmd) | — |

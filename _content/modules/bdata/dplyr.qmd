@@ -1,0 +1,370 @@
+
+## Example data - Gene Expression
+
+- Source: Blackmore et al. (2017), *The effect of upper-respiratory infection on transcriptomic changes in the CNS*. 
+- Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occuring in the cerebellum and spinal cord post infection
+- Experiment sample: Gender matched eight week old C57BL/6 mice  
+- Exposure: With or without Influenza A infection
+- Observations: RNA-seq count of genes in the cerebellum and spinal cord tissues
+- Observation time: days 0 (non-infected), 4 and 8.
+
+## Task - Read two dataframe
+
+Please read the data to your RStudio for further analysis
+
+:::{.hide}
+
+```{r}
+#| echo: false
+#| eval: true
+# Title: Load example datasets silently
+# Load the rna count matrix and sample metadata from CSV files for later use.
+
+rnaseq <- read.csv("../../../assets/data/dplyr/count_matrix.csv")
+meta <- read.csv("../../../assets/data/dplyr/sample_metadata.csv")
+```
+
+:::
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Read files and inspect data
+# Read the count matrix and metadata, then preview the first few rows.
+# --- Your code starts here ---
+
+# rnaseq <- read.csv("WRITE DOWN YOUR PATH HERE")
+# meta <- read.csv("WRITE DOWN YOUR PATH HERE")
+
+# --- Your code ends here ---
+
+# Show the first 3 rows and first 6 sample columns of the expression data.
+head(rnaseq[, 1:6], 3)
+
+head(meta, 3)
+```
+
+::: {.callout-note}
+## Discussion question
+
+- What are the pros and cons using absolute path and relative path ?
+- What will be the best practce to put the data file ?
+:::
+
+## Transforming data with dplyr
+
+`dplyr` is a package for making tabular data manipulation easier. You can choose using 
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Load dplyr package
+# dplyr provides functions for easy data frame manipulation.
+library(dplyr)
+```
+
+or 
+
+using `tidyverse`  an “umbrella-package” that installs several packages useful for data analysis which work together well such as `tidyr`, `dplyr`, `ggplot2`, `tibble`, etc. 
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Load tidyverse packages
+# tidyverse loads multiple data science packages like ggplot2, dplyr, and tidyr.
+library(tidyverse)
+```
+
+## Pipeline mindset
+
+Without `dplyr`, if we want to manipulate data, we can still using 0the following vanila way to perform the task :
+
+
+```{r}
+#| echo: true
+#| eval: false
+# Title: Base R data manipulation example
+# Show how row selection, counting, and column updates work without dplyr.
+
+# Select rows 2 to 5 from the metadata.
+meta <- meta[2:5,]
+
+# Count how many female and male mice are in the selected rows.
+sum(meta$sex == 'Female')
+sum(meta$sex == 'Male')
+
+# Overwrite the sex column with a logical value indicating male samples.
+meta$sex = meta$sex == 'Male'
+
+```
+
+
+::: {.callout-note}
+## Discussion question
+
+- What are the common features for these operations
+- What are the pitfalls in using this approach ?
+:::
+
+## Pipe operator `%>%`
+
+To prevent us from keep doing like a matryoshka doll
+
+```{r}
+#| echo: true
+#| eval: false
+# Title: Nested function call example
+# This shows the same work as a pipeline, but in nested form.
+h(g(f(data_frame)))
+
+```
+
+Libraries under `tidyverse`  support Pipe operator `%>%`
+
+We can rewrite the above code as 
+
+```{r}
+#| echo: true
+#| eval: false
+# Title: Pipe operator example
+# Use the pipe operator to write the same steps in a clearer, left-to-right order.
+data_frame %>% 
+  f() %>% 
+  g() %>% 
+  h()
+```
+
+`%>%` takes the output from the left hand side and then **pipes** it to be the first argument of the right function.
+
+::: {.callout-note}
+## Discussion question
+
+- What are the benefits of using pipe?
+  
+:::
+
+## Select columns or rows
+
+- Select the designated columns by `select(COLUMN_NAMES)`
+
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Select metadata columns
+meta %>%
+    select(age, sex, infection) %>% # Keep only the age, sex, and infection columns.
+    head(3) # This line is for display control, you can omit it and the previous %>%.
+```
+
+- Select the designated rows by `filter(CONDITION)`
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Filter rows by sex
+meta %>%
+    filter(sex == 'Female') %>% # Keep only female samples.
+    head(3) # This line is for display control, you can omit it and the previous %>%.
+```
+
+::: {.callout-warning}
+## Common error
+
+`filter()` function has different meaning in other R default library. If the error message occurs, you can try replaced it by `dplyr::filter()` instead
+:::
+
+## Manipulating columns
+
+- You can rename column by `rename()`
+```{r}
+#| echo: true
+#| eval: true
+# Title: Rename columns
+meta %>% # Rename selected metadata columns to make them more readable.
+    rename(
+              Sex = sex,
+              Time = time,
+              Infection = infection
+              ) %>%
+    head(3)
+```
+
+- You can create new column by `mutate()`
+```{r}
+#| echo: true
+#| eval: true
+# Title: Create or modify columns
+
+meta %>%
+    mutate( # Use mutate() to update the time column and add a new infection flag.
+              time = time + age,
+              infection  = "No"
+    ) %>%
+    head(3)
+```
+
+## Perform summary statistics
+
+Frequently we will need to provide summary statistics for your data, we can use `summarize()` to do it
+
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Compute summary statistics
+
+meta %>%
+    summarize( # Summarize the metadata with count, mean, standard deviation, and female sample count.
+              n=n(),
+              mean_time=mean(time),
+              sd_time=sd(time),
+              num_female=sum(sex=='Female')
+    )
+```
+
+
+Some common summary function could be
+
+- `mean()`
+- `sd()`
+- `max()`, `min()`
+- `sum()`
+- `n()`
+
+## Summary statistics by group
+
+:::{.columns}
+
+:::{.column width=33%}
+
+- `group_by()` and  `summarize`p rovide summary statistics by group.
+- You can group by multiple groups together, but noted that they need to be stated in the same `group_by()` brackets
+
+:::
+
+:::{.column width=65%}
+```{r}
+#| echo: true
+#| eval: true
+# Title: Grouped summary by infection
+
+meta %>%
+    group_by(infection) %>% # Group the metadata by infection status,
+    summarize(      #  and compute summary statistics for each group.
+              n=n(),
+              mean_time=mean(time),
+    )
+```
+
+```{r}
+#| echo: true
+#| eval: false
+# Title: Multi-group summary
+meta %>%
+    group_by(infection, sex) %>% # Group by both infection status and sex,
+    summarize(                   #  then summarize the combined groups.
+              n=n(),
+              mean_time=mean(time),
+              sd_time=sd(time),
+    )
+```
+:::
+
+:::
+
+## Condition modification
+
+:::{.columns}
+
+:::{.column width=33%}
+
+Using `if_else(CONDITION, TRUE, FALSE)` or `case_when(CONDITION ~ OUTCOME, ...)` to rematch condition into certain value/ ordinal items
+
+- `if_else` is only for dichotomous processing
+- `case_when` can handle sequential logical control
+
+:::
+
+:::{.column width=65%}
+
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Create binary infection status
+# Use if_else() to add a new infection_status column based on time value.
+meta %>%
+    select(sample, age, sex, time) %>%
+    mutate( infection_status = if_else(
+        time == 0, "Not infected", "Infected"
+    )) %>%
+    head(3)
+```
+```{r}
+#| echo: true
+#| eval: true
+# Title: Create categorical infection stage
+# Use case_when() to assign descriptive labels for each time point.
+meta %>%
+    select(sample, age, sex, time) %>%
+    mutate( infection_status = case_when(
+        time == 0 ~ "Not infected",
+        time == 4 ~ "Early stage",
+        time == 8 ~ "Late stage"
+    ))%>%
+    head(3)
+```
+:::
+
+:::
+
+## Combining Dataframes
+
+Consider we have data_frame `sample_metadata.csv` and `count_matrix.csv`. If we want to combine them together. We can use `join()`
+
+There are four options  
+
+- `inner_join(x, y)`: Keeps rows present in both tables.
+- `left_join(x, y)`: Keeps all rows from x, matching rows from y.
+- `right_join(x, y)`: Keeps all rows from y, matching rows from x.
+- `full_join(x, y)`: Keeps all rows from both tables.
+
+## Combining Dataframes
+
+First I transpose the RNA count matrix. (The below code chunk is out of the scope, you might ignore why it works)
+```{r}
+#| echo: true
+#| eval: true
+# Title: Transform RNA count matrix layout
+# Convert the RNA data from wide to long and back to wide format by gene.
+rnaseq <- rnaseq %>% 
+           pivot_longer(cols=-gene, names_to="sample", values_to = "value") %>%
+  pivot_wider(names_from = gene, values_from = value)
+```
+
+You can combine meta data and rna sequence data together.
+
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Join metadata with RNA data
+# Combine the sample metadata with the RNA expression table by sample ID.
+meta %>% left_join(rnaseq, by = 'sample') %>% select(1:12) %>% head(3)
+```
+
+## Best practice of data wrangling
+
+1. The "Read-Write-Verify" Loop
+
+   - Write a step
+   - Run it immediately
+   - Verify the output
+
+    **DO NOT** propogate error and raise your hand
+
+2. Look up documentations
+3. Make your code **readable**
+4. Try and error
+
