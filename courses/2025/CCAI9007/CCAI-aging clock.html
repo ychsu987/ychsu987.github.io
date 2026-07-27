@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Yu Cheng Hsu">
+  <title>Yu Cheng Hsu – Aging clock</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="general_style.scss">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="img/cover-img.png" data-background-position="left" data-background-size="25% 100%" class="quarto-title-block center">
+  <h1 class="title">Aging clock</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Yu Cheng Hsu 
+</div>
+</div>
+</div>
+
+</section>
+<section id="learning-outcomes" class="slide level2 smaller">
+<h2>Learning outcomes</h2>
+<ul>
+<li>Understand basic concept of aging theory</li>
+<li>Understand the association between epigenetics and aging</li>
+<li>Understand factors that accelerate/decelerate biological age</li>
+<li>Understand AI’s application for predicting age-related outcomes through genes and images</li>
+</ul>
+</section>
+<section>
+<section id="aging-theory" class="title-slide slide level1 center">
+<h1>Aging theory</h1>
+
+</section>
+<section id="theory-of-aging" class="slide level2 smaller">
+<h2>Theory of Aging</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>Programmed theory</strong> <span class="citation" data-cites="da2016synopsis">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Costa et al. 2016</a>)</span></p>
+<ul>
+<li>Our DNA has a “self-destruct” instruction</li>
+<li>Aging is controlled by our DNA</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/programmed theory.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Programmed Theory"><img data-src="img/programmed theory.png" class="preview-image" style="width:100.0%" alt="Programmed Theory"></a></p>
+<figcaption>Programmed Theory</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:45%;">
+<p><strong>Damage/Error theory</strong> <span class="citation" data-cites="halliwell2015free">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Halliwell and Gutteridge 2015</a>)</span></p>
+<ul>
+<li>Aging is an accumulation of our body damages</li>
+<li>Aging is controlled by our exposure to aging factors</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/damage theory.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Damage Theory"><img data-src="img/damage theory.png" style="width:100.0%" alt="Damage Theory"></a></p>
+<figcaption>Damage Theory</figcaption>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="observing-age-from-biological-evidence" class="title-slide slide level1 center">
+<h1>Observing age from biological evidence</h1>
+
+</section>
+<section id="hallmarks-of-aging" class="slide level2 smaller">
+<h2>Hallmarks of aging</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>Primary (damage initiators)
+<ul>
+<li>Genomic instability</li>
+<li>Telomere attrition</li>
+<li><strong>Epigenetic alterations</strong></li>
+<li>Loss of proteostasis</li>
+<li>Disabled macroautophagy</li>
+</ul></li>
+<li>Antagonistic (responses that become harmful when overactive)</li>
+<li>Integrative (downstream, system-level failures)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/Hall marks.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Hallmarks of Aging [@lopez2023hallmarks]"><img data-src="img/Hall marks.jpg" style="width:100.0%" alt="Hallmarks of Aging (López-Otı́n et al. 2023)"></a></p>
+<figcaption>Hallmarks of Aging <span class="citation" data-cites="lopez2023hallmarks">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">López-Otı́n et al. 2023</a>)</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="overview-of-dna" class="slide level2 smaller">
+<h2>Overview of DNA</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>DNA is a recipe for our body to create different proteins to sustain our body functions</li>
+<li>Mutation of DNA (genomic instability) could consequently result in cancer or aging</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/dna.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="DNA Overview from National Cancer Institute"><img data-src="img/dna.jpg" style="width:100.0%" alt="DNA Overview from National Cancer Institute"></a></p>
+<figcaption>DNA Overview from <a href="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/histone">National Cancer Institute</a></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="turning-off-gene---epigenetics" class="slide level2 smaller">
+<h2>Turning off gene - epigenetics</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Expression of gene could be turned on and off
+<ul>
+<li>Your eyes and heart consist of different cells</li>
+</ul></li>
+<li>Unintentionally turn on and off could cause illness</li>
+<li>The study of the mechanism of turning on/off genes without modifying DNA is called <strong>Epigenetics</strong></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/epigentics.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Concept of Epigenetics"><img data-src="img/epigentics.jpg" style="width:100.0%" alt="Concept of Epigenetics"></a></p>
+<figcaption>Concept of Epigenetics</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="epigenetic-clocks" class="slide level2 smaller">
+<h2>Epigenetic clocks</h2>
+<ul>
+<li>From the damage theory perspective, researchers guess</li>
+<li>Turning off (methylation) some genes should be highly associated with age</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/epiclock-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Epigenetic Clocks"><img data-src="img/epiclock-2.png" style="width:70.0%" alt="Epigenetic Clocks"></a></p>
+<figcaption>Epigenetic Clocks</figcaption>
+</figure>
+</div>
+</section>
+<section id="ai-in-searching-the-switch" class="slide level2 smaller">
+<h2>AI in searching the switch</h2>
+<ul>
+<li>There are approximately 20,000 genes in humans</li>
+<li>Identifying which switch is associated with aging is challenging</li>
+<li>AI and big data to search those switches</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/epiclock-ai.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="AI in Searching Epigenetic Features"><img data-src="img/epiclock-ai.png" style="width:70.0%" alt="AI in Searching Epigenetic Features"></a></p>
+<figcaption>AI in Searching Epigenetic Features</figcaption>
+</figure>
+</div>
+</section>
+<section id="ai-in-searching-the-switch-1" class="slide level2 smaller">
+<h2>AI in searching the switch</h2>
+<ul>
+<li><strong>Hypermethylation</strong>: Over methylation, fewer switches being turned on</li>
+<li><strong>Hypomethylation</strong>: Under methylation, more switches being turned on</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/epiclock-ai-methods.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="AI in Searching Epigenetic Features"><img data-src="img/epiclock-ai-methods.png" style="width:70.0%" alt="AI in Searching Epigenetic Features"></a></p>
+<figcaption>AI in Searching Epigenetic Features</figcaption>
+</figure>
+</div>
+</section>
+<section id="increasing-clincal-relevance" class="slide level2 smaller">
+<h2>Increasing clincal relevance</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Estimating age could bring little knowledge to the clinical setting</li>
+<li>Researchers start to explore different outcomes</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/epiclock.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Epigenetic Clock"><img data-src="img/epiclock.png" style="width:80.0%" alt="Epigenetic Clock"></a></p>
+<figcaption>Epigenetic Clock</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<ul>
+<li><strong>First generation</strong> (Chronological)
+<ul>
+<li>Horvath Clock</li>
+<li>Hannum Clock</li>
+</ul></li>
+<li><strong>Second generation</strong> (Clinical outcome: mortality, cancer, and etc.)
+<ul>
+<li>GrimAge</li>
+<li>Levine/Phenoage</li>
+</ul></li>
+<li><strong>Third generation</strong> (Pace of aging)
+<ul>
+<li>DunedinPACE</li>
+<li>Levine/Phenoage</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="insight-to-keep-young" class="slide level2 smaller">
+<h2>Insight to keep young</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Outliers from the epigenetic clock could bring some insights</li>
+<li>AI predicts <strong>older</strong> than actual age
+<ul>
+<li>Potentially aging <strong>faster</strong> than people of the same age</li>
+</ul></li>
+<li>AI predicts <strong>younger</strong> than actual age
+<ul>
+<li>Potentially aging <strong>slower</strong> than people of the same age</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/outliers.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Outliers"><img data-src="img/outliers.png" style="width:70.0%" alt="Outliers"></a></p>
+<figcaption>Outliers</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="ai-in-searching-key-to-young" class="slide level2 smaller">
+<h2>AI in searching key to young</h2>
+<ul>
+<li>The effect of DNA methylation is reversible</li>
+<li>There is a chance for scientist to identify what kind of factors could benefit reversing methylation</li>
+<li>AI is used to identify common characteristics for people with accelerated and decelerated aging, including:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/healthy lifestyle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Lifestyle Affects Epigenetic Modification"><img data-src="img/healthy lifestyle.png" style="width:55.0%" alt="Lifestyle Affects Epigenetic Modification"></a></p>
+<figcaption>Lifestyle Affects Epigenetic Modification</figcaption>
+</figure>
+</div>
+</section>
+<section id="factors-affecting-aging-clock---overview" class="slide level2 smaller">
+<h2>Factors affecting aging clock - Overview</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Factors are in a few categories
+<ul>
+<li>Hereditary factors</li>
+<li>Disorder/disease</li>
+<li>Balanced body microsystems</li>
+<li>Lifestyles</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:58%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/factors.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Overview of Factors Affecting Epigenetic Clock [@galow2022slow]"><img data-src="img/factors.png" style="width:100.0%" alt="Overview of Factors Affecting Epigenetic Clock (Galow and Peleg 2022)"></a></p>
+<figcaption>Overview of Factors Affecting Epigenetic Clock <span class="citation" data-cites="galow2022slow">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Galow and Peleg 2022</a>)</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="aging-related-diseases" class="slide level2 smaller">
+<h2>Aging-related diseases</h2>
+<ul>
+<li>Genetic and neurological diseases
+<ul>
+<li>Down Syndrome</li>
+<li>Huntington’s disease</li>
+<li>Parkinson’s disorder</li>
+</ul></li>
+<li>Cancer
+<ul>
+<li>Promoter hypermutation – silences tumour suppressors.</li>
+<li>Genome-wide hypomethylation – results in chromosomal instability.</li>
+</ul></li>
+<li>Viral infection
+<ul>
+<li>Epstein-Barr Virus,</li>
+<li>HIV</li>
+<li>Influenza</li>
+</ul></li>
+</ul>
+</section>
+<section id="environmental-factors" class="slide level2 smaller">
+<h2>Environmental factors</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Pollutants</strong>: Metals, pesticides, and air pollutants <span class="citation" data-cites="sharavanan2020pollutants">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Sharavanan et al. 2020</a>)</span></li>
+<li><strong>UV</strong>: UV exposure affects age-dependent methylation patterns <span class="citation" data-cites="gronniger2010aging">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Grönniger et al. 2010</a>)</span></li>
+<li><strong>Social determinant of health</strong> <span class="citation" data-cites="krieger2024epigenetic">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Krieger et al. 2024</a>)</span>
+<ul>
+<li>Economic injustice</li>
+<li>Low parental educational level</li>
+<li>Adult impoverishment</li>
+</ul></li>
+<li><strong>Microbiome</strong>: Diversity and composition of the gut microbiota <span class="citation" data-cites="begum2022epigenetics">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Begum et al. 2022</a>)</span></li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/enviroment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Environmental Factors Affecting Epigenetic Clock"><img data-src="img/enviroment.png" style="width:70.0%" alt="Environmental Factors Affecting Epigenetic Clock"></a></p>
+<figcaption>Environmental Factors Affecting Epigenetic Clock</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="lifestyle-factors" class="slide level2 smaller">
+<h2>Lifestyle factors</h2>
+<div class="columns">
+<div class="column" style="width:68%;">
+<ul>
+<li><strong>Smoking/vaping</strong>: hypomethylation of AHHR <span class="citation" data-cites="philibert2012demethylation">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Philibert, Beach, and Brody 2012</a>)</span></li>
+<li><strong>Diet and Nutrients</strong>: Vitamins E, B12, affect epigenetic features <span class="citation" data-cites="bishop2015interaction">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Bishop and Ferguson 2015</a>)</span></li>
+<li><strong>Exercise</strong>: Regular exercise is associated with a younger biological age <span class="citation" data-cites="jokai2023dna">Światowy et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2021</a>)</span></li>
+<li><strong>Maternal diet</strong>: Nutrient deficiency during maternal diet affects <strong>offspring’s</strong> DNA methylation patterns <span class="citation" data-cites="chmurzynska2010fetal">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Chmurzynska 2010</a>)</span></li>
+<li><strong>Stress</strong>: Stress-induced epigenetic changes can accumulate throughout life span <span class="citation" data-cites="zannas2017epigenetic">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Zannas and Chrousos 2017</a>)</span></li>
+<li><strong>Sleep</strong>: Insufficient sleep duration at 6 months postpartum<span class="citation" data-cites="carroll2021postpartum">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Carroll et al. 2021</a>)</span></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/lifestyle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Lifestyle Factors Affecting Epigenetic Clock"><img data-src="img/lifestyle.png" style="width:80.0%" alt="Lifestyle Factors Affecting Epigenetic Clock"></a></p>
+<figcaption>Lifestyle Factors Affecting Epigenetic Clock</figcaption>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="aging-from-appearance" class="title-slide slide level1 center">
+<h1>Aging from appearance</h1>
+
+</section>
+<section id="appearance-and-gene" class="slide level2 smaller">
+<h2>Appearance and gene</h2>
+<ul>
+<li><strong>Phenotype</strong>: Observable characteristics or traits of an organism</li>
+<li>Phenotype is the interaction of <strong>genes</strong> plus <strong>environment</strong> (nature and nurture)</li>
+<li>Example: Twins with similar but not exactly identical appearance</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/Phenotype.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Phenotype"><img data-src="img/Phenotype.png" style="height:2.75in" alt="Phenotype"></a></p>
+<figcaption>Phenotype</figcaption>
+</figure>
+</div>
+<p><strong>Implication</strong></p>
+<p>Your appearance is modifiable</p>
+</section>
+<section id="guessing-age" class="slide level2 smaller">
+<h2>Guessing age</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>You can guess one’s age from
+<ul>
+<li>Appearance</li>
+<li>Sound</li>
+<li>Behavior</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<ul>
+<li>AI can also guess from
+<ul>
+<li>Appearance: skin texture, wrinkles</li>
+<li>Sound: frequency and tones</li>
+</ul></li>
+</ul>
+</div></div>
+<p><strong>Implication</strong></p>
+<ul>
+<li>We want to look young !
+<ul>
+<li>AI’s estimation and outliers could help
+<ul>
+<li>Estimate age</li>
+<li>Potential reasons why some people look young/old</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="guessing-age-from-your-photo" class="slide level2 smaller">
+<h2>Guessing age from your photo</h2>
+<div class="columns">
+<div class="column">
+<p><strong>Mechanism</strong></p>
+<ul>
+<li>AI will extract relevant features from the image</li>
+<li>Making predictions based on the features</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/age_predict.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Face Age Detector &amp; Generator [@sharma2021prediction]"><img data-src="img/age_predict.png" alt="Face Age Detector &amp; Generator (Sharma, Sharma, and Jindal 2021)"></a></p>
+<figcaption>Face Age Detector &amp; Generator <span class="citation" data-cites="sharma2021prediction">(<a href="#/bibliography-notes" role="doc-biblioref" onclick="">Sharma, Sharma, and Jindal 2021</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column">
+<p>Play around !</p>
+<ul>
+<li><a href="https://age.toolpie.com/">Face age detector</a></li>
+<li><a href="https://faceagemeter.com/">FaceAgeMeter</a></li>
+<li><a href="https://www.facialage.com/">Facialage</a></li>
+</ul>
+<p><strong>Instruction</strong></p>
+<p>Please record:</p>
+<ol type="1">
+<li>Which website you use</li>
+<li>AI underestimate/overestimate/ perfectly predict your age</li>
+<li>Try repeating a few times using different models/pictures</li>
+</ol>
+</div></div>
+</section>
+<section id="learning-from-error" class="slide level2">
+<h2>Learning from error</h2>
+<ul>
+<li>From this class we see researchers investigate through <strong>AI prediction errors</strong></li>
+<li>Prediction errors provide insights:
+<ul>
+<li>Potential factors making error</li>
+<li>Improving AI model</li>
+<li>Better usage of the model</li>
+</ul></li>
+</ul>
+</section>
+<section id="wrap-up" class="slide level2">
+<h2>Wrap-up</h2>
+<ul>
+<li>Biological markers for aging</li>
+<li>How does AI predict your age from your gene</li>
+<li>How does AI model inform younger biological age<br>
+</li>
+<li>How does an AI model predict your age from your appearance</li>
+</ul>
+</section>
+<section id="guess-who-is-younger" class="slide level2 smaller" data-visibility="uncounted">
+<h2>Guess who is younger?</h2>
+<div class="columns">
+<div class="column" height="300px" style="width:30%;">
+<p><strong>Katy Perry</strong></p>
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DRXWvCtCc14/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<div style="padding:16px;">
+<a href="https://www.instagram.com/p/DRXWvCtCc14/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+<div style=" display: flex; flex-direction: row; align-items: center;">
+<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+</div>
+</div>
+</div>
+<div style="padding: 19% 0;">
+
+</div>
+<div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+<svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xlink="https://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g>
+</svg>
+</div>
+<div style="padding-top: 8px;">
+<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+在 Instagram 查看這則貼文
+</div>
+</div>
+<div style="padding: 12.5% 0;">
+
+</div>
+<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+<div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+
+</div>
+<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+
+</div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+
+</div>
+</div>
+<div style="margin-left: 8px;">
+<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+
+</div>
+</div>
+<div style="margin-left: auto;">
+<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+
+</div>
+<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+
+</div>
+</div>
+</a>
+<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+<a href="https://www.instagram.com/p/DRXWvCtCc14/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">KATY PERRY（<span class="citation" data-cites="katyperry">(</span></a><a href="#/bibliography-notes" role="doc-biblioref" onclick=""><strong>katyperry?</strong></a>)）分享的貼文
+</p>
+</div>
+</blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+</div><div class="column" data-hight="300px" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/QR_kpts.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Mentimeter voting"><img data-src="img/QR_kpts.png" style="width:80.0%" alt="Mentimeter voting"></a></p>
+<figcaption>Mentimeter voting</figcaption>
+</figure>
+</div>
+</div><div class="column" data-hight="300px" style="width:30%;">
+<p><strong>Taylor Swift</strong></p>
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DO_pGo5jjoj/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<div style="padding:16px;">
+<a href="https://www.instagram.com/p/DO_pGo5jjoj/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+<div style=" display: flex; flex-direction: row; align-items: center;">
+<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+</div>
+</div>
+</div>
+<div style="padding: 19% 0;">
+
+</div>
+<div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+<svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xlink="https://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g>
+</svg>
+</div>
+<div style="padding-top: 8px;">
+<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+在 Instagram 查看這則貼文
+</div>
+</div>
+<div style="padding: 12.5% 0;">
+
+</div>
+<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+<div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+
+</div>
+<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+
+</div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+
+</div>
+</div>
+<div style="margin-left: 8px;">
+<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+
+</div>
+</div>
+<div style="margin-left: auto;">
+<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+
+</div>
+<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+
+</div>
+</div>
+</a>
+<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+<a href="https://www.instagram.com/p/DO_pGo5jjoj/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Taylor Swift（<span class="citation" data-cites="taylorswift">(</span></a><a href="#/bibliography-notes" role="doc-biblioref" onclick=""><strong>taylorswift?</strong></a>)）分享的貼文
+</p>
+</div>
+</blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+</div></div>
+</section>
+<section id="section" class="slide level2 smaller" data-visibility="uncounted">
+<h2></h2>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;">
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/aln7mf8xz8mejkkrpmj3fkqxow46ep1u/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+</iframe>
+</div>
+</section>
+<section id="guess-who-is-younger-1" class="slide level2 smaller" data-visibility="uncounted">
+<h2>Guess who is younger?</h2>
+<div class="columns">
+<div class="column" data-hight="300px" style="width:30%;">
+<p><strong>Ed Sheeran</strong></p>
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQUsOpPAnDj/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<div style="padding:16px;">
+<a href="https://www.instagram.com/p/DQUsOpPAnDj/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+<div style=" display: flex; flex-direction: row; align-items: center;">
+<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+</div>
+</div>
+</div>
+<div style="padding: 19% 0;">
+
+</div>
+<div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+<svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xlink="https://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g>
+</svg>
+</div>
+<div style="padding-top: 8px;">
+<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+在 Instagram 查看這則貼文
+</div>
+</div>
+<div style="padding: 12.5% 0;">
+
+</div>
+<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+<div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+
+</div>
+<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+
+</div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+
+</div>
+</div>
+<div style="margin-left: 8px;">
+<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+
+</div>
+</div>
+<div style="margin-left: auto;">
+<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+
+</div>
+<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+
+</div>
+</div>
+</a>
+<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+<a href="https://www.instagram.com/p/DQUsOpPAnDj/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Ed Sheeran（<span class="citation" data-cites="teddysphotos">(</span></a><a href="#/bibliography-notes" role="doc-biblioref" onclick=""><strong>teddysphotos?</strong></a>)）分享的貼文
+</p>
+</div>
+</blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+</div><div class="column" data-hight="300px" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/QR_esjb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Mentimeter voting"><img data-src="img/QR_esjb.png" style="width:75.0%" alt="Mentimeter voting"></a></p>
+<figcaption>Mentimeter voting</figcaption>
+</figure>
+</div>
+</div><div class="column" data-hight="300px" style="width:30%;">
+<p><strong>Justin Bieber</strong></p>
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DSqG6UVkhzD/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<div style="padding:16px;">
+<a href="https://www.instagram.com/p/DSqG6UVkhzD/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+<div style=" display: flex; flex-direction: row; align-items: center;">
+<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+</div>
+</div>
+</div>
+<div style="padding: 19% 0;">
+
+</div>
+<div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+<svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xlink="https://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g>
+</svg>
+</div>
+<div style="padding-top: 8px;">
+<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+在 Instagram 查看這則貼文
+</div>
+</div>
+<div style="padding: 12.5% 0;">
+
+</div>
+<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+<div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+
+</div>
+<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+
+</div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+
+</div>
+</div>
+<div style="margin-left: 8px;">
+<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+
+</div>
+</div>
+<div style="margin-left: auto;">
+<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+
+</div>
+<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+
+</div>
+</div>
+</a>
+<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+<a href="https://www.instagram.com/p/DSqG6UVkhzD/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Justin Bieber（<span class="citation" data-cites="lilbieber">(</span></a><a href="#/bibliography-notes" role="doc-biblioref" onclick=""><strong>lilbieber?</strong></a>)）分享的貼文
+</p>
+</div>
+</blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+</div></div>
+</section>
+<section id="section-1" class="slide level2 smaller" data-visibility="uncounted">
+<h2></h2>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;">
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alvtz64i2c6r5fcx7ptfa56yri9zj97x/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+</iframe>
+</div>
+</section>
+<section id="guess-who-is-younger-2" class="slide level2 smaller" data-visibility="uncounted">
+<h2>Guess who is younger?</h2>
+<div class="columns">
+<div class="column" data-hight="300px" style="width:30%;">
+<strong>Eason Chan</strong>
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQL5P0RCQE8/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<div style="padding:16px;">
+<a href="https://www.instagram.com/p/DQL5P0RCQE8/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+<div style=" display: flex; flex-direction: row; align-items: center;">
+<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+</div>
+</div>
+</div>
+<div style="padding: 19% 0;">
+
+</div>
+<div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+<svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xlink="https://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g>
+</svg>
+</div>
+<div style="padding-top: 8px;">
+<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+在 Instagram 查看這則貼文
+</div>
+</div>
+<div style="padding: 12.5% 0;">
+
+</div>
+<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+<div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+
+</div>
+<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+
+</div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+
+</div>
+</div>
+<div style="margin-left: 8px;">
+<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+
+</div>
+</div>
+<div style="margin-left: auto;">
+<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+
+</div>
+<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+
+</div>
+</div>
+</a>
+<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+<a href="https://www.instagram.com/p/DQL5P0RCQE8/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">E臣（<span class="citation" data-cites="mreasonchan">(</span></a><a href="#/bibliography-notes" role="doc-biblioref" onclick=""><strong>mreasonchan?</strong></a>)）分享的貼文
+</p>
+</div>
+</blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+</div><div class="column" data-hight="300px" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img\QR_esjl.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Mentimeter voting"><img data-src="img\QR_esjl.png" alt="Mentimeter voting"></a></p>
+<figcaption>Mentimeter voting</figcaption>
+</figure>
+</div>
+</div><div class="column" data-hight="300px" style="width:30%;">
+<p><strong>JJ Lin</strong></p>
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DSzEhcBkxXs/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<div style="padding:16px;">
+<a href="https://www.instagram.com/p/DSzEhcBkxXs/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+<div style=" display: flex; flex-direction: row; align-items: center;">
+<div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+</div>
+</div>
+</div>
+<div style="padding: 19% 0;">
+
+</div>
+<div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+<svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xlink="https://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g>
+</svg>
+</div>
+<div style="padding-top: 8px;">
+<div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+在 Instagram 查看這則貼文
+</div>
+</div>
+<div style="padding: 12.5% 0;">
+
+</div>
+<div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+<div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+
+</div>
+<div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+
+</div>
+<div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+
+</div>
+</div>
+<div style="margin-left: 8px;">
+<div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+
+</div>
+</div>
+<div style="margin-left: auto;">
+<div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+
+</div>
+<div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+
+</div>
+<div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+
+</div>
+<div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+
+</div>
+</div>
+</a>
+<p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+<a href="https://www.instagram.com/p/DSzEhcBkxXs/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">JJ Federation 林距離國際歌友會（<span class="citation" data-cites="jjfederation0327">(</span></a><a href="#/bibliography-notes" role="doc-biblioref" onclick=""><strong>jjfederation0327?</strong></a>)）分享的貼文
+</p>
+</div>
+</blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+</div></div>
+</section>
+<section id="section-2" class="slide level2 smaller" data-visibility="uncounted">
+<h2></h2>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;">
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alshzvmg7outp2eyph7261jfydqkofpm/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+</iframe>
+</div>
+</section>
+<section id="dna-methylation---chemical-switch" class="slide level2 smaller" data-visibility="uncounted">
+<h2>DNA methylation - chemical switch</h2>
+<ul>
+<li>Definition: methyl group (<span class="math inline">\(\text{-CH}_3\)</span>) attached to the DNA</li>
+<li>Primarily refers to <span class="math inline">\(\text{-CH}_3\)</span> on the 5th carbon of cytosine (C), creating 5-methylcytosine (5mC)</li>
+<li>Other forms include 6mA and 4mC</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/methylation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="DNA Methylation, modified from Wikipedia"><img data-src="img/methylation.png" style="width:70.0%" alt="DNA Methylation, modified from Wikipedia"></a></p>
+<figcaption>DNA Methylation, modified from Wikipedia</figcaption>
+</figure>
+</div>
+</section>
+<section id="dna-methylation---mechanism" class="slide level2 smaller" data-visibility="uncounted">
+<h2>DNA methylation - mechanism</h2>
+<ul>
+<li>Before the gene, there will be a lot of cytosine(C) before a gene, which control the gene is expressed or not</li>
+<li>Methylation will force the switch to turn off.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/methylation-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="DNA Methylation, modified from Wikipedia"><img data-src="img/methylation-2.png" style="width:70.0%" alt="DNA Methylation, modified from Wikipedia"></a></p>
+<figcaption>DNA Methylation, modified from Wikipedia</figcaption>
+</figure>
+</div>
+</section>
+<section id="bibliography-notes" class="slide level2 smaller scrollable">
+<h2>Bibliography Notes</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-begum2022epigenetics" class="csl-entry" role="listitem">
+Begum, Nusrat, Aniket Mandhare, Kamatham Pushpa Tryphena, Saurabh Srivastava, Mohd Farooq Shaikh, Shashi Bala Singh, and Dharmendra Kumar Khatri. 2022. <span>“Epigenetics in Depression and Gut-Brain Axis: A Molecular Crosstalk.”</span> <em>Frontiers in Aging Neuroscience</em> 14: 1048333.
+</div>
+<div id="ref-bishop2015interaction" class="csl-entry" role="listitem">
+Bishop, Karen S, and Lynnette R Ferguson. 2015. <span>“The Interaction Between Epigenetics, Nutrition and the Development of Cancer.”</span> <em>Nutrients</em> 7 (2): 922–47.
+</div>
+<div id="ref-carroll2021postpartum" class="csl-entry" role="listitem">
+Carroll, Judith E, Kharah M Ross, Steve Horvath, Michele Okun, Calvin Hobel, Kelly E Rentscher, Mary Coussons-Read, and Christine Dunkel Schetter. 2021. <span>“Postpartum Sleep Loss and Accelerated Epigenetic Aging.”</span> <em>Sleep Health</em> 7 (3): 362–67.
+</div>
+<div id="ref-chmurzynska2010fetal" class="csl-entry" role="listitem">
+Chmurzynska, Agata. 2010. <span>“Fetal Programming: Link Between Early Nutrition, DNA Methylation, and Complex Diseases.”</span> <em>Nutrition Reviews</em> 68 (2): 87–98.
+</div>
+<div id="ref-da2016synopsis" class="csl-entry" role="listitem">
+Costa, João Pinto da, Rui Vitorino, Gustavo M Silva, Christine Vogel, Armando C Duarte, and Teresa Rocha-Santos. 2016. <span>“A Synopsis on Aging—Theories, Mechanisms and Future Prospects.”</span> <em>Ageing Research Reviews</em> 29: 90–112.
+</div>
+<div id="ref-galow2022slow" class="csl-entry" role="listitem">
+Galow, Anne-Marie, and Shahaf Peleg. 2022. <span>“How to Slow down the Ticking Clock: Age-Associated Epigenetic Alterations and Related Interventions to Extend Life Span.”</span> <em>Cells</em> 11 (3): 468.
+</div>
+<div id="ref-gronniger2010aging" class="csl-entry" role="listitem">
+Grönniger, Elke, Barbara Weber, Oliver Heil, Nils Peters, Franz Stäb, Horst Wenck, Bernhard Korn, Marc Winnefeld, and Frank Lyko. 2010. <span>“Aging and Chronic Sun Exposure Cause Distinct Epigenetic Changes in Human Skin.”</span> <em>PLoS Genetics</em> 6 (5): e1000971.
+</div>
+<div id="ref-halliwell2015free" class="csl-entry" role="listitem">
+Halliwell, Barry, and John MC Gutteridge. 2015. <em>Free Radicals in Biology and Medicine</em>. Oxford university press.
+</div>
+<div id="ref-jokai2023dna" class="csl-entry" role="listitem">
+Jokai, Matyas, Ferenc Torma, Kristen M McGreevy, Erika Koltai, Zoltan Bori, Gergely Babszki, Peter Bakonyi, et al. 2023. <span>“DNA Methylation Clock DNAmFitAge Shows Regular Exercise Is Associated with Slower Aging and Systemic Adaptation.”</span> <em>GeroScience</em> 45 (5): 2805–17.
+</div>
+<div id="ref-krieger2024epigenetic" class="csl-entry" role="listitem">
+Krieger, Nancy, Christian Testa, Jarvis T Chen, Nykesha Johnson, Sarah Holmes Watkins, Matthew Suderman, Andrew J Simpkin, et al. 2024. <span>“Epigenetic Aging and Racialized, Economic, and Environmental Injustice: NIMHD Social Epigenomics Program.”</span> <em>JAMA Network Open</em> 7 (7): e2421832–32.
+</div>
+<div id="ref-lopez2023hallmarks" class="csl-entry" role="listitem">
+López-Otı́n, Carlos, Maria A Blasco, Linda Partridge, Manuel Serrano, and Guido Kroemer. 2023. <span>“Hallmarks of Aging: An Expanding Universe.”</span> <em>Cell</em> 186 (2): 243–78.
+</div>
+<div id="ref-philibert2012demethylation" class="csl-entry" role="listitem">
+Philibert, Robert A, Steven RH Beach, and Gene H Brody. 2012. <span>“Demethylation of the Aryl Hydrocarbon Receptor Repressor as a Biomarker for Nascent Smokers.”</span> <em>Epigenetics</em> 7 (11): 1331–38.
+</div>
+<div id="ref-sharavanan2020pollutants" class="csl-entry" role="listitem">
+Sharavanan, Vivek Jagadeesan, Muthusaravanan Sivaramakrishnan, N Sivarajasekar, N Senthilrani, Ram Kothandan, Nirajan Dhakal, S Sivamani, Pau Loke Show, Md Rabiul Awual, and Mu Naushad. 2020. <span>“Pollutants Inducing Epigenetic Changes and Diseases.”</span> <em>Environmental Chemistry Letters</em> 18 (2): 325–43.
+</div>
+<div id="ref-sharma2021prediction" class="csl-entry" role="listitem">
+Sharma, Neha, Reecha Sharma, and Neeru Jindal. 2021. <span>“Prediction of Face Age Progression with Generative Adversarial Networks.”</span> <em>Multimedia Tools and Applications</em> 80 (25): 33911–35.
+</div>
+<div id="ref-swiatowy2021physical" class="csl-entry" role="listitem">
+Światowy, Witold Józef, Hanna Drzewiecka, Michalina Kliber, Maria Sąsiadek, Paweł Karpiński, Andrzej Pławski, and Paweł Piotr Jagodziński. 2021. <span>“Physical Activity and DNA Methylation in Humans.”</span> <em>International Journal of Molecular Sciences</em> 22 (23): 12989.
+</div>
+<div id="ref-zannas2017epigenetic" class="csl-entry" role="listitem">
+Zannas, AS, and GP Chrousos. 2017. <span>“Epigenetic Programming by Stress and Glucocorticoids Along the Human Lifespan.”</span> <em>Molecular Psychiatry</em> 22 (5): 640–46.
+</div>
+</div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+    
+
+</body></html>

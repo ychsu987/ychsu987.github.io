@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Yu Cheng Hsu">
+  <title>Yu Cheng Hsu – Cancer cell population monitoring</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background="/assets/images/functional-genomics/background-1.png" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
+  <h1 class="title">Cancer cell population monitoring</h1>
+  <p class="subtitle">An ecology perspective</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Yu Cheng Hsu 
+</div>
+</div>
+</div>
+
+</section>
+<section id="intended-learning-outcomes" class="slide level2">
+<h2>Intended learning outcomes</h2>
+<ul>
+<li>Bullet point one</li>
+<li>Bullet point two</li>
+<li>Bullet point three</li>
+</ul>
+</section>
+<section>
+<section id="project-background" class="title-slide slide level1 center">
+<h1>Project background</h1>
+
+</section>
+<section id="tumor-evolution" class="slide level2">
+<h2>Tumor evolution</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p>Tumor grows and evolves under evolution pressure</p>
+<ul>
+<li>Trophic</li>
+<li>Metabolic</li>
+<li>Immunological</li>
+<li>Therapeutic</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><strong>Intratumor heterogeneity</strong> (ITH), diversity in genetics, phenotypic or even epigenetic profiles, could equip tumor cells to adapt to different selection pressures.</p>
+<p><strong>Consequences of ITH</strong></p>
+<ul>
+<li>Therapeutic failure</li>
+<li>Drug resistance</li>
+</ul>
+</div></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="../../..\assets/images/adt/ith.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Intratumor heterogeneity of tumor cells from @walshaccurate"><img data-src="../../..\assets/images/adt/ith.png" alt="Intratumor heterogeneity of tumor cells from Walsh (n.d.)"></a></p>
+<figcaption>Intratumor heterogeneity of tumor cells from <span class="citation" data-cites="walshaccurate">Walsh (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">n.d.</a>)</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="implication-of-ith---treatment" class="slide level2">
+<h2>Implication of ITH - Treatment</h2>
+<ul>
+<li>ITH implies that tumor cells could (Darwinian):
+<ul>
+<li>Possess a genetic reservoir (accumulating different variations).</li>
+<li>Adapt to different evolutionary pressures.</li>
+</ul></li>
+<li><strong>Treatment</strong> is a selective evolutionary pressure (therapeutic pressure).</li>
+<li>Natural selection favors treatment-resistant tumor cells.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="../../..\assets/images/adt/drug resistance.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Selective pressure and drug resistance, image from @greaves2012clonal"><img data-src="../../..\assets/images/adt/drug resistance.png" style="width:70.0%" alt="Selective pressure and drug resistance, image from Greaves and Maley (2012)"></a></p>
+<figcaption>Selective pressure and drug resistance, image from <span class="citation" data-cites="greaves2012clonal">Greaves and Maley (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">2012</a>)</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="prostate-cancer" class="slide level2">
+<h2>Prostate Cancer</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>Prostate Cancer in Hong Kong</strong> In 2023</p>
+<ul>
+<li>Prevalence rate (crude): 88.2 per 100K</li>
+<li>Mortality rate (crude): 15 per 100K</li>
+</ul>
+<p><strong>Treatment</strong></p>
+<ul>
+<li>Radiotherapy</li>
+<li>Surgery</li>
+<li>Chemotherapy</li>
+<li>Hormone therapy
+<ul>
+<li>Prostate cancers are usually androgen-dependent. Hormone therapy works by reducing/blocking androgens, which can slow down or stop the growth of the cancer.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:42%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="../../..\assets/images/adt/prostate cancer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Prostate cancer"><img data-src="../../..\assets/images/adt/prostate cancer.png" style="width:80.0%" alt="Prostate cancer"></a></p>
+<figcaption>Prostate cancer</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="hormone-therapy-for-prostate-cancer" class="slide level2">
+<h2>Hormone therapy for prostate cancer</h2>
+<ul>
+<li>Androgen deprivation therapy (ADT) is used for advanced prostate cancer</li>
+<li>Continuous ADT
+<ul>
+<li>Disadvantages
+<ul>
+<li>Side effects (e.g., hot flashes, loss of libido)</li>
+<li>Drug resistance (e.g., castration-resistant prostate cancer)</li>
+</ul></li>
+</ul></li>
+<li>Intermittent ADT (IADT)
+<ul>
+<li>Advantages <span class="citation" data-cites="perera2020intermittent">Perera et al. (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">2020</a>)</span>
+<ul>
+<li>Delayed drug resistance</li>
+<li>Reduced side effects (Improved quality of life)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="data-sources" class="slide level2">
+<h2>Data sources</h2>
+<p><span class="citation" data-cites="bruchovsky2006final">Bruchovsky et al. (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">2006</a>)</span> implemented a clinical trial of IADT</p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li><strong>Total participants</strong>: 103 eligible patients with prostate cancer</li>
+<li>Monitoring biomarkers:
+<ul>
+<li>Prostate-specific antigen (PSA) levels (indicates the activity of prostate cancer cells)</li>
+<li>Testosterone (Effectiveness of ADT)</li>
+</ul></li>
+<li>Treatment protocol:
+<ul>
+<li>ADT is given for a fixed time (36 weeks) until PSA levels drop to 4 <span class="math inline">\(\mu\)</span>g/mL</li>
+<li>ADT is stopped until PSA levels rise to 10 <span class="math inline">\(\mu\)</span>g/mL</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="../../..\assets/images/adt/iadt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="IADT protocol, image from @bruchovsky2006final"><img data-src="../../..\assets/images/adt/iadt.png" alt="IADT protocol, image from Bruchovsky et al. (2006)"></a></p>
+<figcaption>IADT protocol, image from <span class="citation" data-cites="bruchovsky2006final">Bruchovsky et al. (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">2006</a>)</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="modeling-ecology-dynamics" class="title-slide slide level1 center">
+<h1>Modeling ecology dynamics</h1>
+
+</section>
+<section id="preface" class="slide level2">
+<h2>Preface</h2>
+<ul>
+<li>Predicting the population in the
+<ul>
+<li>microbiome</li>
+<li>cells (tumors, donor-recipient interactions)</li>
+</ul></li>
+</ul>
+<p>The idea of using these models is to estimate the potential growth of the cells of interest and provide insights into the underlying mechanisms of growth.</p>
+<p>The modeling techniques in this topic are largely borrowed from ecology, where the study of species populations is of crucial interest:</p>
+<ul>
+<li>Interactions between species</li>
+<li>Environment</li>
+</ul>
+</section>
+<section id="simple-model-of-tumor-growth" class="slide level2">
+<h2>Simple model of tumor growth</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p>A simple model to describe the change in a tumor cell population (<span class="math inline">\(\frac{dC}{dt}\)</span>) is</p>
+<p><span class="math display">\[
+\frac{dC}{dt}=gC(t)-dC(t)=\alpha C(t)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(g\)</span> is the growth rate of the tumor cells</li>
+<li><span class="math inline">\(d\)</span> is the death rate of the tumor cells</li>
+<li><span class="math inline">\(\alpha\)</span> is the net growth rate of the tumor cells</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="cell" data-fig-width="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="480" height="480" viewbox="0.00 0.00 100.24 126.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 122.8)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-122.8 96.24,-122.8 96.24,4 -4,4"></polygon>
+<!-- cell -->
+<g id="node1" class="node">
+<title>cell</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-100.8" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-98.1" font-family="Times,serif" font-size="9.00">cell</text>
+</g>
+<!-- cell&#45;&gt;cell -->
+<g id="edge1" class="edge">
+<title>cell-&gt;cell</title>
+<path fill="none" stroke="black" d="M34.66,-107.83C44.62,-109.39 54,-107.05 54,-100.8 54,-96.8 50.15,-94.4 44.77,-93.6"></path>
+<polygon fill="black" stroke="black" points="44.6,-90.1 34.66,-93.77 44.72,-97.1 44.6,-90.1"></polygon>
+<text text-anchor="middle" x="73.12" y="-98.1" font-family="Times,serif" font-size="9.00">growth (g)</text>
+</g>
+<!-- die -->
+<g id="node2" class="node">
+<title>die</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-15.3" font-family="Times,serif" font-size="9.00">die</text>
+</g>
+<!-- cell&#45;&gt;die -->
+<g id="edge2" class="edge">
+<title>cell-&gt;die</title>
+<path fill="none" stroke="black" d="M18,-82.66C18,-72.06 18,-58.21 18,-46.14"></path>
+<polygon fill="black" stroke="black" points="21.5,-46.11 18,-36.11 14.5,-46.11 21.5,-46.11"></polygon>
+<text text-anchor="middle" x="34.12" y="-56.7" font-family="Times,serif" font-size="9.00">death (d)</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="implication-of-the-simple-model" class="slide level2">
+<h2>Implication of the simple model</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>The population of the tumor cells at time <span class="math inline">\(t\)</span> can be expressed as <span class="math display">\[
+C(t) = C(0)e^{\alpha t}
+\]</span></li>
+</ul>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>If <span class="math inline">\(\alpha &gt; 0\)</span>, the population will grow exponentially.</li>
+<li>If <span class="math inline">\(\alpha &lt; 0\)</span>, the population will decline exponentially.</li>
+<li>If <span class="math inline">\(\alpha = 0\)</span>, the population will remain constant.</li>
+</ul>
+</div></div>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>The model assumes that growth and death rates are constant over time, which may not be true in reality.</li>
+<li>The model does not account for interactions with other cell types or the environment.</li>
+<li>The model assumes there is no maximum population in a given environment.</li>
+</ul>
+</section>
+<section id="redesigning-the-model" class="slide level2">
+<h2>Redesigning the model</h2>
+<p>From empirical observation, the growth of tumor cells usually follows these steps:</p>
+<ol type="1">
+<li>Starting rapid growth from a single/small collections of cells</li>
+<li>The growth slows down as the population increases</li>
+<li>Eventually, the population reaches a plateau</li>
+</ol>
+<p><strong>How to redesign the model</strong></p>
+<ol type="1">
+<li>The growth rate is not constant; it is negatively proportional to the population size.</li>
+<li>At a large enough population size, the growth rate will be zero.</li>
+</ol>
+</section>
+<section id="logistic-growth-model" class="slide level2">
+<h2>Logistic growth model</h2>
+<p>An improved version of the simple model is the logistic growth model, which can be expressed as:</p>
+<p><span class="math display">\[
+\frac{dC}{dt}= \alpha(1-\frac{C(t)}{K}) C(t)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(K\)</span> is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.</li>
+<li><span class="math inline">\(\alpha\)</span> is the intrinsic growth rate of the tumor cells.</li>
+</ul>
+</section>
+<section id="qualitative-inspection-of-the-logistic-growth-model" class="slide level2">
+<h2>Qualitative inspection of the logistic growth model</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p>The analytical solution of the logistic growth model is</p>
+<p><span class="math display">\[
+C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
+\]</span></p>
+</div><div class="column" style="width:48%;">
+<ul>
+<li><span class="math inline">\(C(t) &lt; K\)</span>, the population will grow and reach the carrying capacity <span class="math inline">\(K\)</span>.</li>
+<li><span class="math inline">\(C(t) &gt; K\)</span>, the population will decline and reach the carrying capacity <span class="math inline">\(K\)</span>.</li>
+<li><span class="math inline">\(C(t) = K\)</span>, the population will remain constant.</li>
+</ul>
+</div></div>
+<div id="e9919b55" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="adt-model_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="adt-model_files/figure-revealjs/cell-2-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-are-missing" class="slide level2">
+<h2>What are missing ?</h2>
+<ul>
+<li>The model does not account for interactions with other cell types or the environment.</li>
+</ul>
+<p>Consider two populations with following interactions</p>
+<ol type="1">
+<li><p><strong>Prey and predator</strong></p>
+<ul>
+<li>Predator population growth is <em>positively</em> affected by the prey population size</li>
+<li>Prey population growth is <em>negatively</em> affected by the predator population size</li>
+</ul></li>
+<li><p><strong>Competition between two species</strong></p></li>
+</ol>
+<ul>
+<li>The growth of each species is <em>negatively</em> affected by the population size of the other species.</li>
+</ul>
+<p><span class="math inline">\(\rightarrow\)</span> The ODE needs to be modified to account for the interactions between populations.</p>
+</section>
+<section id="lotka-volterra-competition-model" class="slide level2">
+<h2>Lotka-Volterra competition model</h2>
+<p>Given two species, <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> in competition with each other, the competitive Lotka-Volterra model can be expressed as</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{dC_1}{dt} = \alpha_1 C_1(t) (1 - \frac{C_1(t) + \beta_{12} C_2(t)}{K_1}) \\
+\frac{dC_2}{dt} = \alpha_2 C_2(t) (1 - \frac{C_2(t) + \beta_{21} C_1(t)}{K_2})
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha_1\)</span> and <span class="math inline">\(\alpha_2\)</span> are the intrinsic growth rates of species 1 and 2, respectively.</li>
+<li><span class="math inline">\(K_1\)</span> and <span class="math inline">\(K_2\)</span> are the carrying capacities of the environment for species 1 and 2, respectively.</li>
+<li><span class="math inline">\(\beta_{12}\)</span> and <span class="math inline">\(\beta_{21}\)</span> are the competition rates between species 1 and 2,
+<ul>
+<li><span class="math inline">\(\beta_{12}\)</span> represents the effect of species 2 on the growth of species 1.</li>
+<li><span class="math inline">\(\beta_{21}\)</span> represents the effect of species 1 on the growth of species 2.</li>
+</ul></li>
+</ul>
+</section>
+<section id="lotka-volterra-prey-predator-model" class="slide level2">
+<h2>Lotka-Volterra prey-predator model</h2>
+<p>Given two species, <span class="math inline">\(C_1\)</span> (prey) and <span class="math inline">\(C_2\)</span> (predator), the prey-predator Lotka-Volterra model can be expressed as</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{dC_1}{dt} &amp;= \alpha_1 C_1(t)(1 - \frac{C_1(t)}{K_1}) - \beta_{12} C_1(t) C_2(t) \\
+\frac{dC_2}{dt} &amp;= -\alpha_2 C_2(t) + \beta_{21} C_1(t) C_2(t)
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha_1\)</span> is the intrinsic growth rate of the prey population</li>
+<li><span class="math inline">\(\alpha_2\)</span> is the intrinsic <strong>death</strong> rate of the predator population in the absence of prey.</li>
+<li><span class="math inline">\(\beta_{12}\)</span> is the effect of the presence of predators on the <strong>prey death</strong> rate.</li>
+<li><span class="math inline">\(\beta_{21}\)</span> is the effect of the presence of prey on the <em>predator’s growth</em> rate.</li>
+</ul>
+</section></section>
+<section>
+<section id="evaluating-system-of-ordinary-differential-equations-odes" class="title-slide slide level1 center">
+<h1>Evaluating system of Ordinary Differential Equations (ODEs)</h1>
+
+</section>
+<section id="qualitative-inspection-on-odes" class="slide level2">
+<h2>Qualitative inspection on ODEs</h2>
+<ul>
+<li>Systems of ODEs rarely have analytical solutions.</li>
+<li>In many cases where ODEs do not have analytical solutions, we can use qualitative inspection to understand the behavior of the system.</li>
+<li><strong>Phase diagram</strong>: Plotting derivatives as an arrow field, which can provide insights into the stability and behavior of the system at given points.</li>
+</ul>
+</section>
+<section id="d-phase-diagram" class="slide level2">
+<h2>2D Phase diagram</h2>
+<ul>
+<li>For a <strong>linear</strong> ODE system <span class="math display">\[
+\frac{d\vec{x}}{dt} = A \vec{x}
+\]</span></li>
+</ul>
+<p>There are three types of equilibrium points:</p>
+<ul>
+<li>Node:</li>
+</ul>
+<div id="d064d8a7" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="adt-model_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="adt-model_files/figure-revealjs/cell-3-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="discussion-on-lotka-volterra-competition-model" class="slide level2">
+<h2>Discussion on Lotka-Volterra competition model</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p>We can find the equilibrium points of the system by setting <span class="math inline">\(\frac{dC_1}{dt} = 0\)</span> and <span class="math inline">\(\frac{dC_2}{dt} = 0\)</span>, which gives us the following equations:</p>
+<p><span class="math display">\[
+\begin{aligned}
+C_1(t) &amp;= K_1 - \beta_{12} C_2(t) \\
+C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
+\end{aligned}
+\]</span></p>
+<p>The intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in <span class="citation" data-cites="mcgehee2024mathematical">McGehee and Mori (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">2024</a>)</span>)</p>
+</div><div class="column" style="width:48%;">
+<div id="32518313" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="adt-model_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="adt-model_files/figure-revealjs/cell-4-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="exclusion-of-one-species-c_1-or-c_2-wins" class="slide level2">
+<h2>Exclusion of one species (<span class="math inline">\(C_1\)</span> or <span class="math inline">\(C_2\)</span> wins)</h2>
+<div class="columns">
+<div class="column">
+<p><strong><span class="math inline">\(C_1\)</span> wins</strong></p>
+<ul>
+<li>Condition: <span class="math inline">\(\beta_{12} &lt; \frac{K_1}{K_2}\)</span> and <span class="math inline">\(\beta_{21} &gt; \frac{K_2}{K_1}\)</span></li>
+<li>Mechanism: Species 1 exerts strong competitive pressure on Species 2 (<span class="math inline">\(\beta_{21}\)</span> is large), while Species 2 exerts weak pressure on Species 1 (<span class="math inline">\(\beta_{12}\)</span> is small).</li>
+<li>Equilibria:
+<ul>
+<li><span class="math inline">\((K_1, 0)\)</span> is a globally stable node.</li>
+<li><span class="math inline">\((0, K_2)\)</span> is an unstable node.</li>
+<li><span class="math inline">\((0, 0)\)</span> is an unstable saddle.</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<p><strong><span class="math inline">\(C_2\)</span> wins</strong></p>
+<ul>
+<li>Condition: <span class="math inline">\(\beta_{12} &gt; \frac{K_1}{K_2}\)</span> and <span class="math inline">\(\beta_{21} &lt; \frac{K_2}{K_1}\)</span></li>
+<li>Mechanism: Species 2 exerts strong competitive pressure on Species 1 (<span class="math inline">\(\beta_{12}\)</span> is large), whereas Species 1 exerts weak pressure on Species 2 (<span class="math inline">\(\beta_{21}\)</span> is small).</li>
+<li>Equilibria:
+<ul>
+<li><span class="math inline">\((K_1, 0)\)</span> is an unstable node.</li>
+<li><span class="math inline">\((0, K_2)\)</span> is a globally stable node.</li>
+<li><span class="math inline">\((0, 0)\)</span> is an unstable saddle.</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="bistability-competitive-exclusion" class="slide level2">
+<h2>Bistability / Competitive Exclusion</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ul>
+<li>Condition: <span class="math inline">\(\beta_{12} &gt; \frac{K_1}{K_2}\)</span> and <span class="math inline">\(\beta_{21} &gt; \frac{K_2}{K_1}\)</span></li>
+<li>Mechanism: Interspecific competition is stronger than intraspecific competition for both species. Each species inhibits the other more than it inhibits itself.</li>
+<li>Equilibria:
+<ul>
+<li><span class="math inline">\((K_1, 0)\)</span>, <span class="math inline">\((0, K_2)\)</span> are locally stable nodes.</li>
+<li>The interior intersection point <span class="math inline">\((C_1^*, C_2^*)\)</span> exists but is a saddle point (unstable): <span class="math display">\[C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}\]</span></li>
+</ul></li>
+<li>Outcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point.</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<div id="91672f81" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="adt-model_files/figure-revealjs/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="adt-model_files/figure-revealjs/cell-5-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="stable-coexistence" class="slide level2">
+<h2>Stable Coexistence</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ul>
+<li>Condition: Condition: <span class="math inline">\(\beta_{12} &lt; \frac{K_1}{K_2}\)</span> and <span class="math inline">\(\beta_{21} &lt; \frac{K_2}{K_1}\)</span></li>
+<li>Mechanism: Intraspecific competition is stronger than interspecific competition for both species. Each population limits its own growth more than it limits the growth of its competitor.</li>
+<li>Equilibria:
+<ul>
+<li><span class="math inline">\((K_1, 0)\)</span>, <span class="math inline">\((0, K_2)\)</span> are unstable nodes.</li>
+<li>The interior intersection point <span class="math inline">\((C_1^*, C_2^*)\)</span> is a globally stable node.</li>
+</ul></li>
+<li>Outcome: Both species coexist indefinitely at reduced population levels relative to their single-species carrying capacities.</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<div id="96d95245" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="adt-model_files/figure-revealjs/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="adt-model_files/figure-revealjs/cell-6-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="solving-odes-in-computer" class="title-slide slide level1 center">
+<h1>Solving ODEs in computer</h1>
+
+</section>
+<section id="preface-1" class="slide level2">
+<h2>Preface</h2>
+<p>Before we really go into the modeling, we need to understand how to solve ordinary differential equations (ODEs) in computer.</p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>In mathematics</strong></p>
+<ul>
+<li>ODEs can be solved analytically (e.g., separation of variables, integrating factor, etc.)</li>
+<li>If ODE does not have an analytical solution, mathematical techniques can be used to qualitatively analyze the behavior of the system (e.g., phase diagram, stability analysis, etc.)</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><strong>In computer</strong></p>
+<ul>
+<li>ODEs can be solved numerically (Computer can only perform a finite number of calculations, so we need to approximate the solution at discrete time steps)</li>
+<li>Numerical methods can be used to solve ODEs that do not have an analytical solution, or to simulate the behavior of a system over time.</li>
+</ul>
+</div></div>
+</section>
+<section id="the-initial-value-problem-ivp" class="slide level2">
+<h2>The Initial Value Problem (IVP)</h2>
+<p>We aim to solve an ordinary differential equation (ODE) of the form:</p>
+<p><span class="math display">\[\frac{dy}{dt} = f(t, y), \quad y(t_0) = y_0\]</span></p>
+<ul>
+<li><strong>Analytical solutions</strong> are sometimes difficult or impossible to find for non-linear systems</li>
+<li><strong>Numerical methods</strong> approximate the solution at discrete time steps: <span class="math display">\[t_0, t_1, t_2, \dots, t_n, t_{n+1}\]</span></li>
+<li>Where <span class="math inline">\(h = t_{n+1} - t_n\)</span> represents the <strong>step size</strong>.</li>
+<li>Again, the computer can only perform a finite number of calculations, in any case computing the solution at discrete time steps is necessary.</li>
+</ul>
+</section>
+<section id="overview-of-numerical-integration" class="slide level2">
+<h2>Overview of Numerical Integration</h2>
+<p>The fundamental problem is to evaluate the integral over a single time step:</p>
+<p><span class="math display">\[y(t_{n+1}) = y(t_n) + \int_{t_n}^{t_{n+1}} f(t, y(t)) \, dt\]</span></p>
+<p>Numerical integration methods approximate the area under the curve <span class="math inline">\(f(t, y(t))\)</span> using different strategies:</p>
+<p>Where</p>
+<p><span class="math display">\[
+\frac{dy}{dt} = f(t, y(t))
+\]</span></p>
+<p>Intuitively, we can think of <span class="math inline">\(f(t, y(t))\)</span> as the slope of the solution curve at time <span class="math inline">\(t\)</span>. The integral represents the total change in <span class="math inline">\(y\)</span> over the interval from <span class="math inline">\(t_n\)</span> to <span class="math inline">\(t_{n+1}\)</span>.</p>
+</section>
+<section id="evaluating-different-methods-of-numerical-integration" class="slide level2">
+<h2>Evaluating different methods of numerical integration</h2>
+<p>Imaging we are doing a integration like Reimann sum. In Reimann sum we assume <span class="math inline">\(dt\)</span> is small enough to accurately approximate the area under the curve. In numeric integration, we need to consider how good is it.</p>
+<ul>
+<li><strong>Stability</strong> Error is bound and does not grow exponentially with time steps. Important for long-term simulations. (As an analogy in statistics, we want to make sure the estimator is consistent)</li>
+<li><strong>Accuracy</strong> The numerical methods should be close to the true solution.</li>
+<li><strong>Computational cost</strong> The method should be computationally efficient, especially for large systems or long simulations.</li>
+</ul>
+</section>
+<section id="the-simplest-method-eulers-forward-method" class="slide level2">
+<h2>The Simplest Method: Euler’s Forward Method</h2>
+<p>By approximating the derivative with a forward finite difference:</p>
+<p><span class="math display">\[\frac{y_{n+1} - y_n}{h} \approx f(t_n, y_n)\]</span></p>
+<p>We obtain the explicit <strong>Euler update rule</strong>:</p>
+<p><span class="math display">\[y_{n+1} = y_n + h \cdot f(t_n, y_n)\]</span></p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li class="fragment">Demands very small <span class="math inline">\(h\)</span> to avoid numerical divergence in dynamic systems.</li>
+<li class="fragment"><strong>Local Truncation Error (LTE):</strong> <span class="math inline">\(\mathcal{O}(h^2)\)</span></li>
+<li class="fragment"><strong>Global Truncation Error (GTE):</strong> <span class="math inline">\(\mathcal{O}(h)\)</span> (First-order accurate)</li>
+</ul>
+</section>
+<section id="runge-kutta-rk-methods" class="slide level2">
+<h2>Runge-Kutta (RK) Methods</h2>
+<ul>
+<li class="fragment"><strong>Core Idea:</strong> Instead of evaluating the derivative only at the beginning of the interval (<span class="math inline">\(t_n\)</span>), evaluate <span class="math inline">\(f(t,y)\)</span> at several carefully chosen <strong>intermediate trial points</strong> within <span class="math inline">\([t_n, t_{n+1}]\)</span>.</li>
+<li class="fragment">A weighted average of these intermediate slopes is used to compute the final step update.</li>
+<li class="fragment">Naming convention: <span class="math inline">\(RKX\)</span> denotes a Runge-Kutta method that evaluates <span class="math inline">\(f(t,y)\)</span> at <span class="math inline">\(X\)</span> intermediate points.</li>
+<li class="fragment">e.g.&nbsp;<strong>Euler’s Method</strong> is simply a first-order Runge-Kutta method (<span class="math inline">\(RK1\)</span>).</li>
+</ul>
+
+<aside><div>
+<p>Developed around 1900 by Carl Runge and Martin Kutta, this family of methods improves accuracy without requiring higher-order derivatives of <span class="math inline">\(f(t,y)\)</span>.</p>
+</div></aside></section>
+<section id="the-classic-rk4-method" class="slide level2">
+<h2>The Classic RK4 Method</h2>
+<p>The most widely used explicit RK method balances computational cost and high accuracy. To step from <span class="math inline">\(y_n\)</span> to <span class="math inline">\(y_{n+1}\)</span>, calculate four intermediate slopes:</p>
+<p><span class="math display">\[\begin{aligned}
+k_1 &amp;= f(t_n, y_n) \\
+k_2 &amp;= f\left(t_n + \frac{h}{2}, y_n + h\frac{k_1}{2}\right) \\
+k_3 &amp;= f\left(t_n + \frac{h}{2}, y_n + h\frac{k_2}{2}\right) \\
+k_4 &amp;= f(t_n + h, y_n + h k_3)
+\end{aligned}\]</span></p>
+<p>Once the four slopes are computed, the next value is calculated via a weighted average resembling Simpson’s Rule:</p>
+<p><span class="math display">\[y_{n+1} = y_n + \frac{h}{6} \left(k_1 + 2k_2 + 2k_3 + k_4\right)\]</span></p>
+</section>
+<section id="the-rk4-update-rule" class="slide level2">
+<h2>The RK4 Update Rule</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="geometric-intuition">Geometric Intuition</h3>
+<ul>
+<li><span class="math inline">\(k_1\)</span> is the slope at the left boundary.</li>
+<li><span class="math inline">\(k_2\)</span> and <span class="math inline">\(k_3\)</span> are trial slopes at the midpoint.</li>
+<li><span class="math inline">\(k_4\)</span> is a trial slope at the right boundary.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<h3 id="error-properties">Error Properties</h3>
+<ul>
+<li><strong>LTE:</strong> <span class="math inline">\(\mathcal{O}(h^5)\)</span></li>
+<li><strong>GTE:</strong> <span class="math inline">\(\mathcal{O}(h^4)\)</span></li>
+<li><strong>Order:</strong> <span class="math inline">\(4^{\text{th}}\)</span>-Order accurate.</li>
+</ul>
+</div></div>
+</section>
+<section id="summary-and-comparison" class="slide level2">
+<h2>Summary and Comparison</h2>
+<table class="table-striped table-hover caption-top">
+<caption>Table: Comparison of Fundamental Numerical Integration Methods</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Type</th>
+<th>Global Error (GTE)</th>
+<th>Evaluations per Step</th>
+<th>Ideal Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Forward Euler</strong></td>
+<td>Explicit</td>
+<td><span class="math inline">\(\mathcal{O}(h)\)</span></td>
+<td>1</td>
+<td>Quick prototyping, highly linear models</td>
+</tr>
+<tr class="even">
+<td><strong>Backward Euler</strong></td>
+<td>Implicit</td>
+<td><span class="math inline">\(\mathcal{O}(h)\)</span></td>
+<td>1 (plus solver)</td>
+<td>Stiff equations, absolute stability</td>
+</tr>
+<tr class="odd">
+<td><strong>RK2 (Heun’s)</strong></td>
+<td>Explicit</td>
+<td><span class="math inline">\(\mathcal{O}(h^2)\)</span></td>
+<td>2</td>
+<td>Moderate accuracy balance</td>
+</tr>
+<tr class="even">
+<td><strong>RK4</strong></td>
+<td>Explicit</td>
+<td><span class="math inline">\(\mathcal{O}(h^4)\)</span></td>
+<td>4</td>
+<td>General purpose, non-stiff dynamic systems</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="explicit-vs-implicit-methods" class="slide level2">
+<h2>Explicit vs Implicit Methods</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Explicit Methods</strong></p>
+<p>Evaluate <span class="math inline">\(f(t,y)\)</span> at known, previous time steps. Easy to compute but require small step sizes for stability.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Implicit Methods</strong></p>
+<p>Evaluate <span class="math inline">\(f(t,y)\)</span> involving the unknown future state <span class="math inline">\(y_{n+1}\)</span>. Computationally intensive but highly stable for stiff equations.</p>
+</div></div>
+</section>
+<section id="bibilography-notes" class="slide level2 smaller scrollable">
+<h2>Bibilography notes</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bruchovsky2006final" class="csl-entry" role="listitem">
+Bruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. <span>“Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.”</span> <em>Cancer</em> 107 (2): 389–95.
+</div>
+<div id="ref-greaves2012clonal" class="csl-entry" role="listitem">
+Greaves, Mel, and Carlo C Maley. 2012. <span>“Clonal Evolution in Cancer.”</span> <em>Nature</em> 481 (7381): 306–13.
+</div>
+<div id="ref-mcgehee2024mathematical" class="csl-entry" role="listitem">
+McGehee, Cordelia, and Yoichiro Mori. 2024. <span>“A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.”</span> <em>Npj Systems Biology and Applications</em> 10 (1): 140.
+</div>
+<div id="ref-perera2020intermittent" class="csl-entry" role="listitem">
+Perera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. <span>“Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.”</span> <em>Nature Reviews Urology</em> 17 (8): 469–81.
+</div>
+<div id="ref-walshaccurate" class="csl-entry" role="listitem">
+Walsh, Christopher A. n.d. <span>“Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”</span>
+</div>
+</div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"theme":"whiteboard","src":"None"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ychsu987\.github\.io\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+    
+
+</body></html>

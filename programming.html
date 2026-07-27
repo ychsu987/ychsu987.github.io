@@ -125,6 +125,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-ai-lecture .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: [],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-ai-lecture'] = new List('listing-ai-lecture', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -198,6 +226,10 @@ window.Quarto = {
  <span class="dropdown-text">Quantitative analysis</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./courses.html">
+ <span class="dropdown-text">Course overview (Current Term + Archive)</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./programming.html">
  <span class="dropdown-text">Scientific computing</span></a>
   </li>  
@@ -244,25 +276,25 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="lecture-materials">Lecture materials</h3>
 <div id="listing-lecture" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1774972800000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2237">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1785081600000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2237">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">Introduction to ggplot2</a>
+<a href="./courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">Introduction to ggplot2</a>
 </h3>
 </div>
 <div class="metadata">
-<a href="./BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">
+<a href="./courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="1" data-listing-date-sort="1754409600000" data-listing-file-modified-sort="1763693320312" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2102">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BBMS1021/Real_case/Real-example.html" class="no-external">Real Example of Data Processing and Exploratory Data Analysis with R</a>
+<a href="./courses/2025/BBMS1021/Real_case/Real-example.html" class="no-external">Real Example of Data Processing and Exploratory Data Analysis with R</a>
 </h3>
 </div>
 <div class="metadata">
-<a href="./BBMS1021/Real_case/Real-example.html" class="no-external">
+<a href="./courses/2025/BBMS1021/Real_case/Real-example.html" class="no-external">
 </a>
 </div>
 </div>
@@ -278,36 +310,48 @@ window.Quarto = {
 <div class="quarto-post image-right" data-index="0" data-listing-date-sort="1757260800000" data-listing-file-modified-sort="1758010740291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BBMS1021/tutorial/tutorial_1.html" class="no-external">Tutorial 1</a>
+<a href="./courses/2025/BBMS1021/tutorial/tutorial_1.html" class="no-external">Tutorial 1</a>
 </h3>
 </div>
 <div class="metadata">
-<a href="./BBMS1021/tutorial/tutorial_1.html" class="no-external">
+<a href="./courses/2025/BBMS1021/tutorial/tutorial_1.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="1" data-listing-date-sort="1757865600000" data-listing-file-modified-sort="1763544243188" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1326">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BBMS1021/tutorial/tutorial_2.html" class="no-external">Tutorial 2</a>
+<a href="./courses/2025/BBMS1021/tutorial/tutorial_2.html" class="no-external">Tutorial 2</a>
 </h3>
 </div>
 <div class="metadata">
-<a href="./BBMS1021/tutorial/tutorial_2.html" class="no-external">
+<a href="./courses/2025/BBMS1021/tutorial/tutorial_2.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="2" data-listing-date-sort="1757865600000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="559">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BBMS1021/tutorial/tutorial_3.html" class="no-external">Tutorial 3</a>
+<a href="./courses/2025/BBMS1021/tutorial/tutorial_3.html" class="no-external">Tutorial 3</a>
 </h3>
 </div>
 <div class="metadata">
-<a href="./BBMS1021/tutorial/tutorial_3.html" class="no-external">
+<a href="./courses/2025/BBMS1021/tutorial/tutorial_3.html" class="no-external">
 </a>
 </div>
 </div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+</section>
+<section id="ailt9015" class="level2">
+<h2 class="anchored" data-anchor-id="ailt9015">AILT9015</h2>
+<section id="class-demonstrations" class="level3">
+<h3 class="anchored" data-anchor-id="class-demonstrations">Class demonstrations</h3>
+<div id="listing-ai-lecture" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>

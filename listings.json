@@ -2,59 +2,59 @@
   {
     "listing": "/quant.html",
     "items": [
-      "/BBMS3009/System biology.html",
-      "/BIOF2014/0-Housekeeping.html",
-      "/BIOF2014/1-distribution.html",
-      "/BIOF2014/2-Discrete distribution family.html",
-      "/BIOF2014/3-multivariate.html",
-      "/BIOF2014/4-Discrete distribution family-2.html",
-      "/BIOF2014/5-Discrete distribution family-3.html",
-      "/BIOF2014/6-Continuous distribution family.html",
-      "/BIOF2014/7-Model fitting.html",
-      "/BIOF2014/8-EM.html",
-      "/BIOF2014/1-distribution_sketch.html",
-      "/BIOF2014/2-Discrete distribution family_sketch.html",
-      "/BIOF2014/3-multivariate_sketch.html",
-      "/BIOF2014/4-Discrete distribution family-2-sketch.html",
-      "/BIOF2014/5-Discrete distribution family-3-sketch.html",
-      "/BIOF2014/6-Continuous distribution family-sketch.html",
-      "/BIOF2014/7-Model fitting-sketch.html",
-      "/BIOF2014/8-EM-sketch.html",
-      "/BIOF2014/1-Question sets_presentation.html",
-      "/BIOF2014/2-Question sets-binomial.html",
-      "/BIOF2014/3-Question sets_presentation.html",
-      "/BIOF2014/4-Q-sets-multinomial.html",
-      "/BIOF2014/5-Question sets-poisson.html",
-      "/BIOF2014/6-Question sets-continuous.html",
-      "/BIOF2014/7-Question sets-model.html",
-      "/BIOF2014/2-Question sets-binomial-sketch.html",
-      "/BIOF2014/4-Question sets_presentation_sketch.html"
+      "/courses/2025/BBMS3009/System biology.html",
+      "/courses/2025/BIOF2014/0-Housekeeping.html",
+      "/courses/2025/BIOF2014/1-distribution.html",
+      "/courses/2025/BIOF2014/2-Discrete distribution family.html",
+      "/courses/2025/BIOF2014/3-multivariate.html",
+      "/courses/2025/BIOF2014/4-Discrete distribution family-2.html",
+      "/courses/2025/BIOF2014/5-Discrete distribution family-3.html",
+      "/courses/2025/BIOF2014/6-Continuous distribution family.html",
+      "/courses/2025/BIOF2014/7-Model fitting.html",
+      "/courses/2025/BIOF2014/8-EM.html",
+      "/courses/2025/BIOF2014/1-distribution-sketch.html",
+      "/courses/2025/BIOF2014/2-Discrete distribution family-sketch.html",
+      "/courses/2025/BIOF2014/3-multivariate-sketch.html",
+      "/courses/2025/BIOF2014/4-Discrete distribution family-2-sketch.html",
+      "/courses/2025/BIOF2014/5-Discrete distribution family-3-sketch.html",
+      "/courses/2025/BIOF2014/6-Continuous distribution family-sketch.html",
+      "/courses/2025/BIOF2014/7-Model fitting-sketch.html",
+      "/courses/2025/BIOF2014/8-EM-sketch.html",
+      "/courses/2025/BIOF2014/1-Question sets_presentation.html",
+      "/courses/2025/BIOF2014/2-Question sets-binomial.html",
+      "/courses/2025/BIOF2014/3-Question sets_presentation.html",
+      "/courses/2025/BIOF2014/4-Question sets-multinomial.html",
+      "/courses/2025/BIOF2014/5-Question sets-poisson.html",
+      "/courses/2025/BIOF2014/6-Question sets-continuous.html",
+      "/courses/2025/BIOF2014/7-Question sets-model.html",
+      "/courses/2025/BIOF2014/2-Question sets-binomial-sketch.html",
+      "/courses/2025/BIOF2014/4-Question sets_presentation_sketch.html"
     ]
   },
   {
     "listing": "/hybridPBL.html",
     "items": [
-      "/BIOF4002/Global health informatics.html",
-      "/BIOF4002/mHealth and telemedicine.html",
-      "/BIOF3001/suicide-media-slides.html"
+      "/courses/2025/BIOF4002/Global health informatics.html",
+      "/courses/2025/BIOF4002/mHealth and telemedicine.html",
+      "/courses/2025/BIOF3001/suicide-media-slides.html"
     ]
   },
   {
     "listing": "/cc.html",
     "items": [
-      "/CCAI9007/CCAI-aging clock.html",
-      "/CCAI9007/CCAI-health monitoring.html",
-      "/CCAI9007/CCAI-workshop.html"
+      "/courses/2025/CCAI9007/CCAI-aging clock.html",
+      "/courses/2025/CCAI9007/CCAI-health monitoring.html",
+      "/courses/2025/CCAI9007/CCAI-workshop.html"
     ]
   },
   {
     "listing": "/programming.html",
     "items": [
-      "/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
-      "/BBMS1021/Real_case/Real-example.html",
-      "/BBMS1021/tutorial/tutorial_1.html",
-      "/BBMS1021/tutorial/tutorial_2.html",
-      "/BBMS1021/tutorial/tutorial_3.html"
+      "/courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
+      "/courses/2025/BBMS1021/Real_case/Real-example.html",
+      "/courses/2025/BBMS1021/tutorial/tutorial_1.html",
+      "/courses/2025/BBMS1021/tutorial/tutorial_2.html",
+      "/courses/2025/BBMS1021/tutorial/tutorial_3.html"
     ]
   }
 ]

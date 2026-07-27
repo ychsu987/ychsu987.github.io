@@ -1,0 +1,39 @@
+  /*-- scss:defaults --*/
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fira+Code:wght@400;500&display=swap');
+
+/*-- scss:rules --*/
+.quarto-title-author{
+  position: absolute;
+  left: 0;
+  clear: both; 
+}
+#title-slide{
+  text-align: left;
+  }
+
+.title{
+  position:relative;
+  width: 62.5%;
+  display: block;
+}
+
+/* 全局字體設定 */
+.reveal {
+  font-family: 'Inter', sans-serif;
+  color: #333333; 
+}
+
+/* 標題字體加粗與微調顏色 */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #19345e; /* 稍微帶深藍色的標題，比純黑更有層次 */
+}
+
+/* 讓程式碼區塊看起來更俐落 */
+.reveal code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9em;
+  border-radius: 6px;
+}
