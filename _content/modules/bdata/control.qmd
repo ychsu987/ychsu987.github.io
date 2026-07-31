@@ -53,10 +53,10 @@ zoomClass(FALSE, FALSE) # It is neither
 Link logical outcome to an action given the condition. This is where the `if` and `else` statement comes in. The format is like
 
 ```R
-if (CONDITIION) {
-  # If CONDITIION==TRUE: codes inside this bracket will be executed
+if (CONDITION) {
+  # If CONDITION==TRUE: codes inside this bracket will be executed
 } else {
- # If CONDITIION==FALSE: codes inside this bracket will be executed (You can akso omit this part if needed)
+ # If CONDITION==FALSE: codes inside this bracket will be executed (You can also omit this part if needed)
 }
 ```
 **Example**
@@ -97,7 +97,7 @@ ageCategory <- function(age){
     print("Child")
   } else if (age > 12 & age <= 19){
     print("Teenage")
-  } else if (age > 20 & age <= 60) {
+  } else if (age >= 20 & age <= 60) {
     print("Adult")
   } else {                                # > 60
     print("Elderly")
@@ -142,7 +142,7 @@ for (i in 1:10){
   print(i)
 }
 ```
-You can also iterater on vectors
+You can also iterate over vectors
 ```{r}
 #| echo: true
 #| eval: true

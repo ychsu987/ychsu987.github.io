@@ -24,16 +24,15 @@ function_name()
 
 :::{.column}
 
-- You can check what packages has been installed, imported to your environment using the tab `Packages`
+- You can check what packages have been installed, imported to your environment using the tab `Packages`
 
-![Checking packages](/assets/images/package/package.png){width=55%}
+![Checking packages](/assets/images/package/package.png){width=80%}
 :::
 
 :::
 ## Installing package
 
-**Golden rule**:  refers to the 
-documentation of the specific package
+**Golden rule**: refer to the documentation of the specific package
 
 -  CRAN (the Comprehensive R Archive Network) (**Major package channel**)  
 
@@ -48,7 +47,7 @@ install.packages("tidyverse")
 BiocManager::install("DESeq2")
 ```
 
--  Github (**Codes at developmental stage**)  
+-  GitHub (**code at the developmental stage**)  
 
 ```R
 devtools::install_github("tidyverse/ggplot2")

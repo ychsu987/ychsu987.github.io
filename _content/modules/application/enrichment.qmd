@@ -454,7 +454,7 @@ Consider our gene set with size $N$, and the pathway $\pi$ has $M$ genes in it.
 1. Initial running sum of enrichment score is $ES_0 = 0$, the denominator $N_R=\sum |r_j|$, where $r_j$ is the log fold change of genes that are in the pathway $\pi$ 
    
 2. Going through the ordered gene $n_i$ list, do:
-   a. If gene $n_i$ is in the list, $ES_i = ES_{i-1} + \frac{|r_j|}{N_R}$
+   a. If gene $n_i$ is in the pathway, $ES_i = ES_{i-1} + \frac{|r_j|}{N_R}$
    b. If gene $n_i$ is **NOT** in the list, $ES_i = ES_{i-1} - \frac{1}{N - M}$
 
 The final enrichment score is $ES = \max(|ES_i|)$

@@ -7,7 +7,7 @@ Data structures are one of the most important features in programming.
 
 **Benefits**
 - Easier to read
-- Fasten calculation 
+- Faster calculation 
 
 Main data structures used in R:
 
@@ -28,7 +28,7 @@ Main data structures used in R:
 - Store elements in the **same** data type.
 - Check the data type by using `typeof()` function
 - Check the length of the vector by `length()` function.
-- Coersion will be performed if different data type occurs
+- Coercion will be performed if different data type occurs
 :::
 
 :::{.column}
@@ -118,7 +118,7 @@ new_vector
 typeof(new_vector)
 ```
 
-Did you notice that `new_vector` is now a of type `double` ?
+Did you notice that `new_vector` is now of type `double` ?
 
 You can spend a few minutes to create vectors and explore what happens to the data type of the vector when you combine them with others.
 
@@ -164,7 +164,7 @@ scores <- c(44,56,63,75,77,78,81,90,93,99)
 ```{r}
 #| echo: true
 #| eval: true
-# write the code to retieve the 1st position
+# write the code to retrieve the 1st position
 scores[1]
 ```
 

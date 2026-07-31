@@ -16,7 +16,7 @@ library(ggplot2)
 
 ## About the data
 
-`iris` is a dataset introduced by Ronald Fisher in 1936 collect the iris flower morphology measurements from 3 species 
+`iris` is a dataset introduced by Ronald Fisher in 1936 that collects iris flower morphology measurements from 3 species 
 
 :::{.columns}
 
@@ -81,7 +81,7 @@ flowchart LR
   A{Data type} -->|Continuous| B{Purpose}
   A{Data type}  -->|Discrete| C{Purpose}
 
-  B{Purpose}-->|Exploration| D((Histogram/Boxpot))
+  B{Purpose}-->|Exploration| D((Histogram/Boxplot))
   B{Purpose} -->|Association| E((Scatter plot))
   B{Purpose} -->|Association+time| T((Line plot))
 
@@ -99,11 +99,11 @@ flowchart LR
 
 :::{.column}
 
-`ggplot2` desgined as you are plotting by hands, so the process will looks like
+`ggplot2` is designed as if you are plotting by hand, so the process looks like
 
 1. Defining coordinate systems
 2. Plotting dots, lines, bars, and etc.
-3. Adding legend and axis informations
+3. Adding legend and axis information
 
 :::
 
@@ -199,7 +199,7 @@ These functions are named in the format `geom_XXXX`:
 ```{r}
 #| echo: true
 #| eval: true
-#| fig-cap: Scatter plot for Sepal length and Pedal width
+#| fig-cap: Scatter plot for Sepal length and Petal width
 p+geom_point(aes(y = Petal.Width, color=Species))
 ```
 :::
@@ -248,7 +248,7 @@ ggplot(data=iris)+
 
 :::
 
-**Some notes** ^[If you find the figure behave not as expected. The best choice is alwayslook up on the documentation, or ask AI.]: `color` affects the border color (dots/lines), `fill` affects the rectangle color
+**Some notes** ^[If you find the figure behave not as expected. The best choice is always look up the documentation, or ask AI.]: `color` affects the border color (dots/lines), `fill` affects the rectangle color
   
 
 ::: .aside
@@ -269,7 +269,7 @@ Scales are functions indicate how each variable behave and presents on the graph
 
 :::{.column}
 
-Most of time you only need to handle the presentation in 
+Most of the time you only need to handle the presentation in 
 ![Elements in the scale](img/fig_element.png)
 
 :::
@@ -318,7 +318,7 @@ Add the function `ggsave("FILE_PATH+FILE_NAME.png")` after your ggplot instructi
 ggsave("figure_1.png",p)
 ```
 
-- It support most of the common image formats like `pdf`, `jpeg`, `png`
+- It supports most of the common image formats like `pdf`, `jpeg`, `png`
 :::
 
 :::{.column width=38%}

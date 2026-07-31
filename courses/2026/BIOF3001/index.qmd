@@ -7,4 +7,5 @@ Lecture materials for BIOF3001. Use **Blank** for student-facing slides and **�
 
 | Topic | Slides | Annotated slides |
 |---|---|---|
+| Cancer cell population monitoring (adaptive therapy) | [Blank](adt-model.qmd) | — |
 | Media Reporting and Suicide (NLP evaluation and monitoring) | [Blank](../../2025/BIOF3001/suicide-media-slides.qmd) | — |

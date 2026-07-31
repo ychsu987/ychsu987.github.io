@@ -1,4 +1,4 @@
-# Modeling ecology dynamics
+# Modeling ecological dynamics
 
 ## Preface
 
@@ -145,7 +145,7 @@ plt.grid(True, alpha=0.3)
 plt.show()
 ```
 
-## What are missing ?
+## What is missing?
 
 - The model does not account for interactions with other cell types or the environment.
 
@@ -431,7 +431,7 @@ ax.set_ylim(0, 2)
 :::{.columns}
 :::{.column width=65%}
 
-- Condition: Condition: $\beta_{12} < \frac{K_1}{K_2}$ and $\beta_{21} < \frac{K_2}{K_1}$
+- Condition: $\beta_{12} < \frac{K_1}{K_2}$ and $\beta_{21} < \frac{K_2}{K_1}$
 - Mechanism: Intraspecific competition is stronger than interspecific competition for both species. Each population limits its own growth more than it limits the growth of its competitor.
 - Equilibria: 
   - $(K_1, 0)$, $(0, K_2)$ are unstable nodes.
@@ -512,7 +512,7 @@ Intuitively, we can think of $f(t, y(t))$ as the slope of the solution curve at 
 
 ## Evaluating different methods of numerical integration
 
-Imaging we are doing a integration like Reimann sum. In Reimann sum we assume $dt$ is small enough to accurately approximate the area under the curve. In numeric integration, we need to consider how good is it.
+Imagine we are doing an integration like a Riemann sum. In a Riemann sum we assume $dt$ is small enough to accurately approximate the area under the curve. In numeric integration, we need to consider how good is it.
 
 - **Stability**
   Error is bound and does not grow exponentially with time steps. Important for long-term simulations. (As an analogy in statistics, we want to make sure the estimator is consistent)

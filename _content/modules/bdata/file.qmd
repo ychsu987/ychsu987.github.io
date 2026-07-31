@@ -1,14 +1,3 @@
-## File structure
-
- - `count_matrix.csv`
-  
-  RNA (In rows) expresion level for each sample (in column)
-
- - `sample_metadata.csv`
-  
-  Information for each mouse
-
-  
 ## Loading/saving data from folders
 
 - By default, R sets the working directory to your `Documents` folder.
@@ -87,7 +76,7 @@ There are two ways of specifying a path:
 
 An absolute path starts from the root directory (`/`) and specifies the full path to a file or directory. 
 
-- Path to `THIS_MARKDOWN.rmd`: `/home/user/documents/course /THIS_MARKDOWN.rmd`
+- Path to `THIS_MARKDOWN.rmd`: `/home/user/documents/course/THIS_MARKDOWN.rmd`
 - Path to `data.csv`: `/home/user/downloads/data.csv`
 
 :::
@@ -125,14 +114,14 @@ An absolute path starts from the root directory (`/`) and specifies the full pat
 
 A relative path is defined relative to the current working directory. 
 
-- `./` refer to the current directory,
+- `./` refers to the current directory,
 - `../` means "go up one directory level".
 
 :::
 
 :::
 
-Assume that we are working on `THIS_MARKDOWN.rmd`, so the current directory is `/home/user/documents /course`.
+Assume that we are working on `THIS_MARKDOWN.rmd`, so the current directory is `/home/user/documents/course`.
 
 - Path to `IMAGE.png` : `./IMAGE.png` or `IMAGE.png`
 - Path to `data.csv`: `../../data.csv`

@@ -26,7 +26,7 @@ By the end of this session, you will
 - Understand the basic grammar and layered structure of ggplot2
 - Create simple plots using data, aesthetics, and geometric layers
 - Understand how to read and write data in R
-- Reflect on goodcoing practice in data wrangling
+- Reflect on good coding practice in data wrangling
 
 We **DO NOT** expect:
 
@@ -36,7 +36,7 @@ We **DO NOT** expect:
 
 **Acknowledgement**
 
-This lecture slides are partially adopted and inspired from 
+These lecture slides are partially adapted and inspired from 
 
   - @laurent_gatto_2021_5532658, @peng2016r, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0
   - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version 

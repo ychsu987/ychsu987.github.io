@@ -7,4 +7,5 @@ Lecture materials for BBMS3009. Use **Blank** for student-facing slides and **�
 
 | Topic | Slides | Annotated slides |
 |---|---|---|
+| Functional genomics | [Blank](functional-genomics.qmd) | — |
 | Bridging Genome to Function: Post-Genome Science | [Blank](../../2025/BBMS3009/System biology.qmd) | — |

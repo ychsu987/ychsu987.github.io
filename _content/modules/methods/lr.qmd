@@ -19,16 +19,16 @@ $$
 :::{.columns}
 :::{.column}
 **Confidence Interval (CI) for the Mean Response:**
+The average expected outcome for all individuals with a specific predictor value $x$
 
-- Definition:  the average expected outcome for all individuals with a specific predictor value $x$
-- Uncertainty: Estimated regression line
+- Uncertainty: Uncertainty on $\mathbb{\beta}$
 :::
 
 :::{.column}
 **Prediction Interval (PI) for a New Observation:**
+Predict the specific outcome $y$ for **a** single, new individual with a specific predictor value $x$.
 
-- Definition: Predict the specific outcome $y$ for **a** single, new individual with a specific predictor value $x$.
-- Uncertainty: Estimated regression line, and **and** random scatter of individual data points around that line
+- Uncertainty: Uncertainty on $\mathbb{\beta}$ **and** Uncertainty on $\mathbb{X}$
 
 :::
 :::
@@ -172,18 +172,18 @@ RSS (Residual Sum of Squares):$$\sum (y_i - \hat{y}_i)^2$$
 
 ## $R^2$: The Coefficient of Determination
 
-- $R^2$ is the percentage of variance explaine dby the linear model
+- $R^2$ is the percentage of variance explained by the linear model
 
 $$
 R^2 = \frac{ESS}{TSS} = 1 - \frac{RSS}{TSS}
 $$
 
--$R^2 = 0$: the model explains none of the variance in the outcome (the regression line is flat at the mean, $\bar{y}$).
+- $R^2 = 0$: the model explains none of the variance in the outcome (the regression line is flat at the mean, $\bar{y}$).
 - $R^2 = 1$: the model explains 100% of the variance (every data point falls exactly on the regression line, meaning RSS is zero).
 
 ## Inference on linear model
 
-- Even we have $R^2$, we need to know if explained variance s statistically significant.
+- Even if we have $R^2$, we need to know whether the explained variance is statistically significant.
 
 - Null Hypothesis
 $$
@@ -201,7 +201,7 @@ $$
 
 ## Inference on individual $\beta_i$
 
-- Investigate each predictor makes statisticaly significant contribution toward outcome
+- Investigate whether each predictor makes a statistically significant contribution to the outcome
 
 - Null Hypothesis
 $$
@@ -214,44 +214,560 @@ $$
 \beta_i \sim t_{n-(p+1)}(0,\frac{s_{y\vert{}x}^{2}}{(n-1)s_{x_i}^{2}(1-r_{i}^{2})})
 $$
 
-- Implication in linear model: Including other predictors to control for confounding commonly has the effect of  difficult to reject the null hypothesis
+- Implication in linear model: Including other predictors to control for confounding commonly makes it more difficult to reject the null hypothesis
 - Some of the unadjusted association is explained by those other predictors. 
 
 ## Assumption on linear regression
 
 1. Linearity
-2. Normality of erros
-3. Independece of errors
+2. Normality of errors
+3. Independence of errors
 4. Homoscedasticity
 5. No multicollinearity
    
 ## Linearity
 
-The model assumes that the average value of the outcome changes linearly with each continuous predictor. 
+The model assumes that the outcome changes linearly with each continuous predictor. 
 
 Checking:
 
 - Residual versus Predictor (RVP) plots
-- Component-Plus-Residual (CPR) plots. 
 
-Mitigation plan
+```{python}
+import numpy as np
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-- Smoothing 
-- Transformations to the predictor (e.g., adding quadratic terms, log transformations) 
+# 1. Generate synthetic data with a THRESHOLD (piecewise linear) effect
+np.random.seed(42)
+x = np.random.uniform(0, 100, 300)
+
+# Define a threshold at X = 50
+threshold = 50
+# The 'effect' is 0 before the threshold, and scales linearly after
+spline_term = np.maximum(0, x - threshold)
+
+# True relationship: flat before 50, positive slope after
+y = 20 + 1.5 * spline_term + np.random.normal(0, 5, 300)
+
+# 2. Fit the Misspecified Linear Model (ignoring the threshold)
+X_linear = sm.add_constant(x)
+model_linear = sm.OLS(y, X_linear).fit()
+fitted_linear = model_linear.fittedvalues
+residuals_linear = model_linear.resid
+
+# 3. Fit the Correctly Specified Model (Piecewise / Linear Spline)
+# The design matrix includes the constant, the base X, and the spline term
+X_spline = np.column_stack((np.ones(len(x)), x, spline_term))
+model_spline = sm.OLS(y, X_spline).fit()
+fitted_spline = model_spline.fittedvalues
+residuals_spline = model_spline.resid
+
+# 4. Create the 1x3 Combined Visualization
+fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+
+# --- Plot 1: Fitted Regression Lines vs. Observations ---
+axes[0].scatter(x, y, color='dodgerblue', alpha=0.5, label='Observed Data')
+sort_idx = np.argsort(x)
+
+# Plot Misspecified Fit
+axes[0].plot(x[sort_idx], fitted_linear[sort_idx], color='purple', 
+             linewidth=3, linestyle='--', label='Misspecified (Strict Linear)')
+# Plot Corrected Fit (Spline)
+axes[0].plot(x[sort_idx], fitted_spline[sort_idx], color='crimson', 
+             linewidth=3, label='Corrected (Linear Spline)')
+
+axes[0].set_title('Outcome vs. Predictor', fontsize=14, fontweight='bold')
+axes[0].set_xlabel('Predictor ($X$)\n(e.g., Drug Dosage)')
+axes[0].set_ylabel('Outcome ($Y$)\n(e.g., Response Level)')
+axes[0].legend()
+
+# --- Plot 2: Residuals vs. Predictor (Misspecified) ---
+sns.residplot(x=x, y=residuals_linear, lowess=True,
+              line_kws={'color': 'purple', 'lw': 3, 'label': 'LOWESS Smooth'}, 
+              scatter_kws={'alpha': 0.5, 'color': 'gray'}, ax=axes[1])
+axes[1].axhline(0, color='black', linestyle='--', linewidth=1.5)
+axes[1].set_title('RVP: Misspecified Model', fontsize=14, fontweight='bold')
+axes[1].set_xlabel('Predictor ($X$)')
+axes[1].set_ylabel('Residuals')
+axes[1].legend()
+
+# --- Plot 3: Residuals vs. Predictor (Corrected) ---
+sns.residplot(x=x, y=residuals_spline, lowess=True,
+              line_kws={'color': 'green', 'lw': 3, 'label': 'LOWESS Smooth'}, 
+              scatter_kws={'alpha': 0.5, 'color': 'gray'}, ax=axes[2])
+axes[2].axhline(0, color='black', linestyle='--', linewidth=1.5)
+axes[2].set_title('RVP: Corrected Model', fontsize=14, fontweight='bold')
+axes[2].set_xlabel('Predictor ($X$)')
+axes[2].set_ylabel('Residuals')
+axes[2].legend()
+
+plt.tight_layout()
+plt.show()
+```
+
+## Mitigation plan linearity
+
+
 - Categorize the continuous predictor.
+  
+  The predictor has the threshold effect
+
+- Transformations to the predictor (e.g., adding quadratic terms, log transformations) 
+  
+  The predictor has the non-linear effect on the outcome
+
+- Piecewise Regression
+  
+  Specifying a threshold point in the regression model
 
 ## Normality of Errors
-The error term $\epsilon$ is assumed to have a normal distribution.  This can be assessed using histograms, boxplots, kernel density estimates, and normal quantile-quantile (Q-Q) plots applied to the residuals.  In a normal Q-Q plot, upward curvature is diagnostic of right-skewness.  Transforming the outcome variable (e.g., replacing $y$ with $log(y)$) is often successful for reducing the skewness of residuals.
+
+- $\epsilon \text{i.i.d} N(0,1)$ is assumed
+- Normality checking with Q-Q plot:
+  - Diagonal line: Normal
+  - Upward curvature: Residuals are right-skewed (Floor effects of X). 
+  - Downward curvature: Residuals are left-skewed (Ceiling effects of X). 
+
+```{python}
+import numpy as np
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+import seaborn as sns
+
+# 1. Generate synthetic Count Data (Poisson process)
+np.random.seed(42)
+x = np.random.uniform(1, 8, 300)
+
+# In a Poisson process, the rate (lambda) often grows exponentially
+true_lambda = np.exp(0.5 * x)
+
+# Generate counts based on the Poisson rate
+# Counts are strictly non-negative integers (0, 1, 2, 3...)
+y = np.random.poisson(true_lambda)
+
+# 2. Fit a standard Linear Regression (OLS) ignoring the count nature of the data
+X_with_const = sm.add_constant(x)
+model = sm.OLS(y, X_with_const).fit()
+residuals = model.resid
+fitted = model.fittedvalues
+
+# 3. Create the 1x3 Diagnostic Visualization
+fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+
+# --- Plot 1: The Raw Data and OLS Fit ---
+axes[0].scatter(x, y, color='dodgerblue', alpha=0.5, label='Count Data (Observed)')
+sort_idx = np.argsort(x)
+axes[0].plot(x[sort_idx], fitted[sort_idx], color='crimson', 
+             linewidth=3, label='OLS Linear Fit')
+axes[0].set_title('Count Outcome vs. Predictor', fontsize=14, fontweight='bold')
+axes[0].set_xlabel('Predictor ($X$)')
+axes[0].set_ylabel('Count Outcome ($Y$)')
+axes[0].legend()
+
+# --- Plot 2: Histogram of Residuals ---
+sns.histplot(residuals, kde=True, ax=axes[1], color='purple', stat='density')
+# Overlay a theoretical normal distribution for comparison
+mu, std = stats.norm.fit(residuals)
+xmin, xmax = axes[1].get_xlim()
+x_pdf = np.linspace(xmin, xmax, 100)
+p_pdf = stats.norm.pdf(x_pdf, mu, std)
+axes[1].plot(x_pdf, p_pdf, 'k--', linewidth=2, label='Normal Reference')
+
+axes[1].set_title('Histogram of Residuals', fontsize=14, fontweight='bold')
+axes[1].set_xlabel('Residuals')
+axes[1].set_ylabel('Density')
+axes[1].legend()
+
+# --- Plot 3: Normal Q-Q Plot ---
+# We use statsmodels' qqplot and draw a 45-degree reference line
+sm.qqplot(residuals, line='45', fit=True, ax=axes[2])
+axes[2].set_title('Normal Q-Q Plot', fontsize=14, fontweight='bold')
+
+plt.tight_layout()
+plt.show()
+```
+
+## Mitigation plan
+
+- Transforming the outcome variable (e.g., replacing $y$ with $log(y)$)
+- This could also imply other regression (i.e. Poisson, Negative-binomial regression)
+
+## Independence of errors
+
+- $\epsilon \text{ i.i.d} N(0,1)$ is assumed
+
+Some obvious situation that violating this assumption
+
+- Repeated measure in the observation
+- Temporal, Spatial patterns among the observations
+
+Checking the group difference
+
+
+```{python}
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Generate Data with Simpson's Paradox (Biomedical Context)
+np.random.seed(42)
+n_groups = 4
+n_obs = 40
+
+# Cell lines have increasing average X, but drastically decreasing baseline Y
+group_x_means = [10, 20, 30, 40]
+group_intercepts = [120, 80, 40, 0]
+group_names = ['Cell Line A', 'Cell Line B', 'Cell Line C', 'Cell Line D']
+
+data = []
+for i in range(n_groups):
+    x = np.random.normal(group_x_means[i], 3, n_obs)
+    # The true within-group slope is POSITIVE (+2.5)
+    y = group_intercepts[i] + 2.5 * x + np.random.normal(0, 5, n_obs)
+    
+    for j in range(n_obs):
+        data.append([group_names[i], x[j], y[j]])
+
+df = pd.DataFrame(data, columns=['Cell_Line', 'Protein_Expression', 'Growth_Rate'])
+
+# 2. Fit the Misspecified OLS Model
+X_ols = sm.add_constant(df['Protein_Expression'])
+model_ols = sm.OLS(df['Growth_Rate'], X_ols).fit()
+df['OLS_Fitted'] = model_ols.fittedvalues
+df['OLS_Residuals'] = model_ols.resid
+
+# 3. Fit the Correct Mixed-Effect Model
+model_mixed = smf.mixedlm("Growth_Rate ~ Protein_Expression", df, groups=df["Cell_Line"]).fit()
+df['Mixed_Fitted'] = model_mixed.fittedvalues
+
+# 4. Create the 1x2 Combined Visualization
+fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+
+# --- Setup Explicit Color Mapping ---
+unique_groups = sorted(df['Cell_Line'].unique())
+palette = sns.color_palette('Set1', n_colors=len(unique_groups))
+color_map = dict(zip(unique_groups, palette))
+
+# --- Subplot 1: Model Fit Comparison (OLS vs. Mixed-Effect) ---
+# Plot raw data colored by group using the explicit color map
+sns.scatterplot(data=df, x='Protein_Expression', y='Growth_Rate', 
+                hue='Cell_Line', palette=color_map, s=60, alpha=0.5, ax=axes[0])
+
+# Overlay the Misspecified OLS Line (Black, dashed)
+sort_idx = np.argsort(df['Protein_Expression'].values)
+axes[0].plot(df['Protein_Expression'].values[sort_idx], df['OLS_Fitted'].values[sort_idx], 
+             color='black', linewidth=4, linestyle='--', label='Misspecified OLS Slope')
+
+# Overlay the Corrected Mixed-Effect Lines (Solid, exactly matching scatter colors)
+for name, group in df.groupby('Cell_Line'):
+    sort_idx_g = np.argsort(group['Protein_Expression'].values)
+    axes[0].plot(group['Protein_Expression'].values[sort_idx_g], 
+                 group['Mixed_Fitted'].values[sort_idx_g], 
+                 linewidth=3, color=color_map[name])
+
+axes[0].set_title('Model Comparison: OLS vs. Mixed-Effect', fontsize=14, fontweight='bold')
+axes[0].set_xlabel('Predictor ($X$): Protein Expression')
+axes[0].set_ylabel('Outcome ($Y$): Growth Rate')
+
+# Adjust legend for Plot 1
+handles, labels = axes[0].get_legend_handles_labels()
+axes[0].legend(handles=handles, labels=labels, loc='upper right')
+
+# --- Subplot 2: Diagnosing the Error (OLS Residuals colored by Group) ---
+# We plot the OLS residuals against the OLS fitted values, also using the exact same colors
+sns.scatterplot(data=df, x='OLS_Fitted', y='OLS_Residuals', 
+                hue='Cell_Line', palette=color_map, s=70, alpha=0.8, ax=axes[1])
+
+# Add the standard zero reference line
+axes[1].axhline(0, color='black', linestyle='-', linewidth=2)
+
+axes[1].set_title('Diagnostic: OLS Residuals by Group', fontsize=14, fontweight='bold')
+axes[1].set_xlabel('Fitted Values ($\hat{y}$)')
+axes[1].set_ylabel('OLS Residuals ($y - \hat{y}$)')
+
+# Move legend outside the plot for cleaner viewing
+axes[1].legend(title='Cell Line', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+plt.tight_layout()
+plt.show()
+```
 
 ## Constant Variance (Homoscedasticity)
 
-The model assumes that the variance of the error term, $\sigma_{\epsilon}^{2}$, is constant across all observations.  Violations of this assumption are known as heteroscedasticity, which can affect the validity of confidence intervals and P-values.  Homoscedasticity is evaluated using RVP plots and Residual versus Fitted (RVF) plots.  A horizontal funnel shape in these scatterplots is a signal of heteroscedasticity.
+:::{.columns}
+
+:::{.column}
+- Constant variance of the error term, $\sigma_{\epsilon}^{2}$, (heteroscedasticity)
+- Impact: Precision of confidence intervals and P-values. 
+- Checking: Residual versus Fitted (RVF) plots. 
+- A horizontal funnel shape in these scatterplots is a signal of heteroscedasticity.
+- Having more observations won't relieve the problem
+:::
+
+:::{.column}
+
+```{python}
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Generate Synthetic Data with DECREASING Variance
+np.random.seed(42)
+practice_hours = np.random.uniform(10, 100, 300)
+
+# The mean effect: More practice = faster completion time
+true_mean_time = 120 - 0.8 * practice_hours
+
+# The variance effect: More practice = less noise (higher consistency)
+dynamic_std_dev = 35 - 0.3 * practice_hours 
+true_variance = dynamic_std_dev ** 2
+
+# Generate the outcome with the dynamic, non-constant noise
+completion_time = true_mean_time + np.random.normal(0, dynamic_std_dev, 300)
+
+# 2. Fit the Models
+X_with_const = sm.add_constant(practice_hours)
+
+# Model A: Misspecified OLS (Assumes constant variance)
+model_ols = sm.OLS(completion_time, X_with_const).fit()
+
+# Model B: Correctly Specified WLS (Weights = 1 / Variance)
+weights = 1.0 / true_variance
+model_wls = sm.WLS(completion_time, X_with_const, weights=weights).fit()
+
+# 3. Structure Data for Seaborn 'hue'
+# We build a long-format DataFrame combining both models
+df_ols = pd.DataFrame({
+    'Practice_Hours': practice_hours,
+    'Completion_Time': completion_time,
+    'Fitted': model_ols.fittedvalues,
+    'Residuals': model_ols.resid,           # Raw errors
+    'Model Specification': 'OLS (Misspecified)'
+})
+
+df_wls = pd.DataFrame({
+    'Practice_Hours': practice_hours,
+    'Completion_Time': completion_time,
+    'Fitted': model_wls.fittedvalues,
+    'Residuals': model_wls.resid_pearson,   # Weighted errors
+    'Model Specification': 'WLS (Corrected)'
+})
+
+df_diagnostics = pd.concat([df_ols, df_wls])
+color_palette = {'OLS (Misspecified)': 'crimson', 'WLS (Corrected)': 'teal'}
+
+# 4. Create the Diagnostic Visualization
+fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+
+# --- Plot 1: Raw Data vs. Fitted Lines ---
+# Plot raw observations once (using the OLS subset just to get the background dots)
+sns.scatterplot(data=df_ols, x='Practice_Hours', y='Completion_Time', 
+                color='lightgray', alpha=0.6, edgecolor='white', s=50, 
+                label='Observed Performances', ax=axes[0])
+
+# Plot both fitted lines using 'hue'
+sns.lineplot(data=df_diagnostics, x='Practice_Hours', y='Fitted', 
+             hue='Model Specification', palette=color_palette, 
+             linewidth=3, ax=axes[0])
+
+axes[0].set_title('Outcome vs. Predictor\n(Mean Fits)', fontsize=14, fontweight='bold')
+axes[0].set_xlabel('Predictor ($X$): Hours of Practice')
+axes[0].set_ylabel('Outcome ($Y$): Task Completion Time')
+
+# --- Plot 2: Residuals vs. Fitted (RVF) ---
+# Plot both sets of residuals using 'hue'
+sns.scatterplot(data=df_diagnostics, x='Fitted', y='Residuals', 
+                hue='Model Specification', palette=color_palette, 
+                alpha=0.7, s=50, ax=axes[1])
+
+axes[1].axhline(0, color='black', linestyle='--', linewidth=2)
+axes[1].set_title('Residuals vs. Fitted Values (RVF)\n(Raw vs. Weighted Errors)', 
+                  fontsize=14, fontweight='bold')
+axes[1].set_xlabel('Fitted Values ($\hat{y}$)')
+axes[1].set_ylabel('Residuals')
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+:::
+##
+
+```{python}
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Generate Synthetic Data with MULTIPLICATIVE Seasonality
+np.random.seed(42)
+t = np.arange(1, 121)  # 120 months (10 years) of data
+
+# The baseline trend grows steadily over time
+trend = 10 + 1.5 * t
+
+# The seasonal effect is a sine wave
+seasonal_wave = 0.3 * np.sin(2 * np.pi * t / 12)
+
+# MULTIPLICATIVE COMBINATION: 
+# The amplitude of the season is multiplied by the growing trend
+y_true = trend * (1 + seasonal_wave) + np.random.normal(0, 5, len(t))
+
+# 2. Fit a Misspecified ADDITIVE Model
+# We give the model the trend (t) and the seasonal shape (sin and cos), 
+# but OLS will force them to have fixed, constant coefficients.
+sin_t = np.sin(2 * np.pi * t / 12)
+cos_t = np.cos(2 * np.pi * t / 12)
+
+# Design matrix: Constant, Time (Trend), and Seasonality
+X = np.column_stack((t, sin_t, cos_t))
+X_with_const = sm.add_constant(X)
+
+model_additive = sm.OLS(y_true, X_with_const).fit()
+fitted_additive = model_additive.fittedvalues
+residuals = model_additive.resid
+
+# 3. Create the Diagnostic Visualization
+fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+
+# --- Plot 1: Raw Data vs. Misspecified Additive Fit ---
+axes[0].plot(t, y_true, color='dodgerblue', marker='o', markersize=4, 
+             alpha=0.7, label='Observed (Multiplicative)')
+axes[0].plot(t, fitted_additive, color='crimson', linewidth=3, 
+             label='Misspecified Fit (Additive)')
+
+axes[0].set_title('Outcome vs. Time\n(The Expanding Amplitude)', fontsize=14, fontweight='bold')
+axes[0].set_xlabel('Time ($t$)')
+axes[0].set_ylabel('Outcome ($Y$)')
+axes[0].legend(loc='upper left')
+
+# --- Plot 2: Residuals vs. Time (Diagnosing Heteroscedasticity) ---
+sns.scatterplot(x=t, y=residuals, color='gray', alpha=0.7, s=50, ax=axes[1])
+
+# Add a LOWESS smooth to show the mean is roughly zero
+sns.regplot(x=t, y=residuals, scatter=False, lowess=True, 
+            line_kws={'color': 'purple', 'lw': 2, 'label': 'LOWESS Smooth'}, ax=axes[1])
+
+# Draw a funnel shape to highlight the expanding variance
+axes[1].plot([0, 120], [5, 45], color='red', linestyle=':', lw=2, label='Expanding Variance')
+axes[1].plot([0, 120], [-5, -45], color='red', linestyle=':', lw=2)
+
+axes[1].axhline(0, color='black', linestyle='--', linewidth=1.5)
+axes[1].set_title('Residuals vs. Time\n(The "Funnel" Effect)', fontsize=14, fontweight='bold')
+axes[1].set_xlabel('Time ($t$)')
+axes[1].set_ylabel('Residuals')
+axes[1].legend(loc='upper left')
+
+plt.tight_layout()
+plt.show()
+```
+
+```{python}
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Generate Synthetic Data with MULTIPLICATIVE Seasonality
+np.random.seed(42)
+t = np.arange(1, 121)  # 120 months (10 years) of data
+
+# The baseline trend grows steadily over time
+trend = 10 + 1.5 * t
+
+# The seasonal effect is a sine wave
+seasonal_wave = 0.3 * np.sin(2 * np.pi * t / 12)
+
+# MULTIPLICATIVE COMBINATION: 
+# The amplitude of the season is multiplied by the growing trend
+y_true = trend * (1 + seasonal_wave) + np.random.normal(0, 5, len(t))
+
+# 2. Fit the Models
+sin_t = np.sin(2 * np.pi * t / 12)
+cos_t = np.cos(2 * np.pi * t / 12)
+
+# Model A: Misspecified ADDITIVE Model (No interactions)
+X_add = np.column_stack((t, sin_t, cos_t))
+X_add_const = sm.add_constant(X_add)
+model_additive = sm.OLS(y_true, X_add_const).fit()
+
+# Model B: Correctly Specified MULTIPLICATIVE Model 
+# We add interaction terms between Time (trend) and Seasonality
+X_mult = np.column_stack((t, sin_t, cos_t, t * sin_t, t * cos_t))
+X_mult_const = sm.add_constant(X_mult)
+model_multiplicative = sm.OLS(y_true, X_mult_const).fit()
+
+# 3. Structure Data for Seaborn 'hue'
+df_add = pd.DataFrame({
+    'Time': t,
+    'Outcome': y_true,
+    'Fitted': model_additive.fittedvalues,
+    'Residuals': model_additive.resid,
+    'Model Specification': 'Additive (Misspecified)'
+})
+
+df_mult = pd.DataFrame({
+    'Time': t,
+    'Outcome': y_true,
+    'Fitted': model_multiplicative.fittedvalues,
+    'Residuals': model_multiplicative.resid,
+    'Model Specification': 'Multiplicative (Corrected)'
+})
+
+df_diagnostics = pd.concat([df_add, df_mult])
+color_palette = {'Additive (Misspecified)': 'crimson', 'Multiplicative (Corrected)': 'teal'}
+
+# 4. Create the 1x2 Diagnostic Visualization
+fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+
+# --- Plot 1: Raw Data vs. Fitted Lines ---
+sns.scatterplot(data=df_add, x='Time', y='Outcome', color='lightgray', 
+                alpha=0.6, edgecolor='white', s=40, 
+                label='Observed Data', ax=axes[0])
+
+sns.lineplot(data=df_diagnostics, x='Time', y='Fitted', 
+             hue='Model Specification', palette=color_palette, 
+             linewidth=2.5, ax=axes[0])
+
+axes[0].set_title('Outcome vs. Time\n(Mean Fits)', fontsize=14, fontweight='bold')
+axes[0].set_xlabel('Time ($t$)')
+axes[0].set_ylabel('Outcome ($Y$)')
+
+# --- Plot 2: Residuals vs. Time (Diagnosing the Funnel) ---
+sns.scatterplot(data=df_diagnostics, x='Time', y='Residuals', 
+                hue='Model Specification', palette=color_palette, 
+                alpha=0.7, s=50, ax=axes[1])
+
+axes[1].axhline(0, color='black', linestyle='--', linewidth=2)
+axes[1].set_title('Residuals vs. Time\n(Raw vs. Corrected Errors)', fontsize=14, fontweight='bold')
+axes[1].set_xlabel('Time ($t$)')
+axes[1].set_ylabel('Residuals')
+
+plt.tight_layout()
+plt.show()
+```
+
 
 ## Influential Points and Outliers
 
-High leverage points are x-outliers with the potential to exert undue influence on regression coefficient estimates.  Influential points are specific observations that have actually exerted an undue influence on the estimates.  DFBETA statistics are recommended to quantify how much each coefficient would change if a specific observation were omitted from the dataset.  IV. Code Illustrations: Python and RBelow are examples of how to fit a multiple linear regression model and generate the necessary diagnostic plots in both Python
+High leverage points are x-outliers with the potential to exert undue influence on regression coefficient estimates. Influential points are specific observations that have actually exerted an undue influence on the estimates. DFBETA statistics are recommended to quantify how much each coefficient would change if a specific observation were omitted from the dataset.
 
-##
+## Code Illustrations: Python and R
+
+Below are examples of how to fit a multiple linear regression model and generate the necessary diagnostic plots in both Python and R.
+
+## Python illustration
 ```{python}
 import numpy as np
 import pandas as pd
@@ -299,7 +815,7 @@ axes[2].set_title('Residual Distribution')
 plt.tight_layout()
 plt.show()
 ```
-##
+## R illustration
 ```{r}
 # 1. Generate Synthetic Data
 set.seed(42)

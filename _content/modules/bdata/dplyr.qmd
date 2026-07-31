@@ -2,11 +2,21 @@
 ## Example data - Gene Expression
 
 - Source: Blackmore et al. (2017), *The effect of upper-respiratory infection on transcriptomic changes in the CNS*. 
-- Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occuring in the cerebellum and spinal cord post infection
+- Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occurring in the cerebellum and spinal cord post infection
 - Experiment sample: Gender matched eight week old C57BL/6 mice  
 - Exposure: With or without Influenza A infection
 - Observations: RNA-seq count of genes in the cerebellum and spinal cord tissues
 - Observation time: days 0 (non-infected), 4 and 8.
+
+## File structure
+
+ - `count_matrix.csv`
+  
+  RNA (in rows) expression level for each sample (in column)
+
+ - `sample_metadata.csv`
+  
+  Information for each mouse
 
 ## Task - Read two dataframe
 
@@ -48,7 +58,7 @@ head(meta, 3)
 ## Discussion question
 
 - What are the pros and cons using absolute path and relative path ?
-- What will be the best practce to put the data file ?
+- What will be the best practice to put the data file ?
 :::
 
 ## Transforming data with dplyr
@@ -77,7 +87,7 @@ library(tidyverse)
 
 ## Pipeline mindset
 
-Without `dplyr`, if we want to manipulate data, we can still using 0the following vanila way to perform the task :
+Without `dplyr`, if we want to manipulate data, we can still use the following vanilla way to perform the task :
 
 
 ```{r}
@@ -238,8 +248,8 @@ Some common summary function could be
 
 :::{.column width=33%}
 
-- `group_by()` and  `summarize`p rovide summary statistics by group.
-- You can group by multiple groups together, but noted that they need to be stated in the same `group_by()` brackets
+- `group_by()` and `summarize()` provide summary statistics by group.
+- You can group by multiple groups together, but note that they need to be stated in the same `group_by()` brackets
 
 :::
 
@@ -362,9 +372,9 @@ meta %>% left_join(rnaseq, by = 'sample') %>% select(1:12) %>% head(3)
    - Run it immediately
    - Verify the output
 
-    **DO NOT** propogate error and raise your hand
+    **DO NOT** propagate error and raise your hand
 
 2. Look up documentations
 3. Make your code **readable**
-4. Try and error
+4. Trial and error
 

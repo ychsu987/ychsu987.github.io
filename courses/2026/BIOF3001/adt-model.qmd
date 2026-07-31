@@ -22,9 +22,9 @@ engine: jupyter
 ---
 
 ## Intended learning outcomes
-- Bullet point one
-- Bullet point two
-- Bullet point three
+- Explain tumor evolution and intratumor heterogeneity (ITH)
+- Contrast Darwinian and Lamarckian perspectives on treatment resistance
+- Describe the rationale and monitoring needs of adaptive therapy
 
 # Project background
 
@@ -33,7 +33,7 @@ engine: jupyter
 
 ::: {.column width="48%"}
 
-Tumor grows and evolves under evolution pressure
+Tumor grows and evolves under evolutionary pressure
   
   - Trophic
   - Metabolic
@@ -131,4 +131,4 @@ In 2023
 {{< include /_content/modules/methods/ode.qmd >}}
 
 
-## Bibilography notes
+## Bibliography notes

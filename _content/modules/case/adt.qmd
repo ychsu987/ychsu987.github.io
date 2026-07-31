@@ -6,7 +6,7 @@
 :::{.columns}
 
 :::{.column width="70%"}
-@nowell1976clonal proposed tumor evolution model. Tumors expansion are:
+@nowell1976clonal proposed tumor evolution model. Tumors expand via:
 
  - Expansion in branches
  - Multiple subclones with splitting mechanisms
@@ -51,7 +51,7 @@
 
 :::{.column width="48%"}
 - Treatment-resistance is not simply Darwinian evolution. [@valcz2025adaptive]
-- Evidence: Adoption to low-dose treatment in short time
+- Evidence: Adaptation to low-dose treatment in a short time
 - Epigenetic plasticity:  Modifying epigenetic features, transfer, and inherit among tumor cell 
 :::
 
@@ -93,7 +93,7 @@ Giving "breathing room" to drug-sensitive tumors. During the low-dosage periods,
 
 ## Monitoring tumor progress
 
-- Adaptive therapy rely on close monitor on tumor progression
+- Adaptive therapy relies on close monitoring of tumor progression
 - Current practice:
   - Monitoring on tumor biomarkers
   - Monitoring on dosage levels of the drug in the blood
@@ -105,19 +105,19 @@ Giving "breathing room" to drug-sensitive tumors. During the low-dosage periods,
 | Melanoma | Tumor size | @smalley2019leveraging |
 | Breast cancer | Tumor size | @enriquez2016exploiting |
 
-- Implication: Some tumor are not a good target of adaptive therapy due to the management cost
+- Implication: Some tumors are not good targets for adaptive therapy due to the management cost
 
 ## Adaptive strategy
 
 Designing strategy to turn on- and off- the therapy also varies
 
 
-|  Tumor type | Type | Study |
-|  ------- | ----- | --------- |
-| @mukherjee2024study | Continuous | Porportion to biomarkers |
-| @zhang2017integrating | Intermittent | Porportion to Tumor size |
-| @smalley2019leveraging | Intermittent | Tumor size + mathmatical simulation |
-| @enriquez2016exploiting | Continuous | Porportion to Tumor size |
+| Study | Type | Rule |
+| ------- | ----- | --------- |
+| @mukherjee2024study | Continuous | Proportion to biomarkers |
+| @zhang2017integrating | Intermittent | Proportion to tumor size |
+| @smalley2019leveraging | Intermittent | Tumor size + mathematical simulation |
+| @enriquez2016exploiting | Continuous | Proportion to tumor size |
 
 ## Benefits of adaptive therapy
 

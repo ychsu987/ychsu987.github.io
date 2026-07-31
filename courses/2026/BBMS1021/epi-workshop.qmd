@@ -22,8 +22,8 @@ engine: knitr
 
 - Analyze data from cohort study 
 - Analyze data from case-control study 
-- Justify the use cohort or case-control study 
-- 
+- Justify the use of a cohort or case-control study 
+
 {{< include /_content/modules/bdata/epi_workshop.qmd >}}
 
-## Bibilography notes
+## Bibliography notes

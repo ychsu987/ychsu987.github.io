@@ -51,7 +51,7 @@ Based on these questions we can categorize epidemiological tools into three main
   - Common tools: Survey (one single time)
   - Purpose: Assess the prevalence of disease and its association with potential risk factors at certain time.
 - **Ecological study**
-  - Common tools: health records, government statisticss
+  - Common tools: health records, government statistics
   - Purpose: **Population level** to assess the trend, association of a disease.
 
 
@@ -78,27 +78,27 @@ A group of people who share a common characteristic or experience within a defin
 2. Follow them over time to see who develops the disease of interest (e.g., lung cancer).
 
 
-## Restrospective cohort study
+## Retrospective cohort study
 
 Looking back from the history of the cohort to determine exposure status and  outcome.
 
-1. Find out who get exposured and who do not get exposed in the past.
+1. Find out who were exposed and who were not exposed in the past.
 2. Find out who develops the disease of interest after the exposure.
 
 ![Illustration of retrospective cohort study](/assets/images/epi1/retro_edit.png){width=65%}
 
 ## Prospective cohort study
 
-Looking back from the history of the cohort to determine exposure status and looking forward to track outcome.
+Enroll participants by exposure status now, then follow them forward over time to track who develops the outcome.
 
-1. Find out who get exposured and who do not get exposed in the past.
-2. Find out who develops the disease of interest after the exposure. (Usually after the study starts)
+1. Identify who are exposed and who are not exposed at the start of the study.
+2. Follow them forward to see who develops the disease of interest after enrollment.
 
 ![Illustration of prospective cohort study](/assets/images/epi1/prospective - edit.png){width=65%}
 
 ## Case control study
 
-1. we select a group of people with 
+1. We select a group of people with 
    - similar characteristics (e.g., age, sex)
    - with different **disease** (e.g., cancer vs. non-cancer), 
 2. Check what kind of exposure they had before the disease

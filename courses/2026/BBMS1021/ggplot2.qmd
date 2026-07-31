@@ -22,7 +22,7 @@ lightbox: true
 
 By the end of this session, you will
 
-- Understand the basic grammar and layered structure of ggplot2
+- Understand the basic grammar and layered structure of `ggplot2`
 - Identify common graph components and choose an appropriate chart type
 - Create simple plots using data, aesthetics, and geometric layers
 - Interpret the main elements of a `ggplot2` figure
@@ -31,12 +31,36 @@ We **DO NOT** expect:
 
 - Memorize functions in the `ggplot2`
 
+## Preamble
+
+**About Ray's part**
+
+I am responsible for introducing commonly used libraries in R. So most of the time we will keep using functions that are predefined by others. 
+
+Questions that Ray could **barely** give you an explanation better than AI/documentation:
+  
+- "What does this function do" -> Go to find the documentation `?FUNCTION_NAME` or ask AI
+- "Why is this named XXXX()" -> The developer named it that way
+
+Questions and competency you need to develop:
+
+- "Why we need to do this?"
+- Describe the task so AI can help you generate code
+- Comprehend and relate to the code and make your own judgment
+
+
+# Installing packages
+
 {{< include /_content/modules/bdata/package.qmd >}}
 
+# ggplot2
+
 {{< include /_content/modules/bdata/ggplot2.qmd >}}
+
+# File structure
 
 {{< include /_content/modules/bdata/file.qmd >}}
 
 
-## Bibilography notes
+## Bibliography notes
 

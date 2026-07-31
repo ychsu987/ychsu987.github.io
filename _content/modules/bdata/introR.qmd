@@ -1,4 +1,4 @@
-# Fuoundation of R
+# Foundation of R
 
 ## Introduction to R
 

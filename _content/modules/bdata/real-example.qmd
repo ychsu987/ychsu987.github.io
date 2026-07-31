@@ -8,7 +8,7 @@
 :::{.columns}
 
 :::{.column}
-- Experiment deisgn
+- Experiment design
   - 15 pairs of corn, 
     - one by **self-pollination**
     - one by **cross-pollination**.  
@@ -17,7 +17,7 @@
 :::
 
 :::{.column}
-![Illustration of experiment design](/assets/images/real-example/darwin.pngdarwin.png){width=100%}
+![Illustration of experiment design](/assets/images/real-example/darwin.png){width=100%}
 :::
 
 :::
@@ -51,6 +51,31 @@ As a professional scientist to
 
 In this module, we will walk through each of these critical steps using Darwin's Zea mays dataset. We will start by importing the raw data, manipulating it to extract the relevant biological signals (the paired differences), visually exploring the patterns, and finally applying the correct statistical model to draw a scientifically sound conclusion.
 
+:::
+
+## A full picture of analytics
+
+@griffin2018best proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.
+
+:::{.columns}
+
+:::{.column}
+
+![Data lifecycle, figure from @griffin2018best](/assets/images/real-example/data_lifecycle.png){.lightbox}
+
+:::
+
+:::{.column}
+
+| Life Cycle Stage | Example                      |
+|------------------|------------------------------|
+| Collecting       | Read the data                |
+| Integrating      | -                            |
+| Processing       | Manipulating tables          |
+| Analyzing        | Reporting statistics         |
+| Publishing       | Generating report and figures| 
+
+:::
 :::
 
 ## Project Roadmap
@@ -117,8 +142,8 @@ zea_mays %>%
 
 After inspecting the data here are some data wrangling (manipulation) works need to be done
 
-1. Handeling missing data
-2. Make a long tabke so that Each observation (Zea mays) must have its own row.
+1. Handling missing data
+2. Make a long table so that each observation (Zea mays) must have its own row.
    1. Currently there are two observations in a row
 
 And you will see the reasons later on
@@ -193,9 +218,9 @@ ggplot(zea_mays_long, aes(x = Type, y = Height, group = Pair)) +
   theme_minimal()
 ```
 
-## The Wrong Approach: Paired t-test
+## The Wrong Approach: Independent t-test
 
-We have 30 plants in total. Let's see what happens if we adopts Darwin's way' (i.e. wrong statistical test).
+We have 30 plants in total. Let's see what happens if we adopt Darwin's way' (i.e. wrong statistical test).
 
 - The **Wrong** Approach: Independent t-test
 
@@ -212,7 +237,7 @@ H_a: & \mu_{\text{cross}} > \mu_{\text{self}}
 $$
 
 ::: {.content-visible unless-format="revealjs"}
-If we forget that the plants were grown in pairs (sharing the same pots), we might mista kenly assume we have two completely independent groups of 15 plants. Let's run a standard independent t-test (which is what Darwin conceptually did).
+If we forget that the plants were grown in pairs (sharing the same pots), we might mistakenly assume we have two completely independent groups of 15 plants. Let's run a standard independent t-test (which is what Darwin conceptually did).
 :::
 :::
 
@@ -241,7 +266,7 @@ t.test(zea_mays$Cross.fertilized.plant,
 The problem with Darwin's fallacy is that
 
 - Zea mays in the same pot shared 
-  - Same nutritient 
+  - Same nutrient 
   - Same weather condition
 
 Violating the **independent sample** assumption of t-test. The corrected way is proposed by Ronald Fisher
@@ -279,27 +304,3 @@ t.test(zea_mays$Cross.fertilized.plant,
   - Control of genotypes
   - Sample size
 
-## A full picture of analytics
-
-@griffin2018best proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.
-
-:::{.columns}
-
-:::{.column}
-
-![Data lifecycle, figure from @griffin2018best](/assets/images/real-example/data_lifecycle.png){.lightbox}
-
-:::
-
-:::{.column}
-
-| Life Cycle Stage | Example                      |
-|------------------|------------------------------|
-| Collecting       | Read the data                |
-| Integrating      | -                            |
-| Processing       | Manipulating tables          |
-| Analyzing        | Reporting statistics         |
-| Publishing       | Generating report and figures| 
-
-:::
-:::

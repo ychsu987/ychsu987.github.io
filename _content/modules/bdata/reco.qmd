@@ -21,4 +21,4 @@ You may save your data or functions to an `.RData` file and load it with `load("
 
 **Pro tips**
 
-- Always clean up your environment while starting new works
+- Always clean up your environment when starting new work

@@ -5,7 +5,7 @@
 - You **will** encounter errors. 
 - Getting an error in R is not a sign of failure; 
 - it is simply R's way of asking for clarification, or
-- The program is not desgined to work in that way
+- The program is not designed to work in that way
  
 ## Part 1: How to Read the Red Text Without Panicking
 
@@ -17,7 +17,7 @@ When R throws red text at you, first determine what kind of message it is:
 
 ## Identifying the key of the Error
 
-Don't read the whole error if it looks messsy. Look for the recognizable words at the end of the message. 
+Don't read the whole error if it looks messy. Look for the recognizable words at the end of the message. 
 
 **Common Biomedical Data Errors translated to plain English:**
 
