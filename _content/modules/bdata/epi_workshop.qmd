@@ -93,7 +93,20 @@ cat("Relative Risk (RR) of the Cohort Study:", round(RR, 2), "\n")
 :::
 :::
 
-## Inference on RR ^[This part is not included in the exam for the following reason: 1. Z-test is an approximation method that does not reveal the true probability, 2. There is a more efficient and generalizable approach for adjusting for other variables.]
+::: {.callout-tip}
+## Required takeaway
+- **RR = 1**: similar risk in exposed and unexposed  
+- **RR > 1 / RR < 1**: higher / lower risk in the exposed group  
+- If a confidence interval for the effect **includes the null** (no difference), treat the result as **inconclusive**—not as proof of no effect.
+:::
+
+## (Optional deep dive — not assessed) Inference on RR
+
+::: {.callout-note}
+## Required takeaway vs optional math
+**Required:** interpret RR (above/below 1) and that a confidence interval covering the null means the result is inconclusive.  
+**Optional below:** SE formula, $z$-interval construction, and code. Not included in the exam (Z-test is an approximation; other methods adjust for covariates more cleanly).
+:::
 
 - $\log(\text{RR})$ follows normal distribution with standard error (SE) 
 $$
@@ -461,7 +474,12 @@ table_to_df <- function(contingency_table) {
 }
 ```
 
-## Cohort and Poisson regression
+## (Optional deep dive — not assessed) Cohort and Poisson regression
+
+::: {.callout-note}
+## Optional modeling bridge
+This section links RR to a Poisson regression coefficient $\beta_1$. Useful for later courses; **not** the core workshop skill. Core skill remains: build the $2\times 2$ table and interpret RR/OR.
+:::
 
 Consider the Exposure of A (X, 0 = control, live in B, 1 = exposure live in A), in Poisson regression, it is written as 
 
@@ -599,7 +617,7 @@ summary(glm_model)
 :::
 :::
 
-## Historical notes
+## Historical notes (optional context)
 
 - In some old paper researchers tend to use logistic regression for cohort study.
   - **Benefits**

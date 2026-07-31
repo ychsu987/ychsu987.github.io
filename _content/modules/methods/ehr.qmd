@@ -1,3 +1,16 @@
+## What is an EHR?
+
+An **Electronic Health Record (EHR)** is the digital chart of a patient's encounters with the health system—visits, diagnoses, labs, prescriptions, and clinical notes stored so clinicians (and later analysts) can reuse them.
+
+**Toy timeline (one patient):**
+
+1. Visit the clinic → demographics recorded  
+2. Doctor records a diagnosis → coded (e.g. ICD)  
+3. Lab is ordered → result coded (e.g. LOINC)  
+4. Prescription is filled → drug coded (e.g. ATC / RxNorm)  
+
+Coding systems are a **shared language** so different hospitals and software can mean the same clinical idea.
+
 ## Components in EHR System
 
 - Demographics & Social Determinants: Age, sex, ethnicity, socioeconomic indicators.
@@ -6,13 +19,11 @@
   - SNOMED-CT: Systematized Nomenclature of Medicine for clinical concepts.  
 - Prescriptions & Pharmacy Records: Coded using ATC or RxNorm frameworks.  
 - Laboratory & Diagnostic Results: Coded using LOINC standards.
--   Unstructured Clinical Text: Progress notes, discharge summaries, radiological reports.  
+- Unstructured Clinical Text: Progress notes, discharge summaries, radiological reports.  
 
 ## From Individual Care to Population & Global Health
 
 - Scaling clinical observations from single patient encounters to entire populations.
-
-
 
 - Clinical Medicine: Focuses on diagnosis, treatment, and immediate patient outcomes.
 - Population Health: Health outcomes, determinants, and patterns across defined groups (e.g., regional populations, disease cohorts).
@@ -29,19 +40,19 @@
 **EHR can**
 
 - Analyzing epidemiological EHR data allows founders to precisely quantify **unmet clinical needs**
--  Facilitate further pricing strategy, potential market size.
+- Facilitate further pricing strategy, potential market size.
 
 ## EHR as a product
 
 **Problem**
 
 - Using EHR to develop new algorithms for diagnostic AI
-- Software-as-a-Medical-Device (SaMD)
+- Software-as-a-Medical-Device (**SaMD**: software that itself is regulated as a medical device)
 - Enhance accessibility of EHR, e.g. dashboard
 
 **EHR can**
 
--  Provide fruitful training sources
+- Provide fruitful training sources
 - Serve as an information service for clinical decisions
 
 ## EHR as an evidence
@@ -54,7 +65,7 @@ Traditional Randomized Controlled Trials (RCTs) are
 
 **EHR can**
 
-Regulatory bodies (e.g., US FDA, EMA, NMPA) increasingly accept RWE generated from EHR research for 
+Regulatory bodies (e.g., US FDA, EMA, NMPA) increasingly accept **real-world evidence (RWE)**—evidence generated from routine care data such as EHRs, not only from traditional trials—for 
 
 - Post-market surveillance, 
 - Label expansions, and 
@@ -63,8 +74,10 @@ Regulatory bodies (e.g., US FDA, EMA, NMPA) increasingly accept RWE generated fr
 
 ## Challenges in EHR
 
-**Missingness (Not at Random)**
+**Missingness (missing for a reason)**
 
+- Clinic vignette: sicker patients get more labs ordered; healthier patients may have blank lab fields. A “missing” lab is often informative, not random noise.
+- Formal label: this pattern is often called **missing not at random (MNAR)** (contrast: completely random gaps vs gaps explained by other recorded variables).
 - Labs/tests are ordered based on clinical suspicion, leading to missing baseline data.
 - Loss to follow-up due to stigma and/or economic difficulties.
 

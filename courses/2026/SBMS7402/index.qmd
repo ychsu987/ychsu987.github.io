@@ -7,4 +7,5 @@ Lecture materials for SBMS7402. Use **Blank** for student-facing slides and **�
 
 | Topic | Slides | Annotated slides |
 |---|---|---|
-| Big Data Analysis in Healthcare (course overview & linear regression) | [Blank](lr.qmd) | — |
+| Course overview (schedule, assessment, policies) | [Blank](course-overview.qmd) | — |
+| EHR data and linear regression | [Blank](lr.qmd) | — |

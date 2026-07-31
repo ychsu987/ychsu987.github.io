@@ -23,14 +23,20 @@ lightbox: true
 
 By the end of this session, you will
 
+**Wrangle (dplyr)**
+
+- Read tabular data into R
+- Use core verbs: `filter`, `mutate`, `summarise` (with the pipe `%>%`)
+- Reflect on good coding practice in data wrangling
+
+**Plot (ggplot2)**
+
 - Understand the basic grammar and layered structure of ggplot2
 - Create simple plots using data, aesthetics, and geometric layers
-- Understand how to read and write data in R
-- Reflect on good coding practice in data wrangling
 
 We **DO NOT** expect:
 
-- Memorize functions in the `ggplot2` or `dplyr`
+- Memorize every function in `ggplot2` or `dplyr`
 
 ::: aside
 
@@ -46,6 +52,16 @@ These lecture slides are partially adapted and inspired from
 {{< include /_content/modules/bdata/package.qmd >}}
 
 {{< include /_content/modules/bdata/dplyr.qmd >}}
+
+## Checkpoint — three verbs for today
+
+If you remember only three `dplyr` moves after the wrangling block, make them:
+
+1. `filter()` — keep rows that match a condition  
+2. `mutate()` — add / change a column  
+3. `summarise()` (+ `group_by()`) — collapse rows into a summary  
+
+Then we switch to **ggplot2** and build plots layer by layer.
 
 {{< include /_content/modules/bdata/ggplot2.qmd >}}
 

@@ -1,0 +1,101 @@
+---
+title: "SBMS7402 Course overview"
+subtitle: "Schedule, assessment, and policies"
+author: "Yu Cheng Hsu"
+title-slide-attributes:
+    data-background: /assets/images/functional-genomics/background-1.png
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+lightbox: true
+---
+
+## Course logistics 
+
+* **Weekly Lecture Time:** Mondays, 18:30 – 20:30 (Semester 2)
+* **Start Date:** January 18, 2027
+* **Venue:** TBC (To be announced via Moodle / Course LMS)
+* **Delivery Mode:** In-person lectures and tutorials. *(Note: Internship students are exempted from in-person attendance and may join via Zoom as approved).*
+
+**Teaching Team**
+
+| Role | Name |
+| :--- | :--- |
+| **Course Coordinator** | Dr. Ray Hsu | 
+| **Guest speaker** | Dr. David Shih  |
+| **Guest speaker** | Dr. Eric Wan  | 
+| **Guest speaker** | Prof. Joseph Wu | 
+| **Guest speaker** | Prof. Qingpeng Zhang  | 
+
+## Weekly Schedule 
+
+| Session | Date  | Topic / Activity | Instructor |
+| :--: | :---: | :---------- | :--- |
+| **W01** | 18/01/2027 | Introduction to Population and Global Health | Dr. Ray Hsu |
+| **W02** | 25/01/2027 | Data and Considerations in Using Public Data | Dr. Ray Hsu |
+| **W03** | 01/02/2027 | Study Designs in Healthcare Analytics | Dr. Ray Hsu |
+| **—** | *08/02/2027* | *Public Holiday (CNY)* | — |
+| **W04** | 15/02/2027 | Code Management and Programming Style | Prof. David Shih |
+| **W05** | 22/02/2027 | Healthcare Database Systems & EHR Architecture | Dr. Ray Hsu |
+
+---
+
+| Session | Date  | Topic / Activity | Instructor |
+| :--: | :---: | :---------- | :--- |
+| **W06** | 01/03/2027 | Categorical Data Analysis I: Handling Questionnaire Data | Dr. Ray Hsu |
+| **W07** | 08/03/2027 | Categorical Data Analysis II: Survival Analysis *(Reading Week)* | Prof. Eric Wan |
+| **W08** | 15/03/2027 | Temporal Perspective: Infectious Disease Modeling | Prof. Joseph Wu |
+| **W09** | 22/03/2027 | Network Analysis: Comorbidity & Health Networks | Prof. Qingpeng Zhang |
+| **—** | *29/03/2027* | *Public Holiday (Easter) * | — |
+| **—** | *05/04/2027* | *Public Holiday (Ching Ming Festival) * | — |
+
+---
+
+| Session | Date  | Topic / Activity | Instructor |
+| :--: | :---: | :---------- | :--- |
+| **W10** | 12/04/2027 | Spatial Perspective: Spatial Analysis of Disease | Dr. Ray Hsu |
+| **W11** | 19/04/2027 | Temporal Perspective: Disease Surveillance & Monitoring | Dr. Ray Hsu |
+| **W12** | 26/04/2027 | Synthesis & Discussion: Privacy, Concerns & Future of EHR Data | Dr. Ray Hsu |
+| **Rev** | 03/05/2027 | Revision Week: Zoom Tutorial & Consultation (4-hr block) | Dr. Ray Hsu |
+| **Exam**| 10/05/2027 | Final Written Examination (2-hr exam, 18:30 – 20:30) | Course Team |
+
+## Assessment Scheme
+
+| Component | Weighting | Description & Scope |
+| :------- | :---: | :----------- |
+| **Continuous Assessment** | **50%** | Practical programming/data analysis assignments, modeling exercises, and active class/online participation. |
+| **Final Examination** | **50%** | 2-hour written exam covering theoretical understanding, model interpretation, and case-based analytical problems. |
+
+## Course Policies & Requirements
+
+**Attendance**
+
+* Students are required to attend a minimum of **80%** of all scheduled teaching sessions.
+* Attendance will be recorded weekly.
+
+**Academic Honesty & Plagiarism**
+
+* Academic integrity is strictly enforced. All submitted coursework must be your own work.
+* Assignments will be screened using **Turnitin**.
+* Detailed guidelines on plagiarism can be accessed at: [http://www.hku.hk/student/plagiarism/](http://www.hku.hk/student/plagiarism/)
+
+**Learning Resources**
+
+* Lecture slides, tutorial datasets, and coding examples will be available on the course portal prior to each session.
+* Recommended readings and reference packages will be distributed alongside topic modules.
+
+## Course learning objectives
+
+1. To design and implement robust statistical models to analyse complex healthcare datasets, including EHRs, and public health surveillance streams
+2. To apply infectious disease modelling frameworks to simulate outbreaks and evaluate intervention strategies
+3. To critically assess data quality, bias, and ethical implications in large-scale healthcare analytics
+4. To translate analytical findings into actionable policies or clinical workflows to improve healthcare delivery and population outcomes

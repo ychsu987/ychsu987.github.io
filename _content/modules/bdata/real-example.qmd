@@ -206,6 +206,20 @@ zea_mays_long <- zea_mays %>%
 
 # Analysis and Visualization
 
+## Stats snack (before any t-test)
+
+A **hypothesis test** asks: if there were truly *no* difference (or no effect), how surprising is the pattern we see in the data?
+
+- We state a skeptical **null** ($H_0$) and an **alternative** ($H_a$).
+- A small **$p$-value** means “this extreme a result would be unusual under $H_0$” — not “the hypothesis is proven.”
+
+**Why pairing matters here**
+
+- Each cross- and self-pollinated plant shared a pot (same soil, water, light).
+- Comparing *within pairs* removes that shared environment; treating all plants as independent ignores it.
+
+Keep that story in mind for the next two slides (wrong vs right test).
+
 ## Scatter Plot with Pair Information
 
 ```{r}

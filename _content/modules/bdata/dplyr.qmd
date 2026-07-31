@@ -1,8 +1,19 @@
 
 ## Example data - Gene Expression
 
+Before we start think of a **spreadsheet**.
+
+- **Rows** = genes (features we measured)
+- **Columns** = mice / samples
+- **Numbers** = how strongly that gene was “read” (expression count)
+
+We will practice `dplyr` verbs on this table. A tiny mental toy version is the same idea as `patients × lab values`.
+
 - Source: Blackmore et al. (2017), *The effect of upper-respiratory infection on transcriptomic changes in the CNS*. 
 - Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occurring in the cerebellum and spinal cord post infection
+  
+---
+
 - Experiment sample: Gender matched eight week old C57BL/6 mice  
 - Exposure: With or without Influenza A infection
 - Observations: RNA-seq count of genes in the cerebellum and spinal cord tissues
@@ -12,11 +23,11 @@
 
  - `count_matrix.csv`
   
-  RNA (in rows) expression level for each sample (in column)
+  RNA (in rows) expression level for each sample (in column) — the big numbers table
 
  - `sample_metadata.csv`
   
-  Information for each mouse
+  Information for each mouse (which sample was infected, tissue, day, …)
 
 ## Task - Read two dataframe
 

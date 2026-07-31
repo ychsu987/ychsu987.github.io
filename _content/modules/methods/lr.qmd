@@ -1,8 +1,23 @@
 # Linear Regression & Diagnostics
 
+## Why fit a line? (intuition first)
+
+**Healthcare question:** Does systolic blood pressure tend to rise with age?
+
+- Plot age ($x$) against blood pressure ($y$): points scatter, but often show an upward trend.
+- A **best-fit line** summarizes that trend: “on average, how does $y$ change as $x$ increases?”
+
+**In plain English**
+
+- $\beta_1$: average change in $y$ for a one-unit increase in $x$ (holding other predictors fixed, when there are several)
+- $\beta_0$: predicted $y$ when all predictors are zero (often not clinically meaningful; still needed mathematically)
+- $\epsilon$: leftover person-to-person noise the line does not explain
+
+We fit the line so we can **describe**, **predict**, and later **test** whether a relationship is compatible with chance.
+
 ## Introduction to the Linear Regression Model
 
-Linear regression model is formally defined as
+With that intuition, the linear regression model is formally defined as
 $$
 \begin{aligned}
 y_{i} = & \beta_{0} + \beta_{1}x_{1i} + \beta_{2}x_{2i} + \dots + \beta_{p}x_{pi} + \epsilon_{i} \text{, or}\\
@@ -10,9 +25,14 @@ y_{i} = & \beta_{0} + \beta_{1}x_{1i} + \beta_{2}x_{2i} + \dots + \beta_{p}x_{pi
 \end{aligned}
 $$
 
-- Systematic Part (Independent variable, predictor)
-- Random Part: Individual observations of the outcome vary by an error term $\epsilon_{i}$. 
+- Systematic part (predictors / independent variables)
+- Random part: individual outcomes vary by an error term $\epsilon_{i}$
 - It is assumed that $\epsilon_{i} \sim \mathcal{N}(0, \sigma_{\epsilon}^{2})$
+
+::: {.callout-note}
+## Optional / advanced
+The matrix form $\mathbf{y}=\boldsymbol{\beta}\mathbf{X}+\boldsymbol{\epsilon}$ is a compact way to write the same model for many predictors. Focus first on the scalar equation and the meaning of $\beta$ and $\epsilon$.
+:::
 
 ## Prediction in regression
 
@@ -219,13 +239,19 @@ $$
 
 ## Assumption on linear regression
 
-1. Linearity
-2. Normality of errors
-3. Independence of errors
-4. Homoscedasticity
-5. No multicollinearity
-   
+Ask these in everyday language first (formal names in parentheses):
+
+1. Is the trend roughly a straight line? (**Linearity**)
+2. Do leftovers look roughly bell-shaped? (**Normality of errors**)
+3. Are leftovers independent (not clustered in time, space, or repeated measures)? (**Independence of errors**)
+4. Is the leftover scatter similar at low and high fitted values? (**Homoscedasticity** / constant variance)
+5. Are two predictors saying almost the same thing? (**No multicollinearity**)
+
+Failure modes matter clinically: e.g. if sicker patients get more labs, associations estimated from complete cases can be biased.
+
 ## Linearity
+
+**Plain check:** Does $y$ change at a roughly constant rate as $x$ increases, or is there a bend / threshold?
 
 The model assumes that the outcome changes linearly with each continuous predictor. 
 
@@ -324,6 +350,8 @@ plt.show()
 
 ## Normality of Errors
 
+**Plain check:** Do residuals look like a bell (symmetric pile around zero), or are they piled on one side / heavy-tailed?
+
 - $\epsilon \text{i.i.d} N(0,1)$ is assumed
 - Normality checking with Q-Q plot:
   - Diagonal line: Normal
@@ -397,12 +425,14 @@ plt.show()
 
 ## Independence of errors
 
+**Plain check:** Is each leftover “its own story,” or are nearby / same-patient / same-clinic residuals similar?
+
 - $\epsilon \text{ i.i.d} N(0,1)$ is assumed
 
-Some obvious situation that violating this assumption
+Some obvious situations that violate this assumption
 
-- Repeated measure in the observation
-- Temporal, Spatial patterns among the observations
+- Repeated measures on the same person
+- Temporal or spatial patterns among observations
 
 Checking the group difference
 
@@ -500,10 +530,12 @@ plt.show()
 
 ## Constant Variance (Homoscedasticity)
 
+**Plain check:** Is the leftover scatter similar across the range of fitted values, or does it fan out like a funnel?
+
 :::{.columns}
 
 :::{.column}
-- Constant variance of the error term, $\sigma_{\epsilon}^{2}$, (heteroscedasticity)
+- Constant variance of the error term, $\sigma_{\epsilon}^{2}$ (violation = **heteroscedasticity**)
 - Impact: Precision of confidence intervals and P-values. 
 - Checking: Residual versus Fitted (RVF) plots. 
 - A horizontal funnel shape in these scatterplots is a signal of heteroscedasticity.

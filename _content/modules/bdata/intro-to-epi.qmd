@@ -105,6 +105,18 @@ Enroll participants by exposure status now, then follow them forward over time t
 
 ![Illustration of case-control study](/assets/images/epi1/case-control.png){width=65%}
 
+## Key measures in everyday language
+
+Use the water / infection story as intuition:
+
+- **Prevalence** ≈ how common the disease is *right now* in a group  
+- **Incidence** ≈ how many *new* cases appear over a period of time  
+- **Relative risk (RR)** ≈ “how many times more (or less) risk if exposed?”  
+  - RR = 1 → same risk; RR > 1 → higher risk in exposed; RR < 1 → lower risk  
+- **Odds ratio (OR)** ≈ the odds version of that comparison (used especially when we sample on disease status, as in case-control studies)
+
+You will compute RR/OR in the workshop; memorize the *meaning* first, then the formula.
+
 ## Comparison 
 
 | Feature                |            Cohort            | Case-Control                  |

@@ -24,8 +24,9 @@ lightbox: true
 
 ## Learning goal
 
-- Designing analysis pipeline from experiment
-- Applying R to perform data analysis
+- Design a simple analysis pipeline from an experiment description
+- Apply R to clean data and run (with guidance) a paired comparison
+- Interpret what the test is asking—not memorize every formula
 
 {{< include /_content/modules/bdata/real-example.qmd >}}
 

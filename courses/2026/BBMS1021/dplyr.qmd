@@ -24,7 +24,7 @@ engine: knitr
 ## Learning objectives
 
 - Understand how to read and write data in R
-- Perform fundamental data wrangling task in R
+- Perform fundamental data wrangling tasks in R
 - Reflect on good coding practice in data wrangling
 
 ::: aside
@@ -37,6 +37,17 @@ These lecture slides are partially adapted and inspired from
   - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version 
 
 :::
+
+## Why wrangling matters (30 seconds)
+
+Raw experiment tables are almost never analysis-ready.
+
+- Columns may be wide, messy, or split across files
+- We need a clean table: one row per observation, clear columns for predictors/outcomes
+
+**`dplyr`** is how we reshape and filter those tables so plots and models can run.
+
+Keep a before/after picture in mind: messy spreadsheet → tidy analysis table.
 
 ## Slide conventions
 

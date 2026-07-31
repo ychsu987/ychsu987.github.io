@@ -1,5 +1,13 @@
 # Tumor Evolution and Adaptive Therapy
 
+## Big picture (analogy)
+
+Sensitive and resistant cells **compete** under treatment pressure—like flowers and weeds under weeding.
+
+- Continuous high pressure can eliminate sensitive cells and leave resistant ones dominant.
+- **Adaptive therapy** deliberately eases pressure at times so sensitive cells can again outcompete resistant ones (“breathing room”).
+
+**ITH (intratumor heterogeneity):** not all cells in a tumor are identical.
 
 ## Branched expansion
 
@@ -25,12 +33,17 @@
 
 ## Implication of ITH - diagnostics
 
+**How we monitor (one sentence each)**
+
+- **Radiomics / habitat imaging:** extract spatial patterns from scans that may reflect different tumor “neighborhoods”
+- **ctDNA (circulating tumor DNA):** measure tumor-derived DNA fragments in blood over time
+
 :::{.columns}
 
 :::{.column width=48%}
-- Spatial and temporal monitor on tumor cells
+- Spatial and temporal monitoring of tumor cells
   - Radiomics, habitat imaging @sala2017unravelling
-- Longitudinal tracking on cancer development 
+- Longitudinal tracking of cancer development 
   - Circulating tumor DNA (ctDNA) @kim2022dynamic
 
 ![Habitat imaging](/assets/images/adt/cancer_image.png){width="40%"}
