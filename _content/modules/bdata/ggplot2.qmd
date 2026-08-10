@@ -270,7 +270,7 @@ Scales are functions indicate how each variable behave and presents on the graph
 :::{.column}
 
 Most of the time you only need to handle the presentation in 
-![Elements in the scale](img/fig_element.png)
+![Elements in the scale](/assets/images/ggplot2/fig_element.png)
 
 :::
 

@@ -49,22 +49,6 @@ Raw experiment tables are almost never analysis-ready.
 
 Keep a before/after picture in mind: messy spreadsheet → tidy analysis table.
 
-## Slide conventions
-
-- Use code formatting for special terms and examples, such as `This` or **`This are code`**.
-
-- Code chunk, and it is executable when you open the file in RStudio
-```{r}
-#| echo: true
-#| eval: true
-# Title: Example code chunk
-# This chunk shows the basic structure of an executable R block.
-```
-
-- `.qmd` version file won't have the image display but the content is the same
-- In-class sketch might or might not be uploaded
-
-
 {{< include /_content/modules/bdata/dplyr.qmd >}}
 
 ## Bibliography notes

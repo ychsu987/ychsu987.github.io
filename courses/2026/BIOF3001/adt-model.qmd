@@ -28,15 +28,6 @@ engine: jupyter
 
 # Project background
 
-## A simple analogy first
-
-Think of **sensitive** tumor cells as flowers and **resistant** cells as weeds.
-
-- Heavy continuous weeding (high-dose therapy) can wipe out flowers and leave weeds to take over.
-- Giving flowers some “breathing room” (lower / intermittent pressure) lets them compete with weeds again.
-
-**Intratumor heterogeneity (ITH)** means: not all cells in the tumor are the same—so treatment can favor one subpopulation over another.
-
 ## Tumor evolution
 :::{.columns}
 

@@ -1,3 +1,26 @@
+## Mary Mallon
+
+> *"I never had typhoid in my life, and have always been healthy. Why should I be chased like a convicted criminal?"*  
+> — **Mary Mallon**
+
+:::{.columns}
+
+:::{.column}
+
+![Typhoid Mary from Wikipedia](/assets/images/intro-to-epi/mary.jpg)
+
+:::
+
+:::{.column}
+
+- Linked to 51 typhoid indfection and 3 deaths in early 1900s.
+- Mary was a asymptomatic carrier.
+- Transforming modern epidemiological tracking, quarantine, and medical ethics. 
+
+:::
+
+:::
+
 ## What is epidemiology?
 
 **Definition**
@@ -39,8 +62,6 @@ Based on these questions we can categorize epidemiological tools into three main
 ## Describe a disease 
 
 ![JHU COVID-19 dashboard](https://cdn.arstechnica.net/wp-content/uploads/2020/04/Screen-Shot-2020-04-13-at-5.40.40-PM-2048x762.jpeg)
-
-- What kind of disease information can we get? 
   
 ## Getting disease descriptions
 
@@ -54,6 +75,18 @@ Based on these questions we can categorize epidemiological tools into three main
   - Common tools: health records, government statistics
   - Purpose: **Population level** to assess the trend, association of a disease.
 
+## Key measures in epidemiology
+
+- **Prevalence** ≈ how common the disease is *right now* in a group  
+- **Incidence** ≈ how many *new* cases appear over a period of time  
+- **Relative risk (RR)** ≈ “how many times more (or less) risk if exposed?”  
+  - RR = 1 → same risk; 
+  - RR > 1 → higher risk in exposed; 
+  - RR < 1 → lower risk  
+- **Odds ratio (OR)** ≈ 
+  - Odds, measure the chance that a health event happens compared to the chance it does not happen ($p/(1-p)$) OR has the similar interpretation as RR
+
+We will compute RR/OR in the next class.
 
 ## Understand association
 
@@ -105,17 +138,6 @@ Enroll participants by exposure status now, then follow them forward over time t
 
 ![Illustration of case-control study](/assets/images/epi1/case-control.png){width=65%}
 
-## Key measures in everyday language
-
-Use the water / infection story as intuition:
-
-- **Prevalence** ≈ how common the disease is *right now* in a group  
-- **Incidence** ≈ how many *new* cases appear over a period of time  
-- **Relative risk (RR)** ≈ “how many times more (or less) risk if exposed?”  
-  - RR = 1 → same risk; RR > 1 → higher risk in exposed; RR < 1 → lower risk  
-- **Odds ratio (OR)** ≈ the odds version of that comparison (used especially when we sample on disease status, as in case-control studies)
-
-You will compute RR/OR in the workshop; memorize the *meaning* first, then the formula.
 
 ## Comparison 
 
@@ -127,10 +149,7 @@ You will compute RR/OR in the workshop; memorize the *meaning* first, then the f
 | Ideal Use Case         | Rare exposures               | Rare diseases                 |
 | Can measure incidence? | Yes                          | No                            |
 
-
-
 # Experimental epidemiology
-
 
 ## Randomized controlled trial (RCT)
 

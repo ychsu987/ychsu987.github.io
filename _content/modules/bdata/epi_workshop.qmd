@@ -70,6 +70,12 @@ To answer this, we need to know
 
 - **RR** represents "how many times more likely the exposed group is to develop the disease compared to the unexposed group."
 
+**Takeaway**
+
+- **RR = 1**: similar risk in exposed and unexposed  
+- **RR > 1 / RR < 1**: higher / lower risk in the exposed group  
+
+If a confidence interval for the effect **includes the null** (no difference), treat the result as **inconclusive**—not as proof of no effect.
 :::
 :::{.column width=65%}
 ```{r}
@@ -93,18 +99,12 @@ cat("Relative Risk (RR) of the Cohort Study:", round(RR, 2), "\n")
 :::
 :::
 
-::: {.callout-tip}
-## Required takeaway
-- **RR = 1**: similar risk in exposed and unexposed  
-- **RR > 1 / RR < 1**: higher / lower risk in the exposed group  
-- If a confidence interval for the effect **includes the null** (no difference), treat the result as **inconclusive**—not as proof of no effect.
-:::
+
 
 ## (Optional deep dive — not assessed) Inference on RR
 
 ::: {.callout-note}
-## Required takeaway vs optional math
-**Required:** interpret RR (above/below 1) and that a confidence interval covering the null means the result is inconclusive.  
+## Optional below
 **Optional below:** SE formula, $z$-interval construction, and code. Not included in the exam (Z-test is an approximation; other methods adjust for covariates more cleanly).
 :::
 

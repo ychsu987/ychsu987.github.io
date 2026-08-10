@@ -206,7 +206,7 @@ zea_mays_long <- zea_mays %>%
 
 # Analysis and Visualization
 
-## Stats snack (before any t-test)
+## Quick review
 
 A **hypothesis test** asks: if there were truly *no* difference (or no effect), how surprising is the pattern we see in the data?
 

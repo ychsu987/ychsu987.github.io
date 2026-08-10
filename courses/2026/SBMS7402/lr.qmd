@@ -28,7 +28,7 @@ By the end of this session, you will be able to:
 - Interpret a simple linear model on continuous healthcare-style data
 - Read one residual diagnostic plot and say what assumption it checks
 
-Course schedule, assessment, and policies are in the separate [Course overview](course-overview.qmd) slides.
+
 
 ## This week's path
 

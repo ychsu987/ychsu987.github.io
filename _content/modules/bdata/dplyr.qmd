@@ -23,8 +23,7 @@ We will practice `dplyr` verbs on this table. A tiny mental toy version is the s
 
  - `count_matrix.csv`
   
-  RNA (in rows) expression level for each sample (in column) — the big numbers table
-
+  RNA (in rows) expression level for each sample (in column)
  - `sample_metadata.csv`
   
   Information for each mouse (which sample was infected, tissue, day, …)

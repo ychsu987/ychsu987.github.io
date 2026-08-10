@@ -1,8 +1,8 @@
 # Tumor Evolution and Adaptive Therapy
 
-## Big picture (analogy)
+## Overview
 
-Sensitive and resistant cells **compete** under treatment pressure—like flowers and weeds under weeding.
+Sensitive and resistant cells **compete** under treatment pressure.
 
 - Continuous high pressure can eliminate sensitive cells and leave resistant ones dominant.
 - **Adaptive therapy** deliberately eases pressure at times so sensitive cells can again outcompete resistant ones (“breathing room”).
@@ -33,7 +33,7 @@ Sensitive and resistant cells **compete** under treatment pressure—like flower
 
 ## Implication of ITH - diagnostics
 
-**How we monitor (one sentence each)**
+**How we monitor**
 
 - **Radiomics / habitat imaging:** extract spatial patterns from scans that may reflect different tumor “neighborhoods”
 - **ctDNA (circulating tumor DNA):** measure tumor-derived DNA fragments in blood over time
