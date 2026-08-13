@@ -94,7 +94,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -211,60 +231,59 @@ Yu Cheng Hsu
 <h2>Learning objectives</h2>
 <ul>
 <li>Understand how to read and write data in R</li>
-<li>Perform fundamental data wrangling task in R</li>
-<li>Reflect on goodcoing practice in data wrangling</li>
+<li>Perform fundamental data wrangling tasks in R</li>
+<li>Reflect on good coding practice in data wrangling</li>
 </ul>
 
 <aside><div>
 <p><strong>Acknowledgement</strong></p>
-<p>This lecture slides are partially adopted and inspired from</p>
+<p>These lecture slides are partially adapted and inspired from</p>
 <ul>
-<li><span class="citation" data-cites="laurent_gatto_2021_5532658">(<a href="" role="doc-biblioref" onclick="return false;"><strong>laurent_gatto_2021_5532658?</strong></a>)</span>, <span class="citation" data-cites="peng2016r">(<a href="" role="doc-biblioref" onclick="return false;"><strong>peng2016r?</strong></a>)</span>, <span class="citation" data-cites="ismay2025statistical">(<a href="" role="doc-biblioref" onclick="return false;"><strong>ismay2025statistical?</strong></a>)</span>, <span class="citation" data-cites="wickham2017r">(<a href="" role="doc-biblioref" onclick="return false;"><strong>wickham2017r?</strong></a>)</span> under Creative Commons Attribution-ShareAlike 4.0</li>
+<li><span class="citation" data-cites="laurent_gatto_2021_5532658">Gatto, Missault, and Martin (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2021</a>)</span>, <span class="citation" data-cites="peng2016r">Peng (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2016</a>)</span>, <span class="citation" data-cites="ismay2025statistical">Ismay, Kim, and Valdivia (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2025</a>)</span>, <span class="citation" data-cites="wickham2017r">Wickham, Grolemund, et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2017</a>)</span> under Creative Commons Attribution-ShareAlike 4.0</li>
 <li>Prof.&nbsp;Yuanhua Huang, and Prof.&nbsp;Jason Wong contribution on early version</li>
 </ul>
 </div></aside></section>
-<section id="preamble" class="slide level2">
-<h2>Preamble</h2>
-<p><strong>About Ray’s part</strong></p>
-<p>I am responsibile for introducing commonly used library in R. So most of the time we will keep using some functions that is predefined by others.</p>
-<p>Questions that Ray could <strong>barely</strong> give you an explanation better than AI/documentation:</p>
+<section id="why-wrangling-matters-30-seconds" class="slide level2">
+<h2>Why wrangling matters (30 seconds)</h2>
+<p>Raw experiment tables are almost never analysis-ready.</p>
 <ul>
-<li>“What does this function do” -&gt; Go to find the documentation <code>?FUNCTION_NAME</code> or ask AI</li>
-<li>“Why does this name as XXXX()” -&gt; The developer named it at that way</li>
+<li>Columns may be wide, messy, or split across files</li>
+<li>We need a clean table: one row per observation, clear columns for predictors/outcomes</li>
 </ul>
-<p>Questions and competency you need to develop:</p>
-<ul>
-<li>“Why we need to do this?”</li>
-<li>Describe the task so AI can help you generate code</li>
-<li>Comprehand and literate to the code and make your own judgement</li>
-</ul>
-</section>
-<section id="slide-conventions" class="slide level2">
-<h2>Slide conventions</h2>
-<ul>
-<li><p>Use code formatting for special terms and examples, such as <code>This</code> or <strong><code>This are code</code></strong>.</p></li>
-<li><p>Code chunk, and it is excutable while you open the file in RStudio</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Title: Example code chunk</span></span>
-<span id="cb1-2"><a></a><span class="co"># This chunk shows the basic structure of an executable R block.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><code>.qmd</code> version file won’t have the image display but the content is the same</li>
-<li>In-class sketch might or might not be uploaded</li>
-</ul>
+<p><strong><code>dplyr</code></strong> is how we reshape and filter those tables so plots and models can run.</p>
+<p>Keep a before/after picture in mind: messy spreadsheet → tidy analysis table.</p>
 </section>
 <section id="example-data---gene-expression" class="slide level2">
 <h2>Example data - Gene Expression</h2>
+<p>Before we start think of a <strong>spreadsheet</strong>.</p>
+<ul>
+<li><strong>Rows</strong> = genes (features we measured)</li>
+<li><strong>Columns</strong> = mice / samples</li>
+<li><strong>Numbers</strong> = how strongly that gene was “read” (expression count)</li>
+</ul>
+<p>We will practice <code>dplyr</code> verbs on this table. A tiny mental toy version is the same idea as <code>patients × lab values</code>.</p>
 <ul>
 <li>Source: Blackmore et al.&nbsp;(2017), <em>The effect of upper-respiratory infection on transcriptomic changes in the CNS</em>.</li>
-<li>Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occuring in the cerebellum and spinal cord post infection</li>
+<li>Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occurring in the cerebellum and spinal cord post infection</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li>Experiment sample: Gender matched eight week old C57BL/6 mice<br>
 </li>
 <li>Exposure: With or without Influenza A infection</li>
 <li>Observations: RNA-seq count of genes in the cerebellum and spinal cord tissues</li>
 <li>Observation time: days 0 (non-infected), 4 and 8.</li>
 </ul>
+</section>
+<section id="file-structure" class="slide level2">
+<h2>File structure</h2>
+<ul>
+<li><code>count_matrix.csv</code></li>
+</ul>
+<p>RNA (in rows) expression level for each sample (in column) - <code>sample_metadata.csv</code></p>
+<p>Information for each mouse (which sample was infected, tissue, day, …)</p>
 </section>
 <section id="task---read-two-dataframe" class="slide level2">
 <h2>Task - Read two dataframe</h2>
@@ -273,24 +292,24 @@ Yu Cheng Hsu
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Title: Read files and inspect data</span></span>
-<span id="cb2-2"><a></a><span class="co"># Read the count matrix and metadata, then preview the first few rows.</span></span>
-<span id="cb2-3"><a></a><span class="co"># --- Your code starts here ---</span></span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="co"># rnaseq &lt;- read.csv("WRITE DOWN YOUR PATH HERE")</span></span>
-<span id="cb2-6"><a></a><span class="co"># meta &lt;- read.csv("WRITE DOWN YOUR PATH HERE")</span></span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a><span class="co"># --- Your code ends here ---</span></span>
-<span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a><span class="co"># Show the first 3 rows and first 6 sample columns of the expression data.</span></span>
-<span id="cb2-11"><a></a><span class="fu">head</span>(rnaseq[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Title: Read files and inspect data</span></span>
+<span id="cb1-2"><a></a><span class="co"># Read the count matrix and metadata, then preview the first few rows.</span></span>
+<span id="cb1-3"><a></a><span class="co"># --- Your code starts here ---</span></span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="co"># rnaseq &lt;- read.csv("WRITE DOWN YOUR PATH HERE")</span></span>
+<span id="cb1-6"><a></a><span class="co"># meta &lt;- read.csv("WRITE DOWN YOUR PATH HERE")</span></span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a><span class="co"># --- Your code ends here ---</span></span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># Show the first 3 rows and first 6 sample columns of the expression data.</span></span>
+<span id="cb1-11"><a></a><span class="fu">head</span>(rnaseq[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     gene GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340
 1     Asl       1170        361        400        586        626
 2    Apod      36194      10347       9173      10620      13021
 3 Cyp2d22       4060       1616       1603       1901       2171</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">head</span>(meta, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">head</span>(meta, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    sex   infection  strain time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
@@ -309,7 +328,7 @@ Yu Cheng Hsu
 <div class="callout-content">
 <ul>
 <li>What are the pros and cons using absolute path and relative path ?</li>
-<li>What will be the best practce to put the data file ?</li>
+<li>What will be the best practice to put the data file ?</li>
 </ul>
 </div>
 </div>
@@ -319,59 +338,34 @@ Yu Cheng Hsu
 <h2>Transforming data with dplyr</h2>
 <p><code>dplyr</code> is a package for making tabular data manipulation easier. You can choose using</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Title: Load dplyr package</span></span>
-<span id="cb6-2"><a></a><span class="co"># dplyr provides functions for easy data frame manipulation.</span></span>
-<span id="cb6-3"><a></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Title: Load dplyr package</span></span>
+<span id="cb5-2"><a></a><span class="co"># dplyr provides functions for easy data frame manipulation.</span></span>
+<span id="cb5-3"><a></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>or</p>
 <p>using <code>tidyverse</code> an “umbrella-package” that installs several packages useful for data analysis which work together well such as <code>tidyr</code>, <code>dplyr</code>, <code>ggplot2</code>, <code>tibble</code>, etc.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Title: Load tidyverse packages</span></span>
-<span id="cb10-2"><a></a><span class="co"># tidyverse loads multiple data science packages like ggplot2, dplyr, and tidyr.</span></span>
-<span id="cb10-3"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ forcats   1.0.1     ✔ readr     2.1.5
-✔ ggplot2   4.0.0     ✔ stringr   1.5.2
-✔ lubridate 1.9.4     ✔ tibble    3.3.0
-✔ purrr     1.1.0     ✔ tidyr     1.3.1
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Title: Load tidyverse packages</span></span>
+<span id="cb6-2"><a></a><span class="co"># tidyverse loads multiple data science packages like ggplot2, dplyr, and tidyr.</span></span>
+<span id="cb6-3"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pipeline-mindset" class="slide level2">
 <h2>Pipeline mindset</h2>
-<p>Without <code>dplyr</code>, if we want to manipulate data, we can still using 0the following vanila way to perform the task :</p>
+<p>Without <code>dplyr</code>, if we want to manipulate data, we can still use the following vanilla way to perform the task :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Title: Base R data manipulation example</span></span>
-<span id="cb12-2"><a></a><span class="co"># Show how row selection, counting, and column updates work without dplyr.</span></span>
-<span id="cb12-3"><a></a></span>
-<span id="cb12-4"><a></a><span class="co"># Select rows 2 to 5 from the metadata.</span></span>
-<span id="cb12-5"><a></a>meta <span class="ot">&lt;-</span> meta[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>,]</span>
-<span id="cb12-6"><a></a></span>
-<span id="cb12-7"><a></a><span class="co"># Count how many female and male mice are in the selected rows.</span></span>
-<span id="cb12-8"><a></a><span class="fu">sum</span>(meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Female'</span>)</span>
-<span id="cb12-9"><a></a><span class="fu">sum</span>(meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Male'</span>)</span>
-<span id="cb12-10"><a></a></span>
-<span id="cb12-11"><a></a><span class="co"># Overwrite the sex column with a logical value indicating male samples.</span></span>
-<span id="cb12-12"><a></a>meta<span class="sc">$</span>sex <span class="ot">=</span> meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Male'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Title: Base R data manipulation example</span></span>
+<span id="cb7-2"><a></a><span class="co"># Show how row selection, counting, and column updates work without dplyr.</span></span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="co"># Select rows 2 to 5 from the metadata.</span></span>
+<span id="cb7-5"><a></a>meta <span class="ot">&lt;-</span> meta[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>,]</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a><span class="co"># Count how many female and male mice are in the selected rows.</span></span>
+<span id="cb7-8"><a></a><span class="fu">sum</span>(meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Female'</span>)</span>
+<span id="cb7-9"><a></a><span class="fu">sum</span>(meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Male'</span>)</span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a><span class="co"># Overwrite the sex column with a logical value indicating male samples.</span></span>
+<span id="cb7-12"><a></a>meta<span class="sc">$</span>sex <span class="ot">=</span> meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Male'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -394,19 +388,19 @@ Attaching package: 'dplyr'</code></pre>
 <h2>Pipe operator <code>%&gt;%</code></h2>
 <p>To prevent us from keep doing like a matryoshka doll</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Title: Nested function call example</span></span>
-<span id="cb13-2"><a></a><span class="co"># This shows the same work as a pipeline, but in nested form.</span></span>
-<span id="cb13-3"><a></a><span class="fu">h</span>(<span class="fu">g</span>(<span class="fu">f</span>(data_frame)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Title: Nested function call example</span></span>
+<span id="cb8-2"><a></a><span class="co"># This shows the same work as a pipeline, but in nested form.</span></span>
+<span id="cb8-3"><a></a><span class="fu">h</span>(<span class="fu">g</span>(<span class="fu">f</span>(data_frame)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Libraries under <code>tidyverse</code> support Pipe operator <code>%&gt;%</code></p>
 <p>We can rewrite the above code as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Title: Pipe operator example</span></span>
-<span id="cb14-2"><a></a><span class="co"># Use the pipe operator to write the same steps in a clearer, left-to-right order.</span></span>
-<span id="cb14-3"><a></a>data_frame <span class="sc">%&gt;%</span> </span>
-<span id="cb14-4"><a></a>  <span class="fu">f</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb14-5"><a></a>  <span class="fu">g</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb14-6"><a></a>  <span class="fu">h</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Title: Pipe operator example</span></span>
+<span id="cb9-2"><a></a><span class="co"># Use the pipe operator to write the same steps in a clearer, left-to-right order.</span></span>
+<span id="cb9-3"><a></a>data_frame <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a></a>  <span class="fu">f</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a></a>  <span class="fu">g</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a></a>  <span class="fu">h</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>%&gt;%</code> takes the output from the left hand side and then <strong>pipes</strong> it to be the first argument of the right function.</p>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -431,10 +425,10 @@ Attaching package: 'dplyr'</code></pre>
 <li>Select the designated columns by <code>select(COLUMN_NAMES)</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Title: Select metadata columns</span></span>
-<span id="cb15-2"><a></a>meta <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a></a>    <span class="fu">select</span>(age, sex, infection) <span class="sc">%&gt;%</span> <span class="co"># Keep only the age, sex, and infection columns.</span></span>
-<span id="cb15-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous %&gt;%.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Title: Select metadata columns</span></span>
+<span id="cb10-2"><a></a>meta <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a></a>    <span class="fu">select</span>(age, sex, infection) <span class="sc">%&gt;%</span> <span class="co"># Keep only the age, sex, and infection columns.</span></span>
+<span id="cb10-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous %&gt;%.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  age    sex   infection
 1   8 Female  InfluenzaA
@@ -446,10 +440,10 @@ Attaching package: 'dplyr'</code></pre>
 <li>Select the designated rows by <code>filter(CONDITION)</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Title: Filter rows by sex</span></span>
-<span id="cb17-2"><a></a>meta <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a></a>    <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">'Female'</span>) <span class="sc">%&gt;%</span> <span class="co"># Keep only female samples.</span></span>
-<span id="cb17-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous %&gt;%.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Title: Filter rows by sex</span></span>
+<span id="cb12-2"><a></a>meta <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a></a>    <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">'Female'</span>) <span class="sc">%&gt;%</span> <span class="co"># Keep only female samples.</span></span>
+<span id="cb12-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous %&gt;%.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    sex   infection  strain time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
@@ -477,14 +471,14 @@ Attaching package: 'dplyr'</code></pre>
 <li>You can rename column by <code>rename()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Title: Rename columns</span></span>
-<span id="cb19-2"><a></a>meta <span class="sc">%&gt;%</span> <span class="co"># Rename selected metadata columns to make them more readable.</span></span>
-<span id="cb19-3"><a></a>    <span class="fu">rename</span>(</span>
-<span id="cb19-4"><a></a>              <span class="at">Sex =</span> sex,</span>
-<span id="cb19-5"><a></a>              <span class="at">Time =</span> time,</span>
-<span id="cb19-6"><a></a>              <span class="at">Infection =</span> infection</span>
-<span id="cb19-7"><a></a>              ) <span class="sc">%&gt;%</span></span>
-<span id="cb19-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Title: Rename columns</span></span>
+<span id="cb14-2"><a></a>meta <span class="sc">%&gt;%</span> <span class="co"># Rename selected metadata columns to make them more readable.</span></span>
+<span id="cb14-3"><a></a>    <span class="fu">rename</span>(</span>
+<span id="cb14-4"><a></a>              <span class="at">Sex =</span> sex,</span>
+<span id="cb14-5"><a></a>              <span class="at">Time =</span> time,</span>
+<span id="cb14-6"><a></a>              <span class="at">Infection =</span> infection</span>
+<span id="cb14-7"><a></a>              ) <span class="sc">%&gt;%</span></span>
+<span id="cb14-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    Sex   Infection  strain Time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
@@ -496,14 +490,14 @@ Attaching package: 'dplyr'</code></pre>
 <li>You can create new column by <code>mutate()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Title: Create or modify columns</span></span>
-<span id="cb21-2"><a></a></span>
-<span id="cb21-3"><a></a>meta <span class="sc">%&gt;%</span></span>
-<span id="cb21-4"><a></a>    <span class="fu">mutate</span>( <span class="co"># Use mutate() to update the time column and add a new infection flag.</span></span>
-<span id="cb21-5"><a></a>              <span class="at">time =</span> time <span class="sc">+</span> age,</span>
-<span id="cb21-6"><a></a>              <span class="at">infection  =</span> <span class="st">"No"</span></span>
-<span id="cb21-7"><a></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb21-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Title: Create or modify columns</span></span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a>meta <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a></a>    <span class="fu">mutate</span>( <span class="co"># Use mutate() to update the time column and add a new infection flag.</span></span>
+<span id="cb16-5"><a></a>              <span class="at">time =</span> time <span class="sc">+</span> age,</span>
+<span id="cb16-6"><a></a>              <span class="at">infection  =</span> <span class="st">"No"</span></span>
+<span id="cb16-7"><a></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    sex infection  strain time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female        No C57BL/6   16 Cerebellum    14
@@ -516,15 +510,15 @@ Attaching package: 'dplyr'</code></pre>
 <h2>Perform summary statistics</h2>
 <p>Frequently we will need to provide summary statistics for your data, we can use <code>summarize()</code> to do it</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># Title: Compute summary statistics</span></span>
-<span id="cb23-2"><a></a></span>
-<span id="cb23-3"><a></a>meta <span class="sc">%&gt;%</span></span>
-<span id="cb23-4"><a></a>    <span class="fu">summarize</span>( <span class="co"># Summarize the metadata with count, mean, standard deviation, and female sample count.</span></span>
-<span id="cb23-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb23-6"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
-<span id="cb23-7"><a></a>              <span class="at">sd_time=</span><span class="fu">sd</span>(time),</span>
-<span id="cb23-8"><a></a>              <span class="at">num_female=</span><span class="fu">sum</span>(sex<span class="sc">==</span><span class="st">'Female'</span>)</span>
-<span id="cb23-9"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Title: Compute summary statistics</span></span>
+<span id="cb18-2"><a></a></span>
+<span id="cb18-3"><a></a>meta <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a></a>    <span class="fu">summarize</span>( <span class="co"># Summarize the metadata with count, mean, standard deviation, and female sample count.</span></span>
+<span id="cb18-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb18-6"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
+<span id="cb18-7"><a></a>              <span class="at">sd_time=</span><span class="fu">sd</span>(time),</span>
+<span id="cb18-8"><a></a>              <span class="at">num_female=</span><span class="fu">sum</span>(sex<span class="sc">==</span><span class="st">'Female'</span>)</span>
+<span id="cb18-9"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   n mean_time  sd_time num_female
 1 22         4 3.265986         12</code></pre>
@@ -544,19 +538,19 @@ Attaching package: 'dplyr'</code></pre>
 <div class="columns">
 <div class="column" style="width:33%;">
 <ul>
-<li><code>group_by()</code> and <code>summarize</code>p rovide summary statistics by group.</li>
-<li>You can group by multiple groups together, but noted that they need to be stated in the same <code>group_by()</code> brackets</li>
+<li><code>group_by()</code> and <code>summarize()</code> provide summary statistics by group.</li>
+<li>You can group by multiple groups together, but note that they need to be stated in the same <code>group_by()</code> brackets</li>
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Title: Grouped summary by infection</span></span>
-<span id="cb25-2"><a></a></span>
-<span id="cb25-3"><a></a>meta <span class="sc">%&gt;%</span></span>
-<span id="cb25-4"><a></a>    <span class="fu">group_by</span>(infection) <span class="sc">%&gt;%</span> <span class="co"># Group the metadata by infection status,</span></span>
-<span id="cb25-5"><a></a>    <span class="fu">summarize</span>(      <span class="co">#  and compute summary statistics for each group.</span></span>
-<span id="cb25-6"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb25-7"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
-<span id="cb25-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Title: Grouped summary by infection</span></span>
+<span id="cb20-2"><a></a></span>
+<span id="cb20-3"><a></a>meta <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a></a>    <span class="fu">group_by</span>(infection) <span class="sc">%&gt;%</span> <span class="co"># Group the metadata by infection status,</span></span>
+<span id="cb20-5"><a></a>    <span class="fu">summarize</span>(      <span class="co">#  and compute summary statistics for each group.</span></span>
+<span id="cb20-6"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb20-7"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
+<span id="cb20-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   infection       n mean_time
@@ -566,14 +560,14 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Title: Multi-group summary</span></span>
-<span id="cb27-2"><a></a>meta <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a></a>    <span class="fu">group_by</span>(infection, sex) <span class="sc">%&gt;%</span> <span class="co"># Group by both infection status and sex,</span></span>
-<span id="cb27-4"><a></a>    <span class="fu">summarize</span>(                   <span class="co">#  then summarize the combined groups.</span></span>
-<span id="cb27-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb27-6"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
-<span id="cb27-7"><a></a>              <span class="at">sd_time=</span><span class="fu">sd</span>(time),</span>
-<span id="cb27-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># Title: Multi-group summary</span></span>
+<span id="cb22-2"><a></a>meta <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a></a>    <span class="fu">group_by</span>(infection, sex) <span class="sc">%&gt;%</span> <span class="co"># Group by both infection status and sex,</span></span>
+<span id="cb22-4"><a></a>    <span class="fu">summarize</span>(                   <span class="co">#  then summarize the combined groups.</span></span>
+<span id="cb22-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb22-6"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
+<span id="cb22-7"><a></a>              <span class="at">sd_time=</span><span class="fu">sd</span>(time),</span>
+<span id="cb22-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 </section>
@@ -588,14 +582,14 @@ Attaching package: 'dplyr'</code></pre>
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># Title: Create binary infection status</span></span>
-<span id="cb28-2"><a></a><span class="co"># Use if_else() to add a new infection_status column based on time value.</span></span>
-<span id="cb28-3"><a></a>meta <span class="sc">%&gt;%</span></span>
-<span id="cb28-4"><a></a>    <span class="fu">select</span>(sample, age, sex, time) <span class="sc">%&gt;%</span></span>
-<span id="cb28-5"><a></a>    <span class="fu">mutate</span>( <span class="at">infection_status =</span> <span class="fu">if_else</span>(</span>
-<span id="cb28-6"><a></a>        time <span class="sc">==</span> <span class="dv">0</span>, <span class="st">"Not infected"</span>, <span class="st">"Infected"</span></span>
-<span id="cb28-7"><a></a>    )) <span class="sc">%&gt;%</span></span>
-<span id="cb28-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># Title: Create binary infection status</span></span>
+<span id="cb23-2"><a></a><span class="co"># Use if_else() to add a new infection_status column based on time value.</span></span>
+<span id="cb23-3"><a></a>meta <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a></a>    <span class="fu">select</span>(sample, age, sex, time) <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a></a>    <span class="fu">mutate</span>( <span class="at">infection_status =</span> <span class="fu">if_else</span>(</span>
+<span id="cb23-6"><a></a>        time <span class="sc">==</span> <span class="dv">0</span>, <span class="st">"Not infected"</span>, <span class="st">"Infected"</span></span>
+<span id="cb23-7"><a></a>    )) <span class="sc">%&gt;%</span></span>
+<span id="cb23-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample age    sex time infection_status
 1 GSM2545336   8 Female    8         Infected
@@ -604,16 +598,16 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="co"># Title: Create categorical infection stage</span></span>
-<span id="cb30-2"><a></a><span class="co"># Use case_when() to assign descriptive labels for each time point.</span></span>
-<span id="cb30-3"><a></a>meta <span class="sc">%&gt;%</span></span>
-<span id="cb30-4"><a></a>    <span class="fu">select</span>(sample, age, sex, time) <span class="sc">%&gt;%</span></span>
-<span id="cb30-5"><a></a>    <span class="fu">mutate</span>( <span class="at">infection_status =</span> <span class="fu">case_when</span>(</span>
-<span id="cb30-6"><a></a>        time <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Not infected"</span>,</span>
-<span id="cb30-7"><a></a>        time <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Early stage"</span>,</span>
-<span id="cb30-8"><a></a>        time <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">"Late stage"</span></span>
-<span id="cb30-9"><a></a>    ))<span class="sc">%&gt;%</span></span>
-<span id="cb30-10"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Title: Create categorical infection stage</span></span>
+<span id="cb25-2"><a></a><span class="co"># Use case_when() to assign descriptive labels for each time point.</span></span>
+<span id="cb25-3"><a></a>meta <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a></a>    <span class="fu">select</span>(sample, age, sex, time) <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a></a>    <span class="fu">mutate</span>( <span class="at">infection_status =</span> <span class="fu">case_when</span>(</span>
+<span id="cb25-6"><a></a>        time <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Not infected"</span>,</span>
+<span id="cb25-7"><a></a>        time <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Early stage"</span>,</span>
+<span id="cb25-8"><a></a>        time <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">"Late stage"</span></span>
+<span id="cb25-9"><a></a>    ))<span class="sc">%&gt;%</span></span>
+<span id="cb25-10"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample age    sex time infection_status
 1 GSM2545336   8 Female    8       Late stage
@@ -638,17 +632,17 @@ Attaching package: 'dplyr'</code></pre>
 <h2>Combining Dataframes</h2>
 <p>First I transpose the RNA count matrix. (The below code chunk is out of the scope, you might ignore why it works)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="co"># Title: Transform RNA count matrix layout</span></span>
-<span id="cb32-2"><a></a><span class="co"># Convert the RNA data from wide to long and back to wide format by gene.</span></span>
-<span id="cb32-3"><a></a>rnaseq <span class="ot">&lt;-</span> rnaseq <span class="sc">%&gt;%</span> </span>
-<span id="cb32-4"><a></a>           <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="sc">-</span>gene, <span class="at">names_to=</span><span class="st">"sample"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-5"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> gene, <span class="at">values_from =</span> value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Title: Transform RNA count matrix layout</span></span>
+<span id="cb27-2"><a></a><span class="co"># Convert the RNA data from wide to long and back to wide format by gene.</span></span>
+<span id="cb27-3"><a></a>rnaseq <span class="ot">&lt;-</span> rnaseq <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a></a>           <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="sc">-</span>gene, <span class="at">names_to=</span><span class="st">"sample"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> gene, <span class="at">values_from =</span> value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can combine meta data and rna sequence data together.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># Title: Join metadata with RNA data</span></span>
-<span id="cb33-2"><a></a><span class="co"># Combine the sample metadata with the RNA expression table by sample ID.</span></span>
-<span id="cb33-3"><a></a>meta <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(rnaseq, <span class="at">by =</span> <span class="st">'sample'</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># Title: Join metadata with RNA data</span></span>
+<span id="cb28-2"><a></a><span class="co"># Combine the sample metadata with the RNA expression table by sample ID.</span></span>
+<span id="cb28-3"><a></a>meta <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(rnaseq, <span class="at">by =</span> <span class="st">'sample'</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    sex   infection  strain time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
@@ -670,16 +664,30 @@ Attaching package: 'dplyr'</code></pre>
 <li>Run it immediately</li>
 <li>Verify the output</li>
 </ul>
-<p><strong>DO NOT</strong> propogate error and raise your hand</p></li>
+<p><strong>DO NOT</strong> propagate error and raise your hand</p></li>
 <li><p>Look up documentations</p></li>
 <li><p>Make your code <strong>readable</strong></p></li>
-<li><p>Try and error</p></li>
+<li><p>Trial and error</p></li>
 </ol>
 </section>
-<section id="bibilography-notes" class="slide level2">
-<h2>Bibilography notes</h2>
+<section id="bibliography-notes" class="slide level2 smaller scrollable">
+<h2>Bibliography notes</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-laurent_gatto_2021_5532658" class="csl-entry" role="listitem">
+Gatto, Laurent, Kevin Missault, and Manon Martin. 2021. <span>“UCLouvain-CBIO/WSBIM1207: V2.0.”</span> Zenodo. <a href="https://doi.org/10.5281/zenodo.5532658">https://doi.org/10.5281/zenodo.5532658</a>.
+</div>
+<div id="ref-ismay2025statistical" class="csl-entry" role="listitem">
+Ismay, Chester, Albert Y Kim, and Arturo Valdivia. 2025. <em>Statistical Inference via Data Science: A Moderndive into r and the Tidyverse</em>. Chapman; Hall/CRC.
+</div>
+<div id="ref-peng2016r" class="csl-entry" role="listitem">
+Peng, Roger D. 2016. <em>R Programming for Data Science</em>. Leanpub Victoria, BC, Canada.
+</div>
+<div id="ref-wickham2017r" class="csl-entry" role="listitem">
+Wickham, Hadley, Garrett Grolemund, et al. 2017. <em>R for Data Science</em>. Vol. 2. O’Reilly Sebastopol.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -898,6 +906,82 @@ Attaching package: 'dplyr'</code></pre>
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

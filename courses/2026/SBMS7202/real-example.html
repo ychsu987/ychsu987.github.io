@@ -219,7 +219,7 @@
 
 <section id="title-slide" data-background="/assets/images/real-example/background-1.png" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
   <h1 class="title">Introduction to R</h1>
-  <p class="subtitle">Intergrative mini project</p>
+  <p class="subtitle">Integrative mini project</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -233,8 +233,9 @@ Yu Cheng Hsu
 <section id="learning-goal" class="slide level2">
 <h2>Learning goal</h2>
 <ul>
-<li>Designing analysis pipeline from experiment</li>
-<li>Applying R to perform data analysis</li>
+<li>Design a simple analysis pipeline from an experiment description</li>
+<li>Apply R to clean data and run (with guidance) a paired comparison</li>
+<li>Interpret what the test is asking—not memorize every formula</li>
 </ul>
 </section>
 <section id="background-darwins-experiment" class="slide level2">
@@ -246,7 +247,7 @@ Yu Cheng Hsu
 <div class="columns">
 <div class="column">
 <ul>
-<li>Experiment deisgn
+<li>Experiment design
 <ul>
 <li>15 pairs of corn,
 <ul>
@@ -261,7 +262,7 @@ Yu Cheng Hsu
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/real-example/darwin.pngdarwin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration of experiment design"><img data-src="../../..\assets/images/real-example/darwin.pngdarwin.png" style="width:100.0%" alt="Illustration of experiment design"></a></p>
+<p><a href="../../..\assets/images/real-example/darwin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration of experiment design"><img data-src="../../..\assets/images/real-example/darwin.png" style="width:100.0%" alt="Illustration of experiment design"></a></p>
 <figcaption>Illustration of experiment design</figcaption>
 </figure>
 </div>
@@ -283,6 +284,50 @@ Yu Cheng Hsu
 </ul></li>
 <li>Convey the scientific findings</li>
 </ul>
+</section>
+<section id="a-full-picture-of-analytics" class="slide level2">
+<h2>A full picture of analytics</h2>
+<p><span class="citation" data-cites="griffin2018best">Griffin et al. (<a href="#/reading-list" role="doc-biblioref" onclick="">2018</a>)</span> proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.</p>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="../../..\assets/images/real-example/data_lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Data lifecycle, figure from @griffin2018best"><img data-src="../../..\assets/images/real-example/data_lifecycle.png" alt="Data lifecycle, figure from Griffin et al. (2018)"></a></p>
+<figcaption>Data lifecycle, figure from <span class="citation" data-cites="griffin2018best">Griffin et al. (<a href="#/reading-list" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Life Cycle Stage</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Collecting</td>
+<td>Read the data</td>
+</tr>
+<tr class="even">
+<td>Integrating</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Processing</td>
+<td>Manipulating tables</td>
+</tr>
+<tr class="even">
+<td>Analyzing</td>
+<td>Reporting statistics</td>
+</tr>
+<tr class="odd">
+<td>Publishing</td>
+<td>Generating report and figures</td>
+</tr>
+</tbody>
+</table>
+</div></div>
 </section>
 <section id="project-roadmap" class="slide level2">
 <h2>Project Roadmap</h2>
@@ -360,8 +405,8 @@ This study is famous not because of its contribution to plant biology; instead, 
 <h2>Data wrangling plan</h2>
 <p>After inspecting the data here are some data wrangling (manipulation) works need to be done</p>
 <ol type="1">
-<li>Handeling missing data</li>
-<li>Make a long tabke so that Each observation (Zea mays) must have its own row.
+<li>Handling missing data</li>
+<li>Make a long table so that each observation (Zea mays) must have its own row.
 <ol type="1">
 <li>Currently there are two observations in a row</li>
 </ol></li>
@@ -421,6 +466,20 @@ This study is famous not because of its contribution to plant biology; instead, 
 <h1>Analysis and Visualization</h1>
 
 </section>
+<section id="quick-review" class="slide level2">
+<h2>Quick review</h2>
+<p>A <strong>hypothesis test</strong> asks: if there were truly <em>no</em> difference (or no effect), how surprising is the pattern we see in the data?</p>
+<ul>
+<li>We state a skeptical <strong>null</strong> (<span class="math inline">\(H_0\)</span>) and an <strong>alternative</strong> (<span class="math inline">\(H_a\)</span>).</li>
+<li>A small <strong><span class="math inline">\(p\)</span>-value</strong> means “this extreme a result would be unusual under <span class="math inline">\(H_0\)</span>” — not “the hypothesis is proven.”</li>
+</ul>
+<p><strong>Why pairing matters here</strong></p>
+<ul>
+<li>Each cross- and self-pollinated plant shared a pot (same soil, water, light).</li>
+<li>Comparing <em>within pairs</em> removes that shared environment; treating all plants as independent ignores it.</li>
+</ul>
+<p>Keep that story in mind for the next two slides (wrong vs right test).</p>
+</section>
 <section id="scatter-plot-with-pair-information" class="slide level2">
 <h2>Scatter Plot with Pair Information</h2>
 <div class="cell">
@@ -432,15 +491,15 @@ This study is famous not because of its contribution to plant biology; instead, 
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="real-example_files/figure-revealjs/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="real-example_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></a></p>
+<p><a href="real-example_files/figure-revealjs/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="real-example_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="the-wrong-approach-paired-t-test" class="slide level2">
-<h2>The Wrong Approach: Paired t-test</h2>
-<p>We have 30 plants in total. Let’s see what happens if we adopts Darwin’s way’ (i.e.&nbsp;wrong statistical test).</p>
+<section id="the-wrong-approach-independent-t-test" class="slide level2">
+<h2>The Wrong Approach: Independent t-test</h2>
+<p>We have 30 plants in total. Let’s see what happens if we adopt Darwin’s way’ (i.e.&nbsp;wrong statistical test).</p>
 <ul>
 <li>The <strong>Wrong</strong> Approach: Independent t-test</li>
 </ul>
@@ -484,7 +543,7 @@ mean of x mean of y
 <ul>
 <li>Zea mays in the same pot shared
 <ul>
-<li>Same nutritient</li>
+<li>Same nutrient</li>
 <li>Same weather condition</li>
 </ul></li>
 </ul>
@@ -534,55 +593,11 @@ mean difference
 </ul></li>
 </ul>
 </section>
-<section id="a-full-picture-of-analytics" class="slide level2">
-<h2>A full picture of analytics</h2>
-<p><span class="citation" data-cites="griffin2018best">Griffin et al. (<a href="#/readinig-list" role="doc-biblioref" onclick="">2018</a>)</span> proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.</p>
-<div class="columns">
-<div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="../../..\assets/images/real-example/data_lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Data lifecycle, figure from @griffin2018best"><img data-src="../../..\assets/images/real-example/data_lifecycle.png" alt="Data lifecycle, figure from Griffin et al. (2018)"></a></p>
-<figcaption>Data lifecycle, figure from <span class="citation" data-cites="griffin2018best">Griffin et al. (<a href="#/readinig-list" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
-</figure>
-</div>
-</div><div class="column">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Life Cycle Stage</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Collecting</td>
-<td>Read the data</td>
-</tr>
-<tr class="even">
-<td>Integrating</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>Processing</td>
-<td>Manipulating tables</td>
-</tr>
-<tr class="even">
-<td>Analyzing</td>
-<td>Reporting statistics</td>
-</tr>
-<tr class="odd">
-<td>Publishing</td>
-<td>Generating report and figures</td>
-</tr>
-</tbody>
-</table>
-</div></div>
-</section>
-<section id="readinig-list" class="slide level2 smaller scrollable">
-<h2>Readinig list</h2>
+<section id="reading-list" class="slide level2 smaller scrollable">
+<h2>Reading list</h2>
 <p><strong>Acknowledge</strong></p>
-<p>This case is inspired and adopted from <span class="citation" data-cites="ross2017introductory">Ross (<a href="#/readinig-list" role="doc-biblioref" onclick="">2017</a>)</span></p>
-<p><strong>Bibilography notes</strong></p>
+<p>This case is inspired by and adapted from <span class="citation" data-cites="ross2017introductory">Ross (<a href="#/reading-list" role="doc-biblioref" onclick="">2017</a>)</span></p>
+<p><strong>Bibliography notes</strong></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">

@@ -216,20 +216,25 @@ Yu Cheng Hsu
 <section id="learning-objectives" class="slide level2">
 <h2>Learning objectives</h2>
 <p>By the end of this session, you will</p>
+<p><strong>Wrangle (dplyr)</strong></p>
+<ul>
+<li>Read tabular data into R</li>
+<li>Use core verbs: <code>filter</code>, <code>mutate</code>, <code>summarise</code> (with the pipe <code>%&gt;%</code>)</li>
+<li>Reflect on good coding practice in data wrangling</li>
+</ul>
+<p><strong>Plot (ggplot2)</strong></p>
 <ul>
 <li>Understand the basic grammar and layered structure of ggplot2</li>
 <li>Create simple plots using data, aesthetics, and geometric layers</li>
-<li>Understand how to read and write data in R</li>
-<li>Reflect on goodcoing practice in data wrangling</li>
 </ul>
 <p>We <strong>DO NOT</strong> expect:</p>
 <ul>
-<li>Memorize functions in the <code>ggplot2</code> or <code>dplyr</code></li>
+<li>Memorize every function in <code>ggplot2</code> or <code>dplyr</code></li>
 </ul>
 
 <aside><div>
 <p><strong>Acknowledgement</strong></p>
-<p>This lecture slides are partially adopted and inspired from</p>
+<p>These lecture slides are partially adapted and inspired from</p>
 <ul>
 <li><span class="citation" data-cites="laurent_gatto_2021_5532658">@laurent_gatto_2021_5532658</span>, <span class="citation" data-cites="peng2016r">@peng2016r</span>, <span class="citation" data-cites="ismay2025statistical">@ismay2025statistical</span>, <span class="citation" data-cites="wickham2017r">@wickham2017r</span> under Creative Commons Attribution-ShareAlike 4.0</li>
 <li>Prof.&nbsp;Yuanhua Huang, and Prof.&nbsp;Jason Wong contribution on early version</li>
@@ -252,11 +257,11 @@ Yu Cheng Hsu
 <span id="cb3-2"><a></a><span class="fu">function_name</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <ul>
-<li>You can check what packages has been installed, imported to your environment using the tab <code>Packages</code></li>
+<li>You can check what packages have been installed, imported to your environment using the tab <code>Packages</code></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/package/package.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Checking packages"><img data-src="../../..\assets/images/package/package.png" style="width:55.0%" alt="Checking packages"></a></p>
+<p><a href="../../..\assets/images/package/package.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Checking packages"><img data-src="../../..\assets/images/package/package.png" style="width:80.0%" alt="Checking packages"></a></p>
 <figcaption>Checking packages</figcaption>
 </figure>
 </div>
@@ -264,7 +269,7 @@ Yu Cheng Hsu
 </section>
 <section id="installing-package" class="slide level2">
 <h2>Installing package</h2>
-<p><strong>Golden rule</strong>: refers to the documentation of the specific package</p>
+<p><strong>Golden rule</strong>: refer to the documentation of the specific package</p>
 <ul>
 <li>CRAN (the Comprehensive R Archive Network) (<strong>Major package channel</strong>)</li>
 </ul>
@@ -275,21 +280,41 @@ Yu Cheng Hsu
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Github (<strong>Codes at developmental stage</strong>)</li>
+<li>GitHub (<strong>code at the developmental stage</strong>)</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="example-data---gene-expression" class="slide level2">
 <h2>Example data - Gene Expression</h2>
+<p>Before we start think of a <strong>spreadsheet</strong>.</p>
+<ul>
+<li><strong>Rows</strong> = genes (features we measured)</li>
+<li><strong>Columns</strong> = mice / samples</li>
+<li><strong>Numbers</strong> = how strongly that gene was “read” (expression count)</li>
+</ul>
+<p>We will practice <code>dplyr</code> verbs on this table. A tiny mental toy version is the same idea as <code>patients × lab values</code>.</p>
 <ul>
 <li>Source: Blackmore et al.&nbsp;(2017), <em>The effect of upper-respiratory infection on transcriptomic changes in the CNS</em>.</li>
-<li>Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occuring in the cerebellum and spinal cord post infection</li>
+<li>Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occurring in the cerebellum and spinal cord post infection</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li>Experiment sample: Gender matched eight week old C57BL/6 mice<br>
 </li>
 <li>Exposure: With or without Influenza A infection</li>
 <li>Observations: RNA-seq count of genes in the cerebellum and spinal cord tissues</li>
 <li>Observation time: days 0 (non-infected), 4 and 8.</li>
 </ul>
+</section>
+<section id="file-structure" class="slide level2">
+<h2>File structure</h2>
+<ul>
+<li><code>count_matrix.csv</code></li>
+</ul>
+<p>RNA (in rows) expression level for each sample (in column) - <code>sample_metadata.csv</code></p>
+<p>Information for each mouse (which sample was infected, tissue, day, …)</p>
 </section>
 <section id="task---read-two-dataframe" class="slide level2">
 <h2>Task - Read two dataframe</h2>
@@ -334,7 +359,7 @@ Yu Cheng Hsu
 <div class="callout-content">
 <ul>
 <li>What are the pros and cons using absolute path and relative path ?</li>
-<li>What will be the best practce to put the data file ?</li>
+<li>What will be the best practice to put the data file ?</li>
 </ul>
 </div>
 </div>
@@ -358,7 +383,7 @@ Yu Cheng Hsu
 </section>
 <section id="pipeline-mindset" class="slide level2">
 <h2>Pipeline mindset</h2>
-<p>Without <code>dplyr</code>, if we want to manipulate data, we can still using 0the following vanila way to perform the task :</p>
+<p>Without <code>dplyr</code>, if we want to manipulate data, we can still use the following vanilla way to perform the task :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Title: Base R data manipulation example</span></span>
 <span id="cb13-2"><a></a><span class="co"># Show how row selection, counting, and column updates work without dplyr.</span></span>
@@ -544,8 +569,8 @@ Yu Cheng Hsu
 <div class="columns">
 <div class="column" style="width:33%;">
 <ul>
-<li><code>group_by()</code> and <code>summarize</code>p rovide summary statistics by group.</li>
-<li>You can group by multiple groups together, but noted that they need to be stated in the same <code>group_by()</code> brackets</li>
+<li><code>group_by()</code> and <code>summarize()</code> provide summary statistics by group.</li>
+<li>You can group by multiple groups together, but note that they need to be stated in the same <code>group_by()</code> brackets</li>
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
@@ -670,11 +695,23 @@ Yu Cheng Hsu
 <li>Run it immediately</li>
 <li>Verify the output</li>
 </ul>
-<p><strong>DO NOT</strong> propogate error and raise your hand</p></li>
+<p><strong>DO NOT</strong> propagate error and raise your hand</p></li>
 <li><p>Look up documentations</p></li>
 <li><p>Make your code <strong>readable</strong></p></li>
-<li><p>Try and error</p></li>
+<li><p>Trial and error</p></li>
 </ol>
+</section>
+<section id="checkpoint-three-verbs-for-today" class="slide level2">
+<h2>Checkpoint — three verbs for today</h2>
+<p>If you remember only three <code>dplyr</code> moves after the wrangling block, make them:</p>
+<ol type="1">
+<li><code>filter()</code> — keep rows that match a condition<br>
+</li>
+<li><code>mutate()</code> — add / change a column<br>
+</li>
+<li><code>summarise()</code> (+ <code>group_by()</code>) — collapse rows into a summary</li>
+</ol>
+<p>Then we switch to <strong>ggplot2</strong> and build plots layer by layer.</p>
 </section>
 <section id="introduction-to-ggplot2" class="slide level2">
 <h2>Introduction to ggplot2</h2>
@@ -691,7 +728,7 @@ Yu Cheng Hsu
 </section>
 <section id="about-the-data" class="slide level2">
 <h2>About the data</h2>
-<p><code>iris</code> is a dataset introduced by Ronald Fisher in 1936 collect the iris flower morphology measurements from 3 species</p>
+<p><code>iris</code> is a dataset introduced by Ronald Fisher in 1936 that collects iris flower morphology measurements from 3 species</p>
 <div class="columns">
 <div class="column">
 <ul>
@@ -765,7 +802,7 @@ Yu Cheng Hsu
   A{Data type} --&gt;|Continuous| B{Purpose}
   A{Data type}  --&gt;|Discrete| C{Purpose}
 
-  B{Purpose}--&gt;|Exploration| D((Histogram/Boxpot))
+  B{Purpose}--&gt;|Exploration| D((Histogram/Boxplot))
   B{Purpose} --&gt;|Association| E((Scatter plot))
   B{Purpose} --&gt;|Association+time| T((Line plot))
 
@@ -783,11 +820,11 @@ Yu Cheng Hsu
 <h2>Overview of ggplot2 logics</h2>
 <div class="columns">
 <div class="column">
-<p><code>ggplot2</code> desgined as you are plotting by hands, so the process will looks like</p>
+<p><code>ggplot2</code> is designed as if you are plotting by hand, so the process looks like</p>
 <ol type="1">
 <li>Defining coordinate systems</li>
 <li>Plotting dots, lines, bars, and etc.</li>
-<li>Adding legend and axis informations</li>
+<li>Adding legend and axis information</li>
 </ol>
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
@@ -893,8 +930,8 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="tidyverse_files/figure-revealjs/unnamed-chunk-23-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Scatter plot for Sepal length and Pedal width"><img data-src="tidyverse_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" alt="Scatter plot for Sepal length and Pedal width"></a></p>
-<figcaption>Scatter plot for Sepal length and Pedal width</figcaption>
+<p><a href="tidyverse_files/figure-revealjs/unnamed-chunk-23-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Scatter plot for Sepal length and Petal width"><img data-src="tidyverse_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" alt="Scatter plot for Sepal length and Petal width"></a></p>
+<figcaption>Scatter plot for Sepal length and Petal width</figcaption>
 </figure>
 </div>
 </div>
@@ -952,7 +989,7 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 <div class=".aside">
 
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>If you find the figure behave not as expected. The best choice is alwayslook up on the documentation, or ask AI.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>If you find the figure behave not as expected. The best choice is always look up the documentation, or ask AI.</p></li></ol></aside></section>
 <section id="layer-3-legends-and-axis" class="slide level2">
 <h2>Layer 3: Legends and axis</h2>
 <p>Scales are functions indicate how each variable behave and presents on the graph. The function usually in the format <code>scale_(AES)_(datatype)</code>:</p>
@@ -989,7 +1026,7 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 </table>
 <div class="columns">
 <div class="column">
-<p>Most of time you only need to handle the presentation in <img data-src="img/fig_element.png" alt="Elements in the scale"></p>
+<p>Most of the time you only need to handle the presentation in <img data-src="../../..\assets/images/ggplot2/fig_element.png" alt="Elements in the scale"></p>
 </div><div class="column">
 <table class="caption-top">
 <thead>
@@ -1052,7 +1089,7 @@ Figure&nbsp;2: Scatter plot of MPG vs cylinders with customized axis and legend 
 <span id="cb45-2"><a></a><span class="fu">ggsave</span>(<span class="st">"figure_1.png"</span>,p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>It support most of the common image formats like <code>pdf</code>, <code>jpeg</code>, <code>png</code></li>
+<li>It supports most of the common image formats like <code>pdf</code>, <code>jpeg</code>, <code>png</code></li>
 </ul>
 </div><div class="column" style="width:38%;">
 <div class="quarto-figure quarto-figure-center">

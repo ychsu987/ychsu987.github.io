@@ -6,7 +6,10 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
@@ -231,10 +234,12 @@ Yu Cheng Hsu
 <ul>
 <li>Analyze data from cohort study</li>
 <li>Analyze data from case-control study</li>
-<li>Justify the use cohort or case-control study</li>
-<li><h2 id="workshop-background">Workshop background</h2></li>
+<li>Justify the use of a cohort or case-control study</li>
 </ul>
-<p>In epidemiology, the “direction” of our data collection determines which statistical measures we can estimate. Today, we will use poker cards to simulate two study designs:</p>
+</section>
+<section id="workshop-background" class="slide level2">
+<h2>Workshop background</h2>
+<p>The “direction” of our data collection determines which statistical measures we can estimate. We will use poker cards to simulate two study designs:</p>
 <ul>
 <li>Cohort study</li>
 <li>Case-control study</li>
@@ -258,14 +263,31 @@ Yu Cheng Hsu
 <h1>Cohort Study</h1>
 
 </section>
-<section id="activity-instruction" class="slide level2">
-<h2>Activity instruction</h2>
+<section id="scenario-a-suspected-outbreak" class="slide level2">
+<h2>Scenario: A suspected outbreak</h2>
+<div class="columns">
+<div class="column">
+<p><strong>Presenting issue</strong></p>
+<p>A small community that relies on two drinking-water sources, Water Source A and Water Source B. Several residents develop disease after directly drinking water.</p>
+</div><div class="column">
+<p><strong>Questions</strong></p>
+<p>Investigators want to know whether living near one water source increases the risk of infection.</p>
+</div></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="../../..\assets/images/epi_workshop/illustration.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration"><img data-src="../../..\assets/images/epi_workshop/illustration.png" style="width:70.0%" alt="Illustration"></a></p>
+<figcaption>Illustration</figcaption>
+</figure>
+</div>
+</section>
+<section id="activity-instructions" class="slide level2">
+<h2>Activity instructions</h2>
 <p>In a cohort study, we follow a specific population based on their exposure status to observe their future probability of developing a disease.</p>
 <ol type="1">
-<li><strong>Everyone in the class:</strong> <strong>Showing only the card back (Water Source)</strong> and hiding the face.</li>
-<li><strong>Investigation</strong>: Leave your seat and find <span class="math inline">\(N\)</span> <strong>residents from Area A</strong> and <span class="math inline">\(N\)</span> <strong>residents from Area B</strong>.</li>
-<li>Once you find your targets, ask them to <em>reveal</em> their card faces and record whether they are infected (Red card).</li>
-<li>Record your data into the table below in r:</li>
+<li><strong>Everyone in the class:</strong> show only the card back (Water Source) and hide the face.</li>
+<li><strong>Investigation</strong>: leave your seat and find <span class="math inline">\(N\)</span> <strong>residents from Area A</strong> and <span class="math inline">\(N\)</span> <strong>residents from Area B</strong>.</li>
+<li>Once you find them, ask them to <em>reveal</em> their card faces and record whether they are infected (Red card).</li>
+<li>Record your data in the table below in R:</li>
 </ol>
 <table class="caption-top">
 <thead>
@@ -304,6 +326,19 @@ Yu Cheng Hsu
 </section>
 <section class="slide level2">
 
+<div class="columns">
+<div class="column" style="width:33%;">
+<ul>
+<li><strong>RR</strong> represents “how many times more likely the exposed group is to develop the disease compared to the unexposed group.”</li>
+</ul>
+<p><strong>Takeaway</strong></p>
+<ul>
+<li><strong>RR = 1</strong>: similar risk in exposed and unexposed<br>
+</li>
+<li><strong>RR &gt; 1 / RR &lt; 1</strong>: higher / lower risk in the exposed group</li>
+</ul>
+<p>If a confidence interval for the effect <strong>includes the null</strong> (no difference), treat the result as <strong>inconclusive</strong>—not as proof of no effect.</p>
+</div><div class="column" style="width:65%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Enter the data (a, b, c, d) you collected from your Cohort Study</span></span>
 <span id="cb1-2"><a></a>a <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Number of infected in Area A (example)</span></span>
@@ -322,12 +357,23 @@ Yu Cheng Hsu
 <pre><code>Relative Risk (RR) of the Cohort Study: 2.5 </code></pre>
 </div>
 </div>
-<ul>
-<li><strong>RR</strong> represents “how many times more likely the exposed group is to develop the disease compared to the unexposed group.”</li>
-</ul>
+</div></div>
 </section>
-<section id="inference-on-rr" class="slide level2">
-<h2>Inference on RR <sup>1</sup></h2>
+<section id="optional-deep-dive-not-assessed-inference-on-rr" class="slide level2">
+<h2>(Optional deep dive — not assessed) Inference on RR</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Optional below</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Optional below:</strong> SE formula, <span class="math inline">\(z\)</span>-interval construction, and code. Not included in the exam (Z-test is an approximation; other methods adjust for covariates more cleanly).</p>
+</div>
+</div>
+</div>
 <ul>
 <li><p><span class="math inline">\(\log(\text{RR})\)</span> follows normal distribution with standard error (SE) <span class="math display">\[
 SE=\sqrt{\frac{1}{a}-\frac{1}{a+b}+\frac{1}{c}-\frac{1}{c+d}}
@@ -338,12 +384,9 @@ H_0: &amp; \ln(RR) = 0 \\
 H_a: &amp; \ln(RR) \neq 0
 \end{aligned}
 \]</span></p></li>
-<li><p>If your 95% Confidence Interval includes the number 0 (e.g., [-0.9, 2.4]), we <strong>fail to reject the Null Hypothesis</strong>, because <span class="math inline">\(\ln(RR) = 0\)</span> is still a plausible reality.</p></li>
+<li><p>If your 95% confidence interval includes 0 (e.g., [-0.9, 2.4]), we <strong>fail to reject the null hypothesis</strong>, because <span class="math inline">\(\ln(RR) = 0\)</span> is still plausible.</p></li>
 </ul>
-<div class=".aside">
-
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>This part is not included in the exam for the following reason: 1. Z-test is an approximation method that does not reveal the true probability, 2. There is a more efficient and generalizable approach for adjusting for other variables.</p></li></ol></aside></section>
+</section>
 <section class="slide level2">
 
 <div class="columns">
@@ -390,8 +433,16 @@ H_a: &amp; \ln(RR) \neq 0
 <h1>Case-Control Study</h1>
 
 </section>
-<section id="activity-instruction-1" class="slide level2">
-<h2>Activity instruction</h2>
+<section id="scenario-a-retrospective-investigation-of-a-suspected-link" class="slide level2">
+<h2>Scenario: A retrospective investigation of a suspected link</h2>
+<p><strong>Presenting issue</strong></p>
+<p>Suppose health officials already know which residents are infected and which are not</p>
+<p><strong>Questions</strong></p>
+<p>They want to look back to see whether exposure to one of the water sources is more common among the infected group.</p>
+<p>In this activity, we start with infected individuals (cases) and healthy individuals (controls), then compare their past exposure to the two water sources.</p>
+</section>
+<section id="activity-instructions-1" class="slide level2">
+<h2>Activity instructions</h2>
 <p>In a case-control study, we start with people who already have the disease and compare them with people who do not have the disease based on their past exposure.</p>
 <ol type="1">
 <li><strong>Everyone in the class:</strong> Show only the <strong>card face (hearts, clubs, etc.)</strong> and hide the card back.</li>
@@ -428,7 +479,7 @@ H_a: &amp; \ln(RR) \neq 0
 </section>
 <section id="interpretation-of-case-control-study" class="slide level2">
 <h2>Interpretation of Case-Control study</h2>
-<p>We are trying to answer a similar question as the cohort study, but the sampling is different.</p>
+<p>We are trying to answer a similar question as in the cohort study, but the sampling is different.</p>
 <p><strong>Key difference from cohort studies</strong></p>
 <ul>
 <li>We cannot estimate risk directly from a case-control study because the ratio of cases to controls is set by the study design.</li>
@@ -479,7 +530,7 @@ H_0: &amp; \text{OR} = \frac{\frac{a}{b}}{\frac{c}{d}} = 1 \\
 H_a: &amp; \text{OR} = \frac{\frac{a}{b}}{\frac{c}{d}} \neq 1
 \end{aligned}
 \]</span></p>
-<p>This is equivalent to evaluate <span class="math display">\[
+<p>This is equivalent to evaluating <span class="math display">\[
 \frac{a}{b} = \frac{c}{d}
 \]</span></p>
 <ul>
@@ -612,14 +663,14 @@ c \ll d \implies &amp; c + d \approx d
 </ul>
 <div class="columns">
 <div class="column">
-<p><strong>Pancreatic cancer and coffee</strong> <span class="citation" data-cites="macmahon1981coffee">MacMahon et al. (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">1981</a>)</span></p>
+<p><strong>Pancreatic cancer and coffee</strong> <span class="citation" data-cites="macmahon1981coffee">MacMahon et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">1981</a>)</span></p>
 <ul>
 <li>Pancreatic cancer patient (case) v.s. Gastric ulcer (Hospital control)</li>
 <li>Hidden issue: Gastric ulcer patients are often advised to limit intake of irritants such as caffeine.</li>
 <li>Conclusion: Coffee intake appeared positively associated with pancreatic cancer.</li>
 </ul>
 </div><div class="column">
-<p><strong>GLP-1 and other medications</strong> <span class="citation" data-cites="schuemie2019plea">Schuemie et al. (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">2019</a>)</span></p>
+<p><strong>GLP-1 and other medications</strong> <span class="citation" data-cites="schuemie2019plea">Schuemie et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2019</a>)</span></p>
 <ul>
 <li>Studies try to show the effect of GLP-1 therapies (once used for type 2 diabetes, now repurposed for weight control and cardiovascular risk reduction)</li>
 <li>Because of the variety of products, patients may not know whether they are taking the medication or not</li>
@@ -675,7 +726,7 @@ c \ll d \implies &amp; c + d \approx d
 <ul>
 <li>Analyze data from cohort study</li>
 <li>Analyze data from case-control study</li>
-<li>Justify the use cohort or case-control study</li>
+<li>Justify the use of a cohort or case-control study</li>
 </ul>
 </section></section>
 <section>
@@ -688,7 +739,7 @@ c \ll d \implies &amp; c + d \approx d
 <p>To perform regression analysis we need to transform our contingency table to proper dataframe</p>
 <p><strong>Helper function</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Helper fundtion to transform contingency table to dataframe</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Helper function to transform contingency table to dataframe</span></span>
 <span id="cb13-2"><a></a>table_to_df <span class="ot">&lt;-</span> <span class="cf">function</span>(contingency_table) {</span>
 <span id="cb13-3"><a></a>  </span>
 <span id="cb13-4"><a></a>  <span class="co"># Getting cell from the contingency table</span></span>
@@ -711,8 +762,21 @@ c \ll d \implies &amp; c + d \approx d
 <span id="cb13-21"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="cohort-and-poisson-regression" class="slide level2">
-<h2>Cohort and Poisson regression</h2>
+<section id="optional-deep-dive-not-assessed-cohort-and-poisson-regression" class="slide level2">
+<h2>(Optional deep dive — not assessed) Cohort and Poisson regression</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Optional modeling bridge</strong></p>
+</div>
+<div class="callout-content">
+<p>This section links RR to a Poisson regression coefficient <span class="math inline">\(\beta_1\)</span>. Useful for later courses; <strong>not</strong> the core workshop skill. Core skill remains: build the <span class="math inline">\(2\times 2\)</span> table and interpret RR/OR.</p>
+</div>
+</div>
+</div>
 <p>Consider the Exposure of A (X, 0 = control, live in B, 1 = exposure live in A), in Poisson regression, it is written as</p>
 <p><span class="math display">\[
 \ln(\text{Risk}) = \beta_0 + \beta_1 X
@@ -729,7 +793,7 @@ c \ll d \implies &amp; c + d \approx d
 \small
 \log(\text{Risk}_A )= \ln\left(p_A\right) = \beta_0 + \beta_1, \quad \log(\text{Risk}_B )= \ln\left(p_B\right) = \beta_0
 \]</span></p></li>
-<li><p>Subtracking each 2, we will get</p></li>
+<li><p>Subtracting the two, we will get</p></li>
 </ol>
 <p><span class="math display">\[
 \begin{aligned}
@@ -845,7 +909,7 @@ Number of Fisher Scoring iterations: 5</code></pre>
 \small
 \log(\text{Odds}_A )= \ln\left(\frac{p_A}{1-p_A}\right) = \beta_0 + \beta_1, \quad \log(\text{Odds}_B )= \ln\left(\frac{p_B}{1-p_B}\right) = \beta_0
 \]</span></p></li>
-<li><p>Subtracking each 2 in 2. we will get</p></li>
+<li><p>Subtracting the two in step 2, we will get</p></li>
 </ol>
 <p><span class="math display">\[
 \small
@@ -900,8 +964,8 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 </div></div>
 </section>
-<section id="historical-notes" class="slide level2">
-<h2>Historical notes</h2>
+<section id="historical-notes-optional-context" class="slide level2">
+<h2>Historical notes (optional context)</h2>
 <ul>
 <li>In some old paper researchers tend to use logistic regression for cohort study.
 <ul>
@@ -915,10 +979,10 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </ul></li>
 </ul></li>
 </ul>
-<p>This issue is solved by <span class="citation" data-cites="zou2004modified">Zou (<a href="#/bibilography-notes" role="doc-biblioref" onclick="">2004</a>)</span>, and since them Poisson regression and logistic regression will get the exact same results in this context.</p>
+<p>This issue is solved by <span class="citation" data-cites="zou2004modified">Zou (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2004</a>)</span>, and since then Poisson regression and logistic regression will get the exact same results in this context.</p>
 </section>
-<section id="bibilography-notes" class="slide level2 smaller scrollable">
-<h2>Bibilography notes</h2>
+<section id="bibliography-notes" class="slide level2 smaller scrollable">
+<h2>Bibliography notes</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -933,7 +997,6 @@ Zou, Guangyong. 2004. <span>“A Modified Poisson Regression Approach to Prospec
 </div>
 </div>
 </section></section>
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -1394,6 +1457,38 @@ Zou, Guangyong. 2004. <span>“A Modified Poisson Regression Approach to Prospec
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

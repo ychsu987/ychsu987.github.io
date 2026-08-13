@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
-  <title>Yu Cheng Hsu – Linear model</title>
+  <title>Yu Cheng Hsu – EHR data and linear regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background="/assets/images/functional-genomics/background-1.png" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
-  <h1 class="title">Linear model</h1>
-  <p class="subtitle">No</p>
+  <h1 class="title">EHR data and linear regression</h1>
+  <p class="subtitle">SBMS7402 — session materials</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -210,42 +210,191 @@ Yu Cheng Hsu
 </div>
 
 </section>
+<section id="intended-learning-outcomes" class="slide level2">
+<h2>Intended learning outcomes</h2>
+<p>By the end of this session, you will be able to:</p>
+<ul>
+<li>Explain what an EHR contains and why coding standards matter</li>
+<li>Interpret a simple linear model on continuous healthcare-style data</li>
+<li>Read one residual diagnostic plot and say what assumption it checks</li>
+</ul>
+</section>
+<section id="this-weeks-path" class="slide level2">
+<h2>This week’s path</h2>
+<ol type="1">
+<li><strong>EHR</strong> — what is in the digital chart, and common data traps<br>
+</li>
+<li><strong>Why regression</strong> — summarize “how <span class="math inline">\(y\)</span> changes with <span class="math inline">\(x\)</span>”<br>
+</li>
+<li><strong>Diagnostics</strong> — check whether the line’s assumptions look reasonable</li>
+</ol>
+</section>
+<section id="what-is-an-ehr" class="slide level2">
+<h2>What is an EHR?</h2>
+<p>An <strong>Electronic Health Record (EHR)</strong> is the digital chart of a patient’s encounters with the health system—visits, diagnoses, labs, prescriptions, and clinical notes stored so clinicians (and later analysts) can reuse them.</p>
+<p><strong>Toy timeline (one patient):</strong></p>
+<ol type="1">
+<li>Visit the clinic → demographics recorded<br>
+</li>
+<li>Doctor records a diagnosis → coded (e.g.&nbsp;ICD)<br>
+</li>
+<li>Lab is ordered → result coded (e.g.&nbsp;LOINC)<br>
+</li>
+<li>Prescription is filled → drug coded (e.g.&nbsp;ATC / RxNorm)</li>
+</ol>
+<p>Coding systems are a <strong>shared language</strong> so different hospitals and software can mean the same clinical idea.</p>
+</section>
+<section id="components-in-ehr-system" class="slide level2">
+<h2>Components in EHR System</h2>
+<ul>
+<li>Demographics &amp; Social Determinants: Age, sex, ethnicity, socioeconomic indicators.</li>
+<li>Clinical Encounters &amp; Diagnoses: Coded using international diagnostic standards:
+<ul>
+<li>ICD-9 / ICD-10 / ICD-11: International Classification of Diseases.<br>
+</li>
+<li>SNOMED-CT: Systematized Nomenclature of Medicine for clinical concepts.<br>
+</li>
+</ul></li>
+<li>Prescriptions &amp; Pharmacy Records: Coded using ATC or RxNorm frameworks.<br>
+</li>
+<li>Laboratory &amp; Diagnostic Results: Coded using LOINC standards.</li>
+<li>Unstructured Clinical Text: Progress notes, discharge summaries, radiological reports.</li>
+</ul>
+</section>
+<section id="from-individual-care-to-population-global-health" class="slide level2">
+<h2>From Individual Care to Population &amp; Global Health</h2>
+<ul>
+<li><p>Scaling clinical observations from single patient encounters to entire populations.</p></li>
+<li><p>Clinical Medicine: Focuses on diagnosis, treatment, and immediate patient outcomes.</p></li>
+<li><p>Population Health: Health outcomes, determinants, and patterns across defined groups (e.g., regional populations, disease cohorts).</p></li>
+<li><p>Global Health &amp; Digital Health Venture: Scalable health solutions, cross-border disease surveillance, and commercialization of data-driven digital health products.</p></li>
+</ul>
+</section>
+<section id="ehr-for-idea-generation" class="slide level2">
+<h2>EHR for idea generation</h2>
+<p><strong>Problem</strong></p>
+<ul>
+<li><p>Many biomedical startups fail due to building solutions for undersized or ill-defined patient markets.</p></li>
+<li><p>How many potential customers could benefit from the product?</p></li>
+</ul>
+<p><strong>EHR can</strong></p>
+<ul>
+<li>Analyzing epidemiological EHR data allows founders to precisely quantify <strong>unmet clinical needs</strong></li>
+<li>Facilitate further pricing strategy, potential market size.</li>
+</ul>
+</section>
+<section id="ehr-as-a-product" class="slide level2">
+<h2>EHR as a product</h2>
+<p><strong>Problem</strong></p>
+<ul>
+<li>Using EHR to develop new algorithms for diagnostic AI</li>
+<li>Software-as-a-Medical-Device (<strong>SaMD</strong>: software that itself is regulated as a medical device)</li>
+<li>Enhance accessibility of EHR, e.g.&nbsp;dashboard</li>
+</ul>
+<p><strong>EHR can</strong></p>
+<ul>
+<li>Provide fruitful training sources</li>
+<li>Serve as an information service for clinical decisions</li>
+</ul>
+</section>
+<section id="ehr-as-an-evidence" class="slide level2">
+<h2>EHR as an evidence</h2>
+<p><strong>Problem</strong> Traditional Randomized Controlled Trials (RCTs) are</p>
+<ul>
+<li>expensive,</li>
+<li>slow, and often lack generalizability.</li>
+</ul>
+<p><strong>EHR can</strong></p>
+<p>Regulatory bodies (e.g., US FDA, EMA, NMPA) increasingly accept <strong>real-world evidence (RWE)</strong>—evidence generated from routine care data such as EHRs, not only from traditional trials—for</p>
+<ul>
+<li>Post-market surveillance,</li>
+<li>Label expansions, and</li>
+<li>Synthetic control arms in clinical trials.</li>
+</ul>
+</section>
+<section id="challenges-in-ehr" class="slide level2">
+<h2>Challenges in EHR</h2>
+<p><strong>Missingness (missing for a reason)</strong></p>
+<ul>
+<li>Clinic vignette: sicker patients get more labs ordered; healthier patients may have blank lab fields. A “missing” lab is often informative, not random noise.</li>
+<li>Formal label: this pattern is often called <strong>missing not at random (MNAR)</strong> (contrast: completely random gaps vs gaps explained by other recorded variables).</li>
+<li>Labs/tests are ordered based on clinical suspicion, leading to missing baseline data.</li>
+<li>Loss to follow-up due to stigma and/or economic difficulties.</li>
+</ul>
+<p><strong>Selection / Sampling Bias</strong></p>
+<ul>
+<li>EHRs represent health-seeking populations, not necessarily the general population.</li>
+<li>People who are not covered in the health care system</li>
+</ul>
+<p><strong>Measurement / Coding Error</strong></p>
+<ul>
+<li>Inaccurate ICD codes or changes in institutional coding policies over time.</li>
+<li>Human errors in the process</li>
+<li>Misdiagnosis</li>
+</ul>
+</section>
 <section>
 <section id="linear-regression-diagnostics" class="title-slide slide level1 center">
 <h1>Linear Regression &amp; Diagnostics</h1>
 
 </section>
+<section id="why-fit-a-line-intuition-first" class="slide level2">
+<h2>Why fit a line? (intuition first)</h2>
+<p><strong>Healthcare question:</strong> Does systolic blood pressure tend to rise with age?</p>
+<ul>
+<li>Plot age (<span class="math inline">\(x\)</span>) against blood pressure (<span class="math inline">\(y\)</span>): points scatter, but often show an upward trend.</li>
+<li>A <strong>best-fit line</strong> summarizes that trend: “on average, how does <span class="math inline">\(y\)</span> change as <span class="math inline">\(x\)</span> increases?”</li>
+</ul>
+<p><strong>In plain English</strong></p>
+<ul>
+<li><span class="math inline">\(\beta_1\)</span>: average change in <span class="math inline">\(y\)</span> for a one-unit increase in <span class="math inline">\(x\)</span> (holding other predictors fixed, when there are several)</li>
+<li><span class="math inline">\(\beta_0\)</span>: predicted <span class="math inline">\(y\)</span> when all predictors are zero (often not clinically meaningful; still needed mathematically)</li>
+<li><span class="math inline">\(\epsilon\)</span>: leftover person-to-person noise the line does not explain</li>
+</ul>
+<p>We fit the line so we can <strong>describe</strong>, <strong>predict</strong>, and later <strong>test</strong> whether a relationship is compatible with chance.</p>
+</section>
 <section id="introduction-to-the-linear-regression-model" class="slide level2">
 <h2>Introduction to the Linear Regression Model</h2>
-<p>Linear regression model is formally defined as <span class="math display">\[
+<p>With that intuition, the linear regression model is formally defined as <span class="math display">\[
 \begin{aligned}
 y_{i} = &amp; \beta_{0} + \beta_{1}x_{1i} + \beta_{2}x_{2i} + \dots + \beta_{p}x_{pi} + \epsilon_{i} \text{, or}\\
 \mathbb{y} = &amp;\mathbb{\beta}\mathbb{X}+ \mathbb{\epsilon}
 \end{aligned}
 \]</span></p>
 <ul>
-<li>Systematic Part (Independent variable, predictor)</li>
-<li>Random Part: Individual observations of the outcome vary by an error term <span class="math inline">\(\epsilon_{i}\)</span>.</li>
+<li>Systematic part (predictors / independent variables)</li>
+<li>Random part: individual outcomes vary by an error term <span class="math inline">\(\epsilon_{i}\)</span></li>
 <li>It is assumed that <span class="math inline">\(\epsilon_{i} \sim \mathcal{N}(0, \sigma_{\epsilon}^{2})\)</span></li>
 </ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Optional / advanced</strong></p>
+</div>
+<div class="callout-content">
+<p>The matrix form <span class="math inline">\(\mathbf{y}=\boldsymbol{\beta}\mathbf{X}+\boldsymbol{\epsilon}\)</span> is a compact way to write the same model for many predictors. Focus first on the scalar equation and the meaning of <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\epsilon\)</span>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="prediction-in-regression" class="slide level2">
 <h2>Prediction in regression</h2>
 <div class="columns">
 <div class="column">
-<p><strong>Confidence Interval (CI) for the Mean Response:</strong></p>
+<p><strong>Confidence Interval (CI) for the Mean Response:</strong> The average expected outcome for all individuals with a specific predictor value <span class="math inline">\(x\)</span></p>
 <ul>
-<li>Definition: the average expected outcome for all individuals with a specific predictor value <span class="math inline">\(x\)</span></li>
-<li>Uncertainty: Estimated regression line</li>
+<li>Uncertainty: Uncertainty on <span class="math inline">\(\mathbb{\beta}\)</span></li>
 </ul>
 </div><div class="column">
-<p><strong>Prediction Interval (PI) for a New Observation:</strong></p>
+<p><strong>Prediction Interval (PI) for a New Observation:</strong> Predict the specific outcome <span class="math inline">\(y\)</span> for <strong>a</strong> single, new individual with a specific predictor value <span class="math inline">\(x\)</span>.</p>
 <ul>
-<li>Definition: Predict the specific outcome <span class="math inline">\(y\)</span> for <strong>a</strong> single, new individual with a specific predictor value <span class="math inline">\(x\)</span>.</li>
-<li>Uncertainty: Estimated regression line, and <strong>and</strong> random scatter of individual data points around that line</li>
+<li>Uncertainty: Uncertainty on <span class="math inline">\(\mathbb{\beta}\)</span> <strong>and</strong> Uncertainty on <span class="math inline">\(\mathbb{X}\)</span></li>
 </ul>
 </div></div>
-<div id="580a50f1" class="cell" data-execution_count="1">
+<div id="329300d0" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -264,7 +413,7 @@ y_{i} = &amp; \beta_{0} + \beta_{1}x_{1i} + \beta_{2}x_{2i} + \dots + \beta_{p}x
 <li><span class="math inline">\(\hat{y}_i\)</span>: The predicted value on the regression line.</li>
 <li><span class="math inline">\(\bar{y}\)</span>: The mean of all observed <span class="math inline">\(y\)</span> values.</li>
 </ul>
-<div id="1d6e1aac" class="cell" data-execution_count="2">
+<div id="6d1e450d" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -280,17 +429,20 @@ y_{i} = &amp; \beta_{0} + \beta_{1}x_{1i} + \beta_{2}x_{2i} + \dots + \beta_{p}x
 <section id="r2-the-coefficient-of-determination" class="slide level2">
 <h2><span class="math inline">\(R^2\)</span>: The Coefficient of Determination</h2>
 <ul>
-<li><span class="math inline">\(R^2\)</span> is the percentage of variance explaine dby the linear model</li>
+<li><span class="math inline">\(R^2\)</span> is the percentage of variance explained by the linear model</li>
 </ul>
 <p><span class="math display">\[
 R^2 = \frac{ESS}{TSS} = 1 - \frac{RSS}{TSS}
 \]</span></p>
-<p>-<span class="math inline">\(R^2 = 0\)</span>: the model explains none of the variance in the outcome (the regression line is flat at the mean, <span class="math inline">\(\bar{y}\)</span>). - <span class="math inline">\(R^2 = 1\)</span>: the model explains 100% of the variance (every data point falls exactly on the regression line, meaning RSS is zero).</p>
+<ul>
+<li><span class="math inline">\(R^2 = 0\)</span>: the model explains none of the variance in the outcome (the regression line is flat at the mean, <span class="math inline">\(\bar{y}\)</span>).</li>
+<li><span class="math inline">\(R^2 = 1\)</span>: the model explains 100% of the variance (every data point falls exactly on the regression line, meaning RSS is zero).</li>
+</ul>
 </section>
 <section id="inference-on-linear-model" class="slide level2">
 <h2>Inference on linear model</h2>
 <ul>
-<li><p>Even we have <span class="math inline">\(R^2\)</span>, we need to know if explained variance s statistically significant.</p></li>
+<li><p>Even if we have <span class="math inline">\(R^2\)</span>, we need to know whether the explained variance is statistically significant.</p></li>
 <li><p>Null Hypothesis <span class="math display">\[
 H_0: \beta_1 = \beta_2 = \dots = \beta_p = 0
 \]</span></p></li>
@@ -307,7 +459,7 @@ F = \frac{ESS / df_{ESS}}{RSS / df_{RSS}} \sim F_{df_{ESS},df_{RSS}}
 <section id="inference-on-individual-beta_i" class="slide level2">
 <h2>Inference on individual <span class="math inline">\(\beta_i\)</span></h2>
 <ul>
-<li><p>Investigate each predictor makes statisticaly significant contribution toward outcome</p></li>
+<li><p>Investigate whether each predictor makes a statistically significant contribution to the outcome</p></li>
 <li><p>Null Hypothesis <span class="math display">\[
 H_0: \beta_i = 0
 \]</span></p></li>
@@ -317,47 +469,166 @@ H_0: \beta_i = 0
 \beta_i \sim t_{n-(p+1)}(0,\frac{s_{y\vert{}x}^{2}}{(n-1)s_{x_i}^{2}(1-r_{i}^{2})})
 \]</span></p>
 <ul>
-<li>Implication in linear model: Including other predictors to control for confounding commonly has the effect of difficult to reject the null hypothesis</li>
+<li>Implication in linear model: Including other predictors to control for confounding commonly makes it more difficult to reject the null hypothesis</li>
 <li>Some of the unadjusted association is explained by those other predictors.</li>
 </ul>
 </section>
 <section id="assumption-on-linear-regression" class="slide level2">
 <h2>Assumption on linear regression</h2>
+<p>Ask these in everyday language first (formal names in parentheses):</p>
 <ol type="1">
-<li>Linearity</li>
-<li>Normality of erros</li>
-<li>Independece of errors</li>
-<li>Homoscedasticity</li>
-<li>No multicollinearity</li>
+<li>Is the trend roughly a straight line? (<strong>Linearity</strong>)</li>
+<li>Do leftovers look roughly bell-shaped? (<strong>Normality of errors</strong>)</li>
+<li>Are leftovers independent (not clustered in time, space, or repeated measures)? (<strong>Independence of errors</strong>)</li>
+<li>Is the leftover scatter similar at low and high fitted values? (<strong>Homoscedasticity</strong> / constant variance)</li>
+<li>Are two predictors saying almost the same thing? (<strong>No multicollinearity</strong>)</li>
 </ol>
+<p>Failure modes matter clinically: e.g.&nbsp;if sicker patients get more labs, associations estimated from complete cases can be biased.</p>
 </section>
 <section id="linearity" class="slide level2">
 <h2>Linearity</h2>
-<p>The model assumes that the average value of the outcome changes linearly with each continuous predictor. Departures from linearity can be checked using Residual versus Predictor (RVP) plots or Component-Plus-Residual (CPR) plots. Applying a nonparametric smoother (like LOWESS) to these plots helps detect nonlinear trends in the residuals. If nonlinearity is found, you may need to apply transformations to the predictor (e.g., adding quadratic terms, log transformations) or categorize the continuous predictor.</p>
+<p><strong>Plain check:</strong> Does <span class="math inline">\(y\)</span> change at a roughly constant rate as <span class="math inline">\(x\)</span> increases, or is there a bend / threshold?</p>
+<p>The model assumes that the outcome changes linearly with each continuous predictor.</p>
+<p>Checking:</p>
+<ul>
+<li>Residual versus Predictor (RVP) plots</li>
+</ul>
+<div id="2f0fbdd6" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="lr_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="lr_files/figure-revealjs/cell-4-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="mitigation-plan-linearity" class="slide level2">
+<h2>Mitigation plan linearity</h2>
+<ul>
+<li><p>Categorize the continuous predictor.</p>
+<p>The predictor has the threshold effect</p></li>
+<li><p>Transformations to the predictor (e.g., adding quadratic terms, log transformations)</p>
+<p>The predictor has the non-linear effect on the outcome</p></li>
+<li><p>Piecewise Regression</p>
+<p>Specifying a threshold point in the regression model</p></li>
+</ul>
 </section>
 <section id="normality-of-errors" class="slide level2">
 <h2>Normality of Errors</h2>
-<p>The error term <span class="math inline">\(\epsilon\)</span> is assumed to have a normal distribution. This can be assessed using histograms, boxplots, kernel density estimates, and normal quantile-quantile (Q-Q) plots applied to the residuals. In a normal Q-Q plot, upward curvature is diagnostic of right-skewness. Transforming the outcome variable (e.g., replacing <span class="math inline">\(y\)</span> with <span class="math inline">\(log(y)\)</span>) is often successful for reducing the skewness of residuals.</p>
+<p><strong>Plain check:</strong> Do residuals look like a bell (symmetric pile around zero), or are they piled on one side / heavy-tailed?</p>
+<ul>
+<li><span class="math inline">\(\epsilon \text{i.i.d} N(0,1)\)</span> is assumed</li>
+<li>Normality checking with Q-Q plot:
+<ul>
+<li>Diagonal line: Normal</li>
+<li>Upward curvature: Residuals are right-skewed (Floor effects of X).</li>
+<li>Downward curvature: Residuals are left-skewed (Ceiling effects of X).</li>
+</ul></li>
+</ul>
+<div id="11c81b6d" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="lr_files/figure-revealjs/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="lr_files/figure-revealjs/cell-5-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="mitigation-plan" class="slide level2">
+<h2>Mitigation plan</h2>
+<ul>
+<li>Transforming the outcome variable (e.g., replacing <span class="math inline">\(y\)</span> with <span class="math inline">\(log(y)\)</span>)</li>
+<li>This could also imply other regression (i.e.&nbsp;Poisson, Negative-binomial regression)</li>
+</ul>
+</section>
+<section id="independence-of-errors" class="slide level2">
+<h2>Independence of errors</h2>
+<p><strong>Plain check:</strong> Is each leftover “its own story,” or are nearby / same-patient / same-clinic residuals similar?</p>
+<ul>
+<li><span class="math inline">\(\epsilon \text{ i.i.d} N(0,1)\)</span> is assumed</li>
+</ul>
+<p>Some obvious situations that violate this assumption</p>
+<ul>
+<li>Repeated measures on the same person</li>
+<li>Temporal or spatial patterns among observations</li>
+</ul>
+<p>Checking the group difference</p>
+<div id="46a7b2f0" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="lr_files/figure-revealjs/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="lr_files/figure-revealjs/cell-6-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="constant-variance-homoscedasticity" class="slide level2">
 <h2>Constant Variance (Homoscedasticity)</h2>
-<p>The model assumes that the variance of the error term, <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span>, is constant across all observations. Violations of this assumption are known as heteroscedasticity, which can affect the validity of confidence intervals and P-values. Homoscedasticity is evaluated using RVP plots and Residual versus Fitted (RVF) plots. A horizontal funnel shape in these scatterplots is a signal of heteroscedasticity.</p>
-</section>
-<section id="influential-points-and-outliers" class="slide level2">
-<h2>Influential Points and Outliers</h2>
-<p>High leverage points are x-outliers with the potential to exert undue influence on regression coefficient estimates. Influential points are specific observations that have actually exerted an undue influence on the estimates. DFBETA statistics are recommended to quantify how much each coefficient would change if a specific observation were omitted from the dataset. IV. Code Illustrations: Python and RBelow are examples of how to fit a multiple linear regression model and generate the necessary diagnostic plots in both Python</p>
+<p><strong>Plain check:</strong> Is the leftover scatter similar across the range of fitted values, or does it fan out like a funnel?</p>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Constant variance of the error term, <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span> (violation = <strong>heteroscedasticity</strong>)</li>
+<li>Impact: Precision of confidence intervals and P-values.</li>
+<li>Checking: Residual versus Fitted (RVF) plots.</li>
+<li>A horizontal funnel shape in these scatterplots is a signal of heteroscedasticity.</li>
+<li>Having more observations won’t relieve the problem</li>
+</ul>
+</div><div class="column">
+<div id="4bae080c" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="lr_files/figure-revealjs/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="lr_files/figure-revealjs/cell-7-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<div id="3cd595fe" class="cell" data-execution_count="3">
+<div id="b6a91066" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="lr_files/figure-revealjs/cell-8-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="lr_files/figure-revealjs/cell-8-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="a7e53e85" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="lr_files/figure-revealjs/cell-9-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="lr_files/figure-revealjs/cell-9-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="influential-points-and-outliers" class="slide level2">
+<h2>Influential Points and Outliers</h2>
+<p>High leverage points are x-outliers with the potential to exert undue influence on regression coefficient estimates. Influential points are specific observations that have actually exerted an undue influence on the estimates. DFBETA statistics are recommended to quantify how much each coefficient would change if a specific observation were omitted from the dataset.</p>
+</section>
+<section id="code-illustrations-python-and-r" class="slide level2">
+<h2>Code Illustrations: Python and R</h2>
+<p>Below are examples of how to fit a multiple linear regression model and generate the necessary diagnostic plots in both Python and R.</p>
+</section>
+<section id="python-illustration" class="slide level2">
+<h2>Python illustration</h2>
+<div id="62117a88" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
 <pre><code>                            OLS Regression Results                            
 ==============================================================================
 Dep. Variable:                      Y   R-squared:                       0.810
 Model:                            OLS   Adj. R-squared:                  0.808
 Method:                 Least Squares   F-statistic:                     420.6
-Date:                Fri, 24 Jul 2026   Prob (F-statistic):           7.92e-72
-Time:                        16:58:45   Log-Likelihood:                -821.84
+Date:                Thu, 13 Aug 2026   Prob (F-statistic):           7.92e-72
+Time:                        16:13:04   Log-Likelihood:                -821.84
 No. Observations:                 200   AIC:                             1650.
 Df Residuals:                     197   BIC:                             1660.
 Df Model:                           2                                         
@@ -381,14 +652,14 @@ Notes:
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="lr_files/figure-revealjs/cell-4-output-2.png"></a></p>
+<p><a href="lr_files/figure-revealjs/cell-10-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="lr_files/figure-revealjs/cell-10-output-2.png"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
+<section id="r-illustration" class="slide level2">
+<h2>R illustration</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a># 1. Generate Synthetic Data</span>
 <span id="cb2-2"><a></a>set.seed(42)</span>
 <span id="cb2-3"><a></a>n &lt;- 200</span>
