@@ -3,7 +3,7 @@ title: "Cancer cell population monitoring"
 subtitle: "An ecology perspective"
 author: "Yu Cheng Hsu"
 title-slide-attributes:
-    data-background: /assets/images/functional-genomics/background-1.png
+    data-background: /assets/images/adt/background-1.png
     data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"
@@ -31,7 +31,7 @@ engine: jupyter
 ## Tumor evolution
 :::{.columns}
 
-::: {.column width="48%"}
+::: {.column width="45%"}
 
 Tumor grows and evolves under evolutionary pressure
   
@@ -41,7 +41,7 @@ Tumor grows and evolves under evolutionary pressure
   - Therapeutic
 :::
 
-:::{.column width="48%"}
+:::{.column width="53%"}
 
 **Intratumor heterogeneity** (ITH): diversity in genetics, phenotype, or even epigenetic profiles among cells in the *same* tumor. That diversity can help some cells survive selection pressures.
 
@@ -53,18 +53,26 @@ Tumor grows and evolves under evolutionary pressure
 
 :::
 
-![Intratumor heterogeneity of tumor cells from @walshaccurate ](/assets/images/adt/ith.png)
+![Intratumor heterogeneity of tumor cells from @walshaccurate ](/assets/images/adt/ith.png){width="60%"}
 
 ## Implication of ITH - Treatment
 
+:::{.columns}
+
+::: {.column width="45%"}
 - ITH implies that tumor cells could (Darwinian):
   - Possess a genetic reservoir (accumulating different variations).
   - Adapt to different evolutionary pressures.
 
 - **Treatment** is a selective evolutionary pressure (therapeutic pressure).
 - Natural selection favors treatment-resistant tumor cells.
+:::
 
-![Selective pressure and drug resistance, image from @greaves2012clonal](/assets/images/adt/drug%20resistance.png){width="70%"}
+::: {.column width="53%"}
+
+![Selective pressure and drug resistance, image from @greaves2012clonal](/assets/images/adt/drug%20resistance.png){width="80%"}
+:::
+:::
 
 ## Prostate Cancer
 

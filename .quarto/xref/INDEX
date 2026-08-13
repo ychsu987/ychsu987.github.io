@@ -217,7 +217,8 @@
     "1-distribution.html": "75740821"
   },
   "courses/2025/BIOF2014/1-Question sets-discrete.qmd": {
-    "1-Question sets-discrete.html": "abc1fafd"
+    "1-Question sets-discrete.html": "abc1fafd",
+    "1-Question sets_presentation.html": "e614b4c5"
   },
   "courses/2025/BIOF2014/2-Discrete distribution family-sketch.qmd": {
     "2-Discrete distribution family-sketch.html": "bf962fe7"
@@ -226,10 +227,12 @@
     "2-Discrete distribution family.html": "c4608fe0"
   },
   "courses/2025/BIOF2014/2-Question sets-binomial-sketch.qmd": {
-    "2-Question sets-binomial-sketch.html": "1228de24"
+    "2-Question sets-binomial-sketch.html": "1228de24",
+    "2-Question sets_presentation-sketch.html": "b2fdb48b"
   },
   "courses/2025/BIOF2014/2-Question sets-binomial.qmd": {
-    "2-Question sets-binomial.html": "21020b55"
+    "2-Question sets-binomial.html": "21020b55",
+    "2-Question sets_presentation.html": "9e196f52"
   },
   "courses/2025/BIOF2014/3-multivariate-sketch.qmd": {
     "3-multivariate-sketch.html": "e853ee39"
@@ -238,7 +241,8 @@
     "3-multivariate.html": "5bdf4212"
   },
   "courses/2025/BIOF2014/3-Question sets-multivariate.qmd": {
-    "3-Question sets-multivariate.html": "4f5ec5fc"
+    "3-Question sets-multivariate.html": "4f5ec5fc",
+    "3-Question sets_presentation.html": "a3c538c6"
   },
   "courses/2025/BIOF2014/4-Discrete distribution family-2-sketch.qmd": {
     "4-Discrete distribution family-2-sketch.html": "b9526f04"
@@ -247,10 +251,12 @@
     "4-Discrete distribution family-2.html": "2739646e"
   },
   "courses/2025/BIOF2014/4-Question sets-multinomial-sketch.qmd": {
-    "4-Question sets-multinomial-sketch.html": "7d387818"
+    "4-Question sets-multinomial-sketch.html": "7d387818",
+    "4-Question sets_presentation_sketch.html": "35780e6f"
   },
   "courses/2025/BIOF2014/4-Question sets-multinomial.qmd": {
-    "4-Question sets-multinomial.html": "fa4f75fc"
+    "4-Question sets-multinomial.html": "fa4f75fc",
+    "4-Question sets_presentation.html": "9db95591"
   },
   "courses/2025/BIOF2014/5-Discrete distribution family-3-sketch.qmd": {
     "5-Discrete distribution family-3-sketch.html": "8730b2ce"
@@ -259,7 +265,8 @@
     "5-Discrete distribution family-3.html": "bd5a1737"
   },
   "courses/2025/BIOF2014/5-Question sets-poisson.qmd": {
-    "5-Question sets-poisson.html": "bbaf29a0"
+    "5-Question sets-poisson.html": "bbaf29a0",
+    "5-Question sets_presentation.html": "63f6f857"
   },
   "courses/2025/BIOF2014/6-Continuous distribution family-sketch.qmd": {
     "6-Continuous distribution family-sketch.html": "ae0c3a43"
@@ -268,7 +275,8 @@
     "6-Continuous distribution family.html": "e60d1bb8"
   },
   "courses/2025/BIOF2014/6-Question sets-continuous.qmd": {
-    "6-Question sets-continuous.html": "73dbd5e2"
+    "6-Question sets-continuous.html": "73dbd5e2",
+    "6-Question sets_presentation.html": "a0312a74"
   },
   "courses/2025/BIOF2014/7-Model fitting-sketch.qmd": {
     "7-Model fitting-sketch.html": "a0120178"
@@ -277,7 +285,8 @@
     "7-Model fitting.html": "744a91cf"
   },
   "courses/2025/BIOF2014/7-Question sets-model.qmd": {
-    "7-Question sets-model.html": "3e941fb5"
+    "7-Question sets-model.html": "3e941fb5",
+    "7-Question sets_presentation.html": "a16a7be3"
   },
   "courses/2025/BIOF2014/8-EM-sketch.qmd": {
     "8-EM-sketch.html": "1b35caa9"
@@ -353,5 +362,17 @@
   },
   "courses/2026/SBMS7402/lr.qmd": {
     "lr.html": "446fe93e"
+  },
+  "courses/2026/SBMS7202/index.qmd": {
+    "index.html": "97c38512"
+  },
+  "courses/2026/SBMS7202/real-example.qmd": {
+    "real-example.html": "88c89125"
+  },
+  "courses/2026/SBMS7402/index.qmd": {
+    "index.html": "3323ab89"
+  },
+  "courses/2026/SBMS7402/course-overview.qmd": {
+    "course-overview.html": "919b980c"
   }
 }

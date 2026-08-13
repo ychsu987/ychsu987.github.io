@@ -46,6 +46,74 @@ digraph  G {
 
 :::
 
+##
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# ---------------------------------------------------------
+# 1. Define Model Parameters
+# ---------------------------------------------------------
+C0 = 10.0  # Initial population size
+t = np.linspace(0, 10, 500)  # Time array (x-axis)
+
+# Net growth rates (\alpha = g - d)
+alpha_growth = 0.5  # g > d (Exponential Growth)
+alpha_decay = -0.5  # g < d (Exponential Decay)
+alpha_zero = 0.0  # g = d (Equilibrium)
+
+# ---------------------------------------------------------
+# 2. Exact Analytical Solutions: C(t) = C0 * exp(\alpha * t)
+# ---------------------------------------------------------
+C_growth = C0 * np.exp(alpha_growth * t)
+C_decay = C0 * np.exp(alpha_decay * t)
+C_zero = C0 * np.exp(alpha_zero * t)
+
+# ---------------------------------------------------------
+# 3. Visualization (x = Time, y = Population Size)
+# ---------------------------------------------------------
+plt.figure(figsize=(10, 6))
+
+plt.plot(
+    t,
+    C_growth,
+    label=r"Growth ($\alpha > 0$, $g > d$)",
+    color="#1f77b4",
+    linewidth=2.5,
+)
+plt.plot(
+    t,
+    C_decay,
+    label=r"Decay ($\alpha < 0$, $g < d$)",
+    color="#d62728",
+    linewidth=2.5,
+)
+plt.plot(
+    t,
+    C_zero,
+    label=r"Constant ($\alpha = 0$, $g = d$)",
+    color="#7f7f7f",
+    linewidth=2.0,
+    linestyle="--",
+)
+
+# Aesthetics
+plt.title(
+    r"Simple Linear Population Model: $\frac{dC}{dt} = \alpha C(t)$",
+    fontsize=14,
+    pad=15,
+)
+plt.xlabel("Time ($t$)", fontsize=12)
+plt.ylabel("Population Size ($C(t)$)", fontsize=12)
+plt.grid(True, linestyle="--", alpha=0.6)
+plt.legend(fontsize=11, loc="upper left")
+plt.tight_layout()
+
+# Display the plot
+plt.show()
+```
+
 ## Implication of the simple model
 
 
@@ -97,7 +165,7 @@ $$
 - $K$ is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.
 - $\alpha$ is the intrinsic growth rate of the tumor cells.
 
-## Qualitative inspection of the logistic growth model
+## Qualitative inspection
 
 :::{.columns}
 
@@ -160,7 +228,6 @@ Consider two populations with following interactions
 
   - The growth of each species is *negatively* affected by the population size of the other species.
 
-$\rightarrow$ The ODE needs to be modified to account for the interactions between populations.
 
 ## Lotka-Volterra competition model
 
@@ -179,6 +246,83 @@ $$
   - $\beta_{12}$ represents the effect of species 2 on the growth of species 1.
   - $\beta_{21}$ represents the effect of species 1 on the growth of species 2.
 
+##
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import solve_ivp
+
+# ---------------------------------------------------------
+# 1. Define the Lotka-Volterra Competition Equations
+# ---------------------------------------------------------
+def lotka_volterra_competition(t, y, r1, r2, K1, K2, gamma12, gamma21):
+    x1, x2 = y
+    dx1_dt = r1 * x1 * (1 - (x1 + gamma12 * x2) / K1)
+    dx2_dt = r2 * x2 * (1 - (x2 + gamma21 * x1) / K2)
+    return [dx1_dt, dx2_dt]
+
+
+# ---------------------------------------------------------
+# 2. Set Parameters
+# ---------------------------------------------------------
+# Parameters
+r1, r2 = 0.5, 0.4  # Growth rates
+K1, K2 = 100.0, 100.0  # Carrying capacities
+gamma12 = 0.8  # Impact of Species 2 on Species 1
+gamma21 = 0.4  # Impact of Species 1 on Species 2
+
+# Initial populations [x1_0, x2_0]
+y0 = [10.0, 5.0]
+
+# Time span for the simulation
+t_span = (0, 50)
+t_eval = np.linspace(t_span[0], t_span[1], 500)
+
+# ---------------------------------------------------------
+# 3. Solve the Differential Equations
+# ---------------------------------------------------------
+solution = solve_ivp(
+    lotka_volterra_competition,
+    t_span,
+    y0,
+    args=(r1, r2, K1, K2, gamma12, gamma21),
+    t_eval=t_eval,
+    method="RK45",
+)
+
+# ---------------------------------------------------------
+# 4. Plot Results (x = time, y = population size)
+# ---------------------------------------------------------
+plt.figure(figsize=(10, 6))
+
+plt.plot(
+    solution.t,
+    solution.y[0],
+    label="Species 1 ($x_1$)",
+    color="#1f77b4",
+    linewidth=2.5,
+)
+plt.plot(
+    solution.t,
+    solution.y[1],
+    label="Species 2 ($x_2$)",
+    color="#d62728",
+    linewidth=2.5,
+)
+
+# Aesthetics
+plt.title("Lotka-Volterra Two-Species Competition Dynamics", fontsize=14, pad=15)
+plt.xlabel("Time ($t$)", fontsize=12)
+plt.ylabel("Population Size ($y$)", fontsize=12)
+plt.grid(True, linestyle="--", alpha=0.6)
+plt.legend(fontsize=11, loc="center right")
+plt.tight_layout()
+
+# Display the plot
+plt.show()
+```
+
 ## Lotka-Volterra prey-predator model
 
 Given two species, $C_1$ (prey) and $C_2$ (predator), the prey-predator Lotka-Volterra model can be expressed as
@@ -195,6 +339,83 @@ $$
 - $\beta_{12}$ is the effect of the presence of predators on the **prey death** rate.
 - $\beta_{21}$ is the effect of the presence of prey on the *predator's growth* rate.
 
+##
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import solve_ivp
+
+
+# ---------------------------------------------------------
+# 1. Define the Predator-Prey Differential Equations
+# ---------------------------------------------------------
+def lotka_volterra_predator_prey(t, state, alpha, beta, delta, gamma):
+    x, y = state
+    dxdt = alpha * x - beta * x * y  # Rate of change of prey
+    dydt = delta * x * y - gamma * y  # Rate of change of predators
+    return [dxdt, dydt]
+
+
+# ---------------------------------------------------------
+# 2. Set Model Parameters & Initial Conditions
+# ---------------------------------------------------------
+alpha = 1.1  # Prey birth rate
+beta = 0.4  # Predation rate
+delta = 0.1  # Predator growth factor
+gamma = 0.4  # Predator death rate
+
+# Initial populations: [Prey, Predators]
+state0 = [10.0, 2.0]
+
+# Time span for the simulation
+t_span = (0, 50)
+t_eval = np.linspace(t_span[0], t_span[1], 1000)
+
+# ---------------------------------------------------------
+# 3. Numerical Integration (ODE Solver)
+# ---------------------------------------------------------
+solution = solve_ivp(
+    lotka_volterra_predator_prey,
+    t_span,
+    state0,
+    args=(alpha, beta, delta, gamma),
+    t_eval=t_eval,
+    method="RK45",
+)
+
+# Extract time and solved populations
+time = solution.t
+prey = solution.y[0]
+predator = solution.y[1]
+
+# ---------------------------------------------------------
+# 4. Visualization (x = Time, y = Population Size)
+# ---------------------------------------------------------
+plt.figure(figsize=(10, 6))
+
+plt.plot(
+    time, prey, label="Prey ($x$)", color="#2ca02c", linewidth=2.5
+)
+plt.plot(
+    time,
+    predator,
+    label="Predator ($y$)",
+    color="#d62728",
+    linewidth=2.5,
+)
+
+# Aesthetics
+plt.title("Lotka-Volterra Predator-Prey Time-Series Dynamics", fontsize=14, pad=15)
+plt.xlabel("Time ($t$)", fontsize=12)
+plt.ylabel("Population Size ($y$)", fontsize=12)
+plt.grid(True, linestyle="--", alpha=0.6)
+plt.legend(fontsize=11, loc="upper right")
+plt.tight_layout()
+
+# Display the plot
+plt.show()
+```
 # Evaluating system of Ordinary Differential Equations (ODEs) 
 
 ## Qualitative inspection on ODEs
@@ -402,10 +623,8 @@ plt.show()
 - Mechanism: Interspecific competition is stronger than intraspecific competition for both species. Each species inhibits the other more than it inhibits itself.
 - Equilibria: 
   - $(K_1, 0)$, $(0, K_2)$ are locally stable nodes.
-  - The interior intersection point $(C_1^*, C_2^*)$ exists but is a saddle point (unstable):
-  $$C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}$$
-- Outcome: Priority Effect / Founders' Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point.
 :::
+
 :::{.column width=33%}
 
 ```{python}
@@ -424,6 +643,11 @@ ax.set_ylim(0, 2)
 ```
 :::
 :::
+
+
+  - The interior intersection point $(C_1^*, C_2^*)$ exists but is a saddle point (unstable):
+  $$C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}$$
+- Outcome: Priority Effect / Founders' Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point.
 
 ## Stable Coexistence
 
