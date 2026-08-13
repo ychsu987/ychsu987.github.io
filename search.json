@@ -403,7 +403,7 @@
     "href": "courses/2026/BIOF3001/adt-model.html#implication-of-ith---treatment",
     "title": "Cancer cell population monitoring",
     "section": "Implication of ITH - Treatment",
-    "text": "Implication of ITH - Treatment\n\nITH implies that tumor cells could (Darwinian):\n\nPossess a genetic reservoir (accumulating different variations).\nAdapt to different evolutionary pressures.\n\nTreatment is a selective evolutionary pressure (therapeutic pressure).\nNatural selection favors treatment-resistant tumor cells.\n\n\n\n\nSelective pressure and drug resistance, image from Greaves and Maley (2012)"
+    "text": "Implication of ITH - Treatment\n\n\n\nITH implies that tumor cells could (Darwinian):\n\nPossess a genetic reservoir (accumulating different variations).\nAdapt to different evolutionary pressures.\n\nTreatment is a selective evolutionary pressure (therapeutic pressure).\nNatural selection favors treatment-resistant tumor cells.\n\n\n\n\n\nSelective pressure and drug resistance, image from Greaves and Maley (2012)"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#prostate-cancer",
@@ -462,18 +462,18 @@
     "text": "Logistic growth model\nAn improved version of the simple model is the logistic growth model, which can be expressed as:\n\\[\n\\frac{dC}{dt}= \\alpha(1-\\frac{C(t)}{K}) C(t)\n\\]\n\n\\(K\\) is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.\n\\(\\alpha\\) is the intrinsic growth rate of the tumor cells."
   },
   {
-    "objectID": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection-of-the-logistic-growth-model",
-    "href": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection-of-the-logistic-growth-model",
+    "objectID": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection",
+    "href": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection",
     "title": "Cancer cell population monitoring",
-    "section": "Qualitative inspection of the logistic growth model",
-    "text": "Qualitative inspection of the logistic growth model\n\n\nThe analytical solution of the logistic growth model is\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
+    "section": "Qualitative inspection",
+    "text": "Qualitative inspection\n\n\nThe analytical solution of the logistic growth model is\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#what-is-missing",
     "href": "courses/2026/BIOF3001/adt-model.html#what-is-missing",
     "title": "Cancer cell population monitoring",
     "section": "What is missing?",
-    "text": "What is missing?\n\nThe model does not account for interactions with other cell types or the environment.\n\nConsider two populations with following interactions\n\nPrey and predator\n\nPredator population growth is positively affected by the prey population size\nPrey population growth is negatively affected by the predator population size\n\nCompetition between two species\n\n\nThe growth of each species is negatively affected by the population size of the other species.\n\n\\(\\rightarrow\\) The ODE needs to be modified to account for the interactions between populations."
+    "text": "What is missing?\n\nThe model does not account for interactions with other cell types or the environment.\n\nConsider two populations with following interactions\n\nPrey and predator\n\nPredator population growth is positively affected by the prey population size\nPrey population growth is negatively affected by the predator population size\n\nCompetition between two species\n\n\nThe growth of each species is negatively affected by the population size of the other species."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#lotka-volterra-competition-model",
@@ -522,7 +522,7 @@
     "href": "courses/2026/BIOF3001/adt-model.html#bistability-competitive-exclusion",
     "title": "Cancer cell population monitoring",
     "section": "Bistability / Competitive Exclusion",
-    "text": "Bistability / Competitive Exclusion\n\n\n\nCondition: \\(\\beta_{12} &gt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &gt; \\frac{K_2}{K_1}\\)\nMechanism: Interspecific competition is stronger than intraspecific competition for both species. Each species inhibits the other more than it inhibits itself.\nEquilibria:\n\n\\((K_1, 0)\\), \\((0, K_2)\\) are locally stable nodes.\nThe interior intersection point \\((C_1^*, C_2^*)\\) exists but is a saddle point (unstable): \\[C_1^* = \\frac{K_1 - \\beta_{12}K_2}{1 - \\beta_{12}\\beta_{21}}, \\quad C_2^* = \\frac{K_2 - \\beta_{21}K_1}{1 - \\beta_{12}\\beta_{21}}\\]\n\nOutcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point."
+    "text": "Bistability / Competitive Exclusion\n\n\n\nCondition: \\(\\beta_{12} &gt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &gt; \\frac{K_2}{K_1}\\)\nMechanism: Interspecific competition is stronger than intraspecific competition for both species. Each species inhibits the other more than it inhibits itself.\nEquilibria:\n\n\\((K_1, 0)\\), \\((0, K_2)\\) are locally stable nodes.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe interior intersection point \\((C_1^*, C_2^*)\\) exists but is a saddle point (unstable): \\[C_1^* = \\frac{K_1 - \\beta_{12}K_2}{1 - \\beta_{12}\\beta_{21}}, \\quad C_2^* = \\frac{K_2 - \\beta_{21}K_1}{1 - \\beta_{12}\\beta_{21}}\\]\nOutcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#stable-coexistence",

@@ -151,7 +151,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background="/assets/images/functional-genomics/background-1.png" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
+<section id="title-slide" data-background="/assets/images/adt/background-1.png" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
   <h1 class="title">Cancer cell population monitoring</h1>
   <p class="subtitle">An ecology perspective</p>
 
@@ -180,7 +180,7 @@ Yu Cheng Hsu
 <section id="tumor-evolution" class="slide level2">
 <h2>Tumor evolution</h2>
 <div class="columns">
-<div class="column" style="width:48%;">
+<div class="column" style="width:45%;">
 <p>Tumor grows and evolves under evolutionary pressure</p>
 <ul>
 <li>Trophic</li>
@@ -188,7 +188,7 @@ Yu Cheng Hsu
 <li>Immunological</li>
 <li>Therapeutic</li>
 </ul>
-</div><div class="column" style="width:48%;">
+</div><div class="column" style="width:53%;">
 <p><strong>Intratumor heterogeneity</strong> (ITH): diversity in genetics, phenotype, or even epigenetic profiles among cells in the <em>same</em> tumor. That diversity can help some cells survive selection pressures.</p>
 <p><strong>Consequences of ITH</strong></p>
 <ul>
@@ -198,13 +198,15 @@ Yu Cheng Hsu
 </div></div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/adt/ith.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Intratumor heterogeneity of tumor cells from @walshaccurate"><img data-src="../../..\assets/images/adt/ith.png" alt="Intratumor heterogeneity of tumor cells from Walsh (n.d.)"></a></p>
+<p><a href="../../..\assets/images/adt/ith.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Intratumor heterogeneity of tumor cells from @walshaccurate"><img data-src="../../..\assets/images/adt/ith.png" style="width:60.0%" alt="Intratumor heterogeneity of tumor cells from Walsh (n.d.)"></a></p>
 <figcaption>Intratumor heterogeneity of tumor cells from <span class="citation" data-cites="walshaccurate">Walsh (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">n.d.</a>)</span></figcaption>
 </figure>
 </div>
 </section>
 <section id="implication-of-ith---treatment" class="slide level2">
 <h2>Implication of ITH - Treatment</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
 <ul>
 <li>ITH implies that tumor cells could (Darwinian):
 <ul>
@@ -214,12 +216,14 @@ Yu Cheng Hsu
 <li><strong>Treatment</strong> is a selective evolutionary pressure (therapeutic pressure).</li>
 <li>Natural selection favors treatment-resistant tumor cells.</li>
 </ul>
+</div><div class="column" style="width:53%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/adt/drug resistance.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Selective pressure and drug resistance, image from @greaves2012clonal"><img data-src="../../..\assets/images/adt/drug resistance.png" style="width:70.0%" alt="Selective pressure and drug resistance, image from Greaves and Maley (2012)"></a></p>
+<p><a href="../../..\assets/images/adt/drug resistance.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Selective pressure and drug resistance, image from @greaves2012clonal"><img data-src="../../..\assets/images/adt/drug resistance.png" style="width:80.0%" alt="Selective pressure and drug resistance, image from Greaves and Maley (2012)"></a></p>
 <figcaption>Selective pressure and drug resistance, image from <span class="citation" data-cites="greaves2012clonal">Greaves and Maley (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2012</a>)</span></figcaption>
 </figure>
 </div>
+</div></div>
 </section>
 <section id="prostate-cancer" class="slide level2">
 <h2>Prostate Cancer</h2>
@@ -377,6 +381,18 @@ Yu Cheng Hsu
 </div>
 </div></div>
 </section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div id="04bf09ee" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="adt-model_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="adt-model_files/figure-revealjs/cell-2-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="implication-of-the-simple-model" class="slide level2">
 <h2>Implication of the simple model</h2>
 <div class="columns">
@@ -425,8 +441,8 @@ C(t) = C(0)e^{\alpha t}
 <li><span class="math inline">\(\alpha\)</span> is the intrinsic growth rate of the tumor cells.</li>
 </ul>
 </section>
-<section id="qualitative-inspection-of-the-logistic-growth-model" class="slide level2">
-<h2>Qualitative inspection of the logistic growth model</h2>
+<section id="qualitative-inspection" class="slide level2">
+<h2>Qualitative inspection</h2>
 <div class="columns">
 <div class="column" style="width:48%;">
 <p>The analytical solution of the logistic growth model is</p>
@@ -440,11 +456,11 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 <li><span class="math inline">\(C(t) = K\)</span>, the population will remain constant.</li>
 </ul>
 </div></div>
-<div id="7375dbd7" class="cell" data-execution_count="1">
+<div id="7855d1ca" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="adt-model_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="adt-model_files/figure-revealjs/cell-2-output-1.png"></a></p>
+<p><a href="adt-model_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="adt-model_files/figure-revealjs/cell-3-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -467,7 +483,6 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 <ul>
 <li>The growth of each species is <em>negatively</em> affected by the population size of the other species.</li>
 </ul>
-<p><span class="math inline">\(\rightarrow\)</span> The ODE needs to be modified to account for the interactions between populations.</p>
 </section>
 <section id="lotka-volterra-competition-model" class="slide level2">
 <h2>Lotka-Volterra competition model</h2>
@@ -488,6 +503,18 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 </ul></li>
 </ul>
 </section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div id="38d89d69" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="adt-model_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="adt-model_files/figure-revealjs/cell-4-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="lotka-volterra-prey-predator-model" class="slide level2">
 <h2>Lotka-Volterra prey-predator model</h2>
 <p>Given two species, <span class="math inline">\(C_1\)</span> (prey) and <span class="math inline">\(C_2\)</span> (predator), the prey-predator Lotka-Volterra model can be expressed as</p>
@@ -503,6 +530,18 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 <li><span class="math inline">\(\beta_{12}\)</span> is the effect of the presence of predators on the <strong>prey death</strong> rate.</li>
 <li><span class="math inline">\(\beta_{21}\)</span> is the effect of the presence of prey on the <em>predator’s growth</em> rate.</li>
 </ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div id="6d2c6ffb" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><a href="adt-model_files/figure-revealjs/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="adt-model_files/figure-revealjs/cell-5-output-1.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="evaluating-system-of-ordinary-differential-equations-odes" class="title-slide slide level1 center">
@@ -529,11 +568,11 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 \]</span></li>
 </ul>
-<div id="2f3b7674" class="cell" data-execution_count="2">
+<div id="7053e1cc" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="adt-model_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="adt-model_files/figure-revealjs/cell-3-output-1.png"></a></p>
+<p><a href="adt-model_files/figure-revealjs/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="adt-model_files/figure-revealjs/cell-6-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -552,11 +591,11 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 \]</span></p>
 <p>The intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in <span class="citation" data-cites="mcgehee2024mathematical">McGehee and Mori (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2024</a>)</span>)</p>
 </div><div class="column" style="width:48%;">
-<div id="e467b910" class="cell" data-execution_count="3">
+<div id="5f3165f7" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="adt-model_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="adt-model_files/figure-revealjs/cell-4-output-1.png"></a></p>
+<p><a href="adt-model_files/figure-revealjs/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="adt-model_files/figure-revealjs/cell-7-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -602,21 +641,23 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 <li>Equilibria:
 <ul>
 <li><span class="math inline">\((K_1, 0)\)</span>, <span class="math inline">\((0, K_2)\)</span> are locally stable nodes.</li>
-<li>The interior intersection point <span class="math inline">\((C_1^*, C_2^*)\)</span> exists but is a saddle point (unstable): <span class="math display">\[C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}\]</span></li>
 </ul></li>
-<li>Outcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point.</li>
 </ul>
 </div><div class="column" style="width:33%;">
-<div id="ba9c34fd" class="cell" data-execution_count="4">
+<div id="f70bfc33" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="adt-model_files/figure-revealjs/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="adt-model_files/figure-revealjs/cell-5-output-1.png"></a></p>
+<p><a href="adt-model_files/figure-revealjs/cell-8-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="adt-model_files/figure-revealjs/cell-8-output-1.png"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
+<ul>
+<li>The interior intersection point <span class="math inline">\((C_1^*, C_2^*)\)</span> exists but is a saddle point (unstable): <span class="math display">\[C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}\]</span></li>
+<li>Outcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point.</li>
+</ul>
 </section>
 <section id="stable-coexistence" class="slide level2">
 <h2>Stable Coexistence</h2>
@@ -633,11 +674,11 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 <li>Outcome: Both species coexist indefinitely at reduced population levels relative to their single-species carrying capacities.</li>
 </ul>
 </div><div class="column" style="width:33%;">
-<div id="4e66fe3f" class="cell" data-execution_count="5">
+<div id="e8da1247" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="adt-model_files/figure-revealjs/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="adt-model_files/figure-revealjs/cell-6-output-1.png"></a></p>
+<p><a href="adt-model_files/figure-revealjs/cell-9-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="adt-model_files/figure-revealjs/cell-9-output-1.png"></a></p>
 </figure>
 </div>
 </div>
