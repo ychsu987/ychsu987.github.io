@@ -64,13 +64,6 @@ head(rnaseq[, 1:6], 3)
 head(meta, 3)
 ```
 
-::: {.callout-note}
-## Discussion question
-
-- What are the pros and cons using absolute path and relative path ?
-- What will be the best practice to put the data file ?
-:::
-
 ## Transforming data with dplyr
 
 `dplyr` is a package for making tabular data manipulation easier. You can choose using 

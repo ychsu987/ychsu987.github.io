@@ -462,11 +462,11 @@
     "text": "Logistic growth model\nAn improved version of the simple model is the logistic growth model, which can be expressed as:\n\\[\n\\frac{dC}{dt}= \\alpha(1-\\frac{C(t)}{K}) C(t)\n\\]\n\n\\(K\\) is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.\n\\(\\alpha\\) is the intrinsic growth rate of the tumor cells."
   },
   {
-    "objectID": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection-of-the-logistic-growth-model",
-    "href": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection-of-the-logistic-growth-model",
+    "objectID": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection",
+    "href": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection",
     "title": "Cancer cell population monitoring",
-    "section": "Qualitative inspection of the logistic growth model",
-    "text": "Qualitative inspection of the logistic growth model\n\n\nThe analytical solution of the logistic growth model is\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
+    "section": "Qualitative inspection",
+    "text": "Qualitative inspection\n\n\nThe analytical solution of the logistic growth model is\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#what-is-missing",
@@ -7180,12 +7180,5 @@
     "title": "Scientific computing",
     "section": "AILT9015",
     "text": "AILT9015\n\nClass demonstrations\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection",
-    "href": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection",
-    "title": "Cancer cell population monitoring",
-    "section": "Qualitative inspection",
-    "text": "Qualitative inspection\n\n\nThe analytical solution of the logistic growth model is\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
   }
 ]
