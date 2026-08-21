@@ -1,3 +1,7 @@
 /.quarto/
 /_site/
 **/*.quarto_ipynb
+
+# OS metadata (Finder / Windows Explorer)
+.DS_Store
+Thumbs.db
