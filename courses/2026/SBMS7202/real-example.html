@@ -262,7 +262,7 @@ Yu Cheng Hsu
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/real-example/darwin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration of experiment design"><img data-src="../../..\assets/images/real-example/darwin.png" style="width:100.0%" alt="Illustration of experiment design"></a></p>
+<p><a href="../../../assets/images/real-example/darwin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration of experiment design"><img data-src="../../../assets/images/real-example/darwin.png" style="width:100.0%" alt="Illustration of experiment design"></a></p>
 <figcaption>Illustration of experiment design</figcaption>
 </figure>
 </div>
@@ -292,7 +292,7 @@ Yu Cheng Hsu
 <div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/real-example/data_lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Data lifecycle, figure from @griffin2018best"><img data-src="../../..\assets/images/real-example/data_lifecycle.png" alt="Data lifecycle, figure from Griffin et al. (2018)"></a></p>
+<p><a href="../../../assets/images/real-example/data_lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Data lifecycle, figure from @griffin2018best"><img data-src="../../../assets/images/real-example/data_lifecycle.png" alt="Data lifecycle, figure from Griffin et al. (2018)"></a></p>
 <figcaption>Data lifecycle, figure from <span class="citation" data-cites="griffin2018best">Griffin et al. (<a href="#/reading-list" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
 </figure>
 </div>
@@ -827,80 +827,42 @@ Ross, Sheldon M. 2017. <em>Introductory Statistics</em>. Academic Press.
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

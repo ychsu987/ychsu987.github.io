@@ -243,8 +243,8 @@ Yu Cheng Hsu
 <li>Prof.&nbsp;Yuanhua Huang, and Prof.&nbsp;Jason Wong contribution on early version</li>
 </ul>
 </div></aside></section>
-<section id="why-wrangling-matters-30-seconds" class="slide level2">
-<h2>Why wrangling matters (30 seconds)</h2>
+<section id="why-wrangling-matters" class="slide level2">
+<h2>Why wrangling matters</h2>
 <p>Raw experiment tables are almost never analysis-ready.</p>
 <ul>
 <li>Columns may be wide, messy, or split across files</li>
@@ -315,22 +315,6 @@ Yu Cheng Hsu
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
 2 GSM2545337 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum     9
 3 GSM2545338 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum    10</code></pre>
-</div>
-</div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Discussion question</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>What are the pros and cons using absolute path and relative path ?</li>
-<li>What will be the best practice to put the data file ?</li>
-</ul>
-</div>
 </div>
 </div>
 </section>
@@ -907,80 +891,42 @@ Wickham, Hadley, Garrett Grolemund, et al. 2017. <em>R for Data Science</em>. Vo
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

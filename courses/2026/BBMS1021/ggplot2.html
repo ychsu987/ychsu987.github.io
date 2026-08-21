@@ -304,7 +304,7 @@ Yu Cheng Hsu
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/package/package.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Checking packages"><img data-src="../../..\assets/images/package/package.png" style="width:80.0%" alt="Checking packages"></a></p>
+<p><a href="../../../assets/images/package/package.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Checking packages"><img data-src="../../../assets/images/package/package.png" style="width:80.0%" alt="Checking packages"></a></p>
 <figcaption>Checking packages</figcaption>
 </figure>
 </div>
@@ -372,7 +372,7 @@ Yu Cheng Hsu
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/ggplot2/iris.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Iris flower"><img data-src="../../..\assets/images/ggplot2/iris.jpg" style="width:55.0%" alt="Iris flower"></a></p>
+<p><a href="../../../assets/images/ggplot2/iris.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Iris flower"><img data-src="../../../assets/images/ggplot2/iris.jpg" style="width:55.0%" alt="Iris flower"></a></p>
 <figcaption>Iris flower</figcaption>
 </figure>
 </div>
@@ -397,7 +397,7 @@ Yu Cheng Hsu
 <h2>Components in the graph</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/ggplot2/fig_element.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Common components of a figure, figure from @ggplot2"><img data-src="../../..\assets/images/ggplot2/fig_element.png" alt="Common components of a figure, figure from Wickham (2016)"></a></p>
+<p><a href="../../../assets/images/ggplot2/fig_element.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Common components of a figure, figure from @ggplot2"><img data-src="../../../assets/images/ggplot2/fig_element.png" alt="Common components of a figure, figure from Wickham (2016)"></a></p>
 <figcaption>Common components of a figure, figure from <span class="citation" data-cites="ggplot2">Wickham (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2016</a>)</span></figcaption>
 </figure>
 </div>
@@ -448,7 +448,7 @@ Yu Cheng Hsu
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/ggplot2/layer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Layer features of ggplot2"><img data-src="../../..\assets/images/ggplot2/layer.png" alt="Layer features of ggplot2"></a></p>
+<p><a href="../../../assets/images/ggplot2/layer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Layer features of ggplot2"><img data-src="../../../assets/images/ggplot2/layer.png" alt="Layer features of ggplot2"></a></p>
 <figcaption>Layer features of ggplot2</figcaption>
 </figure>
 </div>
@@ -645,7 +645,7 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 </table>
 <div class="columns">
 <div class="column">
-<p>Most of the time you only need to handle the presentation in <img data-src="../../..\assets/images/ggplot2/fig_element.png" alt="Elements in the scale"></p>
+<p>Most of the time you only need to handle the presentation in <img data-src="../../../assets/images/ggplot2/fig_element.png" alt="Elements in the scale"></p>
 </div><div class="column">
 <table class="caption-top">
 <thead>
@@ -713,7 +713,7 @@ Figure&nbsp;2: Scatter plot of MPG vs cylinders with customized axis and legend 
 </div><div class="column" style="width:38%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/ggplot2/figure_loc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Saved figure location"><img data-src="../../..\assets/images/ggplot2/figure_loc.png" alt="Saved figure location"></a></p>
+<p><a href="../../../assets/images/ggplot2/figure_loc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Saved figure location"><img data-src="../../../assets/images/ggplot2/figure_loc.png" alt="Saved figure location"></a></p>
 <figcaption>Saved figure location</figcaption>
 </figure>
 </div>
@@ -1061,80 +1061,42 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -251,7 +251,7 @@ Yu Cheng Hsu
 <p>R code can be saved in a text file with the extension <code>.R</code>. You can then run the code in the R console or RStudio by sourcing the file using the <code>source()</code> function. For example, if you have a file named <code>my_script.R</code>, run it with <code>source("my_script.R")</code> in the R console.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/reco/R_scripts.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration of my_script.R in RStudio"><img data-src="../../..\assets/images/reco/R_scripts.png" alt="Illustration of my_script.R in RStudio"></a></p>
+<p><a href="../../../assets/images/reco/R_scripts.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration of my_script.R in RStudio"><img data-src="../../../assets/images/reco/R_scripts.png" alt="Illustration of my_script.R in RStudio"></a></p>
 <figcaption>Illustration of my_script.R in RStudio</figcaption>
 </figure>
 </div>
@@ -261,7 +261,7 @@ Yu Cheng Hsu
 <p>You can save your R code in a file with the extension <code>.Rmd</code> or <code>.qmd</code>. This allows you to create dynamic documents that combine R code, text, and output. For example, the presentation slides are made from an improved version of <code>.qmd</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/reco/md_scipts.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Illustration of lecture slide (.qmd) in RStudio"><img data-src="../../..\assets/images/reco/md_scipts.png" alt="Illustration of lecture slide (.qmd) in RStudio"></a></p>
+<p><a href="../../../assets/images/reco/md_scipts.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Illustration of lecture slide (.qmd) in RStudio"><img data-src="../../../assets/images/reco/md_scipts.png" alt="Illustration of lecture slide (.qmd) in RStudio"></a></p>
 <figcaption>Illustration of lecture slide (.qmd) in RStudio</figcaption>
 </figure>
 </div>
@@ -1681,80 +1681,42 @@ $Name
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
