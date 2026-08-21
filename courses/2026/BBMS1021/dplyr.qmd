@@ -38,17 +38,6 @@ These lecture slides are partially adapted and inspired from
 
 :::
 
-## Why wrangling matters (30 seconds)
-
-Raw experiment tables are almost never analysis-ready.
-
-- Columns may be wide, messy, or split across files
-- We need a clean table: one row per observation, clear columns for predictors/outcomes
-
-**`dplyr`** is how we reshape and filter those tables so plots and models can run.
-
-Keep a before/after picture in mind: messy spreadsheet → tidy analysis table.
-
 {{< include /_content/modules/bdata/dplyr.qmd >}}
 
 ## Bibliography notes
