@@ -389,7 +389,7 @@
     "href": "courses/2026/BIOF3001/adt-model.html#intended-learning-outcomes",
     "title": "Cancer cell population monitoring",
     "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nContrast Darwinian and Lamarckian perspectives on treatment resistance\nDescribe the rationale and monitoring needs of adaptive therapy"
+    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#tumor-evolution",
@@ -438,14 +438,14 @@
     "href": "courses/2026/BIOF3001/adt-model.html#simple-model-of-tumor-growth",
     "title": "Cancer cell population monitoring",
     "section": "Simple model of tumor growth",
-    "text": "Simple model of tumor growth\n\n\nA simple model to describe the change in a tumor cell population (\\(\\frac{dC}{dt}\\)) is\n\\[\n\\frac{dC}{dt}=gC(t)-dC(t)=\\alpha C(t)\n\\]\n\n\\(g\\) is the growth rate of the tumor cells\n\\(d\\) is the death rate of the tumor cells\n\\(\\alpha\\) is the net growth rate of the tumor cells\n\n\n\n\n\n\n\n\n\nG\n\n\n\ncell\n\ncell\n\n\n\ncell-&gt;cell\n\n\ngrowth (g)\n\n\n\ndie\n\ndie\n\n\n\ncell-&gt;die\n\n\ndeath (d)"
+    "text": "Simple model of tumor growth\n\n\nA simple model to describe the change in a tumor cell population (\\(\\frac{dC}{dt}\\)) is\n\n\\[\n\\frac{dC}{dt}=gC(t)-dC(t)=\\alpha C(t)\n\\]\n\n\n\\(g\\) is the growth rate of the tumor cells\n\\(d\\) is the death rate of the tumor cells\n\\(\\alpha\\) is the net growth rate of the tumor cells\n\n\n\n\n\n\n\n\n\nG\n\n\n\ncell\n\ncell\n\n\n\ncell-&gt;cell\n\n\ngrowth (g)\n\n\n\ndie\n\ndie\n\n\n\ncell-&gt;die\n\n\ndeath (d)"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#implication-of-the-simple-model",
     "href": "courses/2026/BIOF3001/adt-model.html#implication-of-the-simple-model",
     "title": "Cancer cell population monitoring",
     "section": "Implication of the simple model",
-    "text": "Implication of the simple model\n\n\n\nThe population of the tumor cells at time \\(t\\) can be expressed as \\[\nC(t) = C(0)e^{\\alpha t}\n\\]\n\n\n\nIf \\(\\alpha &gt; 0\\), the population will grow exponentially.\nIf \\(\\alpha &lt; 0\\), the population will decline exponentially.\nIf \\(\\alpha = 0\\), the population will remain constant.\n\n\nLimitations\n\nThe model assumes that growth and death rates are constant over time, which may not be true in reality.\nThe model does not account for interactions with other cell types or the environment.\nThe model assumes there is no maximum population in a given environment."
+    "text": "Implication of the simple model\n\n\n\nThe population of the tumor cells at time \\(t\\) can be expressed as\n\n\n\\[\nC(t) = C(0)e^{\\alpha t}\n\\]\n\n\n\nIf \\(\\alpha &gt; 0\\), the population will grow exponentially.\nIf \\(\\alpha &lt; 0\\), the population will decline exponentially.\nIf \\(\\alpha = 0\\), the population will remain constant.\n\n\nLimitations\n\nThe model assumes that growth and death rates are constant over time, which may not be true in reality.\nThe model does not account for interactions with other cell types or the environment.\nThe model assumes there is no maximum population in a given environment."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#redesigning-the-model",
@@ -459,14 +459,14 @@
     "href": "courses/2026/BIOF3001/adt-model.html#logistic-growth-model",
     "title": "Cancer cell population monitoring",
     "section": "Logistic growth model",
-    "text": "Logistic growth model\nAn improved version of the simple model is the logistic growth model, which can be expressed as:\n\\[\n\\frac{dC}{dt}= \\alpha(1-\\frac{C(t)}{K}) C(t)\n\\]\n\n\\(K\\) is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.\n\\(\\alpha\\) is the intrinsic growth rate of the tumor cells."
+    "text": "Logistic growth model\nAn improved version of the simple model is the logistic growth model, which can be expressed as:\n\n\\[\n\\frac{dC}{dt}= \\alpha(1-\\frac{C(t)}{K}) C(t)\n\\]\n\n\n\\(K\\) is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.\n\\(\\alpha\\) is the intrinsic growth rate of the tumor cells."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection",
     "href": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection",
     "title": "Cancer cell population monitoring",
     "section": "Qualitative inspection",
-    "text": "Qualitative inspection\n\n\nThe analytical solution of the logistic growth model is\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
+    "text": "Qualitative inspection\n\n\nThe analytical solution of the logistic growth model is\n\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#what-is-missing",
@@ -480,14 +480,14 @@
     "href": "courses/2026/BIOF3001/adt-model.html#lotka-volterra-competition-model",
     "title": "Cancer cell population monitoring",
     "section": "Lotka-Volterra competition model",
-    "text": "Lotka-Volterra competition model\nGiven two species, \\(C_1\\) and \\(C_2\\) in competition with each other, the competitive Lotka-Volterra model can be expressed as\n\\[\n\\begin{aligned}\n\\frac{dC_1}{dt} = \\alpha_1 C_1(t) (1 - \\frac{C_1(t) + \\beta_{12} C_2(t)}{K_1}) \\\\\n\\frac{dC_2}{dt} = \\alpha_2 C_2(t) (1 - \\frac{C_2(t) + \\beta_{21} C_1(t)}{K_2})\n\\end{aligned}\n\\]\n\n\\(\\alpha_1\\) and \\(\\alpha_2\\) are the intrinsic growth rates of species 1 and 2, respectively.\n\\(K_1\\) and \\(K_2\\) are the carrying capacities of the environment for species 1 and 2, respectively.\n\\(\\beta_{12}\\) and \\(\\beta_{21}\\) are the competition rates between species 1 and 2,\n\n\\(\\beta_{12}\\) represents the effect of species 2 on the growth of species 1.\n\\(\\beta_{21}\\) represents the effect of species 1 on the growth of species 2."
+    "text": "Lotka-Volterra competition model\nGiven two species, \\(C_1\\) and \\(C_2\\) in competition with each other, the competitive Lotka-Volterra model can be expressed as\n\n\\[\n\\begin{aligned}\n\\frac{dC_1}{dt} = \\alpha_1 C_1(t) (1 - \\frac{C_1(t) + \\beta_{12} C_2(t)}{K_1}) \\\\\n\\frac{dC_2}{dt} = \\alpha_2 C_2(t) (1 - \\frac{C_2(t) + \\beta_{21} C_1(t)}{K_2})\n\\end{aligned}\n\\]\n\n\n\\(\\alpha_1\\) and \\(\\alpha_2\\) are the intrinsic growth rates of species 1 and 2, respectively.\n\\(K_1\\) and \\(K_2\\) are the carrying capacities of the environment for species 1 and 2, respectively.\n\\(\\beta_{12}\\) and \\(\\beta_{21}\\) are the competition rates between species 1 and 2,\n\n\\(\\beta_{12}\\) represents the effect of species 2 on the growth of species 1.\n\\(\\beta_{21}\\) represents the effect of species 1 on the growth of species 2."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#lotka-volterra-prey-predator-model",
     "href": "courses/2026/BIOF3001/adt-model.html#lotka-volterra-prey-predator-model",
     "title": "Cancer cell population monitoring",
     "section": "Lotka-Volterra prey-predator model",
-    "text": "Lotka-Volterra prey-predator model\nGiven two species, \\(C_1\\) (prey) and \\(C_2\\) (predator), the prey-predator Lotka-Volterra model can be expressed as\n\\[\n\\begin{aligned}\n\\frac{dC_1}{dt} &= \\alpha_1 C_1(t)(1 - \\frac{C_1(t)}{K_1}) - \\beta_{12} C_1(t) C_2(t) \\\\\n\\frac{dC_2}{dt} &= -\\alpha_2 C_2(t) + \\beta_{21} C_1(t) C_2(t)\n\\end{aligned}\n\\]\n\n\\(\\alpha_1\\) is the intrinsic growth rate of the prey population\n\\(\\alpha_2\\) is the intrinsic death rate of the predator population in the absence of prey.\n\\(\\beta_{12}\\) is the effect of the presence of predators on the prey death rate.\n\\(\\beta_{21}\\) is the effect of the presence of prey on the predator’s growth rate."
+    "text": "Lotka-Volterra prey-predator model\nGiven two species, \\(C_1\\) (prey) and \\(C_2\\) (predator), the prey-predator Lotka-Volterra model can be expressed as\n\n\\[\n\\begin{aligned}\n\\frac{dC_1}{dt} &= \\alpha_1 C_1(t)(1 - \\frac{C_1(t)}{K_1}) - \\beta_{12} C_1(t) C_2(t) \\\\\n\\frac{dC_2}{dt} &= -\\alpha_2 C_2(t) + \\beta_{21} C_1(t) C_2(t)\n\\end{aligned}\n\\]\n\n\n\\(\\alpha_1\\) is the intrinsic growth rate of the prey population\n\\(\\alpha_2\\) is the intrinsic death rate of the predator population in the absence of prey.\n\\(\\beta_{12}\\) is the effect of the presence of predators on the prey death rate.\n\\(\\beta_{21}\\) is the effect of the presence of prey on the predator’s growth rate."
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#qualitative-inspection-on-odes",
@@ -501,14 +501,14 @@
     "href": "courses/2026/BIOF3001/adt-model.html#phase-diagram",
     "title": "Cancer cell population monitoring",
     "section": "Phase diagram",
-    "text": "Phase diagram\n\nFor a logistic growth model \\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]"
+    "text": "Phase diagram\n\nFor a logistic growth model\n\n\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#discussion-on-lotka-volterra-competition-model",
     "href": "courses/2026/BIOF3001/adt-model.html#discussion-on-lotka-volterra-competition-model",
     "title": "Cancer cell population monitoring",
     "section": "Discussion on Lotka-Volterra competition model",
-    "text": "Discussion on Lotka-Volterra competition model\n\n\nWe can find the equilibrium points of the system by setting \\(\\frac{dC_1}{dt} = 0\\) and \\(\\frac{dC_2}{dt} = 0\\), which gives us the following equations:\n\\[\n\\begin{aligned}\nC_1(t) &= K_1 - \\beta_{12} C_2(t) \\\\\nC_2(t) &= K_2 - \\beta_{21} C_1(t) \\\\\n\\end{aligned}\n\\]\nThe intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in McGehee and Mori (2024))"
+    "text": "Discussion on Lotka-Volterra competition model\n\n\nWe can find the equilibrium points of the system by setting \\(\\frac{dC_1}{dt} = 0\\) and \\(\\frac{dC_2}{dt} = 0\\), which gives us the following equations:\n\n\\[\n\\begin{aligned}\nC_1(t) &= K_1 - \\beta_{12} C_2(t) \\\\\nC_2(t) &= K_2 - \\beta_{21} C_1(t) \\\\\n\\end{aligned}\n\\]\n\nThe intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in McGehee and Mori (2024))"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#exclusion-of-one-species-c_1-or-c_2-wins",
@@ -604,6 +604,230 @@
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#bibliography-notes",
     "href": "courses/2026/BIOF3001/adt-model.html#bibliography-notes",
+    "title": "Cancer cell population monitoring",
+    "section": "Bibliography notes",
+    "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#intended-learning-outcomes",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#intended-learning-outcomes",
+    "title": "Cancer cell population monitoring",
+    "section": "Intended learning outcomes",
+    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#tumor-evolution",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#tumor-evolution",
+    "title": "Cancer cell population monitoring",
+    "section": "Tumor evolution",
+    "text": "Tumor evolution\n\n\nTumor grows and evolves under evolutionary pressure\n\nTrophic\nMetabolic\nImmunological\nTherapeutic\n\n\nIntratumor heterogeneity (ITH): diversity in genetics, phenotype, or even epigenetic profiles among cells in the same tumor. That diversity can help some cells survive selection pressures.\nConsequences of ITH\n\nTherapeutic failure\nDrug resistance\n\n\n\n\n\nIntratumor heterogeneity of tumor cells from Walsh (n.d.)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#implication-of-ith---treatment",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#implication-of-ith---treatment",
+    "title": "Cancer cell population monitoring",
+    "section": "Implication of ITH - Treatment",
+    "text": "Implication of ITH - Treatment\n\n\n\nITH implies that tumor cells could (Darwinian):\n\nPossess a genetic reservoir (accumulating different variations).\nAdapt to different evolutionary pressures.\n\nTreatment is a selective evolutionary pressure (therapeutic pressure).\nNatural selection favors treatment-resistant tumor cells.\n\n\n\n\n\nSelective pressure and drug resistance, image from Greaves and Maley (2012)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#prostate-cancer",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#prostate-cancer",
+    "title": "Cancer cell population monitoring",
+    "section": "Prostate Cancer",
+    "text": "Prostate Cancer\n\n\nProstate Cancer in Hong Kong In 2023\n\nPrevalence rate (crude): 88.2 per 100K\nMortality rate (crude): 15 per 100K\n\nTreatment\n\nRadiotherapy\nSurgery\nChemotherapy\nHormone therapy\n\nProstate cancers are usually androgen-dependent. Hormone therapy works by reducing/blocking androgens, which can slow down or stop the growth of the cancer.\n\n\n\n\n\n\nProstate cancer"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#hormone-therapy-for-prostate-cancer",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#hormone-therapy-for-prostate-cancer",
+    "title": "Cancer cell population monitoring",
+    "section": "Hormone therapy for prostate cancer",
+    "text": "Hormone therapy for prostate cancer\n\nAndrogen deprivation therapy (ADT) is used for advanced prostate cancer\nContinuous ADT\n\nDisadvantages\n\nSide effects (e.g., hot flashes, loss of libido)\nDrug resistance (e.g., castration-resistant prostate cancer)\n\n\nIntermittent ADT (IADT)\n\nAdvantages Perera et al. (2020)\n\nDelayed drug resistance\nReduced side effects (Improved quality of life)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#data-sources",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#data-sources",
+    "title": "Cancer cell population monitoring",
+    "section": "Data sources",
+    "text": "Data sources\nBruchovsky et al. (2006) implemented a clinical trial of IADT\n\n\n\nTotal participants: 103 eligible patients with prostate cancer\nMonitoring biomarkers:\n\nProstate-specific antigen (PSA) levels (indicates the activity of prostate cancer cells)\nTestosterone (Effectiveness of ADT)\n\nTreatment protocol:\n\nADT is given for a fixed time (36 weeks) until PSA levels drop to 4 \\(\\mu\\)g/mL\nADT is stopped until PSA levels rise to 10 \\(\\mu\\)g/mL\n\n\n\n\n\n\nIADT protocol, image from Bruchovsky et al. (2006)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#preface",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#preface",
+    "title": "Cancer cell population monitoring",
+    "section": "Preface",
+    "text": "Preface\n\nPredicting the population in the\n\nmicrobiome\ncells (tumors, donor-recipient interactions)\n\n\nThe idea of using these models is to estimate the potential growth of the cells of interest and provide insights into the underlying mechanisms of growth.\nThe modeling techniques in this topic are largely borrowed from ecology, where the study of species populations is of crucial interest:\n\nInteractions between species\nEnvironment"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#simple-model-of-tumor-growth",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#simple-model-of-tumor-growth",
+    "title": "Cancer cell population monitoring",
+    "section": "Simple model of tumor growth",
+    "text": "Simple model of tumor growth\n\n\nA simple model to describe the change in a tumor cell population (\\(\\frac{dC}{dt}\\)) is\n\n\\[\n\\frac{dC}{dt}=gC(t)-dC(t)=\\alpha C(t)\n\\]\n\n\n\\(g\\) is the growth rate of the tumor cells\n\\(d\\) is the death rate of the tumor cells\n\\(\\alpha\\) is the net growth rate of the tumor cells\n\n\n\n\n\n\n\n\n\nG\n\n\n\ncell\n\ncell\n\n\n\ncell-&gt;cell\n\n\ngrowth (g)\n\n\n\ndie\n\ndie\n\n\n\ncell-&gt;die\n\n\ndeath (d)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#implication-of-the-simple-model",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#implication-of-the-simple-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Implication of the simple model",
+    "text": "Implication of the simple model\n\n\n\nThe population of the tumor cells at time \\(t\\) can be expressed as\n\n\n\\[\nC(t) = C(0)e^{\\alpha t}\n\\]\n\n\n\nIf \\(\\alpha &gt; 0\\), the population will grow exponentially.\nIf \\(\\alpha &lt; 0\\), the population will decline exponentially.\nIf \\(\\alpha = 0\\), the population will remain constant.\n\n\nLimitations\n\nThe model assumes that growth and death rates are constant over time, which may not be true in reality.\nThe model does not account for interactions with other cell types or the environment.\nThe model assumes there is no maximum population in a given environment."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#redesigning-the-model",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#redesigning-the-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Redesigning the model",
+    "text": "Redesigning the model\nFrom empirical observation, the growth of tumor cells usually follows these steps:\n\nStarting rapid growth from a single/small collections of cells\nThe growth slows down as the population increases\nEventually, the population reaches a plateau\n\nHow to redesign the model\n\nThe growth rate is not constant; it is negatively proportional to the population size.\nAt a large enough population size, the growth rate will be zero."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#logistic-growth-model",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#logistic-growth-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Logistic growth model",
+    "text": "Logistic growth model\nAn improved version of the simple model is the logistic growth model, which can be expressed as:\n\n\\[\n\\frac{dC}{dt}= \\alpha(1-\\frac{C(t)}{K}) C(t)\n\\]\n\n\n\\(K\\) is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.\n\\(\\alpha\\) is the intrinsic growth rate of the tumor cells."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#qualitative-inspection",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#qualitative-inspection",
+    "title": "Cancer cell population monitoring",
+    "section": "Qualitative inspection",
+    "text": "Qualitative inspection\n\n\nThe analytical solution of the logistic growth model is\n\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#what-is-missing",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#what-is-missing",
+    "title": "Cancer cell population monitoring",
+    "section": "What is missing?",
+    "text": "What is missing?\n\nThe model does not account for interactions with other cell types or the environment.\n\nConsider two populations with following interactions\n\nPrey and predator\n\nPredator population growth is positively affected by the prey population size\nPrey population growth is negatively affected by the predator population size\n\nCompetition between two species\n\n\nThe growth of each species is negatively affected by the population size of the other species."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#lotka-volterra-competition-model",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#lotka-volterra-competition-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Lotka-Volterra competition model",
+    "text": "Lotka-Volterra competition model\nGiven two species, \\(C_1\\) and \\(C_2\\) in competition with each other, the competitive Lotka-Volterra model can be expressed as\n\n\\[\n\\begin{aligned}\n\\frac{dC_1}{dt} = \\alpha_1 C_1(t) (1 - \\frac{C_1(t) + \\beta_{12} C_2(t)}{K_1}) \\\\\n\\frac{dC_2}{dt} = \\alpha_2 C_2(t) (1 - \\frac{C_2(t) + \\beta_{21} C_1(t)}{K_2})\n\\end{aligned}\n\\]\n\n\n\\(\\alpha_1\\) and \\(\\alpha_2\\) are the intrinsic growth rates of species 1 and 2, respectively.\n\\(K_1\\) and \\(K_2\\) are the carrying capacities of the environment for species 1 and 2, respectively.\n\\(\\beta_{12}\\) and \\(\\beta_{21}\\) are the competition rates between species 1 and 2,\n\n\\(\\beta_{12}\\) represents the effect of species 2 on the growth of species 1.\n\\(\\beta_{21}\\) represents the effect of species 1 on the growth of species 2."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#lotka-volterra-prey-predator-model",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#lotka-volterra-prey-predator-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Lotka-Volterra prey-predator model",
+    "text": "Lotka-Volterra prey-predator model\nGiven two species, \\(C_1\\) (prey) and \\(C_2\\) (predator), the prey-predator Lotka-Volterra model can be expressed as\n\n\\[\n\\begin{aligned}\n\\frac{dC_1}{dt} &= \\alpha_1 C_1(t)(1 - \\frac{C_1(t)}{K_1}) - \\beta_{12} C_1(t) C_2(t) \\\\\n\\frac{dC_2}{dt} &= -\\alpha_2 C_2(t) + \\beta_{21} C_1(t) C_2(t)\n\\end{aligned}\n\\]\n\n\n\\(\\alpha_1\\) is the intrinsic growth rate of the prey population\n\\(\\alpha_2\\) is the intrinsic death rate of the predator population in the absence of prey.\n\\(\\beta_{12}\\) is the effect of the presence of predators on the prey death rate.\n\\(\\beta_{21}\\) is the effect of the presence of prey on the predator’s growth rate."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#qualitative-inspection-on-odes",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#qualitative-inspection-on-odes",
+    "title": "Cancer cell population monitoring",
+    "section": "Qualitative inspection on ODEs",
+    "text": "Qualitative inspection on ODEs\n\nSystems of ODEs rarely have analytical solutions.\nIn many cases where ODEs do not have analytical solutions, we can use qualitative inspection to understand the behavior of the system.\nPhase diagram: Plotting derivatives as an arrow field, which can provide insights into\n\nthe stability\nbehavior\nInitial points"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#phase-diagram",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#phase-diagram",
+    "title": "Cancer cell population monitoring",
+    "section": "Phase diagram",
+    "text": "Phase diagram\n\nFor a logistic growth model\n\n\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#discussion-on-lotka-volterra-competition-model",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#discussion-on-lotka-volterra-competition-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Discussion on Lotka-Volterra competition model",
+    "text": "Discussion on Lotka-Volterra competition model\n\n\nWe can find the equilibrium points of the system by setting \\(\\frac{dC_1}{dt} = 0\\) and \\(\\frac{dC_2}{dt} = 0\\), which gives us the following equations:\n\n\\[\n\\begin{aligned}\nC_1(t) &= K_1 - \\beta_{12} C_2(t) \\\\\nC_2(t) &= K_2 - \\beta_{21} C_1(t) \\\\\n\\end{aligned}\n\\]\n\nThe intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in McGehee and Mori (2024))"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#exclusion-of-one-species-c_1-or-c_2-wins",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#exclusion-of-one-species-c_1-or-c_2-wins",
+    "title": "Cancer cell population monitoring",
+    "section": "Exclusion of one species (\\(C_1\\) or \\(C_2\\) wins)",
+    "text": "Exclusion of one species (\\(C_1\\) or \\(C_2\\) wins)\n\n\n\\(C_1\\) wins\n\nCondition: \\(\\beta_{12} &lt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &gt; \\frac{K_2}{K_1}\\)\nMechanism: Species 1 exerts strong competitive pressure on Species 2 (\\(\\beta_{21}\\) is large), while Species 2 exerts weak pressure on Species 1 (\\(\\beta_{12}\\) is small).\nEquilibria:\n\n\\((K_1, 0)\\) is a globally stable node.\n\\((0, K_2)\\) is an unstable node.\n\\((0, 0)\\) is an unstable saddle.\n\n\n\n\\(C_2\\) wins\n\nCondition: \\(\\beta_{12} &gt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &lt; \\frac{K_2}{K_1}\\)\nMechanism: Species 2 exerts strong competitive pressure on Species 1 (\\(\\beta_{12}\\) is large), whereas Species 1 exerts weak pressure on Species 2 (\\(\\beta_{21}\\) is small).\nEquilibria:\n\n\\((K_1, 0)\\) is an unstable node.\n\\((0, K_2)\\) is a globally stable node.\n\\((0, 0)\\) is an unstable saddle."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#bistability-competitive-exclusion",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#bistability-competitive-exclusion",
+    "title": "Cancer cell population monitoring",
+    "section": "Bistability / Competitive Exclusion",
+    "text": "Bistability / Competitive Exclusion\n\n\n\nCondition: \\(\\beta_{12} &gt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &gt; \\frac{K_2}{K_1}\\)\nMechanism: Interspecific competition is stronger than intraspecific competition for both species. Each species inhibits the other more than it inhibits itself.\nEquilibria:\n\n\\((K_1, 0)\\), \\((0, K_2)\\) are locally stable nodes.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe interior intersection point \\((C_1^*, C_2^*)\\) exists but is a saddle point (unstable): \\[C_1^* = \\frac{K_1 - \\beta_{12}K_2}{1 - \\beta_{12}\\beta_{21}}, \\quad C_2^* = \\frac{K_2 - \\beta_{21}K_1}{1 - \\beta_{12}\\beta_{21}}\\]\nOutcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#stable-coexistence",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#stable-coexistence",
+    "title": "Cancer cell population monitoring",
+    "section": "Stable Coexistence",
+    "text": "Stable Coexistence\n\n\n\nCondition: \\(\\beta_{12} &lt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &lt; \\frac{K_2}{K_1}\\)\nMechanism: Intraspecific competition is stronger than interspecific competition for both species. Each population limits its own growth more than it limits the growth of its competitor.\nEquilibria:\n\n\\((K_1, 0)\\), \\((0, K_2)\\) are unstable nodes.\nThe interior intersection point \\((C_1^*, C_2^*)\\) is a globally stable node.\n\nOutcome: Both species coexist indefinitely at reduced population levels relative to their single-species carrying capacities."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#preface-1",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#preface-1",
+    "title": "Cancer cell population monitoring",
+    "section": "Preface",
+    "text": "Preface\nBefore we really go into the modeling, we need to understand how to solve ordinary differential equations (ODEs) in computer.\n\n\nIn mathematics\n\nODEs can be solved analytically (e.g., separation of variables, integrating factor, etc.)\nIf ODE does not have an analytical solution, mathematical techniques can be used to qualitatively analyze the behavior of the system (e.g., phase diagram, stability analysis, etc.)\n\n\nIn computer\n\nODEs can be solved numerically (Computer can only perform a finite number of calculations, so we need to approximate the solution at discrete time steps)\nNumerical methods can be used to solve ODEs that do not have an analytical solution, or to simulate the behavior of a system over time."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#the-initial-value-problem-ivp",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#the-initial-value-problem-ivp",
+    "title": "Cancer cell population monitoring",
+    "section": "The Initial Value Problem (IVP)",
+    "text": "The Initial Value Problem (IVP)\nWe aim to solve an ordinary differential equation (ODE) of the form:\n\\[\\frac{dy}{dt} = f(t, y), \\quad y(t_0) = y_0\\]\n\nAnalytical solutions are sometimes difficult or impossible to find for non-linear systems\nNumerical methods approximate the solution at discrete time steps: \\[t_0, t_1, t_2, \\dots, t_n, t_{n+1}\\]\nWhere \\(h = t_{n+1} - t_n\\) represents the step size.\nAgain, the computer can only perform a finite number of calculations, in any case computing the solution at discrete time steps is necessary."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#overview-of-numerical-integration",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#overview-of-numerical-integration",
+    "title": "Cancer cell population monitoring",
+    "section": "Overview of Numerical Integration",
+    "text": "Overview of Numerical Integration\nThe fundamental problem is to evaluate the integral over a single time step:\n\\[y(t_{n+1}) = y(t_n) + \\int_{t_n}^{t_{n+1}} f(t, y(t)) \\, dt\\]\nNumerical integration methods approximate the area under the curve \\(f(t, y(t))\\) using different strategies:\nWhere\n\\[\n\\frac{dy}{dt} = f(t, y(t))\n\\]\nIntuitively, we can think of \\(f(t, y(t))\\) as the slope of the solution curve at time \\(t\\). The integral represents the total change in \\(y\\) over the interval from \\(t_n\\) to \\(t_{n+1}\\)."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#evaluating-different-methods-of-numerical-integration",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#evaluating-different-methods-of-numerical-integration",
+    "title": "Cancer cell population monitoring",
+    "section": "Evaluating different methods of numerical integration",
+    "text": "Evaluating different methods of numerical integration\nImagine we are doing an integration like a Riemann sum. In a Riemann sum we assume \\(dt\\) is small enough to accurately approximate the area under the curve. In numeric integration, we need to consider how good is it.\n\nStability Error is bound and does not grow exponentially with time steps. Important for long-term simulations. (As an analogy in statistics, we want to make sure the estimator is consistent)\nAccuracy The numerical methods should be close to the true solution.\nComputational cost The method should be computationally efficient, especially for large systems or long simulations."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#the-simplest-method-eulers-forward-method",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#the-simplest-method-eulers-forward-method",
+    "title": "Cancer cell population monitoring",
+    "section": "The Simplest Method: Euler’s Forward Method",
+    "text": "The Simplest Method: Euler’s Forward Method\nBy approximating the derivative with a forward finite difference:\n\\[\\frac{y_{n+1} - y_n}{h} \\approx f(t_n, y_n)\\]\nWe obtain the explicit Euler update rule:\n\\[y_{n+1} = y_n + h \\cdot f(t_n, y_n)\\]\nLimitations\n\nDemands very small \\(h\\) to avoid numerical divergence in dynamic systems.\nLocal Truncation Error (LTE): \\(\\mathcal{O}(h^2)\\)\nGlobal Truncation Error (GTE): \\(\\mathcal{O}(h)\\) (First-order accurate)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#runge-kutta-rk-methods",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#runge-kutta-rk-methods",
+    "title": "Cancer cell population monitoring",
+    "section": "Runge-Kutta (RK) Methods",
+    "text": "Runge-Kutta (RK) Methods\n\nCore Idea: Instead of evaluating the derivative only at the beginning of the interval (\\(t_n\\)), evaluate \\(f(t,y)\\) at several carefully chosen intermediate trial points within \\([t_n, t_{n+1}]\\).\nA weighted average of these intermediate slopes is used to compute the final step update.\nNaming convention: \\(RKX\\) denotes a Runge-Kutta method that evaluates \\(f(t,y)\\) at \\(X\\) intermediate points.\ne.g. Euler’s Method is simply a first-order Runge-Kutta method (\\(RK1\\)).\n\n\n\nDeveloped around 1900 by Carl Runge and Martin Kutta, this family of methods improves accuracy without requiring higher-order derivatives of \\(f(t,y)\\)."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#the-classic-rk4-method",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#the-classic-rk4-method",
+    "title": "Cancer cell population monitoring",
+    "section": "The Classic RK4 Method",
+    "text": "The Classic RK4 Method\nThe most widely used explicit RK method balances computational cost and high accuracy. To step from \\(y_n\\) to \\(y_{n+1}\\), calculate four intermediate slopes:\n\\[\\begin{aligned}\nk_1 &= f(t_n, y_n) \\\\\nk_2 &= f\\left(t_n + \\frac{h}{2}, y_n + h\\frac{k_1}{2}\\right) \\\\\nk_3 &= f\\left(t_n + \\frac{h}{2}, y_n + h\\frac{k_2}{2}\\right) \\\\\nk_4 &= f(t_n + h, y_n + h k_3)\n\\end{aligned}\\]\nOnce the four slopes are computed, the next value is calculated via a weighted average resembling Simpson’s Rule:\n\\[y_{n+1} = y_n + \\frac{h}{6} \\left(k_1 + 2k_2 + 2k_3 + k_4\\right)\\]"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#the-rk4-update-rule",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#the-rk4-update-rule",
+    "title": "Cancer cell population monitoring",
+    "section": "The RK4 Update Rule",
+    "text": "The RK4 Update Rule\n\n\nGeometric Intuition\n\n\\(k_1\\) is the slope at the left boundary.\n\\(k_2\\) and \\(k_3\\) are trial slopes at the midpoint.\n\\(k_4\\) is a trial slope at the right boundary.\n\n\nError Properties\n\nLTE: \\(\\mathcal{O}(h^5)\\)\nGTE: \\(\\mathcal{O}(h^4)\\)\nOrder: \\(4^{\\text{th}}\\)-Order accurate."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#summary-and-comparison",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#summary-and-comparison",
+    "title": "Cancer cell population monitoring",
+    "section": "Summary and Comparison",
+    "text": "Summary and Comparison\n\nTable: Comparison of Fundamental Numerical Integration Methods\n\n\n\n\n\n\n\n\n\nMethod\nType\nGlobal Error (GTE)\nEvaluations per Step\nIdeal Use Case\n\n\n\n\nForward Euler\nExplicit\n\\(\\mathcal{O}(h)\\)\n1\nQuick prototyping, highly linear models\n\n\nBackward Euler\nImplicit\n\\(\\mathcal{O}(h)\\)\n1 (plus solver)\nStiff equations, absolute stability\n\n\nRK2 (Heun’s)\nExplicit\n\\(\\mathcal{O}(h^2)\\)\n2\nModerate accuracy balance\n\n\nRK4\nExplicit\n\\(\\mathcal{O}(h^4)\\)\n4\nGeneral purpose, non-stiff dynamic systems"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#explicit-vs-implicit-methods",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#explicit-vs-implicit-methods",
+    "title": "Cancer cell population monitoring",
+    "section": "Explicit vs Implicit Methods",
+    "text": "Explicit vs Implicit Methods\n\n\nExplicit Methods\nEvaluate \\(f(t,y)\\) at known, previous time steps. Easy to compute but require small step sizes for stability.\n\nImplicit Methods\nEvaluate \\(f(t,y)\\) involving the unknown future state \\(y_{n+1}\\). Computationally intensive but highly stable for stiff equations."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-full.html#bibliography-notes",
+    "href": "courses/2026/BIOF3001/adt-model-full.html#bibliography-notes",
     "title": "Cancer cell population monitoring",
     "section": "Bibliography notes",
     "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
@@ -6580,11 +6804,235 @@
     "text": "Lecture materials for BIOF2014. Use Blank for student-facing slides and ✍️ Annotated for in-class sketch versions.\n\n\n\nTopic\nSlides\nAnnotated slides\n\n\n\n\nHousekeeping\nBlank\n—\n\n\nUniform Distribution\nBlank\n✍️ Annotated\n\n\nDiscrete Distribution Family (Binomial)\nBlank\n✍️ Annotated\n\n\nMultivariate statistics\nBlank\n✍️ Annotated\n\n\nDiscrete Distribution Family (Multivariate discrete)\nBlank\n✍️ Annotated\n\n\nMeasuring in Intervals (Poisson and related)\nBlank\n✍️ Annotated\n\n\nContinuous distribution family\nBlank\n✍️ Annotated\n\n\nParametric Estimation (MLE and hypothesis testing)\nBlank\n✍️ Annotated\n\n\nParametric Estimation (EM algorithm)\nBlank\n✍️ Annotated\n\n\nQuestion sets — Uniform / empirical distribution\nBlank\n—\n\n\nQuestion sets — Discrete Distribution Family\nBlank\n✍️ Annotated\n\n\nQuestion sets — Multivariate statistics\nBlank\n—\n\n\nQuestion sets — Multivariate discrete distributions\nBlank\n✍️ Annotated\n\n\nQuestion sets — Poisson\nBlank\n—\n\n\nQuestion sets — Continuous\nBlank\n—\n\n\nQuestion sets — Model fitting\nBlank\n—"
   },
   {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#intended-learning-outcomes",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#intended-learning-outcomes",
+    "title": "Cancer cell population monitoring",
+    "section": "Intended learning outcomes",
+    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#tumor-evolution",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#tumor-evolution",
+    "title": "Cancer cell population monitoring",
+    "section": "Tumor evolution",
+    "text": "Tumor evolution\n\n\nTumor grows and evolves under evolutionary pressure\n\nTrophic\nMetabolic\nImmunological\nTherapeutic\n\n\nIntratumor heterogeneity (ITH): diversity in genetics, phenotype, or even epigenetic profiles among cells in the same tumor. That diversity can help some cells survive selection pressures.\nConsequences of ITH\n\nTherapeutic failure\nDrug resistance\n\n\n\n\n\nIntratumor heterogeneity of tumor cells from Walsh (n.d.)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#implication-of-ith---treatment",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#implication-of-ith---treatment",
+    "title": "Cancer cell population monitoring",
+    "section": "Implication of ITH - Treatment",
+    "text": "Implication of ITH - Treatment\n\n\n\nITH implies that tumor cells could (Darwinian):\n\nPossess a genetic reservoir (accumulating different variations).\nAdapt to different evolutionary pressures.\n\nTreatment is a selective evolutionary pressure (therapeutic pressure).\nNatural selection favors treatment-resistant tumor cells.\n\n\n\n\n\nSelective pressure and drug resistance, image from Greaves and Maley (2012)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#prostate-cancer",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#prostate-cancer",
+    "title": "Cancer cell population monitoring",
+    "section": "Prostate Cancer",
+    "text": "Prostate Cancer\n\n\nProstate Cancer in Hong Kong In 2023\n\nPrevalence rate (crude): 88.2 per 100K\nMortality rate (crude): 15 per 100K\n\nTreatment\n\nRadiotherapy\nSurgery\nChemotherapy\nHormone therapy\n\nProstate cancers are usually androgen-dependent. Hormone therapy works by reducing/blocking androgens, which can slow down or stop the growth of the cancer.\n\n\n\n\n\n\nProstate cancer"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#hormone-therapy-for-prostate-cancer",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#hormone-therapy-for-prostate-cancer",
+    "title": "Cancer cell population monitoring",
+    "section": "Hormone therapy for prostate cancer",
+    "text": "Hormone therapy for prostate cancer\n\nAndrogen deprivation therapy (ADT) is used for advanced prostate cancer\nContinuous ADT\n\nDisadvantages\n\nSide effects (e.g., hot flashes, loss of libido)\nDrug resistance (e.g., castration-resistant prostate cancer)\n\n\nIntermittent ADT (IADT)\n\nAdvantages Perera et al. (2020)\n\nDelayed drug resistance\nReduced side effects (Improved quality of life)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#data-sources",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#data-sources",
+    "title": "Cancer cell population monitoring",
+    "section": "Data sources",
+    "text": "Data sources\nBruchovsky et al. (2006) implemented a clinical trial of IADT\n\n\n\nTotal participants: 103 eligible patients with prostate cancer\nMonitoring biomarkers:\n\nProstate-specific antigen (PSA) levels (indicates the activity of prostate cancer cells)\nTestosterone (Effectiveness of ADT)\n\nTreatment protocol:\n\nADT is given for a fixed time (36 weeks) until PSA levels drop to 4 \\(\\mu\\)g/mL\nADT is stopped until PSA levels rise to 10 \\(\\mu\\)g/mL\n\n\n\n\n\n\nIADT protocol, image from Bruchovsky et al. (2006)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#preface",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#preface",
+    "title": "Cancer cell population monitoring",
+    "section": "Preface",
+    "text": "Preface\n\nPredicting the population in the\n\nmicrobiome\ncells (tumors, donor-recipient interactions)\n\n\nThe idea of using these models is to estimate the potential growth of the cells of interest and provide insights into the underlying mechanisms of growth.\nThe modeling techniques in this topic are largely borrowed from ecology, where the study of species populations is of crucial interest:\n\nInteractions between species\nEnvironment"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#simple-model-of-tumor-growth",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#simple-model-of-tumor-growth",
+    "title": "Cancer cell population monitoring",
+    "section": "Simple model of tumor growth",
+    "text": "Simple model of tumor growth\n\n\nA simple model to describe the change in a tumor cell population (\\(\\frac{dC}{dt}\\)) is\n\n\\[\n\\frac{dC}{dt}=gC(t)-dC(t)=\\alpha C(t)\n\\]\n\n\n\\(g\\) is the growth rate of the tumor cells\n\\(d\\) is the death rate of the tumor cells\n\\(\\alpha\\) is the net growth rate of the tumor cells\n\n\n\n\n\n\n\n\n\nG\n\n\n\ncell\n\ncell\n\n\n\ncell-&gt;cell\n\n\ngrowth (g)\n\n\n\ndie\n\ndie\n\n\n\ncell-&gt;die\n\n\ndeath (d)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#implication-of-the-simple-model",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#implication-of-the-simple-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Implication of the simple model",
+    "text": "Implication of the simple model\n\n\n\nThe population of the tumor cells at time \\(t\\) can be expressed as\n\n\n\\[\nC(t) = C(0)e^{\\alpha t}\n\\]\n\n\n\nIf \\(\\alpha &gt; 0\\), the population will grow exponentially.\nIf \\(\\alpha &lt; 0\\), the population will decline exponentially.\nIf \\(\\alpha = 0\\), the population will remain constant.\n\n\nLimitations\n\nThe model assumes that growth and death rates are constant over time, which may not be true in reality.\nThe model does not account for interactions with other cell types or the environment.\nThe model assumes there is no maximum population in a given environment."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#redesigning-the-model",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#redesigning-the-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Redesigning the model",
+    "text": "Redesigning the model\nFrom empirical observation, the growth of tumor cells usually follows these steps:\n\nStarting rapid growth from a single/small collections of cells\nThe growth slows down as the population increases\nEventually, the population reaches a plateau\n\nHow to redesign the model\n\nThe growth rate is not constant; it is negatively proportional to the population size.\nAt a large enough population size, the growth rate will be zero."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#logistic-growth-model",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#logistic-growth-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Logistic growth model",
+    "text": "Logistic growth model\nAn improved version of the simple model is the logistic growth model, which can be expressed as:\n\n\\[\n\\frac{dC}{dt}= \\alpha(1-\\frac{C(t)}{K}) C(t)\n\\]\n\n\n\\(K\\) is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.\n\\(\\alpha\\) is the intrinsic growth rate of the tumor cells."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#qualitative-inspection",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#qualitative-inspection",
+    "title": "Cancer cell population monitoring",
+    "section": "Qualitative inspection",
+    "text": "Qualitative inspection\n\n\nThe analytical solution of the logistic growth model is\n\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]\n\n\n\n\\(C(t) &lt; K\\), the population will grow and reach the carrying capacity \\(K\\).\n\\(C(t) &gt; K\\), the population will decline and reach the carrying capacity \\(K\\).\n\\(C(t) = K\\), the population will remain constant."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#what-is-missing",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#what-is-missing",
+    "title": "Cancer cell population monitoring",
+    "section": "What is missing?",
+    "text": "What is missing?\n\nThe model does not account for interactions with other cell types or the environment.\n\nConsider two populations with following interactions\n\nPrey and predator\n\nPredator population growth is positively affected by the prey population size\nPrey population growth is negatively affected by the predator population size\n\nCompetition between two species\n\n\nThe growth of each species is negatively affected by the population size of the other species."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#lotka-volterra-competition-model",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#lotka-volterra-competition-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Lotka-Volterra competition model",
+    "text": "Lotka-Volterra competition model\nGiven two species, \\(C_1\\) and \\(C_2\\) in competition with each other, the competitive Lotka-Volterra model can be expressed as\n\n\\[\n\\begin{aligned}\n\\frac{dC_1}{dt} = \\alpha_1 C_1(t) (1 - \\frac{C_1(t) + \\beta_{12} C_2(t)}{K_1}) \\\\\n\\frac{dC_2}{dt} = \\alpha_2 C_2(t) (1 - \\frac{C_2(t) + \\beta_{21} C_1(t)}{K_2})\n\\end{aligned}\n\\]\n\n\n\\(\\alpha_1\\) and \\(\\alpha_2\\) are the intrinsic growth rates of species 1 and 2, respectively.\n\\(K_1\\) and \\(K_2\\) are the carrying capacities of the environment for species 1 and 2, respectively.\n\\(\\beta_{12}\\) and \\(\\beta_{21}\\) are the competition rates between species 1 and 2,\n\n\\(\\beta_{12}\\) represents the effect of species 2 on the growth of species 1.\n\\(\\beta_{21}\\) represents the effect of species 1 on the growth of species 2."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#lotka-volterra-prey-predator-model",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#lotka-volterra-prey-predator-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Lotka-Volterra prey-predator model",
+    "text": "Lotka-Volterra prey-predator model\nGiven two species, \\(C_1\\) (prey) and \\(C_2\\) (predator), the prey-predator Lotka-Volterra model can be expressed as\n\n\\[\n\\begin{aligned}\n\\frac{dC_1}{dt} &= \\alpha_1 C_1(t)(1 - \\frac{C_1(t)}{K_1}) - \\beta_{12} C_1(t) C_2(t) \\\\\n\\frac{dC_2}{dt} &= -\\alpha_2 C_2(t) + \\beta_{21} C_1(t) C_2(t)\n\\end{aligned}\n\\]\n\n\n\\(\\alpha_1\\) is the intrinsic growth rate of the prey population\n\\(\\alpha_2\\) is the intrinsic death rate of the predator population in the absence of prey.\n\\(\\beta_{12}\\) is the effect of the presence of predators on the prey death rate.\n\\(\\beta_{21}\\) is the effect of the presence of prey on the predator’s growth rate."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#qualitative-inspection-on-odes",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#qualitative-inspection-on-odes",
+    "title": "Cancer cell population monitoring",
+    "section": "Qualitative inspection on ODEs",
+    "text": "Qualitative inspection on ODEs\n\nSystems of ODEs rarely have analytical solutions.\nIn many cases where ODEs do not have analytical solutions, we can use qualitative inspection to understand the behavior of the system.\nPhase diagram: Plotting derivatives as an arrow field, which can provide insights into\n\nthe stability\nbehavior\nInitial points"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#phase-diagram",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#phase-diagram",
+    "title": "Cancer cell population monitoring",
+    "section": "Phase diagram",
+    "text": "Phase diagram\n\nFor a logistic growth model\n\n\n\\[\nC(t)=\\frac{K}{1+\\frac{K-C(0)}{C(0)}e^{-\\alpha t}}\n\\]"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#discussion-on-lotka-volterra-competition-model",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#discussion-on-lotka-volterra-competition-model",
+    "title": "Cancer cell population monitoring",
+    "section": "Discussion on Lotka-Volterra competition model",
+    "text": "Discussion on Lotka-Volterra competition model\n\n\nWe can find the equilibrium points of the system by setting \\(\\frac{dC_1}{dt} = 0\\) and \\(\\frac{dC_2}{dt} = 0\\), which gives us the following equations:\n\n\\[\n\\begin{aligned}\nC_1(t) &= K_1 - \\beta_{12} C_2(t) \\\\\nC_2(t) &= K_2 - \\beta_{21} C_1(t) \\\\\n\\end{aligned}\n\\]\n\nThe intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in McGehee and Mori (2024))"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#exclusion-of-one-species-c_1-or-c_2-wins",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#exclusion-of-one-species-c_1-or-c_2-wins",
+    "title": "Cancer cell population monitoring",
+    "section": "Exclusion of one species (\\(C_1\\) or \\(C_2\\) wins)",
+    "text": "Exclusion of one species (\\(C_1\\) or \\(C_2\\) wins)\n\n\n\\(C_1\\) wins\n\nCondition: \\(\\beta_{12} &lt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &gt; \\frac{K_2}{K_1}\\)\nMechanism: Species 1 exerts strong competitive pressure on Species 2 (\\(\\beta_{21}\\) is large), while Species 2 exerts weak pressure on Species 1 (\\(\\beta_{12}\\) is small).\nEquilibria:\n\n\\((K_1, 0)\\) is a globally stable node.\n\\((0, K_2)\\) is an unstable node.\n\\((0, 0)\\) is an unstable saddle.\n\n\n\n\\(C_2\\) wins\n\nCondition: \\(\\beta_{12} &gt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &lt; \\frac{K_2}{K_1}\\)\nMechanism: Species 2 exerts strong competitive pressure on Species 1 (\\(\\beta_{12}\\) is large), whereas Species 1 exerts weak pressure on Species 2 (\\(\\beta_{21}\\) is small).\nEquilibria:\n\n\\((K_1, 0)\\) is an unstable node.\n\\((0, K_2)\\) is a globally stable node.\n\\((0, 0)\\) is an unstable saddle."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#bistability-competitive-exclusion",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#bistability-competitive-exclusion",
+    "title": "Cancer cell population monitoring",
+    "section": "Bistability / Competitive Exclusion",
+    "text": "Bistability / Competitive Exclusion\n\n\n\nCondition: \\(\\beta_{12} &gt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &gt; \\frac{K_2}{K_1}\\)\nMechanism: Interspecific competition is stronger than intraspecific competition for both species. Each species inhibits the other more than it inhibits itself.\nEquilibria:\n\n\\((K_1, 0)\\), \\((0, K_2)\\) are locally stable nodes.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe interior intersection point \\((C_1^*, C_2^*)\\) exists but is a saddle point (unstable): \\[C_1^* = \\frac{K_1 - \\beta_{12}K_2}{1 - \\beta_{12}\\beta_{21}}, \\quad C_2^* = \\frac{K_2 - \\beta_{21}K_1}{1 - \\beta_{12}\\beta_{21}}\\]\nOutcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#stable-coexistence",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#stable-coexistence",
+    "title": "Cancer cell population monitoring",
+    "section": "Stable Coexistence",
+    "text": "Stable Coexistence\n\n\n\nCondition: \\(\\beta_{12} &lt; \\frac{K_1}{K_2}\\) and \\(\\beta_{21} &lt; \\frac{K_2}{K_1}\\)\nMechanism: Intraspecific competition is stronger than interspecific competition for both species. Each population limits its own growth more than it limits the growth of its competitor.\nEquilibria:\n\n\\((K_1, 0)\\), \\((0, K_2)\\) are unstable nodes.\nThe interior intersection point \\((C_1^*, C_2^*)\\) is a globally stable node.\n\nOutcome: Both species coexist indefinitely at reduced population levels relative to their single-species carrying capacities."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#preface-1",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#preface-1",
+    "title": "Cancer cell population monitoring",
+    "section": "Preface",
+    "text": "Preface\nBefore we really go into the modeling, we need to understand how to solve ordinary differential equations (ODEs) in computer.\n\n\nIn mathematics\n\nODEs can be solved analytically (e.g., separation of variables, integrating factor, etc.)\nIf ODE does not have an analytical solution, mathematical techniques can be used to qualitatively analyze the behavior of the system (e.g., phase diagram, stability analysis, etc.)\n\n\nIn computer\n\nODEs can be solved numerically (Computer can only perform a finite number of calculations, so we need to approximate the solution at discrete time steps)\nNumerical methods can be used to solve ODEs that do not have an analytical solution, or to simulate the behavior of a system over time."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#the-initial-value-problem-ivp",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#the-initial-value-problem-ivp",
+    "title": "Cancer cell population monitoring",
+    "section": "The Initial Value Problem (IVP)",
+    "text": "The Initial Value Problem (IVP)\nWe aim to solve an ordinary differential equation (ODE) of the form:\n\\[\\frac{dy}{dt} = f(t, y), \\quad y(t_0) = y_0\\]\n\nAnalytical solutions are sometimes difficult or impossible to find for non-linear systems\nNumerical methods approximate the solution at discrete time steps: \\[t_0, t_1, t_2, \\dots, t_n, t_{n+1}\\]\nWhere \\(h = t_{n+1} - t_n\\) represents the step size.\nAgain, the computer can only perform a finite number of calculations, in any case computing the solution at discrete time steps is necessary."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#overview-of-numerical-integration",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#overview-of-numerical-integration",
+    "title": "Cancer cell population monitoring",
+    "section": "Overview of Numerical Integration",
+    "text": "Overview of Numerical Integration\nThe fundamental problem is to evaluate the integral over a single time step:\n\\[y(t_{n+1}) = y(t_n) + \\int_{t_n}^{t_{n+1}} f(t, y(t)) \\, dt\\]\nNumerical integration methods approximate the area under the curve \\(f(t, y(t))\\) using different strategies:\nWhere\n\\[\n\\frac{dy}{dt} = f(t, y(t))\n\\]\nIntuitively, we can think of \\(f(t, y(t))\\) as the slope of the solution curve at time \\(t\\). The integral represents the total change in \\(y\\) over the interval from \\(t_n\\) to \\(t_{n+1}\\)."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#evaluating-different-methods-of-numerical-integration",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#evaluating-different-methods-of-numerical-integration",
+    "title": "Cancer cell population monitoring",
+    "section": "Evaluating different methods of numerical integration",
+    "text": "Evaluating different methods of numerical integration\nImagine we are doing an integration like a Riemann sum. In a Riemann sum we assume \\(dt\\) is small enough to accurately approximate the area under the curve. In numeric integration, we need to consider how good is it.\n\nStability Error is bound and does not grow exponentially with time steps. Important for long-term simulations. (As an analogy in statistics, we want to make sure the estimator is consistent)\nAccuracy The numerical methods should be close to the true solution.\nComputational cost The method should be computationally efficient, especially for large systems or long simulations."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#the-simplest-method-eulers-forward-method",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#the-simplest-method-eulers-forward-method",
+    "title": "Cancer cell population monitoring",
+    "section": "The Simplest Method: Euler’s Forward Method",
+    "text": "The Simplest Method: Euler’s Forward Method\nBy approximating the derivative with a forward finite difference:\n\\[\\frac{y_{n+1} - y_n}{h} \\approx f(t_n, y_n)\\]\nWe obtain the explicit Euler update rule:\n\\[y_{n+1} = y_n + h \\cdot f(t_n, y_n)\\]\nLimitations\n\nDemands very small \\(h\\) to avoid numerical divergence in dynamic systems.\nLocal Truncation Error (LTE): \\(\\mathcal{O}(h^2)\\)\nGlobal Truncation Error (GTE): \\(\\mathcal{O}(h)\\) (First-order accurate)"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#runge-kutta-rk-methods",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#runge-kutta-rk-methods",
+    "title": "Cancer cell population monitoring",
+    "section": "Runge-Kutta (RK) Methods",
+    "text": "Runge-Kutta (RK) Methods\n\nCore Idea: Instead of evaluating the derivative only at the beginning of the interval (\\(t_n\\)), evaluate \\(f(t,y)\\) at several carefully chosen intermediate trial points within \\([t_n, t_{n+1}]\\).\nA weighted average of these intermediate slopes is used to compute the final step update.\nNaming convention: \\(RKX\\) denotes a Runge-Kutta method that evaluates \\(f(t,y)\\) at \\(X\\) intermediate points.\ne.g. Euler’s Method is simply a first-order Runge-Kutta method (\\(RK1\\)).\n\n\n\nDeveloped around 1900 by Carl Runge and Martin Kutta, this family of methods improves accuracy without requiring higher-order derivatives of \\(f(t,y)\\)."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#the-classic-rk4-method",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#the-classic-rk4-method",
+    "title": "Cancer cell population monitoring",
+    "section": "The Classic RK4 Method",
+    "text": "The Classic RK4 Method\nThe most widely used explicit RK method balances computational cost and high accuracy. To step from \\(y_n\\) to \\(y_{n+1}\\), calculate four intermediate slopes:\n\\[\\begin{aligned}\nk_1 &= f(t_n, y_n) \\\\\nk_2 &= f\\left(t_n + \\frac{h}{2}, y_n + h\\frac{k_1}{2}\\right) \\\\\nk_3 &= f\\left(t_n + \\frac{h}{2}, y_n + h\\frac{k_2}{2}\\right) \\\\\nk_4 &= f(t_n + h, y_n + h k_3)\n\\end{aligned}\\]\nOnce the four slopes are computed, the next value is calculated via a weighted average resembling Simpson’s Rule:\n\\[y_{n+1} = y_n + \\frac{h}{6} \\left(k_1 + 2k_2 + 2k_3 + k_4\\right)\\]"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#the-rk4-update-rule",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#the-rk4-update-rule",
+    "title": "Cancer cell population monitoring",
+    "section": "The RK4 Update Rule",
+    "text": "The RK4 Update Rule\n\n\nGeometric Intuition\n\n\\(k_1\\) is the slope at the left boundary.\n\\(k_2\\) and \\(k_3\\) are trial slopes at the midpoint.\n\\(k_4\\) is a trial slope at the right boundary.\n\n\nError Properties\n\nLTE: \\(\\mathcal{O}(h^5)\\)\nGTE: \\(\\mathcal{O}(h^4)\\)\nOrder: \\(4^{\\text{th}}\\)-Order accurate."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#summary-and-comparison",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#summary-and-comparison",
+    "title": "Cancer cell population monitoring",
+    "section": "Summary and Comparison",
+    "text": "Summary and Comparison\n\nTable: Comparison of Fundamental Numerical Integration Methods\n\n\n\n\n\n\n\n\n\nMethod\nType\nGlobal Error (GTE)\nEvaluations per Step\nIdeal Use Case\n\n\n\n\nForward Euler\nExplicit\n\\(\\mathcal{O}(h)\\)\n1\nQuick prototyping, highly linear models\n\n\nBackward Euler\nImplicit\n\\(\\mathcal{O}(h)\\)\n1 (plus solver)\nStiff equations, absolute stability\n\n\nRK2 (Heun’s)\nExplicit\n\\(\\mathcal{O}(h^2)\\)\n2\nModerate accuracy balance\n\n\nRK4\nExplicit\n\\(\\mathcal{O}(h^4)\\)\n4\nGeneral purpose, non-stiff dynamic systems"
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#explicit-vs-implicit-methods",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#explicit-vs-implicit-methods",
+    "title": "Cancer cell population monitoring",
+    "section": "Explicit vs Implicit Methods",
+    "text": "Explicit vs Implicit Methods\n\n\nExplicit Methods\nEvaluate \\(f(t,y)\\) at known, previous time steps. Easy to compute but require small step sizes for stability.\n\nImplicit Methods\nEvaluate \\(f(t,y)\\) involving the unknown future state \\(y_{n+1}\\). Computationally intensive but highly stable for stiff equations."
+  },
+  {
+    "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#bibliography-notes",
+    "href": "courses/2026/BIOF3001/adt-model-sketch.html#bibliography-notes",
+    "title": "Cancer cell population monitoring",
+    "section": "Bibliography notes",
+    "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
+  },
+  {
     "objectID": "courses/2026/BIOF3001/index.html",
     "href": "courses/2026/BIOF3001/index.html",
     "title": "BIOF3001 Big Data Biomedical Informatics",
     "section": "",
-    "text": "Lecture materials for BIOF3001. Use Blank for student-facing slides and ✍️ Annotated when an in-class / sketch version is available.\n\n\n\nTopic\nSlides\nAnnotated slides\n\n\n\n\nCancer cell population monitoring (adaptive therapy)\nBlank\n—\n\n\nMedia Reporting and Suicide (NLP evaluation and monitoring)\nBlank\n—"
+    "text": "Lecture materials for BIOF3001. Use Blank for student-facing slides and ✍️ Annotated when an in-class / sketch version is available.\n\n\n\nTopic\nSlides\nAnnotated slides\n\n\n\n\nCancer cell population monitoring (adaptive therapy)\nBlank\nSketch\n\n\nMedia Reporting and Suicide (NLP evaluation and monitoring)\nBlank\n—"
   },
   {
     "objectID": "courses/2026/CCAI9007/index.html",
