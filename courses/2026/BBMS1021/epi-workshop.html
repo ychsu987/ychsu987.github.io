@@ -275,7 +275,7 @@ Yu Cheng Hsu
 </div></div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../../assets/images/epi_workshop/illustration.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration"><img data-src="../../../assets/images/epi_workshop/illustration.png" style="width:70.0%" alt="Illustration"></a></p>
+<p><a href="../../..\assets/images/epi_workshop/illustration.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration"><img data-src="../../..\assets/images/epi_workshop/illustration.png" style="width:70.0%" alt="Illustration"></a></p>
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
@@ -1215,42 +1215,80 @@ Zou, Guangyong. 2004. <span>“A Modified Poisson Regression Approach to Prospec
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
