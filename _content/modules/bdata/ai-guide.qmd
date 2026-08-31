@@ -7,7 +7,7 @@
 - it is simply R's way of asking for clarification, or
 - The program is not designed to work in that way
  
-## Part 1: How to Read the Red Text Without Panicking
+## How to Read the Red Text Without Panicking
 
 When R throws red text at you, first determine what kind of message it is:
 
@@ -32,7 +32,7 @@ Don't read the whole error if it looks messy. Look for the recognizable words at
 
 ---
 
-## Part 2: The AI Lifeline 
+## The AI Lifeline 
 
 When the error is confusing, Large Language Models (LLMs) are your best teaching assistants. However, "Garbage In = Garbage Out."
 
@@ -49,7 +49,7 @@ To get an immediate, accurate fix, always provide the AI with these three compon
 2.  **The Code:** The exact lines that failed.
 3.  **The Error:** The exact copy-pasted red text.
 
-## Copy-Paste Prompt Template:
+## Some example:
 
 > **Act as an expert R programmer**
 > 

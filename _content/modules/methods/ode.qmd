@@ -20,9 +20,11 @@ The modeling techniques in this topic are largely borrowed from ecology, where t
 ::: {.column width="48%"}
 A simple model to describe the change in a tumor cell population ($\frac{dC}{dt}$) is 
 
+:::{.hide}
 $$
 \frac{dC}{dt}=gC(t)-dC(t)=\alpha C(t)
 $$
+:::
 
 - $g$ is the growth rate of the tumor cells
 - $d$ is the death rate of the tumor cells
@@ -122,9 +124,13 @@ plt.show()
 :::{.column width="48%"}
 
 - The population of the tumor cells at time $t$ can be expressed as
+
+:::{.hide}
 $$
 C(t) = C(0)e^{\alpha t}
 $$
+:::
+
 :::
 
 :::{.column width="48%"}
@@ -158,9 +164,11 @@ From empirical observation, the growth of tumor cells usually follows these step
 
 An improved version of the simple model is the logistic growth model, which can be expressed as:
 
+:::{.hide}
 $$
 \frac{dC}{dt}= \alpha(1-\frac{C(t)}{K}) C(t)
 $$
+:::
 
 - $K$ is the carrying capacity of the environment, which is the maximum population size that the environment can sustain.
 - $\alpha$ is the intrinsic growth rate of the tumor cells.
@@ -172,9 +180,11 @@ $$
 :::{.column width="48%"}
 The analytical solution of the logistic growth model is
 
+:::{.hide}
 $$
 C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 $$
+:::
 
 :::
 
@@ -233,12 +243,14 @@ Consider two populations with following interactions
 
 Given two species, $C_1$ and $C_2$ in competition with each other, the competitive Lotka-Volterra model can be expressed as
 
+:::{.hide}
 $$
 \begin{aligned}
 \frac{dC_1}{dt} = \alpha_1 C_1(t) (1 - \frac{C_1(t) + \beta_{12} C_2(t)}{K_1}) \\
 \frac{dC_2}{dt} = \alpha_2 C_2(t) (1 - \frac{C_2(t) + \beta_{21} C_1(t)}{K_2})
 \end{aligned}
 $$
+:::
 
 - $\alpha_1$ and $\alpha_2$ are the intrinsic growth rates of species 1 and 2, respectively.
 - $K_1$ and $K_2$ are the carrying capacities of the environment for species 1 and 2, respectively.
@@ -327,12 +339,14 @@ plt.show()
 
 Given two species, $C_1$ (prey) and $C_2$ (predator), the prey-predator Lotka-Volterra model can be expressed as
 
+:::{.hide}
 $$
 \begin{aligned}
 \frac{dC_1}{dt} &= \alpha_1 C_1(t)(1 - \frac{C_1(t)}{K_1}) - \beta_{12} C_1(t) C_2(t) \\
 \frac{dC_2}{dt} &= -\alpha_2 C_2(t) + \beta_{21} C_1(t) C_2(t)
 \end{aligned}
 $$
+:::
 
 - $\alpha_1$ is the intrinsic growth rate of the prey population
 - $\alpha_2$ is the intrinsic **death** rate of the predator population in the absence of prey.
@@ -416,7 +430,7 @@ plt.tight_layout()
 # Display the plot
 plt.show()
 ```
-# Evaluating system of Ordinary Differential Equations (ODEs) 
+# Evaluating system of ODEs
 
 ## Qualitative inspection on ODEs
 
@@ -430,10 +444,12 @@ plt.show()
 ## Phase diagram
 
 - For a logistic growth model
+  
+:::{.hide}
 $$
 C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 $$
-
+:::
 
 ```{python}
 
@@ -507,12 +523,14 @@ plt.show()
 :::{.column width="48%"}
 We can find the equilibrium points of the system by setting $\frac{dC_1}{dt} = 0$ and $\frac{dC_2}{dt} = 0$, which gives us the following equations:
 
+:::{.hide}
 $$
 \begin{aligned}
 C_1(t) &= K_1 - \beta_{12} C_2(t) \\
 C_2(t) &= K_2 - \beta_{21} C_1(t) \\
 \end{aligned}
 $$
+:::
 
 The intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in @mcgehee2024mathematical)
 :::

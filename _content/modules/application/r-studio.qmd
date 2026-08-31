@@ -1,0 +1,26 @@
+
+
+## Code Execution & Environment
+Efficiently run code blocks:
+
+*   **Run Current Line/Selection**: `Ctrl` + `Enter` / `Cmd` + `Enter`
+*   **Run Entire Script**: `Ctrl` + `Shift` + `Enter` / `Cmd` + `Shift` + `Enter`
+*   **Retrieve Previous Command**: `Up Arrow` *(Works when your cursor is in the Console or Terminal to cycle backward through your command history).*
+*   **Restart R Session**: `Ctrl` + `Shift` + `F10` / `Cmd` + `Shift` + `F10` 
+    *(Highly recommended for clearing the environment and ensuring script reproducibility).*
+
+## Markdown file
+When managing course syllabi, RevealJS presentations, or web pages, these shortcuts make editing Markdown and Quarto files seamless.
+*   **Insert Code Chunk**: `Ctrl` + `Alt` + `I` / `Cmd` + `Option` + `I`
+*   **Run Current Code Chunk**: `Ctrl` + `Shift` + `Enter` / `Cmd` + `Shift` + `Enter` (while cursor is inside a chunk)
+*   **Run All Chunks Above**: `Ctrl` + `Alt` + `P` / `Cmd` + `Option` + `P`
+*   **Render/Knit Document**: `Ctrl` + `Shift` + `K` / `Cmd` + `Shift` + `K`
+    *(Compiles the active Quarto `.qmd` or RMarkdown `.Rmd` file).*
+
+## Editing & Formatting
+*   **Select Text**: `Shift` + `Arrow Keys` *(Expands or toggles your text selection character-by-character or line-by-line).*
+*   **Select Word/Expand Selection**: `Ctrl` + `Shift` + `Arrow Keys` / `Option` + `Shift` + `Arrow Keys`
+*   **Comment/Uncomment Lines**: `Ctrl` + `Shift` + `C` / `Cmd` + `Shift` + `C`
+*   **Reformat Code (Indentation & Spacing)**: `Ctrl` + `Shift` + `A` / `Cmd` + `Shift` + `A`
+*   **Find and Replace**: `Ctrl` + `F` / `Cmd` + `F`
+*   **Multi-cursor Editing**: Hold `Alt` and drag the mouse, or use `Ctrl` + `Alt` + `Up/Down` (`Cmd` + `Option` + `Up/Down` on Mac)
