@@ -389,7 +389,7 @@
     "href": "courses/2026/BIOF3001/adt-model.html#intended-learning-outcomes",
     "title": "Cancer cell population monitoring",
     "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development"
+    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development\n\n\n\nBackground image: Cole (1842)"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model.html#tumor-evolution",
@@ -606,14 +606,14 @@
     "href": "courses/2026/BIOF3001/adt-model.html#bibliography-notes",
     "title": "Cancer cell population monitoring",
     "section": "Bibliography notes",
-    "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
+    "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nCole, Thomas. 1842. The Voyage of Life: Youth. Oil on canvas. Washington, D.C., United States: National Gallery of Art.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model-full.html#intended-learning-outcomes",
     "href": "courses/2026/BIOF3001/adt-model-full.html#intended-learning-outcomes",
     "title": "Cancer cell population monitoring",
     "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development"
+    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development\n\n\n\nBackground image: Cole (1842)"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model-full.html#tumor-evolution",
@@ -830,7 +830,7 @@
     "href": "courses/2026/BIOF3001/adt-model-full.html#bibliography-notes",
     "title": "Cancer cell population monitoring",
     "section": "Bibliography notes",
-    "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
+    "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nCole, Thomas. 1842. The Voyage of Life: Youth. Oil on canvas. Washington, D.C., United States: National Gallery of Art.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
   },
   {
     "objectID": "courses/2026/BBMS3009/index.html",
@@ -6808,7 +6808,7 @@
     "href": "courses/2026/BIOF3001/adt-model-sketch.html#intended-learning-outcomes",
     "title": "Cancer cell population monitoring",
     "section": "Intended learning outcomes",
-    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development"
+    "text": "Intended learning outcomes\n\nExplain tumor evolution and intratumor heterogeneity (ITH)\nDescribe the mathematical modeling on species population development\n\n\n\nBackground image: Cole (1842)"
   },
   {
     "objectID": "courses/2026/BIOF3001/adt-model-sketch.html#tumor-evolution",
@@ -7025,14 +7025,14 @@
     "href": "courses/2026/BIOF3001/adt-model-sketch.html#bibliography-notes",
     "title": "Cancer cell population monitoring",
     "section": "Bibliography notes",
-    "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
+    "text": "Bibliography notes\n\n\n\n\nBruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. “Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.” Cancer 107 (2): 389–95.\n\n\nCole, Thomas. 1842. The Voyage of Life: Youth. Oil on canvas. Washington, D.C., United States: National Gallery of Art.\n\n\nGreaves, Mel, and Carlo C Maley. 2012. “Clonal Evolution in Cancer.” Nature 481 (7381): 306–13.\n\n\nMcGehee, Cordelia, and Yoichiro Mori. 2024. “A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.” Npj Systems Biology and Applications 10 (1): 140.\n\n\nPerera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. “Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.” Nature Reviews Urology 17 (8): 469–81.\n\n\nWalsh, Christopher A. n.d. “Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”"
   },
   {
     "objectID": "courses/2026/BIOF3001/index.html",
     "href": "courses/2026/BIOF3001/index.html",
     "title": "BIOF3001 Big Data Biomedical Informatics",
     "section": "",
-    "text": "Lecture materials for BIOF3001. Use Blank for student-facing slides and ✍️ Annotated when an in-class / sketch version is available.\n\n\n\nTopic\nSlides\nAnnotated slides\nSolution slides\n\n\n\n\nCancer cell population monitoring (adaptive therapy)\nBlank\nSketch\nFull\n\n\nMedia Reporting and Suicide (NLP evaluation and monitoring)\nBlank\n—\n—"
+    "text": "Lecture materials for BIOF3001. Use Blank for student-facing slides and ✍️ Annotated when an in-class / sketch version is available.\n\n\n\nTopic\nSlides\nAnnotated slides\n\n\n\n\nCancer cell population monitoring (adaptive therapy)\nBlank\nSketch\n\n\nMedia Reporting and Suicide (NLP evaluation and monitoring)\nBlank\n—"
   },
   {
     "objectID": "courses/2026/CCAI9007/index.html",
