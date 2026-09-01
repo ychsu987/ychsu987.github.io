@@ -3,7 +3,7 @@ title: "Cancer cell population monitoring"
 subtitle: "An ecology perspective"
 author: "Yu Cheng Hsu"
 title-slide-attributes:
-    data-background: /assets/images/adt/background-1.png
+    data-background: /assets/images/adt/background-1.jpg
     data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"
@@ -19,15 +19,17 @@ format:
 bibliography: ref.bib
 lightbox: true
 engine: jupyter
-omit-hide: true
-filters:
-  - at: post-quarto
-    path: ../../../_extensions/omit-hide/omit-hide.lua
 ---
 
 ## Intended learning outcomes
 - Explain tumor evolution and intratumor heterogeneity (ITH)
 - Describe the mathematical modeling on species population development
+
+::: {.aside}
+
+Background image: @bg
+
+:::
 
 # Project background
 
