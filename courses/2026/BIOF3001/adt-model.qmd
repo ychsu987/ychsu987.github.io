@@ -9,7 +9,7 @@ title-slide-attributes:
     data-background-opacity: "0.8"
 format: 
     revealjs:
-        theme: [default, ../../../assets/css/general_style.css]
+        theme: [default, ../../../assets/css/general_style.css, ../../../assets/css/student_view.css]
         slide-number: true
         smaller: true
         lightbox: true
@@ -19,6 +19,10 @@ format:
 bibliography: ref.bib
 lightbox: true
 engine: jupyter
+omit-hide: true
+filters:
+  - at: post-quarto
+    path: ../../../_extensions/omit-hide/omit-hide.lua
 ---
 
 ## Intended learning outcomes
