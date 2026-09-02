@@ -2,7 +2,7 @@
 title: "Introduction to R"
 subtitle: Tidyverse
 title-slide-attributes:
-    data-background: /assets/images/ggplot2/background-1.png
+    data-background: /assets/images/introR/background-2.jpg
     data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"
@@ -23,30 +23,32 @@ lightbox: true
 
 By the end of this session, you will
 
+:::{.columns}
+:::{.column}
 **Wrangle (dplyr)**
 
 - Read tabular data into R
 - Use core verbs: `filter`, `mutate`, `summarise` (with the pipe `%>%`)
 - Reflect on good coding practice in data wrangling
 
+:::
+:::{.column}
 **Plot (ggplot2)**
 
 - Understand the basic grammar and layered structure of ggplot2
 - Create simple plots using data, aesthetics, and geometric layers
-
-We **DO NOT** expect:
-
-- Memorize every function in `ggplot2` or `dplyr`
+:::
+:::
+We **DO NOT** expect you to Memorize every function in `ggplot2` or `dplyr`
 
 ::: aside
 
-**Acknowledgement**
 
 These lecture slides are partially adapted and inspired from 
 
   - @laurent_gatto_2021_5532658, @peng2016r, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0
-  - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version 
-
+  - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version
+  - Background image: @bg2
 :::
 
 {{< include /_content/modules/bdata/package.qmd >}}

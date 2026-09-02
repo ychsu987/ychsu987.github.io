@@ -1,8 +1,8 @@
 ---
 title: "Introduction to R"
-subtitle: Integrative mini project
+subtitle: Integrative mini-project
 title-slide-attributes:
-    data-background: /assets/images/real-example/background-1.png
+    data-background: /assets/images/real-example/background-1.jpg
     data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"
@@ -28,12 +28,16 @@ lightbox: true
 - Apply R to clean data and run (with guidance) a paired comparison
 - Interpret what the test is asking—not memorize every formula
 
+:::{.aside}
+**Acknowledge**
+
+- This case is inspired by and adapted from @ross2017introductory
+- Background image: @bg3
+  
+:::
+
 {{< include /_content/modules/bdata/real-example.qmd >}}
 
 ## Reading list
-
-**Acknowledge**
-
-This case is inspired by and adapted from @ross2017introductory
 
 **Bibliography notes**

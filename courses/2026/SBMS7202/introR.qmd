@@ -29,6 +29,11 @@ lightbox: true
   - Text-based counseling 
 - Office hour: By appointment 
 
+::: {.aside}
+
+Background image: @bg
+
+:::
 
 ## AI-policy {.smaller}
 
