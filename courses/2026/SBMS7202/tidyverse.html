@@ -200,7 +200,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background="/assets/images/ggplot2/background-1.png" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
+<section id="title-slide" data-background="/assets/images/introR/background-2.jpg" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
   <h1 class="title">Introduction to R</h1>
   <p class="subtitle">Tidyverse</p>
 
@@ -216,28 +216,29 @@ Yu Cheng Hsu
 <section id="learning-objectives" class="slide level2">
 <h2>Learning objectives</h2>
 <p>By the end of this session, you will</p>
+<div class="columns">
+<div class="column">
 <p><strong>Wrangle (dplyr)</strong></p>
 <ul>
 <li>Read tabular data into R</li>
 <li>Use core verbs: <code>filter</code>, <code>mutate</code>, <code>summarise</code> (with the pipe <code>%&gt;%</code>)</li>
 <li>Reflect on good coding practice in data wrangling</li>
 </ul>
+</div><div class="column">
 <p><strong>Plot (ggplot2)</strong></p>
 <ul>
 <li>Understand the basic grammar and layered structure of ggplot2</li>
 <li>Create simple plots using data, aesthetics, and geometric layers</li>
 </ul>
-<p>We <strong>DO NOT</strong> expect:</p>
-<ul>
-<li>Memorize every function in <code>ggplot2</code> or <code>dplyr</code></li>
-</ul>
+</div></div>
+<p>We <strong>DO NOT</strong> expect you to Memorize every function in <code>ggplot2</code> or <code>dplyr</code></p>
 
 <aside><div>
-<p><strong>Acknowledgement</strong></p>
 <p>These lecture slides are partially adapted and inspired from</p>
 <ul>
 <li><span class="citation" data-cites="laurent_gatto_2021_5532658">@laurent_gatto_2021_5532658</span>, <span class="citation" data-cites="peng2016r">@peng2016r</span>, <span class="citation" data-cites="ismay2025statistical">@ismay2025statistical</span>, <span class="citation" data-cites="wickham2017r">@wickham2017r</span> under Creative Commons Attribution-ShareAlike 4.0</li>
 <li>Prof.&nbsp;Yuanhua Huang, and Prof.&nbsp;Jason Wong contribution on early version</li>
+<li>Background image: <span class="citation" data-cites="bg2">@bg2</span></li>
 </ul>
 </div></aside></section>
 <section id="package" class="slide level2">
@@ -283,6 +284,16 @@ Yu Cheng Hsu
 <li>GitHub (<strong>code at the developmental stage</strong>)</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="why-wrangling-matters" class="slide level2">
+<h2>Why wrangling matters</h2>
+<p>Raw experiment tables are almost never analysis-ready.</p>
+<ul>
+<li>Columns may be wide, messy, or split across files</li>
+<li>We need a clean table: one row per observation, clear columns for predictors/outcomes</li>
+</ul>
+<p><strong><code>dplyr</code></strong> is how we reshape and filter those tables so plots and models can run.</p>
+<p>Keep a before/after picture in mind: messy spreadsheet → tidy analysis table.</p>
 </section>
 <section id="example-data---gene-expression" class="slide level2">
 <h2>Example data - Gene Expression</h2>
@@ -346,22 +357,6 @@ Yu Cheng Hsu
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
 2 GSM2545337 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum     9
 3 GSM2545338 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum    10</code></pre>
-</div>
-</div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Discussion question</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>What are the pros and cons using absolute path and relative path ?</li>
-<li>What will be the best practice to put the data file ?</li>
-</ul>
-</div>
 </div>
 </div>
 </section>

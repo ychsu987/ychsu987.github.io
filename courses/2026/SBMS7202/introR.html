@@ -225,7 +225,10 @@ Yu Cheng Hsu
 </ul></li>
 <li>Office hour: By appointment</li>
 </ul>
-</section>
+
+<aside><div>
+<p>Background image: <span class="citation" data-cites="bg">@bg</span></p>
+</div></aside></section>
 <section id="ai-policy" class="slide level2 smaller">
 <h2>AI-policy</h2>
 <ul>
@@ -275,12 +278,12 @@ Yu Cheng Hsu
 </ul>
 <p><strong>Pro tips</strong></p>
 <ul>
-<li>Always clean up your environment while starting new works</li>
+<li>Always clean up your environment when starting new work</li>
 </ul>
 </section></section>
 <section>
-<section id="fuoundation-of-r" class="title-slide slide level1 center">
-<h1>Fuoundation of R</h1>
+<section id="foundation-of-r" class="title-slide slide level1 center">
+<h1>Foundation of R</h1>
 
 </section>
 <section id="introduction-to-r" class="slide level2">
@@ -637,7 +640,7 @@ Yu Cheng Hsu
 <li>Organize data</li>
 <li>Store data</li>
 </ul>
-<p><strong>Benefits</strong> - Easier to read - Fasten calculation</p>
+<p><strong>Benefits</strong> - Easier to read - Faster calculation</p>
 <p>Main data structures used in R:</p>
 <ul>
 <li><p><strong>Vector:</strong> A list of items of the same data type, like a series of numbers (numeric) or words (characters).</p></li>
@@ -655,7 +658,7 @@ Yu Cheng Hsu
 <li>Store elements in the <strong>same</strong> data type.</li>
 <li>Check the data type by using <code>typeof()</code> function</li>
 <li>Check the length of the vector by <code>length()</code> function.</li>
-<li>Coersion will be performed if different data type occurs</li>
+<li>Coercion will be performed if different data type occurs</li>
 </ul>
 </div><div class="column">
 <div class="cell">
@@ -741,7 +744,7 @@ Yu Cheng Hsu
 <span id="cb92-4"><a></a>mark6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 32 49  8 29 47  4</code></pre>
+<pre><code>[1] 49  4 46 13  8 22</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a></a><span class="fu">typeof</span>(mark6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -757,14 +760,14 @@ Yu Cheng Hsu
 <span id="cb96-2"><a></a>new_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(series,mark6,<span class="fu">rep</span>(<span class="dv">50</span>,<span class="dv">3</span>))</span>
 <span id="cb96-3"><a></a>new_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 32 49  8 29 47  4 50 50 50</code></pre>
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 49  4 46 13  8 22 50 50 50</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a></a><span class="fu">typeof</span>(new_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "double"</code></pre>
 </div>
 </div>
-<p>Did you notice that <code>new_vector</code> is now a of type <code>double</code> ?</p>
+<p>Did you notice that <code>new_vector</code> is now of type <code>double</code> ?</p>
 <p>You can spend a few minutes to create vectors and explore what happens to the data type of the vector when you combine them with others.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a></a><span class="co"># write your code here</span></span>
@@ -825,7 +828,7 @@ Yu Cheng Hsu
 <li>the first position</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a></a><span class="co"># write the code to retieve the 1st position</span></span>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a></a><span class="co"># write the code to retrieve the 1st position</span></span>
 <span id="cb119-2"><a></a>scores[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 44</code></pre>
@@ -1252,10 +1255,10 @@ $Name
 <section id="ifelse" class="slide level2">
 <h2>If/else</h2>
 <p>Link logical outcome to an action given the condition. This is where the <code>if</code> and <code>else</code> statement comes in. The format is like</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a></a><span class="cf">if</span> (CONDITIION) {</span>
-<span id="cb185-2"><a></a>  <span class="co"># If CONDITIION==TRUE: codes inside this bracket will be executed</span></span>
+<div class="sourceCode" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a></a><span class="cf">if</span> (CONDITION) {</span>
+<span id="cb185-2"><a></a>  <span class="co"># If CONDITION==TRUE: codes inside this bracket will be executed</span></span>
 <span id="cb185-3"><a></a>} <span class="cf">else</span> {</span>
-<span id="cb185-4"><a></a> <span class="co"># If CONDITIION==FALSE: codes inside this bracket will be executed (You can akso omit this part if needed)</span></span>
+<span id="cb185-4"><a></a> <span class="co"># If CONDITION==FALSE: codes inside this bracket will be executed (You can also omit this part if needed)</span></span>
 <span id="cb185-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Example</strong></p>
 <div class="cell columns column-output-location">
@@ -1295,7 +1298,7 @@ $Name
 <span id="cb190-4"><a></a>    <span class="fu">print</span>(<span class="st">"Child"</span>)</span>
 <span id="cb190-5"><a></a>  } <span class="cf">else</span> <span class="cf">if</span> (age <span class="sc">&gt;</span> <span class="dv">12</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">19</span>){</span>
 <span id="cb190-6"><a></a>    <span class="fu">print</span>(<span class="st">"Teenage"</span>)</span>
-<span id="cb190-7"><a></a>  } <span class="cf">else</span> <span class="cf">if</span> (age <span class="sc">&gt;</span> <span class="dv">20</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">60</span>) {</span>
+<span id="cb190-7"><a></a>  } <span class="cf">else</span> <span class="cf">if</span> (age <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">60</span>) {</span>
 <span id="cb190-8"><a></a>    <span class="fu">print</span>(<span class="st">"Adult"</span>)</span>
 <span id="cb190-9"><a></a>  } <span class="cf">else</span> {                                <span class="co"># &gt; 60</span></span>
 <span id="cb190-10"><a></a>    <span class="fu">print</span>(<span class="st">"Elderly"</span>)</span>
@@ -1356,7 +1359,7 @@ $Name
 [1] 10</code></pre>
 </div>
 </div></div>
-<p>You can also iterater on vectors</p>
+<p>You can also iterate over vectors</p>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a></a><span class="co"># Loop printing a vector of names</span></span>
@@ -1383,11 +1386,11 @@ $Name
 <li>You <strong>will</strong> encounter errors.</li>
 <li>Getting an error in R is not a sign of failure;</li>
 <li>it is simply R’s way of asking for clarification, or</li>
-<li>The program is not desgined to work in that way</li>
+<li>The program is not designed to work in that way</li>
 </ul>
 </section>
-<section id="part-1-how-to-read-the-red-text-without-panicking" class="slide level2">
-<h2>Part 1: How to Read the Red Text Without Panicking</h2>
+<section id="how-to-read-the-red-text-without-panicking" class="slide level2">
+<h2>How to Read the Red Text Without Panicking</h2>
 <p>When R throws red text at you, first determine what kind of message it is:</p>
 <ol type="1">
 <li><strong>Message / Note:</strong> Just R talking to you (e.g., “The tidyverse packages have been loaded”). <strong>Action: Ignore.</strong></li>
@@ -1397,7 +1400,7 @@ $Name
 </section>
 <section id="identifying-the-key-of-the-error" class="slide level2">
 <h2>Identifying the key of the Error</h2>
-<p>Don’t read the whole error if it looks messsy. Look for the recognizable words at the end of the message.</p>
+<p>Don’t read the whole error if it looks messy. Look for the recognizable words at the end of the message.</p>
 <p><strong>Common Biomedical Data Errors translated to plain English:</strong></p>
 <ul>
 <li><strong><code>Error: object 'XXX' not found</code></strong>
@@ -1416,8 +1419,8 @@ $Name
 </ul></li>
 </ul>
 </section>
-<section id="part-2-the-ai-lifeline" class="slide level2">
-<h2>Part 2: The AI Lifeline</h2>
+<section id="the-ai-lifeline" class="slide level2">
+<h2>The AI Lifeline</h2>
 <p>When the error is confusing, Large Language Models (LLMs) are your best teaching assistants. However, “Garbage In = Garbage Out.”</p>
 <p><strong>Bad example</strong></p>
 <blockquote>
@@ -1431,8 +1434,8 @@ $Name
 <li><strong>The Error:</strong> The exact copy-pasted red text.</li>
 </ol>
 </section>
-<section id="copy-paste-prompt-template" class="slide level2">
-<h2>Copy-Paste Prompt Template:</h2>
+<section id="some-example" class="slide level2">
+<h2>Some example:</h2>
 <blockquote>
 <p><strong>Act as an expert R programmer</strong></p>
 <p><strong>Goal:</strong> I am trying to [e.g., create a scatterplot of gene expression versus patient age using ggplot2].</p>

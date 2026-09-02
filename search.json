@@ -263,7 +263,7 @@
     "href": "courses/2026/SBMS7202/real-example.html#learning-goal",
     "title": "Introduction to R",
     "section": "Learning goal",
-    "text": "Learning goal\n\nDesign a simple analysis pipeline from an experiment description\nApply R to clean data and run (with guidance) a paired comparison\nInterpret what the test is asking—not memorize every formula"
+    "text": "Learning goal\n\nDesign a simple analysis pipeline from an experiment description\nApply R to clean data and run (with guidance) a paired comparison\nInterpret what the test is asking—not memorize every formula\n\n\n\nAcknowledge\n\nThis case is inspired by and adapted from Ross (2017)\nBackground image: Homer (1865)"
   },
   {
     "objectID": "courses/2026/SBMS7202/real-example.html#background-darwins-experiment",
@@ -368,7 +368,7 @@
     "href": "courses/2026/SBMS7202/real-example.html#reading-list",
     "title": "Introduction to R",
     "section": "Reading list",
-    "text": "Reading list\nAcknowledge\nThis case is inspired by and adapted from Ross (2017)\nBibliography notes\n\n\n\n\nGriffin, Philippa C, Jyoti Khadake, Kate S LeMay, Suzanna E Lewis, Sandra Orchard, Andrew Pask, Bernard Pope, et al. 2018. “Best Practice Data Life Cycle Approaches for the Life Sciences.” F1000Research 6: 1618.\n\n\nRoss, Sheldon M. 2017. Introductory Statistics. Academic Press."
+    "text": "Reading list\nBibliography notes\n\n\n\n\nGriffin, Philippa C, Jyoti Khadake, Kate S LeMay, Suzanna E Lewis, Sandra Orchard, Andrew Pask, Bernard Pope, et al. 2018. “Best Practice Data Life Cycle Approaches for the Life Sciences.” F1000Research 6: 1618.\n\n\nHomer, Winslow. 1865. The Veteran in a New Field. Oil on canvas. The Metropolitan Museum of Art.\n\n\nRoss, Sheldon M. 2017. Introductory Statistics. Academic Press."
   },
   {
     "objectID": "courses/2026/SBMS7202/index.html",
@@ -7046,7 +7046,7 @@
     "href": "courses/2026/SBMS7202/introR.html#about-me",
     "title": "Introduction to R",
     "section": "About me",
-    "text": "About me\n\nMy background:\n\nApplied statistician\nData scientist\n\nMy research focus\n\nPopulation mental health\nText-based counseling\n\nOffice hour: By appointment"
+    "text": "About me\n\nMy background:\n\nApplied statistician\nData scientist\n\nMy research focus\n\nPopulation mental health\nText-based counseling\n\nOffice hour: By appointment\n\n\n\nBackground image: @bg"
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#ai-policy",
@@ -7074,7 +7074,7 @@
     "href": "courses/2026/SBMS7202/introR.html#rdata-files",
     "title": "Introduction to R",
     "section": "RData files",
-    "text": "RData files\nYou may save your data or functions to an .RData file and load it with load(\"PATH/TO/THE/DATA_FILE.RData\").\n\nRStudio may save your last working session, which can sometimes cause trouble.\nThe file path can be relative to the current working directory or an absolute path.\n\nPro tips\n\nAlways clean up your environment while starting new works"
+    "text": "RData files\nYou may save your data or functions to an .RData file and load it with load(\"PATH/TO/THE/DATA_FILE.RData\").\n\nRStudio may save your last working session, which can sometimes cause trouble.\nThe file path can be relative to the current working directory or an absolute path.\n\nPro tips\n\nAlways clean up your environment when starting new work"
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#introduction-to-r",
@@ -7186,28 +7186,28 @@
     "href": "courses/2026/SBMS7202/introR.html#data-structures",
     "title": "Introduction to R",
     "section": "Data structures",
-    "text": "Data structures\nData structures are one of the most important features in programming.\n\nOrganize data\nStore data\n\nBenefits - Easier to read - Fasten calculation\nMain data structures used in R:\n\nVector: A list of items of the same data type, like a series of numbers (numeric) or words (characters).\nMatrix: Tables of numbers with rows and columns, where all elements are the same type.\nList: Collections that can hold different types of data all together, such as numbers, words, or even other lists.\nData Frame: Like a spreadsheet where each column can have different types of data, useful for tabular data"
+    "text": "Data structures\nData structures are one of the most important features in programming.\n\nOrganize data\nStore data\n\nBenefits - Easier to read - Faster calculation\nMain data structures used in R:\n\nVector: A list of items of the same data type, like a series of numbers (numeric) or words (characters).\nMatrix: Tables of numbers with rows and columns, where all elements are the same type.\nList: Collections that can hold different types of data all together, such as numbers, words, or even other lists.\nData Frame: Like a spreadsheet where each column can have different types of data, useful for tabular data"
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#vector",
     "href": "courses/2026/SBMS7202/introR.html#vector",
     "title": "Introduction to R",
     "section": "Vector",
-    "text": "Vector\n\n\n\nBasic data structure in R.\nStore elements in the same data type.\nCheck the data type by using typeof() function\nCheck the length of the vector by length() function.\nCoersion will be performed if different data type occurs\n\n\n\n# vector of numerics\n# c combines numbers in the brackets to a vector\nage &lt;- c(16, 20, 15, 17, 18) \nage\n\n[1] 16 20 15 17 18\n\ntypeof (age)\n\n[1] \"double\"\n\nlength(age)\n\n[1] 5\n\n\n\nSee more introduction here.\nThere are also different ways to automatically generate vectors"
+    "text": "Vector\n\n\n\nBasic data structure in R.\nStore elements in the same data type.\nCheck the data type by using typeof() function\nCheck the length of the vector by length() function.\nCoercion will be performed if different data type occurs\n\n\n\n# vector of numerics\n# c combines numbers in the brackets to a vector\nage &lt;- c(16, 20, 15, 17, 18) \nage\n\n[1] 16 20 15 17 18\n\ntypeof (age)\n\n[1] \"double\"\n\nlength(age)\n\n[1] 5\n\n\n\nSee more introduction here.\nThere are also different ways to automatically generate vectors"
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#other-examples",
     "href": "courses/2026/SBMS7202/introR.html#other-examples",
     "title": "Introduction to R",
     "section": "Other examples",
-    "text": "Other examples\nThere are also different ways to automatically generate vectors\n\n\n# vectors can be created using existing variables\njason &lt;- 1.69\nray &lt;- 1.78\nyuanhua &lt;- 1.72\n\nheights &lt;- c(jason, ray, yuanhua)\n# you can give names to items in a vector\nnames(heights) &lt;- c(\"Jason\",\"Ray\",\"Yuanhua\")\nheights\n\n\n  Jason     Ray Yuanhua \n   1.69    1.78    1.72 \n\ntypeof(heights)\n\n[1] \"double\"\n\n\n\n\n# rep repeats the first number\n# n times based on the second value\nrepeats &lt;- rep(3, 5)  \nrepeats\n\n\n[1] 3 3 3 3 3\n\ntypeof(repeats)\n\n[1] \"double\"\n\n\n\n\n# generates a vector of integers \n# from 1 to 12 (inclusive)\nseries &lt;- 1:12 \nseries\n\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\ntypeof(series)\n\n[1] \"integer\"\n\n\n\n\n# generate a vector of random integers by sampling\n# 6 values between 1 and 49 (六合彩)\nmark6 &lt;- sample(1:49,6)\nmark6\n\n\n[1] 32 49  8 29 47  4\n\ntypeof(mark6)\n\n[1] \"integer\""
+    "text": "Other examples\nThere are also different ways to automatically generate vectors\n\n\n# vectors can be created using existing variables\njason &lt;- 1.69\nray &lt;- 1.78\nyuanhua &lt;- 1.72\n\nheights &lt;- c(jason, ray, yuanhua)\n# you can give names to items in a vector\nnames(heights) &lt;- c(\"Jason\",\"Ray\",\"Yuanhua\")\nheights\n\n\n  Jason     Ray Yuanhua \n   1.69    1.78    1.72 \n\ntypeof(heights)\n\n[1] \"double\"\n\n\n\n\n# rep repeats the first number\n# n times based on the second value\nrepeats &lt;- rep(3, 5)  \nrepeats\n\n\n[1] 3 3 3 3 3\n\ntypeof(repeats)\n\n[1] \"double\"\n\n\n\n\n# generates a vector of integers \n# from 1 to 12 (inclusive)\nseries &lt;- 1:12 \nseries\n\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\ntypeof(series)\n\n[1] \"integer\"\n\n\n\n\n# generate a vector of random integers by sampling\n# 6 values between 1 and 49 (六合彩)\nmark6 &lt;- sample(1:49,6)\nmark6\n\n\n[1] 49  4 46 13  8 22\n\ntypeof(mark6)\n\n[1] \"integer\""
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#combining-vectors",
     "href": "courses/2026/SBMS7202/introR.html#combining-vectors",
     "title": "Introduction to R",
     "section": "Combining vectors",
-    "text": "Combining vectors\nVectors can also be combined from other vectors.\n\n# vectors can be combined\nnew_vector &lt;- c(series,mark6,rep(50,3))\nnew_vector\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 32 49  8 29 47  4 50 50 50\n\ntypeof(new_vector)\n\n[1] \"double\"\n\n\nDid you notice that new_vector is now a of type double ?\nYou can spend a few minutes to create vectors and explore what happens to the data type of the vector when you combine them with others.\n\n# write your code here\nmyVector &lt;- c(TRUE,2:3,4.0)\nmyVector\n\n[1] 1 2 3 4\n\ntypeof(myVector)\n\n[1] \"double\""
+    "text": "Combining vectors\nVectors can also be combined from other vectors.\n\n# vectors can be combined\nnew_vector &lt;- c(series,mark6,rep(50,3))\nnew_vector\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 49  4 46 13  8 22 50 50 50\n\ntypeof(new_vector)\n\n[1] \"double\"\n\n\nDid you notice that new_vector is now of type double ?\nYou can spend a few minutes to create vectors and explore what happens to the data type of the vector when you combine them with others.\n\n# write your code here\nmyVector &lt;- c(TRUE,2:3,4.0)\nmyVector\n\n[1] 1 2 3 4\n\ntypeof(myVector)\n\n[1] \"double\""
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#index",
@@ -7221,7 +7221,7 @@
     "href": "courses/2026/SBMS7202/introR.html#exercise",
     "title": "Introduction to R",
     "section": "Exercise",
-    "text": "Exercise\nCan you write the code to retrieve the scores from:\n\nscores &lt;- c(44,56,63,75,77,78,81,90,93,99)\n\n\nthe first position\n\n\n# write the code to retieve the 1st position\nscores[1]\n\n[1] 44\n\n\n\neven positions\n\n\n# write the code to retrieve even positions\nscores[c(FALSE,TRUE)]\n\n[1] 56 75 78 90 99\n\n\n\nevery 3rd position\n\n\n# write the code to retrieve every 3rd position\nscores[c(FALSE,FALSE,TRUE)]\n\n[1] 63 78 93"
+    "text": "Exercise\nCan you write the code to retrieve the scores from:\n\nscores &lt;- c(44,56,63,75,77,78,81,90,93,99)\n\n\nthe first position\n\n\n# write the code to retrieve the 1st position\nscores[1]\n\n[1] 44\n\n\n\neven positions\n\n\n# write the code to retrieve even positions\nscores[c(FALSE,TRUE)]\n\n[1] 56 75 78 90 99\n\n\n\nevery 3rd position\n\n\n# write the code to retrieve every 3rd position\nscores[c(FALSE,FALSE,TRUE)]\n\n[1] 63 78 93"
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#modifying-a-vector",
@@ -7298,56 +7298,56 @@
     "href": "courses/2026/SBMS7202/introR.html#ifelse",
     "title": "Introduction to R",
     "section": "If/else",
-    "text": "If/else\nLink logical outcome to an action given the condition. This is where the if and else statement comes in. The format is like\nif (CONDITIION) {\n  # If CONDITIION==TRUE: codes inside this bracket will be executed\n} else {\n # If CONDITIION==FALSE: codes inside this bracket will be executed (You can akso omit this part if needed)\n}\nExample\n\n\n# example of if/else based on passing exam\nzoomClass &lt;- function(blackRain, Typhoon8){\n  if  (blackRain | Typhoon8) {\n    print(\"Zoom link:XXXX\")\n  }else{\n    print(\"We will have offline class\")\n  }\n\n}\nzoomClass(TRUE, TRUE)\n\n\n[1] \"Zoom link:XXXX\"\n\n\n\n\nzoomClass(FALSE, FALSE)\n\n\n[1] \"We will have offline class\""
+    "text": "If/else\nLink logical outcome to an action given the condition. This is where the if and else statement comes in. The format is like\nif (CONDITION) {\n  # If CONDITION==TRUE: codes inside this bracket will be executed\n} else {\n # If CONDITION==FALSE: codes inside this bracket will be executed (You can also omit this part if needed)\n}\nExample\n\n\n# example of if/else based on passing exam\nzoomClass &lt;- function(blackRain, Typhoon8){\n  if  (blackRain | Typhoon8) {\n    print(\"Zoom link:XXXX\")\n  }else{\n    print(\"We will have offline class\")\n  }\n\n}\nzoomClass(TRUE, TRUE)\n\n\n[1] \"Zoom link:XXXX\"\n\n\n\n\nzoomClass(FALSE, FALSE)\n\n\n[1] \"We will have offline class\""
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#chained-conditions",
     "href": "courses/2026/SBMS7202/introR.html#chained-conditions",
     "title": "Introduction to R",
     "section": "Chained conditions",
-    "text": "Chained conditions\nIt is also possible to chain if/else statements if there are multiple conditions:\n\n\n# example of multiple if else conditions\nageCategory &lt;- function(age){\n  if (age &lt;= 12){\n    print(\"Child\")\n  } else if (age &gt; 12 & age &lt;= 19){\n    print(\"Teenage\")\n  } else if (age &gt; 20 & age &lt;= 60) {\n    print(\"Adult\")\n  } else {                                # &gt; 60\n    print(\"Elderly\")\n  }                              \n}\n\n\n\n\n\nageCategory(5)\n\n\n[1] \"Child\"\n\n\n\n\nageCategory(45)\n\n\n[1] \"Adult\"\n\n\n\n\nageCategory(70)\n\n\n[1] \"Elderly\""
+    "text": "Chained conditions\nIt is also possible to chain if/else statements if there are multiple conditions:\n\n\n# example of multiple if else conditions\nageCategory &lt;- function(age){\n  if (age &lt;= 12){\n    print(\"Child\")\n  } else if (age &gt; 12 & age &lt;= 19){\n    print(\"Teenage\")\n  } else if (age &gt;= 20 & age &lt;= 60) {\n    print(\"Adult\")\n  } else {                                # &gt; 60\n    print(\"Elderly\")\n  }                              \n}\n\n\n\n\n\nageCategory(5)\n\n\n[1] \"Child\"\n\n\n\n\nageCategory(45)\n\n\n[1] \"Adult\"\n\n\n\n\nageCategory(70)\n\n\n[1] \"Elderly\""
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#loop",
     "href": "courses/2026/SBMS7202/introR.html#loop",
     "title": "Introduction to R",
     "section": "Loop",
-    "text": "Loop\n\nUsing loop to reduce redundant code\n\nHere are some simple examples of a for loop in R:\n\n\n# examples of loop\n# Loop printing a series of numbers from 1 to 10\nfor (i in 1:10){\n  print(i)\n}\n\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n[1] 6\n[1] 7\n[1] 8\n[1] 9\n[1] 10\n\n\nYou can also iterater on vectors\n\n\n# Loop printing a vector of names\nnames &lt;- c(\"Jason\",\"Ray\",\"Yuanhua\")\nfor (i in names){\n  print(i)\n}\n\n\n[1] \"Jason\"\n[1] \"Ray\"\n[1] \"Yuanhua\""
+    "text": "Loop\n\nUsing loop to reduce redundant code\n\nHere are some simple examples of a for loop in R:\n\n\n# examples of loop\n# Loop printing a series of numbers from 1 to 10\nfor (i in 1:10){\n  print(i)\n}\n\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n[1] 6\n[1] 7\n[1] 8\n[1] 9\n[1] 10\n\n\nYou can also iterate over vectors\n\n\n# Loop printing a vector of names\nnames &lt;- c(\"Jason\",\"Ray\",\"Yuanhua\")\nfor (i in names){\n  print(i)\n}\n\n\n[1] \"Jason\"\n[1] \"Ray\"\n[1] \"Yuanhua\""
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#preface",
     "href": "courses/2026/SBMS7202/introR.html#preface",
     "title": "Introduction to R",
     "section": "Preface",
-    "text": "Preface\n\nYou will encounter errors.\nGetting an error in R is not a sign of failure;\nit is simply R’s way of asking for clarification, or\nThe program is not desgined to work in that way"
+    "text": "Preface\n\nYou will encounter errors.\nGetting an error in R is not a sign of failure;\nit is simply R’s way of asking for clarification, or\nThe program is not designed to work in that way"
   },
   {
-    "objectID": "courses/2026/SBMS7202/introR.html#part-1-how-to-read-the-red-text-without-panicking",
-    "href": "courses/2026/SBMS7202/introR.html#part-1-how-to-read-the-red-text-without-panicking",
+    "objectID": "courses/2026/SBMS7202/introR.html#how-to-read-the-red-text-without-panicking",
+    "href": "courses/2026/SBMS7202/introR.html#how-to-read-the-red-text-without-panicking",
     "title": "Introduction to R",
-    "section": "Part 1: How to Read the Red Text Without Panicking",
-    "text": "Part 1: How to Read the Red Text Without Panicking\nWhen R throws red text at you, first determine what kind of message it is:\n\nMessage / Note: Just R talking to you (e.g., “The tidyverse packages have been loaded”). Action: Ignore.\nWarning: The code did run, but something looks suspicious to R (e.g., Removed 5 rows containing missing values). Action: Read it, verify if it affects your analysis, but no immediate panic.\nError: The code stopped. R cannot proceed. Action: Time to debug."
+    "section": "How to Read the Red Text Without Panicking",
+    "text": "How to Read the Red Text Without Panicking\nWhen R throws red text at you, first determine what kind of message it is:\n\nMessage / Note: Just R talking to you (e.g., “The tidyverse packages have been loaded”). Action: Ignore.\nWarning: The code did run, but something looks suspicious to R (e.g., Removed 5 rows containing missing values). Action: Read it, verify if it affects your analysis, but no immediate panic.\nError: The code stopped. R cannot proceed. Action: Time to debug."
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#identifying-the-key-of-the-error",
     "href": "courses/2026/SBMS7202/introR.html#identifying-the-key-of-the-error",
     "title": "Introduction to R",
     "section": "Identifying the key of the Error",
-    "text": "Identifying the key of the Error\nDon’t read the whole error if it looks messsy. Look for the recognizable words at the end of the message.\nCommon Biomedical Data Errors translated to plain English:\n\nError: object 'XXX' not found\n\nTranslation: You either haven’t run the line of code that creates/loads XXX yet, or you made a typo (e.g., you typed xxx).\n\nError in read_csv(\"FILE\") : could not find function \"read_csv\"\n\nKey: could not find function\nTranslation: You forgot to load the package! Run library(tidyverse) or library(readr) first.\n\nError: unexpected symbol in \"ggplot(data = clinical_df aes(x = treatment))\"\n\nKey: unexpected symbol\nTranslation: You missed a comma. (There should be a comma after clinical_df)."
+    "text": "Identifying the key of the Error\nDon’t read the whole error if it looks messy. Look for the recognizable words at the end of the message.\nCommon Biomedical Data Errors translated to plain English:\n\nError: object 'XXX' not found\n\nTranslation: You either haven’t run the line of code that creates/loads XXX yet, or you made a typo (e.g., you typed xxx).\n\nError in read_csv(\"FILE\") : could not find function \"read_csv\"\n\nKey: could not find function\nTranslation: You forgot to load the package! Run library(tidyverse) or library(readr) first.\n\nError: unexpected symbol in \"ggplot(data = clinical_df aes(x = treatment))\"\n\nKey: unexpected symbol\nTranslation: You missed a comma. (There should be a comma after clinical_df)."
   },
   {
-    "objectID": "courses/2026/SBMS7202/introR.html#part-2-the-ai-lifeline",
-    "href": "courses/2026/SBMS7202/introR.html#part-2-the-ai-lifeline",
+    "objectID": "courses/2026/SBMS7202/introR.html#the-ai-lifeline",
+    "href": "courses/2026/SBMS7202/introR.html#the-ai-lifeline",
     "title": "Introduction to R",
-    "section": "Part 2: The AI Lifeline",
-    "text": "Part 2: The AI Lifeline\nWhen the error is confusing, Large Language Models (LLMs) are your best teaching assistants. However, “Garbage In = Garbage Out.”\nBad example\n\nMy R code doesn’t work!!!!!\n\nAsking right question\nTo get an immediate, accurate fix, always provide the AI with these three components:\n\nThe Goal: What you are trying to do (briefly).\nThe Code: The exact lines that failed.\nThe Error: The exact copy-pasted red text."
+    "section": "The AI Lifeline",
+    "text": "The AI Lifeline\nWhen the error is confusing, Large Language Models (LLMs) are your best teaching assistants. However, “Garbage In = Garbage Out.”\nBad example\n\nMy R code doesn’t work!!!!!\n\nAsking right question\nTo get an immediate, accurate fix, always provide the AI with these three components:\n\nThe Goal: What you are trying to do (briefly).\nThe Code: The exact lines that failed.\nThe Error: The exact copy-pasted red text."
   },
   {
-    "objectID": "courses/2026/SBMS7202/introR.html#copy-paste-prompt-template",
-    "href": "courses/2026/SBMS7202/introR.html#copy-paste-prompt-template",
+    "objectID": "courses/2026/SBMS7202/introR.html#some-example",
+    "href": "courses/2026/SBMS7202/introR.html#some-example",
     "title": "Introduction to R",
-    "section": "Copy-Paste Prompt Template:",
-    "text": "Copy-Paste Prompt Template:\n\nAct as an expert R programmer\nGoal: I am trying to [e.g., create a scatterplot of gene expression versus patient age using ggplot2].\nHere is my code:\n[Paste your code here]\nHere is the error message I received:\n[Paste the EXACT error message here]\nPlease tell me what went wrong and provide the corrected code."
+    "section": "Some example:",
+    "text": "Some example:\n\nAct as an expert R programmer\nGoal: I am trying to [e.g., create a scatterplot of gene expression versus patient age using ggplot2].\nHere is my code:\n[Paste your code here]\nHere is the error message I received:\n[Paste the EXACT error message here]\nPlease tell me what went wrong and provide the corrected code."
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#part-3-best-practices-for-ai-assisted-coding",
@@ -7368,7 +7368,7 @@
     "href": "courses/2026/SBMS7202/tidyverse.html#learning-objectives",
     "title": "Introduction to R",
     "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of this session, you will\nWrangle (dplyr)\n\nRead tabular data into R\nUse core verbs: filter, mutate, summarise (with the pipe %&gt;%)\nReflect on good coding practice in data wrangling\n\nPlot (ggplot2)\n\nUnderstand the basic grammar and layered structure of ggplot2\nCreate simple plots using data, aesthetics, and geometric layers\n\nWe DO NOT expect:\n\nMemorize every function in ggplot2 or dplyr\n\n\n\nAcknowledgement\nThese lecture slides are partially adapted and inspired from\n\n@laurent_gatto_2021_5532658, @peng2016r, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0\nProf. Yuanhua Huang, and Prof. Jason Wong contribution on early version"
+    "text": "Learning objectives\nBy the end of this session, you will\n\n\nWrangle (dplyr)\n\nRead tabular data into R\nUse core verbs: filter, mutate, summarise (with the pipe %&gt;%)\nReflect on good coding practice in data wrangling\n\n\nPlot (ggplot2)\n\nUnderstand the basic grammar and layered structure of ggplot2\nCreate simple plots using data, aesthetics, and geometric layers\n\n\nWe DO NOT expect you to Memorize every function in ggplot2 or dplyr\n\n\nThese lecture slides are partially adapted and inspired from\n\n@laurent_gatto_2021_5532658, @peng2016r, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0\nProf. Yuanhua Huang, and Prof. Jason Wong contribution on early version\nBackground image: @bg2"
   },
   {
     "objectID": "courses/2026/SBMS7202/tidyverse.html#package",
@@ -7383,6 +7383,13 @@
     "title": "Introduction to R",
     "section": "Installing package",
     "text": "Installing package\nGolden rule: refer to the documentation of the specific package\n\nCRAN (the Comprehensive R Archive Network) (Major package channel)\n\ninstall.packages(\"ggplot2\")\ninstall.packages(\"tidyverse\")\n\nBioconductor (Biomedical packages)\n\nBiocManager::install(\"DESeq2\")\n\nGitHub (code at the developmental stage)\n\ndevtools::install_github(\"tidyverse/ggplot2\")"
+  },
+  {
+    "objectID": "courses/2026/SBMS7202/tidyverse.html#why-wrangling-matters",
+    "href": "courses/2026/SBMS7202/tidyverse.html#why-wrangling-matters",
+    "title": "Introduction to R",
+    "section": "Why wrangling matters",
+    "text": "Why wrangling matters\nRaw experiment tables are almost never analysis-ready.\n\nColumns may be wide, messy, or split across files\nWe need a clean table: one row per observation, clear columns for predictors/outcomes\n\ndplyr is how we reshape and filter those tables so plots and models can run.\nKeep a before/after picture in mind: messy spreadsheet → tidy analysis table."
   },
   {
     "objectID": "courses/2026/SBMS7202/tidyverse.html#example-data---gene-expression",
@@ -7403,7 +7410,7 @@
     "href": "courses/2026/SBMS7202/tidyverse.html#task---read-two-dataframe",
     "title": "Introduction to R",
     "section": "Task - Read two dataframe",
-    "text": "Task - Read two dataframe\nPlease read the data to your RStudio for further analysis\n\n\n\n\n# Title: Read files and inspect data\n# Read the count matrix and metadata, then preview the first few rows.\n# --- Your code starts here ---\n\n# rnaseq &lt;- read.csv(\"WRITE DOWN YOUR PATH HERE\")\n# meta &lt;- read.csv(\"WRITE DOWN YOUR PATH HERE\")\n\n# --- Your code ends here ---\n\n# Show the first 3 rows and first 6 sample columns of the expression data.\nhead(rnaseq[, 1:6], 3)\n\n     gene GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340\n1     Asl       1170        361        400        586        626\n2    Apod      36194      10347       9173      10620      13021\n3 Cyp2d22       4060       1616       1603       1901       2171\n\nhead(meta, 3)\n\n      sample     organism age    sex   infection  strain time     tissue mouse\n1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14\n2 GSM2545337 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum     9\n3 GSM2545338 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum    10\n\n\n\n\n\n\n\n\nDiscussion question\n\n\n\nWhat are the pros and cons using absolute path and relative path ?\nWhat will be the best practice to put the data file ?"
+    "text": "Task - Read two dataframe\nPlease read the data to your RStudio for further analysis\n\n\n\n\n# Title: Read files and inspect data\n# Read the count matrix and metadata, then preview the first few rows.\n# --- Your code starts here ---\n\n# rnaseq &lt;- read.csv(\"WRITE DOWN YOUR PATH HERE\")\n# meta &lt;- read.csv(\"WRITE DOWN YOUR PATH HERE\")\n\n# --- Your code ends here ---\n\n# Show the first 3 rows and first 6 sample columns of the expression data.\nhead(rnaseq[, 1:6], 3)\n\n     gene GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340\n1     Asl       1170        361        400        586        626\n2    Apod      36194      10347       9173      10620      13021\n3 Cyp2d22       4060       1616       1603       1901       2171\n\nhead(meta, 3)\n\n      sample     organism age    sex   infection  strain time     tissue mouse\n1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14\n2 GSM2545337 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum     9\n3 GSM2545338 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum    10"
   },
   {
     "objectID": "courses/2026/SBMS7202/tidyverse.html#transforming-data-with-dplyr",
