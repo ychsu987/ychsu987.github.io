@@ -5,6 +5,6 @@ subtitle: "Course index — slides and annotated notes"
 
 Lecture materials for SBMS7402. Use **Blank** for student-facing slides and **✍️ Annotated** when an in-class / sketch version is available.
 
-| Topic | Slides | Annotated slides |
-|---|---|---|
-| linear regression | [Blank](lr.qmd) | — |
+| Topic | Slides | Annotated slides | Solution slides |
+|---|---|---|---|
+| linear regression | [Blank](lr.qmd) | — |— |

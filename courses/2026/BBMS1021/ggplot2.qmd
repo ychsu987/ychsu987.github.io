@@ -45,10 +45,10 @@ I am responsible for introducing commonly used libraries in R. So most of the ti
 
 Questions that Ray could **barely** give you an explanation better than AI/documentation:
   
-- "What does this function do" -> Go to find the documentation `?FUNCTION_NAME` or ask AI
+- "What does this function do" -> Go to find the documentation `?FUNCTION_NAME`
 - "Why is this named XXXX()" -> The developer named it that way
 
-Questions and competency you need to develop:
+Competency you need to develop:
 
 - "Why we need to do this?"
 - Describe the task so AI can help you generate code
@@ -77,11 +77,6 @@ Questions and competency you need to develop:
 # ggplot2
 
 {{< include /_content/modules/bdata/ggplot2.qmd >}}
-
-# File structure
-
-{{< include /_content/modules/bdata/file.qmd >}}
-
 
 ## Bibliography notes
 

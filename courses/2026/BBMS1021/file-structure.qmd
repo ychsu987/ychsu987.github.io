@@ -1,0 +1,32 @@
+---
+title: "Introduction to R"
+subtitle: File structure
+title-slide-attributes:
+    data-background: /assets/images/ggplot2/background-1.jpg
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+author: Yu Cheng Hsu
+format: 
+  revealjs:
+    theme: [default, ../../../assets/css/general_style.css]
+    slide-number: true
+    reference-location: margin
+    chalkboard: true
+    smaller: true
+bibliography: ref.bib
+lightbox: true
+---
+
+## Learning objectives
+
+- Demonstrate reading and loading data from the computer
+- Understand relative path and absolute path in the computer
+  
+:::{.aside}
+
+Background image: @bg5
+
+:::
+
+{{< include /_content/modules/bdata/file.qmd >}}
