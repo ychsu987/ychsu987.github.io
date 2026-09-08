@@ -210,6 +210,9 @@ Protein is enriched in the pathway *multicellular organismal development*
 
 This enrichment analysis is implemented in `chipenrich` library
 ```{r}
+#| echo: true
+#| eval: true
+
 # Install chipenrich and its data package
 if (!requireNamespace(c("BiocManager","chipenrich","chipenrich.data"), quietly = TRUE)) {
     install.packages("BiocManager")
@@ -234,7 +237,7 @@ results <- chipenrich(
 ```{r}
 # Extract and view the top enriched gene sets
 enrichment_table <- results$results
-head(enrichment_table)
+head(enrichment_table,2)
 ```
 
 - `results$results`: The primary output. It contains the Gene Set ID, description, p-value, False Discovery Rate (FDR), effect size (positive means enriched, negative means depleted), and the specific genes driving the enrichment.

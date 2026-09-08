@@ -1,11 +1,12 @@
 ---
-title: "Epidemiology workshop"
+title: "Regression diagnostics"
+subtitle: "An ecology perspective"
+author: "Yu Cheng Hsu"
 title-slide-attributes:
-    data-background: /assets/images/epi_workshop/background-1.jpg
-    data-background-size:  35% 100%
+    data-background: /assets/images/lr/background-1.jpg
+    data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"
-author: Yu Cheng Hsu
 format: 
     revealjs:
         theme: [default, ../../../assets/css/general_style.css]
@@ -15,21 +16,18 @@ format:
         chalkboard:
             theme: whiteboard
             src: None
+lightbox: true
 bibliography: ref.bib
 engine: knitr
 ---
+
 ## Learning objectives
 
-- Analyze data from cohort study 
-- Analyze data from case-control study 
-- Justify the use of a cohort or case-control study 
+- Demonstrate linear regression diagnostics
+- Judgement on the performance of linear regression  
 
 :::{.aside}
-
-Background image: @bg5
-
+Background image: @bg1
 :::
 
-{{< include /_content/modules/bdata/epi_workshop.qmd >}}
-
-## Bibliography notes
+{{< include /_content/modules/bdata/lr1.qmd >}}

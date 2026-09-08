@@ -665,7 +665,7 @@ ax.set_ylim(0, 2)
 
   - The interior intersection point $(C_1^*, C_2^*)$ exists but is a saddle point (unstable):
   $$C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}$$
-- Outcome: Priority Effect / Founders' Advantage. The surviving species depends strictly on the initial condition relative to the stable manifold of the saddle point.
+- Outcome: Priority Effect / Founders' Advantage. The surviving species depends strictly on the initial condition.
 
 ## Stable Coexistence
 

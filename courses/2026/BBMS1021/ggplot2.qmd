@@ -2,7 +2,7 @@
 title: "Introduction to R"
 subtitle: Data visualization in ggplot2
 title-slide-attributes:
-    data-background: /assets/images/ggplot2/background-1.png
+    data-background: /assets/images/ggplot2/background-1.jpg
     data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"
@@ -30,6 +30,12 @@ By the end of this session, you will
 We **DO NOT** expect:
 
 - Memorize functions in the `ggplot2`
+
+:::{.aside}
+
+Background image: @bg1
+
+:::
 
 ## Preamble
 

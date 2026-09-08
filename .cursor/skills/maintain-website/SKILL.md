@@ -13,6 +13,8 @@ Personal teaching website for Yu Cheng Hsu (HKU). Built with **Quarto website** 
 
 Live site: https://ychsu987.github.io
 
+Human-facing author / maintenance guide: [README.md](../../../README.md) at the repo root. Prefer updating that README when naming, file layout, or the student-pack workflow changes.
+
 ## Quick orientation
 
 | Layer | Location | Role |
@@ -106,7 +108,33 @@ quarto preview
 quarto publish gh-pages
 ```
 
+`project.post-render` runs `scripts/cleanup-render-artifacts.ts` after every render/publish. It deletes source-tree `*_files/` folders, `.quarto_ipynb` sidecars, and `_site/_freeze` / `_site/site_output` so they are not committed or pushed to `gh-pages`. Do not remove that hook.
+
 Only publish when the user explicitly asks. The `main` branch holds source; `gh-pages` holds the built site.
+
+### Student copies (`-full` / `-worksheet`)
+
+Website lectures keep `{{< include /_content/modules/... >}}`. To give students a standalone `.qmd`, flatten from the repo root:
+
+```bash
+python scripts/flatten_qmd.py courses/2026/SBMS7202/introR.qmd --mode full
+python scripts/flatten_qmd.py courses/2026/SBMS7202/introR.qmd --mode worksheet
+python scripts/flatten_qmd.py courses/2026/SBMS7202/introR.qmd --mode both
+```
+
+Outputs go to `_student/` (same relative path as the lecture) so Quarto does not publish them and they do not collide with lectures like `adt-model-full.qmd`:
+
+```text
+_student/courses/2026/SBMS7202/introR-full.qmd
+_student/courses/2026/SBMS7202/introR-worksheet.qmd
+```
+
+| Mode | Output | What it does |
+|------|--------|----------------|
+| `full` | `{stem}-full.qmd` | Inlines `_content` modules; rewrites `/assets` and `img/` to `https://ychsu987.github.io/...` |
+| `worksheet` | `{stem}-worksheet.qmd` | Same, then blanks executable `{r}`/`{python}`/`{webr}`/`{dot}` code (keeps `#` comments) and display `$$` math |
+
+Override the folder with `--out-dir student` (relative to the lecture) if you want copies next to the source. Do not edit generated files by hand; re-run the script after `_content` changes. Leave the original lecture (with includes) as the website source.
 
 ### Freeze behavior
 
@@ -227,33 +255,15 @@ These are **not needed in the source repo**. Many are already gitignored but sti
 
 Do **not** put `_freeze/`, `.qmd` sources, or `.quarto/` on `gh-pages` — they are build inputs, not website content.
 
-### Recommended `.gitignore` (source repo)
+### `.gitignore` (source repo)
 
-Current `.gitignore` only covers `.quarto/`, `_site/`, and `*.quarto_ipynb`. Consider expanding to:
+`.gitignore` covers `_site/`, `.quarto/`, `_student/`, `**/*_files/`, `*.quarto_ipynb`, and `docs/`. After every render, `scripts/cleanup-render-artifacts.ts` also deletes leftover `*_files/` from the source tree.
 
-```gitignore
-# Quarto build output
-/_site/
-/.quarto/
-**/*.quarto_ipynb
-
-# Per-document render artifacts (regenerated on render)
-**/*_files/
-
-# Legacy/stale output
-/docs/
-
-# OS and editor
-.DS_Store
-Thumbs.db
-.cursor/
-```
-
-After updating `.gitignore`, untrack legacy artifacts (only when the user asks):
+If those paths are still tracked from older commits, untrack them (only when the user asks):
 
 ```bash
-git rm -r --cached _site/ .quarto/ docs/ 2>/dev/null
-git ls-files "*_files" | xargs git rm -r --cached
+git rm -r --cached _site/ .quarto/ docs/
+git ls-files ":(glob)**/*_files/**" | git update-index --force-remove --stdin
 ```
 
 ### `_freeze/` — commit on main, not published
@@ -280,6 +290,7 @@ Re-commit `_freeze/` when code chunks, data, or figures change (`quarto render -
 
 ## Additional resources
 
+- Author / maintenance guide (file layout, naming, student packs): [README.md](../../../README.md)
 - Full course catalog and YAML templates: [reference.md](reference.md)
 - Quarto website docs: https://quarto.org/docs/websites/
 - Quarto Live docs: https://quarto.org/docs/interactive/ojs/quarto-live.html

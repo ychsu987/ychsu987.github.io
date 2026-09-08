@@ -3,6 +3,7 @@ project:
   resources:
     - "AILT9015/"
     - "assets/"
+  post-render: scripts/cleanup-render-artifacts.ts
 website:
   title: "Yu Cheng Hsu"
   navbar:

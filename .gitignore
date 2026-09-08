@@ -2,6 +2,15 @@
 /_site/
 **/*.quarto_ipynb
 
+# Per-document render leftovers (copied into _site; deleted after render)
+**/*_files/
+
+# Legacy/stale output
+/docs/
+
+# Flattened student copies (scripts/flatten_qmd.py)
+/_student/
+
 # OS metadata (Finder / Windows Explorer)
 .DS_Store
 Thumbs.db
