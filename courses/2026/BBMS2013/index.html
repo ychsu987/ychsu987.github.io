@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific computing – Yu Cheng Hsu</title>
+<title>BBMS2013 Biomedical Statistics – Yu Cheng Hsu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f9e6e4d29af3f5f6ee06eaf03ed5edd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-f9e6e4d29af3f5f6ee06eaf03ed5edd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,121 +67,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-lecture .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-lecture'] = new List('listing-lecture', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-tutorial .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-tutorial'] = new List('listing-tutorial', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-ai-lecture .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: [],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-ai-lecture'] = new List('listing-ai-lecture', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -194,7 +78,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Yu Cheng Hsu</span>
     </a>
   </div>
@@ -205,7 +89,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -214,23 +98,23 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-courses">    
         <li>
-    <a class="dropdown-item" href="./cc.html">
+    <a class="dropdown-item" href="../../../cc.html">
  <span class="dropdown-text">Common core</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hybridPBL.html">
+    <a class="dropdown-item" href="../../../hybridPBL.html">
  <span class="dropdown-text">Hybrid PBL Lectures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./quant.html">
+    <a class="dropdown-item" href="../../../quant.html">
  <span class="dropdown-text">Quantitative analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./courses.html">
+    <a class="dropdown-item" href="../../../courses.html">
  <span class="dropdown-text">Course overview (Current Term + Archive)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./programming.html">
+    <a class="dropdown-item" href="../../../programming.html">
  <span class="dropdown-text">Scientific computing</span></a>
   </li>  
     </ul>
@@ -252,7 +136,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific computing</h1>
+<h1 class="title">BBMS2013 Biomedical Statistics</h1>
+<p class="subtitle lead">Course index — slides and annotated notes</p>
 </div>
 
 
@@ -269,97 +154,25 @@ window.Quarto = {
 </header>
 
 
-<p>I teach several fundamental computing modules</p>
-<section id="bbms1021-introduction-to-ai-and-biomedical-data-science" class="level2">
-<h2 class="anchored" data-anchor-id="bbms1021-introduction-to-ai-and-biomedical-data-science">BBMS1021 Introduction to AI and Biomedical Data Science</h2>
-<section id="lecture-materials" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-materials">Lecture materials</h3>
-<div id="listing-lecture" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1788796800000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2237">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">Introduction to ggplot2</a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1754409600000" data-listing-file-modified-sort="1763693320312" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2102">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./courses/2025/BBMS1021/Real_case/Real-example.html" class="no-external">Real Example of Data Processing and Exploratory Data Analysis with R</a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./courses/2025/BBMS1021/Real_case/Real-example.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<p>The tutorial questions cover basic R programming techniques and data manipulation.</p>
-</section>
-<section id="tutorial-materials" class="level3">
-<h3 class="anchored" data-anchor-id="tutorial-materials">Tutorial materials</h3>
-<div id="listing-tutorial" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1757260800000" data-listing-file-modified-sort="1758010740291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./courses/2025/BBMS1021/tutorial/tutorial_1.html" class="no-external">Tutorial 1</a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./courses/2025/BBMS1021/tutorial/tutorial_1.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1757865600000" data-listing-file-modified-sort="1763544243188" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1326">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./courses/2025/BBMS1021/tutorial/tutorial_2.html" class="no-external">Tutorial 2</a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./courses/2025/BBMS1021/tutorial/tutorial_2.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1757865600000" data-listing-file-modified-sort="1763693320345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="559">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./courses/2025/BBMS1021/tutorial/tutorial_3.html" class="no-external">Tutorial 3</a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./courses/2025/BBMS1021/tutorial/tutorial_3.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-</section>
-<section id="ailt9015" class="level2">
-<h2 class="anchored" data-anchor-id="ailt9015">AILT9015</h2>
-<section id="class-demonstrations" class="level3">
-<h3 class="anchored" data-anchor-id="class-demonstrations">Class demonstrations</h3>
-<div id="listing-ai-lecture" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+<p>Lecture materials for SBMS7402. Use <strong>Blank</strong> for student-facing slides and <strong>✍️ Annotated</strong> when an in-class / sketch version is available.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Slides</th>
+<th>Annotated slides</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>linear regression</td>
+<td><a href="lr.qmd">Blank</a></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
 
 
-
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
