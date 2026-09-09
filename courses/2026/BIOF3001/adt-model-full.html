@@ -6,11 +6,11 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Cancer cell population monitoring</title>
@@ -20,9 +20,6 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -38,6 +35,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -54,7 +52,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -166,8 +164,9 @@ Yu Cheng Hsu
 </div>
 
 </section>
-<section id="intended-learning-outcomes" class="slide level2">
-<h2>Intended learning outcomes</h2>
+<section class="slide level2">
+
+<h3 id="intended-learning-outcomes">Intended learning outcomes</h3>
 <ul>
 <li>Explain tumor evolution and intratumor heterogeneity (ITH)</li>
 <li>Describe the mathematical modeling on species population development</li>
@@ -283,7 +282,7 @@ Yu Cheng Hsu
 <h2>Data sources</h2>
 <p><span class="citation" data-cites="bruchovsky2006final">Bruchovsky et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2006</a>)</span> implemented a clinical trial of IADT</p>
 <div class="columns">
-<div class="column" style="width:48%;">
+<div class="column" style="width:57%;">
 <ul>
 <li><strong>Total participants</strong>: 103 eligible patients with prostate cancer</li>
 <li>Monitoring biomarkers:
@@ -297,7 +296,7 @@ Yu Cheng Hsu
 <li>ADT is stopped until PSA levels rise to 10 <span class="math inline">\(\mu\)</span>g/mL</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:48%;">
+</div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><a href="../../..\assets/images/adt/iadt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="IADT protocol, image from @bruchovsky2006final"><img data-src="../../..\assets/images/adt/iadt.png" alt="IADT protocol, image from Bruchovsky et al. (2006)"></a></p>
@@ -305,6 +304,170 @@ Yu Cheng Hsu
 </figure>
 </div>
 </div></div>
+<!-- ## Unused contents
+# Tumor Evolution and Adaptive Therapy
+
+## Overview
+
+Sensitive and resistant cells **compete** under treatment pressure.
+
+- Continuous high pressure can eliminate sensitive cells and leave resistant ones dominant.
+- **Adaptive therapy** deliberately eases pressure at times so sensitive cells can again outcompete resistant ones (“breathing room”).
+
+**ITH (intratumor heterogeneity):** not all cells in a tumor are identical.
+
+## Branched expansion
+
+:::{.columns}
+
+:::{.column width="70%"}
+@nowell1976clonal proposed tumor evolution model. Tumors expand via:
+
+ - Expansion in branches
+ - Multiple subclones with splitting mechanisms
+  
+:::
+
+:::{.column width="28%"}
+
+![](/assets/images/adt/cancer.png){width="65%"}
+
+:::
+
+:::
+
+![Phylogenetic evidence of branched expansion, image from @gerlinger2012intratumor](/assets/images/adt/branch.jpg){width="90%"}
+
+## Implication of ITH - diagnostics
+
+**How we monitor**
+
+- **Radiomics / habitat imaging:** extract spatial patterns from scans that may reflect different tumor “neighborhoods”
+- **ctDNA (circulating tumor DNA):** measure tumor-derived DNA fragments in blood over time
+
+:::{.columns}
+
+:::{.column width=48%}
+- Spatial and temporal monitoring of tumor cells
+  - Radiomics, habitat imaging @sala2017unravelling
+- Longitudinal tracking of cancer development 
+  - Circulating tumor DNA (ctDNA) @kim2022dynamic
+
+![Habitat imaging](/assets/images/adt/cancer_image.png){width="40%"}
+
+:::
+
+:::{.column width=48%}
+
+![ctDNA](/assets/images/adt/ctdna.png){width="65%"}
+
+:::
+
+:::
+
+
+## Implication of ITH - Lamarckism
+:::{.columns}
+
+:::{.column width="48%"}
+- Treatment-resistance is not simply Darwinian evolution. [@valcz2025adaptive]
+- Evidence: Adaptation to low-dose treatment in a short time
+- Epigenetic plasticity:  Modifying epigenetic features, transfer, and inherit among tumor cell 
+:::
+
+:::{.column width="48%"}
+![Green: treatment sensitive cell @pisco2013non](/assets/images/adt/lamarkian-dye.png){width=60%}
+:::
+
+:::
+
+![Lamarckism from @bell2020principles](/assets/images/adt/lamarkian.png){width=60%}
+
+## Evolutionary therapeutics
+
+:::{.columns}
+
+::: {.column width="48%"}
+
+**Adaptive therapy**
+
+Giving "breathing room" to drug-sensitive tumors. During the low-dosage periods, drug-sensitive cells can outcompete resistant ones.
+
+- Adjust time (Intermittent therapy)
+- Dosage 
+
+**Applications**
+
+- Breast cancer [@enriquez2016exploiting] 
+- Prostate cancer [@zhang2017integrating]
+
+:::
+
+:::{.column width="48%"}
+
+![Adaptive therapy, figure from @mcgehee2024mathematical](/assets/images/adt/adaptive.png)
+
+:::
+
+:::
+
+## Monitoring tumor progress
+
+- Adaptive therapy relies on close monitoring of tumor progression
+- Current practice:
+  - Monitoring on tumor biomarkers
+  - Monitoring on dosage levels of the drug in the blood
+
+|  Tumor type | Monitor parameter | Study |
+|  ---------- | ----------------- | ----- |
+| Ovarian cancer | Serum biomarker + Tumor size  | @mukherjee2024study |
+| Prostate cancer | Blood biomarker  | @zhang2017integrating |
+| Melanoma | Tumor size | @smalley2019leveraging |
+| Breast cancer | Tumor size | @enriquez2016exploiting |
+
+- Implication: Some tumors are not good targets for adaptive therapy due to the management cost
+
+## Adaptive strategy
+
+Designing strategy to turn on- and off- the therapy also varies
+
+
+| Study | Type | Rule |
+| ------- | ----- | --------- |
+| @mukherjee2024study | Continuous | Proportion to biomarkers |
+| @zhang2017integrating | Intermittent | Proportion to tumor size |
+| @smalley2019leveraging | Intermittent | Tumor size + mathematical simulation |
+| @enriquez2016exploiting | Continuous | Proportion to tumor size |
+
+## Benefits of adaptive therapy
+
+:::{.columns}
+
+:::{.column width="48%"}
+
+- Delayed drug resistance
+  - Delayed tumor progression
+- Better clinical outcome 
+- Improve quality of life @hussain2013intermittent
+  - Side effects of the treatment may be reduced during off-cycles
+
+:::
+
+::: {.column width="48%"}
+![Better outcome in metastatic colorectal cancer @avallone2025intermittent](/assets/images/adt/intermittent%20threrapy.png)
+:::
+
+:::
+
+## Challenges in adaptive therapy
+
+- Identifying heterogeneity in the tumor and monitoring the response to the treatment
+- Ultimately kill all cancer cells is extremely challenging 
+  - **Analogy**: Antibiotics, antiviral drug resistance
+- Adaptive therapy tries to
+  - Make the tumor manageable
+  - **Not** necessarily fully cure cancer
+ -->
 </section></section>
 <section>
 <section id="modeling-ecological-dynamics" class="title-slide slide level1 center">
@@ -389,7 +552,7 @@ Yu Cheng Hsu
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<div id="89571430" class="cell" data-execution_count="1">
+<div id="598e9ce5" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -469,7 +632,7 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 <li><span class="math inline">\(C(t) = K\)</span>, the population will remain constant.</li>
 </ul>
 </div></div>
-<div id="a1b8e98b" class="cell" data-execution_count="2">
+<div id="e3eec601" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -520,7 +683,7 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
-<div id="f821535b" class="cell" data-execution_count="3">
+<div id="57a109db" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -550,7 +713,7 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<div id="6ac1312d" class="cell" data-execution_count="4">
+<div id="e9c993c2" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -588,7 +751,7 @@ C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 C(t)=\frac{K}{1+\frac{K-C(0)}{C(0)}e^{-\alpha t}}
 \]</span></p>
 </div>
-<div id="3d650753" class="cell" data-execution_count="5">
+<div id="be0f7dfd" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -613,7 +776,7 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 </div>
 <p>The intersection of these lines represents the equilibrium points of the system. (Detailed discussion can be found in <span class="citation" data-cites="mcgehee2024mathematical">McGehee and Mori (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2024</a>)</span>)</p>
 </div><div class="column" style="width:48%;">
-<div id="8f5c53f6" class="cell" data-execution_count="6">
+<div id="a057ac06" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -624,8 +787,8 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 </div>
 </div></div>
 </section>
-<section id="exclusion-of-one-species-c_1-or-c_2-wins" class="slide level2">
-<h2>Exclusion of one species (<span class="math inline">\(C_1\)</span> or <span class="math inline">\(C_2\)</span> wins)</h2>
+<section id="exclusion-of-one-species" class="slide level2">
+<h2>Exclusion of one species</h2>
 <div class="columns">
 <div class="column">
 <p><strong><span class="math inline">\(C_1\)</span> wins</strong></p>
@@ -653,8 +816,8 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 </ul>
 </div></div>
 </section>
-<section id="bistability-competitive-exclusion" class="slide level2">
-<h2>Bistability / Competitive Exclusion</h2>
+<section id="bistabilitycompetitive-exclusion" class="slide level2">
+<h2>Bistability/Competitive Exclusion</h2>
 <div class="columns">
 <div class="column" style="width:65%;">
 <ul>
@@ -664,9 +827,10 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 <ul>
 <li><span class="math inline">\((K_1, 0)\)</span>, <span class="math inline">\((0, K_2)\)</span> are locally stable nodes.</li>
 </ul></li>
+<li>The interior intersection point <span class="math inline">\((C_1^*, C_2^*)\)</span> exists as a saddle</li>
 </ul>
 </div><div class="column" style="width:33%;">
-<div id="41100f14" class="cell" data-execution_count="7">
+<div id="f1be649b" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -676,10 +840,9 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 </div>
 </div>
 </div></div>
-<ul>
-<li>The interior intersection point <span class="math inline">\((C_1^*, C_2^*)\)</span> exists but is a saddle point (unstable): <span class="math display">\[C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}\]</span></li>
-<li>Outcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition.</li>
-</ul>
+<p><span class="math display">\[
+C_1^* = \frac{K_1 - \beta_{12}K_2}{1 - \beta_{12}\beta_{21}}, \quad C_2^* = \frac{K_2 - \beta_{21}K_1}{1 - \beta_{12}\beta_{21}}
+\]</span> - Outcome: Priority Effect / Founders’ Advantage. The surviving species depends strictly on the initial condition.</p>
 </section>
 <section id="stable-coexistence" class="slide level2">
 <h2>Stable Coexistence</h2>
@@ -696,7 +859,7 @@ C_2(t) &amp;= K_2 - \beta_{21} C_1(t) \\
 <li>Outcome: Both species coexist indefinitely at reduced population levels relative to their single-species carrying capacities.</li>
 </ul>
 </div><div class="column" style="width:33%;">
-<div id="86df2be6" class="cell" data-execution_count="8">
+<div id="5fb54934" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -884,12 +1047,12 @@ k_4 &amp;= f(t_n + h, y_n + h k_3)
 <h2>Bibliography notes</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bruchovsky2006final" class="csl-entry" role="listitem">
-Bruchovsky, Nicholas, Laurence Klotz, Juanita Crook, et al. 2006. <span>“Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.”</span> <em>Cancer</em> 107 (2): 389–95.
+Bruchovsky, Nicholas, Laurence Klotz, Juanita Crook, Shawn Malone, Charles Ludgate, W James Morris, Martin E Gleave, and S Larry Goldenberg. 2006. <span>“Final Results of the Canadian Prospective Phase II Trial of Intermittent Androgen Suppression for Men in Biochemical Recurrence After Radiotherapy for Locally Advanced Prostate Cancer: Clinical Parameters.”</span> <em>Cancer</em> 107 (2): 389–95.
 </div>
 <div id="ref-bg" class="csl-entry" role="listitem">
-Cole, Thomas. 1842. <em>The Voyage of Life: Youth</em>. Oil on canvas. National Gallery of Art.
+Cole, Thomas. 1842. <em>The Voyage of Life: Youth</em>. Oil on canvas. Washington, D.C., United States: National Gallery of Art.
 </div>
 <div id="ref-greaves2012clonal" class="csl-entry" role="listitem">
 Greaves, Mel, and Carlo C Maley. 2012. <span>“Clonal Evolution in Cancer.”</span> <em>Nature</em> 481 (7381): 306–13.
@@ -898,10 +1061,10 @@ Greaves, Mel, and Carlo C Maley. 2012. <span>“Clonal Evolution in Cancer.”</
 McGehee, Cordelia, and Yoichiro Mori. 2024. <span>“A Mathematical Framework for Comparison of Intermittent Versus Continuous Adaptive Chemotherapy Dosing in Cancer.”</span> <em>Npj Systems Biology and Applications</em> 10 (1): 140.
 </div>
 <div id="ref-perera2020intermittent" class="csl-entry" role="listitem">
-Perera, Marlon, Matthew J Roberts, Laurence Klotz, et al. 2020. <span>“Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.”</span> <em>Nature Reviews Urology</em> 17 (8): 469–81.
+Perera, Marlon, Matthew J Roberts, Laurence Klotz, Celestia S Higano, Nathan Papa, Shomik Sengupta, Damien Bolton, and Nathan Lawrentschuk. 2020. <span>“Intermittent Versus Continuous Androgen Deprivation Therapy for Advanced Prostate Cancer.”</span> <em>Nature Reviews Urology</em> 17 (8): 469–81.
 </div>
 <div id="ref-walshaccurate" class="csl-entry" role="listitem">
-Walsh, Christopher A. n.d. <em>Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity</em>.
+Walsh, Christopher A. n.d. <span>“Accurate Single-Cell Genomic Analysis Holds the Key to Understanding Cancer Heterogeneity.”</span>
 </div>
 </div>
 </section></section>
@@ -1096,7 +1259,7 @@ Walsh, Christopher A. n.d. <em>Accurate Single-Cell Genomic Analysis Holds the K
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1170,14 +1333,13 @@ Walsh, Christopher A. n.d. <em>Accurate Single-Cell Genomic Analysis Holds the K
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

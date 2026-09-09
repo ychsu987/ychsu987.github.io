@@ -6,8 +6,8 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Introduction to R</title>
@@ -17,9 +17,6 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -98,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -230,7 +227,7 @@ Yu Cheng Hsu
 <p>Consider the following file structure</p>
 <div class="columns">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a>/ (root)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a>/ (root)</span>
 <span id="cb1-2"><a></a>├── home</span>
 <span id="cb1-3"><a></a>│   └── user</span>
 <span id="cb1-4"><a></a>│       ├── documents</span>
@@ -240,7 +237,7 @@ Yu Cheng Hsu
 <span id="cb1-8"><a></a>│       │   └── notes.txt</span>
 <span id="cb1-9"><a></a>│       └── downloads</span>
 <span id="cb1-10"><a></a><span class="pp">|</span>           └── data.csv</span>
-<span id="cb1-11"><a></a>└── var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <p>There are two ways of specifying a path:</p>
 <ol type="1">
@@ -253,7 +250,7 @@ Yu Cheng Hsu
 <h2>Absolute Path</h2>
 <div class="columns">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>/ (root)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>/ (root)</span>
 <span id="cb2-2"><a></a>├── home</span>
 <span id="cb2-3"><a></a>│   └── user</span>
 <span id="cb2-4"><a></a>│       ├── documents</span>
@@ -263,7 +260,7 @@ Yu Cheng Hsu
 <span id="cb2-8"><a></a>│       │   └── notes.txt</span>
 <span id="cb2-9"><a></a>│       └── downloads</span>
 <span id="cb2-10"><a></a><span class="pp">|</span>           └── data.csv</span>
-<span id="cb2-11"><a></a>└── var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -293,7 +290,7 @@ Yu Cheng Hsu
 <h2>Relative path</h2>
 <div class="columns">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a></a>/ (root)</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a></a>/ (root)</span>
 <span id="cb3-2"><a></a>├── home</span>
 <span id="cb3-3"><a></a>│   └── user</span>
 <span id="cb3-4"><a></a>│       ├── documents</span>
@@ -303,7 +300,7 @@ Yu Cheng Hsu
 <span id="cb3-8"><a></a>│       │   └── notes.txt</span>
 <span id="cb3-9"><a></a>│       └── downloads</span>
 <span id="cb3-10"><a></a><span class="pp">|</span>           └── data.csv</span>
-<span id="cb3-11"><a></a>└── var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <p><strong>Relative Path</strong></p>
 <p>A relative path is defined relative to the current working directory.</p>
@@ -511,7 +508,7 @@ Yu Cheng Hsu
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -585,14 +582,13 @@ Yu Cheng Hsu
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
