@@ -6,11 +6,11 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.9.35">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Epidemiology workshop</title>
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -101,7 +104,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -118,7 +120,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -343,7 +345,7 @@ Yu Cheng Hsu
 <p>If a confidence interval for the effect <strong>includes the null</strong> (no difference), treat the result as <strong>inconclusive</strong>—not as proof of no effect.</p>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Enter the data (a, b, c, d) you collected from your Cohort Study</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Enter the data (a, b, c, d) you collected from your Cohort Study</span></span>
 <span id="cb1-2"><a></a>a <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Number of infected in Area A (example)</span></span>
 <span id="cb1-3"><a></a>b <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Number of healthy in Area A (example)</span></span>
 <span id="cb1-4"><a></a>c <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Number of infected in Area B (example)</span></span>
@@ -355,7 +357,7 @@ Yu Cheng Hsu
 <span id="cb1-10"><a></a></span>
 <span id="cb1-11"><a></a><span class="co"># Calculate Relative Risk (RR)</span></span>
 <span id="cb1-12"><a></a>RR <span class="ot">&lt;-</span> risk_A <span class="sc">/</span> risk_B</span>
-<span id="cb1-13"><a></a><span class="fu">cat</span>(<span class="st">"Relative Risk (RR) of the Cohort Study:"</span>, <span class="fu">round</span>(RR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a></a><span class="fu">cat</span>(<span class="st">"Relative Risk (RR) of the Cohort Study:"</span>, <span class="fu">round</span>(RR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Relative Risk (RR) of the Cohort Study: 2.5 </code></pre>
 </div>
@@ -402,7 +404,7 @@ H_a: &amp; \ln(RR) \neq 0
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># 1. Calculate the natural log of RR</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># 1. Calculate the natural log of RR</span></span>
 <span id="cb3-2"><a></a>log_RR <span class="ot">&lt;-</span> <span class="fu">log</span>(RR)</span>
 <span id="cb3-3"><a></a></span>
 <span id="cb3-4"><a></a><span class="co"># 2. Calculate the Standard Error (SE) for log(RR)</span></span>
@@ -420,11 +422,11 @@ H_a: &amp; \ln(RR) \neq 0
 <span id="cb3-16"><a></a>ci_upper <span class="ot">&lt;-</span> <span class="fu">exp</span>(ci_upper_log)</span>
 <span id="cb3-17"><a></a></span>
 <span id="cb3-18"><a></a><span class="co"># Print the results</span></span>
-<span id="cb3-19"><a></a><span class="fu">cat</span>(<span class="st">"Relative Risk (RR):"</span>, <span class="fu">round</span>(RR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-19"><a></a><span class="fu">cat</span>(<span class="st">"Relative Risk (RR):"</span>, <span class="fu">round</span>(RR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Relative Risk (RR): 2.5 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">cat</span>(<span class="st">"95% CI: ["</span>, <span class="fu">round</span>(ci_lower, <span class="dv">2</span>), <span class="st">","</span>, <span class="fu">round</span>(ci_upper, <span class="dv">2</span>), <span class="st">"]</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">cat</span>(<span class="st">"95% CI: ["</span>, <span class="fu">round</span>(ci_lower, <span class="dv">2</span>), <span class="st">","</span>, <span class="fu">round</span>(ci_upper, <span class="dv">2</span>), <span class="st">"]</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>95% CI: [ 0.67 , 9.31 ]</code></pre>
 </div>
@@ -499,7 +501,7 @@ H_a: &amp; \ln(RR) \neq 0
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Enter the data you collected from your Case-Control Study</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Enter the data you collected from your Case-Control Study</span></span>
 <span id="cb7-2"><a></a>disease_data_cc <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
 <span id="cb7-3"><a></a>  <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">3</span>,   <span class="co"># Area A: Cases (a), Controls (b) (example)</span></span>
 <span id="cb7-4"><a></a>    <span class="dv">2</span>, <span class="dv">5</span>),  <span class="co"># Area B: Cases (c), Controls (d) (example)</span></span>
@@ -513,7 +515,7 @@ H_a: &amp; \ln(RR) \neq 0
 <span id="cb7-12"><a></a></span>
 <span id="cb7-13"><a></a><span class="co"># Calculate Odds Ratio (OR)</span></span>
 <span id="cb7-14"><a></a>OR <span class="ot">&lt;-</span> Odds_A <span class="sc">/</span> Odds_B</span>
-<span id="cb7-15"><a></a><span class="fu">cat</span>(<span class="st">"Odds Ratio (OR) of the Case-Control Study:"</span>, <span class="fu">round</span>(OR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-15"><a></a><span class="fu">cat</span>(<span class="st">"Odds Ratio (OR) of the Case-Control Study:"</span>, <span class="fu">round</span>(OR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Odds Ratio (OR) of the Case-Control Study: 5 </code></pre>
 </div>
@@ -543,13 +545,13 @@ H_a: &amp; \text{OR} = \frac{\frac{a}{b}}{\frac{c}{d}} \neq 1
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Use Fisher's Exact Test to calculate the OR and P-value</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Use Fisher's Exact Test to calculate the OR and P-value</span></span>
 <span id="cb9-2"><a></a>result_cc <span class="ot">&lt;-</span> <span class="fu">fisher.test</span>(disease_data_cc)</span>
-<span id="cb9-3"><a></a><span class="fu">cat</span>(<span class="st">"Odds Ratio (OR) of the Case-Control Study:"</span>, <span class="fu">round</span>(result_cc<span class="sc">$</span>estimate, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a></a><span class="fu">cat</span>(<span class="st">"Odds Ratio (OR) of the Case-Control Study:"</span>, <span class="fu">round</span>(result_cc<span class="sc">$</span>estimate, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Odds Ratio (OR) of the Case-Control Study: 4.47 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">cat</span>(<span class="st">"P-value:"</span>, <span class="fu">signif</span>(result_cc<span class="sc">$</span>p.value, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">cat</span>(<span class="st">"P-value:"</span>, <span class="fu">signif</span>(result_cc<span class="sc">$</span>p.value, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>P-value: 0.315 </code></pre>
 </div>
@@ -742,7 +744,7 @@ c \ll d \implies &amp; c + d \approx d
 <p>To perform regression analysis we need to transform our contingency table to proper dataframe</p>
 <p><strong>Helper function</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Helper function to transform contingency table to dataframe</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Helper function to transform contingency table to dataframe</span></span>
 <span id="cb13-2"><a></a>table_to_df <span class="ot">&lt;-</span> <span class="cf">function</span>(contingency_table) {</span>
 <span id="cb13-3"><a></a>  </span>
 <span id="cb13-4"><a></a>  <span class="co"># Getting cell from the contingency table</span></span>
@@ -762,7 +764,7 @@ c \ll d \implies &amp; c + d \approx d
 <span id="cb13-18"><a></a>  )</span>
 <span id="cb13-19"><a></a>  </span>
 <span id="cb13-20"><a></a>  <span class="fu">return</span>(df)</span>
-<span id="cb13-21"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-21"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="optional-deep-dive-not-assessed-cohort-and-poisson-regression" class="slide level2">
@@ -811,7 +813,7 @@ c \ll d \implies &amp; c + d \approx d
 <div class="column" style="width:45%;">
 <p><strong>Transforming to dataframe</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># 2. transform contingency table DataFrame</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># 2. transform contingency table DataFrame</span></span>
 <span id="cb14-2"><a></a>disease_data_ch<span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
 <span id="cb14-3"><a></a>  <span class="fu">c</span>(a, b,   <span class="co"># Area A: Cases (a), Controls (b) (example)</span></span>
 <span id="cb14-4"><a></a>    c, d),  <span class="co"># Area B: Cases (c), Controls (d) (example)</span></span>
@@ -821,7 +823,7 @@ c \ll d \implies &amp; c + d \approx d
 <span id="cb14-8"><a></a>patient_data <span class="ot">&lt;-</span> <span class="fu">table_to_df</span>(disease_data_ch)</span>
 <span id="cb14-9"><a></a></span>
 <span id="cb14-10"><a></a><span class="co"># 3. inspect first 5 rows</span></span>
-<span id="cb14-11"><a></a><span class="fu">head</span>(patient_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-11"><a></a><span class="fu">head</span>(patient_data, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Exposure Disease
 1        1       1
@@ -834,11 +836,11 @@ c \ll d \implies &amp; c + d \approx d
 </div><div class="column" style="width:55%;">
 <p><strong>Performing Poisson regression</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># 4. perform Poisson regression</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># 4. perform Poisson regression</span></span>
 <span id="cb16-2"><a></a>poisson_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Disease <span class="sc">~</span> Exposure, </span>
 <span id="cb16-3"><a></a>                    <span class="at">data =</span> patient_data, </span>
 <span id="cb16-4"><a></a>                    <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb16-5"><a></a><span class="fu">summary</span>(poisson_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-5"><a></a><span class="fu">summary</span>(poisson_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -925,11 +927,11 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <div class="column" style="width:45%;">
 <p><strong>Transforming to dataframe</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># 2. transform contingency table DataFrame</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># 2. transform contingency table DataFrame</span></span>
 <span id="cb18-2"><a></a>patient_data <span class="ot">&lt;-</span> <span class="fu">table_to_df</span>(disease_data_cc)</span>
 <span id="cb18-3"><a></a></span>
 <span id="cb18-4"><a></a><span class="co"># 3. inspect first 5 rows</span></span>
-<span id="cb18-5"><a></a><span class="fu">head</span>(patient_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a></a><span class="fu">head</span>(patient_data, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Exposure Disease
 1        1       1
@@ -942,10 +944,10 @@ Number of Fisher Scoring iterations: 5</code></pre>
 </div><div class="column" style="width:55%;">
 <p><strong>Performing logistic regression</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># 4. perform logistic regression</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># 4. perform logistic regression</span></span>
 <span id="cb20-2"><a></a>glm_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Disease <span class="sc">~</span> Exposure, <span class="at">data =</span> patient_data, </span>
 <span id="cb20-3"><a></a>                 <span class="at">family =</span> binomial)</span>
-<span id="cb20-4"><a></a><span class="fu">summary</span>(glm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-4"><a></a><span class="fu">summary</span>(glm_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -988,12 +990,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h2>Bibliography notes</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-macmahon1981coffee" class="csl-entry" role="listitem">
 MacMahon, Brian, Stella Yen, Dimitrios Trichopoulos, Kenneth Warren, and George Nardi. 1981. <span>“Coffee and Cancer of the Pancreas.”</span> <em>New England Journal of Medicine</em> 304 (11): 630–33.
 </div>
 <div id="ref-schuemie2019plea" class="csl-entry" role="listitem">
-Schuemie, Martijn J, Patrick B Ryan, Kenneth KC Man, Ian CK Wong, Marc A Suchard, and George Hripcsak. 2019. <span>“A Plea to Stop Using the Case-Control Design in Retrospective Database Studies.”</span> <em>Statistics in Medicine</em> 38 (22): 4199–4208.
+Schuemie, Martijn J, Patrick B Ryan, Kenneth KC Man, Ian CK Wong, Marc A Suchard, and George Hripcsak. 2019. <span>“A Plea to Stop Using the Case-Control Design in Retrospective Database Studies.”</span> <em>Statistics in Medicine</em> 38 (22): 4199–208.
 </div>
 <div id="ref-zou2004modified" class="csl-entry" role="listitem">
 Zou, Guangyong. 2004. <span>“A Modified Poisson Regression Approach to Prospective Studies with Binary Data.”</span> <em>American Journal of Epidemiology</em> 159 (7): 702–6.
@@ -1191,7 +1193,7 @@ Zou, Guangyong. 2004. <span>“A Modified Poisson Regression Approach to Prospec
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1341,13 +1343,14 @@ Zou, Guangyong. 2004. <span>“A Modified Poisson Regression Approach to Prospec
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

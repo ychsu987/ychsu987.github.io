@@ -6,8 +6,8 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.35">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Regression diagnostics</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -98,7 +101,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -115,7 +117,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -499,23 +501,23 @@ F \sim F(df_1 = k, \, df_2 = n - k - 1)
 </ul>
 </div></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load MASS (pre-installed in R)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load MASS (pre-installed in R)</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(MASS)</span>
 <span id="cb1-3"><a></a><span class="fu">data</span>(birthwt)</span>
 <span id="cb1-4"><a></a></span>
 <span id="cb1-5"><a></a><span class="co"># Convert binary indicator variables into explicit factors</span></span>
 <span id="cb1-6"><a></a>birthwt<span class="sc">$</span>smoke <span class="ot">&lt;-</span> <span class="fu">factor</span>(birthwt<span class="sc">$</span>smoke, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Non-Smoker"</span>, <span class="st">"Smoker"</span>))</span>
 <span id="cb1-7"><a></a>birthwt<span class="sc">$</span>ht    <span class="ot">&lt;-</span> <span class="fu">factor</span>(birthwt<span class="sc">$</span>ht, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>))</span>
-<span id="cb1-8"><a></a>birthwt<span class="sc">$</span>ui    <span class="ot">&lt;-</span> <span class="fu">factor</span>(birthwt<span class="sc">$</span>ui, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a></a>birthwt<span class="sc">$</span>ui    <span class="ot">&lt;-</span> <span class="fu">factor</span>(birthwt<span class="sc">$</span>ui, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="regression-results" class="slide level2">
 <h2>Regression results</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwt <span class="sc">~</span> age <span class="sc">+</span> lwt <span class="sc">+</span> smoke <span class="sc">+</span> ht <span class="sc">+</span> ui, <span class="at">data =</span> birthwt)</span>
-<span id="cb2-2"><a></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwt <span class="sc">~</span> age <span class="sc">+</span> lwt <span class="sc">+</span> smoke <span class="sc">+</span> ht <span class="sc">+</span> ui, <span class="at">data =</span> birthwt)</span>
+<span id="cb2-2"><a></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>Residuals:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>Residuals:</span>
 <span id="cb3-2"><a></a>     Min       1Q   Median       3Q      Max </span>
 <span id="cb3-3"><a></a>-1675.13  -464.38    -1.02   459.70  1779.69 </span>
 <span id="cb3-4"><a></a></span>
@@ -532,16 +534,16 @@ F \sim F(df_1 = k, \, df_2 = n - k - 1)
 <span id="cb3-15"><a></a></span>
 <span id="cb3-16"><a></a>Residual standard error: 671.4 on 183 degrees of freedom</span>
 <span id="cb3-17"><a></a>Multiple R-squared:  0.1747,    Adjusted R-squared:  0.1522 </span>
-<span id="cb3-18"><a></a>F-statistic:  7.75 on 5 and 183 DF,  p-value: 1.234e-06</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-18"><a></a>F-statistic:  7.75 on 5 and 183 DF,  p-value: 1.234e-06</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="anova-table" class="slide level2">
 <h2>ANOVA table</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(olsrr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(olsrr)</span>
 <span id="cb4-2"><a></a>olsaov<span class="ot">&lt;-</span><span class="fu">ols_regress</span>(model)<span class="sc">$</span>anova</span>
-<span id="cb4-3"><a></a>olsaov<span class="sc">$</span>anova</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a></a>olsaov<span class="sc">$</span>anova</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a>                                 ANOVA                                   </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a>                                 ANOVA                                   </span>
 <span id="cb5-2"><a></a>------------------------------------------------------------------------</span>
 <span id="cb5-3"><a></a>                    Sum of                                              </span>
 <span id="cb5-4"><a></a>                   Squares         DF    Mean Square      F        Sig. </span>
@@ -549,7 +551,7 @@ F \sim F(df_1 = k, \, df_2 = n - k - 1)
 <span id="cb5-6"><a></a>Regression    17469477.719          5    3493895.544     7.75    0.0000 </span>
 <span id="cb5-7"><a></a>Residual      82500178.091        183     450820.645                    </span>
 <span id="cb5-8"><a></a>Total         99969655.810        188                                   </span>
-<span id="cb5-9"><a></a>------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-9"><a></a>------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="key-metrics-calculations" class="slide level2">
 <h2>Key Metrics Calculations</h2>
@@ -592,7 +594,7 @@ F_{(1, n-2)} = (t_{\beta_1})^2
 </section>
 <section id="summary-diagnostic-flowchart" class="slide level2 smaller scrollable">
 <h2>8. Summary Diagnostic Flowchart</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>[Fit OLS Regression Model]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>[Fit OLS Regression Model]</span>
 <span id="cb6-2"><a></a>           │</span>
 <span id="cb6-3"><a></a>           ▼</span>
 <span id="cb6-4"><a></a>[Check Overall F-Test]</span>
@@ -610,10 +612,10 @@ F_{(1, n-2)} = (t_{\beta_1})^2
 <span id="cb6-16"><a></a>                               [Validate Assumptions]</span>
 <span id="cb6-17"><a></a>                               • Residual vs Fitted (Linearity / Homoscedasticity)</span>
 <span id="cb6-18"><a></a>                               • Normal Q-Q Plot (Normality of residuals)</span>
-<span id="cb6-19"><a></a>                               • Leverage / Cook's D (Influential outliers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-19"><a></a>                               • Leverage / Cook's D (Influential outliers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bg1" class="csl-entry" role="listitem">
 Eakins, Thomas. 1875. <em>The Clinic of Dr. Gross</em>. Oil on canvas. Philadelphia Museum of Art.
 </div>
@@ -810,7 +812,7 @@ Eakins, Thomas. 1875. <em>The Clinic of Dr. Gross</em>. Oil on canvas. Philadelp
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -960,13 +962,14 @@ Eakins, Thomas. 1875. <em>The Clinic of Dr. Gross</em>. Oil on canvas. Philadelp
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

@@ -6,11 +6,11 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.9.35">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Introduction to R</title>
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -98,7 +101,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -248,14 +251,14 @@ Yu Cheng Hsu
 <ul>
 <li>A package is a bundle of functions, data, and documentation. You can import them through</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(package_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(package_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>while using functions under the package you can use</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>package_name<span class="sc">::</span><span class="fu">function_name</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>package_name<span class="sc">::</span><span class="fu">function_name</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>or</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(package_name)</span>
-<span id="cb3-2"><a></a><span class="fu">function_name</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(package_name)</span>
+<span id="cb3-2"><a></a><span class="fu">function_name</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <ul>
 <li>You can check what packages have been installed, imported to your environment using the tab <code>Packages</code></li>
@@ -274,16 +277,16 @@ Yu Cheng Hsu
 <ul>
 <li>CRAN (the Comprehensive R Archive Network) (<strong>Major package channel</strong>)</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
-<span id="cb4-2"><a></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb4-2"><a></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Bioconductor (<strong>Biomedical packages</strong>)</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>GitHub (<strong>code at the developmental stage</strong>)</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="why-wrangling-matters" class="slide level2">
 <h2>Why wrangling matters</h2>
@@ -334,7 +337,7 @@ Yu Cheng Hsu
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Title: Read files and inspect data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Title: Read files and inspect data</span></span>
 <span id="cb7-2"><a></a><span class="co"># Read the count matrix and metadata, then preview the first few rows.</span></span>
 <span id="cb7-3"><a></a><span class="co"># --- Your code starts here ---</span></span>
 <span id="cb7-4"><a></a></span>
@@ -344,14 +347,14 @@ Yu Cheng Hsu
 <span id="cb7-8"><a></a><span class="co"># --- Your code ends here ---</span></span>
 <span id="cb7-9"><a></a></span>
 <span id="cb7-10"><a></a><span class="co"># Show the first 3 rows and first 6 sample columns of the expression data.</span></span>
-<span id="cb7-11"><a></a><span class="fu">head</span>(rnaseq[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-11"><a></a><span class="fu">head</span>(rnaseq[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     gene GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340
 1     Asl       1170        361        400        586        626
 2    Apod      36194      10347       9173      10620      13021
 3 Cyp2d22       4060       1616       1603       1901       2171</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">head</span>(meta, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">head</span>(meta, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    sex   infection  strain time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
@@ -364,23 +367,23 @@ Yu Cheng Hsu
 <h2>Transforming data with dplyr</h2>
 <p><code>dplyr</code> is a package for making tabular data manipulation easier. You can choose using</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Title: Load dplyr package</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Title: Load dplyr package</span></span>
 <span id="cb11-2"><a></a><span class="co"># dplyr provides functions for easy data frame manipulation.</span></span>
-<span id="cb11-3"><a></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>or</p>
 <p>using <code>tidyverse</code> an “umbrella-package” that installs several packages useful for data analysis which work together well such as <code>tidyr</code>, <code>dplyr</code>, <code>ggplot2</code>, <code>tibble</code>, etc.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Title: Load tidyverse packages</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Title: Load tidyverse packages</span></span>
 <span id="cb12-2"><a></a><span class="co"># tidyverse loads multiple data science packages like ggplot2, dplyr, and tidyr.</span></span>
-<span id="cb12-3"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="pipeline-mindset" class="slide level2">
 <h2>Pipeline mindset</h2>
 <p>Without <code>dplyr</code>, if we want to manipulate data, we can still use the following vanilla way to perform the task :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Title: Base R data manipulation example</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Title: Base R data manipulation example</span></span>
 <span id="cb13-2"><a></a><span class="co"># Show how row selection, counting, and column updates work without dplyr.</span></span>
 <span id="cb13-3"><a></a></span>
 <span id="cb13-4"><a></a><span class="co"># Select rows 2 to 5 from the metadata.</span></span>
@@ -391,7 +394,7 @@ Yu Cheng Hsu
 <span id="cb13-9"><a></a><span class="fu">sum</span>(meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Male'</span>)</span>
 <span id="cb13-10"><a></a></span>
 <span id="cb13-11"><a></a><span class="co"># Overwrite the sex column with a logical value indicating male samples.</span></span>
-<span id="cb13-12"><a></a>meta<span class="sc">$</span>sex <span class="ot">=</span> meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Male'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-12"><a></a>meta<span class="sc">$</span>sex <span class="ot">=</span> meta<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">'Male'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -414,19 +417,19 @@ Yu Cheng Hsu
 <h2>Pipe operator <code>%&gt;%</code></h2>
 <p>To prevent us from keep doing like a matryoshka doll</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Title: Nested function call example</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Title: Nested function call example</span></span>
 <span id="cb14-2"><a></a><span class="co"># This shows the same work as a pipeline, but in nested form.</span></span>
-<span id="cb14-3"><a></a><span class="fu">h</span>(<span class="fu">g</span>(<span class="fu">f</span>(data_frame)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a></a><span class="fu">h</span>(<span class="fu">g</span>(<span class="fu">f</span>(data_frame)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Libraries under <code>tidyverse</code> support Pipe operator <code>%&gt;%</code></p>
 <p>We can rewrite the above code as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Title: Pipe operator example</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Title: Pipe operator example</span></span>
 <span id="cb15-2"><a></a><span class="co"># Use the pipe operator to write the same steps in a clearer, left-to-right order.</span></span>
 <span id="cb15-3"><a></a>data_frame <span class="sc">%&gt;%</span> </span>
 <span id="cb15-4"><a></a>  <span class="fu">f</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb15-5"><a></a>  <span class="fu">g</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb15-6"><a></a>  <span class="fu">h</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-6"><a></a>  <span class="fu">h</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>%&gt;%</code> takes the output from the left hand side and then <strong>pipes</strong> it to be the first argument of the right function.</p>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -451,10 +454,10 @@ Yu Cheng Hsu
 <li>Select the designated columns by <code>select(COLUMN_NAMES)</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Title: Select metadata columns</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Title: Select metadata columns</span></span>
 <span id="cb16-2"><a></a>meta <span class="sc">%&gt;%</span></span>
 <span id="cb16-3"><a></a>    <span class="fu">select</span>(age, sex, infection) <span class="sc">%&gt;%</span> <span class="co"># Keep only the age, sex, and infection columns.</span></span>
-<span id="cb16-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous %&gt;%.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous %&gt;%.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  age    sex   infection
 1   8 Female  InfluenzaA
@@ -466,10 +469,10 @@ Yu Cheng Hsu
 <li>Select the designated rows by <code>filter(CONDITION)</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Title: Filter rows by sex</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Title: Filter rows by sex</span></span>
 <span id="cb18-2"><a></a>meta <span class="sc">%&gt;%</span></span>
 <span id="cb18-3"><a></a>    <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">'Female'</span>) <span class="sc">%&gt;%</span> <span class="co"># Keep only female samples.</span></span>
-<span id="cb18-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous %&gt;%.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous %&gt;%.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    sex   infection  strain time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
@@ -497,14 +500,14 @@ Yu Cheng Hsu
 <li>You can rename column by <code>rename()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Title: Rename columns</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Title: Rename columns</span></span>
 <span id="cb20-2"><a></a>meta <span class="sc">%&gt;%</span> <span class="co"># Rename selected metadata columns to make them more readable.</span></span>
 <span id="cb20-3"><a></a>    <span class="fu">rename</span>(</span>
 <span id="cb20-4"><a></a>              <span class="at">Sex =</span> sex,</span>
 <span id="cb20-5"><a></a>              <span class="at">Time =</span> time,</span>
 <span id="cb20-6"><a></a>              <span class="at">Infection =</span> infection</span>
 <span id="cb20-7"><a></a>              ) <span class="sc">%&gt;%</span></span>
-<span id="cb20-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    Sex   Infection  strain Time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
@@ -516,14 +519,14 @@ Yu Cheng Hsu
 <li>You can create new column by <code>mutate()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># Title: Create or modify columns</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># Title: Create or modify columns</span></span>
 <span id="cb22-2"><a></a></span>
 <span id="cb22-3"><a></a>meta <span class="sc">%&gt;%</span></span>
 <span id="cb22-4"><a></a>    <span class="fu">mutate</span>( <span class="co"># Use mutate() to update the time column and add a new infection flag.</span></span>
 <span id="cb22-5"><a></a>              <span class="at">time =</span> time <span class="sc">+</span> age,</span>
 <span id="cb22-6"><a></a>              <span class="at">infection  =</span> <span class="st">"No"</span></span>
 <span id="cb22-7"><a></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb22-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    sex infection  strain time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female        No C57BL/6   16 Cerebellum    14
@@ -536,7 +539,7 @@ Yu Cheng Hsu
 <h2>Perform summary statistics</h2>
 <p>Frequently we will need to provide summary statistics for your data, we can use <code>summarize()</code> to do it</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># Title: Compute summary statistics</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># Title: Compute summary statistics</span></span>
 <span id="cb24-2"><a></a></span>
 <span id="cb24-3"><a></a>meta <span class="sc">%&gt;%</span></span>
 <span id="cb24-4"><a></a>    <span class="fu">summarize</span>( <span class="co"># Summarize the metadata with count, mean, standard deviation, and female sample count.</span></span>
@@ -544,7 +547,7 @@ Yu Cheng Hsu
 <span id="cb24-6"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
 <span id="cb24-7"><a></a>              <span class="at">sd_time=</span><span class="fu">sd</span>(time),</span>
 <span id="cb24-8"><a></a>              <span class="at">num_female=</span><span class="fu">sum</span>(sex<span class="sc">==</span><span class="st">'Female'</span>)</span>
-<span id="cb24-9"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-9"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   n mean_time  sd_time num_female
 1 22         4 3.265986         12</code></pre>
@@ -569,14 +572,14 @@ Yu Cheng Hsu
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># Title: Grouped summary by infection</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># Title: Grouped summary by infection</span></span>
 <span id="cb26-2"><a></a></span>
 <span id="cb26-3"><a></a>meta <span class="sc">%&gt;%</span></span>
 <span id="cb26-4"><a></a>    <span class="fu">group_by</span>(infection) <span class="sc">%&gt;%</span> <span class="co"># Group the metadata by infection status,</span></span>
 <span id="cb26-5"><a></a>    <span class="fu">summarize</span>(      <span class="co">#  and compute summary statistics for each group.</span></span>
 <span id="cb26-6"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
 <span id="cb26-7"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
-<span id="cb26-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-8"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   infection       n mean_time
@@ -586,14 +589,14 @@ Yu Cheng Hsu
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># Title: Multi-group summary</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># Title: Multi-group summary</span></span>
 <span id="cb28-2"><a></a>meta <span class="sc">%&gt;%</span></span>
 <span id="cb28-3"><a></a>    <span class="fu">group_by</span>(infection, sex) <span class="sc">%&gt;%</span> <span class="co"># Group by both infection status and sex,</span></span>
 <span id="cb28-4"><a></a>    <span class="fu">summarize</span>(                   <span class="co">#  then summarize the combined groups.</span></span>
 <span id="cb28-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
 <span id="cb28-6"><a></a>              <span class="at">mean_time=</span><span class="fu">mean</span>(time),</span>
 <span id="cb28-7"><a></a>              <span class="at">sd_time=</span><span class="fu">sd</span>(time),</span>
-<span id="cb28-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-8"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -608,14 +611,14 @@ Yu Cheng Hsu
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Title: Create binary infection status</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Title: Create binary infection status</span></span>
 <span id="cb29-2"><a></a><span class="co"># Use if_else() to add a new infection_status column based on time value.</span></span>
 <span id="cb29-3"><a></a>meta <span class="sc">%&gt;%</span></span>
 <span id="cb29-4"><a></a>    <span class="fu">select</span>(sample, age, sex, time) <span class="sc">%&gt;%</span></span>
 <span id="cb29-5"><a></a>    <span class="fu">mutate</span>( <span class="at">infection_status =</span> <span class="fu">if_else</span>(</span>
 <span id="cb29-6"><a></a>        time <span class="sc">==</span> <span class="dv">0</span>, <span class="st">"Not infected"</span>, <span class="st">"Infected"</span></span>
 <span id="cb29-7"><a></a>    )) <span class="sc">%&gt;%</span></span>
-<span id="cb29-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample age    sex time infection_status
 1 GSM2545336   8 Female    8         Infected
@@ -624,7 +627,7 @@ Yu Cheng Hsu
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># Title: Create categorical infection stage</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># Title: Create categorical infection stage</span></span>
 <span id="cb31-2"><a></a><span class="co"># Use case_when() to assign descriptive labels for each time point.</span></span>
 <span id="cb31-3"><a></a>meta <span class="sc">%&gt;%</span></span>
 <span id="cb31-4"><a></a>    <span class="fu">select</span>(sample, age, sex, time) <span class="sc">%&gt;%</span></span>
@@ -633,7 +636,7 @@ Yu Cheng Hsu
 <span id="cb31-7"><a></a>        time <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Early stage"</span>,</span>
 <span id="cb31-8"><a></a>        time <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">"Late stage"</span></span>
 <span id="cb31-9"><a></a>    ))<span class="sc">%&gt;%</span></span>
-<span id="cb31-10"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-10"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample age    sex time infection_status
 1 GSM2545336   8 Female    8       Late stage
@@ -658,17 +661,17 @@ Yu Cheng Hsu
 <h2>Combining Dataframes</h2>
 <p>First I transpose the RNA count matrix. (The below code chunk is out of the scope, you might ignore why it works)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># Title: Transform RNA count matrix layout</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># Title: Transform RNA count matrix layout</span></span>
 <span id="cb33-2"><a></a><span class="co"># Convert the RNA data from wide to long and back to wide format by gene.</span></span>
 <span id="cb33-3"><a></a>rnaseq <span class="ot">&lt;-</span> rnaseq <span class="sc">%&gt;%</span> </span>
 <span id="cb33-4"><a></a>           <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="sc">-</span>gene, <span class="at">names_to=</span><span class="st">"sample"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb33-5"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> gene, <span class="at">values_from =</span> value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-5"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> gene, <span class="at">values_from =</span> value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You can combine meta data and rna sequence data together.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="co"># Title: Join metadata with RNA data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="co"># Title: Join metadata with RNA data</span></span>
 <span id="cb34-2"><a></a><span class="co"># Combine the sample metadata with the RNA expression table by sample ID.</span></span>
-<span id="cb34-3"><a></a>meta <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(rnaseq, <span class="at">by =</span> <span class="st">'sample'</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-3"><a></a>meta <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(rnaseq, <span class="at">by =</span> <span class="st">'sample'</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      sample     organism age    sex   infection  strain time     tissue mouse
 1 GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
@@ -718,7 +721,7 @@ Yu Cheng Hsu
 <li>Flexible and intuitive once you understand its core concepts.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="about-the-data" class="slide level2">
@@ -733,8 +736,8 @@ Yu Cheng Hsu
 </ul>
 <p>it measures the length and width of iris’s sepal and petal</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">data</span>(iris)</span>
-<span id="cb37-2"><a></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">data</span>(iris)</span>
+<span id="cb37-2"><a></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -842,7 +845,7 @@ Yu Cheng Hsu
 </ul>
 </div><div class="column" style="width:57%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># Initialize a ggplot object with </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># Initialize a ggplot object with </span></span>
 <span id="cb39-2"><a></a><span class="co"># data and aesthetic mappings</span></span>
 <span id="cb39-3"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>iris, </span>
 <span id="cb39-4"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length))</span>
@@ -850,7 +853,7 @@ Yu Cheng Hsu
 <span id="cb39-6"><a></a></span>
 <span id="cb39-7"><a></a><span class="co"># Alternative </span></span>
 <span id="cb39-8"><a></a><span class="co"># p &lt;- ggplot(iris, aes(Sepal.Length))</span></span>
-<span id="cb39-9"><a></a><span class="co"># p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-9"><a></a><span class="co"># p</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -921,7 +924,7 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>p<span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> Petal.Width, <span class="at">color=</span>Species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>p<span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> Petal.Width, <span class="at">color=</span>Species))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -933,7 +936,7 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>p<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>p<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -955,8 +958,8 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>iris)<span class="sc">+</span></span>
-<span id="cb42-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>Petal.Length, <span class="at">color=</span>Species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>iris)<span class="sc">+</span></span>
+<span id="cb42-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>Petal.Length, <span class="at">color=</span>Species))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -968,8 +971,8 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>iris)<span class="sc">+</span></span>
-<span id="cb43-2"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>Species,<span class="at">fill=</span>Species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>iris)<span class="sc">+</span></span>
+<span id="cb43-2"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>Species,<span class="at">fill=</span>Species))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1054,12 +1057,12 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="co"># Create a scatter plot with customized axis and color legend labels</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="co"># Create a scatter plot with customized axis and color legend labels</span></span>
 <span id="cb44-2"><a></a>   p <span class="sc">+</span></span>
 <span id="cb44-3"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> Petal.Width, <span class="at">color=</span>Species)) <span class="sc">+</span>  <span class="co"># Add points layer for data representation</span></span>
 <span id="cb44-4"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name=</span><span class="st">"Sepal Length"</span>) <span class="sc">+</span>  <span class="co"># Customize x-axis label</span></span>
 <span id="cb44-5"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name=</span><span class="st">"Petal Width"</span>) <span class="sc">+</span> <span class="co"># Customize y-axis label</span></span>
-<span id="cb44-6"><a></a>  <span class="fu">scale_colour_discrete</span>(<span class="at">name=</span><span class="st">"Species name"</span>)  <span class="co"># Customize color legend title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-6"><a></a>  <span class="fu">scale_colour_discrete</span>(<span class="at">name=</span><span class="st">"Species name"</span>)  <span class="co"># Customize color legend title</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-5" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -1080,8 +1083,8 @@ Figure&nbsp;2: Scatter plot of MPG vs cylinders with customized axis and legend 
 <div class="column" style="width:60%;">
 <p>Add the function <code>ggsave("FILE_PATH+FILE_NAME.png")</code> after your ggplot instructions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="co"># Saving plots as figure_theme_grey.png at the folder figure</span></span>
-<span id="cb45-2"><a></a><span class="fu">ggsave</span>(<span class="st">"figure_1.png"</span>,p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="co"># Saving plots as figure_theme_grey.png at the folder figure</span></span>
+<span id="cb45-2"><a></a><span class="fu">ggsave</span>(<span class="st">"figure_1.png"</span>,p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>It supports most of the common image formats like <code>pdf</code>, <code>jpeg</code>, <code>png</code></li>
@@ -1296,7 +1299,7 @@ Figure&nbsp;2: Scatter plot of MPG vs cylinders with customized axis and legend 
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1446,13 +1449,14 @@ Figure&nbsp;2: Scatter plot of MPG vs cylinders with customized axis and legend 
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

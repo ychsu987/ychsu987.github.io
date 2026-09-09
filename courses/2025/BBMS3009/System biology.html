@@ -6,11 +6,11 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.9.35">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Bridging Genome to Function: Post-Genome Science</title>
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,7 +38,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -52,7 +54,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-f684eecc8762ab89d96cfad09c33d070.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-0d7d27249aded41b845069fa1681a464.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -271,8 +273,8 @@ Yu Cheng Hsu
 <p><strong>Enrichment Analysis</strong> Summarizes identified differences in genes associated with common functions.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="image/enrichment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Overview of Enrichment Analysis @khatri2012ten"><img data-src="image/enrichment.png" height="350" alt="Overview of Enrichment Analysis Khatri, Sirota, and Butte (2012)"></a></p>
-<figcaption>Overview of Enrichment Analysis <span class="citation" data-cites="khatri2012ten">Khatri, Sirota, and Butte (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2012</a>)</span></figcaption>
+<p><a href="image/enrichment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Overview of Enrichment Analysis @khatri2012ten"><img data-src="image/enrichment.png" height="350" alt="Overview of Enrichment Analysis Khatri et al. (2012)"></a></p>
+<figcaption>Overview of Enrichment Analysis <span class="citation" data-cites="khatri2012ten">Khatri et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2012</a>)</span></figcaption>
 </figure>
 </div>
 </section></section>
@@ -722,7 +724,7 @@ P &amp; = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><a href="image\gsea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Illustration of GSEA @subramanian2005gene; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"><img data-src="image\gsea.png" height="350" alt="Illustration of GSEA Subramanian et al. (2005); Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"></a></p>
-<figcaption>Illustration of GSEA <span class="citation" data-cites="subramanian2005gene">Subramanian et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2005</a>)</span>; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation</figcaption>
+<figcaption>Illustration of GSEA <span class="citation" data-cites="subramanian2005gene"><span class="nocase">Subramanian et al.</span> (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2005</a>)</span>; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation</figcaption>
 </figure>
 </div>
 </div></div>
@@ -1163,17 +1165,21 @@ ES &amp; = \\
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="r-stack">
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="image/insulin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Simplified Insulin Pathway"><img data-src="image/insulin.png" class="fragment" alt="Simplified Insulin Pathway"></a></p>
+<p><a href="image/insulin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Simplified Insulin Pathway"><img data-src="image/insulin.png" alt="Simplified Insulin Pathway"></a></p>
 <figcaption>Simplified Insulin Pathway</figcaption>
 </figure>
 </div>
+</div>
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="image/insulin_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Complex Insulin Pathway"><img data-src="image/insulin_2.png" class="fragment" alt="Complex Insulin Pathway"></a></p>
+<p><a href="image/insulin_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Complex Insulin Pathway"><img data-src="image/insulin_2.png" alt="Complex Insulin Pathway"></a></p>
 <figcaption>Complex Insulin Pathway</figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1314,15 +1320,15 @@ ES &amp; = \\
 <h2>Bibliography Notes</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-khatri2012ten" class="csl-entry" role="listitem">
 Khatri, Purvesh, Marina Sirota, and Atul J Butte. 2012. <span>“Ten Years of Pathway Analysis: Current Approaches and Outstanding Challenges.”</span> <em>PLoS Computational Biology</em> 8 (2): e1002375.
 </div>
 <div id="ref-subramanian2005gene" class="csl-entry" role="listitem">
-Subramanian, Aravind, Pablo Tamayo, Vamsi K Mootha, Sayan Mukherjee, Benjamin L Ebert, Michael A Gillette, Amanda Paulovich, et al. 2005. <span>“Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.”</span> <em>Proceedings of the National Academy of Sciences</em> 102 (43): 15545–50.
+<span class="nocase">Subramanian, Aravind, Pablo Tamayo, Vamsi K Mootha, et al.</span> 2005. <span>“Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.”</span> <em>Proceedings of the National Academy of Sciences</em> 102 (43): 15545–50.
 </div>
 <div id="ref-welch2014chip" class="csl-entry" role="listitem">
-Welch, Ryan P, Chee Lee, Paul M Imbriano, Snehal Patil, Terry E Weymouth, R Alex Smith, Laura J Scott, and Maureen A Sartor. 2014. <span>“ChIP-Enrich: Gene Set Enrichment Testing for ChIP-Seq Data.”</span> <em>Nucleic Acids Research</em> 42 (13): e105–5.
+Welch, Ryan P, Chee Lee, Paul M Imbriano, et al. 2014. <span>“ChIP-Enrich: Gene Set Enrichment Testing for ChIP-Seq Data.”</span> <em>Nucleic Acids Research</em> 42 (13): e105–5.
 </div>
 </div>
 </section></section>
@@ -1517,7 +1523,7 @@ Welch, Ryan P, Chee Lee, Paul M Imbriano, Snehal Patil, Terry E Weymouth, R Alex
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1591,13 +1597,14 @@ Welch, Ryan P, Chee Lee, Paul M Imbriano, Snehal Patil, Terry E Weymouth, R Alex
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
