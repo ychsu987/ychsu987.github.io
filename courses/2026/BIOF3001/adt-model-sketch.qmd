@@ -15,7 +15,7 @@ format:
         lightbox: true
         chalkboard:
             theme: whiteboard
-            src: None
+            src: chalkboard/adt.json
 bibliography: ref.bib
 lightbox: true
 engine: jupyter
