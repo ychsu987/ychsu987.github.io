@@ -32,6 +32,105 @@ Where:
 - **$(Y_i - \bar{Y})$** = Total deviation of the data point from the baseline benchmark (sample mean).
 - **$(\hat{Y}_i - \bar{Y})$** = Explained deviation (the difference between the model's fitted value and the sample mean).
 
+## Illustration
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+
+library(ggplot2)
+
+# 1. Generate synthetic data
+set.seed(2)
+x <- seq(1, 10, length.out = 15)
+y <- 3 * x + 5 + rnorm(length(x), mean = 0, sd = 2)
+df <- data.frame(x = x, y = y)
+
+# 2. Fit linear model and compute predictions
+fit <- lm(y ~ x, data = df)
+df$y_pred <- predict(fit)
+y_mean <- mean(df$y)
+
+# 3. Select point with the largest positive residual
+residuals <- df$y - df$y_pred
+idx <- which.max(residuals)
+xi <- df$x[idx]
+yi <- df$y[idx]
+y_pred_i <- df$y_pred[idx]
+
+# 4. Construct ggplot
+ggplot(df, aes(x = x, y = y)) +
+  # Reference Lines: Mean & Fitted Regression
+  geom_hline(aes(yintercept = y_mean, color = "Mean (bar(y))"), 
+             linetype = "dashed", linewidth = 1) +
+  geom_line(aes(y = y_pred, color = "Regression Line (hat(y)[i])"), 
+            linewidth = 1) +
+  
+  # Scatter points
+  geom_point(aes(color = "Data points"), size = 3, alpha = 0.4) +
+  geom_point(data = data.frame(x = xi, y = yi), 
+             aes(x = x, y = y, color = "Highlighted Point (y[i])"), 
+             size = 4.5) +
+
+  # ESS Component (Mean to Regression Line)
+  annotate("segment", x = xi, xend = xi, y = y_mean, yend = y_pred_i,
+           colour = "purple", linewidth = 1.1,
+           arrow = arrow(ends = "both", length = unit(0.2, "cm"), type = "closed")) +
+  annotate("text", x = xi - 0.2, y = (y_pred_i + y_mean) / 2,
+           label = "Explained\n(hat(y)[i] - bar(y))", parse = TRUE,
+           color = "purple", hjust = 1, vjust = 0.5, fontface = "bold") +
+
+  # RSS Component (Regression Line to Observed Point)
+  annotate("segment", x = xi, xend = xi, y = y_pred_i, yend = yi,
+           colour = "deeppink", linewidth = 1.1,
+           arrow = arrow(ends = "both", length = unit(0.2, "cm"), type = "closed")) +
+  annotate("text", x = xi - 0.2, y = (yi + y_pred_i) / 2,
+           label = "Residual\n(y[i] - hat(y)[i])", parse = TRUE,
+           color = "deeppink", hjust = 1, vjust = 0.5, fontface = "bold") +
+
+  # TSS Component (Total Deviation Bracket)
+  annotate("segment", x = xi + 0.15, xend = xi + 0.15, y = y_mean, yend = yi,
+           colour = "black", linewidth = 0.9) +
+  annotate("segment", x = xi + 0.05, xend = xi + 0.25, y = y_mean, yend = y_mean,
+           colour = "black", linewidth = 0.9) +
+  annotate("segment", x = xi + 0.05, xend = xi + 0.25, y = yi, yend = yi,
+           colour = "black", linewidth = 0.9) +
+  annotate("text", x = xi + 0.35, y = (yi + y_mean) / 2,
+           label = "Total~Deviation\n(y[i] - bar(y))", parse = TRUE,
+           color = "black", hjust = 0, vjust = 0.5, fontface = "bold") +
+
+  # Aesthetic Mapping & Legend Configuration
+  scale_color_manual(
+    name = NULL,
+    values = c(
+      "Data points" = "dodgerblue",
+      "Highlighted Point (y[i])" = "red",
+      "Mean (bar(y))" = "forestgreen",
+      "Regression Line (hat(y)[i])" = "darkorange"
+    ),
+    labels = c(
+      "Data points" = "Data points",
+      "Highlighted Point (y[i])" = expression("Highlighted Point (" * y[i] * ")"),
+      "Mean (bar(y))" = expression("Mean (" * bar(y) * ")"),
+      "Regression Line (hat(y)[i])" = expression("Regression Line (" * hat(y)[i] * ")")
+    ),
+    breaks = c("Data points", "Highlighted Point (y[i])", "Mean (bar(y))", "Regression Line (hat(y)[i])")
+  ) +
+  labs(
+    title = "Decomposition of SST",
+    x = "X",
+    y = "Y"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
+    legend.position = c(0.02, 0.98),
+    legend.justification = c(0, 1),
+    legend.background = element_rect(fill = alpha("white", 0.7), color = NA),
+    panel.grid.minor = element_blank()
+  )
+```
+
 ## A summary of error 
 
 Squaring both sides and summing across all $n$ observations yields the fundamental sum-of-squares identity:
@@ -55,13 +154,13 @@ Where
 (Note on terminology: In some literature, notably British and econometrics, SSR is termed "Explained Sum of Squares" (ESS) and SSE is termed "Residual Sum of Squares" (RSS). Always check definitions in your specific context).
 :::
 
-## Mathematical Formulations & Intuitions
+## Quick summary
 
 
 | Metric | Formula | Degrees of Freedom ($df$) | Conceptual Intuition |
-| :-- | :-- | :-- | :----- |
-| **SST** | $\sum_{i=1}^n (Y_i - \bar{Y})^2$ | $n - 1$ | Total baseline variation in the outcome $Y$ without using any predictors. |
-| **SSR** | $\sum_{i=1}^n (\hat{Y}_i - \bar{Y})^2$ | $k$ | Variation successfully accounted for by the regression model. |
+| :- | :-- | :-- | :------ |
+| **SST** | $\sum_{i=1}^n (Y_i - \bar{Y})^2$ | $n - 1$ | Total variation in the outcome $Y$ without using any predictors. |
+| **SSR** | $\sum_{i=1}^n (\hat{Y}_i - \bar{Y})^2$ | $k$ | Variation accounted  by the regression model. |
 | **SSE** | $\sum_{i=1}^n (Y_i - \hat{Y}_i)^2$ <br> $= \sum_{i=1}^n e_i^2$ | $n - k - 1$ | Unexplained variation; sum of squared discrepancies between observed points and regression surface. |
 
 :::{.aside}
@@ -299,20 +398,24 @@ Total         99969655.810        188
 ## Key Metrics Calculations
 
 1. **$R^2$ Calculation:**
-   $$R^2 = \frac{17469477.719 }{ 99969655.810} = \quad (17.4\%)$$
+   $$
+   R^2 = \frac{17469477.719 }{ 99969655.810} = 17.4\%
+   $$
    *Interpretation:* 12.6% of the variance in biomarker reduction is explained by maternal weight at last menstrual period, baseline metabolic index, and age.
 
 2. **Adjusted $R^2$ Calculation:**
-   $$R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = = 1 - 0.8478 = 0.1522 $$
+   $$
+   R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = = 1 - 0.8478 = 15.2\% 
+   $$
    *Interpretation:* After penalizing for adding three model parameters, the model accounts for approximately 70.2% of the variance.
 
-3. **$F$-Test Evaluation:**
-   $F_{(5, 183)} = 7.75, \quad p < 0.0001$$
+## Simple Linear Regression: $t$-test vs. $F$-test
+
+**$F$-Test Evaluation:**
+   $F_{(5, 183)} = 7.75, \quad p < 0.0001$
    *Conclusion:* Since the $p$-value is well below $\alpha = 0.05$, we reject $H_0$. The model as a whole explains a statistically significant amount of variation compared to a flat horizontal line.
 
-
-
-## Simple Linear Regression: $t$-test vs. $F$-test
+**$\beta$**
 
 In simple linear regression ($k = 1$):
 $$

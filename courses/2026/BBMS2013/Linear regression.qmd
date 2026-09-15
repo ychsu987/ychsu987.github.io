@@ -1,6 +1,5 @@
 ---
 title: "Regression diagnostics"
-subtitle: "An ecology perspective"
 author: "Yu Cheng Hsu"
 title-slide-attributes:
     data-background: /assets/images/lr/background-1.jpg

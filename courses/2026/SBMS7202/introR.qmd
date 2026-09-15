@@ -48,15 +48,15 @@ Background image: @bg
 - Evaluate the outputs from AI
 - Articulate the question to instruct AI
 
+## Let’s collect some data
+
+![https://forms.cloud.microsoft/r/N29JZEAxFS](/assets/images/IntroR/qr_code.png){width=50%}
+
 {{< include /_content/modules/bdata/reco.qmd >}}
-
-{{< include /_content/modules/bdata/introR.qmd >}}
-
-{{< include /_content/modules/bdata/data-structure.qmd >}}
-
-{{< include /_content/modules/bdata/control.qmd >}}
-
 {{< include /_content/modules/bdata/ai-guide.qmd >}}
+{{< include /_content/modules/bdata/introR.qmd >}}
+{{< include /_content/modules/bdata/data-structure.qmd >}}
+{{< include /_content/modules/bdata/control.qmd >}}
 
 ## Resource links
 
