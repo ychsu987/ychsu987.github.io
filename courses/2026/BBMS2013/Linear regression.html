@@ -6,7 +6,10 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
@@ -216,7 +219,6 @@
 
 <section id="title-slide" data-background="/assets/images/lr/background-1.jpg" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
   <h1 class="title">Regression diagnostics</h1>
-  <p class="subtitle">An ecology perspective</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -269,6 +271,18 @@ Yu Cheng Hsu
 <li><strong><span class="math inline">\((\hat{Y}_i - \bar{Y})\)</span></strong> = Explained deviation (the difference between the model’s fitted value and the sample mean).</li>
 </ul>
 </section>
+<section id="illustration" class="slide level2">
+<h2>Illustration</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="a-summary-of-error" class="slide level2">
 <h2>A summary of error</h2>
 <p>Squaring both sides and summing across all <span class="math inline">\(n\)</span> observations yields the fundamental sum-of-squares identity:</p>
@@ -287,14 +301,14 @@ Yu Cheng Hsu
 <aside><div>
 <p>(Note on terminology: In some literature, notably British and econometrics, SSR is termed “Explained Sum of Squares” (ESS) and SSE is termed “Residual Sum of Squares” (RSS). Always check definitions in your specific context).</p>
 </div></aside></section>
-<section id="mathematical-formulations-intuitions" class="slide level2">
-<h2>Mathematical Formulations &amp; Intuitions</h2>
+<section id="quick-summary" class="slide level2">
+<h2>Quick summary</h2>
 <table class="caption-top">
 <colgroup>
+<col style="width: 13%">
 <col style="width: 20%">
 <col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 40%">
+<col style="width: 46%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -309,13 +323,13 @@ Yu Cheng Hsu
 <td style="text-align: left;"><strong>SST</strong></td>
 <td style="text-align: left;"><span class="math inline">\(\sum_{i=1}^n (Y_i - \bar{Y})^2\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(n - 1\)</span></td>
-<td style="text-align: left;">Total baseline variation in the outcome <span class="math inline">\(Y\)</span> without using any predictors.</td>
+<td style="text-align: left;">Total variation in the outcome <span class="math inline">\(Y\)</span> without using any predictors.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>SSR</strong></td>
 <td style="text-align: left;"><span class="math inline">\(\sum_{i=1}^n (\hat{Y}_i - \bar{Y})^2\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(k\)</span></td>
-<td style="text-align: left;">Variation successfully accounted for by the regression model.</td>
+<td style="text-align: left;">Variation accounted by the regression model.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>SSE</strong></td>
@@ -1079,6 +1093,38 @@ Eakins, Thomas. 1875. <em>The Clinic of Dr. Gross</em>. Oil on canvas. Philadelp
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>
