@@ -1,0 +1,6 @@
+/* Hide tutor solutions on student-facing live-html tutorials.
+   Use display:none so empty WebR cells are not left as blank gaps.
+   Tutor / -full skins omit this stylesheet. */
+.hide {
+  display: none;
+}

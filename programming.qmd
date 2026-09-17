@@ -8,7 +8,9 @@ listing:
       fields: [title]
     - id: tutorial
       contents: 
-        - courses/2025/BBMS1021/tutorial/*.qmd
+        - courses/2025/BBMS1021/tutorial/tutorial_1.qmd
+        - courses/2025/BBMS1021/tutorial/tutorial_2.qmd
+        - courses/2025/BBMS1021/tutorial/tutorial_3.qmd
       fields: [title]
     - id: ai-lecture
       contents: 

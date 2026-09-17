@@ -1,12 +1,12 @@
 ---
 title: "Tutorial 2"
+subtitle: "Tutor notes"
 format: 
   live-html:
     toc: true
     toc-depth: 3
     toc-location: left
     self-contained: true
-    css: ../../../../assets/css/tutorial_student.css
 resources: Diff_Expression_results.tsv
 engine: knitr 
 author: "Yu Cheng Hsu, BBMS1021 teaching team"

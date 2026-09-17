@@ -133,6 +133,8 @@ On the website, `/assets/...` works. In a **standalone** student `.qmd`, those l
 - `#` = section, `##` = slide; dense slides: `## Title {.smaller}`
 - Hide worked answers on blank slides: `:::{.hide}` plus `student_view.css` in the theme
 - Website `-full.qmd` (solutions) usually **omits** `student_view.css` so answers are visible
+- BBMS1021 live-html tutorials: shared body in `_content/modules/tutorials/bbms1021/tN.qmd`; student wrapper loads `assets/css/tutorial_student.css` (`.hide { display: none }`); `tutorial_N-full.qmd` is the same include without that CSS. Hub listing must name student files explicitly so `-full` pages are not listed.
+
 - Author: `Yu Cheng Hsu` (tutorials may use a teaching-team line)
 - Put **Intended learning outcomes** near the start
 

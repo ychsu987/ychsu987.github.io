@@ -23,7 +23,7 @@ Human-facing author / maintenance guide: [README.md](../../../README.md) at the 
 | Hub pages | `about.qmd`, `cc.qmd`, `quant.qmd`, `programming.qmd`, `hybridPBL.qmd` | Course index pages with listings |
 | Course content | `courses/{YEAR}/{COURSE_CODE}/` | Lectures, tutorials, assets |
 | Shared assets | `assets/css/`, `assets/images/` | Site-wide styles and images |
-| Content modules | `_content/modules/` | Reusable content blocks (future) |
+| Content modules | `_content/modules/` | Reusable lecture and tutorial bodies |
 | Extensions | `_extensions/` | Quarto Live (`r-wasm/live`) for in-browser R |
 | Frozen output | `_freeze/` | Cached execution results (`freeze: auto`) |
 | Build output | `_site/` | Rendered site (gitignored) |
@@ -61,6 +61,7 @@ Sketches are student-facing versions with chalkboard annotations pre-loaded.
 
 - **BIOF2014 style**: `html` format with `toc: true`, `html-math-method: katex`, `student_view.css`. Wrap solutions in `:::{.hide}` blocks.
 - **BBMS1021 style**: `live-html` format with `{webr}` code chunks for interactive R.
+- Shared tutorial body lives in `_content/modules/tutorials/bbms1021/`. Student wrappers add `css: .../tutorial_student.css`; `tutorial_N-full.qmd` omits it so `::: {.hide}` solutions show. List only the student files on `programming.qmd` (no glob).
 - Add to the appropriate listing in the hub page.
 
 ### Update navigation

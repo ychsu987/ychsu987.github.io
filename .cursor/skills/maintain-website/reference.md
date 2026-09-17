@@ -132,9 +132,11 @@ bibliography: ref.bib
 |------|------|--------|
 | ggplot2 lecture | `ggplot2_intro/introduction_to_ggplot2.qmd` | live-html + webr |
 | Real case study | `Real_case/Real-example.qmd` | live-html + webr |
-| Tutorials | `tutorial/tutorial_*.qmd` | live-html + webr |
+| Tutorial body | `_content/modules/tutorials/bbms1021/tN.qmd` | include (no YAML); `{webr}` + `::: {.hide}` solutions |
+| Student skin | `tutorial/tutorial_N.qmd` | live-html + `tutorial_student.css` |
+| Tutor skin | `tutorial/tutorial_N-full.qmd` | live-html, no hide CSS |
 
-Live-html YAML template:
+Live-html YAML template (student skin):
 
 ```yaml
 ---
@@ -145,13 +147,18 @@ format:
     toc-depth: 3
     toc-location: left
     self-contained: true
+    css: ../../../../assets/css/tutorial_student.css
 engine: knitr
 author: "Yu Cheng Hsu, BBMS1021 teaching team"
 date: "YYYY-MM-DD"
 eval: false
 lightbox: true
 ---
+
+{{< include /_content/modules/tutorials/bbms1021/tN.qmd >}}
 ```
+
+Tutor / `-full` skin: same YAML without `css` (solutions in `::: {.hide}` become visible).
 
 ### BBMS3009 — Genome Science
 
