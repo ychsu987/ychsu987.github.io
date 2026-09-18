@@ -61,7 +61,7 @@ Sketches are student-facing versions with chalkboard annotations pre-loaded.
 
 - **BIOF2014 style**: `html` format with `toc: true`, `html-math-method: katex`, `student_view.css`. Wrap solutions in `:::{.hide}` blocks.
 - **BBMS1021 style**: `live-html` format with `{webr}` code chunks for interactive R.
-- Shared tutorial body lives in `_content/modules/tutorials/bbms1021/`. Student wrappers add `css: .../tutorial_student.css`; `tutorial_N-full.qmd` omits it so `::: {.hide}` solutions show. List only the student files on `programming.qmd` (no glob).
+- Shared tutorial body lives in `_content/modules/tutorials/bbms1021/`. `courses/2026/BBMS1021/tutorial_N.qmd` is the published `live-html` student skin (`tutorial_student.css`). Tutorial 1 includes `t1.qmd` and `t1-1.qmd`. Generate RStudio `{r}` worksheets and teacher notes with `python scripts/pack_bbms1021_tutorials.py`. List only the student files on `programming.qmd` (no glob).
 - Add to the appropriate listing in the hub page.
 
 ### Update navigation

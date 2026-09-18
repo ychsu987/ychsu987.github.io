@@ -1,19 +1,17 @@
 ---
-title: "Tutorial 1"
-subtitle: "Tutor notes"
+title: "Tutorial 3"
 format: 
   live-html:
     toc: true
     toc-depth: 3
     toc-location: left
     self-contained: true
+    css: ../../../assets/css/tutorial_student.css
 engine: knitr 
 author: "Yu Cheng Hsu, BBMS1021 teaching team"
-date: "2025-09-08"
+date: "2026-09-15"
 eval: false
 lightbox: true
 ---
 
-{{< include /_content/modules/tutorials/bbms1021/t1.qmd >}}
-
-{{< include /_content/modules/tutorials/bbms1021/t1-1.qmd >}}
+{{< include /_content/modules/tutorials/bbms1021/t3.qmd >}}

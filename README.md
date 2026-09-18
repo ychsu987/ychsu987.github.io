@@ -33,7 +33,8 @@ ychsu987.github.io/
 │   ├── topic-sketch.qmd      # in-class annotated copy
 │   └── topic-full.qmd        # website “solutions” copy (optional; no student_view.css)
 ├── scripts/
-│   ├── flatten_qmd.py        # student -full / -worksheet packs
+│   ├── flatten_qmd.py        # student -full / -worksheet packs (lectures)
+│   ├── pack_bbms1021_tutorials.py  # BBMS1021 {r} worksheet / teacher notes
 │   └── cleanup-render-artifacts.ts
 ├── _extensions/              # Quarto Live (webr), etc.
 ├── _freeze/                  # commit this (execution cache)
@@ -133,7 +134,7 @@ On the website, `/assets/...` works. In a **standalone** student `.qmd`, those l
 - `#` = section, `##` = slide; dense slides: `## Title {.smaller}`
 - Hide worked answers on blank slides: `:::{.hide}` plus `student_view.css` in the theme
 - Website `-full.qmd` (solutions) usually **omits** `student_view.css` so answers are visible
-- BBMS1021 live-html tutorials: shared body in `_content/modules/tutorials/bbms1021/tN.qmd`; student wrapper loads `assets/css/tutorial_student.css` (`.hide { display: none }`); `tutorial_N-full.qmd` is the same include without that CSS. Hub listing must name student files explicitly so `-full` pages are not listed.
+- BBMS1021 website tutorials: `_content/modules/tutorials/bbms1021/` included from `courses/2026/BBMS1021/tutorial_N.qmd` (`live-html` + `tutorial_student.css` so `::: {.hide}` is invisible). Tutorial 1 includes `t1.qmd` and `t1-1.qmd`. Do not glob `-full` files in listings. RStudio packs (`{r}` worksheet / teacher notes) come from `scripts/pack_bbms1021_tutorials.py`.
 
 - Author: `Yu Cheng Hsu` (tutorials may use a teaching-team line)
 - Put **Intended learning outcomes** near the start
@@ -167,6 +168,44 @@ _student/courses/2026/SBMS7202/introR-full.qmd
 - Re-run the script after you change `_content` or the lecture. Do not edit generated files by hand.
 - Several files: pass every lecture path on one command.
 - If a website file already uses `-full` (BIOF3001 `adt-model-full.qmd`), flattening `adt-model.qmd` still writes to `_student/.../adt-model-full.qmd` — it will not overwrite the lecture.
+
+---
+
+## BBMS1021 tutorial packs (`{r}` worksheets and teacher notes)
+
+Website tutorials stay `live-html` with `{webr}` so students can run code in the browser. Answers live in `::: {.hide}` and are hidden by `assets/css/tutorial_student.css`.
+
+For RStudio, generate standalone `.qmd` files that convert `{webr}` → `{r}`:
+
+```bash
+# from the repository root (all three 2026 tutorials)
+python scripts/pack_bbms1021_tutorials.py
+
+# one file
+python scripts/pack_bbms1021_tutorials.py courses/2026/BBMS1021/tutorial_1.qmd
+
+# only student worksheets, or only teacher notes
+python scripts/pack_bbms1021_tutorials.py --mode worksheet
+python scripts/pack_bbms1021_tutorials.py --mode notes
+```
+
+| Mode | Output under `_student/` | What it does |
+|------|--------------------------|--------------|
+| `worksheet` | `tutorial_N-worksheet.qmd` | Inline includes; `{r}` chunks; **drop** `::: {.hide}` solution blocks |
+| `notes` | `tutorial_N-notes.qmd` | Inline includes; `{r}` chunks; **unwrap** `::: {.hide}` so answers are visible |
+| `both` (default) | both files | |
+
+Example:
+
+```text
+_student/courses/2026/BBMS1021/tutorial_1-worksheet.qmd
+_student/courses/2026/BBMS1021/tutorial_1-notes.qmd
+```
+
+- Edit the modules and website wrappers only. Re-run the script after content changes; do not edit the generated files by hand.
+- `_student/` is gitignored and is not published. Zip those `.qmd` files for Moodle / tutors.
+- Tutorial 2 data: students still need `Diff_Expression_results.tsv` (on the live page as a resource, and under `assets/data/bbms1021/`).
+
 
 ---
 

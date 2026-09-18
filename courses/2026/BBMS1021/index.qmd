@@ -15,3 +15,13 @@ Lecture materials for BBMS1021. **Blank** is student-facing slides and **Annotat
 | AI vibing tips | [Blank](ai-guide.qmd) | — |— |
 | Introduction to epidemiology | [Blank](intro-to-epi.qmd) | — |— |
 | Epidemiology workshop | [Blank](epi-workshop.qmd) | — |— |
+
+## Tutorials
+
+Live pages are `live-html` with answers in `::: {.hide}` (hidden by `tutorial_student.css`). Tutorial 1 includes the original question sets and the pop-up market lab (`t1` + `t1-1`). For RStudio copies (`{r}` chunks), see the README (`pack_bbms1021_tutorials.py`).
+
+| Tutorial | Live page (answers hidden) |
+|---|---|
+| Tutorial 1 | [Open](tutorial_1.qmd) |
+| Tutorial 2 | [Open](tutorial_2.qmd) |
+| Tutorial 3 | [Open](tutorial_3.qmd) |
