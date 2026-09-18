@@ -302,3 +302,51 @@ ggplot(titanic) +
   scale_color_discrete(labels = c("1st Class", "2nd Class", "3rd Class"))
 ```
 :::
+
+
+# Question set 4 -- Analyzing data
+
+* Q1: Now, in your Desktop folder, create a subfolder named `R_exercises`
+and download this file of differentially expressed genes results
+[Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv)
+(or [link to view](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv))
+to the folder. Check your current working directory by
+`getwd()` function and change the working directory to the folder you just created.
+*Hint*: you may use `setwd()` to change the working directory or use the `Session`
+button of RStudio.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+In **RStudio** (not WebR): `getwd()` then `setwd("~/Desktop/R_exercises")`, or use **Session → Set Working Directory**.
+:::
+
+* Q2: Related to Q1, use the `read.table()` function to load the file into a
+data frame with the variable name `df_DEG`.
+*Hint*: You may consider using the full path or just the file name if it's in
+the same working directory. Please keep `header=TRUE` for the argument. Think how to
+find the help page for a certain function.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+```{webr}
+df_DEG <- read.table("Diff_Expression_results.tsv", sep = "\t", header = TRUE)
+head(df_DEG)
+```
+:::
+
+* Q3: Can you calculate the `mean` and `standard deviation` of the `log2FoldChange`?
+
+::: {.hide}
+```{webr}
+mean(df_DEG$log2FoldChange)
+sd(df_DEG$log2FoldChange)
+```
+:::
