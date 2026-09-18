@@ -1,60 +1,56 @@
-## Lab Overview
+## Lab overview
 
 You have been hired to audit the sales records of the **Downtown Pop-Up Market**, which sold **Snacks**, **Drinks**, **Merch**, and **Stickers** over a three-day weekend.
 
-Work through each chapter by running the code examples and answering the technical questions. Answer keys and code solutions are tucked inside hidden instructor blocks.
+Work through each section by running the code examples and answering the questions. Answer keys and worked code are in hidden instructor blocks on the live page (and in the teacher-notes pack).
 
 ---
 
-##  1 Vector Arithmetic & Runtime Rules
+## 1. Vector arithmetic and recycling
 
-Before opening, the store established standard retail prices:
+Before opening, the store set these standard retail prices:
+
 - Snacks: $12
 - Drinks: $5
 - Merch: $35
 - Stickers: $4
 
-### Scalar Broadcasting vs. Vector Operations
+### Scalar broadcasting vs. vector operations
 
-Run the following code to inspect how R handles scalar multiplication vs. element-by-element vector arithmetic:
+Run the following chunk. You will use `base_prices` for the rest of this lab.
 
 ```{webr}
 base_prices <- c(Snacks = 12, Drinks = 5, Merch = 35, Stickers = 4)
 ```
 
-1. Calculate the price for each product after including 12.5% if sales tax, and stored in `taxed_prices`
+1. Add **12.5% sales tax** to each product's base price. Store the result in `taxed_prices`. The tax rate is already given below.
 
 ```{webr}
 tax_rate <- 0.125
 ```
 
-:::{.hide}
-
+::: {.hide}
 ```{webr}
 # Scalar broadcasting: 12.5% sales tax across all items
 tax_rate <- 0.125
 taxed_prices <- base_prices * (1 + tax_rate)
 ```
-
 :::
 
-2. Calculate the price for each product after including the discount rate (in `discount_rates`) based on the base price, and stored in `tdiscounted_prices`
-
+2. Apply the **discount rates** in `discount_rates` to the **base** prices (not the taxed prices). Store the result in `discounted_prices`.
 
 ```{webr}
 discount_rates <- c(Snacks = 0.05, Drinks = 0.00, Merch = 0.15, Stickers = 0.20)
-
 ```
 
-:::{.hide}
-
+::: {.hide}
 ```{webr}
 discount_rates <- c(Snacks = 0.05, Drinks = 0.00, Merch = 0.15, Stickers = 0.20)
 discounted_prices <- base_prices * (1 - discount_rates)
 ```
 :::
 
-Now we will create a dataframe with 
+After you have created `taxed_prices` and `discounted_prices`, run this chunk to build a data frame named `price_df`:
 
 ```{webr}
 price_df <- data.frame(
@@ -66,77 +62,72 @@ price_df <- data.frame(
 price_df
 ```
 
-Questions to Answer:
+**Questions**
 
-1. What does R do under the hood when multiplying a vector of length 4 by a single number (1 + tax_rate) of length 1?
+1. What does R do when you multiply a vector of length 4 by a single number such as `(1 + tax_rate)` (a vector of length 1)?
 
-2. If you scrambled the order of names in discount_rates to c(Stickers = 0.20, Merch = 0.15, Drinks = 0.00, Snacks = 0.05), does R align calculations by vector names or by index position (1st with 1st, 2nd with 2nd)?
+2. Suppose you scramble the *names* of `discount_rates` to `c(Stickers = 0.20, Merch = 0.15, Drinks = 0.00, Snacks = 0.05)` but leave `base_prices` in the original order. Do the usual arithmetic operators (`*`, `+`, …) match values **by name** or **by position** (1st with 1st, 2nd with 2nd)?
 
-:::{.hide}
-Answer Key
+::: {.hide}
+**Answer key**
 
-1. Scalar Broadcasting: In R, there are no true scalar values; 1 + tax_rate is simply an atomic vector of length 1. Through R's recycling rule, the single value is stretched (recycled) to match the length of base_prices (length 4) so that pairwise multiplication can execute.
+1. **Recycling (often called broadcasting here).** R has no separate scalar type: `1 + tax_rate` is an atomic vector of length 1. R recycles that single value to length 4 so pairwise multiplication can run.
 
-2. Positional Indexing: Standard binary arithmetic operators (+, -, *, /) in R completely ignore names. They match strictly by numeric position (index 1 with index 1, index 2 with index 2). If discount_rates is reordered without realigning base_prices, R will apply the wrong discount to the wrong item. To calculate by name safely, you would need to align them explicitly: discount_rates[names(base_prices)].
+2. **By position, not by name.** Binary arithmetic ignores names. Index 1 multiplies with index 1, and so on. If `discount_rates` is reordered and `base_prices` is not, the wrong discount is applied. To align by name you would need something like `discount_rates[names(base_prices)]`.
 :::
 
 ### Indexing
 
-Please get the `Sale_Price` column.  (Hint: There are few approaches of doing that try to include as much as possibile)
+Extract the `Sale_Price` column from `price_df`. *Hint:* there are several valid approaches; try more than one.
 
 ```{webr}
 
 ```
 
-:::{.hide}
-
+::: {.hide}
 ```{webr}
 price_df$Sale_Price
 price_df[, 3]
 price_df[, "Sale_Price"]
 ```
-
 :::
 
-if I would like to get the cell at `3,3` I can use:
+To read the cell in **row 3, column 3**, you can use either of these:
 
 ```{webr}
 price_df[3, 3]
 price_df["Merch", "Sale_Price"]
 ```
 
+**Questions**
 
-Questions to Answer:
+1. Compare `price_df[3, 3]` with `price_df["Merch", "Sale_Price"]`. Which is easier for another reader to understand without looking at the data?
 
-1. Compare reading price_df[3, 3] versus price_df["Merch", "Sale_Price"]. Which one is easier for other readers to understand without looking at the dataset?
-2. Imagine next month the store adds a new column SKU_Number as the first column (column 1), shifting all other columns to the right. What happens to code written as price_df[, 3] versus code written as price_df[, "Sale_Price"]? Which one is less sensitve to the change? 
-3. Compare the output and `class()` of `price_df$Sale_Price` versus `price_df["Sale_Price"]`, and `price_df[["Sale_Price"]]` Why does single bracket [ ] without a comma return a 1-column data frame, while others extract a raw numeric vector?
+2. Next month the store adds a column `SKU_Number` as **column 1**, so every later column shifts one place to the right. What would `price_df[, 3]` refer to then, compared with `price_df[, "Sale_Price"]`? Which is less sensitive to that change?
 
+3. Compare the printed result and `class()` of `price_df$Sale_Price`, `price_df["Sale_Price"]`, and `price_df[["Sale_Price"]]`. Why does `[` **without a comma** return a one-column data frame, while `$` and `[[` extract a numeric vector?
 
-:::{.hide}
-Answer Key
+::: {.hide}
+**Answer key**
 
-1. price_df["Merch", "Sale_Price"]
-2. It will refers to `Discount` in the new dataset. So  `price_df[, "Sale_Price"]` is a better choice as no matter how many column you add the code still works
-3. Slicing with single brackets and no comma (`price_df["Sale_Price"]` or `price_df[3])` subsets the list container itself, returning a 1-column `data.frame`.
+1. `price_df["Merch", "Sale_Price"]` is clearer: it names the row and the column.
 
+2. After inserting `SKU_Number` at the front, `price_df[, 3]` would be the old column 2 (`Discount`). `price_df[, "Sale_Price"]` still means sale price no matter how many columns you add, so it is the more robust choice.
+
+3. `$` and `[[` pull out the vector stored in that column. `[` with no comma subsets the data frame as a list of columns, so `price_df["Sale_Price"]` (and `price_df[3]` for the third column) stays a one-column `data.frame`.
 :::
 
-### Broadcasting rule and warning handeling
+### Recycling rules and warnings
 
-Now the  market tests a packaging fee on the catalog. Run this chunk and inspect the output:
-
-```{webr}
-
-```
+The market tests a packaging fee on the four catalogue items. Run the chunk below and inspect the output.
 
 ```{webr}
-# Even recycling: A 2-tier packaging fee alternating across the 4 catalog items
+# Even recycling: a 2-element fee repeated across 4 items
 pack_fee_2 <- c(1, 2)
 fee_applied_clean <- base_prices + pack_fee_2
 cat("Even fee recycling (+1, +2):      ", fee_applied_clean, "\n")
 
-# Uneven recycling: A 3-tier fee applied to the 4 catalog items
+# Uneven recycling: a 3-element fee applied to 4 items
 pack_fee_3 <- c(1, 2, 3)
 suppressWarnings({
   fee_applied_uneven <- base_prices + pack_fee_3
@@ -144,68 +135,75 @@ suppressWarnings({
 cat("Mismatched fee recycling (+1,+2,+3):", fee_applied_uneven, "\n")
 ```
 
-Questions to Answer:
+**Questions**
 
-1. What does R do under the hood when multiplying a vector of length 4 by a single number (1 + tax_rate) of length 1?
+1. Why does adding `pack_fee_2` (length 2) to `base_prices` (length 4) run **without** a warning? What pattern of fees is applied to Snacks, Drinks, Merch, and Stickers?
 
-2. If you scrambled the order of names in discount_rates to c(Stickers = 0.20, Merch = 0.15, Drinks = 0.00, Snacks = 0.05), does R align calculations by vector names or by index position (1st with 1st, 2nd with 2nd)?
-:::{.hide}
+2. Why does adding `pack_fee_3` (length 3) **warn**, and what values does R actually add to the four items?
 
-Answer Key
+3. Why can “even” recycling (lengths that divide evenly) be more dangerous in an audit than the warning case?
 
-1. The Modulo Divisibility Rule: R recycles the shorter vector until it matches the length of the longer vector. When `length(longer) %% length(shorter) == 0 ($4 \pmod 2 = 0$)`, R assumes the repetition was intended and runs silently. When $4 \pmod 3 \ne 0$, R wraps back to the first element (1) to finish the math, but issues a warning: longer object length is not a multiple of shorter object length.
-2. Silent Logical Errors: Because R recycles cleanly whenever lengths divide evenly, passing `c(5, 0)` adds $5 to Snacks and Merch, but $0 to Drinks and Stickers. Because it is syntactically valid, R raises no error, creating an undetected accounting bug in downstream calculations.
+::: {.hide}
+**Answer key**
 
+1. R recycles the shorter vector until it matches the longer one. When `length(longer) %% length(shorter) == 0` (here $4 \bmod 2 = 0$), R treats the repeat as intentional and stays silent. The fees are $+1, +2, +1, +2$.
+
+2. $4 \bmod 3 \neq 0$, so R still wraps around (the fourth item gets the first fee, $+1$) but warns: `longer object length is not a multiple of shorter object length`.
+
+3. If someone passed `c(5, 0)`, R would add $5 to Snacks and Merch and $0 to Drinks and Stickers with **no** warning. The code is valid, so the accounting error is easy to miss. The mismatched-length warning at least flags that something odd happened.
 :::
 
-### Finding help through `?`
+### Finding help with `?`
 
-Please inspect the value in `taxed_prices` and the vlaue `round(taxed_prices)`
-
+Inspect `taxed_prices` and `round(taxed_prices)`:
 
 ```{webr}
 taxed_prices
 round(taxed_prices)
 ```
 
-Questions to Answer:
+**Questions**
 
-1. Does `round(taxed_prices)` behave as you expected (hint: look at the value with exactly .5) and try to validate your guess withd different cases
-2. Type `?round` into your R console and scroll to the Details section. 
-    - What international standard does R follow?
-    - and how does it explain the behaviour of `round(taxed_prices)`?
+1. Does `round(taxed_prices)` match what you expected? *Hint:* look at values that sit exactly on `.5`, then try a few extra examples of your own.
 
-:::{.hide}
-Answer key
+2. Type `?round` in the console and read the **Details** section.
+   - Which international standard does R follow?
+   - How does that standard explain what you saw for `round(taxed_prices)`?
 
-1. No it rounds up/down depends on the odd/even number
-2. IEC 60559 / IEEE 754 standard, rounded to the nearest even integer.
+::: {.hide}
+**Answer key**
+
+1. Half-way cases do not always round “away from zero” or “always up”. They follow **round half to even** (the adjacent even integer).
+
+2. IEC 60559 / IEEE 754. That is why a `.5` can round up or down depending on whether the neighbouring integer is even.
 :::
 
-### Data type and coercion
+### Data types and coercion
 
-During peak hours, an employee enters "PROMO" into the register price column instead of entering $0 for a free Drink:
-
+During peak hours, an employee types `"PROMO"` into the register price column instead of `$0` for a free drink:
 
 ```{webr}
 # Register price inputs for: Snacks, Drinks, Merch, Stickers
 register_log <- c(Snacks = 12, Drinks = "PROMO", Merch = 35, Stickers = 4)
 ```
 
-Questions to Answer:
+**Questions**
 
-1. What is the data type for "PROMO" ?
-2. What will be the datatype of `register_log[1]` now? Is it possible to do `register_log[1]+register_log[3]` now?
-3. What is R's hierarchy of datatype ?
+1. What is the data type of `"PROMO"` on its own?
 
-:::{.hide}
-Answer key
+2. After you build `register_log` as above, what is the data type of `register_log[1]`? Can you compute `register_log[1] + register_log[3]`?
 
-1. Character
-2. Character, No
-3. 
+3. What is R's usual coercion hierarchy for atomic vectors (from most specific to most flexible)?
+
+::: {.hide}
+**Answer key**
+
+1. Character.
+
+2. Character as well — one character value forces the whole vector to character — so `register_log[1] + register_log[3]` is not valid numeric addition.
+
+3.
 $$
 \text{logical} \longrightarrow \text{integer} \longrightarrow \text{double (numeric)} \longrightarrow \text{character}
 $$
-
 :::
