@@ -1,0 +1,211 @@
+## Lab Overview
+
+You have been hired to audit the sales records of the **Downtown Pop-Up Market**, which sold **Snacks**, **Drinks**, **Merch**, and **Stickers** over a three-day weekend.
+
+Work through each chapter by running the code examples and answering the technical questions. Answer keys and code solutions are tucked inside hidden instructor blocks.
+
+---
+
+##  1 Vector Arithmetic & Runtime Rules
+
+Before opening, the store established standard retail prices:
+- Snacks: $12
+- Drinks: $5
+- Merch: $35
+- Stickers: $4
+
+### Scalar Broadcasting vs. Vector Operations
+
+Run the following code to inspect how R handles scalar multiplication vs. element-by-element vector arithmetic:
+
+```{webr}
+base_prices <- c(Snacks = 12, Drinks = 5, Merch = 35, Stickers = 4)
+```
+
+1. Calculate the price for each product after including 12.5% if sales tax, and stored in `taxed_prices`
+
+```{webr}
+tax_rate <- 0.125
+```
+
+:::{.hide}
+
+```{webr}
+# Scalar broadcasting: 12.5% sales tax across all items
+tax_rate <- 0.125
+taxed_prices <- base_prices * (1 + tax_rate)
+```
+
+:::
+
+2. Calculate the price for each product after including the discount rate (in `discount_rates`) based on the base price, and stored in `tdiscounted_prices`
+
+
+```{webr}
+discount_rates <- c(Snacks = 0.05, Drinks = 0.00, Merch = 0.15, Stickers = 0.20)
+
+```
+
+:::{.hide}
+
+```{webr}
+discount_rates <- c(Snacks = 0.05, Drinks = 0.00, Merch = 0.15, Stickers = 0.20)
+discounted_prices <- base_prices * (1 - discount_rates)
+```
+:::
+
+Now we will create a dataframe with 
+
+```{webr}
+price_df <- data.frame(
+  Original = base_prices,
+  Discount = discount_rates,
+  Sale_Price = round(discounted_prices, 2),
+  Taxed_Price = round(taxed_prices, 2)
+)
+price_df
+```
+
+Questions to Answer:
+
+1. What does R do under the hood when multiplying a vector of length 4 by a single number (1 + tax_rate) of length 1?
+
+2. If you scrambled the order of names in discount_rates to c(Stickers = 0.20, Merch = 0.15, Drinks = 0.00, Snacks = 0.05), does R align calculations by vector names or by index position (1st with 1st, 2nd with 2nd)?
+
+:::{.hide}
+Answer Key
+
+1. Scalar Broadcasting: In R, there are no true scalar values; 1 + tax_rate is simply an atomic vector of length 1. Through R's recycling rule, the single value is stretched (recycled) to match the length of base_prices (length 4) so that pairwise multiplication can execute.
+
+2. Positional Indexing: Standard binary arithmetic operators (+, -, *, /) in R completely ignore names. They match strictly by numeric position (index 1 with index 1, index 2 with index 2). If discount_rates is reordered without realigning base_prices, R will apply the wrong discount to the wrong item. To calculate by name safely, you would need to align them explicitly: discount_rates[names(base_prices)].
+:::
+
+### Indexing
+
+Please get the `Sale_Price` column.  (Hint: There are few approaches of doing that try to include as much as possibile)
+
+```{webr}
+
+```
+
+:::{.hide}
+
+```{webr}
+price_df$Sale_Price
+price_df[, 3]
+price_df[, "Sale_Price"]
+```
+
+:::
+
+if I would like to get the cell at `3,3` I can use:
+
+```{webr}
+price_df[3, 3]
+price_df["Merch", "Sale_Price"]
+```
+
+
+Questions to Answer:
+
+1. Compare reading price_df[3, 3] versus price_df["Merch", "Sale_Price"]. Which one is easier for other readers to understand without looking at the dataset?
+2. Imagine next month the store adds a new column SKU_Number as the first column (column 1), shifting all other columns to the right. What happens to code written as price_df[, 3] versus code written as price_df[, "Sale_Price"]? Which one is less sensitve to the change? 
+3. Compare the output and `class()` of `price_df$Sale_Price` versus `price_df["Sale_Price"]`, and `price_df[["Sale_Price"]]` Why does single bracket [ ] without a comma return a 1-column data frame, while others extract a raw numeric vector?
+
+
+:::{.hide}
+Answer Key
+
+1. price_df["Merch", "Sale_Price"]
+2. It will refers to `Discount` in the new dataset. So  `price_df[, "Sale_Price"]` is a better choice as no matter how many column you add the code still works
+3. Slicing with single brackets and no comma (`price_df["Sale_Price"]` or `price_df[3])` subsets the list container itself, returning a 1-column `data.frame`.
+
+:::
+
+### Broadcasting rule and warning handeling
+
+Now the  market tests a packaging fee on the catalog. Run this chunk and inspect the output:
+
+```{webr}
+
+```
+
+```{webr}
+# Even recycling: A 2-tier packaging fee alternating across the 4 catalog items
+pack_fee_2 <- c(1, 2)
+fee_applied_clean <- base_prices + pack_fee_2
+cat("Even fee recycling (+1, +2):      ", fee_applied_clean, "\n")
+
+# Uneven recycling: A 3-tier fee applied to the 4 catalog items
+pack_fee_3 <- c(1, 2, 3)
+suppressWarnings({
+  fee_applied_uneven <- base_prices + pack_fee_3
+})
+cat("Mismatched fee recycling (+1,+2,+3):", fee_applied_uneven, "\n")
+```
+
+Questions to Answer:
+
+1. What does R do under the hood when multiplying a vector of length 4 by a single number (1 + tax_rate) of length 1?
+
+2. If you scrambled the order of names in discount_rates to c(Stickers = 0.20, Merch = 0.15, Drinks = 0.00, Snacks = 0.05), does R align calculations by vector names or by index position (1st with 1st, 2nd with 2nd)?
+:::{.hide}
+
+Answer Key
+
+1. The Modulo Divisibility Rule: R recycles the shorter vector until it matches the length of the longer vector. When `length(longer) %% length(shorter) == 0 ($4 \pmod 2 = 0$)`, R assumes the repetition was intended and runs silently. When $4 \pmod 3 \ne 0$, R wraps back to the first element (1) to finish the math, but issues a warning: longer object length is not a multiple of shorter object length.
+2. Silent Logical Errors: Because R recycles cleanly whenever lengths divide evenly, passing `c(5, 0)` adds $5 to Snacks and Merch, but $0 to Drinks and Stickers. Because it is syntactically valid, R raises no error, creating an undetected accounting bug in downstream calculations.
+
+:::
+
+### Finding help through `?`
+
+Please inspect the value in `taxed_prices` and the vlaue `round(taxed_prices)`
+
+
+```{webr}
+taxed_prices
+round(taxed_prices)
+```
+
+Questions to Answer:
+
+1. Does `round(taxed_prices)` behave as you expected (hint: look at the value with exactly .5) and try to validate your guess withd different cases
+2. Type `?round` into your R console and scroll to the Details section. 
+    - What international standard does R follow?
+    - and how does it explain the behaviour of `round(taxed_prices)`?
+
+:::{.hide}
+Answer key
+
+1. No it rounds up/down depends on the odd/even number
+2. IEC 60559 / IEEE 754 standard, rounded to the nearest even integer.
+:::
+
+### Data type and coercion
+
+During peak hours, an employee enters "PROMO" into the register price column instead of entering $0 for a free Drink:
+
+
+```{webr}
+# Register price inputs for: Snacks, Drinks, Merch, Stickers
+register_log <- c(Snacks = 12, Drinks = "PROMO", Merch = 35, Stickers = 4)
+```
+
+Questions to Answer:
+
+1. What is the data type for "PROMO" ?
+2. What will be the datatype of `register_log[1]` now? Is it possible to do `register_log[1]+register_log[3]` now?
+3. What is R's hierarchy of datatype ?
+
+:::{.hide}
+Answer key
+
+1. Character
+2. Character, No
+3. 
+$$
+\text{logical} \longrightarrow \text{integer} \longrightarrow \text{double (numeric)} \longrightarrow \text{character}
+$$
+
+:::
