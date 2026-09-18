@@ -1152,7 +1152,7 @@
     "href": "courses/2026/BBMS1021/index.html#tutorials",
     "title": "BBMS1021 Introduction to AI and Biomedical Data Science",
     "section": "Tutorials",
-    "text": "Tutorials\nLive pages are live-html with answers in ::: {.hide} (hidden by tutorial_student.css). Tutorial 1 includes the original question sets and the pop-up market lab (t1 + t1-1). For RStudio copies ({r} chunks), see the README (pack_bbms1021_tutorials.py).\n\n\n\nTutorial\nLive page (answers hidden)\n\n\n\n\nTutorial 1\nOpen\n\n\nTutorial 2\nOpen\n\n\nTutorial 3\nOpen"
+    "text": "Tutorials\n\n\n\nTutorial\nLive page (answers hidden)\n\n\n\n\nTutorial 1\nOpen\n\n\nTutorial 2\nOpen\n\n\nTutorial 3\nOpen"
   },
   {
     "objectID": "courses/2026/BBMS1021/file-structure.html#learning-objectives",
