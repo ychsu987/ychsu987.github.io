@@ -157,7 +157,7 @@ def write_dest(dest: Path, text: str, root: Path, force: bool) -> bool:
 
 def insert_comment(yaml_doc: str, body: str, source: Path, kind: str) -> str:
     comment = (
-        f"<!-- {GENERATED_MARK} from {source.as_posix()} ({kind}). Do not edit by hand. -->\n"
+        f"<!--  -->\n"
     )
     return yaml_doc + "\n" + comment + "\n" + body.lstrip("\n")
 
