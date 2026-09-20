@@ -18,6 +18,31 @@ First, you need to download and install the latest version of R.
 If you forget how to use it or are not sure, there are some cheatsheets for you:
 [RStudio cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
 
+## Type coercion
+
+For the following code 
+```{webr}
+fakedata<-c(5,4,98,"5",3)
+```
+**Questions**
+
+1. What will be the data type of fakedata?
+
+2. If we calculate `mean(fakedata)`, it will result in an error. Why does this happen, and how should we fix the error?
+
+::: {.hide}
+Answer key:
+
+1. Character
+2. Mean can only work on integer or numeric datatype. you need to force the data to become numeric again 
+
+```{webr}
+fakedata<-c(5,4,98,"5",3)
+fakedata=as.numeric(fakedata)
+```
+
+:::
+
 
 ## Scientific computing
 
@@ -40,6 +65,8 @@ quadratic_equation(1, 2, 4)
 ```
 
 ::: {.hide}
+Answer key:
+
 Using only material covered so far (warns when the discriminant is negative):
 
 ```{webr}

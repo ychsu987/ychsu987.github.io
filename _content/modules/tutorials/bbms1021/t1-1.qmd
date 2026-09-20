@@ -1,84 +1,90 @@
 ## Lab overview
 
-You have been hired to audit the sales records of the **Downtown Pop-Up Market**, which sold **Snacks**, **Drinks**, **Merch**, and **Stickers** over a three-day weekend.
+You have been hired to audit data from a recent fluorescence experiment. The research team recorded the baseline fluorescence intensity of four cellular markers (**CD4**, **CD8**, **CD19**, and **CD56**) over a three-day period. 
 
 Work through each section by running the code examples and answering the questions. Answer keys and worked code are in hidden instructor blocks on the live page (and in the teacher-notes pack).
 
+Work through each section by running the code examples and answering the questions. Answer keys and worked code are in hidden instructor blocks on the live page (and in the teacher-notes pack).
+
+### About flow cytometry and 
+
+![Leukemia cells labeled with fluorescent molecules](https://www.news-medical.net/image-handler/ts/20210318122103/ri/673/picture/2021/3/shutterstock_382919662.jpg)
 ---
 
 ## 1. Vector arithmetic and recycling
 
 Before opening, the store set these standard retail prices:
 
-- Snacks: $12
-- Drinks: $5
-- Merch: $35
-- Stickers: $4
+- CD4: 12
+- CD8: 5
+- CD19: 35
+- CD56: 4
 
 ### Scalar broadcasting vs. vector operations
 
 Run the following chunk. You will use `base_prices` for the rest of this lab.
 
 ```{webr}
-base_prices <- c(Snacks = 12, Drinks = 5, Merch = 35, Stickers = 4)
+base_signals <- c(CD4 = 12, CD8 = 5, CD19 = 35, CD56 = 4)
 ```
 
-1. Add **12.5% sales tax** to each product's base price. Store the result in `taxed_prices`. The tax rate is already given below.
+1. Add a **12.5% signal amplification** (from a secondary antibody) to each marker's base signal. Store the result in `amplified_signals`. The amplification rate is already given below.
 
 ```{webr}
-tax_rate <- 0.125
-```
+amp_rate <- 0.125
 
-::: {.hide}
-```{webr}
-# Scalar broadcasting: 12.5% sales tax across all items
-tax_rate <- 0.125
-taxed_prices <- base_prices * (1 + tax_rate)
-```
-:::
-
-2. Apply the **discount rates** in `discount_rates` to the **base** prices (not the taxed prices). Store the result in `discounted_prices`.
-
-```{webr}
-discount_rates <- c(Snacks = 0.05, Drinks = 0.00, Merch = 0.15, Stickers = 0.20)
 ```
 
 ::: {.hide}
 ```{webr}
-discount_rates <- c(Snacks = 0.05, Drinks = 0.00, Merch = 0.15, Stickers = 0.20)
-discounted_prices <- base_prices * (1 - discount_rates)
+# Scalar broadcasting: 12.5% amplification across all channels
+amp_rate <- 0.125
+amplified_signals <- base_signals * (1 + amp_rate)
 ```
 :::
 
-After you have created `taxed_prices` and `discounted_prices`, run this chunk to build a data frame named `price_df`:
+2. Over time, the signals naturally fade. Apply the fading rates in fade_rates to the base signals (not the amplified signals). Store the result in faded_signals.
 
 ```{webr}
-price_df <- data.frame(
-  Original = base_prices,
-  Discount = discount_rates,
-  Sale_Price = round(discounted_prices, 2),
-  Taxed_Price = round(taxed_prices, 2)
+fade_rates <- c(CD4 = 0.05, CD8 = 0.00, CD19 = 0.15, CD56 = 0.20)
+```
+
+::: {.hide}
+```{webr}
+fade_rates <- c(CD4 = 0.05, CD8 = 0.00, CD19 = 0.15, CD56 = 0.20)
+faded_signals <- base_signals * (1 - fade_rates)
+```
+:::
+
+After you have created `amplified_signals` and `faded_signals`, run this chunk to build a data frame named signal_df:
+
+```{webr}
+signal_df <- data.frame(
+  Original = base_signals,
+  Fade_Rate = fade_rates,
+  Final_Signal = round(faded_signals, 2),
+  Amplified_Signal = round(amplified_signals, 2)
 )
-price_df
+signal_df
 ```
 
 **Questions**
 
-1. What does R do when you multiply a vector of length 4 by a single number such as `(1 + tax_rate)` (a vector of length 1)?
+1. What does R do when you multiply a vector of length 4 by a single number such as `(1 + amp_rate)` (a vector of length 1)?
 
-2. Suppose you scramble the *names* of `discount_rates` to `c(Stickers = 0.20, Merch = 0.15, Drinks = 0.00, Snacks = 0.05)` but leave `base_prices` in the original order. Do the usual arithmetic operators (`*`, `+`, …) match values **by name** or **by position** (1st with 1st, 2nd with 2nd)?
+2. Suppose you scramble the *names* of `fade_rates` to `c(CD56 = 0.20, CD19 = 0.15, CD8 = 0.00, CD4 = 0.05)` but leave `base_signals` in the original order. Do the usual arithmetic operators (`*`, `+`, …) match values **by name** or **by position** (1st with 1st, 2nd with 2nd)?
 
 ::: {.hide}
 **Answer key**
 
-1. **Recycling (often called broadcasting here).** R has no separate scalar type: `1 + tax_rate` is an atomic vector of length 1. R recycles that single value to length 4 so pairwise multiplication can run.
+1. **Recycling (often called broadcasting here).** R has no separate scalar type: `1 + amp_rate` is an atomic vector of length 1. R recycles that single value to length 4 so pairwise multiplication can run.
 
-2. **By position, not by name.** Binary arithmetic ignores names. Index 1 multiplies with index 1, and so on. If `discount_rates` is reordered and `base_prices` is not, the wrong discount is applied. To align by name you would need something like `discount_rates[names(base_prices)]`.
+2. **By position, not by name.** Binary arithmetic ignores names. Index 1 multiplies with index 1, and so on. If `fade_rates` is reordered and `base_signals` is not, the wrong discount is applied. To align by name you would need something like `fade_rates[names(base_signals)]`.
 :::
 
 ### Indexing
 
-Extract the `Sale_Price` column from `price_df`. *Hint:* there are several valid approaches; try more than one.
+Extract the `Final_Signal` column from `signal_df`. *Hint:* there are several valid approaches; try more than one.
 
 ```{webr}
 
@@ -86,60 +92,60 @@ Extract the `Sale_Price` column from `price_df`. *Hint:* there are several valid
 
 ::: {.hide}
 ```{webr}
-price_df$Sale_Price
-price_df[, 3]
-price_df[, "Sale_Price"]
+signal_df$Final_Signal
+signal_df[, 3]
+signal_df[, "Final_Signal"]
 ```
 :::
 
 To read the cell in **row 3, column 3**, you can use either of these:
 
 ```{webr}
-price_df[3, 3]
-price_df["Merch", "Sale_Price"]
+signal_df[3, 3]
+signal_df["CD19", "Final_Signal"]
 ```
 
 **Questions**
 
-1. Compare `price_df[3, 3]` with `price_df["Merch", "Sale_Price"]`. Which is easier for another reader to understand without looking at the data?
+1. Compare `signal_df[3, 3]` with `signal_df["CD19", "Final_Signal"]`. Which is easier for another reader to understand without looking at the data?
 
-2. Next month the store adds a column `SKU_Number` as **column 1**, so every later column shifts one place to the right. What would `price_df[, 3]` refer to then, compared with `price_df[, "Sale_Price"]`? Which is less sensitive to that change?
+2. Next month the store adds a column `Sample_ID` as **column 1**, so every later column shifts one place to the right. What would `signal_df[, 3]` refer to then, compared with `signal_df[, "Final_Signal"]`? Which is less sensitive to that change?
 
-3. Compare the printed result and `class()` of `price_df$Sale_Price`, `price_df["Sale_Price"]`, and `price_df[["Sale_Price"]]`. Why does `[` **without a comma** return a one-column data frame, while `$` and `[[` extract a numeric vector?
+3. Compare the printed result and `class()` of `signal_df$Final_Signal`, `signal_df["Final_Signal"]`, and `signal_df[["Final_Signal"]]`. Why does `[` **without a comma** return a one-column data frame, while `$` and `[[` extract a numeric vector?
 
 ::: {.hide}
 **Answer key**
 
-1. `price_df["Merch", "Sale_Price"]` is clearer: it names the row and the column.
+1. `signal_df["CD19", "Final_Signal"]` is clearer: it names the row and the column.
 
-2. After inserting `SKU_Number` at the front, `price_df[, 3]` would be the old column 2 (`Discount`). `price_df[, "Sale_Price"]` still means sale price no matter how many columns you add, so it is the more robust choice.
+2. After inserting `Sample_ID` at the front, `signal_df[, 3]` would be the old column 2 (`Fade_Rate`). `signal_df[, "Final_Signal"]` still means final signal no matter how many columns you add, so it is the more robust choice.
 
-3. `$` and `[[` pull out the vector stored in that column. `[` with no comma subsets the data frame as a list of columns, so `price_df["Sale_Price"]` (and `price_df[3]` for the third column) stays a one-column `data.frame`.
+3. `$` and `[[` pull out the vector stored in that column. `[` with no comma subsets the data frame as a list of columns, so `signal_df["Final_Signal"]` (and `price_df[3]` for the third column) stays a one-column `data.frame`.
 :::
 
 ### Recycling rules and warnings
 
-The market tests a packaging fee on the four catalogue items. Run the chunk below and inspect the output.
+The core tests a background noise threshold correction on the four markers. Run the chunk below and inspect the output.
 
 ```{webr}
-# Even recycling: a 2-element fee repeated across 4 items
-pack_fee_2 <- c(1, 2)
-fee_applied_clean <- base_prices + pack_fee_2
-cat("Even fee recycling (+1, +2):      ", fee_applied_clean, "\n")
+# Even recycling: a 2-element noise correction repeated across 4 markers
+noise_2 <- c(1, 2)
+noise_applied_clean <- base_signals + noise_2
+cat("Even noise recycling (+1, +2):      ", noise_applied_clean, "\n")
 
-# Uneven recycling: a 3-element fee applied to 4 items
-pack_fee_3 <- c(1, 2, 3)
+# Uneven recycling: a 3-element noise correction applied to 4 markers
+noise_3 <- c(1, 2, 3)
 suppressWarnings({
-  fee_applied_uneven <- base_prices + pack_fee_3
+  noise_applied_uneven <- base_signals + noise_3
 })
-cat("Mismatched fee recycling (+1,+2,+3):", fee_applied_uneven, "\n")
+cat("Mismatched noise recycling (+1,+2,+3):", noise_applied_uneven, "\n")
 ```
 
 **Questions**
 
-1. Why does adding `pack_fee_2` (length 2) to `base_prices` (length 4) run **without** a warning? What pattern of fees is applied to Snacks, Drinks, Merch, and Stickers?
+1. Why does adding `noise_2` (length 2) to `base_signals` (length 4) run **without** a warning? What pattern of fees is applied to CD4, CD8, CD19, and CD56?
 
-2. Why does adding `pack_fee_3` (length 3) **warn**, and what values does R actually add to the four items?
+2. Why does adding `noise_3` (length 3) **warn**, and what values does R actually add to the four items?
 
 3. Why can “even” recycling (lengths that divide evenly) be more dangerous in an audit than the warning case?
 
@@ -150,25 +156,25 @@ cat("Mismatched fee recycling (+1,+2,+3):", fee_applied_uneven, "\n")
 
 2. $4 \bmod 3 \neq 0$, so R still wraps around (the fourth item gets the first fee, $+1$) but warns: `longer object length is not a multiple of shorter object length`.
 
-3. If someone passed `c(5, 0)`, R would add $5 to Snacks and Merch and $0 to Drinks and Stickers with **no** warning. The code is valid, so the accounting error is easy to miss. The mismatched-length warning at least flags that something odd happened.
+3. If someone passed `c(5, 0)`, R would add $5 to CD4 and CD9 and $0 to CD8 and CD56 with **no** warning. The code is valid, so the accounting error is easy to miss. The mismatched-length warning at least flags that something odd happened.
 :::
 
 ### Finding help with `?`
 
-Inspect `taxed_prices` and `round(taxed_prices)`:
+Inspect `amplified_signals` and `round(amplified_signals)`:
 
 ```{webr}
-taxed_prices
-round(taxed_prices)
+amplified_signals
+round(amplified_signals)
 ```
 
 **Questions**
 
-1. Does `round(taxed_prices)` match what you expected? *Hint:* look at values that sit exactly on `.5`, then try a few extra examples of your own.
+1. Does `round(amplified_signals)` match what you expected? *Hint:* look at values that sit exactly on `.5`, then try a few extra examples of your own.
 
 2. Type `?round` in the console and read the **Details** section.
    - Which international standard does R follow?
-   - How does that standard explain what you saw for `round(taxed_prices)`?
+   - How does that standard explain what you saw for `round(amplified_signals)`?
 
 ::: {.hide}
 **Answer key**
@@ -180,18 +186,18 @@ round(taxed_prices)
 
 ### Data types and coercion
 
-During peak hours, an employee types `"PROMO"` into the register price column instead of `$0` for a free drink:
+During peak hours, a technician types `"SATURATED"` into the instrument log instead of `0` for a blank well:
 
 ```{webr}
-# Register price inputs for: Snacks, Drinks, Merch, Stickers
-register_log <- c(Snacks = 12, Drinks = "PROMO", Merch = 35, Stickers = 4)
+# Instrument log inputs for: CD4, CD8, CD19, CD56
+instrument_log <- c(CD4 = 12, CD8 = "SATURATED", CD19 = 35, CD56 = 4)
 ```
 
 **Questions**
 
-1. What is the data type of `"PROMO"` on its own?
+1. What is the data type of `"SATURATED"` on its own?
 
-2. After you build `register_log` as above, what is the data type of `register_log[1]`? Can you compute `register_log[1] + register_log[3]`?
+2. After you build `instrument_log` as above, what is the data type of `instrument_log[1]`? Can you compute `instrument_log[1] + instrument_log[3]`?
 
 3. What is R's usual coercion hierarchy for atomic vectors (from most specific to most flexible)?
 
@@ -200,7 +206,7 @@ register_log <- c(Snacks = 12, Drinks = "PROMO", Merch = 35, Stickers = 4)
 
 1. Character.
 
-2. Character as well — one character value forces the whole vector to character — so `register_log[1] + register_log[3]` is not valid numeric addition.
+2. Character as well — one character value forces the whole vector to character — so `instrument_log[1] + instrument_log[3]` is not valid numeric addition.
 
 3.
 $$
