@@ -6,10 +6,11 @@ Work through each section by running the code examples and answering the questio
 
 Work through each section by running the code examples and answering the questions. Answer keys and worked code are in hidden instructor blocks on the live page (and in the teacher-notes pack).
 
-### About flow cytometry and 
+### About fluorescence experiment
 
 ![Leukemia cells labeled with fluorescent molecules](https://www.news-medical.net/image-handler/ts/20210318122103/ri/673/picture/2021/3/shutterstock_382919662.jpg)
----
+
+Uses a single, primary antibody that has a fluorescent dye attached directly to the antigen.
 
 ## 1. Vector arithmetic and recycling
 
@@ -35,7 +36,7 @@ amp_rate <- 0.125
 
 ```
 
-::: {.hide}
+:::{.hide}
 ```{webr}
 # Scalar broadcasting: 12.5% amplification across all channels
 amp_rate <- 0.125
@@ -49,7 +50,7 @@ amplified_signals <- base_signals * (1 + amp_rate)
 fade_rates <- c(CD4 = 0.05, CD8 = 0.00, CD19 = 0.15, CD56 = 0.20)
 ```
 
-::: {.hide}
+:::{.hide}
 ```{webr}
 fade_rates <- c(CD4 = 0.05, CD8 = 0.00, CD19 = 0.15, CD56 = 0.20)
 faded_signals <- base_signals * (1 - fade_rates)
@@ -74,7 +75,7 @@ signal_df
 
 2. Suppose you scramble the *names* of `fade_rates` to `c(CD56 = 0.20, CD19 = 0.15, CD8 = 0.00, CD4 = 0.05)` but leave `base_signals` in the original order. Do the usual arithmetic operators (`*`, `+`, …) match values **by name** or **by position** (1st with 1st, 2nd with 2nd)?
 
-::: {.hide}
+:::{.hide}
 **Answer key**
 
 1. **Recycling (often called broadcasting here).** R has no separate scalar type: `1 + amp_rate` is an atomic vector of length 1. R recycles that single value to length 4 so pairwise multiplication can run.
@@ -113,7 +114,7 @@ signal_df["CD19", "Final_Signal"]
 
 3. Compare the printed result and `class()` of `signal_df$Final_Signal`, `signal_df["Final_Signal"]`, and `signal_df[["Final_Signal"]]`. Why does `[` **without a comma** return a one-column data frame, while `$` and `[[` extract a numeric vector?
 
-::: {.hide}
+:::{.hide}
 **Answer key**
 
 1. `signal_df["CD19", "Final_Signal"]` is clearer: it names the row and the column.
@@ -149,7 +150,7 @@ cat("Mismatched noise recycling (+1,+2,+3):", noise_applied_uneven, "\n")
 
 3. Why can “even” recycling (lengths that divide evenly) be more dangerous in an audit than the warning case?
 
-::: {.hide}
+:::{.hide}
 **Answer key**
 
 1. R recycles the shorter vector until it matches the longer one. When `length(longer) %% length(shorter) == 0` (here $4 \bmod 2 = 0$), R treats the repeat as intentional and stays silent. The fees are $+1, +2, +1, +2$.
@@ -176,7 +177,7 @@ round(amplified_signals)
    - Which international standard does R follow?
    - How does that standard explain what you saw for `round(amplified_signals)`?
 
-::: {.hide}
+:::{.hide}
 **Answer key**
 
 1. Half-way cases do not always round “away from zero” or “always up”. They follow **round half to even** (the adjacent even integer).
@@ -201,7 +202,7 @@ instrument_log <- c(CD4 = 12, CD8 = "SATURATED", CD19 = 35, CD56 = 4)
 
 3. What is R's usual coercion hierarchy for atomic vectors (from most specific to most flexible)?
 
-::: {.hide}
+:::{.hide}
 **Answer key**
 
 1. Character.
