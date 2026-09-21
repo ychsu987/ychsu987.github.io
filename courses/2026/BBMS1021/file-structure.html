@@ -94,7 +94,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -196,7 +216,7 @@
 
 <section id="title-slide" data-background="/assets/images/ggplot2/background-1.jpg" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
   <h1 class="title">Introduction to R</h1>
-  <p class="subtitle">File structure</p>
+  <p class="subtitle">Files Handeling</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -215,7 +235,21 @@ Yu Cheng Hsu
 </ul>
 
 <aside><div>
-<p>Background image: <span class="citation" data-cites="bg5">(<a href="" role="doc-biblioref" onclick="return false;"><strong>bg5?</strong></a>)</span></p>
+<p>Background image: <span class="citation" data-cites="bg1">Mondrian (<a href="#/section" role="doc-biblioref" onclick="">1935</a>)</span></p>
+</div></aside></section>
+<section id="reading-and-writing-data-to-file" class="slide level2">
+<h2>Reading and writing data to file</h2>
+<p>For reading and writing data we recoomend use the library under <code>tidyverse</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#install tidyverse (package with lots of functions to handle data in R)</span></span>
+<span id="cb1-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"tidyverse"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {    <span class="co"># checks if already installed</span></span>
+<span id="cb1-3"><a></a>  <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-4"><a></a>}</span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(tidyverse)                                       <span class="co"># load the package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<aside><div>
+<p>To be specific it is <code>readr</code> library. But <code>tidyverse</code> can install all the library you need for this course</p>
 </div></aside></section>
 <section id="loadingsaving-data-from-folders" class="slide level2">
 <h2>Loading/saving data from folders</h2>
@@ -225,20 +259,46 @@ Yu Cheng Hsu
 <li>Use <code>getwd()</code> to see your current working directory.</li>
 </ul>
 <p>Consider the following file structure</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>/ (root)</span>
+<span id="cb2-2"><a></a>├── home</span>
+<span id="cb2-3"><a></a>│   └── user</span>
+<span id="cb2-4"><a></a>│       ├── documents</span>
+<span id="cb2-5"><a></a>│       │   ├── course</span>
+<span id="cb2-6"><a></a>│       │   │   ├── THIS_RMD.rmd</span>
+<span id="cb2-7"><a></a>│       │   │   └── myData.csv</span>
+<span id="cb2-8"><a></a>│       │   └── notes.txt</span>
+<span id="cb2-9"><a></a>│       └── downloads</span>
+<span id="cb2-10"><a></a><span class="pp">|</span>           └── IMAGE.png</span>
+<span id="cb2-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="read-the-data" class="slide level2">
+<h2>Read the data</h2>
+<p>Using <code>read_csv()</code> to read the <a href="https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/myData.csv">data</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>myData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'myData.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>read_csv()</code> need to specify WHERE do you put the file by <strong>Absolute path</strong> or <strong>Relative path</strong></li>
+<li>If you are using Rmarkdown (<code>.rmd</code>) to run the above code then you need to put in the same directory</li>
+<li>Otherwise you need to put at your current working directory</li>
+</ul>
+</section>
+<section id="file-path" class="slide level2">
+<h2>File path</h2>
 <div class="columns">
-<div class="column">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a>/ (root)</span>
-<span id="cb1-2"><a></a>├── home</span>
-<span id="cb1-3"><a></a>│   └── user</span>
-<span id="cb1-4"><a></a>│       ├── documents</span>
-<span id="cb1-5"><a></a>│       │   ├── course</span>
-<span id="cb1-6"><a></a>│       │   │   ├── THIS_MARKDOWN.rmd</span>
-<span id="cb1-7"><a></a>│       │   │   └── IMAGE.png</span>
-<span id="cb1-8"><a></a>│       │   └── notes.txt</span>
-<span id="cb1-9"><a></a>│       └── downloads</span>
-<span id="cb1-10"><a></a><span class="pp">|</span>           └── data.csv</span>
-<span id="cb1-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+<div class="column" style="width:40%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a></a>/ (root)</span>
+<span id="cb4-2"><a></a>├── home</span>
+<span id="cb4-3"><a></a>│   └── user</span>
+<span id="cb4-4"><a></a>│       ├── documents</span>
+<span id="cb4-5"><a></a>│       │   ├── course</span>
+<span id="cb4-6"><a></a>│       │   │   ├── THIS_RMD.rmd</span>
+<span id="cb4-7"><a></a>│       │   │   └── myData.csv</span>
+<span id="cb4-8"><a></a>│       │   └── notes.txt</span>
+<span id="cb4-9"><a></a>│       └── downloads</span>
+<span id="cb4-10"><a></a><span class="pp">|</span>           └── IMAGE.png</span>
+<span id="cb4-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:57%;">
 <p>There are two ways of specifying a path:</p>
 <ol type="1">
 <li><strong>Absolute path</strong> The full location of the file or directory.</li>
@@ -249,18 +309,26 @@ Yu Cheng Hsu
 <section id="absolute-path" class="slide level2">
 <h2>Absolute Path</h2>
 <div class="columns">
-<div class="column">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>/ (root)</span>
-<span id="cb2-2"><a></a>├── home</span>
-<span id="cb2-3"><a></a>│   └── user</span>
-<span id="cb2-4"><a></a>│       ├── documents</span>
-<span id="cb2-5"><a></a>│       │   ├── course</span>
-<span id="cb2-6"><a></a>│       │   │   ├── THIS_MARKDOWN.rmd</span>
-<span id="cb2-7"><a></a>│       │   │   └── IMAGE.png</span>
-<span id="cb2-8"><a></a>│       │   └── notes.txt</span>
-<span id="cb2-9"><a></a>│       └── downloads</span>
-<span id="cb2-10"><a></a><span class="pp">|</span>           └── data.csv</span>
-<span id="cb2-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column" style="width:40%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a>/ (root)</span>
+<span id="cb5-2"><a></a>├── home</span>
+<span id="cb5-3"><a></a>│   └── user</span>
+<span id="cb5-4"><a></a>│       ├── documents</span>
+<span id="cb5-5"><a></a>│       │   ├── course</span>
+<span id="cb5-6"><a></a>│       │   │   ├── THIS_RMD.rmd</span>
+<span id="cb5-7"><a></a>│       │   │   └── myData.csv</span>
+<span id="cb5-8"><a></a>│       │   └── notes.txt</span>
+<span id="cb5-9"><a></a>│       └── downloads</span>
+<span id="cb5-10"><a></a><span class="pp">|</span>           └── IMAGE.png</span>
+<span id="cb5-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:57%;">
+<p><strong>Absolute Path</strong></p>
+<p>An absolute path starts from the root directory (<code>/</code>) and specifies the full path to a file or directory.</p>
+<ul>
+<li>Path to <code>THIS_RMD.rmd</code>: <code>/home/user/documents/course/THIS_RMD.rmd</code></li>
+<li>Path to <code>IMAGE.png</code>: <code>/home/user/downloads/IMAGE.png</code></li>
+</ul>
+</div></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -277,45 +345,47 @@ Yu Cheng Hsu
 </div>
 </div>
 </div>
-</div><div class="column">
-<p><strong>Absolute Path</strong></p>
-<p>An absolute path starts from the root directory (<code>/</code>) and specifies the full path to a file or directory.</p>
-<ul>
-<li>Path to <code>THIS_MARKDOWN.rmd</code>: <code>/home/user/documents/course/THIS_MARKDOWN.rmd</code></li>
-<li>Path to <code>data.csv</code>: <code>/home/user/downloads/data.csv</code></li>
-</ul>
-</div></div>
 </section>
 <section id="relative-path" class="slide level2">
 <h2>Relative path</h2>
 <div class="columns">
-<div class="column">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a></a>/ (root)</span>
-<span id="cb3-2"><a></a>├── home</span>
-<span id="cb3-3"><a></a>│   └── user</span>
-<span id="cb3-4"><a></a>│       ├── documents</span>
-<span id="cb3-5"><a></a>│       │   ├── course</span>
-<span id="cb3-6"><a></a>│       │   │   ├── THIS_MARKDOWN.rmd</span>
-<span id="cb3-7"><a></a>│       │   │   └── IMAGE.png</span>
-<span id="cb3-8"><a></a>│       │   └── notes.txt</span>
-<span id="cb3-9"><a></a>│       └── downloads</span>
-<span id="cb3-10"><a></a><span class="pp">|</span>           └── data.csv</span>
-<span id="cb3-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+<div class="column" style="width:40%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a></a>/ (root)</span>
+<span id="cb6-2"><a></a>├── home</span>
+<span id="cb6-3"><a></a>│   └── user</span>
+<span id="cb6-4"><a></a>│       ├── documents</span>
+<span id="cb6-5"><a></a>│       │   ├── course</span>
+<span id="cb6-6"><a></a>│       │   │   ├── THIS_RMD.rmd</span>
+<span id="cb6-7"><a></a>│       │   │   └── myData.csv</span>
+<span id="cb6-8"><a></a>│       │   └── notes.txt</span>
+<span id="cb6-9"><a></a>│       └── downloads</span>
+<span id="cb6-10"><a></a><span class="pp">|</span>           └── IMAGE.png</span>
+<span id="cb6-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:57%;">
 <p><strong>Relative Path</strong></p>
 <p>A relative path is defined relative to the current working directory.</p>
 <ul>
-<li><code>./</code> refers to the current directory,</li>
-<li><code>../</code> means “go up one directory level”.</li>
+<li><p><code>getwd()</code> to get current working directory</p></li>
+<li><p><code>setwd('A PATH')</code> to set new working directory</p></li>
+<li><p><code>./</code> refers to the current directory,</p></li>
+<li><p><code>../</code> means “go up one directory level”.</p></li>
 </ul>
 </div></div>
-<p>Assume that we are working on <code>THIS_MARKDOWN.rmd</code>, so the current directory is <code>/home/user/documents/course</code>.</p>
+<p>Assume that we are working on <code>THIS_RMD.rmd</code>, so the current directory is <code>/home/user/documents/course</code>.</p>
 <ul>
-<li>Path to <code>IMAGE.png</code> : <code>./IMAGE.png</code> or <code>IMAGE.png</code></li>
-<li>Path to <code>data.csv</code>: <code>../../data.csv</code></li>
+<li>Path to <code>myData.csv</code> : <code>./myData.csv</code> or <code>myData.csv</code></li>
+<li>Path to <code>IMAGE.png</code>: <code>../../IMAGE.png</code></li>
 </ul>
+</section>
+<section id="section" class="slide level2 smaller scrollable">
+<h2></h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bg1" class="csl-entry" role="listitem">
+Mondrian, Piet. 1935. <em>Composition (No. 1) Gray-Red</em>. Oil on canvas. the Art Institute of Chicago.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -534,6 +604,82 @@ Yu Cheng Hsu
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -1015,18 +1015,32 @@
     "text": "First, you need to download and install the latest version of R.\n\nGo to R official website\nClick on “download R”\nSave the installation file\nRun the installation file and follow the prompts to install R (default settings are fine)"
   },
   {
+    "objectID": "courses/2026/BBMS1021/tutorial_1.html#type-coercion",
+    "href": "courses/2026/BBMS1021/tutorial_1.html#type-coercion",
+    "title": "Tutorial 1",
+    "section": "Type coercion",
+    "text": "Type coercion\nFor the following code\n\n\n\n\n\n\n\n\nQuestions\n\nWhat will be the data type of fakedata?\nIf we calculate mean(fakedata), it will result in an error. Why does this happen, and how should we fix the error?\n\n\nAnswer key:\n\nCharacter\nMean can only work on integer or numeric datatype. you need to force the data to become numeric again"
+  },
+  {
+    "objectID": "courses/2026/BBMS1021/tutorial_1.html#scientific-computing",
+    "href": "courses/2026/BBMS1021/tutorial_1.html#scientific-computing",
+    "title": "Tutorial 1",
+    "section": "Scientific computing",
+    "text": "Scientific computing\n\nQ1: Write a function to solve a quadratic equation\n\n\\[\nax^2+bx+c=0\n\\]\n\n\n\n\n\n\n\n\n\nAnswer key:\nUsing only material covered so far (warns when the discriminant is negative):\n\n\n\n\n\n\n\n\nWith flow control (later lecture): return NaN when b^2 - 4*a*c &lt; 0."
+  },
+  {
     "objectID": "courses/2026/BBMS1021/tutorial_1.html#lab-overview",
     "href": "courses/2026/BBMS1021/tutorial_1.html#lab-overview",
     "title": "Tutorial 1",
-    "section": "Lab Overview",
-    "text": "Lab Overview\nYou have been hired to audit the sales records of the Downtown Pop-Up Market, which sold Snacks, Drinks, Merch, and Stickers over a three-day weekend.\nWork through each chapter by running the code examples and answering the technical questions. Answer keys and code solutions are tucked inside hidden instructor blocks."
+    "section": "Lab overview",
+    "text": "Lab overview\nYou have been hired to audit data from a recent fluorescence experiment. The research team recorded the baseline fluorescence intensity of four cellular markers (CD4, CD8, CD19, and CD56) over a three-day period.\nWork through each section by running the code examples and answering the questions. Answer keys and worked code are in hidden instructor blocks on the live page (and in the teacher-notes pack).\nWork through each section by running the code examples and answering the questions. Answer keys and worked code are in hidden instructor blocks on the live page (and in the teacher-notes pack).\n\nAbout fluorescence experiment\n\n\n\nLeukemia cells labeled with fluorescent molecules\n\n\n\n\n\nBasic mechanism of immunofluorescence"
   },
   {
-    "objectID": "courses/2026/BBMS1021/tutorial_1.html#vector-arithmetic-runtime-rules",
-    "href": "courses/2026/BBMS1021/tutorial_1.html#vector-arithmetic-runtime-rules",
+    "objectID": "courses/2026/BBMS1021/tutorial_1.html#vector-arithmetic-and-recycling",
+    "href": "courses/2026/BBMS1021/tutorial_1.html#vector-arithmetic-and-recycling",
     "title": "Tutorial 1",
-    "section": "1 Vector Arithmetic & Runtime Rules",
-    "text": "1 Vector Arithmetic & Runtime Rules\nBefore opening, the store established standard retail prices: - Snacks: $12 - Drinks: $5 - Merch: $35 - Stickers: $4\n\nScalar Broadcasting vs. Vector Operations\nRun the following code to inspect how R handles scalar multiplication vs. element-by-element vector arithmetic:\n\n\n\n\n\n\n\n\n\nCalculate the price for each product after including 12.5% if sales tax, and stored in taxed_prices\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCalculate the price for each product after including the discount rate (in discount_rates) based on the base price, and stored in tdiscounted_prices\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNow we will create a dataframe with\n\n\n\n\n\n\n\n\nQuestions to Answer:\n\nWhat does R do under the hood when multiplying a vector of length 4 by a single number (1 + tax_rate) of length 1?\nIf you scrambled the order of names in discount_rates to c(Stickers = 0.20, Merch = 0.15, Drinks = 0.00, Snacks = 0.05), does R align calculations by vector names or by index position (1st with 1st, 2nd with 2nd)?\n\n\nAnswer Key\n\nScalar Broadcasting: In R, there are no true scalar values; 1 + tax_rate is simply an atomic vector of length 1. Through R’s recycling rule, the single value is stretched (recycled) to match the length of base_prices (length 4) so that pairwise multiplication can execute.\nPositional Indexing: Standard binary arithmetic operators (+, -, *, /) in R completely ignore names. They match strictly by numeric position (index 1 with index 1, index 2 with index 2). If discount_rates is reordered without realigning base_prices, R will apply the wrong discount to the wrong item. To calculate by name safely, you would need to align them explicitly: discount_rates[names(base_prices)].\n\n\n\n\nIndexing\nPlease get the Sale_Price column. (Hint: There are few approaches of doing that try to include as much as possibile)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nif I would like to get the cell at 3,3 I can use:\n\n\n\n\n\n\n\n\nQuestions to Answer:\n\nCompare reading price_df[3, 3] versus price_df[“Merch”, “Sale_Price”]. Which one is easier for other readers to understand without looking at the dataset?\nImagine next month the store adds a new column SKU_Number as the first column (column 1), shifting all other columns to the right. What happens to code written as price_df[, 3] versus code written as price_df[, “Sale_Price”]? Which one is less sensitve to the change?\nCompare the output and class() of price_df$Sale_Price versus price_df[\"Sale_Price\"], and price_df[[\"Sale_Price\"]] Why does single bracket [ ] without a comma return a 1-column data frame, while others extract a raw numeric vector?\n\n\nAnswer Key\n\nprice_df[“Merch”, “Sale_Price”]\nIt will refers to Discount in the new dataset. So price_df[, \"Sale_Price\"] is a better choice as no matter how many column you add the code still works\nSlicing with single brackets and no comma (price_df[\"Sale_Price\"] or price_df[3]) subsets the list container itself, returning a 1-column data.frame.\n\n\n\n\nBroadcasting rule and warning handeling\nNow the market tests a packaging fee on the catalog. Run this chunk and inspect the output:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions to Answer:\n\nWhat does R do under the hood when multiplying a vector of length 4 by a single number (1 + tax_rate) of length 1?\nIf you scrambled the order of names in discount_rates to c(Stickers = 0.20, Merch = 0.15, Drinks = 0.00, Snacks = 0.05), does R align calculations by vector names or by index position (1st with 1st, 2nd with 2nd)? :::{.hide}\n\nAnswer Key\n\nThe Modulo Divisibility Rule: R recycles the shorter vector until it matches the length of the longer vector. When length(longer) %% length(shorter) == 0 ($4 \\pmod 2 = 0$), R assumes the repetition was intended and runs silently. When \\(4 \\pmod 3 \\ne 0\\), R wraps back to the first element (1) to finish the math, but issues a warning: longer object length is not a multiple of shorter object length.\nSilent Logical Errors: Because R recycles cleanly whenever lengths divide evenly, passing c(5, 0) adds $5 to Snacks and Merch, but $0 to Drinks and Stickers. Because it is syntactically valid, R raises no error, creating an undetected accounting bug in downstream calculations.\n\n:::\n\n\nFinding help through ?\nPlease inspect the value in taxed_prices and the vlaue round(taxed_prices)\n\n\n\n\n\n\n\n\nQuestions to Answer:\n\nDoes round(taxed_prices) behave as you expected (hint: look at the value with exactly .5) and try to validate your guess withd different cases\nType ?round into your R console and scroll to the Details section.\n\nWhat international standard does R follow?\nand how does it explain the behaviour of round(taxed_prices)?\n\n\n\nAnswer key\n\nNo it rounds up/down depends on the odd/even number\nIEC 60559 / IEEE 754 standard, rounded to the nearest even integer.\n\n\n\n\nData type and coercion\nDuring peak hours, an employee enters “PROMO” into the register price column instead of entering $0 for a free Drink:\n\n\n\n\n\n\n\n\nQuestions to Answer:\n\nWhat is the data type for “PROMO” ?\nWhat will be the datatype of register_log[1] now? Is it possible to do register_log[1]+register_log[3] now?\nWhat is R’s hierarchy of datatype ?\n\n\nAnswer key\n\nCharacter\nCharacter, No\n\\[\n\\text{logical} \\longrightarrow \\text{integer} \\longrightarrow \\text{double (numeric)} \\longrightarrow \\text{character}\n\\]"
+    "section": "1. Vector arithmetic and recycling",
+    "text": "1. Vector arithmetic and recycling\nBefore opening, the store set these standard retail prices:\n\nCD4: 12\nCD8: 5\nCD19: 35\nCD56: 4\n\n\nScalar broadcasting vs. vector operations\nRun the following chunk. You will use base_prices for the rest of this lab.\n\n\n\n\n\n\n\n\n\nAdd a 12.5% signal amplification (from a secondary antibody) to each marker’s base signal. Store the result in amplified_signals. The amplification rate is already given below.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOver time, the signals naturally fade. Apply the fading rates in fade_rates to the base signals (not the amplified signals). Store the result in faded_signals.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAfter you have created amplified_signals and faded_signals, run this chunk to build a data frame named signal_df:\n\n\n\n\n\n\n\n\nQuestions\n\nWhat does R do when you multiply a vector of length 4 by a single number such as (1 + amp_rate) (a vector of length 1)?\nSuppose you scramble the names of fade_rates to c(CD56 = 0.20, CD19 = 0.15, CD8 = 0.00, CD4 = 0.05) but leave base_signals in the original order. Do the usual arithmetic operators (*, +, …) match values by name or by position (1st with 1st, 2nd with 2nd)?\n\n\nAnswer key\n\nRecycling (often called broadcasting here). R has no separate scalar type: 1 + amp_rate is an atomic vector of length 1. R recycles that single value to length 4 so pairwise multiplication can run.\nBy position, not by name. Binary arithmetic ignores names. Index 1 multiplies with index 1, and so on. If fade_rates is reordered and base_signals is not, the wrong discount is applied. To align by name you would need something like fade_rates[names(base_signals)].\n\n\n\n\nIndexing\nExtract the Final_Signal column from signal_df. Hint: there are several valid approaches; try more than one.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTo read the cell in row 3, column 3, you can use either of these:\n\n\n\n\n\n\n\n\nQuestions\n\nCompare signal_df[3, 3] with signal_df[\"CD19\", \"Final_Signal\"]. Which is easier for another reader to understand without looking at the data?\nNext month the store adds a column Sample_ID as column 1, so every later column shifts one place to the right. What would signal_df[, 3] refer to then, compared with signal_df[, \"Final_Signal\"]? Which is less sensitive to that change?\nCompare the printed result and class() of signal_df$Final_Signal, signal_df[\"Final_Signal\"], and signal_df[[\"Final_Signal\"]]. Why does [ without a comma return a one-column data frame, while $ and [[ extract a numeric vector?\n\n\nAnswer key\n\nsignal_df[\"CD19\", \"Final_Signal\"] is clearer: it names the row and the column.\nAfter inserting Sample_ID at the front, signal_df[, 3] would be the old column 2 (Fade_Rate). signal_df[, \"Final_Signal\"] still means final signal no matter how many columns you add, so it is the more robust choice.\n$ and [[ pull out the vector stored in that column. [ with no comma subsets the data frame as a list of columns, so signal_df[\"Final_Signal\"] (and price_df[3] for the third column) stays a one-column data.frame.\n\n\n\n\nRecycling rules and warnings\nThe core tests a background noise threshold correction on the four markers. Run the chunk below and inspect the output.\n\n\n\n\n\n\n\n\nQuestions\n\nWhy does adding noise_2 (length 2) to base_signals (length 4) run without a warning? What pattern of fees is applied to CD4, CD8, CD19, and CD56?\nWhy does adding noise_3 (length 3) warn, and what values does R actually add to the four items?\nWhy can “even” recycling (lengths that divide evenly) be more dangerous in an audit than the warning case?\n\n\nAnswer key\n\nR recycles the shorter vector until it matches the longer one. When length(longer) %% length(shorter) == 0 (here \\(4 \\bmod 2 = 0\\)), R treats the repeat as intentional and stays silent. The fees are \\(+1, +2, +1, +2\\).\n\\(4 \\bmod 3 \\neq 0\\), so R still wraps around (the fourth item gets the first fee, \\(+1\\)) but warns: longer object length is not a multiple of shorter object length.\nIf someone passed c(5, 0), R would add $5 to CD4 and CD9 and $0 to CD8 and CD56 with no warning. The code is valid, so the accounting error is easy to miss. The mismatched-length warning at least flags that something odd happened.\n\n\n\n\nFinding help with ?\nInspect amplified_signals and round(amplified_signals):\n\n\n\n\n\n\n\n\nQuestions\n\nDoes round(amplified_signals) match what you expected? Hint: look at values that sit exactly on .5, then try a few extra examples of your own.\nType ?round in the console and read the Details section.\n\nWhich international standard does R follow?\nHow does that standard explain what you saw for round(amplified_signals)?\n\n\n\nAnswer key\n\nHalf-way cases do not always round “away from zero” or “always up”. They follow round half to even (the adjacent even integer).\nIEC 60559 / IEEE 754. That is why a .5 can round up or down depending on whether the neighbouring integer is even.\n\n\n\n\nData types and coercion\nDuring peak hours, a technician types \"SATURATED\" into the instrument log instead of 0 for a blank well:\n\n\n\n\n\n\n\n\nQuestions\n\nWhat is the data type of \"SATURATED\" on its own?\nAfter you build instrument_log as above, what is the data type of instrument_log[1]? Can you compute instrument_log[1] + instrument_log[3]?\nWhat is R’s usual coercion hierarchy for atomic vectors (from most specific to most flexible)?\n\n\nAnswer key\n\nCharacter.\nCharacter as well — one character value forces the whole vector to character — so instrument_log[1] + instrument_log[3] is not valid numeric addition.\n\\[\n\\text{logical} \\longrightarrow \\text{integer} \\longrightarrow \\text{double (numeric)} \\longrightarrow \\text{character}\n\\]"
   },
   {
     "objectID": "courses/2026/BBMS1021/real-example.html#learning-goal",
@@ -1159,28 +1173,56 @@
     "href": "courses/2026/BBMS1021/file-structure.html#learning-objectives",
     "title": "Introduction to R",
     "section": "Learning objectives",
-    "text": "Learning objectives\n\nDemonstrate reading and loading data from the computer\nUnderstand relative path and absolute path in the computer\n\n\n\nBackground image: (bg5?)"
+    "text": "Learning objectives\n\nDemonstrate reading and loading data from the computer\nUnderstand relative path and absolute path in the computer\n\n\n\nBackground image: Mondrian (1935)"
+  },
+  {
+    "objectID": "courses/2026/BBMS1021/file-structure.html#reading-and-writing-data-to-file",
+    "href": "courses/2026/BBMS1021/file-structure.html#reading-and-writing-data-to-file",
+    "title": "Introduction to R",
+    "section": "Reading and writing data to file",
+    "text": "Reading and writing data to file\nFor reading and writing data we recoomend use the library under tidyverse\n\n#install tidyverse (package with lots of functions to handle data in R)\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {    # checks if already installed\n  install.packages(\"tidyverse\")\n}\nlibrary(tidyverse)                                       # load the package\n\n\n\nTo be specific it is readr library. But tidyverse can install all the library you need for this course"
   },
   {
     "objectID": "courses/2026/BBMS1021/file-structure.html#loadingsaving-data-from-folders",
     "href": "courses/2026/BBMS1021/file-structure.html#loadingsaving-data-from-folders",
     "title": "Introduction to R",
     "section": "Loading/saving data from folders",
-    "text": "Loading/saving data from folders\n\nBy default, R sets the working directory to your Documents folder.\nUse setwd(PATH/TO/NEW/WORKING/DIRECTORY) to change the working directory.\nUse getwd() to see your current working directory.\n\nConsider the following file structure\n\n\n/ (root)\n├── home\n│   └── user\n│       ├── documents\n│       │   ├── course\n│       │   │   ├── THIS_MARKDOWN.rmd\n│       │   │   └── IMAGE.png\n│       │   └── notes.txt\n│       └── downloads\n|           └── data.csv\n└── var\n\nThere are two ways of specifying a path:\n\nAbsolute path The full location of the file or directory.\nRelative path The location of the file or directory relative to the current directory."
+    "text": "Loading/saving data from folders\n\nBy default, R sets the working directory to your Documents folder.\nUse setwd(PATH/TO/NEW/WORKING/DIRECTORY) to change the working directory.\nUse getwd() to see your current working directory.\n\nConsider the following file structure\n/ (root)\n├── home\n│   └── user\n│       ├── documents\n│       │   ├── course\n│       │   │   ├── THIS_RMD.rmd\n│       │   │   └── myData.csv\n│       │   └── notes.txt\n│       └── downloads\n|           └── IMAGE.png\n└── var"
+  },
+  {
+    "objectID": "courses/2026/BBMS1021/file-structure.html#read-the-data",
+    "href": "courses/2026/BBMS1021/file-structure.html#read-the-data",
+    "title": "Introduction to R",
+    "section": "Read the data",
+    "text": "Read the data\nUsing read_csv() to read the data\n\nmyData &lt;- read_csv('myData.csv')\n\n\nread_csv() need to specify WHERE do you put the file by Absolute path or Relative path\nIf you are using Rmarkdown (.rmd) to run the above code then you need to put in the same directory\nOtherwise you need to put at your current working directory"
+  },
+  {
+    "objectID": "courses/2026/BBMS1021/file-structure.html#file-path",
+    "href": "courses/2026/BBMS1021/file-structure.html#file-path",
+    "title": "Introduction to R",
+    "section": "File path",
+    "text": "File path\n\n\n/ (root)\n├── home\n│   └── user\n│       ├── documents\n│       │   ├── course\n│       │   │   ├── THIS_RMD.rmd\n│       │   │   └── myData.csv\n│       │   └── notes.txt\n│       └── downloads\n|           └── IMAGE.png\n└── var\n\nThere are two ways of specifying a path:\n\nAbsolute path The full location of the file or directory.\nRelative path The location of the file or directory relative to the current directory."
   },
   {
     "objectID": "courses/2026/BBMS1021/file-structure.html#absolute-path",
     "href": "courses/2026/BBMS1021/file-structure.html#absolute-path",
     "title": "Introduction to R",
     "section": "Absolute Path",
-    "text": "Absolute Path\n\n\n/ (root)\n├── home\n│   └── user\n│       ├── documents\n│       │   ├── course\n│       │   │   ├── THIS_MARKDOWN.rmd\n│       │   │   └── IMAGE.png\n│       │   └── notes.txt\n│       └── downloads\n|           └── data.csv\n└── var\n\n\n\n\n\n\nReminder for Windows system\n\n\n\nYou will find your file path using \\ instead of / in your file explorer. In R, you need to transform these \\s to / if you directly copy and paste the file path.\nYou need to indicate your drive so it usually looks like C:\\Users\\Ray\\Blah\\Blah\n\n\n\n\n\nAbsolute Path\nAn absolute path starts from the root directory (/) and specifies the full path to a file or directory.\n\nPath to THIS_MARKDOWN.rmd: /home/user/documents/course/THIS_MARKDOWN.rmd\nPath to data.csv: /home/user/downloads/data.csv"
+    "text": "Absolute Path\n\n\n/ (root)\n├── home\n│   └── user\n│       ├── documents\n│       │   ├── course\n│       │   │   ├── THIS_RMD.rmd\n│       │   │   └── myData.csv\n│       │   └── notes.txt\n│       └── downloads\n|           └── IMAGE.png\n└── var\n\nAbsolute Path\nAn absolute path starts from the root directory (/) and specifies the full path to a file or directory.\n\nPath to THIS_RMD.rmd: /home/user/documents/course/THIS_RMD.rmd\nPath to IMAGE.png: /home/user/downloads/IMAGE.png\n\n\n\n\n\n\n\n\nReminder for Windows system\n\n\n\nYou will find your file path using \\ instead of / in your file explorer. In R, you need to transform these \\s to / if you directly copy and paste the file path.\nYou need to indicate your drive so it usually looks like C:\\Users\\Ray\\Blah\\Blah"
   },
   {
     "objectID": "courses/2026/BBMS1021/file-structure.html#relative-path",
     "href": "courses/2026/BBMS1021/file-structure.html#relative-path",
     "title": "Introduction to R",
     "section": "Relative path",
-    "text": "Relative path\n\n\n/ (root)\n├── home\n│   └── user\n│       ├── documents\n│       │   ├── course\n│       │   │   ├── THIS_MARKDOWN.rmd\n│       │   │   └── IMAGE.png\n│       │   └── notes.txt\n│       └── downloads\n|           └── data.csv\n└── var\n\nRelative Path\nA relative path is defined relative to the current working directory.\n\n./ refers to the current directory,\n../ means “go up one directory level”.\n\n\nAssume that we are working on THIS_MARKDOWN.rmd, so the current directory is /home/user/documents/course.\n\nPath to IMAGE.png : ./IMAGE.png or IMAGE.png\nPath to data.csv: ../../data.csv"
+    "text": "Relative path\n\n\n/ (root)\n├── home\n│   └── user\n│       ├── documents\n│       │   ├── course\n│       │   │   ├── THIS_RMD.rmd\n│       │   │   └── myData.csv\n│       │   └── notes.txt\n│       └── downloads\n|           └── IMAGE.png\n└── var\n\nRelative Path\nA relative path is defined relative to the current working directory.\n\ngetwd() to get current working directory\nsetwd('A PATH') to set new working directory\n./ refers to the current directory,\n../ means “go up one directory level”.\n\n\nAssume that we are working on THIS_RMD.rmd, so the current directory is /home/user/documents/course.\n\nPath to myData.csv : ./myData.csv or myData.csv\nPath to IMAGE.png: ../../IMAGE.png"
+  },
+  {
+    "objectID": "courses/2026/BBMS1021/file-structure.html#section",
+    "href": "courses/2026/BBMS1021/file-structure.html#section",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Mondrian, Piet. 1935. Composition (No. 1) Gray-Red. Oil on canvas. the Art Institute of Chicago."
   },
   {
     "objectID": "courses/2026/BBMS1021/dplyr.html#learning-objectives",
@@ -6374,7 +6416,7 @@
     "href": "courses/2026/BBMS1021/ai-guide.html#learning-objectives",
     "title": "Introduction to R",
     "section": "Learning objectives",
-    "text": "Learning objectives\n\nLeverage LLM to facilitate better learnig outcome in coding\n\n\n\nBackground image: (bg5?)"
+    "text": "Learning objectives\n\nLeverage LLM to facilitate better learnig outcome in coding\n\n\n\nBackground image: Cézanne (1890)"
   },
   {
     "objectID": "courses/2026/BBMS1021/ai-guide.html#preface",
@@ -6416,14 +6458,14 @@
     "href": "courses/2026/BBMS1021/ai-guide.html#part-3-best-practices-for-ai-assisted-coding",
     "title": "Introduction to R",
     "section": "Part 3: Best Practices for AI-Assisted Coding",
-    "text": "Part 3: Best Practices for AI-Assisted Coding\n\nDon’t just copy-paste the fix: Always read the AI’s explanation. If you just copy-paste, you will make the exact same error tomorrow. Ask yourself: “What was the key of my mistake?”\nWatch out for Hallucinations: AI sometimes invents R functions that don’t exist. If the AI’s code throws a new error saying could not find function..., reply to the AI with that new error!\nProtect Sensitive Data: NEVER paste real, identifiable patient data or confidential research results into LLM. If the AI asks to see your data structure, use str(your_data) or head(your_data) and mock up the values, or simply provide the column names."
+    "text": "Part 3: Best Practices for AI-Assisted Coding\n\nDon’t just copy-paste the fix: Always read the AI’s explanation. If you just copy-paste, you will make the exact same error tomorrow. Ask yourself: “What was the key of my mistake?”\nWatch out for Hallucinations: AI sometimes invents R functions that don’t exist. If the AI’s code throws a new error saying could not find function..., reply to the AI with that new error!\nProtect Sensitive Data: NEVER paste real, identifiable patient data or confidential research results into LLM. If the AI asks to see your data structure, use str(your_data) or head(your_data) and mock up the values, or simply provide the column names.\n\n\n\n\n\nCézanne, Paul. 1890. The Card Players. Oil on canvas. The Metropolitan Museum of Art."
   },
   {
     "objectID": "courses/2026/BBMS1021/epi-workshop.html#learning-objectives",
     "href": "courses/2026/BBMS1021/epi-workshop.html#learning-objectives",
     "title": "Epidemiology workshop",
     "section": "Learning objectives",
-    "text": "Learning objectives\n\nAnalyze data from cohort study\nAnalyze data from case-control study\nJustify the use of a cohort or case-control study\n\n\n\nBackground image: (bg5?)"
+    "text": "Learning objectives\n\nAnalyze data from cohort study\nAnalyze data from case-control study\nJustify the use of a cohort or case-control study\n\n\n\nBackground image: Cézanne (1890)"
   },
   {
     "objectID": "courses/2026/BBMS1021/epi-workshop.html#workshop-background",
@@ -6605,7 +6647,7 @@
     "href": "courses/2026/BBMS1021/epi-workshop.html#bibliography-notes",
     "title": "Epidemiology workshop",
     "section": "Bibliography notes",
-    "text": "Bibliography notes\n\n\n\n\nMacMahon, Brian, Stella Yen, Dimitrios Trichopoulos, Kenneth Warren, and George Nardi. 1981. “Coffee and Cancer of the Pancreas.” New England Journal of Medicine 304 (11): 630–33.\n\n\nSchuemie, Martijn J, Patrick B Ryan, Kenneth KC Man, Ian CK Wong, Marc A Suchard, and George Hripcsak. 2019. “A Plea to Stop Using the Case-Control Design in Retrospective Database Studies.” Statistics in Medicine 38 (22): 4199–4208.\n\n\nZou, Guangyong. 2004. “A Modified Poisson Regression Approach to Prospective Studies with Binary Data.” American Journal of Epidemiology 159 (7): 702–6."
+    "text": "Bibliography notes\n\n\n\n\nCézanne, Paul. 1890. The Card Players. Oil on canvas. The Metropolitan Museum of Art.\n\n\nMacMahon, Brian, Stella Yen, Dimitrios Trichopoulos, Kenneth Warren, and George Nardi. 1981. “Coffee and Cancer of the Pancreas.” New England Journal of Medicine 304 (11): 630–33.\n\n\nSchuemie, Martijn J, Patrick B Ryan, Kenneth KC Man, Ian CK Wong, Marc A Suchard, and George Hripcsak. 2019. “A Plea to Stop Using the Case-Control Design in Retrospective Database Studies.” Statistics in Medicine 38 (22): 4199–4208.\n\n\nZou, Guangyong. 2004. “A Modified Poisson Regression Approach to Prospective Studies with Binary Data.” American Journal of Epidemiology 159 (7): 702–6."
   },
   {
     "objectID": "courses/2026/BBMS1021/ggplot2.html#learning-objectives",
@@ -6864,7 +6906,7 @@
     "href": "courses/2026/BBMS1021/shortcut.html#learning-objectives",
     "title": "Introduction to R",
     "section": "Learning objectives",
-    "text": "Learning objectives\n\nUse keyboard shortcut in Rstudio to fasten the workflow\n\n\n\nBackground image: (bg5?)"
+    "text": "Learning objectives\n\nUse keyboard shortcut in Rstudio to fasten the workflow\n\n\n\nBackground image: Cézanne (1890)"
   },
   {
     "objectID": "courses/2026/BBMS1021/shortcut.html#code-execution-environment",
@@ -6885,7 +6927,7 @@
     "href": "courses/2026/BBMS1021/shortcut.html#editing-formatting",
     "title": "Introduction to R",
     "section": "Editing & Formatting",
-    "text": "Editing & Formatting\n\nSelect Text: Shift + Arrow Keys (Expands or toggles your text selection character-by-character or line-by-line).\nSelect Word/Expand Selection: Ctrl + Shift + Arrow Keys / Option + Shift + Arrow Keys\nComment/Uncomment Lines: Ctrl + Shift + C / Cmd + Shift + C\nReformat Code (Indentation & Spacing): Ctrl + Shift + A / Cmd + Shift + A\nFind and Replace: Ctrl + F / Cmd + F\nMulti-cursor Editing: Hold Alt and drag the mouse, or use Ctrl + Alt + Up/Down (Cmd + Option + Up/Down on Mac)"
+    "text": "Editing & Formatting\n\nSelect Text: Shift + Arrow Keys (Expands or toggles your text selection character-by-character or line-by-line).\nSelect Word/Expand Selection: Ctrl + Shift + Arrow Keys / Option + Shift + Arrow Keys\nComment/Uncomment Lines: Ctrl + Shift + C / Cmd + Shift + C\nReformat Code (Indentation & Spacing): Ctrl + Shift + A / Cmd + Shift + A\nFind and Replace: Ctrl + F / Cmd + F\nMulti-cursor Editing: Hold Alt and drag the mouse, or use Ctrl + Alt + Up/Down (Cmd + Option + Up/Down on Mac)\n\n\n\n\n\nCézanne, Paul. 1890. The Card Players. Oil on canvas. The Metropolitan Museum of Art."
   },
   {
     "objectID": "courses/2026/BBMS1021/tutorial_2.html",

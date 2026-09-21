@@ -28,7 +28,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -148,7 +168,7 @@ Yu Cheng Hsu
 </ul>
 
 <aside><div>
-<p>Background image: <span class="citation" data-cites="bg5">(<a href="" role="doc-biblioref" onclick="return false;"><strong>bg5?</strong></a>)</span></p>
+<p>Background image: <span class="citation" data-cites="bg5">Cézanne (<a href="#/editing-formatting" role="doc-biblioref" onclick="">1890</a>)</span></p>
 </div></aside></section>
 <section id="code-execution-environment" class="slide level2">
 <h2>Code Execution &amp; Environment</h2>
@@ -170,7 +190,7 @@ Yu Cheng Hsu
 <li><strong>Render/Knit Document</strong>: <code>Ctrl</code> + <code>Shift</code> + <code>K</code> / <code>Cmd</code> + <code>Shift</code> + <code>K</code> <em>(Compiles the active Quarto <code>.qmd</code> or RMarkdown <code>.Rmd</code> file).</em></li>
 </ul>
 </section>
-<section id="editing-formatting" class="slide level2">
+<section id="editing-formatting" class="slide level2 smaller scrollable">
 <h2>Editing &amp; Formatting</h2>
 <ul>
 <li><strong>Select Text</strong>: <code>Shift</code> + <code>Arrow Keys</code> <em>(Expands or toggles your text selection character-by-character or line-by-line).</em></li>
@@ -182,6 +202,11 @@ Yu Cheng Hsu
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bg5" class="csl-entry" role="listitem">
+Cézanne, Paul. 1890. <em>The Card Players</em>. Oil on canvas. The Metropolitan Museum of Art.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
