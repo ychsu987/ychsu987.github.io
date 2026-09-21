@@ -1,3 +1,21 @@
+## Reading and writing data to file
+
+For reading and writing data we recoomend use the library under `tidyverse`
+
+```{r}
+#| echo: true
+#| eval: false
+#install tidyverse (package with lots of functions to handle data in R)
+if (!requireNamespace("tidyverse", quietly = TRUE)) {    # checks if already installed
+  install.packages("tidyverse")
+}
+library(tidyverse)                                       # load the package
+```
+
+:::{.aside}
+To be specific it is `readr` library. But `tidyverse` can install all the library you need for this course
+:::
+
 ## Loading/saving data from folders
 
 - By default, R sets the working directory to your `Documents` folder.
@@ -6,26 +24,59 @@
 
 Consider the following file structure
 
-:::{.columns}
-
-:::{.column}
 ```md
 / (root)
 ├── home
 │   └── user
 │       ├── documents
 │       │   ├── course
-│       │   │   ├── THIS_MARKDOWN.rmd
-│       │   │   └── IMAGE.png
+│       │   │   ├── THIS_RMD.rmd
+│       │   │   └── myData.csv
 │       │   └── notes.txt
 │       └── downloads
-|           └── data.csv
+|           └── IMAGE.png
 └── var
 ```
+
+## Read the data
+
+Using `read_csv()` to read the [data](https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/myData.csv)
+
+```{r}
+#| echo: true
+#| eval: false
+
+myData <- read_csv('myData.csv')
+```
+
+- `read_csv()` need to specify WHERE do you put the file by **Absolute path** or **Relative path**
+- If you are using Rmarkdown (`.rmd`) to run the above code then you need to put in the same directory
+- Otherwise you need to put at your current working directory
+
+## File path
+
+:::{.columns}
+
+:::{.column width=40%}
+
+```md
+/ (root)
+├── home
+│   └── user
+│       ├── documents
+│       │   ├── course
+│       │   │   ├── THIS_RMD.rmd
+│       │   │   └── myData.csv
+│       │   └── notes.txt
+│       └── downloads
+|           └── IMAGE.png
+└── var
+```
+
 :::
 
 
-:::{.column}
+:::{.column width=57%}
 
 There are two ways of specifying a path:
 
@@ -43,7 +94,7 @@ There are two ways of specifying a path:
 
 :::{.columns}
 
-:::{.column}
+:::{.column width=40%}
 
 ```md
 / (root)
@@ -51,38 +102,37 @@ There are two ways of specifying a path:
 │   └── user
 │       ├── documents
 │       │   ├── course
-│       │   │   ├── THIS_MARKDOWN.rmd
-│       │   │   └── IMAGE.png
+│       │   │   ├── THIS_RMD.rmd
+│       │   │   └── myData.csv
 │       │   └── notes.txt
 │       └── downloads
-|           └── data.csv
+|           └── IMAGE.png
 └── var
 ```
+
+:::
+
+
+:::{.column width=57%}
+**Absolute Path**
+
+An absolute path starts from the root directory (`/`) and specifies the full path to a file or directory. 
+
+- Path to `THIS_RMD.rmd`: 
+  `/home/user/documents/course/THIS_RMD.rmd`
+- Path to `IMAGE.png`:
+  `/home/user/downloads/IMAGE.png`
+
+:::
+
+:::
 
 :::{.callout-tip}
 ## Reminder for Windows system
 
 - You will find your file path using `\` instead of `/` in your file explorer. In R, you need to transform these `\`s to `/` if you directly copy and paste the file path.
-- You need to indicate your drive so it usually looks like `C:\Users\Ray\Blah\Blah`
+- You need to indicate your drive, so it usually looks like `C:\Users\Ray\Blah\Blah`
 ::: 
-
-
-:::
-
-
-:::{.column}
-
-**Absolute Path**
-
-An absolute path starts from the root directory (`/`) and specifies the full path to a file or directory. 
-
-- Path to `THIS_MARKDOWN.rmd`: `/home/user/documents/course/THIS_MARKDOWN.rmd`
-- Path to `data.csv`: `/home/user/downloads/data.csv`
-
-:::
-
-:::
-
 
 
 
@@ -90,7 +140,7 @@ An absolute path starts from the root directory (`/`) and specifies the full pat
 
 :::{.columns}
 
-:::{.column}
+:::{.column width=40%}
 
 ```md
 / (root)
@@ -98,21 +148,24 @@ An absolute path starts from the root directory (`/`) and specifies the full pat
 │   └── user
 │       ├── documents
 │       │   ├── course
-│       │   │   ├── THIS_MARKDOWN.rmd
-│       │   │   └── IMAGE.png
+│       │   │   ├── THIS_RMD.rmd
+│       │   │   └── myData.csv
 │       │   └── notes.txt
 │       └── downloads
-|           └── data.csv
+|           └── IMAGE.png
 └── var
 ```
 :::
 
 
-:::{.column}
+:::{.column width=57%}
 
 **Relative Path**
 
 A relative path is defined relative to the current working directory. 
+
+- `getwd()` to get current working directory
+- `setwd('A PATH')` to set new working directory
 
 - `./` refers to the current directory,
 - `../` means "go up one directory level".
@@ -121,7 +174,7 @@ A relative path is defined relative to the current working directory.
 
 :::
 
-Assume that we are working on `THIS_MARKDOWN.rmd`, so the current directory is `/home/user/documents/course`.
+Assume that we are working on `THIS_RMD.rmd`, so the current directory is `/home/user/documents/course`.
 
-- Path to `IMAGE.png` : `./IMAGE.png` or `IMAGE.png`
-- Path to `data.csv`: `../../data.csv`
+- Path to `myData.csv` : `./myData.csv` or `myData.csv`
+- Path to `IMAGE.png`: `../../IMAGE.png`

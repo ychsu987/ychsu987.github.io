@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R"
-subtitle: File structure
+subtitle: Files Handeling
 title-slide-attributes:
     data-background: /assets/images/ggplot2/background-1.jpg
     data-background-size:  40% 100%
@@ -25,8 +25,10 @@ lightbox: true
   
 :::{.aside}
 
-Background image: @bg5
+Background image: @bg1
 
 :::
 
 {{< include /_content/modules/bdata/file.qmd >}}
+
+## 

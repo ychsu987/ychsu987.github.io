@@ -8,9 +8,9 @@ Work through each section by running the code examples and answering the questio
 
 ### About fluorescence experiment
 
-![Leukemia cells labeled with fluorescent molecules](https://www.news-medical.net/image-handler/ts/20210318122103/ri/673/picture/2021/3/shutterstock_382919662.jpg)
+![Leukemia cells labeled with fluorescent molecules](https://www.news-medical.net/image-handler/ts/20210318122103/ri/673/picture/2021/3/shutterstock_382919662.jpg){width=75%}
 
-Uses a single, primary antibody that has a fluorescent dye attached directly to the antigen.
+![Basic mechanism of immunofluorescence](https://microbeonline.com/cdn-cgi/image/f=webp/blogs/Immunofluorescence.jpg){width=75%}
 
 ## 1. Vector arithmetic and recycling
 
