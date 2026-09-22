@@ -9,74 +9,19 @@ Raw experiment tables are almost never analysis-ready.
 
 Keep a before/after picture in mind: messy spreadsheet → tidy analysis table.
 
-## Example data - Gene Expression
+## Transforming data with dplyr
 
-Before we start think of a **spreadsheet**.
-
-- **Rows** = genes (features we measured)
-- **Columns** = mice / samples
-- **Numbers** = how strongly that gene was “read” (expression count)
-
-We will practice `dplyr` verbs on this table. A tiny mental toy version is the same idea as `patients × lab values`.
-
-- Source: Blackmore et al. (2017), *The effect of upper-respiratory infection on transcriptomic changes in the CNS*. 
-- Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occurring in the cerebellum and spinal cord post infection
-  
----
-
-- Experiment sample: Gender matched eight week old C57BL/6 mice  
-- Exposure: With or without Influenza A infection
-- Observations: RNA-seq count of genes in the cerebellum and spinal cord tissues
-- Observation time: days 0 (non-infected), 4 and 8.
-
-## File structure
-
- - `count_matrix.csv`
-  
-  RNA (in rows) expression level for each sample (in column)
- - `sample_metadata.csv`
-  
-  Information for each mouse (which sample was infected, tissue, day, …)
-
-## Task - Read two dataframe
-
-Please read the data to your RStudio for further analysis
-
-:::{.hide}
-
-```{r}
-#| echo: false
-#| eval: true
-# Title: Load example datasets silently
-# Load the rna count matrix and sample metadata from CSV files for later use.
-
-rnaseq <- read.csv("../../../assets/data/dplyr/count_matrix.csv")
-meta <- read.csv("../../../assets/data/dplyr/sample_metadata.csv")
-```
-
-:::
+Using `tidyverse`  an “umbrella-package” that installs several packages useful for data analysis which work together well such as `tidyr`, `dplyr`, `ggplot2`, `tibble`, etc. 
 
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Read files and inspect data
-# Read the count matrix and metadata, then preview the first few rows.
-# --- Your code starts here ---
-
-# rnaseq <- read.csv("WRITE DOWN YOUR PATH HERE")
-# meta <- read.csv("WRITE DOWN YOUR PATH HERE")
-
-# --- Your code ends here ---
-
-# Show the first 3 rows and first 6 sample columns of the expression data.
-head(rnaseq[, 1:6], 3)
-
-head(meta, 3)
+# Title: Load tidyverse packages
+# tidyverse loads multiple data science packages like ggplot2, dplyr, and tidyr.
+library(tidyverse)
 ```
 
-## Transforming data with dplyr
-
-`dplyr` is a package for making tabular data manipulation easier. You can choose using 
+In this class, we actually use `dplyr` is a package for making tabular data manipulation easier. You can choose using 
 
 ```{r}
 #| echo: true
@@ -86,17 +31,87 @@ head(meta, 3)
 library(dplyr)
 ```
 
-or 
+## Example data - Yeast gene expression
 
-using `tidyverse`  an “umbrella-package” that installs several packages useful for data analysis which work together well such as `tidyr`, `dplyr`, `ggplot2`, `tibble`, etc. 
+- **Rows** = one gene measured in one nutrient-limitation condition
+- **Columns** = gene name, limiting nutrient, growth rate, expression
+- **Numbers** = log₂ expression relative to a reference RNA (how strongly that gene was “on”)
+
+We will practice `dplyr` verbs on this table. A tiny mental toy version is the same idea as `patients × lab values`.
+
+- Source: Brauer et al. (2008), *Coordination of Growth Rate, Cell Cycle, Stress Response, and Metabolic Activity in Yeast*.
+- Goal: How does yeast gene expression change with growth rate when a single nutrient is limited?
+  
+---
+
+- Organism: budding yeast (*Saccharomyces cerevisiae*)
+- Exposure: rich media except one limiting nutrient — Glucose, Leucine, Ammonia, Sulfate, Phosphate, or Uracil
+- Observations: microarray expression at six growth rates (0.05 to 0.3 h⁻¹)
+- Running example: **`LEU1`** (leucine biosynthesis) is turned **up** when leucine is starved, then falls as the restriction is relaxed.
+
+- `brauer2007_tidy.csv`: teaching subset of the  expression table (one row per gene × nutrient × growth rate)
+
+Please read the data to your RStudio for further analysis
 
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Load tidyverse packages
-# tidyverse loads multiple data science packages like ggplot2, dplyr, and tidyr.
-library(tidyverse)
+# Load the yeast expression table and gene annotation from CSV files for later use.
+
+ydat <- read_csv("https://bdsr.stephenturner.us/data/brauer2007_tidy.csv")
 ```
+
+## A reminder: Variable assignment
+
+- Only I use `<-` to assign or update the value of a variable, then the variable will be updated to the new value.
+- Othersies you just do a calculation and the variable will not be updated.
+
+```{r}
+#| echo: true
+#| eval: false
+# Assign the value '50' to the weight object.
+weight <- 50
+# Print out weight to the screen (50)
+weight
+# What's the value of weight plus 10?
+weight + 10
+# Weight is still 50
+weight
+# Weight is only modified if we *reassign* weight to the modified value
+weight <- weight+10
+# Weight is now 60
+weight
+```
+
+- For rest of the lecture, I won't update the `ydat` object, but instead will show the output of each operation. You can choose to update it if you want to keep the changes.
+
+## Inspecting the data
+
+Getting the first 3 rows of the data frame by `head()`
+```{r}
+#| echo: true
+#| eval: true
+# Show the first 3 rows of the expression data.
+head(ydat, 3)
+```
+
+Getting the summary of the data frame by `summary()`
+```{r}
+#| echo: true
+#| eval: true
+# Show a summary of the expression data.
+summary(ydat)
+```
+
+---
+
+Inspecting the data frame structure by `str()`
+```{r}
+#| echo: true
+#| eval: true
+# Show the structure of the expression data.
+str(ydat)
+``` 
 
 ## Pipeline mindset
 
@@ -109,15 +124,15 @@ Without `dplyr`, if we want to manipulate data, we can still use the following v
 # Title: Base R data manipulation example
 # Show how row selection, counting, and column updates work without dplyr.
 
-# Select rows 2 to 5 from the metadata.
-meta <- meta[2:5,]
+# Select rows 2 to 5 from the expression table.
+ydat <- ydat[2:5,]
 
-# Count how many female and male mice are in the selected rows.
-sum(meta$sex == 'Female')
-sum(meta$sex == 'Male')
+# Count how many Leucine-limited and Glucose-limited rows are in the selection.
+sum(ydat$nutrient == 'Leucine')
+sum(ydat$nutrient == 'Glucose')
 
-# Overwrite the sex column with a logical value indicating male samples.
-meta$sex = meta$sex == 'Male'
+# Overwrite the nutrient column with a logical value indicating leucine limitation.
+ydat$nutrient = ydat$nutrient == 'Leucine'
 
 ```
 
@@ -129,7 +144,7 @@ meta$sex = meta$sex == 'Male'
 - What are the pitfalls in using this approach ?
 :::
 
-## Pipe operator `%>%`
+## Pipe operator |>
 
 To prevent us from keep doing like a matryoshka doll
 
@@ -142,22 +157,20 @@ h(g(f(data_frame)))
 
 ```
 
-Libraries under `tidyverse`  support Pipe operator `%>%`
-
-We can rewrite the above code as 
+R by default supports Pipe operator |> We can rewrite the above code as 
 
 ```{r}
 #| echo: true
 #| eval: false
 # Title: Pipe operator example
 # Use the pipe operator to write the same steps in a clearer, left-to-right order.
-data_frame %>% 
-  f() %>% 
-  g() %>% 
+data_frame |> 
+  f() |> 
+  g() |> 
   h()
 ```
 
-`%>%` takes the output from the left hand side and then **pipes** it to be the first argument of the right function.
+'|>' takes the output from the left hand side and then **pipes** it to be the first argument of the right function.
 
 ::: {.callout-note}
 ## Discussion question
@@ -174,21 +187,23 @@ data_frame %>%
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Select metadata columns
-meta %>%
-    select(age, sex, infection) %>% # Keep only the age, sex, and infection columns.
-    head(3) # This line is for display control, you can omit it and the previous %>%.
+# Title: Select expression columns
+ydat |>
+    select(symbol, nutrient, rate, expression) |> # Keep gene, nutrient, growth rate, and expression.
+    head(3) # This line is for display control, you can omit it and the previous |>.
 ```
+
+## Select by conditions
 
 - Select the designated rows by `filter(CONDITION)`
 
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Filter rows by sex
-meta %>%
-    filter(sex == 'Female') %>% # Keep only female samples.
-    head(3) # This line is for display control, you can omit it and the previous %>%.
+# Title: Filter rows by gene
+ydat|>
+    filter(symbol == 'LEU1') |> # Keep only the leucine biosynthesis gene LEU1.
+    head(3) # This line is for display control, you can omit it and the previous |>.
 ```
 
 ::: {.callout-warning}
@@ -199,31 +214,16 @@ meta %>%
 
 ## Manipulating columns
 
-- You can rename column by `rename()`
-```{r}
-#| echo: true
-#| eval: true
-# Title: Rename columns
-meta %>% # Rename selected metadata columns to make them more readable.
-    rename(
-              Sex = sex,
-              Time = time,
-              Infection = infection
-              ) %>%
-    head(3)
-```
-
 - You can create new column by `mutate()`
 ```{r}
 #| echo: true
 #| eval: true
 # Title: Create or modify columns
-
-meta %>%
-    mutate( # Use mutate() to update the time column and add a new infection flag.
-              time = time + age,
-              infection  = "No"
-    ) %>%
+ydat |>
+    mutate( # expression is log2(sample/reference); 2^expression recovers the raw ratio.
+              signal = 2^expression,
+              restriction  = "Nutrient-limited"
+              ) |>
     head(3)
 ```
 
@@ -237,24 +237,36 @@ Frequently we will need to provide summary statistics for your data, we can use 
 #| eval: true
 # Title: Compute summary statistics
 
-meta %>%
-    summarize( # Summarize the metadata with count, mean, standard deviation, and female sample count.
+ydat |>
+    summarize( # Summarize expression with count, mean, standard deviation, and LEU1 row count.
               n=n(),
-              mean_time=mean(time),
-              sd_time=sd(time),
-              num_female=sum(sex=='Female')
+              mean_expr=mean(expression),
+              sd_expr=sd(expression),
+              n_leu1=sum(symbol=='LEU1')
     )
 ```
 
 
 Some common summary function could be
 
+:::{.columns}
+
+:::{.column }
+
 - `mean()`
 - `sd()`
 - `max()`, `min()`
+
+:::
+
+:::{.column }
+
 - `sum()`
 - `n()`
 
+:::
+
+:::
 ## Summary statistics by group
 
 :::{.columns}
@@ -262,7 +274,6 @@ Some common summary function could be
 :::{.column width=33%}
 
 - `group_by()` and `summarize()` provide summary statistics by group.
-- You can group by multiple groups together, but note that they need to be stated in the same `group_by()` brackets
 
 :::
 
@@ -270,42 +281,28 @@ Some common summary function could be
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Grouped summary by infection
-
-meta %>%
-    group_by(infection) %>% # Group the metadata by infection status,
-    summarize(      #  and compute summary statistics for each group.
+# Title: Grouped summary by nutrient
+ydat |>
+# Group the expression table by limiting nutrient,
+    group_by(nutrient) |> 
+#  and compute summary statistics for each group.
+    summarize(      
               n=n(),
-              mean_time=mean(time),
-    )
+              mean_expr=mean(expression)
+                  )
 ```
 
-```{r}
-#| echo: true
-#| eval: false
-# Title: Multi-group summary
-meta %>%
-    group_by(infection, sex) %>% # Group by both infection status and sex,
-    summarize(                   #  then summarize the combined groups.
-              n=n(),
-              mean_time=mean(time),
-              sd_time=sd(time),
-    )
-```
 :::
 
 :::
 
-## Condition modification
+## Condition matching
 
 :::{.columns}
 
 :::{.column width=33%}
 
-Using `if_else(CONDITION, TRUE, FALSE)` or `case_when(CONDITION ~ OUTCOME, ...)` to rematch condition into certain value/ ordinal items
-
-- `if_else` is only for dichotomous processing
-- `case_when` can handle sequential logical control
+`if_else(CONDITION, 'TRUE_VALUE', 'FALSE_VALUE')`  for dichotomous processing
 
 :::
 
@@ -315,67 +312,47 @@ Using `if_else(CONDITION, TRUE, FALSE)` or `case_when(CONDITION ~ OUTCOME, ...)`
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Create binary infection status
-# Use if_else() to add a new infection_status column based on time value.
-meta %>%
-    select(sample, age, sex, time) %>%
-    mutate( infection_status = if_else(
-        time == 0, "Not infected", "Infected"
-    )) %>%
-    head(3)
-```
-```{r}
-#| echo: true
-#| eval: true
-# Title: Create categorical infection stage
-# Use case_when() to assign descriptive labels for each time point.
-meta %>%
-    select(sample, age, sex, time) %>%
-    mutate( infection_status = case_when(
-        time == 0 ~ "Not infected",
-        time == 4 ~ "Early stage",
-        time == 8 ~ "Late stage"
-    ))%>%
+# Title: Create binary restriction status
+# Use if_else() to add a restriction label based on growth rate.
+ydat |>
+    select(symbol, nutrient, rate, expression) |>
+    mutate( restriction = if_else(
+        rate == 0.05, "Severe restriction", "Relaxed"
+    )) |>
     head(3)
 ```
 :::
 
 :::
 
-## Combining Dataframes
+## Condition matching
 
-Consider we have data_frame `sample_metadata.csv` and `count_matrix.csv`. If we want to combine them together. We can use `join()`
+:::{.columns}
 
-There are four options  
+:::{.column width=33%}
 
-- `inner_join(x, y)`: Keeps rows present in both tables.
-- `left_join(x, y)`: Keeps all rows from x, matching rows from y.
-- `right_join(x, y)`: Keeps all rows from y, matching rows from x.
-- `full_join(x, y)`: Keeps all rows from both tables.
+- `case_when(Condition ~~ "Label")` to handle sequential logical control
 
-## Combining Dataframes
+:::
 
-First I transpose the RNA count matrix. (The below code chunk is out of the scope, you might ignore why it works)
+:::{.column width=65%}
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Transform RNA count matrix layout
-# Convert the RNA data from wide to long and back to wide format by gene.
-rnaseq <- rnaseq %>% 
-           pivot_longer(cols=-gene, names_to="sample", values_to = "value") %>%
-  pivot_wider(names_from = gene, values_from = value)
+# Title: Create categorical restriction stage
+# Use case_when() to assign descriptive labels for selected growth rates.
+ydat |>
+    select(symbol, nutrient, rate, expression) |>
+    mutate( restriction = case_when(
+        rate == 0.05 ~ "Severe restriction",
+        rate == 0.15 ~ "Moderate restriction",
+        rate == 0.3 ~ "Relaxed restriction"
+    ))|>
+    head(3)
 ```
+:::
 
-You can combine meta data and rna sequence data together.
-
-
-```{r}
-#| echo: true
-#| eval: true
-# Title: Join metadata with RNA data
-# Combine the sample metadata with the RNA expression table by sample ID.
-meta %>% left_join(rnaseq, by = 'sample') %>% select(1:12) %>% head(3)
-```
+:::
 
 ## Best practice of data wrangling
 
@@ -391,3 +368,71 @@ meta %>% left_join(rnaseq, by = 'sample') %>% select(1:12) %>% head(3)
 3. Make your code **readable**
 4. Trial and error
 
+# Advance topics
+
+## Renaming dataframe columns
+
+- You can rename column by `rename()`
+```{r}
+#| echo: true
+#| eval: true
+# Title: Rename columns
+ydat |> # Rename selected expression columns to make them more readable.
+    rename(
+              Gene = symbol,
+              Nutrient = nutrient,
+              Rate = rate
+              ) |>
+    head(3)
+```
+
+## Groupby multiple conditions
+
+You can group by multiple groups together, but note that they need to be stated in the same `group_by()` brackets
+
+```{r}
+#| echo: true
+#| eval: false
+# Title: Multi-group summary
+ydat |>
+    group_by(nutrient, rate) |> # Group by both limiting nutrient and growth rate,
+    summarize(                   #  then summarize the combined groups.
+              n=n(),
+              mean_expr=mean(expression),
+              sd_expr=sd(expression),
+    )
+```
+<!-- 
+## Combining Dataframes
+
+It’s rare that a data analysis involves only a single table of data. 
+
+Consider we have data_frame `brauer2007_tidy.csv` and `brauer2007_sysname2go.csv`
+
+`brauer2007_sysname2go.csv` links the systematic name to gene ontology information, let's call it `annot`
+```{r}
+annot <- read_csv("https://bdsr.stephenturner.us/data/brauer2007_sysname2go.csv")
+```
+
+##
+There are four options  
+
+- `inner_join(x, y)`: Keeps rows present in both tables.
+- `left_join(x, y)`: Keeps all rows from x, matching rows from y.
+- `right_join(x, y)`: Keeps all rows from y, matching rows from x.
+- `full_join(x, y)`: Keeps all rows from both tables.
+
+## Combining Dataframes
+
+Join expression rows to Gene Ontology labels by the yeast systematic name.You can combine the expression table and the annotation table together. 
+
+```{r}
+#| echo: true
+#| eval: true
+# Title: Join expression with gene annotation
+# Combine the yeast expression table with GO annotation by systematic gene ID.
+# ydat |> inner_join(annot, by = 'systematic_name') |>
+#     select(symbol, nutrient, expression, bp) |>
+#     head(3)
+```
+ -->

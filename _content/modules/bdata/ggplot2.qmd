@@ -3,45 +3,49 @@
 **About `ggplot2`**
 
 - Visualization library in R for creating elegant and complex visualizations. 
-- `ggplot2` is part of the tidyverse collection of R packages.
+- `ggplot2` is part of the `tidyverse` collection of R packages.
 - Developed by Hadley Wickham [@wickham2010layered]. He received the COPSS Presidents' Award for his contributions to the tidyverse collection.
 - Flexible and intuitive once you understand its core concepts.
 
 ```{r}
 #| echo: true
 #| eval: true
+library(tidyverse)
+# or you can load ggplot2 directly
 library(ggplot2)
 ```
 
 
 ## About the data
 
-`iris` is a dataset introduced by Ronald Fisher in 1936 that collects iris flower morphology measurements from 3 species 
+` Gapminder data` is a dataset for the survey on each country with its life expectancy, GDP per capita, and population size. The data is collected by [Gapminder Foundation](https://www.gapminder.org/).
 
 :::{.columns}
 
 :::{.column}  
 
-- `Setosa`, 
-- `Versicolor` 
-- `Virginica` 
+- `country`: a categorical variable 142 levels 
+- `continent` :a categorical variable with 5 levels
+- `year`: going from 1952 to 2007 in increments of 5 years 
 
-it measures the length and width of iris's sepal and petal
- 
 
-```{r}
-#| echo: true
-#| eval: true
-data(iris)
-head(iris)
-```
 
 :::
 
 :::{.column}
-![Iris flower](/assets/images/ggplot2/iris.jpg){width=55%}
+- `pop` : population
+- `gdpPercap`: GDP per capita
+- `lifeExp`:  life expectancy 
 :::
 :::
+
+**Read the data**
+```{r}
+#| echo: true
+#| eval: true
+gm <- read_csv("https://bdsr.stephenturner.us/data/gapminder.csv")
+```
+
 ## `ggplot2` example
 
 - What are the elements in a graph ?
@@ -49,10 +53,9 @@ head(iris)
 ```{r}
 #| echo: false
 #| eval: true
-ggplot(data=iris, mapping = aes(x = Sepal.Length, y = Petal.Width, colour = Species))+
+ggplot(data=gm, mapping = aes(x = gdpPercap, y = lifeExp, colour = continent))+
 geom_point()+
-  labs(colour = "Species")
-
+  labs(colour = "Continent")
 ```
 
 ## Components in the graph
@@ -120,7 +123,7 @@ flowchart LR
 :::{.columns}
 
 :::{.column width=40%}
-First, we define the coordinate system for our `iris` data in R
+First, we define the coordinate system for our `gm` data in R
 
 The function is `ggplot()`, which takes two arguments ^[Actually, you can provide them in the later stage instead of here]
 
@@ -140,21 +143,18 @@ The function is `ggplot()`, which takes two arguments ^[Actually, you can provid
 
 # Initialize a ggplot object with 
 # data and aesthetic mappings
-p <- ggplot(data=iris, 
-  mapping = aes(x = Sepal.Length))
+p <- ggplot(data=gm, 
+  mapping = aes(x = gdpPercap))
 p  # Display the base plot (no layers added yet)
 
 # Alternative 
-# p <- ggplot(iris, aes(Sepal.Length))
+# p <- ggplot(gm, aes(gdpPercap))
 # p
 ```
 :::
 
 :::
 
-::: .aside
-
-:::
 
 ## Layer 2: Plotting data
 
@@ -199,8 +199,8 @@ These functions are named in the format `geom_XXXX`:
 ```{r}
 #| echo: true
 #| eval: true
-#| fig-cap: Scatter plot for Sepal length and Petal width
-p+geom_point(aes(y = Petal.Width, color=Species))
+#| fig-cap: Scatter plot for GDP per capita and life expectancy
+p+geom_point(aes(y = lifeExp))
 ```
 :::
 
@@ -208,7 +208,7 @@ p+geom_point(aes(y = Petal.Width, color=Species))
 ```{r}
 #| echo: true
 #| eval: true
-#| fig-cap: Box plot for Sepal length
+#| fig-cap: Box plot for life expectancy
 p+geom_boxplot()
 ```
 :::
@@ -228,9 +228,9 @@ p+geom_boxplot()
 ```{r}
 #| echo: true
 #| eval: true
-#| fig-cap: Histogram for Petal length
-ggplot(data=iris)+
-  geom_histogram(aes(x=Petal.Length, color=Species))
+#| fig-cap: Histogram for GDP per capita
+ggplot(data=gm)+
+  geom_histogram(aes(x=gdpPercap, color=continent))
 ```
 :::
 
@@ -239,9 +239,9 @@ ggplot(data=iris)+
 ```{r}
 #| echo: true
 #| eval: true
-#| fig-cap: Histogram for Petal length
-ggplot(data=iris)+
-  geom_bar(aes(x=Species,fill=Species))
+#| fig-cap: Number of records in each continent
+ggplot(data=gm)+
+  geom_bar(aes(x=continent,fill=continent))
 ```
 
 :::
@@ -292,14 +292,14 @@ Most of the time you only need to handle the presentation in
 #| echo: true
 #| eval: true
 #| label: fig-5
-#| fig-cap: "Scatter plot of MPG vs cylinders with customized axis and legend labels."
+#| fig-cap: "Scatter plot of GDP per capita vs life expectancy with customized axis and legend labels."
 #| message: false
 # Create a scatter plot with customized axis and color legend labels
    p +
-  geom_point(aes(y = Petal.Width, color=Species)) +  # Add points layer for data representation
-  scale_x_continuous(name="Sepal Length") +  # Customize x-axis label
-  scale_y_continuous(name="Petal Width") + # Customize y-axis label
-  scale_colour_discrete(name="Species name")  # Customize color legend title
+  geom_point(aes(y = lifeExp, color=continent)) +  # Add points layer for data representation
+  scale_x_continuous(name="GDP per capita") +  # Customize x-axis label
+  scale_y_continuous(name="Life Expectancy",breaks=c(25,50,75)) + # Customize y-axis label
+  scale_colour_discrete(name="Continent",labels=c("Afr", "Ameri", "Asia", "Eur", "Ocean"))  # Customize color legend title
 
 ```
 
