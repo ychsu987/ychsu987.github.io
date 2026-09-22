@@ -43,13 +43,20 @@ We **DO NOT** expect you to Memorize every function in `ggplot2` or `dplyr`
 
 ::: aside
 
+**Acknowledgement**
 
-These lecture slides are partially adapted and inspired from 
-
-  - @laurent_gatto_2021_5532658, @peng2016r, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0
-  - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version
+  - The content is largely adopted from [Biological Data Science with R
+](https://bdsr.stephenturner.us/)
+  - @laurent_gatto_2021_5532658, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0
+  - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version 
   - Background image: @bg2
+
 :::
+
+
+## Let’s collect some data
+
+![https://forms.cloud.microsoft/r/N29JZEAxFS](/assets/images/IntroR/qr_code.png){width=50%}
 
 {{< include /_content/modules/bdata/package.qmd >}}
 
