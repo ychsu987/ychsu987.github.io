@@ -1,0 +1,46 @@
+systematic_name,bp,mf
+YNL049C,ER to Golgi transport,molecular function unknown
+YDL104C,proteolysis and peptidolysis,metalloendopeptidase activity
+YLR115W,mRNA polyadenylylation*,RNA binding
+YMR183C,vesicle fusion*,t-SNARE activity
+YML017W,biological process unknown,molecular function unknown
+YOL066C,riboflavin biosynthesis,pseudouridylate synthase activity*
+YPR036W,vacuolar acidification,"hydrogen-transporting ATPase activity, rotational mechanism"
+YEL015W,deadenylylation-independent decapping,molecular function unknown
+YOR069W,protein retention in Golgi*,protein transporter activity
+YBR158W,negative regulation of exit from mitosis*,protein binding
+YGL028C,"cytokinesis, completion of separation","glucan 1,3-beta-glucosidase activity"
+YHR143W,cell wall organization and biogenesis*,"glucan 1,3-beta-glucosidase activity"
+YER141W,cytochrome c oxidase complex assembly*,"oxidoreductase activity, acting on NADH or NADPH, heme protein as acceptor"
+YKL184W,pantothenate biosynthesis*,ornithine decarboxylase activity
+YMR228W,transcription from mitochondrial promoter,S-adenosylmethionine-dependent methyltransferase activity*
+YGR040W,invasive growth (sensu Saccharomyces)*,MAP kinase activity
+YOL028C,positive regulation of transcription from RNA polymerase II promoter,RNA polymerase II transcription factor activity
+YOR087W,cation homeostasis,calcium channel activity*
+YDR364C,"nuclear mRNA splicing, via spliceosome*","RNA splicing factor activity, transesterification mechanism*"
+YDL001W,biological process unknown,molecular function unknown
+YER059W,regulation of glycogen biosynthesis*,cyclin-dependent protein kinase regulator activity
+Q0065,RNA splicing*,endonuclease activity
+YDL198C,mitochondrial genome maintenance*,guanine nucleotide transporter activity
+YBR294W,sulfate transport,sulfate transporter activity
+YDR004W,telomerase-independent telomere maintenance*,protein binding
+YCR044C,response to unfolded protein*,molecular function unknown
+YJL059W,intracellular protein transport*,basic amino acid transporter activity
+YPR198W,response to drug*,xenobiotic-transporting ATPase activity
+YGL077C,choline transport,choline transporter activity
+YPL016W,chromatin remodeling,general RNA polymerase II transcription factor activity
+YHR086W,"nuclear mRNA splicing, via spliceosome*",RNA binding*
+YGR282C,cell wall organization and biogenesis,"glucan 1,3-beta-glucosidase activity"
+YFL039C,cell wall organization and biogenesis*,structural constituent of cytoskeleton
+YOR140W,negative regulation of transcription from RNA polymerase II promoter,specific transcriptional repressor activity
+YPL171C,biological process unknown,NADPH dehydrogenase activity
+YLL061W,S-methylmethionine transport,S-methylmethionine transporter activity
+YLL062C,sulfur amino acid metabolism,homocysteine S-methyltransferase activity
+YLR092W,sulfate transport,sulfate transporter activity
+YBR011C,phosphate metabolism,inorganic diphosphatase activity
+YKL096W,cell wall organization and biogenesis,structural constituent of cell wall
+YOR108W,leucine biosynthesis,2-isopropylmalate synthase activity
+YGL009C,leucine biosynthesis,3-isopropylmalate dehydratase activity
+YCL018W,leucine biosynthesis,3-isopropylmalate dehydrogenase activity
+YNL104C,leucine biosynthesis,2-isopropylmalate synthase activity
+YMR303C,fermentation*,alcohol dehydrogenase activity

@@ -9,34 +9,36 @@ Raw experiment tables are almost never analysis-ready.
 
 Keep a before/after picture in mind: messy spreadsheet → tidy analysis table.
 
-## Example data - Gene Expression
+## Example data - Yeast gene expression
 
 Before we start think of a **spreadsheet**.
 
-- **Rows** = genes (features we measured)
-- **Columns** = mice / samples
-- **Numbers** = how strongly that gene was “read” (expression count)
+- **Rows** = one gene measured in one nutrient-limitation condition
+- **Columns** = gene name, limiting nutrient, growth rate, expression
+- **Numbers** = log₂ expression relative to a reference RNA (how strongly that gene was “on”)
 
 We will practice `dplyr` verbs on this table. A tiny mental toy version is the same idea as `patients × lab values`.
 
-- Source: Blackmore et al. (2017), *The effect of upper-respiratory infection on transcriptomic changes in the CNS*. 
-- Goal: Determine the effect of an upper-respiratory infection on changes in RNA transcription occurring in the cerebellum and spinal cord post infection
+- Source: Brauer et al. (2008), *Coordination of Growth Rate, Cell Cycle, Stress Response, and Metabolic Activity in Yeast*.
+- Goal: How does yeast gene expression change with growth rate when a single nutrient is limited?
+
+Data and examples follow the tidy yeast table in Turner, *Biological Data Science with R* ([dplyr chapter](https://bdsr.stephenturner.us/dplyr.html)).
   
 ---
 
-- Experiment sample: Gender matched eight week old C57BL/6 mice  
-- Exposure: With or without Influenza A infection
-- Observations: RNA-seq count of genes in the cerebellum and spinal cord tissues
-- Observation time: days 0 (non-infected), 4 and 8.
+- Organism: budding yeast (*Saccharomyces cerevisiae*)
+- Exposure: rich media except one limiting nutrient — Glucose, Leucine, Ammonia, Sulfate, Phosphate, or Uracil
+- Observations: microarray expression at six growth rates (`0.05` to `0.3` h⁻¹)
+- Running example: **`LEU1`** (leucine biosynthesis) is turned **up** when leucine is starved, then falls as the restriction is relaxed
 
 ## File structure
 
- - `count_matrix.csv`
+ - `brauer2007_tidy.csv`
   
-  RNA (in rows) expression level for each sample (in column)
- - `sample_metadata.csv`
+  Teaching subset of the tidy expression table: one row per gene × nutrient × growth rate
+ - `brauer2007_annotation.csv`
   
-  Information for each mouse (which sample was infected, tissue, day, …)
+  Gene Ontology labels (biological process `bp`, molecular function `mf`) for each yeast gene
 
 ## Task - Read two dataframe
 
@@ -48,10 +50,10 @@ Please read the data to your RStudio for further analysis
 #| echo: false
 #| eval: true
 # Title: Load example datasets silently
-# Load the rna count matrix and sample metadata from CSV files for later use.
+# Load the yeast expression table and gene annotation from CSV files for later use.
 
-rnaseq <- read.csv("../../../assets/data/dplyr/count_matrix.csv")
-meta <- read.csv("../../../assets/data/dplyr/sample_metadata.csv")
+ydat <- read.csv("../../../assets/data/dplyr/brauer2007_tidy.csv")
+annot <- read.csv("../../../assets/data/dplyr/brauer2007_annotation.csv")
 ```
 
 :::
@@ -60,18 +62,18 @@ meta <- read.csv("../../../assets/data/dplyr/sample_metadata.csv")
 #| echo: true
 #| eval: true
 # Title: Read files and inspect data
-# Read the count matrix and metadata, then preview the first few rows.
+# Read the expression table and annotation, then preview the first few rows.
 # --- Your code starts here ---
 
-# rnaseq <- read.csv("WRITE DOWN YOUR PATH HERE")
-# meta <- read.csv("WRITE DOWN YOUR PATH HERE")
+# ydat <- read.csv("WRITE DOWN YOUR PATH HERE")
+# annot <- read.csv("WRITE DOWN YOUR PATH HERE")
 
 # --- Your code ends here ---
 
-# Show the first 3 rows and first 6 sample columns of the expression data.
-head(rnaseq[, 1:6], 3)
+# Show the first 3 rows of each table.
+head(ydat, 3)
 
-head(meta, 3)
+head(annot, 3)
 ```
 
 ## Transforming data with dplyr
@@ -109,15 +111,15 @@ Without `dplyr`, if we want to manipulate data, we can still use the following v
 # Title: Base R data manipulation example
 # Show how row selection, counting, and column updates work without dplyr.
 
-# Select rows 2 to 5 from the metadata.
-meta <- meta[2:5,]
+# Select rows 2 to 5 from the expression table.
+ydat <- ydat[2:5,]
 
-# Count how many female and male mice are in the selected rows.
-sum(meta$sex == 'Female')
-sum(meta$sex == 'Male')
+# Count how many Leucine-limited and Glucose-limited rows are in the selection.
+sum(ydat$nutrient == 'Leucine')
+sum(ydat$nutrient == 'Glucose')
 
-# Overwrite the sex column with a logical value indicating male samples.
-meta$sex = meta$sex == 'Male'
+# Overwrite the nutrient column with a logical value indicating leucine limitation.
+ydat$nutrient = ydat$nutrient == 'Leucine'
 
 ```
 
@@ -174,9 +176,9 @@ data_frame %>%
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Select metadata columns
-meta %>%
-    select(age, sex, infection) %>% # Keep only the age, sex, and infection columns.
+# Title: Select expression columns
+ydat %>%
+    select(symbol, nutrient, rate, expression) %>% # Keep gene, nutrient, growth rate, and expression.
     head(3) # This line is for display control, you can omit it and the previous %>%.
 ```
 
@@ -185,9 +187,9 @@ meta %>%
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Filter rows by sex
-meta %>%
-    filter(sex == 'Female') %>% # Keep only female samples.
+# Title: Filter rows by gene
+ydat %>%
+    filter(symbol == 'LEU1') %>% # Keep only the leucine biosynthesis gene LEU1.
     head(3) # This line is for display control, you can omit it and the previous %>%.
 ```
 
@@ -204,25 +206,27 @@ meta %>%
 #| echo: true
 #| eval: true
 # Title: Rename columns
-meta %>% # Rename selected metadata columns to make them more readable.
+ydat %>% # Rename selected expression columns to make them more readable.
     rename(
-              Sex = sex,
-              Time = time,
-              Infection = infection
+              Gene = symbol,
+              Nutrient = nutrient,
+              Rate = rate
               ) %>%
     head(3)
 ```
 
 - You can create new column by `mutate()`
+
+Expression here is already log₂(sample / reference). `2^expression` recovers the raw signal ratio.
 ```{r}
 #| echo: true
 #| eval: true
 # Title: Create or modify columns
 
-meta %>%
-    mutate( # Use mutate() to update the time column and add a new infection flag.
-              time = time + age,
-              infection  = "No"
+ydat %>%
+    mutate( # Use mutate() to add a raw signal ratio and a simple restriction label.
+              signal = 2^expression,
+              restriction  = "Nutrient-limited"
     ) %>%
     head(3)
 ```
@@ -237,12 +241,12 @@ Frequently we will need to provide summary statistics for your data, we can use 
 #| eval: true
 # Title: Compute summary statistics
 
-meta %>%
-    summarize( # Summarize the metadata with count, mean, standard deviation, and female sample count.
+ydat %>%
+    summarize( # Summarize expression with count, mean, standard deviation, and LEU1 row count.
               n=n(),
-              mean_time=mean(time),
-              sd_time=sd(time),
-              num_female=sum(sex=='Female')
+              mean_expr=mean(expression),
+              sd_expr=sd(expression),
+              n_leu1=sum(symbol=='LEU1')
     )
 ```
 
@@ -270,13 +274,13 @@ Some common summary function could be
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Grouped summary by infection
+# Title: Grouped summary by nutrient
 
-meta %>%
-    group_by(infection) %>% # Group the metadata by infection status,
+ydat %>%
+    group_by(nutrient) %>% # Group the expression table by limiting nutrient,
     summarize(      #  and compute summary statistics for each group.
               n=n(),
-              mean_time=mean(time),
+              mean_expr=mean(expression),
     )
 ```
 
@@ -284,12 +288,12 @@ meta %>%
 #| echo: true
 #| eval: false
 # Title: Multi-group summary
-meta %>%
-    group_by(infection, sex) %>% # Group by both infection status and sex,
+ydat %>%
+    group_by(nutrient, rate) %>% # Group by both limiting nutrient and growth rate,
     summarize(                   #  then summarize the combined groups.
               n=n(),
-              mean_time=mean(time),
-              sd_time=sd(time),
+              mean_expr=mean(expression),
+              sd_expr=sd(expression),
     )
 ```
 :::
@@ -315,26 +319,26 @@ Using `if_else(CONDITION, TRUE, FALSE)` or `case_when(CONDITION ~ OUTCOME, ...)`
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Create binary infection status
-# Use if_else() to add a new infection_status column based on time value.
-meta %>%
-    select(sample, age, sex, time) %>%
-    mutate( infection_status = if_else(
-        time == 0, "Not infected", "Infected"
+# Title: Create binary restriction status
+# Use if_else() to add a restriction label based on growth rate.
+ydat %>%
+    select(symbol, nutrient, rate, expression) %>%
+    mutate( restriction = if_else(
+        rate == 0.05, "Severe restriction", "Relaxed"
     )) %>%
     head(3)
 ```
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Create categorical infection stage
-# Use case_when() to assign descriptive labels for each time point.
-meta %>%
-    select(sample, age, sex, time) %>%
-    mutate( infection_status = case_when(
-        time == 0 ~ "Not infected",
-        time == 4 ~ "Early stage",
-        time == 8 ~ "Late stage"
+# Title: Create categorical restriction stage
+# Use case_when() to assign descriptive labels for selected growth rates.
+ydat %>%
+    select(symbol, nutrient, rate, expression) %>%
+    mutate( restriction = case_when(
+        rate == 0.05 ~ "Severe restriction",
+        rate == 0.15 ~ "Moderate restriction",
+        rate == 0.3 ~ "Relaxed restriction"
     ))%>%
     head(3)
 ```
@@ -344,7 +348,7 @@ meta %>%
 
 ## Combining Dataframes
 
-Consider we have data_frame `sample_metadata.csv` and `count_matrix.csv`. If we want to combine them together. We can use `join()`
+Consider we have data_frame `brauer2007_tidy.csv` and `brauer2007_annotation.csv`. If we want to combine them together. We can use `join()`
 
 There are four options  
 
@@ -355,26 +359,17 @@ There are four options
 
 ## Combining Dataframes
 
-First I transpose the RNA count matrix. (The below code chunk is out of the scope, you might ignore why it works)
-```{r}
-#| echo: true
-#| eval: true
-# Title: Transform RNA count matrix layout
-# Convert the RNA data from wide to long and back to wide format by gene.
-rnaseq <- rnaseq %>% 
-           pivot_longer(cols=-gene, names_to="sample", values_to = "value") %>%
-  pivot_wider(names_from = gene, values_from = value)
-```
+Join expression rows to Gene Ontology labels by the yeast systematic name.
 
-You can combine meta data and rna sequence data together.
+You can combine the expression table and the annotation table together.
 
 
 ```{r}
 #| echo: true
 #| eval: true
-# Title: Join metadata with RNA data
-# Combine the sample metadata with the RNA expression table by sample ID.
-meta %>% left_join(rnaseq, by = 'sample') %>% select(1:12) %>% head(3)
+# Title: Join expression with gene annotation
+# Combine the yeast expression table with GO annotation by systematic gene ID.
+ydat %>% left_join(annot, by = 'systematic_name') %>% select(1:7) %>% head(3)
 ```
 
 ## Best practice of data wrangling
@@ -390,4 +385,3 @@ meta %>% left_join(rnaseq, by = 'sample') %>% select(1:12) %>% head(3)
 2. Look up documentations
 3. Make your code **readable**
 4. Trial and error
-
