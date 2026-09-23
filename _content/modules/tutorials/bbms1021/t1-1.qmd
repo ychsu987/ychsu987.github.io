@@ -14,7 +14,7 @@ Work through each section by running the code examples and answering the questio
 
 ## 1. Vector arithmetic and recycling
 
-Before opening, the store set these standard retail prices:
+Before opening, the below experiement results has been recorded:
 
 - CD4: 12
 - CD8: 5
@@ -23,7 +23,7 @@ Before opening, the store set these standard retail prices:
 
 ### Scalar broadcasting vs. vector operations
 
-Run the following chunk. You will use `base_prices` for the rest of this lab.
+Run the following chunk. You will use `base_signals` for the rest of this lab.
 
 ```{webr}
 base_signals <- c(CD4 = 12, CD8 = 5, CD19 = 35, CD56 = 4)
@@ -110,7 +110,7 @@ signal_df["CD19", "Final_Signal"]
 
 1. Compare `signal_df[3, 3]` with `signal_df["CD19", "Final_Signal"]`. Which is easier for another reader to understand without looking at the data?
 
-2. Next month the store adds a column `Sample_ID` as **column 1**, so every later column shifts one place to the right. What would `signal_df[, 3]` refer to then, compared with `signal_df[, "Final_Signal"]`? Which is less sensitive to that change?
+2. Next month a student adds a column `Sample_ID` as **column 1**, so every later column shifts one place to the right. What would `signal_df[, 3]` refer to then, compared with `signal_df[, "Final_Signal"]`? Which is less sensitive to that change?
 
 3. Compare the printed result and `class()` of `signal_df$Final_Signal`, `signal_df["Final_Signal"]`, and `signal_df[["Final_Signal"]]`. Why does `[` **without a comma** return a one-column data frame, while `$` and `[[` extract a numeric vector?
 
@@ -157,7 +157,7 @@ cat("Mismatched noise recycling (+1,+2,+3):", noise_applied_uneven, "\n")
 
 2. $4 \bmod 3 \neq 0$, so R still wraps around (the fourth item gets the first fee, $+1$) but warns: `longer object length is not a multiple of shorter object length`.
 
-3. If someone passed `c(5, 0)`, R would add $5 to CD4 and CD9 and $0 to CD8 and CD56 with **no** warning. The code is valid, so the accounting error is easy to miss. The mismatched-length warning at least flags that something odd happened.
+3. If someone passed `c(5, 0)`, R would add 5 to CD4 and CD9 and 0 to CD8 and CD56 with **no** warning. The code is valid, so the accounting error is easy to miss. The mismatched-length warning at least flags that something odd happened.
 :::
 
 ### Finding help with `?`

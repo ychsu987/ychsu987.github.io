@@ -177,4 +177,4 @@ A relative path is defined relative to the current working directory.
 Assume that we are working on `THIS_RMD.rmd`, so the current directory is `/home/user/documents/course`.
 
 - Path to `myData.csv` : `./myData.csv` or `myData.csv`
-- Path to `IMAGE.png`: `../../IMAGE.png`
+- Path to `IMAGE.png`: `../../downloads/IMAGE.png`
