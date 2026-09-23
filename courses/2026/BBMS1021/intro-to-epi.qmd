@@ -5,7 +5,7 @@ title-slide-attributes:
     data-background-size:  35% 100%
     data-background-position: right
     data-background-opacity: "0.8"
-author: Yu Cheng Hsu
+author: Dr. Yu Cheng Hsu
 format: 
     revealjs:
         theme: [default, ../../../assets/css/general_style.css]
