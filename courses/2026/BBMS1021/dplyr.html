@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <meta name="author" content="Yu Cheng Hsu">
+  <meta name="author" content="Dr.&nbsp;Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Introduction to R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -221,7 +221,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Yu Cheng Hsu 
+Dr.&nbsp;Yu Cheng Hsu 
 </div>
 </div>
 </div>
@@ -237,9 +237,9 @@ Yu Cheng Hsu
 
 <aside><div>
 <p><strong>Acknowledgement</strong></p>
+<p>These lecture slides are partially adapted and inspired from</p>
 <ul>
-<li>The content is largely adopted from <a href="https://bdsr.stephenturner.us/">Biological Data Science with R</a></li>
-<li><span class="citation" data-cites="laurent_gatto_2021_5532658">Gatto, Missault, and Martin (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2021</a>)</span>, <span class="citation" data-cites="ismay2025statistical">Ismay, Kim, and Valdivia (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2025</a>)</span>, <span class="citation" data-cites="wickham2017r">Wickham, Grolemund, et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2017</a>)</span> under Creative Commons Attribution-ShareAlike 4.0</li>
+<li><span class="citation" data-cites="laurent_gatto_2021_5532658">Gatto, Missault, and Martin (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2021</a>)</span>, <span class="citation" data-cites="peng2016r">Peng (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2016</a>)</span>, <span class="citation" data-cites="ismay2025statistical">Ismay, Kim, and Valdivia (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2025</a>)</span>, <span class="citation" data-cites="wickham2017r">Wickham, Grolemund, et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2017</a>)</span> under Creative Commons Attribution-ShareAlike 4.0</li>
 <li>Prof.&nbsp;Yuanhua Huang, and Prof.&nbsp;Jason Wong contribution on early version</li>
 <li>Background image: <span class="citation" data-cites="bg2">Elder (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">1565</a>)</span></li>
 </ul>
@@ -276,7 +276,7 @@ Yu Cheng Hsu
 <li><strong>Columns</strong> = gene name, limiting nutrient, growth rate, expression</li>
 <li><strong>Numbers</strong> = log₂ expression relative to a reference RNA (how strongly that gene was “on”)</li>
 </ul>
-<p>We will practice <code>dplyr</code> verbs on this table. A tiny mental toy version is the same idea as <code>patients × lab values</code>.</p>
+<p>We will practice <code>dplyr</code> verbs on this table.</p>
 <ul>
 <li>Source: Brauer et al.&nbsp;(2008), <em>Coordination of Growth Rate, Cell Cycle, Stress Response, and Metabolic Activity in Yeast</em>.</li>
 <li>Goal: How does yeast gene expression change with growth rate when a single nutrient is limited?</li>
@@ -291,7 +291,7 @@ Yu Cheng Hsu
 <li><p>Running example: <strong><code>LEU1</code></strong> (leucine biosynthesis) is turned <strong>up</strong> when leucine is starved, then falls as the restriction is relaxed.</p></li>
 <li><p><code>brauer2007_tidy.csv</code>: teaching subset of the expression table (one row per gene × nutrient × growth rate)</p></li>
 </ul>
-<p>Please read the data to your RStudio for further analysis</p>
+<p><strong>Reading data</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Load the yeast expression table and gene annotation from CSV files for later use.</span></span>
 <span id="cb3-2"><a></a></span>
@@ -431,14 +431,27 @@ Yu Cheng Hsu
 <span id="cb12-3"><a></a><span class="fu">h</span>(<span class="fu">g</span>(<span class="fu">f</span>(data_frame)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R by default supports Pipe operator |&gt; We can rewrite the above code as</p>
+<div class="columns">
+<div class="column">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Title: Pipe operator example</span></span>
-<span id="cb13-2"><a></a><span class="co"># Use the pipe operator to write the same steps in a clearer, left-to-right order.</span></span>
-<span id="cb13-3"><a></a>data_frame <span class="sc">|&gt;</span> </span>
-<span id="cb13-4"><a></a>  <span class="fu">f</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb13-5"><a></a>  <span class="fu">g</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb13-6"><a></a>  <span class="fu">h</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-2"><a></a><span class="co"># Use the pipe operator to write the same </span></span>
+<span id="cb13-3"><a></a><span class="co"># steps in a clearer, left-to-right order.</span></span>
+<span id="cb13-4"><a></a>data_frame <span class="sc">|&gt;</span> </span>
+<span id="cb13-5"><a></a>  <span class="fu">f</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a></a>  <span class="fu">g</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb13-7"><a></a>  <span class="fu">h</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Title: Pipe operator example</span></span>
+<span id="cb14-2"><a></a><span class="co"># Use the pipe operator to write the same </span></span>
+<span id="cb14-3"><a></a><span class="co"># steps in a clearer, left-to-right order.</span></span>
+<span id="cb14-4"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">f</span>(data_frame)</span>
+<span id="cb14-5"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">g</span>(data_frame)</span>
+<span id="cb14-6"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">h</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
 <p>‘|&gt;’ takes the output from the left hand side and then <strong>pipes</strong> it to be the first argument of the right function.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -462,10 +475,10 @@ Yu Cheng Hsu
 <li>Select the designated columns by <code>select(COLUMN_NAMES)</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Title: Select expression columns</span></span>
-<span id="cb14-2"><a></a>ydat <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span> <span class="co"># Keep gene, nutrient, growth rate, and expression.</span></span>
-<span id="cb14-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous |&gt;.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Title: Select expression columns</span></span>
+<span id="cb15-2"><a></a>ydat <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span> <span class="co"># Keep gene, nutrient, growth rate, and expression.</span></span>
+<span id="cb15-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous |&gt;.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   symbol nutrient  rate expression
@@ -482,10 +495,10 @@ Yu Cheng Hsu
 <li>Select the designated rows by <code>filter(CONDITION)</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Title: Filter rows by gene</span></span>
-<span id="cb16-2"><a></a>ydat<span class="sc">|&gt;</span></span>
-<span id="cb16-3"><a></a>    <span class="fu">filter</span>(symbol <span class="sc">==</span> <span class="st">'LEU1'</span>) <span class="sc">|&gt;</span> <span class="co"># Keep only the leucine biosynthesis gene LEU1.</span></span>
-<span id="cb16-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous |&gt;.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Title: Filter rows by gene</span></span>
+<span id="cb17-2"><a></a>ydat<span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a></a>    <span class="fu">filter</span>(symbol <span class="sc">==</span> <span class="st">'LEU1'</span>) <span class="sc">|&gt;</span> <span class="co"># Keep only the leucine biosynthesis gene LEU1.</span></span>
+<span id="cb17-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous |&gt;.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
   symbol systematic_name nutrient  rate expression bp                   mf      
@@ -515,13 +528,13 @@ Yu Cheng Hsu
 <li>You can create new column by <code>mutate()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Title: Create or modify columns</span></span>
-<span id="cb18-2"><a></a>ydat <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a></a>    <span class="fu">mutate</span>( <span class="co"># expression is log2(sample/reference); 2^expression recovers the raw ratio.</span></span>
-<span id="cb18-4"><a></a>              <span class="at">signal =</span> <span class="dv">2</span><span class="sc">^</span>expression,</span>
-<span id="cb18-5"><a></a>              <span class="at">restriction  =</span> <span class="st">"Nutrient-limited"</span></span>
-<span id="cb18-6"><a></a>              ) <span class="sc">|&gt;</span></span>
-<span id="cb18-7"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Title: Create or modify columns</span></span>
+<span id="cb19-2"><a></a>ydat <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a></a>    <span class="fu">mutate</span>( <span class="co"># expression is log2(sample/reference); 2^expression recovers the raw ratio.</span></span>
+<span id="cb19-4"><a></a>              <span class="at">signal =</span> <span class="dv">2</span><span class="sc">^</span>expression,</span>
+<span id="cb19-5"><a></a>              <span class="at">restriction  =</span> <span class="st">"Nutrient-limited"</span></span>
+<span id="cb19-6"><a></a>              ) <span class="sc">|&gt;</span></span>
+<span id="cb19-7"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 9
   symbol systematic_name nutrient  rate expression bp               mf    signal
@@ -537,15 +550,15 @@ Yu Cheng Hsu
 <h2>Perform summary statistics</h2>
 <p>Frequently we will need to provide summary statistics for your data, we can use <code>summarize()</code> to do it</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Title: Compute summary statistics</span></span>
-<span id="cb20-2"><a></a></span>
-<span id="cb20-3"><a></a>ydat <span class="sc">|&gt;</span></span>
-<span id="cb20-4"><a></a>    <span class="fu">summarize</span>( <span class="co"># Summarize expression with count, mean, standard deviation, and LEU1 row count.</span></span>
-<span id="cb20-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb20-6"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression),</span>
-<span id="cb20-7"><a></a>              <span class="at">sd_expr=</span><span class="fu">sd</span>(expression),</span>
-<span id="cb20-8"><a></a>              <span class="at">n_leu1=</span><span class="fu">sum</span>(symbol<span class="sc">==</span><span class="st">'LEU1'</span>)</span>
-<span id="cb20-9"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Title: Compute summary statistics</span></span>
+<span id="cb21-2"><a></a></span>
+<span id="cb21-3"><a></a>ydat <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a></a>    <span class="fu">summarize</span>( <span class="co"># Summarize expression with count, mean, standard deviation, and LEU1 row count.</span></span>
+<span id="cb21-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb21-6"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression),</span>
+<span id="cb21-7"><a></a>              <span class="at">sd_expr=</span><span class="fu">sd</span>(expression),</span>
+<span id="cb21-8"><a></a>              <span class="at">n_leu1=</span><span class="fu">sum</span>(symbol<span class="sc">==</span><span class="st">'LEU1'</span>)</span>
+<span id="cb21-9"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
        n mean_expr sd_expr n_leu1
@@ -577,15 +590,15 @@ Yu Cheng Hsu
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># Title: Grouped summary by nutrient</span></span>
-<span id="cb22-2"><a></a>ydat <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a></a><span class="co"># Group the expression table by limiting nutrient,</span></span>
-<span id="cb22-4"><a></a>    <span class="fu">group_by</span>(nutrient) <span class="sc">|&gt;</span> </span>
-<span id="cb22-5"><a></a><span class="co">#  and compute summary statistics for each group.</span></span>
-<span id="cb22-6"><a></a>    <span class="fu">summarize</span>(      </span>
-<span id="cb22-7"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb22-8"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression)</span>
-<span id="cb22-9"><a></a>                  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># Title: Grouped summary by nutrient</span></span>
+<span id="cb23-2"><a></a>ydat <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a></a><span class="co"># Group the expression table by limiting nutrient,</span></span>
+<span id="cb23-4"><a></a>    <span class="fu">group_by</span>(nutrient) <span class="sc">|&gt;</span> </span>
+<span id="cb23-5"><a></a><span class="co">#  and compute summary statistics for each group.</span></span>
+<span id="cb23-6"><a></a>    <span class="fu">summarize</span>(      </span>
+<span id="cb23-7"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb23-8"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression)</span>
+<span id="cb23-9"><a></a>                  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   nutrient      n mean_expr
@@ -607,14 +620,14 @@ Yu Cheng Hsu
 <p><code>if_else(CONDITION, 'TRUE_VALUE', 'FALSE_VALUE')</code> for dichotomous processing</p>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># Title: Create binary restriction status</span></span>
-<span id="cb24-2"><a></a><span class="co"># Use if_else() to add a restriction label based on growth rate.</span></span>
-<span id="cb24-3"><a></a>ydat <span class="sc">|&gt;</span></span>
-<span id="cb24-4"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span></span>
-<span id="cb24-5"><a></a>    <span class="fu">mutate</span>( <span class="at">restriction =</span> <span class="fu">if_else</span>(</span>
-<span id="cb24-6"><a></a>        rate <span class="sc">==</span> <span class="fl">0.05</span>, <span class="st">"Severe restriction"</span>, <span class="st">"Relaxed"</span></span>
-<span id="cb24-7"><a></a>    )) <span class="sc">|&gt;</span></span>
-<span id="cb24-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Title: Create binary restriction status</span></span>
+<span id="cb25-2"><a></a><span class="co"># Use if_else() to add a restriction label based on growth rate.</span></span>
+<span id="cb25-3"><a></a>ydat <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span></span>
+<span id="cb25-5"><a></a>    <span class="fu">mutate</span>( <span class="at">restriction =</span> <span class="fu">if_else</span>(</span>
+<span id="cb25-6"><a></a>        rate <span class="sc">==</span> <span class="fl">0.05</span>, <span class="st">"Severe restriction"</span>, <span class="st">"Relaxed"</span></span>
+<span id="cb25-7"><a></a>    )) <span class="sc">|&gt;</span></span>
+<span id="cb25-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
   symbol nutrient  rate expression restriction       
@@ -635,16 +648,16 @@ Yu Cheng Hsu
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># Title: Create categorical restriction stage</span></span>
-<span id="cb26-2"><a></a><span class="co"># Use case_when() to assign descriptive labels for selected growth rates.</span></span>
-<span id="cb26-3"><a></a>ydat <span class="sc">|&gt;</span></span>
-<span id="cb26-4"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span></span>
-<span id="cb26-5"><a></a>    <span class="fu">mutate</span>( <span class="at">restriction =</span> <span class="fu">case_when</span>(</span>
-<span id="cb26-6"><a></a>        rate <span class="sc">==</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"Severe restriction"</span>,</span>
-<span id="cb26-7"><a></a>        rate <span class="sc">==</span> <span class="fl">0.15</span> <span class="sc">~</span> <span class="st">"Moderate restriction"</span>,</span>
-<span id="cb26-8"><a></a>        rate <span class="sc">==</span> <span class="fl">0.3</span> <span class="sc">~</span> <span class="st">"Relaxed restriction"</span></span>
-<span id="cb26-9"><a></a>    ))<span class="sc">|&gt;</span></span>
-<span id="cb26-10"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Title: Create categorical restriction stage</span></span>
+<span id="cb27-2"><a></a><span class="co"># Use case_when() to assign descriptive labels for selected growth rates.</span></span>
+<span id="cb27-3"><a></a>ydat <span class="sc">|&gt;</span></span>
+<span id="cb27-4"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span></span>
+<span id="cb27-5"><a></a>    <span class="fu">mutate</span>( <span class="at">restriction =</span> <span class="fu">case_when</span>(</span>
+<span id="cb27-6"><a></a>        rate <span class="sc">==</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"Severe restriction"</span>,</span>
+<span id="cb27-7"><a></a>        rate <span class="sc">==</span> <span class="fl">0.15</span> <span class="sc">~</span> <span class="st">"Moderate restriction"</span>,</span>
+<span id="cb27-8"><a></a>        rate <span class="sc">==</span> <span class="fl">0.3</span> <span class="sc">~</span> <span class="st">"Relaxed restriction"</span></span>
+<span id="cb27-9"><a></a>    ))<span class="sc">|&gt;</span></span>
+<span id="cb27-10"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
   symbol nutrient  rate expression restriction       
@@ -682,14 +695,14 @@ Yu Cheng Hsu
 <li>You can rename column by <code>rename()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># Title: Rename columns</span></span>
-<span id="cb28-2"><a></a>ydat <span class="sc">|&gt;</span> <span class="co"># Rename selected expression columns to make them more readable.</span></span>
-<span id="cb28-3"><a></a>    <span class="fu">rename</span>(</span>
-<span id="cb28-4"><a></a>              <span class="at">Gene =</span> symbol,</span>
-<span id="cb28-5"><a></a>              <span class="at">Nutrient =</span> nutrient,</span>
-<span id="cb28-6"><a></a>              <span class="at">Rate =</span> rate</span>
-<span id="cb28-7"><a></a>              ) <span class="sc">|&gt;</span></span>
-<span id="cb28-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Title: Rename columns</span></span>
+<span id="cb29-2"><a></a>ydat <span class="sc">|&gt;</span> <span class="co"># Rename selected expression columns to make them more readable.</span></span>
+<span id="cb29-3"><a></a>    <span class="fu">rename</span>(</span>
+<span id="cb29-4"><a></a>              <span class="at">Gene =</span> symbol,</span>
+<span id="cb29-5"><a></a>              <span class="at">Nutrient =</span> nutrient,</span>
+<span id="cb29-6"><a></a>              <span class="at">Rate =</span> rate</span>
+<span id="cb29-7"><a></a>              ) <span class="sc">|&gt;</span></span>
+<span id="cb29-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
   Gene  systematic_name Nutrient  Rate expression bp                       mf   
@@ -704,14 +717,14 @@ Yu Cheng Hsu
 <h2>Groupby multiple conditions</h2>
 <p>You can group by multiple groups together, but note that they need to be stated in the same <code>group_by()</code> brackets</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="co"># Title: Multi-group summary</span></span>
-<span id="cb30-2"><a></a>ydat <span class="sc">|&gt;</span></span>
-<span id="cb30-3"><a></a>    <span class="fu">group_by</span>(nutrient, rate) <span class="sc">|&gt;</span> <span class="co"># Group by both limiting nutrient and growth rate,</span></span>
-<span id="cb30-4"><a></a>    <span class="fu">summarize</span>(                   <span class="co">#  then summarize the combined groups.</span></span>
-<span id="cb30-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb30-6"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression),</span>
-<span id="cb30-7"><a></a>              <span class="at">sd_expr=</span><span class="fu">sd</span>(expression),</span>
-<span id="cb30-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># Title: Multi-group summary</span></span>
+<span id="cb31-2"><a></a>ydat <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a></a>    <span class="fu">group_by</span>(nutrient, rate) <span class="sc">|&gt;</span> <span class="co"># Group by both limiting nutrient and growth rate,</span></span>
+<span id="cb31-4"><a></a>    <span class="fu">summarize</span>(                   <span class="co">#  then summarize the combined groups.</span></span>
+<span id="cb31-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb31-6"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression),</span>
+<span id="cb31-7"><a></a>              <span class="at">sd_expr=</span><span class="fu">sd</span>(expression),</span>
+<span id="cb31-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!-- 
 ## Combining Dataframes
@@ -766,6 +779,9 @@ Gatto, Laurent, Kevin Missault, and Manon Martin. 2021. <span>“UCLouvain-CBIO/
 </div>
 <div id="ref-ismay2025statistical" class="csl-entry" role="listitem">
 Ismay, Chester, Albert Y Kim, and Arturo Valdivia. 2025. <em>Statistical Inference via Data Science: A Moderndive into r and the Tidyverse</em>. Chapman; Hall/CRC.
+</div>
+<div id="ref-peng2016r" class="csl-entry" role="listitem">
+Peng, Roger D. 2016. <em>R Programming for Data Science</em>. Leanpub Victoria, BC, Canada.
 </div>
 <div id="ref-wickham2017r" class="csl-entry" role="listitem">
 Wickham, Hadley, Garrett Grolemund, et al. 2017. <em>R for Data Science</em>. Vol. 2. O’Reilly Sebastopol.

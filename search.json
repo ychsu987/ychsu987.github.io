@@ -1229,7 +1229,7 @@
     "href": "courses/2026/BBMS1021/dplyr.html#learning-objectives",
     "title": "Introduction to R",
     "section": "Learning objectives",
-    "text": "Learning objectives\n\nUnderstand how to read and write data in R\nPerform fundamental data wrangling tasks in R\nReflect on good coding practice in data wrangling\n\n\n\nAcknowledgement\n\nThe content is largely adopted from Biological Data Science with R\nGatto, Missault, and Martin (2021), Ismay, Kim, and Valdivia (2025), Wickham, Grolemund, et al. (2017) under Creative Commons Attribution-ShareAlike 4.0\nProf. Yuanhua Huang, and Prof. Jason Wong contribution on early version\nBackground image: Elder (1565)"
+    "text": "Learning objectives\n\nUnderstand how to read and write data in R\nPerform fundamental data wrangling tasks in R\nReflect on good coding practice in data wrangling\n\n\n\nAcknowledgement\nThese lecture slides are partially adapted and inspired from\n\nGatto, Missault, and Martin (2021), Peng (2016), Ismay, Kim, and Valdivia (2025), Wickham, Grolemund, et al. (2017) under Creative Commons Attribution-ShareAlike 4.0\nProf. Yuanhua Huang, and Prof. Jason Wong contribution on early version\nBackground image: Elder (1565)"
   },
   {
     "objectID": "courses/2026/BBMS1021/dplyr.html#why-wrangling-matters",
@@ -1250,7 +1250,7 @@
     "href": "courses/2026/BBMS1021/dplyr.html#example-data---yeast-gene-expression",
     "title": "Introduction to R",
     "section": "Example data - Yeast gene expression",
-    "text": "Example data - Yeast gene expression\n\nRows = one gene measured in one nutrient-limitation condition\nColumns = gene name, limiting nutrient, growth rate, expression\nNumbers = log₂ expression relative to a reference RNA (how strongly that gene was “on”)\n\nWe will practice dplyr verbs on this table. A tiny mental toy version is the same idea as patients × lab values.\n\nSource: Brauer et al. (2008), Coordination of Growth Rate, Cell Cycle, Stress Response, and Metabolic Activity in Yeast.\nGoal: How does yeast gene expression change with growth rate when a single nutrient is limited?"
+    "text": "Example data - Yeast gene expression\n\nRows = one gene measured in one nutrient-limitation condition\nColumns = gene name, limiting nutrient, growth rate, expression\nNumbers = log₂ expression relative to a reference RNA (how strongly that gene was “on”)\n\nWe will practice dplyr verbs on this table.\n\nSource: Brauer et al. (2008), Coordination of Growth Rate, Cell Cycle, Stress Response, and Metabolic Activity in Yeast.\nGoal: How does yeast gene expression change with growth rate when a single nutrient is limited?"
   },
   {
     "objectID": "courses/2026/BBMS1021/dplyr.html#a-reminder-variable-assignment",
@@ -1278,7 +1278,7 @@
     "href": "courses/2026/BBMS1021/dplyr.html#pipe-operator",
     "title": "Introduction to R",
     "section": "Pipe operator |>",
-    "text": "Pipe operator |&gt;\nTo prevent us from keep doing like a matryoshka doll\n\n# Title: Nested function call example\n# This shows the same work as a pipeline, but in nested form.\nh(g(f(data_frame)))\n\nR by default supports Pipe operator |&gt; We can rewrite the above code as\n\n# Title: Pipe operator example\n# Use the pipe operator to write the same steps in a clearer, left-to-right order.\ndata_frame |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\n‘|&gt;’ takes the output from the left hand side and then pipes it to be the first argument of the right function.\n\n\n\n\n\n\nDiscussion question\n\n\n\nWhat are the benefits of using pipe?"
+    "text": "Pipe operator |&gt;\nTo prevent us from keep doing like a matryoshka doll\n\n# Title: Nested function call example\n# This shows the same work as a pipeline, but in nested form.\nh(g(f(data_frame)))\n\nR by default supports Pipe operator |&gt; We can rewrite the above code as\n\n\n\n# Title: Pipe operator example\n# Use the pipe operator to write the same \n# steps in a clearer, left-to-right order.\ndata_frame |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\n\n\n# Title: Pipe operator example\n# Use the pipe operator to write the same \n# steps in a clearer, left-to-right order.\ndata_frame &lt;-f(data_frame)\ndata_frame &lt;-g(data_frame)\ndata_frame &lt;-h(data_frame)\n\n\n‘|&gt;’ takes the output from the left hand side and then pipes it to be the first argument of the right function.\n\n\n\n\n\n\nDiscussion question\n\n\n\nWhat are the benefits of using pipe?"
   },
   {
     "objectID": "courses/2026/BBMS1021/dplyr.html#select-columns-or-rows",
@@ -1355,7 +1355,7 @@
     "href": "courses/2026/BBMS1021/dplyr.html#bibliography-notes",
     "title": "Introduction to R",
     "section": "Bibliography notes",
-    "text": "Bibliography notes\n\n\n\n\nElder, Pieter Bruegel the. 1565. The Harvesters. Oil on oak. The Metropolitan Museum of Art.\n\n\nGatto, Laurent, Kevin Missault, and Manon Martin. 2021. “UCLouvain-CBIO/WSBIM1207: V2.0.” Zenodo. https://doi.org/10.5281/zenodo.5532658.\n\n\nIsmay, Chester, Albert Y Kim, and Arturo Valdivia. 2025. Statistical Inference via Data Science: A Moderndive into r and the Tidyverse. Chapman; Hall/CRC.\n\n\nWickham, Hadley, Garrett Grolemund, et al. 2017. R for Data Science. Vol. 2. O’Reilly Sebastopol."
+    "text": "Bibliography notes\n\n\n\n\nElder, Pieter Bruegel the. 1565. The Harvesters. Oil on oak. The Metropolitan Museum of Art.\n\n\nGatto, Laurent, Kevin Missault, and Manon Martin. 2021. “UCLouvain-CBIO/WSBIM1207: V2.0.” Zenodo. https://doi.org/10.5281/zenodo.5532658.\n\n\nIsmay, Chester, Albert Y Kim, and Arturo Valdivia. 2025. Statistical Inference via Data Science: A Moderndive into r and the Tidyverse. Chapman; Hall/CRC.\n\n\nPeng, Roger D. 2016. R Programming for Data Science. Leanpub Victoria, BC, Canada.\n\n\nWickham, Hadley, Garrett Grolemund, et al. 2017. R for Data Science. Vol. 2. O’Reilly Sebastopol."
   },
   {
     "objectID": "courses/2025/CCAI9007/CCAI-workshop.html",
@@ -6773,7 +6773,7 @@
     "href": "courses/2026/BBMS1021/ggplot2.html#layer-3-legends-and-axis",
     "title": "Introduction to R",
     "section": "Layer 3: Legends and axis",
-    "text": "Layer 3: Legends and axis\nScales are functions indicate how each variable behave and presents on the graph. The function usually in the format scale_(AES)_(datatype):\n\n\n\n\n\n\n\n\n\nDiscrete\nContinuous\n\n\n\n\nX\nscale_x_discrete()\nscale_x_continuous()\n\n\nY\nscale_y_discrete()\nscale_y_continuous()\n\n\ncolor\nscale_color_discrete()\nscale_color_continuous()\n\n\n\n\n\nMost of the time you only need to handle the presentation in \n\n\n\n\nArgument name\nAxis\nLegend\n\n\n\n\nname\nLabel\nTitle\n\n\nbreaks\nTicks\nKey\n\n\nlabels\nTick label\nKey Label"
+    "text": "Layer 3: Legends and axis\nScales are functions indicate how each variable behave and presents on the graph. The function usually in the format scale_(AES)_(datatype):\n\n\n\n\n\n\n\n\n\nDiscrete\nContinuous\n\n\n\n\nX\nscale_x_discrete()\nscale_x_continuous()\n\n\nY\nscale_y_discrete()\nscale_y_continuous()\n\n\ncolor\nscale_color_discrete()\nscale_color_continuous()\n\n\n\n\n\n\n\n\nElements in the scale\n\n\n\n\n\n\nArgument name\nAxis\nLegend\n\n\n\n\nname\nLabel\nTitle\n\n\nbreaks\nTicks\nKey\n\n\nlabels\nTick label\nKey Label"
   },
   {
     "objectID": "courses/2026/BBMS1021/ggplot2.html#example",
