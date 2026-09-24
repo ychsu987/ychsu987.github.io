@@ -37,7 +37,7 @@ library(dplyr)
 - **Columns** = gene name, limiting nutrient, growth rate, expression
 - **Numbers** = log₂ expression relative to a reference RNA (how strongly that gene was “on”)
 
-We will practice `dplyr` verbs on this table. A tiny mental toy version is the same idea as `patients × lab values`.
+We will practice `dplyr` verbs on this table. 
 
 - Source: Brauer et al. (2008), *Coordination of Growth Rate, Cell Cycle, Stress Response, and Metabolic Activity in Yeast*.
 - Goal: How does yeast gene expression change with growth rate when a single nutrient is limited?
@@ -51,8 +51,7 @@ We will practice `dplyr` verbs on this table. A tiny mental toy version is the s
 
 - `brauer2007_tidy.csv`: teaching subset of the  expression table (one row per gene × nutrient × growth rate)
 
-Please read the data to your RStudio for further analysis
-
+**Reading data**
 ```{r}
 #| echo: true
 #| eval: true
@@ -159,16 +158,36 @@ h(g(f(data_frame)))
 
 R by default supports Pipe operator |> We can rewrite the above code as 
 
+:::{.columns}
+:::{.column}
+
 ```{r}
 #| echo: true
 #| eval: false
-# Title: Pipe operator example
-# Use the pipe operator to write the same steps in a clearer, left-to-right order.
+# Pipe operator example
+# Use the pipe operator to write the same 
+# steps in a clearer, left-to-right order.
 data_frame |> 
   f() |> 
   g() |> 
   h()
 ```
+
+:::
+
+:::{.column}
+```{r}
+#| echo: true
+#| eval: false
+# This is the equivalent code of the left one.
+
+data_frame <-f(data_frame)
+data_frame <-g(data_frame)
+data_frame <-h(data_frame)
+
+```
+:::
+:::
 
 '|>' takes the output from the left hand side and then **pipes** it to be the first argument of the right function.
 

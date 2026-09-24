@@ -6,7 +6,7 @@ title-slide-attributes:
     data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"
-author: Yu Cheng Hsu
+author: Dr. Yu Cheng Hsu
 format: 
     revealjs:
         theme: [default, ../../../assets/css/general_style.css]
@@ -31,9 +31,9 @@ engine: knitr
 
 **Acknowledgement**
 
-  - The content is largely adopted from [Biological Data Science with R
-](https://bdsr.stephenturner.us/)
-  - @laurent_gatto_2021_5532658, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0
+These lecture slides are partially adapted and inspired from 
+
+  - @laurent_gatto_2021_5532658, @peng2016r, @ismay2025statistical, @wickham2017r under Creative Commons Attribution-ShareAlike 4.0
   - Prof. Yuanhua Huang, and Prof. Jason Wong contribution on early version 
   - Background image: @bg2
 
