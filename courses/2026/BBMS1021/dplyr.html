@@ -434,7 +434,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Title: Pipe operator example</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Pipe operator example</span></span>
 <span id="cb13-2"><a></a><span class="co"># Use the pipe operator to write the same </span></span>
 <span id="cb13-3"><a></a><span class="co"># steps in a clearer, left-to-right order.</span></span>
 <span id="cb13-4"><a></a>data_frame <span class="sc">|&gt;</span> </span>
@@ -444,12 +444,11 @@ Dr.&nbsp;Yu Cheng Hsu
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Title: Pipe operator example</span></span>
-<span id="cb14-2"><a></a><span class="co"># Use the pipe operator to write the same </span></span>
-<span id="cb14-3"><a></a><span class="co"># steps in a clearer, left-to-right order.</span></span>
-<span id="cb14-4"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">f</span>(data_frame)</span>
-<span id="cb14-5"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">g</span>(data_frame)</span>
-<span id="cb14-6"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">h</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># This is the equivalent code of the left one.</span></span>
+<span id="cb14-2"><a></a></span>
+<span id="cb14-3"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">f</span>(data_frame)</span>
+<span id="cb14-4"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">g</span>(data_frame)</span>
+<span id="cb14-5"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">h</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 <p>‘|&gt;’ takes the output from the left hand side and then <strong>pipes</strong> it to be the first argument of the right function.</p>
