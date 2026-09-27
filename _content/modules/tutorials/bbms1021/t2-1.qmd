@@ -1,0 +1,489 @@
+# Cheatsheets
+
+If you forget ggplot2 syntax, here is a cheatsheet for your reference:
+[ggplot2 Cheatsheet](https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf)
+
+# Question Set 1
+
+
+*Background: Differentially expressed genes results [Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv) (or [view here](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv)) to this folder. Check your current working directory using the `getwd()` function and change it to the newly created folder.
+  *Hint*: Use `setwd("<path to R_exercises>")` to change the working directory, replacing `<path to R_exercises>` with the actual path to the folder, or use the `Session` menu in RStudio to set the working directory.
+
+**What is Differential Expression?**
+
+Every cell in your body has the same DNA, but different cells use different parts of that DNA to do their jobs. Gene expression is the process where a gene is turned "on" to make proteins that keep the cell running.
+
+Differential expression simply means comparing how active genes are in two different conditions—for example, comparing healthy tissue versus diseased tissue, or treated cells versus untreated cells.
+
+If a gene produces more copies in the diseased state, it is up-regulated. If it produces fewer, it is down-regulated.
+
+```{r}
+library(tidyverse)
+df_DEG<-read_tsv("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv")
+```
+
+* Q1: Use the `summary()` function to get an overview of the `df_DEG` data frame.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+summary(df_DEG)
+```
+:::
+
+* Q2: Create a histogram of the `log2FoldChange` column in `df_DEG` using both the basic plotting function `hist()` and the `ggplot2` package.
+  For the ggplot2 plot, add a figure title `Histogram of log2FoldChange`.
+
+```{webr}
+library(ggplot2)
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+hist(df_DEG$log2FoldChange)
+ggplot(df_DEG, aes(x = log2FoldChange)) +
+  geom_histogram(binwidth = 5) +
+  ggtitle("Histogram of log2FoldChange")
+```
+:::
+
+* Q3: Create a scatter plot with the x-axis as `log10(baseMean)` and the y-axis as `log2FoldChange` from the `df_DEG` data frame. Use both the basic `plot()` function and the `ggplot2` package.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+plot(
+  log10(df_DEG$baseMean), df_DEG$log2FoldChange,
+  xlab = "log10(baseMean)", ylab = "log2FoldChange", main = "Scatter Plot"
+)
+ggplot(df_DEG, aes(x = log10(baseMean), y = log2FoldChange)) +
+  geom_point() +
+  ggtitle("Scatter Plot of log2FoldChange vs log10(baseMean)")
+```
+:::
+
+* Q4: Manipulate the data frame by adding two columns:
+  - Add a column `log2FC_clip` for clipping `log2FoldChange` to the range `[-5, +5]`.
+  - Add a column `is_DE` to indicate if `padj < 0.05`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+df_DEG$log2FC_clip <- df_DEG$log2FoldChange
+df_DEG$log2FC_clip[df_DEG$log2FC_clip > 5] <- 5
+df_DEG$log2FC_clip[df_DEG$log2FC_clip < -5] <- -5
+df_DEG$is_DE <- df_DEG$padj < 0.05
+```
+:::
+
+* Q5: Use the `table()` function to count the values in the `is_DE` column.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+table(df_DEG$is_DE)
+```
+:::
+
+* Q5: Using ggplot2, create a scatter plot colored by the newly added column `is_DE`.
+  To make the figure clear, set the color legend title to `Is differentially expressed` and map the labels from `TRUE` to `Yes` and `FALSE` to `No`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+ggplot(df_DEG, aes(x = log10(baseMean), y = log2FC_clip, color = is_DE)) +
+  geom_point() +
+  scale_color_discrete(name = "Is differentially expressed", labels = c("Yes", "No"))
+```
+:::
+
+* Q6: For the scatter plot from Q8, reverse the color order so that `TRUE (Yes)` is blue and `FALSE (No)` is red.
+  How do you adjust the code?
+  *Hint*: ggplot uses the order of factor levels to render the color. Use `factor()` and set the `levels` parameter to control the order of categories.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+df_DEG$is_DE <- factor(df_DEG$is_DE, levels = c(TRUE, FALSE))
+ggplot(df_DEG, aes(x = log10(baseMean), y = log2FC_clip)) +
+  geom_point(aes(color = is_DE)) +
+  scale_color_discrete(name = "Is differentially expressed", labels = c("Yes", "No"))
+```
+:::
+
+* Q7: Save the scatter plot from Q8 or Q9 into a file named "My_DEG_results.pdf".
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+p <- ggplot(df_DEG, aes(x = log10(baseMean), y = log2FC_clip)) +
+  geom_point(aes(color = is_DE)) +
+  scale_color_discrete(name = "Is differentially expressed", labels = c("Yes", "No"))
+ggsave("My_DEG_results.pdf", p)
+```
+:::
+
+# Question Set 2
+
+This question set focuses on clinical data manipulation using the `birthwt` dataset, including converting binary risk indicators to factors, implementing Leave-One-Out Cross-Validation (LOOCV) for disease/risk prediction, calculating logistic regression probabilities, and evaluating maternal-infant health risk factors.
+
+First, we load the MASS package and the birthwt data:
+*Hint*: If you never installed `MASS` before, you need to execute `install.packages("MASS")` at your console
+
+```{r}
+library(MASS)
+data <- birthwt
+head(data)
+```
+
+* Q1: To make the clinical data more interpretable, please change the column low to a factor such that 0 refers to normal weight and 1 refers to low birth weight.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+data$low <- factor(data$low, labels = c("normal", "low"))
+```
+:::
+
+About Leave-One-Out Cross-Validation (LOOCV) in Clinical Prediction
+LOOCV is a rigorous way to test how well a predictive model generalizes to unseen patient data.
+
+Think of your data as a cohort of patients: In the birthwt dataset, you have records for 189 mothers and their newborns, where each row represents a clinical case containing maternal attributes (age, weight) and the birth weight outcome (low).
+
+Leave one patient out at a time: In LOOCV, you set aside one patient's record as your "test" data.
+
+Train on the remaining cohort: The remaining 188 patients become your "training" data to fit the logistic regression model.
+
+Iterate across the cohort: You repeat this process 189 times—once for every patient—so that every single patient serves as the test case exactly once.
+
+* Q2: Please use the first 188 rows as training data and the 189th row as testing data. Please implement the `train_n_predict(train_data, test_data)` function which use train_data to make a logistic regression model `low ~ age + lwt + ptd + ht` stored in the variable `model`, and return the prediction results on the test_data.
+
+*Hint*: As `Low` and `High` is a dichotomous outcome. You need to use a suitable regression methods
+
+```{webr}
+train_n_predict <- function(train_data, test_data) {
+    # Input:
+    # train_data: birthwt data for training the model
+    # test_data: birthwt data for testing the model
+    # Output:
+    # Numerical value: predicted probability of a low birth weight infant
+
+        return(predict(model, newdata = test_data, type = "response"))
+    }
+```
+
+
+
+::: {.hide}
+**Answer Key**
+```{webr}
+train_n_predict <- function(train_data, test_data) {
+    # Input:
+    # train_data: birthwt data for training the model
+    # test_data: birthwt data for testing the model
+    # Output:
+    # Numerical value: predicted probability of a low birth weight infant
+
+    model <- glm(low ~ age + lwt + ptd + ht, data = train_data, family = "binomial")
+    return(predict(model, newdata = test_data, type = "response"))
+}
+```
+:::
+
+
+Call the function train_n_predict below to calculate the predicted probability of low birth weight, and save it in data$predict[189].
+
+
+```{webr}
+## Your code starts here
+
+```
+
+
+::: {.hide}
+**Answer Key**
+```{webr}
+data$predict[189] <- train_n_predict(data[-189, ], data[189, ])
+data$predict[189]
+```
+:::
+
+
+* Q3:
+
+Now, we need to do this for a total of 189 times:
+
+1.
+For the first time, take out the first row as test data and use the rest of the 188 rows as training data.
+
+2.
+For the second time, take out the second row as test data and use the rest of the 188 rows as training data.
+
+3.
+And so on, for all 189 entries.
+
+and remember to store the test result in `data$predict` (i.e., if the test data is the 1st row of the data, then `data$predict[1] <- train_n_predict(data[-1,], data[1,])`).
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+for (i in 1:nrow(data)) {
+  data$predict[i] <- train_n_predict(data[-i, ], data[i, ])
+}
+```
+:::
+
+* Q4: After getting the predicted probability, we need to convert it into a clinical classification.
+The function `train_n_predict` gives the probability that the infant has a low birth weight (low = 1).
+Therefore, if `data$predict > 0.5`, we can classify the case as low birth weight, and if `data$predict < 0.5`, we classify it as normal weight.
+
+Based on this idea, create a new column `data$p_class` with factor data type, where if `data$predict >= 0.5` it shall be low (original label for low birth weight) and normal if `data$predict < 0.5`.
+
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+data$p_class <- factor(data$predict >= 0.5, labels = c("normal", "low"))
+```
+
+Alternatively, loop can tackle the problem as well as below
+
+```{webr}
+# Initialize the factor column first
+data$p_class <- factor(rep(NA, nrow(data)), levels = c("normal", "low"))
+
+for (i in 1:nrow(data)) {
+  if (data$predict[i] >= 0.5) {
+    data$p_class[i] <- "low"
+  } else {
+    data$p_class[i] <- "normal"
+  }
+}
+```
+
+Using `for` loops for data frame row-by-row manipulation in R is generally not recommended (and is considered an anti-pattern). Because data frames in R are underlying lists of vectors, growing them dynamically or modifying elements one-by-one inside a loop causes R to frequently reallocate memory in the background, leading to severe performance bottlenecks on larger datasets. Vectorized functions (like `ifelse()`, `dplyr::case_when()`, or logical vector indexing with factor levels) are significantly faster, more memory-efficient, and easier to read.
+
+:::
+
+* Q5: 
+Now that we have classified our predictions (data$p_class) and have the actual clinical outcomes (data$low), we want to see which predictions were correct.
+
+Please create a new logical column named data$correct using a logical comparison (==). It should evaluate to TRUE if the predicted classification matches the actual birth weight status, and FALSE otherwise.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+data$correct <- data$p_class == data$low
+head(data[, c("low", "p_class", "correct")])
+```
+:::
+
+* Q6: 
+Model accuracy is defined as the proportion of correct predictions out of the total number of cases.
+
+Using your logical comparison or the correct column you just created, calculate the overall prediction accuracy of your Leave-One-Out Cross-Validation (LOOCV) model. (Hint: In R, taking the mean() of a logical vector treats TRUE as 1 and FALSE as 0, giving you the exact proportion of correct values).
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+# Method 1: Using the logical column
+accuracy <- mean(data$correct)
+accuracy
+
+# Method 2: Direct vector comparison
+# mean(data$p_class == data$low)
+```
+:::
+
+# Question Set 3
+
+Let's go back to the question in the tutorial 1 this time you need implement a function to solve a quadratic equation and return "There is no real roots for this quadratic equation" whenever appropriate.
+
+$$
+ax^2+bx+c=0
+$$
+
+```{webr}
+quadratic_equation <- function(a, b, c) {
+## Your code starts here
+
+}
+
+# Test cases
+quadratic_equation(1, 2, 0)
+quadratic_equation(1, 2, 1)
+quadratic_equation(1, 2, 4)
+```
+
+:::{.hide}
+**Answer key**
+```{webr}
+quadratic_equation <- function(a, b, c) {
+    # Calculate the discriminant
+    discriminant <- b^2 - 4 * a * c
+    
+    # Check if there are real roots
+    if (discriminant < 0) {
+        return("There is no real roots for this quadratic equation")
+    } else {
+        # Calculate the two roots using the quadratic formula
+        root1 <- (-b + sqrt(discriminant)) / (2 * a)
+        root2 <- (-b - sqrt(discriminant)) / (2 * a)
+        return(c(root1, root2))
+    }
+}
+
+# Test cases
+quadratic_equation(1, 2, 0)
+quadratic_equation(1, 2, 1)
+quadratic_equation(1, 2, 4)
+```
+:::
+# Question Set 4
+
+This question set is adapted from the [NIH Bioinformatics Training and Education Program](https://bioinformatics.ccr.cancer.gov/docs/data-visualization-with-r/Practice_Exercises/L2Ex/). The original question is slightly more complex. If you are interested in more challenging questions, you can visit the website.
+
+Let's load the Titanic dataset.
+
+```{webr}
+titanic <- read.csv("https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/stuff/titanic.csv", header = TRUE)
+```
+
+| Column                 | Description                                 |
+|------------------------|---------------------------------------------|
+| Survived               | 0 (No) / 1 (Yes)                            |
+| Pclass                 | 1 / 2 / 3 (Passenger Class)                 |
+| Name                   | Passenger Name                              |
+| Sex                    | Male / Female                               |
+| Age                    | Age                                         |
+| Siblings.Spouses.Aboard | Number of siblings/spouses aboard          |
+| Parents.Children.Aboard | Number of parents/children aboard          |
+| Fare                   | Fare Price                                  |
+
+* Q1: Inspect the data using `str()`, `summary()`, and `head()`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+str(titanic)
+summary(titanic)
+head(titanic)
+```
+:::
+
+* Q2: Explore the relationship between the passenger's age and fare. What type of plot should you use? Write the code using `ggplot2`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+A scatter plot:
+
+```{webr}
+ggplot(titanic) +
+  geom_point(aes(x = Age, y = Fare))
+```
+:::
+
+* Q3: Color the points from Q2 by `Pclass`. Remember that `Pclass` is a proxy for socioeconomic status. While the values are treated as numeric upon loading, they are categorical and should be treated as such. You will need to coerce `Pclass` into a categorical (factor) variable using `factor()` or `as.factor()`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+ggplot(titanic) +
+  geom_point(aes(x = Age, y = Fare, color = as.factor(Pclass)))
+```
+:::
+
+* Q4: Modify the plot from Q3 to update the legend labels to (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class).
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+ggplot(titanic) +
+  geom_point(aes(x = Age, y = Fare, color = as.factor(Pclass))) +
+  scale_color_discrete(labels = c("1st Class", "2nd Class", "3rd Class"))
+```
+:::
+
