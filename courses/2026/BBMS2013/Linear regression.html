@@ -568,13 +568,18 @@ F \sim F(df_1 = k, \, df_2 = n - k - 1)
 <section id="key-metrics-calculations" class="slide level2">
 <h2>Key Metrics Calculations</h2>
 <ol type="1">
-<li><p><strong><span class="math inline">\(R^2\)</span> Calculation:</strong> <span class="math display">\[R^2 = \frac{17469477.719 }{ 99969655.810} = \quad (17.4\%)\]</span> <em>Interpretation:</em> 12.6% of the variance in biomarker reduction is explained by maternal weight at last menstrual period, baseline metabolic index, and age.</p></li>
-<li><p><strong>Adjusted <span class="math inline">\(R^2\)</span> Calculation:</strong> <span class="math display">\[R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = = 1 - 0.8478 = 0.1522 \]</span> <em>Interpretation:</em> After penalizing for adding three model parameters, the model accounts for approximately 70.2% of the variance.</p></li>
-<li><p><strong><span class="math inline">\(F\)</span>-Test Evaluation:</strong> <span class="math inline">\(F_{(5, 183)} = 7.75, \quad p &lt; 0.0001\)</span>$ <em>Conclusion:</em> Since the <span class="math inline">\(p\)</span>-value is well below <span class="math inline">\(\alpha = 0.05\)</span>, we reject <span class="math inline">\(H_0\)</span>. The model as a whole explains a statistically significant amount of variation compared to a flat horizontal line.</p></li>
+<li><p><strong><span class="math inline">\(R^2\)</span> Calculation:</strong> <span class="math display">\[
+R^2 = \frac{17469477.719 }{ 99969655.810} = 17.4\%
+\]</span> <em>Interpretation:</em> 12.6% of the variance in biomarker reduction is explained by maternal weight at last menstrual period, baseline metabolic index, and age.</p></li>
+<li><p><strong>Adjusted <span class="math inline">\(R^2\)</span> Calculation:</strong> <span class="math display">\[
+R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = = 1 - 0.8478 = 15.2\%
+\]</span> <em>Interpretation:</em> After penalizing for adding three model parameters, the model accounts for approximately 70.2% of the variance.</p></li>
 </ol>
 </section>
 <section id="simple-linear-regression-t-test-vs.-f-test" class="slide level2">
 <h2>Simple Linear Regression: <span class="math inline">\(t\)</span>-test vs.&nbsp;<span class="math inline">\(F\)</span>-test</h2>
+<p><strong><span class="math inline">\(F\)</span>-Test Evaluation:</strong> <span class="math inline">\(F_{(5, 183)} = 7.75, \quad p &lt; 0.0001\)</span> <em>Conclusion:</em> Since the <span class="math inline">\(p\)</span>-value is well below <span class="math inline">\(\alpha = 0.05\)</span>, we reject <span class="math inline">\(H_0\)</span>. The model as a whole explains a statistically significant amount of variation compared to a flat horizontal line.</p>
+<p><strong><span class="math inline">\(\beta\)</span></strong></p>
 <p>In simple linear regression (<span class="math inline">\(k = 1\)</span>): <span class="math display">\[
 F_{(1, n-2)} = (t_{\beta_1})^2
 \]</span></p>
