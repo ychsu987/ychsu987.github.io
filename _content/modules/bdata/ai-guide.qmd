@@ -28,7 +28,7 @@ Don't read the whole error if it looks messy. Look for the recognizable words at
     *   *Translation:* You forgot to load the package! Run `library(tidyverse)` or `library(readr)` first.
 *   **`Error: unexpected symbol in "ggplot(data = clinical_df aes(x = treatment))"`**
     *   *Key:* `unexpected symbol`
-    *   *Translation:* You missed a comma. (There should be a comma after `clinical_df`).
+    *   *Translation:* You missed a comma.
 
 ---
 
