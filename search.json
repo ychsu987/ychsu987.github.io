@@ -7497,13 +7497,6 @@
     "text": "AI-policy\n\nLarge language models (LLMs) perform well in answering most programming questions.\nLLMs could potentially help you finish your assignments.\nTheir comments can sometimes be inspiring.\nUsing LLMs can assist your learning and research.\n\nCore competency in the AI era\n\nUnderstand how R works\nEvaluate the outputs from AI\nArticulate the question to instruct AI"
   },
   {
-    "objectID": "courses/2026/SBMS7202/introR.html#lets-collect-some-data",
-    "href": "courses/2026/SBMS7202/introR.html#lets-collect-some-data",
-    "title": "Introduction to R",
-    "section": "Let’s collect some data",
-    "text": "Let’s collect some data\n\n\n\nhttps://forms.cloud.microsoft/r/N29JZEAxFS"
-  },
-  {
     "objectID": "courses/2026/SBMS7202/introR.html#r-files",
     "href": "courses/2026/SBMS7202/introR.html#r-files",
     "title": "Introduction to R",
@@ -7543,7 +7536,7 @@
     "href": "courses/2026/SBMS7202/introR.html#identifying-the-key-of-the-error",
     "title": "Introduction to R",
     "section": "Identifying the key of the Error",
-    "text": "Identifying the key of the Error\nDon’t read the whole error if it looks messy. Look for the recognizable words at the end of the message.\nCommon Biomedical Data Errors translated to plain English:\n\nError: object 'XXX' not found\n\nTranslation: You either haven’t run the line of code that creates/loads XXX yet, or you made a typo (e.g., you typed xxx).\n\nError in read_csv(\"FILE\") : could not find function \"read_csv\"\n\nKey: could not find function\nTranslation: You forgot to load the package! Run library(tidyverse) or library(readr) first.\n\nError: unexpected symbol in \"ggplot(data = clinical_df aes(x = treatment))\"\n\nKey: unexpected symbol\nTranslation: You missed a comma. (There should be a comma after clinical_df)."
+    "text": "Identifying the key of the Error\nDon’t read the whole error if it looks messy. Look for the recognizable words at the end of the message.\nCommon Biomedical Data Errors translated to plain English:\n\nError: object 'XXX' not found\n\nTranslation: You either haven’t run the line of code that creates/loads XXX yet, or you made a typo (e.g., you typed xxx).\n\nError in read_csv(\"FILE\") : could not find function \"read_csv\"\n\nKey: could not find function\nTranslation: You forgot to load the package! Run library(tidyverse) or library(readr) first.\n\nError: unexpected symbol in \"ggplot(data = clinical_df aes(x = treatment))\"\n\nKey: unexpected symbol\nTranslation: You missed a comma."
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#the-ai-lifeline",
@@ -7690,14 +7683,14 @@
     "href": "courses/2026/SBMS7202/introR.html#other-examples",
     "title": "Introduction to R",
     "section": "Other examples",
-    "text": "Other examples\nThere are also different ways to automatically generate vectors\n\n\n# vectors can be created using existing variables\njason &lt;- 1.69\nray &lt;- 1.78\nyuanhua &lt;- 1.72\n\nheights &lt;- c(jason, ray, yuanhua)\n# you can give names to items in a vector\nnames(heights) &lt;- c(\"Jason\",\"Ray\",\"Yuanhua\")\nheights\n\n\n  Jason     Ray Yuanhua \n   1.69    1.78    1.72 \n\ntypeof(heights)\n\n[1] \"double\"\n\n\n\n\n# rep repeats the first number\n# n times based on the second value\nrepeats &lt;- rep(3, 5)  \nrepeats\n\n\n[1] 3 3 3 3 3\n\ntypeof(repeats)\n\n[1] \"double\"\n\n\n\n\n# generates a vector of integers \n# from 1 to 12 (inclusive)\nseries &lt;- 1:12 \nseries\n\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\ntypeof(series)\n\n[1] \"integer\"\n\n\n\n\n# generate a vector of random integers by sampling\n# 6 values between 1 and 49 (六合彩)\nmark6 &lt;- sample(1:49,6)\nmark6\n\n\n[1] 37 15 45 24 19 41\n\ntypeof(mark6)\n\n[1] \"integer\""
+    "text": "Other examples\nThere are also different ways to automatically generate vectors\n\n\n# vectors can be created using existing variables\njason &lt;- 1.69\nray &lt;- 1.78\nyuanhua &lt;- 1.72\n\nheights &lt;- c(jason, ray, yuanhua)\n# you can give names to items in a vector\nnames(heights) &lt;- c(\"Jason\",\"Ray\",\"Yuanhua\")\nheights\n\n\n  Jason     Ray Yuanhua \n   1.69    1.78    1.72 \n\ntypeof(heights)\n\n[1] \"double\"\n\n\n\n\n# rep repeats the first number\n# n times based on the second value\nrepeats &lt;- rep(3, 5)  \nrepeats\n\n\n[1] 3 3 3 3 3\n\ntypeof(repeats)\n\n[1] \"double\"\n\n\n\n\n# generates a vector of integers \n# from 1 to 12 (inclusive)\nseries &lt;- 1:12 \nseries\n\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\ntypeof(series)\n\n[1] \"integer\"\n\n\n\n\n# generate a vector of random integers by sampling\n# 6 values between 1 and 49 (六合彩)\nmark6 &lt;- sample(1:49,6)\nmark6\n\n\n[1] 27 15 42  1 12 16\n\ntypeof(mark6)\n\n[1] \"integer\""
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#combining-vectors",
     "href": "courses/2026/SBMS7202/introR.html#combining-vectors",
     "title": "Introduction to R",
     "section": "Combining vectors",
-    "text": "Combining vectors\nVectors can also be combined from other vectors.\n\n# vectors can be combined\nnew_vector &lt;- c(series,mark6,rep(50,3))\nnew_vector\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 37 15 45 24 19 41 50 50 50\n\ntypeof(new_vector)\n\n[1] \"double\"\n\n\nDid you notice that new_vector is now of type double ?\nYou can spend a few minutes to create vectors and explore what happens to the data type of the vector when you combine them with others.\n\n# write your code here\nmyVector &lt;- c(TRUE,2:3,4.0)\nmyVector\n\n[1] 1 2 3 4\n\ntypeof(myVector)\n\n[1] \"double\""
+    "text": "Combining vectors\nVectors can also be combined from other vectors.\n\n# vectors can be combined\nnew_vector &lt;- c(series,mark6,rep(50,3))\nnew_vector\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 27 15 42  1 12 16 50 50 50\n\ntypeof(new_vector)\n\n[1] \"double\"\n\n\nDid you notice that new_vector is now of type double ?\nYou can spend a few minutes to create vectors and explore what happens to the data type of the vector when you combine them with others.\n\n# write your code here\nmyVector &lt;- c(TRUE,2:3,4.0)\nmyVector\n\n[1] 1 2 3 4\n\ntypeof(myVector)\n\n[1] \"double\""
   },
   {
     "objectID": "courses/2026/SBMS7202/introR.html#index",
@@ -7858,7 +7851,7 @@
     "href": "courses/2026/SBMS7202/tidyverse.html#example-data---yeast-gene-expression",
     "title": "Introduction to R",
     "section": "Example data - Yeast gene expression",
-    "text": "Example data - Yeast gene expression\n\nRows = one gene measured in one nutrient-limitation condition\nColumns = gene name, limiting nutrient, growth rate, expression\nNumbers = log₂ expression relative to a reference RNA (how strongly that gene was “on”)\n\nWe will practice dplyr verbs on this table. A tiny mental toy version is the same idea as patients × lab values.\n\nSource: Brauer et al. (2008), Coordination of Growth Rate, Cell Cycle, Stress Response, and Metabolic Activity in Yeast.\nGoal: How does yeast gene expression change with growth rate when a single nutrient is limited?"
+    "text": "Example data - Yeast gene expression\n\nRows = one gene measured in one nutrient-limitation condition\nColumns = gene name, limiting nutrient, growth rate, expression\nNumbers = log₂ expression relative to a reference RNA (how strongly that gene was “on”)\n\nWe will practice dplyr verbs on this table.\n\nSource: Brauer et al. (2008), Coordination of Growth Rate, Cell Cycle, Stress Response, and Metabolic Activity in Yeast.\nGoal: How does yeast gene expression change with growth rate when a single nutrient is limited?"
   },
   {
     "objectID": "courses/2026/SBMS7202/tidyverse.html#a-reminder-variable-assignment",
@@ -7886,7 +7879,7 @@
     "href": "courses/2026/SBMS7202/tidyverse.html#pipe-operator",
     "title": "Introduction to R",
     "section": "Pipe operator |>",
-    "text": "Pipe operator |&gt;\nTo prevent us from keep doing like a matryoshka doll\n\n# Title: Nested function call example\n# This shows the same work as a pipeline, but in nested form.\nh(g(f(data_frame)))\n\nR by default supports Pipe operator |&gt; We can rewrite the above code as\n\n# Title: Pipe operator example\n# Use the pipe operator to write the same steps in a clearer, left-to-right order.\ndata_frame |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\n‘|&gt;’ takes the output from the left hand side and then pipes it to be the first argument of the right function.\n\n\n\n\n\n\nDiscussion question\n\n\n\nWhat are the benefits of using pipe?"
+    "text": "Pipe operator |&gt;\nTo prevent us from keep doing like a matryoshka doll\n\n# Title: Nested function call example\n# This shows the same work as a pipeline, but in nested form.\nh(g(f(data_frame)))\n\nR by default supports Pipe operator |&gt; We can rewrite the above code as\n\n\n\n# Pipe operator example\n# Use the pipe operator to write the same \n# steps in a clearer, left-to-right order.\ndata_frame |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\n\n\n# This is the equivalent code of the left one.\n\ndata_frame &lt;-f(data_frame)\ndata_frame &lt;-g(data_frame)\ndata_frame &lt;-h(data_frame)\n\n\n‘|&gt;’ takes the output from the left hand side and then pipes it to be the first argument of the right function.\n\n\n\n\n\n\nDiscussion question\n\n\n\nWhat are the benefits of using pipe?"
   },
   {
     "objectID": "courses/2026/SBMS7202/tidyverse.html#select-columns-or-rows",
@@ -8040,7 +8033,7 @@
     "href": "courses/2026/SBMS7202/tidyverse.html#layer-3-legends-and-axis",
     "title": "Introduction to R",
     "section": "Layer 3: Legends and axis",
-    "text": "Layer 3: Legends and axis\nScales are functions indicate how each variable behave and presents on the graph. The function usually in the format scale_(AES)_(datatype):\n\n\n\n\n\n\n\n\n\nDiscrete\nContinuous\n\n\n\n\nX\nscale_x_discrete()\nscale_x_continuous()\n\n\nY\nscale_y_discrete()\nscale_y_continuous()\n\n\ncolor\nscale_color_discrete()\nscale_color_continuous()\n\n\n\n\n\nMost of the time you only need to handle the presentation in \n\n\n\n\nArgument name\nAxis\nLegend\n\n\n\n\nname\nLabel\nTitle\n\n\nbreaks\nTicks\nKey\n\n\nlabels\nTick label\nKey Label"
+    "text": "Layer 3: Legends and axis\nScales are functions indicate how each variable behave and presents on the graph. The function usually in the format scale_(AES)_(datatype):\n\n\n\n\n\n\n\n\n\nDiscrete\nContinuous\n\n\n\n\nX\nscale_x_discrete()\nscale_x_continuous()\n\n\nY\nscale_y_discrete()\nscale_y_continuous()\n\n\ncolor\nscale_color_discrete()\nscale_color_continuous()\n\n\n\n\n\n\n\n\nElements in the scale\n\n\n\n\n\n\nArgument name\nAxis\nLegend\n\n\n\n\nname\nLabel\nTitle\n\n\nbreaks\nTicks\nKey\n\n\nlabels\nTick label\nKey Label"
   },
   {
     "objectID": "courses/2026/SBMS7202/tidyverse.html#example",
