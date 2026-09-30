@@ -7,7 +7,8 @@ If you forget ggplot2 syntax, here is a cheatsheet for your reference:
 
 
 *Background: Differentially expressed genes results [Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv) (or [view here](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv)) to this folder. Check your current working directory using the `getwd()` function and change it to the newly created folder.
-  *Hint*: Use `setwd("<path to R_exercises>")` to change the working directory, replacing `<path to R_exercises>` with the actual path to the folder, or use the `Session` menu in RStudio to set the working directory.
+
+*Hint*: Use `setwd("<path to R_exercises>")` to change the working directory, replacing `<path to R_exercises>` with the actual path to the folder, or use the `Session` menu in RStudio to set the working directory.
 
 **What is Differential Expression?**
 
@@ -19,7 +20,7 @@ If a gene produces more copies in the diseased state, it is up-regulated. If it 
 
 ```{r}
 library(tidyverse)
-df_DEG<-read_tsv("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv")
+df_DEG<-read.delim("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv",stringsAsFactors=FALSE)
 ```
 
 * Q1: Use the `summary()` function to get an overview of the `df_DEG` data frame.
@@ -125,7 +126,7 @@ ggplot(df_DEG, aes(x = log10(baseMean), y = log2FC_clip, color = is_DE)) +
 ```
 :::
 
-* Q6: For the scatter plot from Q8, reverse the color order so that `TRUE (Yes)` is blue and `FALSE (No)` is red.
+* Q6: For the scatter plot from Q5, reverse the color order so that `TRUE (Yes)` is blue and `FALSE (No)` is red.
   How do you adjust the code?
   *Hint*: ggplot uses the order of factor levels to render the color. Use `factor()` and set the `levels` parameter to control the order of categories.
 
@@ -199,7 +200,7 @@ Train on the remaining cohort: The remaining 188 patients become your "training"
 
 Iterate across the cohort: You repeat this process 189 times—once for every patient—so that every single patient serves as the test case exactly once.
 
-* Q2: Please use the first 188 rows as training data and the 189th row as testing data. Please implement the `train_n_predict(train_data, test_data)` function which use train_data to make a logistic regression model `low ~ age + lwt + ptd + ht` stored in the variable `model`, and return the prediction results on the test_data.
+* Q2: Please use the first 188 rows as training data and the 189th row as testing data. Please implement the `train_n_predict(train_data, test_data)` function which use train_data to make a logistic regression model `low ~ age + lwt + ptl + ht` stored in the variable `model`, and return the prediction results on the test_data.
 
 *Hint*: As `Low` and `High` is a dichotomous outcome. You need to use a suitable regression methods
 
@@ -227,7 +228,7 @@ train_n_predict <- function(train_data, test_data) {
     # Output:
     # Numerical value: predicted probability of a low birth weight infant
 
-    model <- glm(low ~ age + lwt + ptd + ht, data = train_data, family = "binomial")
+    model <- glm(low ~ age + lwt + ptl + ht, data = train_data, family = "binomial")
     return(predict(model, newdata = test_data, type = "response"))
 }
 ```
@@ -298,6 +299,8 @@ Based on this idea, create a new column `data$p_class` with factor data type, wh
 ```{webr}
 data$p_class <- factor(data$predict >= 0.5, labels = c("normal", "low"))
 ```
+
+Noted that the labels order follow the factor levels order.  By default `factor(data$predict >= 0.5)` levels for this vector is `c(FALSE,TRUE)`, so the labels will match the order accordingly (i.e. `FALSE` -> `normal`,  `TRUE` -> `low` )
 
 Alternatively, loop can tackle the problem as well as below
 

@@ -1,0 +1,23 @@
+---
+title: "AI watermarks"
+subtitle: 
+title-slide-attributes:
+    data-background: /assets/images/introR/background-2.jpg
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+author: Dr. Yu Cheng Hsu
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+lightbox: true
+---
+
+
+{{< include /_content/modules/talk/AI-watermark.qmd >}}

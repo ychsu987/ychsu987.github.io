@@ -5,30 +5,49 @@ An AI text watermark is **not a hidden character, a secret tag, or special file 
 
 **A brief explanation how LLM works**
 
-1. Whenever an AI generates a sentence, it often has multiple natural words to pick next (e.g., choosing between *quick*, *fast*, or *rapid*).
+1. Whenever an AI generates a sentence, it often has multiple words to pick next (e.g., choosing between **quick**, **fast**, or **rapid**).
 2. AI will choose a word based on words probability (Top-p/Top-K sampling) 
 
 **A brief idea of AI watermark**
 
-1. If I set *rapid* in the **Watermark list**, then AI-generated text will be in favor of choosing *rapid* over other synonyms
+1. If I set **rapid** in the **Watermark list**, then AI-generated text will be in favor of choosing **rapid** over other synonyms
 2. If we have a bag of the **Watermark list**, as long as a "statistically significant" amount of the word occurs in the **Watermark list** then I  will believe it is an AI-generated content
 
 ## Technical challenges of developing water marks
 
+- Imperceptibility
+  Content accuracy, highly technical writing
+  - **quick update** over **rapid update**
+  - Mathematical formula writing
 
+- Robustness
+  Robust to reformatting, paraphrasing
 
+- Detectability & Security
+  Low false positive rate, cannot reverse attack the algorithm 
 
-### Why Common Tricks Fail in Plain `.txt` Files
+## How does the watermark being made 
 
-Because watermarks live in the **choice and arrangement of words themselves**, common cleaning methods do not work:
+1. **Before generating word**: The AI looks at the word it just typed and uses a secret rule to secretly split the entire dictionary into 50% Green words and 50% Red words.
 
-* **"Saving as .txt will strip it"**: Stripping file wrappers removes EXIF tags or Word formatting, but does not alter your vocabulary or sentence structure. The statistical signal remains intact.
-* **"Deleting zero-width invisible spaces"**: Some chat interfaces leave hidden unicode markers, but actual LLM watermarks do not rely on hidden characters. Removing invisible characters leaves the statistical token watermark completely untouched.
-* **"Changing every 10th word"**: Statistical tests are designed to aggregate signal over whole paragraphs. Minor touch-ups dilute the signal slightly, but often leave enough n-gram fragments for a detector to score positive.
+2. **During generating words**: The AI gives Green words a subtle extra boost, making them far more likely to be chosen while keeping the sentence completely natural.
 
----
+3. **Detecting a text**: A human naturally lands on Green about 50% of the time (like flipping a fair coin), but the watermarked AI lands on Green 75%–85% of the time.
 
-### Daily Life Implications: When Does This Matter?
+4. **The final judgement**: If a 200-word paragraph hits Green far too often to be pure luck, a quick probability test proves it came from the AI.
+
+## Preventing being flagged out 
+
+* Watermark algorithms calculate probabilities based on preceding word sequences.
+* Merely replacing words with synonyms often preserves the underlying statistical graph.
+* Instead, **restructure clauses/Splitting**:
+  * Break one long compound sentence into two punchy, short sentences.
+  * Turn passive clauses into active personal statements (*"The experiment was concluded"* -> *"We wrapped up the trials on Friday"*).
+  * Insert concrete examples, personal anecdotes, or unique domain terminology.
+
+## Other tricks 
+
+## Daily Life Implications: When Does This Matter?
 
 | Scenario | Watermark Risk | Real-World Impact |
 |---|---|---|
@@ -36,37 +55,4 @@ Because watermarks live in the **choice and arrangement of words themselves**, c
 | **Proofreading / Polishing your own draft** | **Negligible** | If the ideas and majority of words are yours, the AI merely fixes grammar or word order. There is very little AI token sequence for a detector to latch onto. |
 | **Direct Generation (Copy-Pasting full drafts)** | **High** | The text contains raw, continuous model token sequences that reliably trigger detection algorithms. |
 
----
 
-### Practical Guide: Keeping Your AI-Assisted Work Human & Unflagged
-
-If you use AI as a writing assistant and save drafts in `.txt` or markdown files, use these four workflow practices to prevent false attribution or watermark detection:
-
-#### 1. Invert the Workflow (Human Draft First, AI Polish Second)
-* **High-Risk Path**: Asking AI to write a 1,000-word essay from scratch and lightly tweaking words.
-* **Clean Path**: Write your rough, messy draft yourself first. Paste your draft into the AI with the prompt: *"Highlight passive voice and point out logical gaps, but do not rewrite whole sentences."* Your underlying sentence structures and personal voice remain yours.
-
-#### 2. Substantive Syntactic Restructuring (Paraphrase the Structure, Not Just Synonyms)
-* Watermark algorithms calculate probabilities based on preceding word sequences.
-* Merely replacing words with synonyms often preserves the underlying statistical graph.
-* Instead, **restructure clauses**:
-  * Break one long compound sentence into two punchy, short sentences.
-  * Turn passive clauses into active personal statements (*"The experiment was concluded"* -> *"We wrapped up the trials on Friday"*).
-  * Insert concrete examples, personal anecdotes, or unique domain terminology.
-
-#### 3. Use AI for "Chunks & Arguments", Never Continuous Passages
-* Watermark detection requires a minimum critical mass of text—usually **200 to 400 continuous tokens** (roughly 150–300 words).
-* Isolate AI output to small units: asking for a single transition phrase, a code snippet, or a 3-bullet summary of a source paper.
-* Interweaving 20 words of AI phrasing with 80 words of your own writing drops the statistical Z-score far below the detection threshold.
-
-#### 4. Leverage Open-Source / Local Models
-* Commercial proprietary APIs (like Gemini or Claude) have deployed server-side statistical watermarking.
-* If you run open-weight models locally (such as Llama or Mistral via Ollama/vLLM) on your computer, **no watermark is injected** unless you deliberately enable a custom logit processor.
-
----
-
-### Key Takeaway for Everyday Creators
-
-> **You cannot "clean" or "filter" an AI text watermark out of a file—you can only write through it.** 
-> 
-> Treat AI as a research partner, editor, or sparring collaborator rather than a ghostwriter. If you use its outputs to clarify your thoughts and write the final sentences in your own voice, no statistical watermark will ever attach to your `.txt` files.
