@@ -30,11 +30,41 @@ An AI text watermark is **not a hidden character, a secret tag, or special file 
 
 1. **Before generating word**: The AI looks at the word it just typed and uses a secret rule to secretly split the entire dictionary into 50% Green words and 50% Red words.
 
-2. **During generating words**: The AI gives Green words a subtle extra boost, making them far more likely to be chosen while keeping the sentence completely natural.
+2. **During generating words**: The AI gives Green words a subtle extra boost ($\delta$), making them far more likely to be chosen while keeping the sentence completely natural.
 
 3. **Detecting a text**: A human naturally lands on Green about 50% of the time (like flipping a fair coin), but the watermarked AI lands on Green 75%–85% of the time.
 
 4. **The final judgement**: If a 200-word paragraph hits Green far too often to be pure luck, a quick probability test proves it came from the AI.
+
+## what is the shortest detectable length for a watermark?
+
+- Assuming a 50% ($\gamma$) Green/Red split
+- The Expectation of Z-test statistics given a sample of T tokens is:
+$$
+\mathbb{E}[z] = \frac{(\bar{p}_G - \gamma)\sqrt{T}}{\sqrt{\gamma(1 - \gamma)}}
+$$
+
+- $\bar{p}_G$ is the observed proportion of Green words in the sample, this rate is roughly controlled by how you set the watermarking strength ($\delta$).
+- In common settting we use the critial value of 3 ($\tau$) to determine if a text is watermarked or not.
+- We can plot how does $\bar{p}_G$ vary with different sample sizes.
+
+##
+
+| Watermark Strength | Expected Green Rate ($\\bar{p}_G$) | Minimum Detectable Sample Size (T) | Minimum Detectable Sample Size (Words) |
+|---|---|---|---|
+| **Moderate Soft Watermark** ($\\delta \\approx 1.5$) | $\\bar{p}_G \\approx 0.70$ | **$\\approx 100$ tokens** (~75 words) | **$\\approx 56$ tokens** |
+| **Standard Soft Watermark** ($\\delta \\approx 2.0$) | $\\bar{p}_G \\approx 0.80$ | **$\\approx 44$ tokens** (~30–35 words) | **$\\approx 25$ tokens** |
+| **Aggressive Soft Watermark** ($\\delta \\ge 4.0$) | $\\bar{p}_G \\approx 0.90$ | **$\\approx 25$ tokens** (~18–20 words) | **$\\approx 14$ tokens** |
+| **Theoretical Limit: Hard Red List** ($\\delta \\to \\infty$) | $\\bar{p}_G = 1.0$ (100% Green) | **$16$ tokens** | **$9$ tokens** |
+
+## False Negative rate of the watermark detection
+| Sequence Length (T) | False Negative Rate ($\\bar{p}_G \\approx 0.70$) | False Negative Rate ($\\bar{p}_G \\approx 0.80$) | False Negative Rate ($\\bar{p}_G \\approx 0.90$) |
+|---|---|---|---|
+| **$T = 25$ tokens** (~18 words) | $\\approx 99.8\\%$ (undetermined) | $\\approx 84.1\\%$ | $\\approx 15.9\\%$ |
+| **$T = 50$ tokens** (~35 words) | $\\approx 92.3\\%$ | $\\approx 10.6\\%$ | $\\approx 0.02\\%$ |
+| **$T = 100$ tokens** (~75 words) | $\\approx 50.0\\%$ | $\\approx 0.03\\%$ | $< 10^{-6}$ |
+| **$T = 200$ tokens** (~150 words) | $\\approx 1.4\\%$ | $< 10^{-6}$ | $\\approx 0$ |
+| **$T \\ge 300$ tokens** (~220 words) | $\\approx 0.003\\%$ | $\\approx 0$ | $\\approx 0$ |
 
 ## Preventing being flagged out 
 
@@ -45,7 +75,12 @@ An AI text watermark is **not a hidden character, a secret tag, or special file 
   * Turn passive clauses into active personal statements (*"The experiment was concluded"* -> *"We wrapped up the trials on Friday"*).
   * Insert concrete examples, personal anecdotes, or unique domain terminology.
 
-## Other tricks 
+## Other tricks - Cross-Model Paraphrasing
+
+* LLM1 -> "Watermarked" -> LLM2 -> "Unwatermarked"
+
+- Usually LLM2 will be some open-source model that is not watermarked, and it will paraphrase the text in a way that removes the watermark.
+- Laziest approach to avoid detection, but it can also introduce errors or change the meaning of the text.
 
 ## Daily Life Implications: When Does This Matter?
 
@@ -55,4 +90,48 @@ An AI text watermark is **not a hidden character, a secret tag, or special file 
 | **Proofreading / Polishing your own draft** | **Negligible** | If the ideas and majority of words are yours, the AI merely fixes grammar or word order. There is very little AI token sequence for a detector to latch onto. |
 | **Direct Generation (Copy-Pasting full drafts)** | **High** | The text contains raw, continuous model token sequences that reliably trigger detection algorithms. |
 
+## Does free online AI watermark detector and remover work?
+
+- Challenges for free detectors:
+  - Getting the **private key** that generated the green/red split is impossible, so they have to guess the watermarking strength and the green/red split. 
+
+- Easy way for most free online AI watermark detector and remover tools:
+  - **Shallow heuristics** or, 
+  - **Simple statistical tests** 
+
+## Watermarks on other modality
+
+Text watermarking is not the only modality that can be watermarked. Other modalities include: 
+
+- Image watermarking
+  - Well-established field,
+  - Visible or hidden patterns embedded in the pixels of an image.
+- Audio watermarking
+  - Similar to image watermarking, but applied to audio signals.
+  - Adding low-level noise or frequency patterns 
+
+Still text watermarking is more challenging due to the discrete nature of language and the need for semantic coherence.
+
+## Takeaways
+
+- Simple paraphrasing or synonym replacement is not enough to remove watermarks.
+- Restructuring sentences, adding personal anecdotes, and using unique domain terminology are more effective strategies
+- Existing free online AI watermark detector and remover tools may not be reliable due to the lack of access to the private key and reliance on shallow heuristics or simple statistical tests.
+
+
+# If you really interested in how the watermark algorithm works
+
+## 1. Generate a unweighted candidate list of words
+
+- Generate a logit vector (probability) of candidate words ($l^{t}$) for the next token based on the previous context ($s^0, \dots s^{t-1}$).
+- The candidate logit vector is unweighted, meaning that each word are selected based on the model's natural probability distribution without any bias or weighting applied.
+
+## 2. Determine the Green/Red list
+
+- Use the s^{t-1} to generate a random seed for the current token, which is used to split the candidate list into Green and Red words.
+- To maximize the sensitivity, the optimal way is to select the 50% of the words as Green list and the other 50% as Red list. 
+
+## 3. Reweight the logit vector to new probability distribution
+
+- Rewieght the logit vector to favor the Green words by adding a small bias ($\delta$) to their logits, while keeping the Red words unchanged.
 
