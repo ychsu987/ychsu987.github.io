@@ -1,8 +1,8 @@
 ---
 title: "AI watermarks"
-subtitle: 
+subtitle:  Paper reading on Kirchenbauer et al. 2023 
 title-slide-attributes:
-    data-background: /assets/images/introR/background-2.jpg
+    data-background: /assets/images/talk/background-1.jpg
     data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"

@@ -50,21 +50,21 @@ $$
 
 ##
 
-| Watermark Strength | Expected Green Rate ($\\bar{p}_G$) | Minimum Detectable Sample Size (T) | Minimum Detectable Sample Size (Words) |
+| Watermark Strength | Expected Green Rate ($\bar{p}_G$) | Minimum Detectable Sample Size (T) | Minimum Detectable Sample Size (Words) |
 |---|---|---|---|
-| **Moderate Soft Watermark** ($\\delta \\approx 1.5$) | $\\bar{p}_G \\approx 0.70$ | **$\\approx 100$ tokens** (~75 words) | **$\\approx 56$ tokens** |
-| **Standard Soft Watermark** ($\\delta \\approx 2.0$) | $\\bar{p}_G \\approx 0.80$ | **$\\approx 44$ tokens** (~30–35 words) | **$\\approx 25$ tokens** |
-| **Aggressive Soft Watermark** ($\\delta \\ge 4.0$) | $\\bar{p}_G \\approx 0.90$ | **$\\approx 25$ tokens** (~18–20 words) | **$\\approx 14$ tokens** |
-| **Theoretical Limit: Hard Red List** ($\\delta \\to \\infty$) | $\\bar{p}_G = 1.0$ (100% Green) | **$16$ tokens** | **$9$ tokens** |
+| **Moderate Soft Watermark** ($\delta \approx 1.5$) | $\bar{p}_G \approx 0.70$ | **$\approx 100$ tokens** (~75 words) | **$\approx 56$ tokens** |
+| **Standard Soft Watermark** ($\delta \approx 2.0$) | $\bar{p}_G \approx 0.80$ | **$\approx 44$ tokens** (~30–35 words) | **$\approx 25$ tokens** |
+| **Aggressive Soft Watermark** ($\delta \ge 4.0$) | $\bar{p}_G \approx 0.90$ | **$\approx 25$ tokens** (~18–20 words) | **$\approx 14$ tokens** |
+| **Theoretical Limit: Hard Red List** ($\delta \to \infty$) | $\bar{p}_G = 1.0$ (100% Green) | **$16$ tokens** | **$9$ tokens** |
 
 ## False Negative rate of the watermark detection
-| Sequence Length (T) | False Negative Rate ($\\bar{p}_G \\approx 0.70$) | False Negative Rate ($\\bar{p}_G \\approx 0.80$) | False Negative Rate ($\\bar{p}_G \\approx 0.90$) |
+| Sequence Length (T) | False Negative Rate ($\bar{p}_G \approx 0.70$) | False Negative Rate ($\bar{p}_G \approx 0.80$) | False Negative Rate ($\bar{p}_G \approx 0.90$) |
 |---|---|---|---|
-| **$T = 25$ tokens** (~18 words) | $\\approx 99.8\\%$ (undetermined) | $\\approx 84.1\\%$ | $\\approx 15.9\\%$ |
-| **$T = 50$ tokens** (~35 words) | $\\approx 92.3\\%$ | $\\approx 10.6\\%$ | $\\approx 0.02\\%$ |
-| **$T = 100$ tokens** (~75 words) | $\\approx 50.0\\%$ | $\\approx 0.03\\%$ | $< 10^{-6}$ |
-| **$T = 200$ tokens** (~150 words) | $\\approx 1.4\\%$ | $< 10^{-6}$ | $\\approx 0$ |
-| **$T \\ge 300$ tokens** (~220 words) | $\\approx 0.003\\%$ | $\\approx 0$ | $\\approx 0$ |
+| **$T = 25$ tokens** (~18 words) | $\approx 99.8\%$ (undetermined) | $\approx 84.1%$ | $\approx 15.9\%$ |
+| **$T = 50$ tokens**| $\approx 92.3\%$ | $\approx 10.6\%$ | $\approx 0.02\%$ |
+| **$T = 100$ tokens**  | $\approx 50.0\%$ | $\approx 0.03\%$ | $< 10^{-6}$ |
+| **$T = 200$ tokens**  | $\approx 1.4\%$ | $< 10^{-6}$ | $\approx 0$ |
+| **$T \ge 300$ tokens**  | $\approx 0.003\%$ | $\approx 0$ | $\approx 0$ |
 
 ## Preventing being flagged out 
 
