@@ -13,30 +13,40 @@ An AI text watermark is **not a hidden character, a secret tag, or special file 
 1. If I set **rapid** in the **Watermark list**, then AI-generated text will be in favor of choosing **rapid** over other synonyms
 2. If we have a bag of the **Watermark list**, as long as a "statistically significant" amount of the word occurs in the **Watermark list** then I  will believe it is an AI-generated content
 
-## Technical challenges of developing water marks
+## Challenges of developing watermarks
 
-- Imperceptibility
-  Content accuracy, highly technical writing
-  - **quick update** over **rapid update**
+- **Imperceptibility** :
+  - Language conventions
+  - Content accuracy, highly technical writing
   - Mathematical formula writing
 
-- Robustness
-  Robust to reformatting, paraphrasing
+- **Robustness** :
+  - Robust to reformatting, paraphrasing
 
-- Detectability & Security
-  Low false positive rate, cannot reverse attack the algorithm 
+- **Detectability & Security** :
+  - Low false positive rate, cannot reverse attack the algorithm 
 
-## How does the watermark being made 
+## Generating watermarks 
 
 1. **Before generating word**: The AI looks at the word it just typed and uses a secret rule to secretly split the entire dictionary into 50% Green words and 50% Red words.
 
 2. **During generating words**: The AI gives Green words a subtle extra boost ($\delta$), making them far more likely to be chosen while keeping the sentence completely natural.
 
+##
+
+![Illustration of the algorithm](/assets/images/talk/llm-watermark.jpg){width=50%}
+
+## Deciphering watermarks
+
 3. **Detecting a text**: A human naturally lands on Green about 50% of the time (like flipping a fair coin), but the watermarked AI lands on Green 75%–85% of the time.
 
 4. **The final judgement**: If a 200-word paragraph hits Green far too often to be pure luck, a quick probability test proves it came from the AI.
 
-## what is the shortest detectable length for a watermark?
+##
+
+![Illustration of the algorithm](/assets/images/talk/llm-watermark-2.jpg){width=50%}
+
+## Shortest detectable length for a watermark
 
 - Assuming a 50% ($\gamma$) Green/Red split
 - The Expectation of Z-test statistics given a sample of T tokens is:
@@ -75,17 +85,17 @@ $$
   * Turn passive clauses into active personal statements (*"The experiment was concluded"* -> *"We wrapped up the trials on Friday"*).
   * Insert concrete examples, personal anecdotes, or unique domain terminology.
 
-## Other tricks - Cross-Model Paraphrasing
+## Cross-Model Paraphrasing
 
 * LLM1 -> "Watermarked" -> LLM2 -> "Unwatermarked"
 
 - Usually LLM2 will be some open-source model that is not watermarked, and it will paraphrase the text in a way that removes the watermark.
 - Laziest approach to avoid detection, but it can also introduce errors or change the meaning of the text.
 
-## Daily Life Implications: When Does This Matter?
+## Daily Life Implications
 
 | Scenario | Watermark Risk | Real-World Impact |
-|---|---|---|
+|--|---|-----|
 | **Brainstorming & Outlining** | **Zero** | Ideas, bullet points, and high-level concepts carry no sentence-level token distribution. |
 | **Proofreading / Polishing your own draft** | **Negligible** | If the ideas and majority of words are yours, the AI merely fixes grammar or word order. There is very little AI token sequence for a detector to latch onto. |
 | **Direct Generation (Copy-Pasting full drafts)** | **High** | The text contains raw, continuous model token sequences that reliably trigger detection algorithms. |
@@ -93,7 +103,8 @@ $$
 ## Does free online AI watermark detector and remover work?
 
 - Challenges for free detectors:
-  - Getting the **private key** that generated the green/red split is impossible, so they have to guess the watermarking strength and the green/red split. 
+  - Getting the **private key** that generated the green/red split is impossible
+  - Free detectors have to guess the watermarking strength and the green/red split. 
 
 - Easy way for most free online AI watermark detector and remover tools:
   - **Shallow heuristics** or, 
@@ -119,7 +130,13 @@ Still text watermarking is more challenging due to the discrete nature of langua
 - Existing free online AI watermark detector and remover tools may not be reliable due to the lack of access to the private key and reliance on shallow heuristics or simple statistical tests.
 
 
-# If you really interested in how the watermark algorithm works
+## Open Discussion: The Future of Provenance
+
+1. **Where is the line?** If an AI polishes your original draft into its own green-list vocabulary, is that original work or AI ghostwriting?
+2. **The Enforcement Paradox:** If tech-savvy users can easily wipe watermarks with open-source tools, who does watermarking actually protect?
+3. **The Keyholder Dilemma:** Should tech companies keep watermark keys private, or should verification tools be open to certain level that public can verify it?
+
+<!-- # If you really interested in how the watermark algorithm works
 
 ## 1. Generate a unweighted candidate list of words
 
@@ -128,10 +145,10 @@ Still text watermarking is more challenging due to the discrete nature of langua
 
 ## 2. Determine the Green/Red list
 
-- Use the s^{t-1} to generate a random seed for the current token, which is used to split the candidate list into Green and Red words.
+- Use the $s^{t-1}$ to generate a random seed for the current token, which is used to split the candidate list into Green and Red words.
 - To maximize the sensitivity, the optimal way is to select the 50% of the words as Green list and the other 50% as Red list. 
 
 ## 3. Reweight the logit vector to new probability distribution
 
 - Rewieght the logit vector to favor the Green words by adding a small bias ($\delta$) to their logits, while keeping the Red words unchanged.
-
+ -->

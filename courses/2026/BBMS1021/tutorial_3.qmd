@@ -9,9 +9,9 @@ format:
     css: ../../../assets/css/tutorial_student.css
 engine: knitr 
 author: "Yu Cheng Hsu, BBMS1021 teaching team"
-date: "2026-09-15"
+date: "2026-10-01"
 eval: false
 lightbox: true
 ---
 
-{{< include /_content/modules/tutorials/bbms1021/t3.qmd >}}
+{{< include /_content/modules/tutorials/bbms1021/t3-1.qmd >}}

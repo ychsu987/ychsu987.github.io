@@ -261,7 +261,7 @@ ydat |>
               n=n(),
               mean_expr=mean(expression),
               sd_expr=sd(expression),
-              n_leu1=sum(symbol=='LEU1')
+              n_leu1=sum(symbol=='LEU1',na.rm = TRUE)
     )
 ```
 
@@ -363,9 +363,9 @@ ydat |>
 ydat |>
     select(symbol, nutrient, rate, expression) |>
     mutate( restriction = case_when(
-        rate == 0.05 ~ "Severe restriction",
-        rate == 0.15 ~ "Moderate restriction",
-        rate == 0.3 ~ "Relaxed restriction"
+        rate <= 0.05 ~ "Severe restriction",
+        rate <= 0.15 ~ "Moderate restriction",
+        rate <= 0.3 ~ "Relaxed restriction"
     ))|>
     head(3)
 ```

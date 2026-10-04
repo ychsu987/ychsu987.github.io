@@ -1,0 +1,10 @@
+---
+title: "Invited talk slides"
+---
+
+Paper reading club
+
+
+| Topic | Slides | 
+|---|---|
+| LLM watermark (Kirchenbauer et al. 2023) | [Slides](courses\talks\AI-watermark\ai-watermark.qmd) | — |— |

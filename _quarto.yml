@@ -12,8 +12,8 @@ website:
         text: Home
       - text: Courses
         menu:
-        - text: Common core
-          href: cc.qmd       
+        - text: Invited talks
+          href: talks.qmd       
         - text: Hybrid PBL Lectures
           href: hybridPBL.qmd
         - text: Quantitative analysis

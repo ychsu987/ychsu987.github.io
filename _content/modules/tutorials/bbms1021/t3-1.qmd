@@ -1,0 +1,261 @@
+# Tutorial & Lab: Transcriptomic Dynamics with R
+
+### Dataset Overview
+
+You will analyze brain tissue RNA-Seq profiles from mice infected with influenza over an 8-day timecourse:
+
+* **Source:** `https://raw.githubusercontent.com/uclouvain-cbio/WSBIM1207/master/data/rnaseq.csv`
+* **Key columns:** `gene`, `sample`, `expression`, `sex`, `infection`, `time`, `tissue`, `gene_biotype`
+
+The case is adopted from @laurent_gatto_2021_5532658 with data from @blackmore2017influenza
+
+```{r}
+library(tidyverse)
+
+rna <- read_csv("https://uclouvain-cbio.github.io/WSBIM1207/data/rnaseq.csv")
+```
+
+---
+
+## Part 1: Data Wrangling with `dplyr`
+
+### Question 1.1: Data Hygiene and Transformation
+
+Raw RNA-Seq count data exhibits high dynamic range and right skewness.
+
+1. Read the dataset directly from the URL using `read_csv()`.
+2. Inspect the `rna` dataset to determine:
+   - How many observations (rows) are present?
+   - How many columns are present?
+   - What are the data types for each column?
+3. Compute a new column `log2_expr = log2(expression + 1)` using `mutate()`.
+4.Save the cleaned table as `rna_clean`.
+
+```{webr}
+## Your code starts here
+
+head(rna_clean)
+```
+
+::: {.hide}
+**Answer Key**
+```{r}
+# 2. Inspect data dimensions and structure
+str(rna)
+
+# 3 & 4. Transform, filter, and drop columns
+rna_clean <- rna |>
+  mutate(log2_expr = log2(expression + 1)) |>
+  filter(gene_biotype == "protein_coding")
+
+head(rna_clean)
+```
+:::
+
+---
+
+### Question 1.2: Subsetting and Summary Statistics
+
+We focus on the **Fcrls** gene. In the paper, researchers found that *Fcrls* is down-regulated during peak infection because brain-resident microglia switch off their homeostatic markers in response to the neuroinflammatory cascade.
+
+1. Filter `rna_clean` for `gene == "Fcrls"` and `tissue == "Cerebellum"`.
+2. Compute group-level summary statistics: group by `sex` and `time`, then calculate the mean (`mean_expr`), standard deviation (`sd_expr`), and count (`n = n()`).
+3. Store the unaggregated filtered subset as `fcrls_cere` for downstream plotting and statistical modeling.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{r}
+# 1 & 3. Create unaggregated subset
+fcrls_cere <- rna_clean %>%
+  filter(gene == "Fcrls", tissue == "Cerebellum")
+
+# 2. Compute group-level summary statistics
+fcrls_summary <- fcrls_cere %>%
+  group_by(sex, time) %>%
+  summarize(
+    mean_expr = mean(log2_expr),
+    sd_expr   = sd(log2_expr),
+    n         = n(),
+  )
+
+print(fcrls_summary)
+```
+:::
+
+---
+
+## Part 2: Publication-Ready Plotting with `ggplot2`
+
+### Question 2.1: Multi-Panel Trajectory Visualization
+
+Visual inspection reveals whether temporal changes in *Fcrls* expression are consistent across sexes.
+
+1. Build a scatter plot using `fcrls_cere` mapping `time` to the x-axis and `log2_expr` to the y-axis.
+2. Color points by `sex`.
+3. Adding sufficient information on  x- and y-axis title
+4. Style the plot: set discrete x-ticks at `c(0, 4, 8)`
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{r}
+ggplot(fcrls_cere, aes(x = time, y = log2_expr, color = sex)) +
+  geom_point(size = 3, alpha = 0.8) +
+  scale_x_continuous(name  = "Days Post-Infection (Time)",breaks = c(0, 4, 8)) +
+  scale_y_continuous(name  = "log expression")
+  
+```
+:::
+
+---
+
+### Question 2.2: Distributional Comparison Across Time Points
+
+To inspect the spread and distribution across time points without assuming linearity, construct a boxplot with individual observations overlaid.
+
+1. Create a boxplot mapping `factor(time)` to the x-axis and `log2_expr` to the y-axis.
+2. Overlay individual data points using `geom_jitter()` or `geom_point()`.
+3. Facet by `sex`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{r}
+ggplot(fcrls_cere, aes(x = factor(time), y = log2_expr, fill = sex)) +
+  geom_boxplot(alpha = 0.4, outlier.shape = NA) +
+  scale_fill_manual(values = c("Male" = "#1f77b4", "Female" = "#ff7f0e")) +
+  scale_x_discrete(name  = "Days Post-Infection (Time)") +
+  scale_y_continuous(name  = "log expression")
+```
+:::
+
+---
+
+## Part 3: Statistical Modeling
+
+### Question 3.1: Difference Between Time Points
+
+We want to test whether *Fcrls* expression differs between specific time points:
+- Day 0 (T0) vs. Day 4 (T4)
+- Day 4 (T4) vs. Day 8 (T8)
+
+1. What is a suitable statistical test to compare the means of these two independent groups?
+2. Perform the test using the appropriate R function, extract the $p$-value, and state your conclusion.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+
+**Test Selection:** Two-sample independent Welch's $t$-test (`t.test()`) or a simple linear model (`lm()`).
+
+```{r}
+# T0 vs T4 comparison
+fcrls_t0_t4 <- fcrls_cere %>% filter(time <= 4)
+t_test_0_4  <- t.test(log2_expr ~ time, data = fcrls_t0_t4)
+t_test_0_4
+# T4 vs T8 comparison
+fcrls_t4_t8 <- fcrls_cere %>% filter(time >=4)
+t_test_4_8  <- t.test(log2_expr ~ time, data = fcrls_t4_t8)
+t_test_4_8
+```
+
+**Conclusion:** 
+* Comparing Day 0 to Day 4 tests whether the acute neuroinflammatory onset produces a significant down-regulation of *Fcrls*.
+* Comparing Day 4 to Day 8 assesses whether *Fcrls* expression recovers as the infection begins resolving.
+:::
+
+---
+
+### Question 3.2: Generalizing to *Apod* and Multiple Testing Correction
+
+1. Filter `rna_clean` for `gene == "Apod"` and `tissue == "Cerebellum"`, and perform the same comparison between Day 0 and Day 4.
+2. Can we repeat this pairwise testing procedure independently across all 15,000+ genes to find differentially expressed genes? If not, what adjustments are required?
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{r}
+apod_t0_t4 <- rna_clean %>%
+  filter(gene == "Apod", tissue == "Cerebellum", time %in% c(0, 4))
+
+t_test_apod <- t.test(log2_expr ~ time, data = apod_t0_t4)
+t_test_apod
+```
+
+**Discussion:**
+No, you cannot run thousands of unadjusted individual tests. Testing thousands of genes simultaneously leads to the **multiple testing problem**: at an $\alpha = 0.05$ threshold, testing 20,000 genes would produce roughly $20,000 \times 0.05 = 1,000$ false positives purely by random chance.
+
+**Required Modifications:**
+- Apply **False Discovery Rate (FDR)** control using the Benjamini-Hochberg (BH) procedure via `p.adjust(p, method = "BH")`.
+- In standard transcriptomic workflows, use specialized empirical Bayes shrinkage frameworks designed for count data and small sample sizes (such as `DESeq2` or `limma-voom`).
+:::
+
+---
+
+### Question 3.3: Stratified Linear Regression via Nested Data
+
+Fit a simple linear regression model using lm() to investigate how Fcrls expression changes over time across all samples in fcrls_cere
+
+$$\text{log2\_expr} = \beta_0 + \beta_1 \cdot \text{time} + \epsilon$$
+
+1. Fit the linear model predicting log2_expr from time and store it in an object named `model_fcrls`.
+2. Inspect the model summary using `summary()` 
+3. Extract the estimated slope ($\beta_1$) and check if it is statistically significant ($p < 0.05$).
+4. Extract the $R^2$ (coefficient of determination) value to assess goodness-of-fit.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{r}
+# 1. Fit the simple linear regression model
+model_fcrls <- lm(log2_expr ~ time, data = fcrls_cere)
+
+# 2. View full regression summary
+summary(model_fcrls)
+
+# 3. Extract coefficient table (slope, std error, t-value, p-value)
+coef_summary <- summary(model_fcrls)$coefficients
+coef_summary
+
+# Specifically check the slope and its p-value
+slope_estimate <- coef_summary["time", "Estimate"]
+slope_pvalue   <- coef_summary["time", "Pr(>|t|)"]
+
+cat("Slope (beta_1):", slope_estimate, "\n")
+cat("p-value:", slope_pvalue, "\n")
+
+# 4. Extract R-squared value
+r_squared <- summary(model_fcrls)$r.squared
+cat("R-squared:", r_squared, "\n")
+
+```
+
+**Interpretation:**
+- **Goodness-of-fit:** `r.squared` = 0.78 indicates the proportion of variance in `log2_expr` explained by post-infection time.
+- **Slope ($\beta_1$):** The row where `term == "time"` reports the slope estimate. A negative value indicates the average daily decrease in $\log_2$ expression over the course of the infection.
+:::
