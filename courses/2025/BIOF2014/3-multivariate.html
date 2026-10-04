@@ -6,11 +6,11 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.9.35">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Multivariate statistics</title>
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,7 +38,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -52,7 +54,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-9cb3bbe7ede7fcf9806b40b2b458214b.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-e0c39bb42207db73b80356ceeab0b202.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -597,12 +599,12 @@ X \perp Y \; \Rightarrow \quad &amp; f_{Y \mid X}(y \mid x) = f_Y(y) \\
 <h2>Bibliography Note</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bonovas2023simpson" class="csl-entry" role="listitem">
-Bonovas, Stefanos, and Daniele Piovani. 2023. <span>“Simpson’s Paradox in Clinical Research: A Cautionary Tale.”</span> <em>Journal of Clinical Medicine</em>. MDPI.
+Bonovas, Stefanos, and Daniele Piovani. 2023. <span>“Simpson’s Paradox in Clinical Research: A Cautionary Tale.”</span> In <em>Journal of Clinical Medicine</em>, No. 4, vol. 12. MDPI.
 </div>
 <div id="ref-TACQ2010332" class="csl-entry" role="listitem">
-Tacq, J. 2010. <span>“Multivariate Normal Distribution.”</span> In <em>International Encyclopedia of Education (Third Edition)</em>, edited by Penelope Peterson, Eva Baker, and Barry McGaw, Third Edition, 332–38. Oxford: Elsevier. https://doi.org/<a href="https://doi.org/10.1016/B978-0-08-044894-7.01351-8">https://doi.org/10.1016/B978-0-08-044894-7.01351-8</a>.
+Tacq, J. 2010. <span>“Multivariate Normal Distribution.”</span> In <em>International Encyclopedia of Education (Third Edition)</em>, Third Edition, edited by Penelope Peterson, Eva Baker, and Barry McGaw. Elsevier. https://doi.org/<a href="https://doi.org/10.1016/B978-0-08-044894-7.01351-8">https://doi.org/10.1016/B978-0-08-044894-7.01351-8</a>.
 </div>
 </div>
 </section>
@@ -797,7 +799,7 @@ Tacq, J. 2010. <span>“Multivariate Normal Distribution.”</span> In <em>Inter
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -871,13 +873,14 @@ Tacq, J. 2010. <span>“Multivariate Normal Distribution.”</span> In <em>Inter
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
