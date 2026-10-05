@@ -73,15 +73,6 @@ Some potential steps we need to perform:
 4.  **Statistical test:** Formulate our hypothesis and conduct statistical inference
 5.  **Conclusion & Reporting:** Interpret the statistical output (p-value, mean difference).
 
-```{=html}
-<!-- ## A Famous "Wrong" Experiment
-
-This study is famous not because of its contribution to plant biology; instead, it is a famous **wrong** experiment in statistics. 
-
-- **Darwin's Mistake:** He calculated the overall average height of all cross-pollinated plants and compared it to the average of all self-pollinated plants, completely ignoring the fact that they were planted in pairs.
-- **Fisher's Correction:** Ronald A. Fisher (a renowned biostatistician) later pointed out that by ignoring the pairs, Darwin failed to account for the environmental differences between different pots. Fisher used this exact dataset to demonstrate the importance of the **Paired design** in statistics. -->
-```
-
 ## Data Import and Inspection
 
 Before any analysis, the absolute first step is to inspect the data to ensure its integrity.
@@ -158,7 +149,7 @@ anyNA(zea_mays)
 ::: column
 **Not recommended way**
 
-```{r}
+``` r
 #| echo: true
 #| eval: false
 # Not recommended approach
@@ -183,16 +174,11 @@ For our visual and statistical analysis, we need to calculate the true biologica
 ```{r}
 #| echo: true
 #| eval: true
+
 # Calculate the paired difference
 zea_mays <- zea_mays |>
   mutate(diff.height = Cross_fertilized_plant - Self_fertilized_plant)
 
-# Reshape for visualization
-zea_mays_long <- zea_mays |>
-  pivot_longer(cols = c(Cross_fertilized_plant, Self_fertilized_plant), 
-               names_to = "Type", values_to = "Height")
-
-head(zea_mays_long)
 ```
 
 # Analysis and Visualization
@@ -213,15 +199,80 @@ Keep that story in mind for the next two slides (wrong vs right test).
 
 ## Scatter Plot with Pair Information
 
+:::{.columns}
+
+:::{.column width=45%}
+
+This part we would like create a plot like this. Before that there are some issues in the our data.
+
+-   Every row must represent a single observation
+
+Implication: Not compatibile to `ggplot`
+
+
+In data wrangling we define
+
+- **Wide table**: a table with each observation at each column 
+- **Long table**: a table with each observation at each row 
+
+:::
+
+:::{.column width=53%}
+
 ```{r}
-#| echo: true
+#| echo: false
 #| eval: true
+
+# Reshape for visualization
+zea_mays_long <- zea_mays |> 
+  select(Pair,Self_fertilized_plant,Cross_fertilized_plant) |>
+  pivot_longer(cols = c(Cross_fertilized_plant, Self_fertilized_plant), 
+               names_to = "Type", values_to = "Height")
+
 ggplot(zea_mays_long, aes(x = Type, y = Height, group = Pair)) +
   geom_point(aes(color = Type), size = 3) +
   geom_line() +
   scale_x_discrete(name="Pollination Type")+
   scale_y_continuous(name="Height (inches)")
+```
+:::
 
+:::
+
+## Reshape the zea_mays
+
+We use `pivot_longer()` to reshape the `zea_mays`
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Reshape for visualization
+zea_mays_long <- zea_mays |> 
+  select(Pots,Pair,Self_fertilized_plant,Cross_fertilized_plant) |>
+  pivot_longer(cols = c(Cross_fertilized_plant, Self_fertilized_plant), 
+               names_to = "Type", values_to = "Height")
+
+head(zea_mays_long,3)
+
+```
+
+-   `cols`: You tell R which columns are observationss
+-   `names_to = "Type"`: The old column headers (i.e. `Self_fertilized_plant` and `Cross_fertilized_plant`) become categorical values in a new column called Type.
+-   `values_to = "Height"`: The actual measured numbers inside those cells are stacked into a new column called Height.
+
+## Visualization
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Visualization of the data
+ggplot(zea_mays_long, aes(x = Type, y = Height, group = Pair)) +
+  geom_point(aes(color = Type), size = 3) +
+  geom_line() +
+  scale_x_discrete(name="Pollination Type")+
+  scale_y_continuous(name="Height (inches)")
 ```
 
 ## The Wrong Approach: Independent t-test
