@@ -6,11 +6,11 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Introduction to R</title>
@@ -20,9 +20,6 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -104,6 +101,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -120,7 +118,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -296,13 +294,13 @@ Yu Cheng Hsu
 </section>
 <section id="a-full-picture-of-analytics" class="slide level2">
 <h2>A full picture of analytics</h2>
-<p><span class="citation" data-cites="griffin2018best"><span class="nocase">Griffin et al.</span> (<a href="#/reading-list" role="doc-biblioref" onclick="">2018</a>)</span> proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.</p>
+<p><span class="citation" data-cites="griffin2018best">Griffin et al. (<a href="#/reading-list" role="doc-biblioref" onclick="">2018</a>)</span> proposed best practices in the life sciences. In this module, so far, we have covered a simple traditional approach to research data.</p>
 <div class="columns">
 <div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><a href="../../..\assets/images/real-example/data_lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Data lifecycle, figure from @griffin2018best"><img data-src="../../..\assets/images/real-example/data_lifecycle.png" alt="Data lifecycle, figure from Griffin et al. (2018)"></a></p>
-<figcaption>Data lifecycle, figure from <span class="citation" data-cites="griffin2018best"><span class="nocase">Griffin et al.</span> (<a href="#/reading-list" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
+<figcaption>Data lifecycle, figure from <span class="citation" data-cites="griffin2018best">Griffin et al. (<a href="#/reading-list" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
 </figure>
 </div>
 </div><div class="column">
@@ -365,10 +363,10 @@ This study is famous not because of its contribution to plant biology; instead, 
 <li>Data structures</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load necessary libraries and the dataset</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load necessary libraries and the dataset</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a></a>zea_mays <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"../../../assets/data/real-example/zea_mays.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-4"><a></a><span class="fu">head</span>(zea_mays)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a></a><span class="fu">head</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Pots Pair Cross.fertilized.plant Self.fertilized.plant
 1 Pot1    1                 23.500                17.375
@@ -383,9 +381,9 @@ This study is famous not because of its contribution to plant biology; instead, 
 <section id="inspecting-data" class="slide level2">
 <h2>Inspecting Data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Check the data structure and look for missing values</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Check the data structure and look for missing values</span></span>
 <span id="cb3-2"><a></a><span class="do">## Apparently you can use zea_mays %&gt;% anyNA() and so on</span></span>
-<span id="cb3-3"><a></a><span class="fu">str</span>(zea_mays)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a></a><span class="fu">str</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   17 obs. of  4 variables:
  $ Pots                  : chr  "Pot1" "Pot1" "Pot1" "Pot2" ...
@@ -393,7 +391,7 @@ This study is famous not because of its contribution to plant biology; instead, 
  $ Cross.fertilized.plant: num  23.5 12 21 22 19.1 ...
  $ Self.fertilized.plant : num  17.4 20.4 20 20 18.4 ...</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">anyNA</span>(zea_mays) <span class="co"># Returns FALSE if there are no missing values</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">anyNA</span>(zea_mays) <span class="co"># Returns FALSE if there are no missing values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -402,8 +400,8 @@ This study is famous not because of its contribution to plant biology; instead, 
 <li>There is NA data being identified</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>zea_mays <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(Cross.fertilized.plant) <span class="sc">|</span> <span class="fu">is.na</span>(Self.fertilized.plant))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>zea_mays <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(Cross.fertilized.plant) <span class="sc">|</span> <span class="fu">is.na</span>(Self.fertilized.plant))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Pots Pair Cross.fertilized.plant Self.fertilized.plant
 1 Pot6   NA                     NA                    NA</code></pre>
@@ -429,11 +427,11 @@ This study is famous not because of its contribution to plant biology; instead, 
 <div class="column">
 <p><strong>Good practice of coding</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># 1. Drop any incomplete pairs</span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># 1. Drop any incomplete pairs</span></span>
 <span id="cb9-2"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays <span class="sc">%&gt;%</span> </span>
 <span id="cb9-3"><a></a>  <span class="fu">drop_na</span>()</span>
 <span id="cb9-4"><a></a><span class="co"># 2. Verify the clean-up was successful</span></span>
-<span id="cb9-5"><a></a><span class="fu">anyNA</span>(zea_mays)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-5"><a></a><span class="fu">anyNA</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -441,10 +439,10 @@ This study is famous not because of its contribution to plant biology; instead, 
 </div><div class="column">
 <p><strong>Not recommended way</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Not recommended approach</span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Not recommended approach</span></span>
 <span id="cb11-2"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays[<span class="sc">-</span><span class="dv">1</span>,]</span>
 <span id="cb11-3"><a></a><span class="co"># 2. Verify the clean-up was successful</span></span>
-<span id="cb11-4"><a></a><span class="fu">anyNA</span>(zea_mays)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-4"><a></a><span class="fu">anyNA</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 <ul>
@@ -460,14 +458,14 @@ This study is famous not because of its contribution to plant biology; instead, 
 <h2>Data Preparation for Analysis</h2>
 <p>For our visual and statistical analysis, we need to calculate the true biological signal we care about: the height difference within each pair. We will also pivot the data for plotting.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Calculate the paired difference</span></span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Calculate the paired difference</span></span>
 <span id="cb12-2"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a></a>  <span class="fu">mutate</span>(<span class="at">diff.height =</span> Cross.fertilized.plant <span class="sc">-</span> Self.fertilized.plant)</span>
 <span id="cb12-4"><a></a></span>
 <span id="cb12-5"><a></a><span class="co"># Reshape for visualization</span></span>
 <span id="cb12-6"><a></a>zea_mays_long <span class="ot">&lt;-</span> zea_mays <span class="sc">%&gt;%</span></span>
 <span id="cb12-7"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Cross.fertilized.plant, Self.fertilized.plant), </span>
-<span id="cb12-8"><a></a>               <span class="at">names_to =</span> <span class="st">"Type"</span>, <span class="at">values_to =</span> <span class="st">"Height"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-8"><a></a>               <span class="at">names_to =</span> <span class="st">"Type"</span>, <span class="at">values_to =</span> <span class="st">"Height"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
@@ -492,11 +490,11 @@ This study is famous not because of its contribution to plant biology; instead, 
 <section id="scatter-plot-with-pair-information" class="slide level2">
 <h2>Scatter Plot with Pair Information</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(zea_mays_long, <span class="fu">aes</span>(<span class="at">x =</span> Type, <span class="at">y =</span> Height, <span class="at">group =</span> Pair)) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(zea_mays_long, <span class="fu">aes</span>(<span class="at">x =</span> Type, <span class="at">y =</span> Height, <span class="at">group =</span> Pair)) <span class="sc">+</span></span>
 <span id="cb13-2"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Type), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb13-3"><a></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
 <span id="cb13-4"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Paired Heights of Zea mays"</span>, <span class="at">x =</span> <span class="st">"Pollination Type"</span>, <span class="at">y =</span> <span class="st">"Height (inches)"</span>) <span class="sc">+</span></span>
-<span id="cb13-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -522,12 +520,12 @@ H_a: &amp; \mu_{\text{cross}} &gt; \mu_{\text{self}}
 \]</span></p>
 </div><div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># INCORRECT: Running an unpaired </span></span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># INCORRECT: Running an unpaired </span></span>
 <span id="cb14-2"><a></a><span class="co"># (independent) t-test</span></span>
 <span id="cb14-3"><a></a><span class="fu">t.test</span>(zea_mays<span class="sc">$</span>Cross.fertilized.plant, </span>
 <span id="cb14-4"><a></a>       zea_mays<span class="sc">$</span>Self.fertilized.plant, </span>
 <span id="cb14-5"><a></a>       <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
-<span id="cb14-6"><a></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-6"><a></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -565,11 +563,11 @@ H_a: &amp; \mu_{\text{diff}} &gt; 0
 \]</span></p>
 </div><div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># CORRECT: Running a paired t-test</span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># CORRECT: Running a paired t-test</span></span>
 <span id="cb16-2"><a></a><span class="fu">t.test</span>(zea_mays<span class="sc">$</span>Cross.fertilized.plant, </span>
 <span id="cb16-3"><a></a>       zea_mays<span class="sc">$</span>Self.fertilized.plant, </span>
 <span id="cb16-4"><a></a>       <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
-<span id="cb16-5"><a></a>       <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-5"><a></a>       <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -607,9 +605,9 @@ mean difference
 <p><strong>Bibliography notes</strong></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-griffin2018best" class="csl-entry" role="listitem">
-<span class="nocase">Griffin, Philippa C, Jyoti Khadake, Kate S LeMay, et al.</span> 2018. <span>“Best Practice Data Life Cycle Approaches for the Life Sciences.”</span> <em>F1000Research</em> 6: 1618.
+Griffin, Philippa C, Jyoti Khadake, Kate S LeMay, Suzanna E Lewis, Sandra Orchard, Andrew Pask, Bernard Pope, et al. 2018. <span>“Best Practice Data Life Cycle Approaches for the Life Sciences.”</span> <em>F1000Research</em> 6: 1618.
 </div>
 <div id="ref-bg3" class="csl-entry" role="listitem">
 Homer, Winslow. 1865. <em>The Veteran in a New Field</em>. Oil on canvas. The Metropolitan Museum of Art.
@@ -810,7 +808,7 @@ Ross, Sheldon M. 2017. <em>Introductory Statistics</em>. Academic Press.
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -960,14 +958,13 @@ Ross, Sheldon M. 2017. <em>Introductory Statistics</em>. Academic Press.
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

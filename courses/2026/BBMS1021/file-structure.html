@@ -6,8 +6,8 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Dr.&nbsp;Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Introduction to R</title>
@@ -17,9 +17,6 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -101,6 +98,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -117,7 +115,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -243,11 +241,11 @@ Dr.&nbsp;Yu Cheng Hsu
 <h2>Reading and writing data to file</h2>
 <p>For reading and writing data we recoomend use the library under <code>tidyverse</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#install tidyverse (package with lots of functions to handle data in R)</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#install tidyverse (package with lots of functions to handle data in R)</span></span>
 <span id="cb1-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"tidyverse"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {    <span class="co"># checks if already installed</span></span>
 <span id="cb1-3"><a></a>  <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
 <span id="cb1-4"><a></a>}</span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(tidyverse)                                       <span class="co"># load the package</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a></a><span class="fu">library</span>(tidyverse)                                       <span class="co"># load the package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <aside><div>
@@ -261,7 +259,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <li>Use <code>getwd()</code> to see your current working directory.</li>
 </ul>
 <p>Consider the following file structure</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>/ (root)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>/ (root)</span>
 <span id="cb2-2"><a></a>├── home</span>
 <span id="cb2-3"><a></a>│   └── user</span>
 <span id="cb2-4"><a></a>│       ├── documents</span>
@@ -271,13 +269,13 @@ Dr.&nbsp;Yu Cheng Hsu
 <span id="cb2-8"><a></a>│       │   └── notes.txt</span>
 <span id="cb2-9"><a></a>│       └── downloads</span>
 <span id="cb2-10"><a></a><span class="pp">|</span>           └── IMAGE.png</span>
-<span id="cb2-11"><a></a>└── var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="read-the-data" class="slide level2">
 <h2>Read the data</h2>
 <p>Using <code>read_csv()</code> to read the <a href="https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/myData.csv">data</a></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>myData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'myData.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>myData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'myData.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><code>read_csv()</code> need to specify WHERE do you put the file by <strong>Absolute path</strong> or <strong>Relative path</strong></li>
@@ -289,7 +287,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <h2>File path</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a></a>/ (root)</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a></a>/ (root)</span>
 <span id="cb4-2"><a></a>├── home</span>
 <span id="cb4-3"><a></a>│   └── user</span>
 <span id="cb4-4"><a></a>│       ├── documents</span>
@@ -299,7 +297,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <span id="cb4-8"><a></a>│       │   └── notes.txt</span>
 <span id="cb4-9"><a></a>│       └── downloads</span>
 <span id="cb4-10"><a></a><span class="pp">|</span>           └── IMAGE.png</span>
-<span id="cb4-11"><a></a>└── var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:57%;">
 <p>There are two ways of specifying a path:</p>
 <ol type="1">
@@ -312,7 +310,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <h2>Absolute Path</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a>/ (root)</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a>/ (root)</span>
 <span id="cb5-2"><a></a>├── home</span>
 <span id="cb5-3"><a></a>│   └── user</span>
 <span id="cb5-4"><a></a>│       ├── documents</span>
@@ -322,7 +320,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <span id="cb5-8"><a></a>│       │   └── notes.txt</span>
 <span id="cb5-9"><a></a>│       └── downloads</span>
 <span id="cb5-10"><a></a><span class="pp">|</span>           └── IMAGE.png</span>
-<span id="cb5-11"><a></a>└── var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:57%;">
 <p><strong>Absolute Path</strong></p>
 <p>An absolute path starts from the root directory (<code>/</code>) and specifies the full path to a file or directory.</p>
@@ -352,7 +350,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <h2>Relative path</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a></a>/ (root)</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a></a>/ (root)</span>
 <span id="cb6-2"><a></a>├── home</span>
 <span id="cb6-3"><a></a>│   └── user</span>
 <span id="cb6-4"><a></a>│       ├── documents</span>
@@ -362,7 +360,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <span id="cb6-8"><a></a>│       │   └── notes.txt</span>
 <span id="cb6-9"><a></a>│       └── downloads</span>
 <span id="cb6-10"><a></a><span class="pp">|</span>           └── IMAGE.png</span>
-<span id="cb6-11"><a></a>└── var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-11"><a></a>└── var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:57%;">
 <p><strong>Relative Path</strong></p>
 <p>A relative path is defined relative to the current working directory.</p>
@@ -383,9 +381,9 @@ Dr.&nbsp;Yu Cheng Hsu
 <h2></h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bg1" class="csl-entry" role="listitem">
-Mondrian, Piet. 1935. <em>Composition (No. 1) Gray-Red</em>. Oil on canvas. The Art Institute of Chicago.
+Mondrian, Piet. 1935. <em>Composition (No. 1) Gray-Red</em>. Oil on canvas. the Art Institute of Chicago.
 </div>
 </div>
 </section>
@@ -580,7 +578,7 @@ Mondrian, Piet. 1935. <em>Composition (No. 1) Gray-Red</em>. Oil on canvas. The 
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -730,14 +728,13 @@ Mondrian, Piet. 1935. <em>Composition (No. 1) Gray-Red</em>. Oil on canvas. The 
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

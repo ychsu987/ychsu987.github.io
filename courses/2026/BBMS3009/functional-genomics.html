@@ -6,11 +6,11 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Functional genomics</title>
@@ -20,9 +20,6 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -104,6 +101,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -120,7 +118,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -342,8 +340,8 @@ Yu Cheng Hsu
 <p><strong>Enrichment Analysis</strong> Summarizes identified differences in genes associated with common functions.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/functional-genomics/enrichment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Overview of Enrichment Analysis @khatri2012ten"><img data-src="../../..\assets/images/functional-genomics/enrichment.png" height="350" alt="Overview of Enrichment Analysis Khatri et al. (2012)"></a></p>
-<figcaption>Overview of Enrichment Analysis <span class="citation" data-cites="khatri2012ten">Khatri et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2012</a>)</span></figcaption>
+<p><a href="../../..\assets/images/functional-genomics/enrichment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Overview of Enrichment Analysis @khatri2012ten"><img data-src="../../..\assets/images/functional-genomics/enrichment.png" height="350" alt="Overview of Enrichment Analysis Khatri, Sirota, and Butte (2012)"></a></p>
+<figcaption>Overview of Enrichment Analysis <span class="citation" data-cites="khatri2012ten">Khatri, Sirota, and Butte (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2012</a>)</span></figcaption>
 </figure>
 </div>
 </section></section>
@@ -455,7 +453,7 @@ P(X\geq 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
 <h2>Code example</h2>
 <p>This enrichment analysis is implemented in <code>chipenrich</code> library</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Install chipenrich and its data package</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Install chipenrich and its data package</span></span>
 <span id="cb1-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="fu">c</span>(<span class="st">"BiocManager"</span>,<span class="st">"chipenrich"</span>,<span class="st">"chipenrich.data"</span>), <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
 <span id="cb1-3"><a></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
 <span id="cb1-4"><a></a>    BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="fu">c</span>(<span class="st">"chipenrich"</span>,<span class="st">"chipenrich.data"</span>))</span>
@@ -472,7 +470,7 @@ P(X\geq 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
 <span id="cb1-15"><a></a>  <span class="at">qc_plots =</span> <span class="cn">FALSE</span>,  <span class="co"># Set to TRUE to generate diagnostic spline plots</span></span>
 <span id="cb1-16"><a></a>  <span class="at">out_name =</span> <span class="cn">NULL</span>,   <span class="co"># Provide a prefix (e.g., "E2F4_run") to save output files to disk</span></span>
 <span id="cb1-17"><a></a>  <span class="at">n_cores =</span> <span class="dv">1</span>      <span class="co"># Number of cores for parallel processing</span></span>
-<span id="cb1-18"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-18"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="code-results" class="slide level2">
@@ -838,7 +836,7 @@ P &amp; = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><a href="../../..\assets/images/functional-genomics/gsea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Illustration of GSEA @subramanian2005gene; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"><img data-src="../../..\assets/images/functional-genomics/gsea.png" height="400" alt="Illustration of GSEA Subramanian et al. (2005); Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"></a></p>
-<figcaption>Illustration of GSEA <span class="citation" data-cites="subramanian2005gene"><span class="nocase">Subramanian et al.</span> (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2005</a>)</span>; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation</figcaption>
+<figcaption>Illustration of GSEA <span class="citation" data-cites="subramanian2005gene">Subramanian et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2005</a>)</span>; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation</figcaption>
 </figure>
 </div>
 </div></div>
@@ -1275,21 +1273,17 @@ ES &amp; = \\
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="r-stack">
-<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/functional-genomics/insulin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Simplified Insulin Pathway"><img data-src="../../..\assets/images/functional-genomics/insulin.png" alt="Simplified Insulin Pathway"></a></p>
+<p><a href="../../..\assets/images/functional-genomics/insulin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Simplified Insulin Pathway"><img data-src="../../..\assets/images/functional-genomics/insulin.png" class="fragment" alt="Simplified Insulin Pathway"></a></p>
 <figcaption>Simplified Insulin Pathway</figcaption>
 </figure>
 </div>
-</div>
-<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/functional-genomics/insulin_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Complex Insulin Pathway"><img data-src="../../..\assets/images/functional-genomics/insulin_2.png" alt="Complex Insulin Pathway"></a></p>
+<p><a href="../../..\assets/images/functional-genomics/insulin_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Complex Insulin Pathway"><img data-src="../../..\assets/images/functional-genomics/insulin_2.png" class="fragment" alt="Complex Insulin Pathway"></a></p>
 <figcaption>Complex Insulin Pathway</figcaption>
 </figure>
-</div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1430,7 +1424,7 @@ ES &amp; = \\
 <h2>Bibliography Notes</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bg1" class="csl-entry" role="listitem">
 Hokusai, Katsushika. 1830. <em>Under the Wave Off Kanagawa</em>. Woodblock print; ink and color on paper. The Metropolitan Museum of Art.
 </div>
@@ -1438,10 +1432,10 @@ Hokusai, Katsushika. 1830. <em>Under the Wave Off Kanagawa</em>. Woodblock print
 Khatri, Purvesh, Marina Sirota, and Atul J Butte. 2012. <span>“Ten Years of Pathway Analysis: Current Approaches and Outstanding Challenges.”</span> <em>PLoS Computational Biology</em> 8 (2): e1002375.
 </div>
 <div id="ref-subramanian2005gene" class="csl-entry" role="listitem">
-<span class="nocase">Subramanian, Aravind, Pablo Tamayo, Vamsi K Mootha, et al.</span> 2005. <span>“Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.”</span> <em>Proceedings of the National Academy of Sciences</em> 102 (43): 15545–50.
+Subramanian, Aravind, Pablo Tamayo, Vamsi K Mootha, Sayan Mukherjee, Benjamin L Ebert, Michael A Gillette, Amanda Paulovich, et al. 2005. <span>“Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.”</span> <em>Proceedings of the National Academy of Sciences</em> 102 (43): 15545–50.
 </div>
 <div id="ref-welch2014chip" class="csl-entry" role="listitem">
-Welch, Ryan P, Chee Lee, Paul M Imbriano, et al. 2014. <span>“ChIP-Enrich: Gene Set Enrichment Testing for ChIP-Seq Data.”</span> <em>Nucleic Acids Research</em> 42 (13): e105–5.
+Welch, Ryan P, Chee Lee, Paul M Imbriano, Snehal Patil, Terry E Weymouth, R Alex Smith, Laura J Scott, and Maureen A Sartor. 2014. <span>“ChIP-Enrich: Gene Set Enrichment Testing for ChIP-Seq Data.”</span> <em>Nucleic Acids Research</em> 42 (13): e105–5.
 </div>
 </div>
 </section></section>
@@ -1637,7 +1631,7 @@ Welch, Ryan P, Chee Lee, Paul M Imbriano, et al. 2014. <span>“ChIP-Enrich: Gen
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1787,14 +1781,13 @@ Welch, Ryan P, Chee Lee, Paul M Imbriano, et al. 2014. <span>“ChIP-Enrich: Gen
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

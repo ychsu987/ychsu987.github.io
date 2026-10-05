@@ -6,11 +6,11 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Dr.&nbsp;Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Introduction to R</title>
@@ -20,9 +20,6 @@
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -101,7 +98,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-011eccffb2b5bb80b4ce85550724339c.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -261,14 +258,14 @@ Dr.&nbsp;Yu Cheng Hsu
 <ul>
 <li>A package is a bundle of functions, data, and documentation. You can import them through</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(package_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(package_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>while using functions under the package you can use</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>package_name<span class="sc">::</span><span class="fu">function_name</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>package_name<span class="sc">::</span><span class="fu">function_name</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(package_name)</span>
-<span id="cb3-2"><a></a><span class="fu">function_name</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(package_name)</span>
+<span id="cb3-2"><a></a><span class="fu">function_name</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <ul>
 <li>You can check what packages have been installed, imported to your environment using the tab <code>Packages</code></li>
@@ -287,16 +284,16 @@ Dr.&nbsp;Yu Cheng Hsu
 <ul>
 <li>CRAN (the Comprehensive R Archive Network) (<strong>Major package channel</strong>)</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
-<span id="cb4-2"><a></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb4-2"><a></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Bioconductor (<strong>Biomedical packages</strong>)</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"DESeq2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>GitHub (<strong>code at the developmental stage</strong>)</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="why-wrangling-matters" class="slide level2">
 <h2>Why wrangling matters</h2>
@@ -312,9 +309,9 @@ Dr.&nbsp;Yu Cheng Hsu
 <h2>Transforming data with dplyr</h2>
 <p>Using <code>tidyverse</code> an “umbrella-package” that installs several packages useful for data analysis which work together well such as <code>tidyr</code>, <code>dplyr</code>, <code>ggplot2</code>, <code>tibble</code>, etc.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Title: Load tidyverse packages</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Title: Load tidyverse packages</span></span>
 <span id="cb7-2"><a></a><span class="co"># tidyverse loads multiple data science packages like ggplot2, dplyr, and tidyr.</span></span>
-<span id="cb7-3"><a></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-3"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.2.0     ✔ readr     2.2.0
@@ -330,9 +327,9 @@ Dr.&nbsp;Yu Cheng Hsu
 </div>
 <p>In this class, we actually use <code>dplyr</code> is a package for making tabular data manipulation easier. You can choose using</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Title: Load dplyr package</span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Title: Load dplyr package</span></span>
 <span id="cb9-2"><a></a><span class="co"># dplyr provides functions for easy data frame manipulation.</span></span>
-<span id="cb9-3"><a></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-3"><a></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="example-data---yeast-gene-expression" class="slide level2">
@@ -359,9 +356,9 @@ Dr.&nbsp;Yu Cheng Hsu
 </ul>
 <p><strong>Reading data</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Load the yeast expression table and gene annotation from CSV files for later use.</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Load the yeast expression table and gene annotation from CSV files for later use.</span></span>
 <span id="cb10-2"><a></a></span>
-<span id="cb10-3"><a></a>ydat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://bdsr.stephenturner.us/data/brauer2007_tidy.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-3"><a></a>ydat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://bdsr.stephenturner.us/data/brauer2007_tidy.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 198430 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
@@ -381,7 +378,7 @@ dbl (2): rate, expression
 <li>Othersies you just do a calculation and the variable will not be updated.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Assign the value '50' to the weight object.</span></span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Assign the value '50' to the weight object.</span></span>
 <span id="cb12-2"><a></a>weight <span class="ot">&lt;-</span> <span class="dv">50</span></span>
 <span id="cb12-3"><a></a><span class="co"># Print out weight to the screen (50)</span></span>
 <span id="cb12-4"><a></a>weight</span>
@@ -392,7 +389,7 @@ dbl (2): rate, expression
 <span id="cb12-9"><a></a><span class="co"># Weight is only modified if we *reassign* weight to the modified value</span></span>
 <span id="cb12-10"><a></a>weight <span class="ot">&lt;-</span> weight<span class="sc">+</span><span class="dv">10</span></span>
 <span id="cb12-11"><a></a><span class="co"># Weight is now 60</span></span>
-<span id="cb12-12"><a></a>weight</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-12"><a></a>weight</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>For rest of the lecture, I won’t update the <code>ydat</code> object, but instead will show the output of each operation. You can choose to update it if you want to keep the changes.</li>
@@ -402,8 +399,8 @@ dbl (2): rate, expression
 <h2>Inspecting the data</h2>
 <p>Getting the first 3 rows of the data frame by <code>head()</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Show the first 3 rows of the expression data.</span></span>
-<span id="cb13-2"><a></a><span class="fu">head</span>(ydat, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Show the first 3 rows of the expression data.</span></span>
+<span id="cb13-2"><a></a><span class="fu">head</span>(ydat, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
   symbol systematic_name nutrient  rate expression bp                      mf   
@@ -415,8 +412,8 @@ dbl (2): rate, expression
 </div>
 <p>Getting the summary of the data frame by <code>summary()</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Show a summary of the expression data.</span></span>
-<span id="cb15-2"><a></a><span class="fu">summary</span>(ydat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Show a summary of the expression data.</span></span>
+<span id="cb15-2"><a></a><span class="fu">summary</span>(ydat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    symbol          systematic_name      nutrient              rate       
  Length:198430      Length:198430      Length:198430      Min.   :0.0500  
@@ -439,8 +436,8 @@ dbl (2): rate, expression
 
 <p>Inspecting the data frame structure by <code>str()</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Show the structure of the expression data.</span></span>
-<span id="cb17-2"><a></a><span class="fu">str</span>(ydat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Show the structure of the expression data.</span></span>
+<span id="cb17-2"><a></a><span class="fu">str</span>(ydat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>spc_tbl_ [198,430 × 7] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ symbol         : chr [1:198430] "SFB2" NA "QRI7" "CFT2" ...
@@ -468,7 +465,7 @@ dbl (2): rate, expression
 <h2>Pipeline mindset</h2>
 <p>Without <code>dplyr</code>, if we want to manipulate data, we can still use the following vanilla way to perform the task :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Title: Base R data manipulation example</span></span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Title: Base R data manipulation example</span></span>
 <span id="cb19-2"><a></a><span class="co"># Show how row selection, counting, and column updates work without dplyr.</span></span>
 <span id="cb19-3"><a></a></span>
 <span id="cb19-4"><a></a><span class="co"># Select rows 2 to 5 from the expression table.</span></span>
@@ -479,7 +476,7 @@ dbl (2): rate, expression
 <span id="cb19-9"><a></a><span class="fu">sum</span>(ydat<span class="sc">$</span>nutrient <span class="sc">==</span> <span class="st">'Glucose'</span>)</span>
 <span id="cb19-10"><a></a></span>
 <span id="cb19-11"><a></a><span class="co"># Overwrite the nutrient column with a logical value indicating leucine limitation.</span></span>
-<span id="cb19-12"><a></a>ydat<span class="sc">$</span>nutrient <span class="ot">=</span> ydat<span class="sc">$</span>nutrient <span class="sc">==</span> <span class="st">'Leucine'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-12"><a></a>ydat<span class="sc">$</span>nutrient <span class="ot">=</span> ydat<span class="sc">$</span>nutrient <span class="sc">==</span> <span class="st">'Leucine'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -502,29 +499,29 @@ dbl (2): rate, expression
 <h2>Pipe operator |&gt;</h2>
 <p>To prevent us from keep doing like a matryoshka doll</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Title: Nested function call example</span></span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Title: Nested function call example</span></span>
 <span id="cb20-2"><a></a><span class="co"># This shows the same work as a pipeline, but in nested form.</span></span>
-<span id="cb20-3"><a></a><span class="fu">h</span>(<span class="fu">g</span>(<span class="fu">f</span>(data_frame)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-3"><a></a><span class="fu">h</span>(<span class="fu">g</span>(<span class="fu">f</span>(data_frame)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R by default supports Pipe operator |&gt; We can rewrite the above code as</p>
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Pipe operator example</span></span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Pipe operator example</span></span>
 <span id="cb21-2"><a></a><span class="co"># Use the pipe operator to write the same </span></span>
 <span id="cb21-3"><a></a><span class="co"># steps in a clearer, left-to-right order.</span></span>
 <span id="cb21-4"><a></a>data_frame <span class="sc">|&gt;</span> </span>
 <span id="cb21-5"><a></a>  <span class="fu">f</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb21-6"><a></a>  <span class="fu">g</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb21-7"><a></a>  <span class="fu">h</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-7"><a></a>  <span class="fu">h</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># This is the equivalent code of the left one.</span></span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># This is the equivalent code of the left one.</span></span>
 <span id="cb22-2"><a></a></span>
 <span id="cb22-3"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">f</span>(data_frame)</span>
 <span id="cb22-4"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">g</span>(data_frame)</span>
-<span id="cb22-5"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">h</span>(data_frame)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-5"><a></a>data_frame <span class="ot">&lt;-</span><span class="fu">h</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 <p>‘|&gt;’ takes the output from the left hand side and then <strong>pipes</strong> it to be the first argument of the right function.</p>
@@ -550,10 +547,10 @@ dbl (2): rate, expression
 <li>Select the designated columns by <code>select(COLUMN_NAMES)</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># Title: Select expression columns</span></span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># Title: Select expression columns</span></span>
 <span id="cb23-2"><a></a>ydat <span class="sc">|&gt;</span></span>
 <span id="cb23-3"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span> <span class="co"># Keep gene, nutrient, growth rate, and expression.</span></span>
-<span id="cb23-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous |&gt;.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous |&gt;.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   symbol nutrient  rate expression
@@ -570,10 +567,10 @@ dbl (2): rate, expression
 <li>Select the designated rows by <code>filter(CONDITION)</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Title: Filter rows by gene</span></span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Title: Filter rows by gene</span></span>
 <span id="cb25-2"><a></a>ydat<span class="sc">|&gt;</span></span>
 <span id="cb25-3"><a></a>    <span class="fu">filter</span>(symbol <span class="sc">==</span> <span class="st">'LEU1'</span>) <span class="sc">|&gt;</span> <span class="co"># Keep only the leucine biosynthesis gene LEU1.</span></span>
-<span id="cb25-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous |&gt;.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-4"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>) <span class="co"># This line is for display control, you can omit it and the previous |&gt;.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
   symbol systematic_name nutrient  rate expression bp                   mf      
@@ -603,13 +600,13 @@ dbl (2): rate, expression
 <li>You can create new column by <code>mutate()</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Title: Create or modify columns</span></span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Title: Create or modify columns</span></span>
 <span id="cb27-2"><a></a>ydat <span class="sc">|&gt;</span></span>
 <span id="cb27-3"><a></a>    <span class="fu">mutate</span>( <span class="co"># expression is log2(sample/reference); 2^expression recovers the raw ratio.</span></span>
 <span id="cb27-4"><a></a>              <span class="at">signal =</span> <span class="dv">2</span><span class="sc">^</span>expression,</span>
 <span id="cb27-5"><a></a>              <span class="at">restriction  =</span> <span class="st">"Nutrient-limited"</span></span>
 <span id="cb27-6"><a></a>              ) <span class="sc">|&gt;</span></span>
-<span id="cb27-7"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-7"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 9
   symbol systematic_name nutrient  rate expression bp               mf    signal
@@ -625,7 +622,7 @@ dbl (2): rate, expression
 <h2>Perform summary statistics</h2>
 <p>Frequently we will need to provide summary statistics for your data, we can use <code>summarize()</code> to do it</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Title: Compute summary statistics</span></span>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Title: Compute summary statistics</span></span>
 <span id="cb29-2"><a></a></span>
 <span id="cb29-3"><a></a>ydat <span class="sc">|&gt;</span></span>
 <span id="cb29-4"><a></a>    <span class="fu">summarize</span>( <span class="co"># Summarize expression with count, mean, standard deviation, and LEU1 row count.</span></span>
@@ -633,7 +630,7 @@ dbl (2): rate, expression
 <span id="cb29-6"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression),</span>
 <span id="cb29-7"><a></a>              <span class="at">sd_expr=</span><span class="fu">sd</span>(expression),</span>
 <span id="cb29-8"><a></a>              <span class="at">n_leu1=</span><span class="fu">sum</span>(symbol<span class="sc">==</span><span class="st">'LEU1'</span>,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-9"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-9"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
        n mean_expr sd_expr n_leu1
@@ -665,7 +662,7 @@ dbl (2): rate, expression
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># Title: Grouped summary by nutrient</span></span>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># Title: Grouped summary by nutrient</span></span>
 <span id="cb31-2"><a></a>ydat <span class="sc">|&gt;</span></span>
 <span id="cb31-3"><a></a><span class="co"># Group the expression table by limiting nutrient,</span></span>
 <span id="cb31-4"><a></a>    <span class="fu">group_by</span>(nutrient) <span class="sc">|&gt;</span> </span>
@@ -673,7 +670,7 @@ dbl (2): rate, expression
 <span id="cb31-6"><a></a>    <span class="fu">summarize</span>(      </span>
 <span id="cb31-7"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
 <span id="cb31-8"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression)</span>
-<span id="cb31-9"><a></a>                  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb31-9"><a></a>                  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   nutrient      n mean_expr
@@ -695,14 +692,14 @@ dbl (2): rate, expression
 <p><code>if_else(CONDITION, 'TRUE_VALUE', 'FALSE_VALUE')</code> for dichotomous processing</p>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># Title: Create binary restriction status</span></span>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># Title: Create binary restriction status</span></span>
 <span id="cb33-2"><a></a><span class="co"># Use if_else() to add a restriction label based on growth rate.</span></span>
 <span id="cb33-3"><a></a>ydat <span class="sc">|&gt;</span></span>
 <span id="cb33-4"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span></span>
 <span id="cb33-5"><a></a>    <span class="fu">mutate</span>( <span class="at">restriction =</span> <span class="fu">if_else</span>(</span>
 <span id="cb33-6"><a></a>        rate <span class="sc">==</span> <span class="fl">0.05</span>, <span class="st">"Severe restriction"</span>, <span class="st">"Relaxed"</span></span>
 <span id="cb33-7"><a></a>    )) <span class="sc">|&gt;</span></span>
-<span id="cb33-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb33-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
   symbol nutrient  rate expression restriction       
@@ -723,7 +720,7 @@ dbl (2): rate, expression
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># Title: Create categorical restriction stage</span></span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># Title: Create categorical restriction stage</span></span>
 <span id="cb35-2"><a></a><span class="co"># Use case_when() to assign descriptive labels for selected growth rates.</span></span>
 <span id="cb35-3"><a></a>ydat <span class="sc">|&gt;</span></span>
 <span id="cb35-4"><a></a>    <span class="fu">select</span>(symbol, nutrient, rate, expression) <span class="sc">|&gt;</span></span>
@@ -732,7 +729,7 @@ dbl (2): rate, expression
 <span id="cb35-7"><a></a>        rate <span class="sc">&lt;=</span> <span class="fl">0.15</span> <span class="sc">~</span> <span class="st">"Moderate restriction"</span>,</span>
 <span id="cb35-8"><a></a>        rate <span class="sc">&lt;=</span> <span class="fl">0.3</span> <span class="sc">~</span> <span class="st">"Relaxed restriction"</span></span>
 <span id="cb35-9"><a></a>    ))<span class="sc">|&gt;</span></span>
-<span id="cb35-10"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb35-10"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
   symbol nutrient  rate expression restriction       
@@ -770,14 +767,14 @@ dbl (2): rate, expression
 <li>You can rename column by <code>rename()</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># Title: Rename columns</span></span>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># Title: Rename columns</span></span>
 <span id="cb37-2"><a></a>ydat <span class="sc">|&gt;</span> <span class="co"># Rename selected expression columns to make them more readable.</span></span>
 <span id="cb37-3"><a></a>    <span class="fu">rename</span>(</span>
 <span id="cb37-4"><a></a>              <span class="at">Gene =</span> symbol,</span>
 <span id="cb37-5"><a></a>              <span class="at">Nutrient =</span> nutrient,</span>
 <span id="cb37-6"><a></a>              <span class="at">Rate =</span> rate</span>
 <span id="cb37-7"><a></a>              ) <span class="sc">|&gt;</span></span>
-<span id="cb37-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb37-8"><a></a>    <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
   Gene  systematic_name Nutrient  Rate expression bp                       mf   
@@ -792,14 +789,14 @@ dbl (2): rate, expression
 <h2>Groupby multiple conditions</h2>
 <p>You can group by multiple groups together, but note that they need to be stated in the same <code>group_by()</code> brackets</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># Title: Multi-group summary</span></span>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># Title: Multi-group summary</span></span>
 <span id="cb39-2"><a></a>ydat <span class="sc">|&gt;</span></span>
 <span id="cb39-3"><a></a>    <span class="fu">group_by</span>(nutrient, rate) <span class="sc">|&gt;</span> <span class="co"># Group by both limiting nutrient and growth rate,</span></span>
 <span id="cb39-4"><a></a>    <span class="fu">summarize</span>(                   <span class="co">#  then summarize the combined groups.</span></span>
 <span id="cb39-5"><a></a>              <span class="at">n=</span><span class="fu">n</span>(),</span>
 <span id="cb39-6"><a></a>              <span class="at">mean_expr=</span><span class="fu">mean</span>(expression),</span>
 <span id="cb39-7"><a></a>              <span class="at">sd_expr=</span><span class="fu">sd</span>(expression),</span>
-<span id="cb39-8"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb39-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!-- 
 ## Combining Dataframes
@@ -881,9 +878,9 @@ Join expression rows to Gene Ontology labels by the yeast systematic name.You ca
 <li>Flexible and intuitive once you understand its core concepts.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb40-2"><a></a><span class="co"># or you can load ggplot2 directly</span></span>
-<span id="cb40-3"><a></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb40-3"><a></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="about-the-data" class="slide level2">
@@ -905,7 +902,7 @@ Join expression rows to Gene Ontology labels by the yeast systematic name.You ca
 </div></div>
 <p><strong>Read the data</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>gm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://bdsr.stephenturner.us/data/gapminder.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>gm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://bdsr.stephenturner.us/data/gapminder.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 1704 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -1006,7 +1003,7 @@ dbl (4): year, lifeExp, pop, gdpPercap
 </ul>
 </div><div class="column" style="width:57%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="co"># Initialize a ggplot object with </span></span>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="co"># Initialize a ggplot object with </span></span>
 <span id="cb43-2"><a></a><span class="co"># data and aesthetic mappings</span></span>
 <span id="cb43-3"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>gm, </span>
 <span id="cb43-4"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap))</span>
@@ -1014,7 +1011,7 @@ dbl (4): year, lifeExp, pop, gdpPercap
 <span id="cb43-6"><a></a></span>
 <span id="cb43-7"><a></a><span class="co"># Alternative </span></span>
 <span id="cb43-8"><a></a><span class="co"># p &lt;- ggplot(gm, aes(gdpPercap))</span></span>
-<span id="cb43-9"><a></a><span class="co"># p</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb43-9"><a></a><span class="co"># p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -1082,7 +1079,7 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>p<span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> lifeExp))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>p<span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1094,7 +1091,7 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>p<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>p<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1116,8 +1113,8 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>gm)<span class="sc">+</span></span>
-<span id="cb46-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>gdpPercap, <span class="at">color=</span>continent))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>gm)<span class="sc">+</span></span>
+<span id="cb46-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>gdpPercap, <span class="at">color=</span>continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
 </div>
@@ -1132,8 +1129,8 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>gm)<span class="sc">+</span></span>
-<span id="cb48-2"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>continent,<span class="at">fill=</span>continent))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="fu">ggplot</span>(<span class="at">data=</span>gm)<span class="sc">+</span></span>
+<span id="cb48-2"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>continent,<span class="at">fill=</span>continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1223,12 +1220,12 @@ Figure&nbsp;1: Showing coordinate systems in ggplot2
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="co"># Create a scatter plot with customized axis and color legend labels</span></span>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="co"># Create a scatter plot with customized axis and color legend labels</span></span>
 <span id="cb49-2"><a></a>   p <span class="sc">+</span></span>
 <span id="cb49-3"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> lifeExp, <span class="at">color=</span>continent)) <span class="sc">+</span>  <span class="co"># Add points layer for data representation</span></span>
 <span id="cb49-4"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name=</span><span class="st">"GDP per capita"</span>) <span class="sc">+</span>  <span class="co"># Customize x-axis label</span></span>
 <span id="cb49-5"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name=</span><span class="st">"Life Expectancy"</span>,<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">50</span>,<span class="dv">75</span>)) <span class="sc">+</span> <span class="co"># Customize y-axis label</span></span>
-<span id="cb49-6"><a></a>  <span class="fu">scale_colour_discrete</span>(<span class="at">name=</span><span class="st">"Continent"</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Afr"</span>, <span class="st">"Ameri"</span>, <span class="st">"Asia"</span>, <span class="st">"Eur"</span>, <span class="st">"Ocean"</span>))  <span class="co"># Customize color legend title</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb49-6"><a></a>  <span class="fu">scale_colour_discrete</span>(<span class="at">name=</span><span class="st">"Continent"</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Afr"</span>, <span class="st">"Ameri"</span>, <span class="st">"Asia"</span>, <span class="st">"Eur"</span>, <span class="st">"Ocean"</span>))  <span class="co"># Customize color legend title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-5" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -1249,8 +1246,8 @@ Figure&nbsp;2: Scatter plot of GDP per capita vs life expectancy with customized
 <div class="column" style="width:60%;">
 <p>Add the function <code>ggsave("FILE_PATH+FILE_NAME.png")</code> after your ggplot instructions:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a><span class="co"># Saving plots as figure_theme_grey.png at the folder figure</span></span>
-<span id="cb50-2"><a></a><span class="fu">ggsave</span>(<span class="st">"figure_1.png"</span>,p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a><span class="co"># Saving plots as figure_theme_grey.png at the folder figure</span></span>
+<span id="cb50-2"><a></a><span class="fu">ggsave</span>(<span class="st">"figure_1.png"</span>,p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>It supports most of the common image formats like <code>pdf</code>, <code>jpeg</code>, <code>png</code></li>
@@ -1465,7 +1462,7 @@ Figure&nbsp;2: Scatter plot of GDP per capita vs life expectancy with customized
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1539,14 +1536,13 @@ Figure&nbsp;2: Scatter plot of GDP per capita vs life expectancy with customized
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

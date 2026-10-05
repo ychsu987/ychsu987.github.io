@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Yu Cheng Hsu, PhD">
+
+<title>Global Health Informatics and Visualization – Yu Cheng Hsu</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5bf7ca59d8cc7f7a8155307016a58e21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Yu Cheng Hsu</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../courses.html"> 
+<span class="menu-text">Courses</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Global_health_informatics.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Global Health Informatics and Visualization</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yu Cheng Hsu, PhD </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-objectives" class="level2" data-background-image="img\global health informatics\clo.jpg" data-background-size="40% 100%" data-background-position="left" data-background-repeat="no-repeat" data-background-opacity="0">
+<h2 data-background-image="img\global health informatics\clo.jpg" data-background-size="40% 100%" data-background-position="left" data-background-repeat="no-repeat" data-background-opacity="0" class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Understand the principles of global health informatics
+<ul>
+<li>Explore applications in healthcare</li>
+<li>Identify challenges in implementation</li>
+</ul></li>
+<li>Recognize key data sources for global health</li>
+<li>Learn effective data presentation and visualization techniques</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="what-is-global-health-informatics" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="what-is-global-health-informatics">What is Global Health Informatics?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Health Informatics</strong>: An interdisciplinary field combining health sciences, information technology, and data analytics to improve health equity worldwide <span class="citation" data-cites="nihNationalInformation">(<a href="#ref-nihNationalInformation" role="doc-biblioref"><span>“<span>N</span>ational <span>I</span>nformation <span>C</span>enter on <span>H</span>ealth <span>S</span>ervices <span>R</span>esearch; <span>H</span>ealth <span>C</span>are <span>T</span>echnology (<span>N</span><span>I</span><span>C</span><span>H</span><span>S</span><span>R</span>) - Hsric.nlm.nih.gov”</span></a>)</span>.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>Global Health</strong>: Development, adoption, and application of an area for study, research, and practice, which places a priority on improving health and achieving equity in health for all people worldwide <span class="citation" data-cites="koplan2009towards">(<a href="#ref-koplan2009towards" role="doc-biblioref">Koplan et al. 2009</a>)</span>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img\global health informatics\scope.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Scope of global health informatics"><img src="img\global health informatics\scope.png" class="img-fluid figure-img" alt="Scope of global health informatics"></a></p>
+<figcaption>Scope of global health informatics</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="applications-of-global-health-informatics" class="level2 smaller" data-background-image="img\global health informatics\application.jpg" data-background-size="40% 100%" data-background-position="left">
+<h2 class="smaller anchored" data-background-image="img\global health informatics\application.jpg" data-background-size="40% 100%" data-background-position="left" data-anchor-id="applications-of-global-health-informatics">Applications of Global Health Informatics</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:55%;">
+<ul>
+<li><strong>Disease Surveillance</strong>:
+<ul>
+<li>Communicable disease monitoring</li>
+<li>Prediction</li>
+</ul></li>
+<li><strong>Enhancing access and equity in healthcare delivery</strong>:
+<ul>
+<li>eHR</li>
+<li>mHealth</li>
+<li>Telemedicine</li>
+</ul></li>
+<li><strong>Policy advocacy and evaluation</strong></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="enhancing-access-and-equity-in-healthcare-delivery" class="level2">
+<h2 class="anchored" data-anchor-id="enhancing-access-and-equity-in-healthcare-delivery">Enhancing access and equity in healthcare delivery</h2>
+<ul>
+<li>Enhancing healthcare access for LMIC, rural population</li>
+<li>Health education</li>
+<li>Personalized monitoring</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Before we go through example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>What is the role of informatics in these applications?</li>
+<li>Why do we need informatics to achieve such goal?</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="enhancing-access-and-equity-in-healthcare-delivery-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="enhancing-access-and-equity-in-healthcare-delivery-1">Enhancing access and equity in healthcare delivery</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="columns">
+<div class="column" style="width:46%;">
+<p><a href="img\global health informatics\hiv1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img\global health informatics\hiv1.png" class="img-fluid"></a></p>
+</div><div class="column" style="width:46%;">
+<p><a href="img\global health informatics\hiv2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img\global health informatics\hiv2.png" class="img-fluid"></a></p>
+</div>
+</div>
+<ul>
+<li><strong>Non-Prep HIV prevention in Kenya</strong> <span class="citation" data-cites="mwaisaka2021young">(<a href="#ref-mwaisaka2021young" role="doc-biblioref">Mwaisaka et al. 2021</a>)</span>: Improving on
+<ul>
+<li>Enhance knowledge</li>
+<li>Self-efficacy</li>
+<li>Behavioural Intention</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><a href="img\global health informatics\anxiety.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img\global health informatics\anxiety.jpg" class="img-fluid"></a></p>
+<ul>
+<li><strong>Youth mental health in India</strong> <span class="citation" data-cites="gonsalves2019design">(<a href="#ref-gonsalves2019design" role="doc-biblioref">Gonsalves et al. 2019</a>)</span>:
+<ul>
+<li>Gamification</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="disease-surveillance" class="level2">
+<h2 class="anchored" data-anchor-id="disease-surveillance">Disease surveillance</h2>
+<ul>
+<li>Enhancing information transparency</li>
+<li>Evidence foundation</li>
+<li>Monitoring the disease transmission</li>
+<li>AI prediction of future trend</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Before we go through example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Have you tried to visit surveillance tools?</li>
+<li>What kind of information do you usually look for?</li>
+<li>How will you use these data?</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="disease-surveillance-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="disease-surveillance-1">Disease surveillance</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="columns">
+<div class="column" style="width:46%;">
+<p><a href="img\global health informatics\covid1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img\global health informatics\covid1.png" class="img-fluid"></a></p>
+</div><div class="column" style="width:46%;">
+<p><a href="img\global health informatics\covid2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img\global health informatics\covid2.jpg" class="img-fluid"></a></p>
+</div>
+</div>
+<ul>
+<li><strong>Dashboard for COVID-19</strong> <span class="citation" data-cites="Jonathan2020">(<a href="#ref-Jonathan2020" role="doc-biblioref">Everts 2020</a>)</span>
+<ul>
+<li>Intervention</li>
+<li>Surveillance</li>
+</ul></li>
+<li>Arguments:
+<ul>
+<li>Nationalism</li>
+<li>Neglecting SDoH</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><a href="img\global health informatics\hiv3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img\global health informatics\hiv3.png" class="img-fluid"></a></p>
+<ul>
+<li><strong>Dashboard for HIV in Kenya</strong> <span class="citation" data-cites="gesicho2022designing">(<a href="#ref-gesicho2022designing" role="doc-biblioref">Gesicho and Babic 2022</a>)</span>:
+<ul>
+<li>Leveraging DHIS2 system (WHO system) for integrating reporting and surveillance</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="decision-support-and-policy" class="level2">
+<h2 class="anchored" data-anchor-id="decision-support-and-policy">Decision support and policy</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><a href="img\global health informatics\policy2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img\global health informatics\policy2.png" class="img-fluid"></a></p>
+</div><div class="column" style="width:40%;">
+<p><a href="img\global health informatics\suicide.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img\global health informatics\suicide.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+<section id="challenges-in-global-health-informatics" class="level1">
+<h1>Challenges in Global Health Informatics</h1>
+<section id="challenges-in-global-health-informatics-1" class="level2">
+<h2 class="anchored" data-anchor-id="challenges-in-global-health-informatics-1">Challenges in global health informatics</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<ul>
+<li>Leavitt’s diamond framework <span class="citation" data-cites="wigand2007building">(<a href="#ref-wigand2007building" role="doc-biblioref">Wigand 2007</a>)</span></li>
+</ul>
+</div><div class="column" style="width:75%;">
+<p><a href="img\global health informatics\cac2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="img\global health informatics\cac2.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+</section>
+<section id="getting-global-data" class="level1">
+<h1>Getting Global Data</h1>
+<section id="role-of-the-data-in-the-global-health-context" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="role-of-the-data-in-the-global-health-context">Role of the data in the global health context</h2>
+<ul>
+<li>Detect disease outbreaks</li>
+<li>Monitor health trends</li>
+<li>Improve service coverage</li>
+<li>Track risk factors</li>
+<li>Guide evidence-based actions</li>
+<li>Inform and evaluate public health policies</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Refresh
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>What are the challenges of collecting data on a global scale?</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="fantastic-data-and-where-to-find-them" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="fantastic-data-and-where-to-find-them">Fantastic data and where to find them</h2>
+<ul>
+<li>Collecting and maintaining data worldwide is challenging Resources:
+<ul>
+<li>Cultural context</li>
+<li>Standard coding (ICD-9/ICD-10/DSM-V)</li>
+<li>Deidentification</li>
+</ul></li>
+<li>Measuring dimensions:
+<ul>
+<li>Health economics</li>
+<li>Mortality and life expectancy</li>
+<li>Global issues</li>
+<li>Social determinants of health</li>
+<li>Child and women health</li>
+<li>Infectious disease</li>
+</ul></li>
+</ul>
+</section>
+<section id="global-burden-of-disease-gbd" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="global-burden-of-disease-gbd">Global Burden of Disease (GBD)</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>GBD dataset focuses on health loss across:
+<ul>
+<li>Diseases</li>
+<li>Places</li>
+<li>Time</li>
+</ul></li>
+<li>Additional items:
+<ul>
+<li>Demographic</li>
+<li>Fertility</li>
+<li>Life expectancy</li>
+<li>Socio-Demographic Index</li>
+<li>DALY/HLY</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<p><a href="img\global health informatics\gbd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img\global health informatics\gbd.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+<section id="global-health-expenditure-database-ghed" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="global-health-expenditure-database-ghed">Global Health Expenditure Database (GHED)</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>Tracking and analyzing health spending trends</li>
+<li>Assessing health expenditure by different levels:
+<ul>
+<li>Sources (e.g., government, households, donors)</li>
+<li>Financing mechanisms (compulsory vs.&nbsp;voluntary)</li>
+<li>Country-wise comparison</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<p><a href="img\global health informatics\ghed.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="img\global health informatics\ghed.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+<section id="global-health-observatory-gho" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="global-health-observatory-gho">Global Health Observatory (GHO)</h2>
+<p>Global Health Observatory is the data hub from WHO aggregating all the data under WHO umbrella <img src="img\global health informatics\gho.png" class="img-fluid"></p>
+</section>
+<section id="multiple-income-cluster-survey-mics" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="multiple-income-cluster-survey-mics">Multiple Income Cluster Survey (MICS)</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>MICS is a survey under UNICEF focusing on women and children in LMIC: - Child health - Child development - Literacy - Protection - HIV - Well-being</p>
+</div><div class="column" style="width:70%;">
+<p><a href="img\global health informatics\survey.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="img\global health informatics\survey.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+</section>
+<section id="presenting-health-data" class="level1">
+<h1>Presenting Health Data</h1>
+<section id="principle-of-visualizing-data" class="level2">
+<h2 class="anchored" data-anchor-id="principle-of-visualizing-data">Principle of visualizing data</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><strong>Effective</strong>: Information conveyed by one visualization is more readily perceived</li>
+<li><strong>Expressiveness</strong>: The visualizations express all the facts in the set of data, and only the facts in the data</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><a href="img\global health informatics\triangle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="img\global health informatics\triangle.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+</section>
+<section id="mackinlays-ranking" class="level1">
+<h1>Mackinlay’s Ranking</h1>
+<section id="motivations" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="motivations">Motivations</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>When more than two variables need to be presented (hopefully in one graph):
+<ul>
+<li>What is the best way to present them?</li>
+<li>What are the pre-attentive features (easily perceived by humans)?</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><a href="img\global health informatics\mackinlay1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="img\global health informatics\mackinlay1.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+<section id="pre-attentive-features" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pre-attentive-features">Pre-attentive features</h2>
+<div class="columns">
+<div class="column" style="width:20%;">
+<ul>
+<li>Location</li>
+<li>Colour:
+<ul>
+<li>Hue</li>
+<li>Saturation</li>
+</ul></li>
+<li>Shape:
+<ul>
+<li>Length</li>
+<li>Shape</li>
+<li>Texture</li>
+<li>Area</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><a href="img\global health informatics\color.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="img\global health informatics\color.jpg" class="img-fluid"></a></p>
+</div><div class="column" style="width:30%;">
+<p>Combinations of pre-attentive features are not pre-attentive, e.g., Red triangle vs.&nbsp;Green rectangle</p>
+</div>
+</div>
+</section>
+<section id="mackinlays-ranking-1" class="level2">
+<h2 class="anchored" data-anchor-id="mackinlays-ranking-1">Mackinlay’s Ranking</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>Mackinlay developed the ranking to choose the best way to present data</li>
+<li>Rule of thumb: Don’t go to ranking below 5</li>
+</ul>
+</div><div class="column" style="width:70%;">
+<p><a href="img\global health informatics\mackinlay2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="img\global health informatics\mackinlay2.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+<section id="social-and-cultural-context-consideration" class="level2">
+<h2 class="anchored" data-anchor-id="social-and-cultural-context-consideration">Social and cultural context consideration</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li>Color-blindness friendly <img src="img\global health informatics\cb1.png" class="img-fluid"> <img src="img\global health informatics\cb2.png" class="img-fluid" alt="Source from (Wong 2011)"></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><strong>Cultural context</strong>: - Blue and red: - Sex - Severity - Politics - Red and green: - Chinese and Western stock market</p>
+</div>
+</div>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img\global health informatics\bad1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Source"><img src="img\global health informatics\bad1.png" class="img-fluid figure-img" alt="Source"></a></p>
+<figcaption><a href="https://www.reddit.com/r/dataisugly/comments/1cc6jis/whats_with_the_balls/">Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img\global health informatics\bad2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Source"><img src="img\global health informatics\bad2.png" class="img-fluid figure-img" alt="Source"></a></p>
+<figcaption><a href="https://www.reddit.com/r/dataisugly/comments/1cc6jis/whats_with_the_balls/">Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img\global health informatics\bad3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Source"><img src="img\global health informatics\bad3.png" class="img-fluid figure-img" alt="Source"></a></p>
+<figcaption><a href="https://www.gooddata.com/blog/bad-data-visualization-examples-that-you-can-learn-from/">Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="example-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-3">Example</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img\global health informatics\bad4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Source"><img src="img\global health informatics\bad4.png" class="img-fluid figure-img" alt="Source"></a></p>
+<figcaption><a href="https://www.gooddata.com/blog/bad-data-visualization-examples-that-you-can-learn-from/">Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="example-4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4">Example</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img\global health informatics\bad5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Source"><img src="img\global health informatics\bad5.png" class="img-fluid figure-img" alt="Source"></a></p>
+<figcaption><a href="https://www.reddit.com/r/dataisugly/comments/1cc4rbn/crushing_victory/">Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="bibliography" class="level2">
+
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Bibliography</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Jonathan2020" class="csl-entry" role="listitem">
+Everts, Jonathan. 2020. <span>“The Dashboard Pandemic.”</span> <em>Dialogues in Human Geography</em> 10 (2): 260–64. <a href="https://doi.org/10.1177/2043820620935355">https://doi.org/10.1177/2043820620935355</a>.
+</div>
+<div id="ref-gesicho2022designing" class="csl-entry" role="listitem">
+Gesicho, Milka, and Ankica Babic. 2022. <span>“Designing a Dashboard for HIV-Data Reporting Performance by Facilities: Case Study of Kenya.”</span> In <em>Advances in Informatics, Management and Technology in Healthcare</em>, 238–41. IOS Press.
+</div>
+<div id="ref-gonsalves2019design" class="csl-entry" role="listitem">
+Gonsalves, Pattie P, Eleanor S Hodgson, Avinash Kumar, Tiara Aurora, Yash Chandak, Rhea Sharma, Daniel Michelson, and Vikram Patel. 2019. <span>“Design and Development of the <span>‘POD Adventures’</span> Smartphone Game: A Blended Problem-Solving Intervention for Adolescent Mental Health in India.”</span> <em>Frontiers in Public Health</em> 7: 238.
+</div>
+<div id="ref-koplan2009towards" class="csl-entry" role="listitem">
+Koplan, Jeffrey P, T Christopher Bond, Michael H Merson, K Srinath Reddy, Mario Henry Rodriguez, Nelson K Sewankambo, and Judith N Wasserheit. 2009. <span>“Towards a Common Definition of Global Health.”</span> <em>The Lancet</em> 373 (9679): 1993–95.
+</div>
+<div id="ref-mwaisaka2021young" class="csl-entry" role="listitem">
+Mwaisaka, Jefferson, Lianne Gonsalves, Mary Thiongo, Michael Waithaka, Hellen Sidha, Otieno Alfred, Carol Mukiira, Peter Gichangi, et al. 2021. <span>“Young People’s Experiences Using an on-Demand Mobile Health Sexual and Reproductive Health Text Message Intervention in Kenya: Qualitative Study.”</span> <em>JMIR mHealth and uHealth</em> 9 (1): e19109.
+</div>
+<div id="ref-nihNationalInformation" class="csl-entry" role="listitem">
+<span>“<span>N</span>ational <span>I</span>nformation <span>C</span>enter on <span>H</span>ealth <span>S</span>ervices <span>R</span>esearch; <span>H</span>ealth <span>C</span>are <span>T</span>echnology (<span>N</span><span>I</span><span>C</span><span>H</span><span>S</span><span>R</span>) - Hsric.nlm.nih.gov.”</span> <a href="https://hsric.nlm.nih.gov/hsric_public/topic/informatics" class="uri">https://hsric.nlm.nih.gov/hsric_public/topic/informatics</a>.
+</div>
+<div id="ref-wigand2007building" class="csl-entry" role="listitem">
+Wigand, Dianne. 2007. <span>“Building on Leavitt’s Diamond Model of Organizations: The Organizational Interaction Diamond Model and the Impact of Information Technology on Structure, People, and Tasks.”</span> <em>AMCIS 2007 Proceedings</em>, 287.
+</div>
+<div id="ref-wong2011points" class="csl-entry" role="listitem">
+Wong, Bang. 2011. <span>“Points of View: Color Blindness.”</span> Nature Publishing Group US New York.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
