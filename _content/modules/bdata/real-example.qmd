@@ -351,3 +351,31 @@ t.test(zea_mays$Cross_fertilized_plant,
 -   Limitation of the experiments
     -   Control of genotypes
     -   Sample size
+
+
+## Final remarks on the mini-project
+
+:::{.columns}
+
+:::{.column}
+
+**For analysis in data**
+
+- Always knowing the context of the data
+- Understand the research question
+- Plan the analysis and data wrangling
+
+:::
+
+:::{.column}
+
+**For coding**
+
+- Coding help you record all of your process
+- Let your calculation transparent and 
+- easy to validate
+- Clear documentation of your code
+  
+:::
+
+:::
