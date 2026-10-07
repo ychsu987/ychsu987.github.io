@@ -28181,7 +28181,7 @@ window.Quarto = {
   <li><a href="#dataset-overview" id="toc-dataset-overview" class="nav-link" data-scroll-target="#dataset-overview">Dataset Overview</a></li>
   <li><a href="#part-1-data-wrangling-with-dplyr" id="toc-part-1-data-wrangling-with-dplyr" class="nav-link" data-scroll-target="#part-1-data-wrangling-with-dplyr">Part 1: Data Wrangling with <code>dplyr</code></a>
   <ul class="collapse">
-  <li><a href="#question-1.1-data-hygiene-and-transformation" id="toc-question-1.1-data-hygiene-and-transformation" class="nav-link" data-scroll-target="#question-1.1-data-hygiene-and-transformation">Question 1.1: Data Hygiene and Transformation</a></li>
+  <li><a href="#question-1.1-data-transformation" id="toc-question-1.1-data-transformation" class="nav-link" data-scroll-target="#question-1.1-data-transformation">Question 1.1: Data Transformation</a></li>
   <li><a href="#question-1.2-subsetting-and-summary-statistics" id="toc-question-1.2-subsetting-and-summary-statistics" class="nav-link" data-scroll-target="#question-1.2-subsetting-and-summary-statistics">Question 1.2: Subsetting and Summary Statistics</a></li>
   </ul></li>
   <li><a href="#part-2-publication-ready-plotting-with-ggplot2" id="toc-part-2-publication-ready-plotting-with-ggplot2" class="nav-link" data-scroll-target="#part-2-publication-ready-plotting-with-ggplot2">Part 2: Publication-Ready Plotting with <code>ggplot2</code></a>
@@ -28241,8 +28241,12 @@ window.Quarto = {
 <h1>Tutorial &amp; Lab: Transcriptomic Dynamics with R</h1>
 <section id="dataset-overview" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-overview">Dataset Overview</h3>
-<p>You will analyze brain tissue RNA-Seq profiles from mice infected with influenza over an 8-day timecourse: * <strong>Source:</strong> <code>https://raw.githubusercontent.com/uclouvain-cbio/WSBIM1207/master/data/rnaseq.csv</code> * <strong>Key columns:</strong> <code>gene</code>, <code>sample</code>, <code>expression</code>, <code>sex</code>, <code>infection</code>, <code>time</code>, <code>tissue</code>, <code>gene_biotype</code></p>
-<p>If you need a refresher on ggplot2 or dplyr syntax, refer to the <a href="https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf">ggplot2 Cheatsheet</a>.</p>
+<p>You will analyze brain tissue RNA-Seq profiles from mice infected with influenza over an 8-day timecourse:</p>
+<ul>
+<li><strong>Source:</strong> <code>https://raw.githubusercontent.com/uclouvain-cbio/WSBIM1207/master/data/rnaseq.csv</code></li>
+<li><strong>Key columns:</strong> <code>gene</code>, <code>sample</code>, <code>expression</code>, <code>sex</code>, <code>infection</code>, <code>time</code>, <code>tissue</code>, <code>gene_biotype</code></li>
+</ul>
+<p>The case is adopted from <span class="citation" data-cites="laurent_gatto_2021_5532658">@laurent_gatto_2021_5532658</span> with data from <span class="citation" data-cites="blackmore2017influenza">@blackmore2017influenza</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -28252,8 +28256,8 @@ window.Quarto = {
 </section>
 <section id="part-1-data-wrangling-with-dplyr" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-data-wrangling-with-dplyr">Part 1: Data Wrangling with <code>dplyr</code></h2>
-<section id="question-1.1-data-hygiene-and-transformation" class="level3">
-<h3 class="anchored" data-anchor-id="question-1.1-data-hygiene-and-transformation">Question 1.1: Data Hygiene and Transformation</h3>
+<section id="question-1.1-data-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="question-1.1-data-transformation">Question 1.1: Data Transformation</h3>
 <p>Raw RNA-Seq count data exhibits high dynamic range and right skewness.</p>
 <ol type="1">
 <li>Read the dataset directly from the URL using <code>read_csv()</code>.</li>
@@ -28293,11 +28297,11 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyMgWW91ciBjb2RlIHN0YXJ0
 </section>
 <section id="question-1.2-subsetting-and-summary-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="question-1.2-subsetting-and-summary-statistics">Question 1.2: Subsetting and Summary Statistics</h3>
-<p>We focus on the <strong>Fcrls</strong> gene. In the paper, researchers found that <em>Fcrls</em> is down-regulated during peak infection because brain-resident microglia switch off their homeostatic markers in response to the neuroinflammatory cascade.</p>
+<p>We focus on the <strong>Fcrls</strong> gene. In the paper, researchers found that <strong>Fcrls</strong> is down-regulated during peak infection in response to the neuroinflammatory cascade.</p>
 <ol type="1">
 <li>Filter <code>rna_clean</code> for <code>gene == &quot;Fcrls&quot;</code> and <code>tissue == &quot;Cerebellum&quot;</code>.</li>
-<li>Compute group-level summary statistics: group by <code>sex</code> and <code>time</code>, then calculate the mean (<code>mean_expr</code>), standard deviation (<code>sd_expr</code>), and count (<code>n = n()</code>).</li>
 <li>Store the unaggregated filtered subset as <code>fcrls_cere</code> for downstream plotting and statistical modeling.</li>
+<li>Compute group-level summary statistics <code>fcrls_summary</code>: group by <code>sex</code> and <code>time</code>, then calculate the mean (<code>mean_expr</code>), standard deviation (<code>sd_expr</code>), and count (<code>n = n()</code>).</li>
 </ol>
 <div class="cell">
 <div>
@@ -28313,12 +28317,12 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyMgWW91ciBjb2RlIHN0YXJ0
 <p><strong>Answer Key</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 &amp; 3. Create unaggregated subset</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fcrls_cere <span class="ot">&lt;-</span> rna_clean <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fcrls_cere <span class="ot">&lt;-</span> rna_clean <span class="sc">|&gt;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">&quot;Fcrls&quot;</span>, tissue <span class="sc">==</span> <span class="st">&quot;Cerebellum&quot;</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Compute group-level summary statistics</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>fcrls_summary <span class="ot">&lt;-</span> fcrls_cere <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, time) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>fcrls_summary <span class="ot">&lt;-</span> fcrls_cere <span class="sc">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, time) <span class="sc">|&gt;</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_expr =</span> <span class="fu">mean</span>(log2_expr),</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_expr   =</span> <span class="fu">sd</span>(log2_expr),</span>
@@ -28415,16 +28419,22 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyMgWW91ciBjb2RlIHN0YXJ0
 </div>
 <div class="hide">
 <p><strong>Answer Key</strong></p>
-<p><strong>Test Selection:</strong> Two-sample independent Welch’s <span class="math inline">\(t\)</span>-test (<code>t.test()</code>) or a simple linear model (<code>lm()</code>).</p>
+<p><strong>Test Selection:</strong> Two-sample independent Welch’s <span class="math inline">\(t\)</span>-test (<code>t.test()</code>)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># T0 vs T4 comparison</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fcrls_t0_t4 <span class="ot">&lt;-</span> fcrls_cere <span class="sc">%&gt;%</span> <span class="fu">filter</span>(time <span class="sc">&lt;=</span> <span class="dv">4</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>t_test_0_4  <span class="ot">&lt;-</span> <span class="fu">t.test</span>(log2_expr <span class="sc">~</span> time, <span class="at">data =</span> fcrls_t0_t4)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>t_test_0_4</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># T4 vs T8 comparison</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>fcrls_t4_t8 <span class="ot">&lt;-</span> fcrls_cere <span class="sc">%&gt;%</span> <span class="fu">filter</span>(time <span class="sc">&gt;=</span><span class="dv">4</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>t_test_4_8  <span class="ot">&lt;-</span> <span class="fu">t.test</span>(log2_expr <span class="sc">~</span> time, <span class="at">data =</span> fcrls_t4_t8)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>t_test_4_8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fcrls_t0_t4 <span class="ot">&lt;-</span> fcrls_cere <span class="sc">|&gt;</span> <span class="fu">filter</span>(time <span class="sc">&lt;=</span> <span class="dv">4</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>t_test_0_4  <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  fcrls_t0_t4<span class="sc">$</span>log2_expr[fcrls_t0_t4<span class="sc">$</span>time<span class="sc">==</span><span class="dv">0</span>], </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  fcrls_t0_t4<span class="sc">$</span>log2_expr[fcrls_t0_t4<span class="sc">$</span>time<span class="sc">==</span><span class="dv">4</span>])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>t_test_0_4</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># T4 vs T8 comparison</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>fcrls_t4_t8 <span class="ot">&lt;-</span> fcrls_cere <span class="sc">|&gt;</span> <span class="fu">filter</span>(time <span class="sc">&gt;=</span><span class="dv">4</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>t_test_4_8  <span class="ot">&lt;-</span><span class="fu">t.test</span>(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  fcrls_t4_t8<span class="sc">$</span>log2_expr[fcrls_t4_t8<span class="sc">$</span>time<span class="sc">==</span><span class="dv">4</span>], </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  fcrls_t4_t8<span class="sc">$</span>log2_expr[fcrls_t4_t8<span class="sc">$</span>time<span class="sc">==</span><span class="dv">8</span>])</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>t_test_4_8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Conclusion:</strong> * Comparing Day 0 to Day 4 tests whether the acute neuroinflammatory onset produces a significant down-regulation of <em>Fcrls</em>. * Comparing Day 4 to Day 8 assesses whether <em>Fcrls</em> expression recovers as the infection begins resolving.</p>
 </div>
@@ -28449,8 +28459,8 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyMgWW91ciBjb2RlIHN0YXJ0
 <div class="hide">
 <p><strong>Answer Key</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>apod_t0_t4 <span class="ot">&lt;-</span> rna_clean <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">&quot;Apod&quot;</span>, tissue <span class="sc">==</span> <span class="st">&quot;Cerebellum&quot;</span>, time <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>))</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>apod_t0_t4 <span class="ot">&lt;-</span> rna_clean <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">&quot;Apod&quot;</span>, tissue <span class="sc">==</span> <span class="st">&quot;Cerebellum&quot;</span>, time <span class="sc">&lt;=</span> <span class="dv">4</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>t_test_apod <span class="ot">&lt;-</span> <span class="fu">t.test</span>(log2_expr <span class="sc">~</span> time, <span class="at">data =</span> apod_t0_t4)</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>t_test_apod</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -28504,7 +28514,11 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyMgWW91ciBjb2RlIHN0YXJ0
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>r_squared <span class="ot">&lt;-</span> <span class="fu">summary</span>(model_fcrls)<span class="sc">$</span>r.squared</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;R-squared:&quot;</span>, r_squared, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Interpretation:</strong> - <strong>Goodness-of-fit:</strong> <code>r.squared</code> = 0.78 indicates the proportion of variance in <code>log2_expr</code> explained by post-infection time. - <strong>Slope (<span class="math inline">\(\beta_1\)</span>):</strong> The row where <code>term == &quot;time&quot;</code> reports the slope estimate. A negative value indicates the average daily decrease in <span class="math inline">\(\log_2\)</span> expression over the course of the infection.</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><strong>Goodness-of-fit:</strong> <code>r.squared</code> = 0.78 indicates the proportion of variance in <code>log2_expr</code> explained by post-infection time.</li>
+<li><strong>Slope (<span class="math inline">\(\beta_1\)</span>):</strong> The row where <code>term == &quot;time&quot;</code> reports the slope estimate. A negative value indicates the average daily decrease in <span class="math inline">\(\log_2\)</span> expression over the course of the infection.</li>
+</ul>
 </div>
 
 

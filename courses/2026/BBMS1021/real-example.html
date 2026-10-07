@@ -219,7 +219,7 @@
 
 <section id="title-slide" data-background="/assets/images/real-example/background-1.jpg" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
   <h1 class="title">Introduction to R</h1>
-  <p class="subtitle">Integrative mini project</p>
+  <p class="subtitle">Integrative mini-project</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -280,9 +280,9 @@ Dr.&nbsp;Yu Cheng Hsu
 <p>Before diving into the code, let’s look at the roadmap. Every robust data science project follows a structured life cycle.</p>
 <p>As a professional scientist to</p>
 <ul>
-<li>Translate the experiment into actionable analysis plan
+<li>Translate the experiment into an actionable analysis plan
 <ul>
-<li>Outline the potential plan on
+<li>Outline the potential plan for
 <ul>
 <li>Processing</li>
 <li>Analysis</li>
@@ -359,7 +359,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load necessary libraries and the dataset</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a></a>zea_mays <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/ychsu987/ychsu987.github.io/refs/heads/main/assets/data/real-example/zea_mays_clean.csv"</span>)</span>
+<span id="cb1-3"><a></a>zea_mays <span class="ot">=</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/ychsu987/ychsu987.github.io/refs/heads/main/assets/data/real-example/zea_mays_clean.csv"</span>)</span>
 <span id="cb1-4"><a></a><span class="fu">head</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
@@ -540,15 +540,18 @@ Dr.&nbsp;Yu Cheng Hsu
 <li><code>values_to = "Height"</code>: The actual measured numbers inside those cells are stacked into a new column called Height.</li>
 </ul>
 </section>
-<section id="visualizaiont" class="slide level2">
-<h2>Visualizaiont</h2>
-<div class="cell">
+<section id="visualization" class="slide level2">
+<h2>Visualization</h2>
+<div class="cell columns column-output-location">
+<div class="column">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Visualization of the data</span></span>
-<span id="cb15-2"><a></a><span class="fu">ggplot</span>(zea_mays_long, <span class="fu">aes</span>(<span class="at">x =</span> Type, <span class="at">y =</span> Height, <span class="at">group =</span> Pair)) <span class="sc">+</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Type), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb15-4"><a></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb15-5"><a></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name=</span><span class="st">"Pollination Type"</span>)<span class="sc">+</span></span>
-<span id="cb15-6"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name=</span><span class="st">"Height (inches)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-2"><a></a><span class="fu">ggplot</span>(zea_mays_long, </span>
+<span id="cb15-3"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Type, <span class="at">y =</span> Height, <span class="at">group =</span> Pair)) <span class="sc">+</span></span>
+<span id="cb15-4"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Type), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name=</span><span class="st">"Pollination Type"</span>)<span class="sc">+</span></span>
+<span id="cb15-7"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name=</span><span class="st">"Height (inches)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -556,17 +559,16 @@ Dr.&nbsp;Yu Cheng Hsu
 </figure>
 </div>
 </div>
-</div>
+</div></div>
 </section>
-<section id="the-wrong-approach-independent-t-test" class="slide level2">
-<h2>The Wrong Approach: Independent t-test</h2>
-<p>We have 30 plants in total. Let’s see what happens if we adopt Darwin’s way’ (i.e.&nbsp;wrong statistical test).</p>
-<ul>
-<li>The <strong>Wrong</strong> Approach: Independent t-test</li>
-</ul>
+<section id="wrong-approach-independent-t-test" class="slide level2">
+<h2>Wrong Approach: Independent t-test</h2>
+<p>We have 30 plants in total. Let’s see what happens if we adopt Darwin’s way’ (i.e.&nbsp;wrong statistical test). If we forget that the plants were grown in pairs (sharing the same pot), we might mistakenly assume we have two completely independent groups of 15 plants.</p>
 <div class="columns">
 <div class="column">
-<p><strong>Hypothesis</strong>: <span class="math display">\[
+<p>The <strong>Wrong</strong> Approach: Independent t-test</p>
+<p><strong>Hypothesis</strong>:</p>
+<p><span class="math display">\[
 \begin{aligned}
 H_0: &amp; \mu_{\text{cross}} \leq \mu_{\text{self}} \\
 H_a: &amp; \mu_{\text{cross}} &gt; \mu_{\text{self}}
@@ -596,8 +598,8 @@ mean of x mean of y
 </div>
 </div></div>
 </section>
-<section id="the-right-approach-paired-t-test" class="slide level2">
-<h2>The Right Approach: Paired t-test</h2>
+<section id="right-approach-paired-t-test" class="slide level2">
+<h2>Right Approach: Paired t-test</h2>
 <div class="columns">
 <div class="column">
 <p>The problem with Darwin’s fallacy is that</p>
@@ -609,7 +611,8 @@ mean of x mean of y
 </ul></li>
 </ul>
 <p>Violating the <strong>independent sample</strong> assumption of t-test. The corrected way is proposed by Ronald Fisher</p>
-<p><strong>Hypothesis</strong>: <span class="math display">\[
+<p><strong>Hypothesis</strong>:</p>
+<p><span class="math display">\[
 \begin{aligned}
 H_0: &amp;  \mu_{\text{diff}} \leq 0 \\
 H_a: &amp; \mu_{\text{diff}} &gt; 0
@@ -653,6 +656,26 @@ mean difference
 <li>Sample size</li>
 </ul></li>
 </ul>
+</section>
+<section id="final-remarks-on-the-mini-project" class="slide level2">
+<h2>Final remarks on the mini-project</h2>
+<div class="columns">
+<div class="column">
+<p><strong>For analysis in data</strong></p>
+<ul>
+<li>Always knowing the context of the data</li>
+<li>Understand the research question</li>
+<li>Plan the analysis and data wrangling</li>
+</ul>
+</div><div class="column">
+<p><strong>For coding</strong></p>
+<ul>
+<li>Coding help you record all of your process</li>
+<li>Let your calculation transparent and</li>
+<li>easy to validate</li>
+<li>Clear documentation of your code</li>
+</ul>
+</div></div>
 </section>
 <section id="reading-list" class="slide level2 smaller scrollable">
 <h2>Reading list</h2>
