@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R"
-subtitle: Integrative mini project
+subtitle: Integrative mini-project
 title-slide-attributes:
     data-background: /assets/images/real-example/background-1.jpg
     data-background-size:  40% 100%

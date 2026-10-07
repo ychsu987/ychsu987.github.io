@@ -19,7 +19,7 @@ rna <- read_csv("https://uclouvain-cbio.github.io/WSBIM1207/data/rnaseq.csv")
 
 ## Part 1: Data Wrangling with `dplyr`
 
-### Question 1.1: Data Hygiene and Transformation
+### Question 1.1: Data Transformation
 
 Raw RNA-Seq count data exhibits high dynamic range and right skewness.
 
@@ -56,11 +56,12 @@ head(rna_clean)
 
 ### Question 1.2: Subsetting and Summary Statistics
 
-We focus on the **Fcrls** gene. In the paper, researchers found that *Fcrls* is down-regulated during peak infection because brain-resident microglia switch off their homeostatic markers in response to the neuroinflammatory cascade.
+We focus on the **Fcrls** gene. In the paper, researchers found that **Fcrls** is down-regulated during peak infection in response to the neuroinflammatory cascade.
 
 1. Filter `rna_clean` for `gene == "Fcrls"` and `tissue == "Cerebellum"`.
-2. Compute group-level summary statistics: group by `sex` and `time`, then calculate the mean (`mean_expr`), standard deviation (`sd_expr`), and count (`n = n()`).
-3. Store the unaggregated filtered subset as `fcrls_cere` for downstream plotting and statistical modeling.
+2. Store the unaggregated filtered subset as `fcrls_cere` for downstream plotting and statistical modeling.
+3. Compute group-level summary statistics `fcrls_summary `: group by `sex` and `time`, then calculate the mean (`mean_expr`), standard deviation (`sd_expr`), and count (`n = n()`).
+
 
 ```{webr}
 ## Your code starts here
@@ -71,12 +72,12 @@ We focus on the **Fcrls** gene. In the paper, researchers found that *Fcrls* is 
 **Answer Key**
 ```{r}
 # 1 & 3. Create unaggregated subset
-fcrls_cere <- rna_clean %>%
+fcrls_cere <- rna_clean |>
   filter(gene == "Fcrls", tissue == "Cerebellum")
 
 # 2. Compute group-level summary statistics
-fcrls_summary <- fcrls_cere %>%
-  group_by(sex, time) %>%
+fcrls_summary <- fcrls_cere |>
+  group_by(sex, time) |>
   summarize(
     mean_expr = mean(log2_expr),
     sd_expr   = sd(log2_expr),
@@ -163,16 +164,22 @@ We want to test whether *Fcrls* expression differs between specific time points:
 ::: {.hide}
 **Answer Key**
 
-**Test Selection:** Two-sample independent Welch's $t$-test (`t.test()`) or a simple linear model (`lm()`).
+**Test Selection:** Two-sample independent Welch's $t$-test (`t.test()`) 
 
 ```{r}
 # T0 vs T4 comparison
-fcrls_t0_t4 <- fcrls_cere %>% filter(time <= 4)
-t_test_0_4  <- t.test(log2_expr ~ time, data = fcrls_t0_t4)
+fcrls_t0_t4 <- fcrls_cere |> filter(time <= 4)
+t_test_0_4  <- t.test(
+  fcrls_t0_t4$log2_expr[fcrls_t0_t4$time==0], 
+  fcrls_t0_t4$log2_expr[fcrls_t0_t4$time==4])
 t_test_0_4
+
 # T4 vs T8 comparison
-fcrls_t4_t8 <- fcrls_cere %>% filter(time >=4)
-t_test_4_8  <- t.test(log2_expr ~ time, data = fcrls_t4_t8)
+fcrls_t4_t8 <- fcrls_cere |> filter(time >=4)
+t_test_4_8  <-t.test(
+  fcrls_t4_t8$log2_expr[fcrls_t4_t8$time==4], 
+  fcrls_t4_t8$log2_expr[fcrls_t4_t8$time==8])
+
 t_test_4_8
 ```
 
@@ -196,8 +203,8 @@ t_test_4_8
 ::: {.hide}
 **Answer Key**
 ```{r}
-apod_t0_t4 <- rna_clean %>%
-  filter(gene == "Apod", tissue == "Cerebellum", time %in% c(0, 4))
+apod_t0_t4 <- rna_clean |>
+  filter(gene == "Apod", tissue == "Cerebellum", time <= 4)
 
 t_test_apod <- t.test(log2_expr ~ time, data = apod_t0_t4)
 t_test_apod
@@ -256,6 +263,7 @@ cat("R-squared:", r_squared, "\n")
 ```
 
 **Interpretation:**
+
 - **Goodness-of-fit:** `r.squared` = 0.78 indicates the proportion of variance in `log2_expr` explained by post-infection time.
 - **Slope ($\beta_1$):** The row where `term == "time"` reports the slope estimate. A negative value indicates the average daily decrease in $\log_2$ expression over the course of the infection.
 :::

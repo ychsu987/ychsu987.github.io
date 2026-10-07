@@ -32,8 +32,8 @@ Before diving into the code, let's look at the roadmap. Every robust data scienc
 
 As a professional scientist to
 
--   Translate the experiment into actionable analysis plan
-    -   Outline the potential plan on
+-   Translate the experiment into an actionable analysis plan
+    -   Outline the potential plan for
         -   Processing
         -   Analysis
         -   Visualization
@@ -88,7 +88,7 @@ Something you need check before you do anything:
 #| eval: true
 # Load necessary libraries and the dataset
 library(tidyverse)
-zea_mays = read_csv("https://raw.githubusercontent.com/ychsu987/ychsu987.github.io/refs/heads/main/assets/data/real-example/zea_mays_clean.csv")
+zea_mays =read_csv("https://raw.githubusercontent.com/ychsu987/ychsu987.github.io/refs/heads/main/assets/data/real-example/zea_mays_clean.csv")
 head(zea_mays)
 ```
 
@@ -266,36 +266,43 @@ head(zea_mays_long,3)
 ```{r}
 #| echo: true
 #| eval: true
+#| output-location: column
 
 # Visualization of the data
-ggplot(zea_mays_long, aes(x = Type, y = Height, group = Pair)) +
+ggplot(zea_mays_long, 
+  aes(x = Type, y = Height, group = Pair)) +
   geom_point(aes(color = Type), size = 3) +
   geom_line() +
   scale_x_discrete(name="Pollination Type")+
   scale_y_continuous(name="Height (inches)")
 ```
 
-## The Wrong Approach: Independent t-test
+## Wrong Approach: Independent t-test
 
-We have 30 plants in total. Let's see what happens if we adopt Darwin's way' (i.e. wrong statistical test).
+We have 30 plants in total. Let's see what happens if we adopt Darwin's way' (i.e. wrong statistical test). If we forget that the plants were grown in pairs (sharing the same pot), we might mistakenly assume we have two completely independent groups of 15 plants. 
 
--   The **Wrong** Approach: Independent t-test
 
-:::::: columns
-:::: column
-**Hypothesis**: $$
+
+:::{.columns}
+
+:::{.column}
+
+The **Wrong** Approach: Independent t-test
+
+
+**Hypothesis**: 
+
+$$
 \begin{aligned}
 H_0: & \mu_{\text{cross}} \leq \mu_{\text{self}} \\
 H_a: & \mu_{\text{cross}} > \mu_{\text{self}}
 \end{aligned}
 $$
 
-::: {.content-visible unless-format="revealjs"}
-If we forget that the plants were grown in pairs (sharing the same pots), we might mistakenly assume we have two completely independent groups of 15 plants. Let's run a standard independent t-test (which is what Darwin conceptually did).
-:::
-::::
 
-::: column
+:::
+
+:::{.column}
 ```{r}
 #| echo: true
 #| eval: true
@@ -307,12 +314,13 @@ t.test(zea_mays$Cross_fertilized_plant,
        paired = FALSE)
 ```
 :::
-::::::
+:::
 
-## The Right Approach: Paired t-test
+## Right Approach: Paired t-test
 
-::::: columns
-::: column
+:::{.columns}
+
+:::{.column}
 The problem with Darwin's fallacy is that
 
 -   Zea mays in the same pot shared
@@ -321,15 +329,18 @@ The problem with Darwin's fallacy is that
 
 Violating the **independent sample** assumption of t-test. The corrected way is proposed by Ronald Fisher
 
-**Hypothesis**: $$
+**Hypothesis**: 
+
+$$
 \begin{aligned}
 H_0: &  \mu_{\text{diff}} \leq 0 \\
 H_a: & \mu_{\text{diff}} > 0
 \end{aligned}
 $$
+
 :::
 
-::: column
+:::{.column}
 ```{r}
 #| echo: true
 #| eval: true
@@ -340,7 +351,8 @@ t.test(zea_mays$Cross_fertilized_plant,
        paired = TRUE)
 ```
 :::
-:::::
+
+:::
 
 ## Discussion on the results
 
