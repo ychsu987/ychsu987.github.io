@@ -7,7 +7,7 @@
 ::::: columns
 ::: column
 -   Experiment design
-    -   15 pairs of corn,
+    -   16 pairs of corn,
         -   one by **self-pollination**
         -   one by **cross-pollination**.\
     -   Each pair of observations was grown in the same pots,
@@ -23,7 +23,7 @@
 ::: {.content-visible unless-format="revealjs"}
 The data were presented in Charles Darwin's book *The Effects of Cross and Self Fertilization in the Vegetable Kingdom* in 1876. He hypothesized that cross-pollination could make their offspring stronger (in terms of height, in his opinion back then).
 
-To show this idea, he planted 15 pairs of Zea mays, one by self-pollination and the other by cross-pollination. Crucially, each pair of observations was grown in the same pots, and there were a total of 4 pots in this study. This means the plants in the same pot shared the exact same sunlight, soil, and water conditions.
+To show this idea, he planted 16 pairs of Zea mays, one by self-pollination and the other by cross-pollination. Crucially, each pair of observations was grown in the same pots, and there were a total of 4 pots in this study. This means the plants in the same pot shared the exact same sunlight, soil, and water conditions.
 :::
 
 ## The Data Science Workflow
@@ -279,7 +279,7 @@ ggplot(zea_mays_long,
 
 ## Wrong Approach: Independent t-test
 
-We have 30 plants in total. Let's see what happens if we adopt Darwin's way' (i.e. wrong statistical test). If we forget that the plants were grown in pairs (sharing the same pot), we might mistakenly assume we have two completely independent groups of 15 plants. 
+We have 32 plants in total. Let's see what happens if we adopt Darwin's way' (i.e. wrong statistical test). If we forget that the plants were grown in pairs (sharing the same pot), we might mistakenly assume we have two completely independent groups of 16 plants. 
 
 
 

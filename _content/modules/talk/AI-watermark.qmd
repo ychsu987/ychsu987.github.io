@@ -60,7 +60,7 @@ $$
 
 ##
 
-| Watermark Strength | Expected Green Rate ($\bar{p}_G$) | Minimum Detectable Sample Size (T) | Minimum Detectable Sample Size (Words) |
+| Watermark Strength | Expected Green Rate ($\bar{p}_G$) | Minimum Detectable Sample Size ($\tau=4$) | Minimum Detectable Sample Size ($\tau=3$) |
 |---|---|---|---|
 | **Moderate Soft Watermark** ($\delta \approx 1.5$) | $\bar{p}_G \approx 0.70$ | **$\approx 100$ tokens** (~75 words) | **$\approx 56$ tokens** |
 | **Standard Soft Watermark** ($\delta \approx 2.0$) | $\bar{p}_G \approx 0.80$ | **$\approx 44$ tokens** (~30–35 words) | **$\approx 25$ tokens** |

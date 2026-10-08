@@ -1,0 +1,79 @@
+## Variables
+
+:::{.columns}
+
+:::{.columm}
+In python there two fundamental data type
+
+- Numbers (Pure values)
+- Strings (wrapped in quote marks "")
+
+We can store these values using `=` in a `variable`
+
+ - Can only contain A-z, 0-9, and _ 
+ - Must start with letter
+ - Case-sensitive
+
+*Side notes*: numbers can be further categorized by their storage methods
+:::
+
+:::{.columm}
+```{python}
+#| echo: true
+#| eval: true
+#| 
+# The '#' symbol is a comment. Python ignores it. We use it to leave notes.
+# Let's store a short snippet of a target gene:
+target_gene_1 = "ATGCGTAACGTTAG"
+target_gene_2 = "GATTGCAATGCGTA"
+
+gene_1_expr = 15
+gene_2_expr = 20
+
+# To see what is inside our variable, we use the print function:
+print(target_gene_1)
+print(gene_1_expr)
+```
+:::
+
+:::
+
+## Mathematical Operations
+
+
+:::{.columns}
+
+:::{.columm}
+
+Python works exactly like a scientific calculator. The basic operators are: 
+
+- addition (+)
+- subtraction (-)
+- multiplication (*)
+- division (/)
+- exponents (**)
+
+*Side notes*: Do not skip multiplication signs as you do in math
+
+:::
+
+:::{.columm}
+```{python}
+#| echo: true
+#| eval: true
+
+# Simulating a PCR reaction
+starting_templates = 5
+pcr_cycles = 30
+
+# The double asterisk (**) means "to the power of"
+final_copies = starting_templates * (2 ** pcr_cycles)
+
+print("Starting DNA templates:", starting_templates)
+print("Final copies after 30 cycles:", final_copies)
+```
+:::
+
+:::
+
+
