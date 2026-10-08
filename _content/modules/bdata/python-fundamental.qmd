@@ -24,8 +24,8 @@ We can store these values using `=` in a `variable`
 #| 
 # The '#' symbol is a comment. Python ignores it. We use it to leave notes.
 # Let's store a short snippet of a target gene:
-target_gene_1 = "ATGCGTAACGTTAG"
-target_gene_2 = "GATTGCAATGCGTA"
+target_gene_1 = "ATGCGTAACGTTAGCGCC"
+target_gene_2 = "CCGCGATTGCAATGCGTA"
 
 gene_1_expr = 15
 gene_2_expr = 20
@@ -76,4 +76,116 @@ print("Final copies after 30 cycles:", final_copies)
 
 :::
 
+## Functions
 
+
+:::{.columns}
+
+:::{.columm}
+
+Function is a predefined set of code to make you perform specific task.
+
+`function_name(input1, input_2, ...)`
+
+For example `print()` is a function to print out the string and values
+Here we introduce another function `len()` to inspect how long is the string
+:::
+
+:::{.columm}
+```{python}
+#| echo: true
+#| eval: true
+
+# Calculate the length of the target gene
+seq_1_length = len(target_gene_1)
+seq_2_length = len(target_gene_2)
+
+# We can print text and variables together by separating them with a comma
+print("Total base pairs (Seq 1):", seq_1_length)
+print("Total base pairs (Seq 2):", seq_2_length)
+
+```
+:::
+
+:::
+
+## Methods
+
+:::{.columns}
+
+:::{.columm}
+
+Variables that store text (Strings) have special actions they can perform, called methods. We can ask our DNA sequence to count specific motifs or bases using .count().
+
+:::
+
+:::{.columm}
+```{python}
+#| echo: true
+#| eval: true
+
+# Count the number of Adenine bases in our sequence from Step 1
+a_count = target_gene_1.count("A")
+print("Number of A bases:", a_count)
+
+# Count a specific motif (e.g., a CpG site)
+cpg_count = target_gene_1.count("CG")
+print("Number of CpG sites:", cpg_count)
+```
+:::
+
+:::
+
+## Exercise: Calculating GC-Content
+
+
+:::{.columns}
+
+:::{.columm}
+
+GC-content is crucial for determining the melting temperature of PCR primers (G-C base pairs form 3 hydrogen bonds, but A-T forms 2). Let's calculate it using basic Python math 
+
+:::
+
+:::{.columm}
+```{python}
+#| echo: true
+#| eval: true
+
+# Count the number of Adenine bases in our sequence from Step 1
+a_count = target_gene_1.count("A")
+print("Number of A bases:", a_count)
+
+# Count a specific motif (e.g., a CpG site)
+cpg_count = target_gene_1.count("CG")
+print("Number of CpG sites:", cpg_count)
+```
+:::
+
+:::
+
+## Replacing strings: Simulating Transcription
+
+
+:::{.columns}
+
+:::{.columm}
+
+When DNA is transcribed to mRNA, Thymine (T) is replaced by Uracil (U). We can simulate this biological process instantly with the `.replace()` method.
+
+:::
+
+:::{.columm}
+```{python}
+#| echo: true
+#| eval: true
+
+# Transcribe the DNA to RNA by replacing T with U
+mrna_sequence = target_gene.replace("T", "U")
+
+print("Original DNA:", target_gene)
+print("Transcribed mRNA:", mrna_sequence)
+```
+:::
+
+:::
