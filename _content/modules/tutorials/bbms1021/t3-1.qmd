@@ -23,13 +23,16 @@ rna <- read_csv("https://uclouvain-cbio.github.io/WSBIM1207/data/rnaseq.csv")
 
 Raw RNA-Seq count data exhibits high dynamic range and right skewness.
 
-1. Read the dataset directly from the URL using `read_csv()`.
-2. Inspect the `rna` dataset to determine:
-   - How many observations (rows) are present?
-   - How many columns are present?
-   - What are the data types for each column?
-3. Compute a new column `log2_expr = log2(expression + 1)` using `mutate()`.
-4.Save the cleaned table as `rna_clean`.
+1.  Read the dataset directly from the URL using `read_csv()`.
+2.  Inspect the `rna` dataset to determine:
+    -   How many observations (rows) are present?
+    -   How many columns are present?
+    -   What are the data types for each column?
+3.  Compute a new column `log2_expr = log2(expression + 1)` using
+    `mutate()`.
+4.  Retain only protein coding genes using `filter()` on
+    `gene_biotype == "protein_coding"`
+5.  Save the cleaned table as `rna_clean`.
 
 ```{webr}
 ## Your code starts here
@@ -56,11 +59,18 @@ head(rna_clean)
 
 ### Question 1.2: Subsetting and Summary Statistics
 
-We focus on the **Fcrls** gene. In the paper, researchers found that **Fcrls** is down-regulated during peak infection in response to the neuroinflammatory cascade.
+We focus on the ***Fcrls*** gene. In the paper, researchers found that
+***Fcrls*** is down-regulated during peak infection in response to the
+neuroinflammatory cascade.
 
-1. Filter `rna_clean` for `gene == "Fcrls"` and `tissue == "Cerebellum"`.
-2. Store the unaggregated filtered subset as `fcrls_cere` for downstream plotting and statistical modeling.
-3. Compute group-level summary statistics `fcrls_summary `: group by `sex` and `time`, then calculate the mean (`mean_expr`), standard deviation (`sd_expr`), and count (`n = n()`).
+1.  Filter `rna_clean` for `gene == "Fcrls"` and
+    `tissue == "Cerebellum"`.
+2.  Store the unaggregated filtered subset as `fcrls_cere` for
+    downstream plotting and statistical modeling.
+3.  Compute group-level summary statistics `fcrls_summary`: group by
+    `sex` and `time`, then calculate the mean (`mean_expr`), standard
+    deviation (`sd_expr`), and count (`n = n()`).
+
 
 
 ```{webr}
@@ -94,12 +104,14 @@ print(fcrls_summary)
 
 ### Question 2.1: Multi-Panel Trajectory Visualization
 
-Visual inspection reveals whether temporal changes in *Fcrls* expression are consistent across sexes.
+Visual inspection reveals whether temporal changes in *Fcrls* expression
+are consistent across sexes.
 
-1. Build a scatter plot using `fcrls_cere` mapping `time` to the x-axis and `log2_expr` to the y-axis.
-2. Color points by `sex`.
-3. Adding sufficient information on  x- and y-axis title
-4. Style the plot: set discrete x-ticks at `c(0, 4, 8)`
+1.  Build a scatter plot using `fcrls_cere` mapping `time` to the x-axis
+    and `log2_expr` to the y-axis.
+2.  Color points by `sex`.
+3.  Adding sufficient information on x- and y-axis title
+4.  Style the plot: set discrete x-ticks at `c(0, 4, 8)`
 
 ```{webr}
 ## Your code starts here
@@ -121,11 +133,15 @@ ggplot(fcrls_cere, aes(x = time, y = log2_expr, color = sex)) +
 
 ### Question 2.2: Distributional Comparison Across Time Points
 
-To inspect the spread and distribution across time points without assuming linearity, construct a boxplot with individual observations overlaid.
+To inspect the spread and distribution across time points without
+assuming linearity, construct a boxplot with individual observations
+overlaid.
 
-1. Create a boxplot mapping `factor(time)` to the x-axis and `log2_expr` to the y-axis.
-2. Overlay individual data points using `geom_jitter()` or `geom_point()`.
-3. Facet by `sex`.
+1.  Create a boxplot mapping `factor(time)` to the x-axis and
+    `log2_expr` to the y-axis.
+2.  Overlay individual data points using `geom_jitter()` or
+    `geom_point()`.
+3.  Facet by `sex`.
 
 ```{webr}
 ## Your code starts here
@@ -149,12 +165,13 @@ ggplot(fcrls_cere, aes(x = factor(time), y = log2_expr, fill = sex)) +
 
 ### Question 3.1: Difference Between Time Points
 
-We want to test whether *Fcrls* expression differs between specific time points:
-- Day 0 (T0) vs. Day 4 (T4)
-- Day 4 (T4) vs. Day 8 (T8)
+We want to test whether *Fcrls* expression differs between specific time
+points: - Day 0 (T0) vs. Day 4 (T4) - Day 4 (T4) vs. Day 8 (T8)
 
-1. What is a suitable statistical test to compare the means of these two independent groups?
-2. Perform the test using the appropriate R function, extract the $p$-value, and state your conclusion.
+1.  What is a suitable statistical test to compare the means of these
+    two independent groups?
+2.  Perform the test using the appropriate R function, extract the
+    $p$-value, and state your conclusion.
 
 ```{webr}
 ## Your code starts here
@@ -183,17 +200,23 @@ t_test_4_8  <-t.test(
 t_test_4_8
 ```
 
-**Conclusion:** 
-* Comparing Day 0 to Day 4 tests whether the acute neuroinflammatory onset produces a significant down-regulation of *Fcrls*.
-* Comparing Day 4 to Day 8 assesses whether *Fcrls* expression recovers as the infection begins resolving.
+**Conclusion:** \* Comparing Day 0 to Day 4 tests whether the acute
+neuroinflammatory onset produces a significant down-regulation of
+*Fcrls*. \* Comparing Day 4 to Day 8 assesses whether *Fcrls* expression
+recovers as the infection begins resolving.
+
 :::
 
 ---
 
 ### Question 3.2: Generalizing to *Apod* and Multiple Testing Correction
 
-1. Filter `rna_clean` for `gene == "Apod"` and `tissue == "Cerebellum"`, and perform the same comparison between Day 0 and Day 4.
-2. Can we repeat this pairwise testing procedure independently across all 15,000+ genes to find differentially expressed genes? If not, what adjustments are required?
+1.  Filter `rna_clean` for `gene == "Apod"` and
+    `tissue == "Cerebellum"`, and perform the same comparison between
+    Day 0 and Day 4.
+2.  Can we repeat this pairwise testing procedure independently across
+    all 15,000+ genes to find differentially expressed genes? If not,
+    what adjustments are required?
 
 ```{webr}
 ## Your code starts here
@@ -210,26 +233,36 @@ t_test_apod <- t.test(log2_expr ~ time, data = apod_t0_t4)
 t_test_apod
 ```
 
-**Discussion:**
-No, you cannot run thousands of unadjusted individual tests. Testing thousands of genes simultaneously leads to the **multiple testing problem**: at an $\alpha = 0.05$ threshold, testing 20,000 genes would produce roughly $20,000 \times 0.05 = 1,000$ false positives purely by random chance.
+**Discussion:** No, you cannot run thousands of unadjusted individual
+tests. Testing thousands of genes simultaneously leads to the **multiple testing problem**: at an $\alpha = 0.05$ threshold, testing 20,000 genes
+would produce roughly $20,000 \times 0.05 = 1,000$ false positives
+purely by random chance.
 
-**Required Modifications:**
-- Apply **False Discovery Rate (FDR)** control using the Benjamini-Hochberg (BH) procedure via `p.adjust(p, method = "BH")`.
-- In standard transcriptomic workflows, use specialized empirical Bayes shrinkage frameworks designed for count data and small sample sizes (such as `DESeq2` or `limma-voom`).
+**Required Modifications:** 
+
+- Apply **False Discovery Rate (FDR)**
+control using the Benjamini-Hochberg (BH) procedure via
+`p.adjust(p, method = "BH")`. 
+- In standard transcriptomic workflows, use specialized empirical Bayes shrinkage frameworks designed for count
+data and small sample sizes (such as `DESeq2` or `limma-voom`).
 :::
 
 ---
 
 ### Question 3.3: Stratified Linear Regression via Nested Data
 
-Fit a simple linear regression model using lm() to investigate how Fcrls expression changes over time across all samples in fcrls_cere
+Fit a simple linear regression model using lm() to investigate how Fcrls
+expression changes over time across all samples in fcrls_cere
 
 $$\text{log2\_expr} = \beta_0 + \beta_1 \cdot \text{time} + \epsilon$$
 
-1. Fit the linear model predicting log2_expr from time and store it in an object named `model_fcrls`.
-2. Inspect the model summary using `summary()` 
-3. Extract the estimated slope ($\beta_1$) and check if it is statistically significant ($p < 0.05$).
-4. Extract the $R^2$ (coefficient of determination) value to assess goodness-of-fit.
+1.  Fit the linear model predicting log2_expr from time and store it in
+    an object named `model_fcrls`.
+2.  Inspect the model summary using `summary()`
+3.  Extract the estimated slope ($\beta_1$) and check if it is
+    statistically significant ($p < 0.05$).
+4.  Extract the $R^2$ (coefficient of determination) value to assess
+    goodness-of-fit.
 
 ```{webr}
 ## Your code starts here
@@ -264,6 +297,10 @@ cat("R-squared:", r_squared, "\n")
 
 **Interpretation:**
 
-- **Goodness-of-fit:** `r.squared` = 0.78 indicates the proportion of variance in `log2_expr` explained by post-infection time.
-- **Slope ($\beta_1$):** The row where `term == "time"` reports the slope estimate. A negative value indicates the average daily decrease in $\log_2$ expression over the course of the infection.
+-   **Goodness-of-fit:** `r.squared` = 0.78 indicates the proportion of
+    variance in `log2_expr` explained by post-infection time.
+-   **Slope (**$\beta_1$): The row where `term == "time"` reports the
+    slope estimate. A negative value indicates the average daily
+    decrease in $\log_2$ expression over the course of the infection.
+
 :::
