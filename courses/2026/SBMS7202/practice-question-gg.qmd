@@ -1,5 +1,5 @@
 ---
-title: "Practice Question 1"
+title: "Practice Question 2"
 format: 
   live-html:
     toc: true
@@ -14,4 +14,4 @@ eval: false
 lightbox: true
 ---
 
-{{< include /_content/modules/tutorials/sbms7202/ggplot.qmd >}}
+{{< include _content/modules/tutorials/sbms7202/r_basic.qmd >}}
