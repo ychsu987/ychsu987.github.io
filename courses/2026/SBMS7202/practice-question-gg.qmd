@@ -14,4 +14,4 @@ eval: false
 lightbox: true
 ---
 
-{{< include _content/modules/tutorials/sbms7202/r_basic.qmd >}}
+{{< include /_content/modules/tutorials/sbms7202/ggplot.qmd >}}
