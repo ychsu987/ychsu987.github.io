@@ -1,0 +1,17 @@
+---
+title: "Practice Question 1"
+format: 
+  live-html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    self-contained: true
+    css: ../../../assets/css/tutorial_student.css
+engine: knitr 
+author: "Dr. Yu Cheng Hsu"
+date: "2026-10-08"
+eval: false
+lightbox: true
+---
+
+{{< include /_content/modules/tutorials/sbms7202/ggplot.qmd >}}
