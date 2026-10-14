@@ -256,7 +256,7 @@ Yu Cheng Hsu
 <ul>
 <li>Experiment design
 <ul>
-<li>15 pairs of corn,
+<li>16 pairs of corn,
 <ul>
 <li>one by <strong>self-pollination</strong></li>
 <li>one by <strong>cross-pollination</strong>.<br>
@@ -269,7 +269,7 @@ Yu Cheng Hsu
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/real-example/darwin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration of experiment design"><img data-src="../../..\assets/images/real-example/darwin.png" style="width:100.0%" alt="Illustration of experiment design"></a></p>
+<p><a href="../../../assets/images/real-example/darwin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration of experiment design"><img data-src="../../../assets/images/real-example/darwin.png" style="width:100.0%" alt="Illustration of experiment design"></a></p>
 <figcaption>Illustration of experiment design</figcaption>
 </figure>
 </div>
@@ -280,9 +280,9 @@ Yu Cheng Hsu
 <p>Before diving into the code, let’s look at the roadmap. Every robust data science project follows a structured life cycle.</p>
 <p>As a professional scientist to</p>
 <ul>
-<li>Translate the experiment into actionable analysis plan
+<li>Translate the experiment into an actionable analysis plan
 <ul>
-<li>Outline the potential plan on
+<li>Outline the potential plan for
 <ul>
 <li>Processing</li>
 <li>Analysis</li>
@@ -299,7 +299,7 @@ Yu Cheng Hsu
 <div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/real-example/data_lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Data lifecycle, figure from @griffin2018best"><img data-src="../../..\assets/images/real-example/data_lifecycle.png" alt="Data lifecycle, figure from Griffin et al. (2018)"></a></p>
+<p><a href="../../../assets/images/real-example/data_lifecycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Data lifecycle, figure from @griffin2018best"><img data-src="../../../assets/images/real-example/data_lifecycle.png" alt="Data lifecycle, figure from Griffin et al. (2018)"></a></p>
 <figcaption>Data lifecycle, figure from <span class="citation" data-cites="griffin2018best">Griffin et al. (<a href="#/reading-list" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
 </figure>
 </div>
@@ -346,12 +346,6 @@ Yu Cheng Hsu
 <li><strong>Statistical test:</strong> Formulate our hypothesis and conduct statistical inference</li>
 <li><strong>Conclusion &amp; Reporting:</strong> Interpret the statistical output (p-value, mean difference).</li>
 </ol>
-<!-- ## A Famous "Wrong" Experiment
-
-This study is famous not because of its contribution to plant biology; instead, it is a famous **wrong** experiment in statistics. 
-
-- **Darwin's Mistake:** He calculated the overall average height of all cross-pollinated plants and compared it to the average of all self-pollinated plants, completely ignoring the fact that they were planted in pairs.
-- **Fisher's Correction:** Ronald A. Fisher (a renowned biostatistician) later pointed out that by ignoring the pairs, Darwin failed to account for the environmental differences between different pots. Fisher used this exact dataset to demonstrate the importance of the **Paired design** in statistics. -->
 </section>
 <section id="data-import-and-inspection" class="slide level2">
 <h2>Data Import and Inspection</h2>
@@ -365,16 +359,18 @@ This study is famous not because of its contribution to plant biology; instead, 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load necessary libraries and the dataset</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a></a>zea_mays <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"../../../assets/data/real-example/zea_mays.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a></a>zea_mays <span class="ot">=</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/ychsu987/ychsu987.github.io/refs/heads/main/assets/data/real-example/zea_mays_clean.csv"</span>)</span>
 <span id="cb1-4"><a></a><span class="fu">head</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Pots Pair Cross.fertilized.plant Self.fertilized.plant
-1 Pot1    1                 23.500                17.375
-2 Pot1    2                 12.000                20.375
-3 Pot1    3                 21.000                20.000
-4 Pot2    4                 22.000                20.000
-5 Pot2    5                 19.125                18.375
-6 Pot2    6                 21.500                18.625</code></pre>
+<pre><code># A tibble: 6 × 4
+  Pots   Pair Cross_fertilized_plant Self_fertilized_plant
+  &lt;chr&gt; &lt;dbl&gt;                  &lt;dbl&gt;                 &lt;dbl&gt;
+1 Pot1      1                   23.5                  17.4
+2 Pot1      2                   12                    20.4
+3 Pot1      3                   21                    20  
+4 Pot2      4                   22                    20  
+5 Pot2      5                   19.1                  18.4
+6 Pot2      6                   21.5                  18.6</code></pre>
 </div>
 </div>
 </section>
@@ -385,11 +381,19 @@ This study is famous not because of its contribution to plant biology; instead, 
 <span id="cb3-2"><a></a><span class="do">## Apparently you can use zea_mays %&gt;% anyNA() and so on</span></span>
 <span id="cb3-3"><a></a><span class="fu">str</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   17 obs. of  4 variables:
- $ Pots                  : chr  "Pot1" "Pot1" "Pot1" "Pot2" ...
- $ Pair                  : int  1 2 3 4 5 6 7 8 9 10 ...
- $ Cross.fertilized.plant: num  23.5 12 21 22 19.1 ...
- $ Self.fertilized.plant : num  17.4 20.4 20 20 18.4 ...</code></pre>
+<pre><code>spc_tbl_ [17 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ Pots                  : chr [1:17] "Pot1" "Pot1" "Pot1" "Pot2" ...
+ $ Pair                  : num [1:17] 1 2 3 4 5 6 7 8 9 10 ...
+ $ Cross_fertilized_plant: num [1:17] 23.5 12 21 22 19.1 ...
+ $ Self_fertilized_plant : num [1:17] 17.4 20.4 20 20 18.4 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   Pots = col_character(),
+  ..   Pair = col_double(),
+  ..   Cross_fertilized_plant = col_double(),
+  ..   Self_fertilized_plant = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">anyNA</span>(zea_mays) <span class="co"># Returns FALSE if there are no missing values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -400,11 +404,13 @@ This study is famous not because of its contribution to plant biology; instead, 
 <li>There is NA data being identified</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>zea_mays <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(Cross.fertilized.plant) <span class="sc">|</span> <span class="fu">is.na</span>(Self.fertilized.plant))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>zea_mays <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">filter</span>( <span class="fu">is.na</span>(Self_fertilized_plant) <span class="sc">|</span> <span class="fu">is.na</span>(Cross_fertilized_plant))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Pots Pair Cross.fertilized.plant Self.fertilized.plant
-1 Pot6   NA                     NA                    NA</code></pre>
+<pre><code># A tibble: 1 × 4
+  Pots   Pair Cross_fertilized_plant Self_fertilized_plant
+  &lt;chr&gt; &lt;dbl&gt;                  &lt;dbl&gt;                 &lt;dbl&gt;
+1 Pot6     NA                     NA                    NA</code></pre>
 </div>
 </div>
 </section>
@@ -428,7 +434,7 @@ This study is famous not because of its contribution to plant biology; instead, 
 <p><strong>Good practice of coding</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># 1. Drop any incomplete pairs</span></span>
-<span id="cb9-2"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays <span class="sc">|&gt;</span> </span>
 <span id="cb9-3"><a></a>  <span class="fu">drop_na</span>()</span>
 <span id="cb9-4"><a></a><span class="co"># 2. Verify the clean-up was successful</span></span>
 <span id="cb9-5"><a></a><span class="fu">anyNA</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -438,12 +444,12 @@ This study is famous not because of its contribution to plant biology; instead, 
 </div>
 </div><div class="column">
 <p><strong>Not recommended way</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Not recommended approach</span></span>
-<span id="cb11-2"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays[<span class="sc">-</span><span class="dv">1</span>,]</span>
-<span id="cb11-3"><a></a><span class="co"># 2. Verify the clean-up was successful</span></span>
-<span id="cb11-4"><a></a><span class="fu">anyNA</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb11-2"><a></a><span class="co">#| eval: false</span></span>
+<span id="cb11-3"><a></a><span class="co"># Not recommended approach</span></span>
+<span id="cb11-4"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays[<span class="sc">-</span><span class="dv">1</span>,]</span>
+<span id="cb11-5"><a></a><span class="co"># 2. Verify the clean-up was successful</span></span>
+<span id="cb11-6"><a></a><span class="fu">anyNA</span>(zea_mays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <ul>
 <li>Try to avoid <strong>hard code</strong> on specific columns, rows by indexing</li>
@@ -459,13 +465,8 @@ This study is famous not because of its contribution to plant biology; instead, 
 <p>For our visual and statistical analysis, we need to calculate the true biological signal we care about: the height difference within each pair. We will also pivot the data for plotting.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Calculate the paired difference</span></span>
-<span id="cb12-2"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">mutate</span>(<span class="at">diff.height =</span> Cross.fertilized.plant <span class="sc">-</span> Self.fertilized.plant)</span>
-<span id="cb12-4"><a></a></span>
-<span id="cb12-5"><a></a><span class="co"># Reshape for visualization</span></span>
-<span id="cb12-6"><a></a>zea_mays_long <span class="ot">&lt;-</span> zea_mays <span class="sc">%&gt;%</span></span>
-<span id="cb12-7"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Cross.fertilized.plant, Self.fertilized.plant), </span>
-<span id="cb12-8"><a></a>               <span class="at">names_to =</span> <span class="st">"Type"</span>, <span class="at">values_to =</span> <span class="st">"Height"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a></a>zea_mays <span class="ot">&lt;-</span> zea_mays <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">mutate</span>(<span class="at">diff.height =</span> Cross_fertilized_plant <span class="sc">-</span> Self_fertilized_plant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
@@ -478,7 +479,7 @@ This study is famous not because of its contribution to plant biology; instead, 
 <p>A <strong>hypothesis test</strong> asks: if there were truly <em>no</em> difference (or no effect), how surprising is the pattern we see in the data?</p>
 <ul>
 <li>We state a skeptical <strong>null</strong> (<span class="math inline">\(H_0\)</span>) and an <strong>alternative</strong> (<span class="math inline">\(H_a\)</span>).</li>
-<li>A small <strong><span class="math inline">\(p\)</span>-value</strong> means “this extreme a result would be unusual under <span class="math inline">\(H_0\)</span>” — not “the hypothesis is proven.”</li>
+<li>A small <span class="math inline">\(p\)</span>-value means “this extreme a result would be unusual under <span class="math inline">\(H_0\)</span>” — not “the hypothesis is proven.”</li>
 </ul>
 <p><strong>Why pairing matters here</strong></p>
 <ul>
@@ -489,30 +490,85 @@ This study is famous not because of its contribution to plant biology; instead, 
 </section>
 <section id="scatter-plot-with-pair-information" class="slide level2">
 <h2>Scatter Plot with Pair Information</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>This part we would like create a plot like this. Before that there are some issues in the our data.</p>
+<ul>
+<li>Every row must represent a single observation</li>
+</ul>
+<p>Implication: Not compatibile to <code>ggplot</code></p>
+<p>In data wrangling we define</p>
+<ul>
+<li><strong>Wide table</strong>: a table with each observation at each column</li>
+<li><strong>Long table</strong>: a table with each observation at each row</li>
+</ul>
+</div><div class="column" style="width:53%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(zea_mays_long, <span class="fu">aes</span>(<span class="at">x =</span> Type, <span class="at">y =</span> Height, <span class="at">group =</span> Pair)) <span class="sc">+</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Type), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Paired Heights of Zea mays"</span>, <span class="at">x =</span> <span class="st">"Pollination Type"</span>, <span class="at">y =</span> <span class="st">"Height (inches)"</span>) <span class="sc">+</span></span>
-<span id="cb13-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="real-example_files/figure-revealjs/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="real-example_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></a></p>
+<p><a href="real-example_files/figure-revealjs/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="real-example_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
 </div>
+</div></div>
 </section>
-<section id="the-wrong-approach-independent-t-test" class="slide level2">
-<h2>The Wrong Approach: Independent t-test</h2>
-<p>We have 30 plants in total. Let’s see what happens if we adopt Darwin’s way’ (i.e.&nbsp;wrong statistical test).</p>
+<section id="reshape-the-zea_mays" class="slide level2">
+<h2>Reshape the zea_mays</h2>
+<p>We use <code>pivot_longer()</code> to reshape the <code>zea_mays</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Reshape for visualization</span></span>
+<span id="cb13-2"><a></a>zea_mays_long <span class="ot">&lt;-</span> zea_mays <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a></a>  <span class="fu">select</span>(Pots,Pair,Self_fertilized_plant,Cross_fertilized_plant) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Cross_fertilized_plant, Self_fertilized_plant), </span>
+<span id="cb13-5"><a></a>               <span class="at">names_to =</span> <span class="st">"Type"</span>, <span class="at">values_to =</span> <span class="st">"Height"</span>)</span>
+<span id="cb13-6"><a></a></span>
+<span id="cb13-7"><a></a><span class="fu">head</span>(zea_mays_long,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  Pots   Pair Type                   Height
+  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt;
+1 Pot1      1 Cross_fertilized_plant   23.5
+2 Pot1      1 Self_fertilized_plant    17.4
+3 Pot1      2 Cross_fertilized_plant   12  </code></pre>
+</div>
+</div>
 <ul>
-<li>The <strong>Wrong</strong> Approach: Independent t-test</li>
+<li><code>cols</code>: You tell R which columns are observationss</li>
+<li><code>names_to = "Type"</code>: The old column headers (i.e.&nbsp;<code>Self_fertilized_plant</code> and <code>Cross_fertilized_plant</code>) become categorical values in a new column called Type.</li>
+<li><code>values_to = "Height"</code>: The actual measured numbers inside those cells are stacked into a new column called Height.</li>
 </ul>
+</section>
+<section id="visualization" class="slide level2">
+<h2>Visualization</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Visualization of the data</span></span>
+<span id="cb15-2"><a></a><span class="fu">ggplot</span>(zea_mays_long, </span>
+<span id="cb15-3"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> Type, <span class="at">y =</span> Height, <span class="at">group =</span> Pair)) <span class="sc">+</span></span>
+<span id="cb15-4"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Type), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name=</span><span class="st">"Pollination Type"</span>)<span class="sc">+</span></span>
+<span id="cb15-7"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name=</span><span class="st">"Height (inches)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="real-example_files/figure-revealjs/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="real-example_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="wrong-approach-independent-t-test" class="slide level2">
+<h2>Wrong Approach: Independent t-test</h2>
+<p>We have 32 plants in total. Let’s see what happens if we adopt Darwin’s way’ (i.e.&nbsp;wrong statistical test). If we forget that the plants were grown in pairs (sharing the same pot), we might mistakenly assume we have two completely independent groups of 16 plants.</p>
 <div class="columns">
 <div class="column">
-<p><strong>Hypothesis</strong>: <span class="math display">\[
+<p>The <strong>Wrong</strong> Approach: Independent t-test</p>
+<p><strong>Hypothesis</strong>:</p>
+<p><span class="math display">\[
 \begin{aligned}
 H_0: &amp; \mu_{\text{cross}} \leq \mu_{\text{self}} \\
 H_a: &amp; \mu_{\text{cross}} &gt; \mu_{\text{self}}
@@ -520,17 +576,17 @@ H_a: &amp; \mu_{\text{cross}} &gt; \mu_{\text{self}}
 \]</span></p>
 </div><div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># INCORRECT: Running an unpaired </span></span>
-<span id="cb14-2"><a></a><span class="co"># (independent) t-test</span></span>
-<span id="cb14-3"><a></a><span class="fu">t.test</span>(zea_mays<span class="sc">$</span>Cross.fertilized.plant, </span>
-<span id="cb14-4"><a></a>       zea_mays<span class="sc">$</span>Self.fertilized.plant, </span>
-<span id="cb14-5"><a></a>       <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
-<span id="cb14-6"><a></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># INCORRECT: Running an unpaired </span></span>
+<span id="cb16-2"><a></a><span class="co"># (independent) t-test</span></span>
+<span id="cb16-3"><a></a><span class="fu">t.test</span>(zea_mays<span class="sc">$</span>Cross_fertilized_plant, </span>
+<span id="cb16-4"><a></a>       zea_mays<span class="sc">$</span>Self_fertilized_plant, </span>
+<span id="cb16-5"><a></a>       <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
+<span id="cb16-6"><a></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
 
-data:  zea_mays$Cross.fertilized.plant and zea_mays$Self.fertilized.plant
+data:  zea_mays$Cross_fertilized_plant and zea_mays$Self_fertilized_plant
 t = 1.406, df = 27.048, p-value = 0.08555
 alternative hypothesis: true difference in means is greater than 0
 95 percent confidence interval:
@@ -542,8 +598,8 @@ mean of x mean of y
 </div>
 </div></div>
 </section>
-<section id="the-right-approach-paired-t-test" class="slide level2">
-<h2>The Right Approach: Paired t-test</h2>
+<section id="right-approach-paired-t-test" class="slide level2">
+<h2>Right Approach: Paired t-test</h2>
 <div class="columns">
 <div class="column">
 <p>The problem with Darwin’s fallacy is that</p>
@@ -555,7 +611,8 @@ mean of x mean of y
 </ul></li>
 </ul>
 <p>Violating the <strong>independent sample</strong> assumption of t-test. The corrected way is proposed by Ronald Fisher</p>
-<p><strong>Hypothesis</strong>: <span class="math display">\[
+<p><strong>Hypothesis</strong>:</p>
+<p><span class="math display">\[
 \begin{aligned}
 H_0: &amp;  \mu_{\text{diff}} \leq 0 \\
 H_a: &amp; \mu_{\text{diff}} &gt; 0
@@ -563,16 +620,16 @@ H_a: &amp; \mu_{\text{diff}} &gt; 0
 \]</span></p>
 </div><div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># CORRECT: Running a paired t-test</span></span>
-<span id="cb16-2"><a></a><span class="fu">t.test</span>(zea_mays<span class="sc">$</span>Cross.fertilized.plant, </span>
-<span id="cb16-3"><a></a>       zea_mays<span class="sc">$</span>Self.fertilized.plant, </span>
-<span id="cb16-4"><a></a>       <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
-<span id="cb16-5"><a></a>       <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># CORRECT: Running a paired t-test</span></span>
+<span id="cb18-2"><a></a><span class="fu">t.test</span>(zea_mays<span class="sc">$</span>Cross_fertilized_plant, </span>
+<span id="cb18-3"><a></a>       zea_mays<span class="sc">$</span>Self_fertilized_plant, </span>
+<span id="cb18-4"><a></a>       <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
+<span id="cb18-5"><a></a>       <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
 
-data:  zea_mays$Cross.fertilized.plant and zea_mays$Self.fertilized.plant
+data:  zea_mays$Cross_fertilized_plant and zea_mays$Self_fertilized_plant
 t = 2.0549, df = 15, p-value = 0.02887
 alternative hypothesis: true mean difference is greater than 0
 95 percent confidence interval:
@@ -599,6 +656,26 @@ mean difference
 <li>Sample size</li>
 </ul></li>
 </ul>
+</section>
+<section id="final-remarks-on-the-mini-project" class="slide level2">
+<h2>Final remarks on the mini-project</h2>
+<div class="columns">
+<div class="column">
+<p><strong>For analysis in data</strong></p>
+<ul>
+<li>Always knowing the context of the data</li>
+<li>Understand the research question</li>
+<li>Plan the analysis and data wrangling</li>
+</ul>
+</div><div class="column">
+<p><strong>For coding</strong></p>
+<ul>
+<li>Coding help you record all of your process</li>
+<li>Let your calculation transparent and</li>
+<li>easy to validate</li>
+<li>Clear documentation of your code</li>
+</ul>
+</div></div>
 </section>
 <section id="reading-list" class="slide level2 smaller scrollable">
 <h2>Reading list</h2>
@@ -835,80 +912,42 @@ Ross, Sheldon M. 2017. <em>Introductory Statistics</em>. Academic Press.
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

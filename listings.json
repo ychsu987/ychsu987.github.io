@@ -1,12 +1,10 @@
 [
   {
-    "listing": "/programming.html",
+    "listing": "/hybridPBL.html",
     "items": [
-      "/courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
-      "/courses/2025/BBMS1021/Real_case/Real-example.html",
-      "/courses/2026/BBMS1021/tutorial_1.html",
-      "/courses/2026/BBMS1021/tutorial_2.html",
-      "/courses/2026/BBMS1021/tutorial_3.html"
+      "/courses/2025/BIOF4002/Global health informatics.html",
+      "/courses/2025/BIOF4002/mHealth and telemedicine.html",
+      "/courses/2025/BIOF3001/suicide-media-slides.html"
     ]
   },
   {
@@ -18,11 +16,13 @@
     ]
   },
   {
-    "listing": "/hybridPBL.html",
+    "listing": "/programming.html",
     "items": [
-      "/courses/2025/BIOF4002/Global health informatics.html",
-      "/courses/2025/BIOF4002/mHealth and telemedicine.html",
-      "/courses/2025/BIOF3001/suicide-media-slides.html"
+      "/courses/2025/BBMS1021/ggplot2_intro/introduction_to_ggplot2.html",
+      "/courses/2025/BBMS1021/Real_case/Real-example.html",
+      "/courses/2026/BBMS1021/tutorial_1.html",
+      "/courses/2026/BBMS1021/tutorial_2.html",
+      "/courses/2026/BBMS1021/tutorial_3.html"
     ]
   },
   {
