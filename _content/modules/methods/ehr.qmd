@@ -1,3 +1,52 @@
+# Landscape & Taxonomy of Large-Scale Health Data
+
+## Source of the large-scale data
+:::{.columns}
+
+:::{.column}
+- Electronic Health Record (EHR)
+  - Granular, contains vitals, lab values, 
+  - Bedside observations, clinical narrative
+  - Fragmented across provider systems.
+- Billing/Claims (Payer Focus): 
+  - Comprehensive longitudinal spend and encounter tracking, reliable billing codes (ICD, CPT), but zero clinical nuance (e.g., you know an HbA1c test was billed, but not the actual value).
+:::
+
+:::{.column}
+- Governments 
+  - Official statistics (e.g. life and death)
+  - Disease surveilance (e.g. COVID-19)
+  - Policy formulation (e.g. smoke, alcohol)
+- Research groups
+  - Speicific scientific questions
+- NGOs 
+:::
+:::
+
+## Comparison of data sources
+
+| Dimension    | Government Official Statistics  | Electronic Health Records (EHR) | Insurance claim  |   
+|----|--------|--------|--------|
+| Purpose | Governance, resource allocation, and public policy | Direct clinical care and patient management  | Financial reimbursement and payer audit |
+| Granularity | Population-level/aggregate summaries | Highly granular microdata (time-stamped labs, dosage, clinical narrative)   | Episode-of-care microdata (billed diagnostic & procedural codes, costs)        |  
+
+---
+
+| Dimension    | Government Official Statistics  | Electronic Health Records (EHR) | Insurance claim  |   
+|----|--------|--------|--------|
+| Denominator   | Entire geographic population (census-based or legally registered residents)   | Care-seeking population only | Insured/enrolled cohort only|  
+| Selection Bias  | Low overall coverage bias; non-response bias in health survey    | High (sicker patients have more data; informed presence bias)  | Moderate to high (churn across employers/plans; excludes uninsured)            |   
+
+## Government Official statistics
+
+- Aggregated data to the district/state/country level
+- Ground truth of denominator
+  - Government census data provides age-, sex-, and district-stratified population denominators
+  - Revealing the incidence/prevalence rateand fair comparison acrross different region
+- Life event (birth, migrate and death) ground truth
+  - Death and migrate might not reveal in health system
+  - Birth and immgrate events could happen abroad
+ 
 ## What is an EHR?
 
 An **Electronic Health Record (EHR)** is the digital chart of a patient's encounters with the health system—visits, diagnoses, labs, prescriptions, and clinical notes stored so clinicians (and later analysts) can reuse them.
@@ -28,6 +77,49 @@ Coding systems are a **shared language** so different hospitals and software can
 - Clinical Medicine: Focuses on diagnosis, treatment, and immediate patient outcomes.
 - Population Health: Health outcomes, determinants, and patterns across defined groups (e.g., regional populations, disease cohorts).
 - Global Health & Digital Health Venture: Scalable health solutions, cross-border disease surveillance, and commercialization of data-driven digital health products.
+
+
+## Case: Census on an influenza
+
+Consider a influenza outbreak in district D in the Q1. Scientists would like to investigate the incidence rate of the influenza defined by
+
+$$
+\text{Incidence rate} = \frac{\text{New cases in a time interval}}{\text{Total poppulation at risk}}
+$$
+
+- Numerator: straightforward, identify from hospital EHR
+  - Minor bias: Go to nearby hospital not in district D
+  - Sub-clinical conditions without hospital visits
+
+## Census data as denominator
+
+Using government census data as denominator and the new cases in
+
+$$
+\hat{\text{Rate}} = \frac{\text{New cases for hospitals in District D}}{\text{Total poppulation in District D}}
+$$
+
+- Cross-Boundary Leakage
+  - Residents of District $D$ do not exclusively visit Hospital in $D$
+  - The reported rate is <span class="hide"> underreported  </span>
+- Tertiary Referral Inflow
+  - Patients travel from other regions or abroad for treatment.
+  - The reported rate is <span class="hide"> overreported  </span>
+
+## EHR data as denominator
+
+Using EHR active user as denominator and the new cases in
+
+$$
+\hat{\text{Rate}} = \frac{\text{New cases for hospitals in health system H}}{\text{Total active unique patients in health system H}}
+$$
+
+- Health-Seeking (Berkson's Bias)
+  - Healthy individuals with zero medical encounters/ new immigrants will be excluded
+  - The reported rate is <span class="hide"> overreported  </span>
+- The "Ghost Patient" & Churn Problem
+  - Patients could migrate, die, or change health systems.
+  - The reported rate is <span class="hide"> underreported  </span>
 
 ## EHR for idea generation
 

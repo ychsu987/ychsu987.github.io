@@ -21,11 +21,17 @@ lightbox: true
 
 ## Course logistics 
 
+:::{.columns}
+
+:::{.column}
 * **Weekly Lecture Time:** Mondays, 18:30 – 20:30 (Semester 2)
 * **Start Date:** January 18, 2027
 * **Venue:** TBC (To be announced via Moodle / Course LMS)
-* **Delivery Mode:** In-person lectures and tutorials. *(Note: Internship students are exempted from in-person attendance and may join via Zoom as approved).*
+* **Delivery Mode:** In-person lectures and tutorials. 
 
+:::
+
+:::{.column}
 **Teaching Team**
 
 | Role | Name |
@@ -35,17 +41,27 @@ lightbox: true
 | **Guest speaker** | Dr. Eric Wan  | 
 | **Guest speaker** | Prof. Joseph Wu | 
 | **Guest speaker** | Prof. Qingpeng Zhang  | 
+:::
 
+:::
+
+## Course learning objectives
+
+1. To design and implement robust statistical models to analyse complex healthcare datasets, including EHRs, and public health surveillance streams
+2. To apply infectious disease modelling frameworks to simulate outbreaks and evaluate intervention strategies
+3. To critically assess data quality, bias, and ethical implications in large-scale healthcare analytics
+4. To translate analytical findings into actionable policies or clinical workflows to improve healthcare delivery and population outcomes
+   
 ## Weekly Schedule 
 
 | Session | Date  | Topic / Activity | Instructor |
 | :--: | :---: | :---------- | :--- |
-| **W01** | 18/01/2027 | Introduction to Population and Global Health | Dr. Ray Hsu |
-| **W02** | 25/01/2027 | Data and Considerations in Using Public Data | Dr. Ray Hsu |
-| **W03** | 01/02/2027 | Study Designs in Healthcare Analytics | Dr. Ray Hsu |
+| **W01** | 18/01/2027 | Introduction to large-scale healthcare datasets | Dr. Ray Hsu |
+| **W02** | 25/01/2027 | Study designs | Dr. Ray Hsu |
+| **W03** | 01/02/2027 | Analytics on linear model | Dr. Ray Hsu |
 | **—** | *08/02/2027* | *Public Holiday (CNY)* | — |
 | **W04** | 15/02/2027 | Code Management and Programming Style | Prof. David Shih |
-| **W05** | 22/02/2027 | Healthcare Database Systems & EHR Architecture | Dr. Ray Hsu |
+| **W05** | 22/02/2027 | Database and data manipulation | Dr. Ray Hsu |
 
 ---
 
@@ -71,7 +87,7 @@ lightbox: true
 ## Assessment Scheme
 
 | Component | Weighting | Description & Scope |
-| :------- | :---: | :----------- |
+| :----- | :--: | :----------- |
 | **Continuous Assessment** | **50%** | Practical programming/data analysis assignments, modeling exercises, and active class/online participation. |
 | **Final Examination** | **50%** | 2-hour written exam covering theoretical understanding, model interpretation, and case-based analytical problems. |
 
@@ -88,14 +104,9 @@ lightbox: true
 * Assignments will be screened using **Turnitin**.
 * Detailed guidelines on plagiarism can be accessed at: [http://www.hku.hk/student/plagiarism/](http://www.hku.hk/student/plagiarism/)
 
-**Learning Resources**
+## Learning Resources
 
 * Lecture slides, tutorial datasets, and coding examples will be available on the course portal prior to each session.
-* Recommended readings and reference packages will be distributed alongside topic modules.
 
-## Course learning objectives
 
-1. To design and implement robust statistical models to analyse complex healthcare datasets, including EHRs, and public health surveillance streams
-2. To apply infectious disease modelling frameworks to simulate outbreaks and evaluate intervention strategies
-3. To critically assess data quality, bias, and ethical implications in large-scale healthcare analytics
-4. To translate analytical findings into actionable policies or clinical workflows to improve healthcare delivery and population outcomes
+

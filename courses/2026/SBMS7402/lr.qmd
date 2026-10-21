@@ -36,6 +36,5 @@ By the end of this session, you will be able to:
 2. **Why regression** — summarize “how $y$ changes with $x$”  
 3. **Diagnostics** — check whether the line’s assumptions look reasonable  
 
-{{< include /_content/modules/methods/ehr.qmd >}}
 
 {{< include /_content/modules/methods/lr.qmd >}}
