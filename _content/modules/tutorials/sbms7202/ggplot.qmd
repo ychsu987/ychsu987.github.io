@@ -1,0 +1,234 @@
+# Cheatsheets
+
+If you forget ggplot2 syntax, here is a cheatsheet for your reference:
+[ggplot2 Cheatsheet](https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf)
+
+# Question Set 1
+
+
+*Background: Differentially expressed genes results [Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv) (or [view here](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv)) to this folder.
+
+
+**What is Differential Expression?**
+
+Every cell in your body has the same DNA, but different cells use different parts of that DNA to do their jobs. Gene expression is the process where a gene is turned "on" to make proteins that keep the cell running.
+
+Differential expression simply means comparing how active genes are in two different conditions—for example, comparing healthy tissue versus diseased tissue, or treated cells versus untreated cells.
+
+If a gene produces more copies in the diseased state, it is up-regulated. If it produces fewer, it is down-regulated.
+
+```{r}
+library(tidyverse)
+df_DEG<-read.delim("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv",stringsAsFactors=FALSE)
+```
+
+* Q1: Use the `summary()` function to get an overview of the `df_DEG` data frame.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+summary(df_DEG)
+```
+:::
+
+* Q2: Create a histogram of the `log2FoldChange` column in `df_DEG` using both the basic plotting function `hist()` and the `ggplot2` package.
+  For the ggplot2 plot, add a figure title `Histogram of log2FoldChange`.
+
+```{webr}
+library(ggplot2)
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+hist(df_DEG$log2FoldChange)
+ggplot(df_DEG, aes(x = log2FoldChange)) +
+  geom_histogram(binwidth = 5) +
+  ggtitle("Histogram of log2FoldChange")
+```
+:::
+
+* Q3: Create a scatter plot with the x-axis as `log10(baseMean)` and the y-axis as `log2FoldChange` from the `df_DEG` data frame. Use both the basic `plot()` function and the `ggplot2` package.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+plot(
+  log10(df_DEG$baseMean), df_DEG$log2FoldChange,
+  xlab = "log10(baseMean)", ylab = "log2FoldChange", main = "Scatter Plot"
+)
+ggplot(df_DEG, aes(x = log10(baseMean), y = log2FoldChange)) +
+  geom_point() +
+  ggtitle("Scatter Plot of log2FoldChange vs log10(baseMean)")
+```
+:::
+
+* Q4: Manipulate the data frame by adding two columns:
+  - Add a column `log2FC_clip` for clipping `log2FoldChange` to the range `[-5, +5]`.
+  - Add a column `is_DE` to indicate if `padj < 0.05`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+df_DEG$log2FC_clip <- df_DEG$log2FoldChange
+df_DEG$log2FC_clip[df_DEG$log2FC_clip > 5] <- 5
+df_DEG$log2FC_clip[df_DEG$log2FC_clip < -5] <- -5
+df_DEG$is_DE <- df_DEG$padj < 0.05
+```
+:::
+
+* Q5: Using ggplot2, create a scatter plot colored by the newly added column `is_DE`.
+  To make the figure clear, set the color legend title to `Is differentially expressed` and map the labels from `TRUE` to `Yes` and `FALSE` to `No`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+ggplot(df_DEG, aes(x = log10(baseMean), y = log2FC_clip, color = is_DE)) +
+  geom_point() +
+  scale_color_discrete(name = "Is differentially expressed", labels = c("Yes", "No"))
+```
+:::
+
+* Q6: For the scatter plot from Q5, reverse the color order so that `TRUE (Yes)` is blue and `FALSE (No)` is red.
+  How do you adjust the code?
+  *Hint*: ggplot uses the order of factor levels to render the color. Use `factor()` and set the `levels` parameter to control the order of categories.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+df_DEG$is_DE <- factor(df_DEG$is_DE, levels = c(TRUE, FALSE))
+ggplot(df_DEG, aes(x = log10(baseMean), y = log2FC_clip)) +
+  geom_point(aes(color = is_DE)) +
+  scale_color_discrete(name = "Is differentially expressed", labels = c("Yes", "No"))
+```
+:::
+
+* Q7: Save the scatter plot from Q8 or Q9 into a file named "My_DEG_results.pdf".
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+p <- ggplot(df_DEG, aes(x = log10(baseMean), y = log2FC_clip)) +
+  geom_point(aes(color = is_DE)) +
+  scale_color_discrete(name = "Is differentially expressed", labels = c("Yes", "No"))
+ggsave("My_DEG_results.pdf", p)
+```
+:::
+
+# Question Set 4
+
+This question set is adapted from the [NIH Bioinformatics Training and Education Program](https://bioinformatics.ccr.cancer.gov/docs/data-visualization-with-r/Practice_Exercises/L2Ex/). The original question is slightly more complex. If you are interested in more challenging questions, you can visit the website.
+
+Let's load the Titanic dataset.
+
+```{webr}
+titanic <- read.csv("https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/stuff/titanic.csv", header = TRUE)
+```
+
+| Column                 | Description                                 |
+|------------------------|---------------------------------------------|
+| Survived               | 0 (No) / 1 (Yes)                            |
+| Pclass                 | 1 / 2 / 3 (Passenger Class)                 |
+| Name                   | Passenger Name                              |
+| Sex                    | Male / Female                               |
+| Age                    | Age                                         |
+| Siblings.Spouses.Aboard | Number of siblings/spouses aboard          |
+| Parents.Children.Aboard | Number of parents/children aboard          |
+| Fare                   | Fare Price                                  |
+
+* Q1: Inspect the data using `str()`, `summary()`, and `head()`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+str(titanic)
+summary(titanic)
+head(titanic)
+```
+:::
+
+* Q2: Explore the relationship between the passenger's age and fare. What type of plot should you use? Write the code using `ggplot2`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+A scatter plot:
+
+```{webr}
+ggplot(titanic) +
+  geom_point(aes(x = Age, y = Fare))
+```
+:::
+
+* Q3: Color the points from Q2 by `Pclass`. Remember that `Pclass` is a proxy for socioeconomic status. While the values are treated as numeric upon loading, they are categorical and should be treated as such. You will need to coerce `Pclass` into a categorical (factor) variable using `factor()` or `as.factor()`.
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+ggplot(titanic) +
+  geom_point(aes(x = Age, y = Fare, color = as.factor(Pclass)))
+```
+:::
+
+* Q4: Modify the plot from Q3 to update the legend labels to (1 = 1st Class, 2 = 2nd Class, 3 = 3rd Class).
+
+```{webr}
+## Your code starts here
+
+```
+
+::: {.hide}
+**Answer Key**
+```{webr}
+ggplot(titanic) +
+  geom_point(aes(x = Age, y = Fare, color = as.factor(Pclass))) +
+  scale_color_discrete(labels = c("1st Class", "2nd Class", "3rd Class"))
+```
+:::
+
