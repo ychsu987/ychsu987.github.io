@@ -1,0 +1,256 @@
+---
+title: "Assignment 1"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    self-contained: true
+engine: knitr
+eval: false
+lightbox: true
+author: "Yu Cheng Hsu"
+date: "2026-10-01"
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+- **Name**:
+- **Student number**:
+
+# Grading policy
+
+Total marks: 22 (21 marks for tasks & critical reasoning, 1 marks for
+styling & reproducibility). Submission deadline: 10/Nov, 23:59 (submit
+`.qmd` / `.rmd` and compiled `.html` to Moodle)
+
+## Styling (1 marks)
+
+Points will be awarded based on: - Consistent code spacing, indentation,
+and clean pipe usage (`|>` or `%>%`) - Descriptive, readable variable
+naming and tidy code chunk design - Well-organized written explanations
+with line wrapping (\~72 characters)
+
+## Instruction
+
+Write your code inside the designated code chunks and answer all
+reasoning, conceptual, and data-interpretation questions in the
+blockquote areas (`> [Your answer here]`).
+
+1.  If your code is not executable or produces knit errors, coding marks
+    for that part will not be awarded.
+2.  Written questions require precise biological or statistical
+    reasoning. Generic or circular explanations generated without
+    examining your specific data outputs will receive deductions.
+
+# Tutorial & Lab: Transcriptomic Dynamics with R
+
+### Dataset Overview
+
+You will analyze brain tissue RNA-Seq profiles from mice infected with
+influenza over an 8-day timecourse:
+
+- **Source:**
+  `https://raw.githubusercontent.com/uclouvain-cbio/WSBIM1207/master/data/rnaseq.csv`
+
+```{r}
+library(tidyverse)
+rna <- read_csv("https://uclouvain-cbio.github.io/WSBIM1207/data/rnaseq.csv")
+```
+
+The case is adopted from @laurent_gatto_2021_5532658 with data from
+@blackmore2017influenza
+
+Q1: How many columns and rows in the dataset? \[1 mark\]
+
+> Your answer here
+
+Q2: What are the data types for each column? \[1 mark\]
+
+> Your answer here
+
+Q2-1: How did you find the information in Q1 and Q2 using code? \[1
+mark\]
+
+```{r}
+## Your code starts here
+
+```
+
+Q3: Using `ggplot` to plot the distribution of `expression` column \[2
+marks\]
+
+```{r}
+## Your code starts here
+
+```
+
+::: hide
+```{r}
+rna |> ggplot(aes(x=expression)) +
+  geom_histogram()
+```
+:::
+
+Q4: From Q3, you should observe the distribution is right-skewed (Many 0
+values with exterme values at the righ side), so in practice we conduct
+a log2 transformation on the expression to adjust it. Compute a new
+column `log2_expr = log2(expression + 1)` using `mutate()`. \[2 marks\]
+
+```{r}
+## Your code starts here
+
+```
+
+::: hide
+```{r}
+rna <- rna |>
+  mutate(log2_expr = log2(expression + 1))
+```
+:::
+
+Q4.1: What if we calculate the mean value of `log2(expression)` What is
+the reasonable explanation for this value? \[1 mark\]
+
+> Your answer here
+
+```{r}
+## Your code starts here
+
+
+```
+
+Q5: Retain only protein coding genes using `filter()` on
+`gene_biotype == "protein_coding"` and save the data in `rna_clean`. \[2
+marks\]
+
+```{r}
+## Your code starts here
+
+
+```
+
+::: hide
+```{r}
+rna_clean <- rna |>
+  mutate(log2_expr = log2(expression + 1)) |>
+  filter(gene_biotype == "protein_coding")
+
+head(rna_clean)
+```
+:::
+
+Q6:
+
+We focus on the ***Fcrls*** gene. In the paper, researchers found that
+***Fcrls*** is down-regulated during peak infection in response to the
+neuroinflammatory cascade.
+
+Q6.1: Filter `rna_clean` for `gene == "Fcrls"` and
+`tissue == "Cerebellum"`. \[2 marks\]
+
+Q6.2: Store the unaggregatedfiltered subset as `fcrls_cere` for
+downstream plotting and statistical modeling. \[.5 mark\]
+
+Q6.3: Compute group-level summary statistics `fcrls_summary`: group by
+`sex` and `time`, then calculate the mean (`mean_expr`), standard
+deviation (`sd_expr`), and count (`n = n()`). \[2.5 mark\]
+
+```{r}
+## Your code starts here
+
+```
+
+::: hide
+**Answer Key**
+
+```{r}
+# 1 & 3. Create unaggregated subset
+fcrls_cere <- rna_clean |>
+  filter(gene == "Fcrls", tissue == "Cerebellum")
+
+# 2. Compute group-level summary statistics
+fcrls_summary <- fcrls_cere |>
+  group_by(sex, time) |>
+  summarize(
+    mean_expr = mean(log2_expr),
+    sd_expr   = sd(log2_expr),
+    n         = n(),
+  )
+
+print(fcrls_summary)
+```
+:::
+
+Q7:
+
+Visual inspection reveals whether temporal changes in *Fcrls* expression
+are consistent across sexes.
+
+1.  Build a scatter plot using `fcrls_cere` mapping `time` to the x-axis
+    and `log2_expr` to the y-axis. \[1 mark\]
+2.  Color points by `sex`. \[1 mark\]
+3.  Adding sufficient information on x- and y-axis title \[.5 mark\]
+4.  Style the plot: set discrete x-ticks at `c(0, 4, 8)` \[.5 mark\]
+
+```{r}
+## Your code starts here
+
+```
+
+::: hide
+**Answer Key**
+
+```{r}
+ggplot(fcrls_cere, aes(x = time, y = log2_expr, color = sex)) +
+  geom_point(size = 3, alpha = 0.8) +
+  scale_x_continuous(name  = "Days Post-Infection (Time)",breaks = c(0, 4, 8)) +
+  scale_y_continuous(name  = "log expression")
+  
+```
+:::
+
+Q8:
+
+Fit a simple linear regression model using lm() to investigate how Fcrls
+expression changes over time across all samples in fcrls_cere
+
+$$\text{log2\_expr} = \beta_0 + \beta_1 \cdot \text{time} + \epsilon$$
+
+1.  Fit the linear model predicting log2_expr from time and store it in
+    an object named `model_fcrls`. \[1 mark\]
+2.  Inspect the model summary using `summary()` \[1 mark\]
+3.  State the concrete meaning of $\beta_1$ in terms of daily change in
+    $\log_2$ expression. \[1 mark\]
+
+> Your answer here
+
+```{r}
+## Your code starts here
+
+```
+
+::: hide
+**Answer Key**
+
+```{r}
+# 1. Fit the simple linear regression model
+model_fcrls <- lm(log2_expr ~ time, data = fcrls_cere)
+
+# 2. View full regression summary
+summary(model_fcrls)
+
+# 3. Extract coefficient table (slope, std error, t-value, p-value)
+coef_summary <- summary(model_fcrls)$coefficients
+coef_summary
+
+# Specifically check the slope and its p-value
+slope_estimate <- coef_summary["time", "Estimate"]
+slope_pvalue   <- coef_summary["time", "Pr(>|t|)"]
+
+cat("Slope (beta_1):", slope_estimate, "\n")
+cat("p-value:", slope_pvalue, "\n")
+
+```
+:::
