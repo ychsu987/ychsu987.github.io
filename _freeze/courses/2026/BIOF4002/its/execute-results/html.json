@@ -1,0 +1,21 @@
+{
+  "hash": "a7fb2c387b652a4bfdcde40c314bf84d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Interrupted Time Series Analysis\"\nsubtitle: \"with SPSS and R example\"\nauthor: \"Yu Cheng Hsu\"\ntitle-slide-attributes:\n    data-background: /assets/images/its/background-1.jpg\n    data-background-size:  40% 100%\n    data-background-position: right\n    data-background-opacity: \"0.8\"\nformat: \n    revealjs:\n        theme: [default, ../../../assets/css/general_style.css]\n        slide-number: true\n        smaller: true\n        lightbox: true\n        chalkboard:\n            theme: whiteboard\n            src: None\nbibliography: ref.bib\nlightbox: true\n---\n\n## Learning objectives\n\n- Perform Interrupted Time Series Analysis\n- Interpret the results of Interrupted Time Series Analysis\n\n## Overview and Intuition\n\n**Interrupted Time Series (ITS)**\n\n- **Study design**: Quasi-experimental evaluation design\n- **Goal**: Determine intervention led to a statistically significant change in an outcome. \n\n\n::: {.cell}\n::: {.cell-output-display}\n![](its_files/figure-revealjs/unnamed-chunk-1-1.png){width=960}\n:::\n:::\n\n\n## The Statistical Model\n\nThe standard segmented regression equation fitted in SPSS is:\n\n$$\nY_t = \\beta_0 + \\beta_1 T_t + \\beta_2 D_t + \\beta_3 P_t + \\epsilon_t\n$$\n\n|  Variable Name  | Coding Rule | Meaning |\n| :--- | :---- | :---- |\n| **`Time`** ($T_t$) Continuous Time | $1, 2, 3, \\dots, N$ | Baseline pre-intervention slope per time unit ($\\beta_1$). |\n| **`Intervention`** ($D_t$) Level Shift | $0$ before intervention; $1$ after intervention | Immediate vertical jump or drop right after the policy begins ($\\beta_2$). |\n| **`Time_Post`** ($P_t$) Trend Shift | $0$ before intervention; $1, 2, 3, \\dots$ after intervention | Difference between pre- and post-intervention slopes ($\\beta_3$). |\n\n##\n\nITS compares the \n\n- **observed post-intervention trajectory** against a \n- **projected counterfactual trajectory** (what would have happened if the pre-intervention trend had simply continued unchanged).\n\nIF an internvetion does not work at all.\n\n- $\\beta_2 = 0$: The intervention does not have immediate effect on the observation\n- $\\beta_3 = 0$: The intervention does not change the growth rate of the observation\n\n",
+    "supporting": [
+      "its_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,6 +1,6 @@
 ---
 title: "Regression diagnostics"
-author: "Yu Cheng Hsu"
+author: "Dr. Yu Cheng Hsu"
 title-slide-attributes:
     data-background: /assets/images/lr/background-1.jpg
     data-background-size:  40% 100%
@@ -24,6 +24,16 @@ engine: knitr
 
 - Demonstrate linear regression diagnostics
 - Judgement on the performance of linear regression  
+
+
+Terms matching
+
+| Rachel's slide | Ray's slides |
+|  ---- | --- |
+|  $\text{SS}_\text{Total}$ | $\text{SST}$ |
+|  $\text{SS}_\text{Regression}$ | $\text{SSR}$ |
+|  $\text{SS}_\text{Residual}$ | $\text{SSE}$ |
+|  $\text{MSS}_\text{Residual}$ | $\text{MSE}$ |
 
 :::{.aside}
 Background image: @bg1

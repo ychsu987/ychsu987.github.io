@@ -1,0 +1,28 @@
+---
+title: "Interrupted Time Series Analysis"
+subtitle: "with SPSS and R example"
+author: "Yu Cheng Hsu"
+title-slide-attributes:
+    data-background: /assets/images/its/background-1.jpg
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+bibliography: ref.bib
+lightbox: true
+---
+
+## Learning objectives
+
+- Perform Interrupted Time Series Analysis
+- Interpret the results of Interrupted Time Series Analysis
+
+{{< include /_content/modules/methods/its.qmd >}}

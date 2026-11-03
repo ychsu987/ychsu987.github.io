@@ -9,7 +9,8 @@
   - Bedside observations, clinical narrative
   - Fragmented across provider systems.
 - Billing/Claims (Payer Focus): 
-  - Comprehensive longitudinal spend and encounter tracking, reliable billing codes (ICD, CPT), but zero clinical nuance (e.g., you know an HbA1c test was billed, but not the actual value).
+  - Comprehensive longitudinal spend and encounter tracking, reliable billing codes (ICD, CPT)
+  - Zero clinical nuance (e.g., you know an HbA1c test was billed, but not the actual value).
 :::
 
 :::{.column}
@@ -37,6 +38,8 @@
 | Denominator   | Entire geographic population (census-based or legally registered residents)   | Care-seeking population only | Insured/enrolled cohort only|  
 | Selection Bias  | Low overall coverage bias; non-response bias in health survey    | High (sicker patients have more data; informed presence bias)  | Moderate to high (churn across employers/plans; excludes uninsured)            |   
 
+# Government Official statistics
+
 ## Government Official statistics
 
 - Aggregated data to the district/state/country level
@@ -46,7 +49,65 @@
 - Life event (birth, migrate and death) ground truth
   - Death and migrate might not reveal in health system
   - Birth and immgrate events could happen abroad
- 
+
+# Medical Claim
+
+## Health Insurance Claims Data
+
+
+**The Claims Lifecycle**
+
+1. Patient Encounter: Patient receives care (inpatient admission, outpatient clinic visit, or pharmacy fill).
+2. Medical Coding: Medical coders translate clinical documentation into standardized billing codes (ICD for diagnoses, CPT/HCPCS for procedures, NDC for prescription drugs).
+3. Claim Submission: The provider submits a claim form
+4. Adjudication: The payer evaluates the claim against the patient's coverage policy, determines negotiated rates, calculates patient cost-sharing and issues payment.
+
+## Medication adherence
+
+**Medication adherence**
+
+Rresearchers can compute 
+standardized pharmacoepidemiologic adherence metrics by the claim frequency and the dispense records
+
+Medication Possession Ratio (MPR):
+$$
+\begin{aligned}
+\text{MPR} = & \\ & \frac{\sum \text{Days Supply of Medication in Period}}{\text{Total Days in Period}}
+\end{aligned}
+$$
+
+
+## Health Economics
+
+
+**Health Economics and Cost-Effectiveness**
+
+Claims represent actual economic transactions:
+
+- Billed Amount (chargemaster rate - often inflated)
+- Allowed Amount (contractually negotiated rate)
+- Paid Amount (actual money reimbursed by insurer)
+- Out-of-Pocket Cost (patient copay, deductible, coinsurance)
+
+$$
+\begin{aligned}
+\text{Billed Amount} = & \underbrace{\text{Paid Amount} + \text{Out-of-Pocket Cost}}_{\text{Allowed Amount}} + \\ & \text{Contractual Adjustment}
+\end{aligned}
+$$
+
+## Limitation of medical claim
+
+- Upcoding
+  -  Assign expensive diagnostic or complex procedure codes to qualify for larger reimbursements
+- Long-term longitudinal follow-up
+  - Commerical plan are usually valid for 2-3 years
+  - Long-term longitudinal follow-up (e.g., 10-year chronic diseases) is severely censored.
+- Lack of clinical nuances
+  - know what have been done
+  - Don't know what are the results
+
+# Electronic Health Record
+
 ## What is an EHR?
 
 An **Electronic Health Record (EHR)** is the digital chart of a patient's encounters with the health system—visits, diagnoses, labs, prescriptions, and clinical notes stored so clinicians (and later analysts) can reuse them.
@@ -81,23 +142,30 @@ Coding systems are a **shared language** so different hospitals and software can
 
 ## Case: Census on an influenza
 
-Consider a influenza outbreak in district D in the Q1. Scientists would like to investigate the incidence rate of the influenza defined by
+Consider a influenza outbreak in district $D_1$. and $D_2$. with two hospitals $H_A$ (in $D_1$). and $H_B$ (in $D_2$).  Scientists would like to investigate the incidence rate of the influenza. The fact sheet is below
+
+| District | Population | Active pateients | New influenza cases | $H_A$ share | $H_B$  share |
+|   -- |     ---    |  ---    |        ---         |       ---   |       ---    |
+| $D_1$|  100K  |   25K |      500         |     80%     |     20%      |
+| $D_2$|  200K  |   50K |     1000         |     30%     |     70%      |
 
 $$
 \text{Incidence rate} = \frac{\text{New cases in a time interval}}{\text{Total poppulation at risk}}
 $$
 
-- Numerator: straightforward, identify from hospital EHR
-  - Minor bias: Go to nearby hospital not in district D
-  - Sub-clinical conditions without hospital visits
+- True incidence rate <span class="hide"> $0.5\%$ </span>
 
 ## Census data as denominator
 
-Using government census data as denominator and the new cases in
+Using government census data as denominator:
 
-$$
-\hat{\text{Rate}} = \frac{\text{New cases for hospitals in District D}}{\text{Total poppulation in District D}}
-$$
+
+| District | Population | Case reported in the hospital  | Rate |
+|   -- |     ---    |         ---         |             ---    |
+| $D_1$|  100,000   |    <span class="hide"> $400$ </span>     |     <span class="hide"> $0.4\%$ </span>       |
+| $D_2$|  200,000   |        <span class="hide"> $700$ </span>     |      <span class="hide"> $0.35\%$ </span>     |
+
+If we consider all cases in $H_A$ with population from $D_1 + D_2$ the rate will be $0.13\%$ 
 
 - Cross-Boundary Leakage
   - Residents of District $D$ do not exclusively visit Hospital in $D$
@@ -110,16 +178,49 @@ $$
 
 Using EHR active user as denominator and the new cases in
 
-$$
-\hat{\text{Rate}} = \frac{\text{New cases for hospitals in health system H}}{\text{Total active unique patients in health system H}}
-$$
+| District | Active patients | Case reported in the hospital  | Rate |
+|   -- |     ---    |         ---         |       ---   |       ---    |
+| $D_1$|  25,000   |   <span class="hide"> $700$ </span>         |     <span class="hide"> $2.8\%$ </span>       |
+| $D_2$|  50,000   |        <span class="hide"> $800$ </span>         |     <span class="hide"> $700$ </span>     |      <span class="hide"> $1.6\%$ </span>     |
 
-- Health-Seeking (Berkson's Bias)
+- Health-Seeking bias (Berkson's Bias)
   - Healthy individuals with zero medical encounters/ new immigrants will be excluded
   - The reported rate is <span class="hide"> overreported  </span>
 - The "Ghost Patient" & Churn Problem
   - Patients could migrate, die, or change health systems.
   - The reported rate is <span class="hide"> underreported  </span>
+
+## Fix the calculation
+
+1. Correct on the numerator:
+    $n_{D_1} = 0.8 \times n_{H_A} + 0.3 \times n_{H_B} $
+
+or 
+
+2. Correct on the denominater:
+    $P_{D_1} = 0.8 \times n_{D_1} + 0.3 \times n_{D_2} $
+
+
+- District specific calculation need to consider the market share
+  - Corrections is needed
+  - Try to include all service provider statistics
+
+## Think twice about the context
+
+- Healthcare system Close v.s Open
+  - Closed / Single-Payer Networks (e.g., Hong Kong Hospital Authority, UK NHS, Veterans Affairs): High population coverage (up to 90%+ of inpatient care) minimizes leakage, 
+  - geographic census denominators much more viable.
+- Open / Multi-Payer Systems (e.g., US EHRs): 
+  - Prone to denominator fragmentation. 
+  - Insurance claims enrollment periods rather than pure EHR visits to establish continuous coverage.
+- Disease context
+  - Serious/ rare disease are more often in the medical centers
+   
+:::{.aside}
+
+Hong Kong Hospital Authority is more or less in between Single-Payer Networks and Open systems. (Depends on the diseases)
+
+:::
 
 ## EHR for idea generation
 
@@ -172,6 +273,8 @@ Regulatory bodies (e.g., US FDA, EMA, NMPA) increasingly accept **real-world evi
 - Formal label: this pattern is often called **missing not at random (MNAR)** (contrast: completely random gaps vs gaps explained by other recorded variables).
 - Labs/tests are ordered based on clinical suspicion, leading to missing baseline data.
 - Loss to follow-up due to stigma and/or economic difficulties.
+
+## Challenges in EHR
 
 **Selection / Sampling Bias**
 

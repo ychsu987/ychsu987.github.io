@@ -3,190 +3,227 @@
 > *"I never had typhoid in my life, and have always been healthy. Why should I be chased like a convicted criminal?"*  
 > — **Mary Mallon**
 
-:::{.columns}
+::: {.columns}
 
-:::{.column}
+::: {.column width="45%"}
 
 ![Typhoid Mary from Wikipedia](/assets/images/intro-to-epi/mary.jpg)
 
 :::
 
-:::{.column}
+::: {.column width="55%"}
 
-- Linked to 51 typhoid indfection and 3 deaths in early 1900s.
-- Mary was a asymptomatic carrier.
-- Transforming modern epidemiological tracking, quarantine, and medical ethics. 
-
-:::
+- Linked to 51 typhoid infections and 3 deaths in the early 1900s.
+- Identified as an asymptomatic carrier.
+- Transformed modern epidemiological contact tracing, quarantine protocols, and medical ethics.
 
 :::
 
-## What is epidemiology?
+:::
+
+## What Is Epidemiology?
 
 **Definition**
 
-Study of the **distribution** and **determinants** of health-related states among specified **populations** and the application of that study to the control of health problems. 
+The study of the **distribution** and **determinants** of health-related states or events in specified **populations**, and the application of this study to the control of health problems.
 
-Some common questions that epidemiologists ask include:
+Common questions epidemiologists ask:
 
-:::{.columns}
+::: {.columns}
 
-:::{.column width="50%"}
-- Who gets sick? 
-- When do they get sick? 
+::: {.column width="50%"}
+- Who gets sick?
+- When do they get sick?
 - Where do they get sick?
 - How do they get sick?
 - Why do they get sick?
-- How can we prevent them from getting sick?
+- How can we prevent illness?
 :::
 
-:::{.column width="50%"}
+::: {.column width="50%"}
 
 ![Epidemiology](https://s3.amazonaws.com/libapps/accounts/25667/images/epi.png)
 
 :::
 
-
 :::
 
-## Epidemiological tools
+## Epidemiological Tools
 
-Based on these questions we can categorize epidemiological tools into three main types:
+Based on these core questions, epidemiological study designs fall into three primary categories:
 
-- **Descriptive epidemiology**: Describes the distribution of disease in a population by person, place, and time.
+- **Descriptive epidemiology**: Characterizes the distribution of disease in a population by person, place, and time.
+- **Analytic epidemiology**: Evaluates hypotheses regarding the determinants of disease and the relationship between exposures and outcomes.
+- **Experimental epidemiology**: Evaluates the efficacy of preventive or therapeutic interventions by manipulating exposure status and tracking outcomes.
 
-- **Analytic epidemiology**: Identifies the determinants of disease by testing hypotheses about the relationship between exposures and outcomes.
+## Describing Disease Patterns
 
-- **Experimental epidemiology**: Tests the efficacy of interventions to prevent or treat disease by manipulating the exposure of interest and observing the outcome.
-  
-## Describe a disease 
+![JHU COVID-19 Dashboard](https://cdn.arstechnica.net/wp-content/uploads/2020/04/Screen-Shot-2020-04-13-at-5.40.40-PM-2048x762.jpeg)
 
-![JHU COVID-19 dashboard](https://cdn.arstechnica.net/wp-content/uploads/2020/04/Screen-Shot-2020-04-13-at-5.40.40-PM-2048x762.jpeg)
-  
-## Getting disease descriptions
+## Descriptive Study Designs
 
 - **Case study**
-  - Common tools: Interview with case
-  - Purpose: In depth investigate the disease process and identify potential causes and risk factors.
+  - Common tools: Patient interviews and clinical records
+  - Purpose: Investigate disease etiology in-depth and identify potential risk factors
 - **Cross-sectional study**
-  - Common tools: Survey (one single time)
-  - Purpose: Assess the prevalence of disease and its association with potential risk factors at certain time.
+  - Common tools: Cross-sectional surveys
+  - Purpose: Estimate disease prevalence and evaluate associations with risk factors at a single point in time
 - **Ecological study**
-  - Common tools: health records, government statistics
-  - Purpose: **Population level** to assess the trend, association of a disease.
+  - Common tools: Vital statistics and public health registries
+  - Purpose: Evaluate population-level disease trends and aggregate exposure patterns
 
-## Key measures in epidemiology
+## Key Measures of Disease Frequency
 
-- **Prevalence** ≈ how common the disease is *right now* in a group  
-- **Incidence** ≈ how many *new* cases appear over a period of time  
-- **Relative risk (RR)** ≈ “how many times more (or less) risk if exposed?”  
-  - RR = 1 → same risk; 
-  - RR > 1 → higher risk in exposed; 
-  - RR < 1 → lower risk  
-- **Odds ratio (OR)** ≈ 
-  - Odds, measure the chance that a health event happens compared to the chance it does not happen ($p/(1-p)$) OR has the similar interpretation as RR
+- **Prevalence** ≈ Proportion of a group with the condition *at a specific point or period in time*
 
-We will compute RR/OR in the next class.
+$$
+\text{Prevalence} = \frac{\text{Number of all existing cases (new and old) at a specific time}}{\text{Total population at that specific time}}
+$$
 
-## Understand association
+- **Incidence** ≈ Rate of *new* disease occurrences within a population over a given period
 
-- Cohort study 
-  - Common tools: health records, participant recruit (optional)
-  - Perspective: Control on the exposure and test the outcome is developed
-- Case-control study
-  - Common tools: health records
-  - Perspective: Control on the **outcome** and test what exposure is **associated** with the outcome
+$$
+\text{Incidence Rate} = \frac{\text{Number of new cases arising during a specific time period}}{\text{Total population at risk during that time period}}
+$$
 
-## Cohort study
+## Understanding Associations
 
-**Cohort**
+- **Cohort study**
+  - Common tools: Longitudinal health records, prospective cohort recruitment
+  - Approach: Classify by **exposure status**, then follow participants over time to observe disease incidence
+- **Case-control study**
+  - Common tools: Medical charts and registry records
+  - Approach: Classify by **outcome status**, then assess prior exposures retrospectively
 
-A group of people who share a common characteristic or experience within a defined period of time.
-
-**Idea**
-
-1. Select a group of people (cohort)
-   1. with shared similar characteristics (Age, sex, etc.)
-   2. with different **exposures** (e.g., smoking vs. non-smoking)
-2. Follow them over time to see who develops the disease of interest (e.g., lung cancer).
-
-
-## Retrospective cohort study
-
-Looking back from the history of the cohort to determine exposure status and  outcome.
-
-1. Find out who were exposed and who were not exposed in the past.
-2. Find out who develops the disease of interest after the exposure.
-
-![Illustration of retrospective cohort study](/assets/images/epi1/retro_edit.png){width=65%}
-
-## Prospective cohort study
-
-Enroll participants by exposure status now, then follow them forward over time to track who develops the outcome.
-
-1. Identify who are exposed and who are not exposed at the start of the study.
-2. Follow them forward to see who develops the disease of interest after enrollment.
-
-![Illustration of prospective cohort study](/assets/images/epi1/prospective - edit.png){width=65%}
-
-## Case control study
-
-1. We select a group of people with 
-   - similar characteristics (e.g., age, sex)
-   - with different **disease** (e.g., cancer vs. non-cancer), 
-2. Check what kind of exposure they had before the disease
-
-![Illustration of case-control study](/assets/images/epi1/case-control.png){width=65%}
-
-
-## Comparison 
-
-| Feature                |            Cohort            | Case-Control                  |
-|------------------------|------------------------------|-------------------------------|
-| Starting Point         | Exposure status              | Disease status (Outcome)      |
-| Direction of Inquiry   | Forward (Exposure → Outcome) | Backward (Outcome → Exposure) |
-| Primary Metric         | Relative Risk (RR)           | Odds Ratio (OR)               |
-| Ideal Use Case         | Rare exposures               | Rare diseases                 |
-| Can measure incidence? | Yes                          | No                            |
-
-# Experimental epidemiology
-
-## Randomized controlled trial (RCT)
-
-**Idea**
-
-1. Select a group of people with similar characteristics (e.g., age, sex) 
-2. Randomly assign them to  **treatment** (e.g., drug) or **control** (e.g.,placebo, reference point), 
-3. Follow-up to see improvement in health outcomes to test the efficacy of the treatment.
-
-![Illustration of RCT](/assets/images/epi1/rct.png){width=65%}
-
-## Evidence level of different tools
+## Key Measures of Association
 
 ::: {.columns}
 
-:::{.column width="50%"}
+::: {.column width="50%"}
+**Relative Risk (RR)**
+
+$$
+\begin{aligned}
+\text{Risk} &= \frac{\text{Events}}{\text{Total at Risk}} \\
+\text{RR} &= \frac{\text{Risk}_{\text{exposed}}}{\text{Risk}_{\text{unexposed}}}
+\end{aligned}
+$$
+
+*Question addressed:* "How many times higher is the disease risk in the exposed group compared to the unexposed group?"
+:::
+
+::: {.column width="50%"}
+**Odds Ratio (OR)**
+
+$$
+\begin{aligned}
+\text{Odds} &= \frac{\text{Events}}{\text{Non-Events}} = \frac{p}{1 - p} \\
+\text{OR} &= \frac{\text{Odds}_{\text{exposed}}}{\text{Odds}_{\text{unexposed}}}
+\end{aligned}
+$$
+
+*Question addressed:* "How many times higher are the odds of exposure among cases compared to controls?"
+:::
+
+:::
+
+**Interpreting the Metric ($RR$ or $OR$):**
+
+- $= 1.0$: No association (exposure does not alter risk or odds)
+- $> 1.0$: Positive association (exposure increases risk or odds; harmful)
+- $< 1.0$: Negative association (exposure decreases risk or odds; protective)
+
+## Cohort Studies
+
+**Cohort**
+
+A group of individuals who share common characteristics or exposures, followed over a defined observation window.
+
+**Study Framework**
+
+1. Identify a defined population cohort:
+   - Comparable demographic characteristics (e.g., age, sex)
+   - Contrasting **exposure profiles** (e.g., smokers vs. non-smokers)
+2. Follow participants prospectively over time to monitor who develops the outcome of interest (e.g., lung cancer).
+
+## Retrospective Cohort Study
+
+Assesses historical records to ascertain past exposure status and subsequent outcome status.
+
+1. Classify participants by historical exposure status (exposed vs. unexposed).
+2. Determine subsequent disease outcomes that developed following the exposure window.
+
+![Illustration of retrospective cohort study](/assets/images/epi1/retro_edit.png){width=65%}
+
+## Prospective Cohort Study
+
+Enrolls participants based on current exposure status, then follows them longitudinally forward in time.
+
+1. Identify exposed and unexposed cohorts free of the outcome at baseline.
+2. Follow cohorts prospectively to measure disease incidence over time.
+
+![Illustration of prospective cohort study](/assets/images/epi1/prospective%20-%20edit.png){width=65%}
+
+## Case-Control Study
+
+1. Select two groups based on clinical outcome:
+   - **Cases**: Individuals with the disease (e.g., lung cancer)
+   - **Controls**: Comparable individuals without the disease (e.g., cancer-free)
+2. Evaluate and compare past exposure history between both groups.
+
+![Illustration of case-control study](/assets/images/epi1/case-control.png){width=65%}
+
+## Comparison of Observational Designs
+
+| Feature | Cohort Study | Case-Control Study |
+|:---|:---|:---|
+| Starting Point | Exposure status | Outcome / disease status |
+| Direction of Inquiry | Forward (Exposure $\rightarrow$ Outcome) | Backward (Outcome $\rightarrow$ Exposure) |
+| Primary Measure | Relative Risk (RR) | Odds Ratio (OR) |
+| Best Suited For | Rare exposures | Rare diseases |
+| Directly Measures Incidence? | Yes | No |
+
+# Experimental Epidemiology
+
+## Randomized Controlled Trial
+
+**Study Framework**
+
+1. Enroll eligible participants meeting defined inclusion/exclusion criteria.
+2. Randomly assign participants to either an **intervention group** (e.g., active drug) or a **control group** (e.g., placebo or standard of care).
+3. Follow participants longitudinally to evaluate differences in clinical outcomes and determine intervention efficacy.
+
+![Illustration of Randomized Controlled Trial (RCT)](/assets/images/epi1/rct.png){width=65%}
+
+## Hierarchy of Epidemiological Evidence
+
+::: {.columns}
+
+::: {.column width="40%"}
 
 ::: {.incremental}
-1. RCTs
-2. Cohort studies
-3. Case-control Studies
-4. Case study
+1. Randomized Controlled Trials (RCTs)
+2. Cohort Studies
+3. Case-Control Studies
+4. Case Reports & Case Series
 :::
 
 :::
 
-:::{.column width="50%"}
+::: {.column width="58%"}
 
-- Higher-level evidence in terms of
-  - Ability to establish causality
-  - Higher control for confounding factors 
-  - Less prone to bias 
-- Lower-level evidence 
-  - Cheaper and easier to conduct 
-  - Useful for generating hypotheses and exploring rare diseases 
-  - Less ethical concerns 
+**Higher-Tier Evidence:**
+
+- Stronger capacity to establish causality
+- Enhanced control of confounding variables
+- Lower susceptibility to selection and recall bias
+
+**Lower-Tier Evidence:**
+
+- Faster, lower cost, and easier implementation
+- Ideal for exploratory hypothesis generation
+- Valuable for rare conditions or when randomization is unethical
+
 :::
 
 :::
-

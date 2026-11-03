@@ -1,5 +1,5 @@
 ---
-title: "Introduction to large-scale healthcare datasets "
+title: "Large-scale healthcare datasets"
 subtitle: "Fantastic Data and Where to Find Them"
 author: "Yu Cheng Hsu"
 title-slide-attributes:

@@ -1,0 +1,176 @@
+## Overview and Intuition
+
+**Interrupted Time Series (ITS)**
+
+- **Study design**: Quasi-experimental evaluation design
+- **Goal**: Determine intervention led to a statistically significant change in an outcome. 
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# 1. Setup Parameters & Time Vector
+set.seed(42)
+t_max <- 24
+t_int <- 12  # Intervention point (T0)
+
+time <- 1:t_max
+intervention <- ifelse(time > t_int, 1, 0)
+time_after <- ifelse(time > t_int, time - t_int, 0)
+
+# True parameters: Y = b0 + b1*T + b2*D + b3*P + e
+b0 <- 15     # Baseline intercept
+b1 <- 1.2    # Baseline slope
+b2 <- 14     # Immediate level jump
+b3 <- -0.4   # Post-intervention slope change (trend moderates/levels off)
+
+mu_observed <- b0 + b1 * time + b2 * intervention + b3 * time_after
+y_observed <- mu_observed + rnorm(t_max, mean = 0, sd = 1.1)
+
+# Counterfactual trajectory (what would have happened without intervention)
+counterfactual <- b0 + b1 * time
+
+df <- data.frame(
+  Time = time,
+  Outcome = y_observed,
+  Intervention = factor(intervention, labels = c("Pre", "Post")),
+  Counterfactual = counterfactual
+)
+
+# 2. Key Coordinates for Annotations
+cf_at_int <- b0 + b1 * t_int
+post_at_int <- cf_at_int + b2
+
+# 3. Build ggplot
+p <- ggplot(df, aes(x = Time, y = Outcome)) +
+  # Intervention threshold line
+  geom_vline(xintercept = t_int + 0.5, linetype = "dashed", color = "gray50", linewidth = 0.8) +
+  
+  # Counterfactual line (post-intervention projection)
+  geom_segment(
+    aes(x = t_int + 0.5, y = b0 + b1 * (t_int + 0.5),
+        xend = t_max, yend = b0 + b1 * t_max),
+    linetype = "dashed", color = "#D95F02", linewidth = 1
+  ) +
+  
+  # Pre-intervention fitted regression line
+  geom_smooth(
+    data = filter(df, Time <= t_int),
+    method = "lm", formula = y ~ x, se = FALSE,
+    color = "#1B9E77", linewidth = 1.1
+  ) +
+  
+  # Post-intervention fitted regression line
+  geom_smooth(
+    data = filter(df, Time > t_int),
+    method = "lm", formula = y ~ x, se = FALSE,
+    color = "#7570B3", linewidth = 1.1
+  ) +
+  
+  # Observed data points
+  geom_point(aes(color = Intervention), size = 2.8, alpha = 0.85) +
+  scale_color_manual(values = c("Pre" = "#1B9E77", "Post" = "#7570B3"), guide = "none") +
+  
+  # Level jump arrow & label
+  annotate(
+    "segment",
+    x = t_int + 0.5, xend = t_int + 0.5,
+    y = b0 + b1 * (t_int + 0.5), yend = b0 + b1 * (t_int + 0.5) + b2,
+    arrow = arrow(ends = "both", length = unit(0.2, "cm")),
+    color = "#E7298A", linewidth = 0.9
+  ) +
+  annotate(
+    "label",
+    x = t_int + 0.7, y = b0 + b1 * (t_int + 0.5) + (b2 / 2),
+    label = "paste('Immediate Level Change (', beta[2], ')')",
+    parse = TRUE,
+    hjust = 0, size = 3.6, fontface = "bold", color = "#E7298A",
+    fill = "white", label.size = 0.2
+  ) +
+  
+  # Text labels for trends
+  annotate(
+    "text", x = 6, y = b0 + b1 * 6 + 4.5,
+    label = "paste('Pre-Intervention Trend (', beta[1], ')')",
+    parse = TRUE,
+    color = "#1B9E77", fontface = "bold", size = 3.8
+  ) +
+  annotate(
+    "text", x = 19, y = (b0 + b1 * 19 + b2 + b3 * (19 - t_int)) + 3.8,
+    label = "paste('Observed Post Trend (', beta[1] + beta[3], ')')",
+    parse = TRUE,
+    color = "#7570B3", fontface = "bold", size = 3.8
+  ) +
+  annotate(
+    "text", x = 20.5, y = b0 + b1 * 20.5 - 2.8,
+    label = "Projected Counterfactual\n(Expected path without policy)",
+    color = "#D95F02", fontface = "italic", size = 3.4, lineheight = 0.9
+  ) +
+  annotate(
+    "text", x = t_int + 0.5, y = min(df$Outcome) - 1.5,
+    label = "paste('Intervention (', italic(T)[0], ')')",
+    parse = TRUE,
+    color = "gray30", fontface = "bold", size = 3.5, vjust = 1
+  ) +
+  
+  # Scales & Clean Theme
+  scale_x_continuous(breaks = seq(2, t_max, by = 2), expand = expansion(mult = c(0.02, 0.05))) +
+  scale_y_continuous(expand = expansion(mult = c(0.08, 0.08))) +
+  labs(
+    title = "Interrupted Time Series Analysis (Segmented Regression)",
+    subtitle = expression(paste("Model: ", italic(Y[t]), " = ", beta[0], " + ", beta[1], italic(T), " + ", beta[2], italic(D), " + ", beta[3], italic(P), " + ", epsilon[t])),
+    x = "Time (t)",
+    y = "Outcome (Y)"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", size = 14),
+    plot.subtitle = element_text(color = "gray30", size = 11, margin = margin(b = 14)),
+    axis.line = element_line(arrow = arrow(type = "closed", length = unit(0.12, "inches"))),
+    axis.title = element_text(face = "bold"),
+    plot.margin = margin(t = 15, r = 20, b = 15, l = 15)
+  )
+
+# Display
+print(p)
+```
+
+## The Statistical Model
+
+The standard segmented regression equation fitted in SPSS is:
+
+$$
+Y_t = \beta_0 + \beta_1 T_t + \beta_2 D_t + \beta_3 P_t + \epsilon_t
+$$
+
+|  Variable Name  | Coding Rule | Meaning |
+| :--- | :---- | :---- |
+| **`Time`** ($T_t$) Continuous Time | $1, 2, 3, \dots, N$ | Baseline pre-intervention slope per time unit ($\beta_1$). |
+| **`Intervention`** ($D_t$) Level Shift | $0$ before intervention; $1$ after intervention | Immediate vertical jump or drop right after the policy begins ($\beta_2$). |
+| **`Time_Post`** ($P_t$) Trend Shift | $0$ before intervention; $1, 2, 3, \dots$ after intervention | Difference between pre- and post-intervention slopes ($\beta_3$). |
+
+## Interpretation of ITS
+
+ITS compares the 
+
+- **Observed post-intervention trajectory** against a 
+- **Projected counterfactual trajectory** (what would have happened if the pre-intervention trend had simply continued unchanged).
+
+IF an internvetion does not work at all.
+
+- $\beta_2 = 0$: The intervention does not have immediate effect on the observation
+- $\beta_3 = 0$: The intervention does not change the growth rate of the observation
+
+## Regression diagnostics
+
+**Generalizability**
+
+- ITS falls into common generalied linear model (GLM), using in the logistic, poisson, negtive binomial regression is possibile.
+
+**Diagnostic**
+
+- Common regression diagnostic applies
+- **Samples are correlated temporally**
+  - The observation on $t_1$ is correlated with $t_0$ and so on so forth
+  - Violating the assumption the independent sample asumption
+  - Durbin-Watson test statistic is $< 1.5$: Adding autoregressive errors

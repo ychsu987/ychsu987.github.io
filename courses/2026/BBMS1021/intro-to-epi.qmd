@@ -15,6 +15,7 @@ format:
         chalkboard:
             theme: whiteboard
             src: None
+bibliography: ref.bib
 ---
 ## Learning objectives
 

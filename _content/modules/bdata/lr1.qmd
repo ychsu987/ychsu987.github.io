@@ -14,142 +14,7 @@ It is crucial to know
 - Does $X_1, X_2, \dots, X_k$ really make explaination to $Y$
 - How good is the model performance?
 
-## Evaluating linear regression - from an observation
 
-
-- The regression diagnostics lies in the **Analysis of Variance (ANOVA)**
-- We can decompose the error of you prediction as:
-
-:::{.hide}
-$$
-(Y_i - \hat{Y}_i) = (Y_i - \bar{Y})-(\hat{Y}_i - \bar{Y}) 
-$$
-:::
-
-Where:
-
-- **$(Y_i - \hat{Y}_i) = e_i$** = Unexplained residual deviation (the error remaining after fitting the model).
-- **$(Y_i - \bar{Y})$** = Total deviation of the data point from the baseline benchmark (sample mean).
-- **$(\hat{Y}_i - \bar{Y})$** = Explained deviation (the difference between the model's fitted value and the sample mean).
-
-## Illustration
-
-```{r}
-#| fig-width: 10
-#| fig-height: 5
-
-library(ggplot2)
-
-# 1. Generate synthetic data
-set.seed(2)
-x <- seq(1, 10, length.out = 15)
-y <- 3 * x + 5 + rnorm(length(x), mean = 0, sd = 2)
-df <- data.frame(x = x, y = y)
-
-# 2. Fit linear model and compute predictions
-fit <- lm(y ~ x, data = df)
-df$y_pred <- predict(fit)
-y_mean <- mean(df$y)
-
-# 3. Select point with the largest positive residual
-residuals <- df$y - df$y_pred
-idx <- which.max(residuals)
-xi <- df$x[idx]
-yi <- df$y[idx]
-y_pred_i <- df$y_pred[idx]
-
-# 4. Construct ggplot
-ggplot(df, aes(x = x, y = y)) +
-  # Reference Lines: Mean & Fitted Regression
-  geom_hline(aes(yintercept = y_mean, color = "Mean (bar(y))"), 
-             linetype = "dashed", linewidth = 1) +
-  geom_line(aes(y = y_pred, color = "Regression Line (hat(y)[i])"), 
-            linewidth = 1) +
-  
-  # Scatter points
-  geom_point(aes(color = "Data points"), size = 3, alpha = 0.4) +
-  geom_point(data = data.frame(x = xi, y = yi), 
-             aes(x = x, y = y, color = "Highlighted Point (y[i])"), 
-             size = 4.5) +
-
-  # ESS Component (Mean to Regression Line)
-  annotate("segment", x = xi, xend = xi, y = y_mean, yend = y_pred_i,
-           colour = "purple", linewidth = 1.1,
-           arrow = arrow(ends = "both", length = unit(0.2, "cm"), type = "closed")) +
-  annotate("text", x = xi - 0.2, y = (y_pred_i + y_mean) / 2,
-           label = "Explained\n(hat(y)[i] - bar(y))", parse = TRUE,
-           color = "purple", hjust = 1, vjust = 0.5, fontface = "bold") +
-
-  # RSS Component (Regression Line to Observed Point)
-  annotate("segment", x = xi, xend = xi, y = y_pred_i, yend = yi,
-           colour = "deeppink", linewidth = 1.1,
-           arrow = arrow(ends = "both", length = unit(0.2, "cm"), type = "closed")) +
-  annotate("text", x = xi - 0.2, y = (yi + y_pred_i) / 2,
-           label = "Residual\n(y[i] - hat(y)[i])", parse = TRUE,
-           color = "deeppink", hjust = 1, vjust = 0.5, fontface = "bold") +
-
-  # TSS Component (Total Deviation Bracket)
-  annotate("segment", x = xi + 0.15, xend = xi + 0.15, y = y_mean, yend = yi,
-           colour = "black", linewidth = 0.9) +
-  annotate("segment", x = xi + 0.05, xend = xi + 0.25, y = y_mean, yend = y_mean,
-           colour = "black", linewidth = 0.9) +
-  annotate("segment", x = xi + 0.05, xend = xi + 0.25, y = yi, yend = yi,
-           colour = "black", linewidth = 0.9) +
-  annotate("text", x = xi + 0.35, y = (yi + y_mean) / 2,
-           label = "Total~Deviation\n(y[i] - bar(y))", parse = TRUE,
-           color = "black", hjust = 0, vjust = 0.5, fontface = "bold") +
-
-  # Aesthetic Mapping & Legend Configuration
-  scale_color_manual(
-    name = NULL,
-    values = c(
-      "Data points" = "dodgerblue",
-      "Highlighted Point (y[i])" = "red",
-      "Mean (bar(y))" = "forestgreen",
-      "Regression Line (hat(y)[i])" = "darkorange"
-    ),
-    labels = c(
-      "Data points" = "Data points",
-      "Highlighted Point (y[i])" = expression("Highlighted Point (" * y[i] * ")"),
-      "Mean (bar(y))" = expression("Mean (" * bar(y) * ")"),
-      "Regression Line (hat(y)[i])" = expression("Regression Line (" * hat(y)[i] * ")")
-    ),
-    breaks = c("Data points", "Highlighted Point (y[i])", "Mean (bar(y))", "Regression Line (hat(y)[i])")
-  ) +
-  labs(
-    title = "Decomposition of SST",
-    x = "X",
-    y = "Y"
-  ) +
-  theme_minimal(base_size = 12) +
-  theme(
-    plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
-    legend.position = c(0.02, 0.98),
-    legend.justification = c(0, 1),
-    legend.background = element_rect(fill = alpha("white", 0.7), color = NA),
-    panel.grid.minor = element_blank()
-  )
-```
-
-## A summary of error 
-
-Squaring both sides and summing across all $n$ observations yields the fundamental sum-of-squares identity:
-
-:::{.hide}
-
-$$ 
-\text{SSE} = \text{SST} - \text{SSR}
-$$
-
-:::
-
-Where 
-
-- SST (Total Sum of Squares): $\sum_i (Y_i - \hat{Y}_i)^2$
-- SSE (Error Sum of Squares): $\sum_i (Y_i - \bar{Y})^2$
-- SSR (Regression Sum of Squares): $\sum_i (\hat{Y}_i - \bar{Y})^2$
-
-   
 :::{.aside}
 (Note on terminology: In some literature, notably British and econometrics, SSR is termed "Explained Sum of Squares" (ESS) and SSE is termed "Residual Sum of Squares" (RSS). Always check definitions in your specific context).
 :::
@@ -209,7 +74,7 @@ $$
 
 ## $F$-Test for Model Significance
 
- $F$-Test** evaluates whether the collection of predictors collectively explains a statistically significant amount of variation.
+**$F$-Test** evaluates whether the collection of predictors collectively explains a statistically significant amount of variation.
 
 **Hypotheses**
 
@@ -238,57 +103,7 @@ $$
 - $\beta_i$ is a $t$-test
 - Repeated testing $\beta_i$  cause p-value inflation
 
-## Mean Squares: Variance Between vs. Variance Within
-
-Before calculating the $F$-statistic, we normalize the sums of squares by their respective degrees of freedom:
-
-**Mean Square Regression (MSR):**
-
-:::{.hide}
-
-$$
-\text{MSR} = \frac{\text{SSR}}{k}
-$$
-
-:::
-**Mean Square Error (MSE):**
-
-:::{.hide}
-
-$$
-\text{MSE} = \frac{\text{SSE}}{n - k - 1} = s_e^2 \quad (\text{an unbiased estimator of } \sigma^2)
-$$
-
-:::
-
-## Constructing the $F$-Statistic
-
-The $F$-statistic is the ratio of explained variance per degree of freedom to unexplained variance per degree of freedom:
-
-:::{.hide}
-$$
-F = \frac{\text{MSR}}{\text{MSE}} = \frac{\text{SSR} / k}{\text{SSE} / (n - k - 1)}
-$$
-:::
-
-It can also be written directly in terms of $R^2$:
-
-$$
-F = \frac{R^2 / k}{(1 - R^2) / (n - k - 1)}
-$$
-
-## Sampling Distribution & Decision Rule:
-
-Under the null hypothesis $H_0$, and assuming **normally distributed homoscedastic** errors:
-$$
-F \sim F(df_1 = k, \, df_2 = n - k - 1)
-$$
-
-- **Decision:** Reject $H_0$ at significance level $\alpha$ if $F > F_{\text{crit}}(\alpha, k, n - k - 1)$ or if $p\text{-value} < \alpha$.
-- **Conclusion:** Rejecting $H_0$ confirms that the regression model explains significantly more variance than a naive "intercept-only" model (sample mean $\bar{Y}$).
-
-
-## 5. The Standard ANOVA Table for Regression
+## The Standard ANOVA Table for Regression
 
 Statistical software (e.g., R, Python `statsmodels`, Stata, SAS) formats these calculations into an ANOVA table:
 
@@ -310,7 +125,6 @@ Research purpose: Factors affecting infant birth weight ($n = 189$).
 
 - Outcome ($Y$): bwt (Infant birth weight in grams).
 
-
 :::
 
 
@@ -328,7 +142,7 @@ Research purpose: Factors affecting infant birth weight ($n = 189$).
 
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
 
 # Load MASS (pre-installed in R)
 library(MASS)
@@ -344,8 +158,8 @@ birthwt$ui    <- factor(birthwt$ui, labels = c("No", "Yes"))
 
 ```{r}
 #| echo: true
-#| eval: false
-
+#| eval: true
+#| output: false
 model <- lm(bwt ~ age + lwt + smoke + ht + ui, data = birthwt)
 summary(model)
 ```
@@ -375,7 +189,8 @@ F-statistic:  7.75 on 5 and 183 DF,  p-value: 1.234e-06
 
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
+#| output: false
 
 library(olsrr)
 olsaov<-ols_regress(model)$anova
@@ -398,10 +213,11 @@ Total         99969655.810        188
 ## Key Metrics Calculations
 
 1. **$R^2$ Calculation:**
-   $$
-   R^2 = \frac{17469477.719 }{ 99969655.810} = 17.4\%
-   $$
-   *Interpretation:* 12.6% of the variance in biomarker reduction is explained by maternal weight at last menstrual period, baseline metabolic index, and age.
+$$
+R^2 = \frac{17469477.719 }{ 99969655.810} = 17.4\%
+$$
+
+*Interpretation:* 17.4% of the variance in biomarker reduction is explained by maternal weight at last menstrual period, baseline metabolic index, and age.
 
 2. **Adjusted $R^2$ Calculation:**
    $$
@@ -409,33 +225,30 @@ Total         99969655.810        188
    $$
    *Interpretation:* After penalizing for adding three model parameters, the model accounts for approximately 70.2% of the variance.
 
-## Simple Linear Regression: $t$-test vs. $F$-test
+## Common issues 
 
-**$F$-Test Evaluation:**
-   $F_{(5, 183)} = 7.75, \quad p < 0.0001$
-   *Conclusion:* Since the $p$-value is well below $\alpha = 0.05$, we reject $H_0$. The model as a whole explains a statistically significant amount of variation compared to a flat horizontal line.
-
-**$\beta$**
-
-In simple linear regression ($k = 1$):
-$$
-F_{(1, n-2)} = (t_{\beta_1})^2
-$$
-
-The two-sided $t$-test on the single slope coefficient $\beta_1$ and the overall $F$-test are mathematically identical and yield the exact same $p$-value.
-
-## High $F$-statistic, but no individual significant $t$-statistics?
+**Significant $F$-statistic, but no individual significant $t$-statistics**
 
 This classic paradox typically occurs due to **severe multicollinearity**. 
 
 - The predictors are highly correlated with each other.
 - The overall $F$-test confirms that the set of predictors collectively accounts for substantial variation.
-- However, the variance inflation factor (VIF) is high, inflating individual standard errors and making it impossible for the individual $t$-tests to isolate which specific variable is doing the work.
 
-## Low $R^2$ with a Statistically Significant $F$-test
+**Low $R^2$ with a Statistically Significant $F$-test**
 
 - **Common in noisy biological or social science data** (e.g., $R^2 = 0.08$, $p < 0.001$ with $n = 5,000$).
 - This means the effect is genuine, real, and reproducible (not a sampling artifact), but individual-level variation remains high due to unmeasured factors.
+
+# L.I.N.E Assumptions
+
+## Overview
+
+| Letter | Assumption | Primary Diagnostic Tool |
+|:------------------:|:----------------|:----------------|:----------------|
+| **L** | **Linearity** of the conditional expectation | $\mathbb{E}[\varepsilon_i \mid X] = 0$ | Residuals vs. Fitted Plot |
+| **I** | **Independence** of observational errors | $\text{Cov}(\varepsilon_i, \varepsilon_j) = 0 \quad (\forall i \neq j)$ | Autocorrelation / Study Design Review |
+| **N** | **Normality** of error distribution | $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ | Normal Q-Q Plot  |
+| **E** | **Equal Variance** (Homoscedasticity) | $\text{Var}(\varepsilon_i \mid X) = \sigma^2$ (constant) | Scale-Location Plot  |
 
 ## Pitfalls to Avoid
 
@@ -443,26 +256,256 @@ This classic paradox typically occurs due to **severe multicollinearity**.
 2. **Comparing $R^2_{\text{adj}}$ Across Different Transformations:** You cannot compare the $R^2$ of a model predicting $Y$ directly to a model predicting $\ln(Y)$, because $\text{SST}$ is measured on fundamentally different scales.
 3. **Over-reliance on $R^2_{\text{adj}}$ Alone:** Always inspect residual diagnostics (residual vs. fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold.
 
-## 8. Summary Diagnostic Flowchart
+## 4. In-Depth Diagnostics, Clinical Risks & Remedies
+
+```         
+                THE 4 BASE R DIAGNOSTIC PLOTS: plot(model)
+   ┌───────────────────────────────────┬───────────────────────────────────┐
+   │ 1. Residuals vs Fitted            │ 2. Normal Q-Q Plot                │
+   │    Checks: Linearity              │    Checks: Normality              │
+   │    Ideal: Flat red line at y = 0  │    Ideal: Points follow dashed 45°│
+   ├───────────────────────────────────┼───────────────────────────────────┤
+   │ 3. Scale-Location                 │ 4. Residuals vs Leverage          │
+   │    Checks: Equal Variance         │    Checks: Influential Points     │
+   │    Ideal: Flat horizontal line    │    Ideal: Points inside Cook's d  │
+   └───────────────────────────────────┴───────────────────────────────────┘
+```
+
+## L — Linearity
+
+- The relationship between $X$ and the outcome is an additive **linear** combination. 
+
+**Example**
+
+- The relation between X and Y is a quadratic relation instead of a linear
+
+**Actions**
+
+- Add non-linear polynomial terms: e.g., $\text{Age}^2$.
+- Apply logarithmic or power transformations
+
+## 
+
+:::{.columns}
+
+**Tool:** **Residuals vs. Fitted Plot** 
+
+:::{.column}
+```{r}
+#| echo: true
+#| eval: true
+
+plot(model, which = 1)
+
+```
+
+```{r}
+#| echo: false
+#| eval: true
+set.seed(2026)
+birthwt_curved <- birthwt
+# Inject quadratic curvature: extreme maternal weights have disproportionate effect
+birthwt_curved$bwt_curved <- 1200 + 0.12 * (birthwt_curved$lwt - 130)^2 + 
+                             rnorm(nrow(birthwt_curved), mean = 0, sd = 250)
+
+mod_linear_misspec <- lm(bwt_curved ~ lwt, data = birthwt_curved)
+
+# Plot 1: Residuals vs Fitted (Flagging Non-Linearity)
+plot(mod_linear_misspec, which = 1, 
+     main = "WARNING 1: Non-Linearity\n(Residuals vs Fitted)",
+     col = "#2563EB", pch = 16)
+# Look for: Clear 'U-shaped' red smoother line violating zero-mean expectation!
+```
+:::
+
+:::{.column}
+
+-   **Healthy Pattern:** Residuals bounce randomly across a horizontal band centered at $y = 0$, with no distinct trend. The red smooth smoother curve is nearly flat along $y = 0$.
+-   **Violation Warning:** Distinct parabolic "U-shape", inverted "U", or sinusoidal wave.
+
+
+:::
+
+:::
+
+## I — Independence of Errors
+
+- Knowing that Patient A has an unexpectedly high outcome provides zero information about Patient B's outcome.
+
+-   **Example**
+    -   Clustering: Patients recruited from the same hospital ward or family share correlated responses.
+    -   Autocorrelation: Longitudinal measurements taken repeatedly over time on the same subject.
+
+**Actions**
+
+- Revise study design
+- **Clustered data:** Linear Mixed-Effects Models (`lme4::lmer()`) incorporating random intercepts for clusters/centers.
+
+---
+
+:::{.columns}
+
+-   **Tool:** Evaluation of study design, Residuals vs. Time/Subject ID order, or **Durbin-Watson test** (`car::dwt(model)`).
+
+:::{.column}
+```{r}
+#| echo: true
+#| eval: true
+
+car::dwt(model)
+
+```
+
+:::
+
+:::{.column}
+
+
+**Consequence**
+
+-   **Deceptive Precision:** The effective sample size is smaller than $n$. Linear regression underestimate standard errors ($SE(\hat{\beta})$), causing artificially narrow 95% CIs.
+
+
+:::
+
+:::
+
+## N — Normality of Residuals
+
+- The error terms re normally distributed around the fitted line.
+
+**Crucial Clarification:** In regression, the raw variables $Y$ and $X$ **do not** need to be normally distributed; only the **residuals** ($\varepsilon_i$) must be normally distributed.
+
+-  **Tool:** **Normal Q-Q Plot** (Base R Plot 2: `plot(model, which = 2)`).
+-  **Healthy Pattern:** Residual quantiles fall tightly along the theoretical 45-degree dashed line.
+
+**Actions**
+
+- Transform the outcome variable: logarithmic transformation: $$\log(Y_i) = \beta_0 + \beta_1 X_i + \varepsilon_i$$
+
+## 
+
+:::{.columns}
+
+:::{.column}
+```{r}
+#| echo: true
+#| eval: true
+
+plot(model, which = 2)
+
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+birthwt_skewed <- birthwt
+# Simulate exponential right-skewed lab measurement
+birthwt_skewed$nicu_stay <- rexp(nrow(birthwt_skewed), rate = 0.05)
+
+mod_non_normal <- lm(nicu_stay ~ age + lwt + smoke, data = birthwt_skewed)
+
+# Plot 2: Normal Q-Q Plot (Flagging Severe Non-Normality)
+plot(mod_non_normal, which = 2, 
+     main = "WARNING 2: Severe Right Skew\n(Normal Q-Q Plot)",
+     col = "#D97706", pch = 16)
+# Look for: Points strongly curving off the diagonal line at the upper right tail!
+```
+:::
+
+:::{.column}
+
+-   **Violation Warning:**
+    -   **Heavy tails (S-shape):** Data has far more extreme clinical outliers than predicted by a normal curve.
+    -   **Curvature at ends:** Skewed distributions (frequently seen with right-skewed lab markers such as serum creatinine, viral loads, or cytokine concentrations).
+
+:::
+
+:::
+
+## E — Equal Variance 
+
+- The variance of the residuals $\text{Var}(\varepsilon_i \mid X) = \sigma^2$ is constant across all predicted values $\hat{Y}$. (Homoscedasticity)
+
+**Consequence**
+
+-   Conventional $SE(\hat{\beta})$ calculations are invalid. If variance expands at higher values, standard errors are underestimated for higher exposures, leading to false claims of significance.
+
+**Actions**
+
+1.  **Variance-stabilizing transformations:** $\log(Y)$ or $\sqrt{Y}$.
+2.  **Heteroscedasticity-Consistent (HC) Robust Standard Errors:** Using `sandwich::vcovHC(model, type = "HC3")` paired with `lmtest::coeftest()`.
+3.  **Weighted Least Squares (WLS):** Weights inversely proportional to variance: $w_i = 1/\sigma_i^2$.
+
+
+##
+
+:::{.columns}
+
+:::{.column}
+-   **Tool:** **Scale-Location Plot** (Base R Plot 3: `plot(model, which = 3)`)
+
+```{r}
+#| echo: true
+#| eval: true
+
+plot(model, which = 3)
+
+```
+
+```{r}
+#| echo: false
+#| eval: true
+birthwt_hetero <- birthwt
+# Error standard deviation scales directly with maternal weight (lwt)
+noise_scale <- (birthwt_hetero$lwt / mean(birthwt_hetero$lwt))^2
+birthwt_hetero$bwt_hetero <- 2000 + 6.5 * birthwt_hetero$lwt + 
+                             rnorm(nrow(birthwt_hetero), mean = 0, sd = 180 * noise_scale)
+
+mod_hetero <- lm(bwt_hetero ~ lwt, data = birthwt_hetero)
+
+# Plot 3: Scale-Location Plot (Flagging Heteroscedasticity)
+plot(mod_hetero, which = 3, 
+     main = "WARNING 3: Unequal Variance\n(Scale-Location Plot)",
+     col = "#DC2626", pch = 16)
+# Look for: Red line sloping upward and point dispersion expanding into a cone/fan!
+```
+:::
+
+:::{.column}
+
+
+-   **Healthy Pattern:** A horizontal smooth red line with an even, constant vertical scatter of points across all fitted values.
+-   **Violation Warning:** A **megaphone / funnel shape** where residual spread widens drastically as $\hat{Y}$ increases (common in biomedical dosing and growth studies).
+
+:::
+
+
+:::
+
+## Summary Diagnostic Flowchart
 
 ```text
-[Fit OLS Regression Model]
-           │
-           ▼
-[Check Overall F-Test]
-  ├── p >= 0.05 ───► Model does not explain variance beyond noise. Stop / Respecify.
-  └── p < 0.05 ────► Model explains significant variance. Proceed:
-                           │
-           ┌───────────────┴──────────────┐
-           ▼                              ▼
-    [Assess Fit]                  [Inspect Coefficients]
-    • Check R² & Adj R²           • Examine t-tests & p-values
-    • Check Root MSE (s_e)        • Check signs & magnitude
-                                  • Check VIF for multicollinearity
-                                          │
-                                          ▼
-                               [Validate Assumptions]
-                               • Residual vs Fitted (Linearity / Homoscedasticity)
-                               • Normal Q-Q Plot (Normality of residuals)
-                               • Leverage / Cook's D (Influential outliers)
+                      [Fit Linear Model: lm(Y ~ X1 + X2)]
+                                       │
+                ┌──────────────────────┴──────────────────────┐
+                ▼                                             ▼
+       [Evaluate Goodness-of-Fit]                    [Validate L.I.N.E.]
+       • R² & Adjusted R²                            • Residuals vs Fitted (Linearity)
+       • Residual Std Error (RSE)                    • Study structure (Independence)
+       • Global ANOVA F-Test                         • Normal Q-Q (Normality)
+                │                                    • Scale-Location (Equal Variance)
+                │                                             │
+                └──────────────────────┬──────────────────────┘
+                                       │
+                     All L.I.N.E. Assumptions Hold?
+                                       │
+                      ├─── YES ──► Report slopes, 95% CIs & p-values
+                      │
+                      └─── NO  ──► Apply Diagnostic Remedy:
+                                   • Non-linear? ──► Log(X), Polynomials
+                                   • Heteroscedastic? ──► Log(Y), HC3 Robust SE
+                                   • Non-normal? ──► Transform Y, Bootstrap
+                                   • Clustered? ──► Mixed-Effects Model (lmer)
 ```

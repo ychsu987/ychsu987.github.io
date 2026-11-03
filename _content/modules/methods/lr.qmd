@@ -242,10 +242,9 @@ $$
 Ask these in everyday language first (formal names in parentheses):
 
 1. Is the trend roughly a straight line? (**Linearity**)
-2. Do leftovers look roughly bell-shaped? (**Normality of errors**)
-3. Are leftovers independent (not clustered in time, space, or repeated measures)? (**Independence of errors**)
-4. Is the leftover scatter similar at low and high fitted values? (**Homoscedasticity** / constant variance)
-5. Are two predictors saying almost the same thing? (**No multicollinearity**)
+2. Are leftovers independent (not clustered in time, space, or repeated measures)? (**Independence of errors**)
+3. Do leftovers look roughly bell-shaped? (**Normality of errors**)
+4. Is the leftover scatter similar at low and high fitted values? (Equal variance/**Homoscedasticity** / constant variance)
 
 Failure modes matter clinically: e.g. if sicker patients get more labs, associations estimated from complete cases can be biased.
 
