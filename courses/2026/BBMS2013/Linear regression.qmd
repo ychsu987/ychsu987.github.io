@@ -15,7 +15,7 @@ format:
         chalkboard:
             theme: whiteboard
             src: None
-lightbox: true
+lightbox: true 
 bibliography: ref.bib
 engine: knitr
 ---
