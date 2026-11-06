@@ -8,7 +8,7 @@ title-slide-attributes:
 author: Dr. Yu Cheng Hsu
 format: 
     revealjs:
-        theme: [default, ../../../assets/css/general_style.css]
+        theme: [default, ../../../assets/css/general_style.css, ../../../assets/css/student_view.css]
         slide-number: true
         smaller: true
         lightbox: true
@@ -42,3 +42,5 @@ Background image: @bg4
 
 - What's next?
   - We are doing code and quantitative analysis for the next class
+
+**Cover page source**

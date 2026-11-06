@@ -76,15 +76,21 @@ Based on these core questions, epidemiological study designs fall into three pri
 
 - **Prevalence** ≈ Proportion of a group with the condition *at a specific point or period in time*
 
+:::{.hide}
 $$
+\small
 \text{Prevalence} = \frac{\text{Number of all existing cases (new and old) at a specific time}}{\text{Total population at that specific time}}
 $$
+:::
 
 - **Incidence** ≈ Rate of *new* disease occurrences within a population over a given period
 
+:::{.hide}
 $$
+\small
 \text{Incidence Rate} = \frac{\text{Number of new cases arising during a specific time period}}{\text{Total population at risk during that time period}}
 $$
+:::
 
 ## Understanding Associations
 
@@ -102,6 +108,8 @@ $$
 ::: {.column width="50%"}
 **Relative Risk (RR)**
 
+:::{.hide}
+
 $$
 \begin{aligned}
 \text{Risk} &= \frac{\text{Events}}{\text{Total at Risk}} \\
@@ -109,11 +117,15 @@ $$
 \end{aligned}
 $$
 
+:::
+
 *Question addressed:* "How many times higher is the disease risk in the exposed group compared to the unexposed group?"
 :::
 
 ::: {.column width="50%"}
 **Odds Ratio (OR)**
+
+:::{.hide}
 
 $$
 \begin{aligned}
@@ -122,6 +134,8 @@ $$
 \end{aligned}
 $$
 
+:::
+
 *Question addressed:* "How many times higher are the odds of exposure among cases compared to controls?"
 :::
 
@@ -129,9 +143,9 @@ $$
 
 **Interpreting the Metric ($RR$ or $OR$):**
 
-- $= 1.0$: No association (exposure does not alter risk or odds)
-- $> 1.0$: Positive association (exposure increases risk or odds; harmful)
-- $< 1.0$: Negative association (exposure decreases risk or odds; protective)
+- <span class="hide"> $= 1.0$ </span>: No association (exposure does not alter risk or odds)
+- <span class="hide"> $> 1.0$ </span>: Positive association (exposure increases risk or odds; harmful)
+- <span class="hide">  $< 1.0$ </span>: Negative association (exposure decreases risk or odds; protective)
 
 ## Cohort Studies
 
@@ -139,7 +153,7 @@ $$
 
 A group of individuals who share common characteristics or exposures, followed over a defined observation window.
 
-**Study Framework**
+**Cohort Studies Study Framework**
 
 1. Identify a defined population cohort:
    - Comparable demographic characteristics (e.g., age, sex)
@@ -153,7 +167,7 @@ Assesses historical records to ascertain past exposure status and subsequent out
 1. Classify participants by historical exposure status (exposed vs. unexposed).
 2. Determine subsequent disease outcomes that developed following the exposure window.
 
-![Illustration of retrospective cohort study](/assets/images/epi1/retro_edit.png){width=65%}
+![Illustration of retrospective cohort study](/assets/images/intro-to-epi/retro_edit.png){width=65%}
 
 ## Prospective Cohort Study
 
@@ -162,24 +176,26 @@ Enrolls participants based on current exposure status, then follows them longitu
 1. Identify exposed and unexposed cohorts free of the outcome at baseline.
 2. Follow cohorts prospectively to measure disease incidence over time.
 
-![Illustration of prospective cohort study](/assets/images/epi1/prospective%20-%20edit.png){width=65%}
+![Illustration of prospective cohort study](/assets/images/intro-to-epi/prospective%20-%20edit.png){width=65%}
 
 ## Case-Control Study
+
+**Case-Control Study Study Framework**
 
 1. Select two groups based on clinical outcome:
    - **Cases**: Individuals with the disease (e.g., lung cancer)
    - **Controls**: Comparable individuals without the disease (e.g., cancer-free)
 2. Evaluate and compare past exposure history between both groups.
 
-![Illustration of case-control study](/assets/images/epi1/case-control.png){width=65%}
+![Illustration of case-control study](/assets/images/intro-to-epi/case-control.png){width=60%}
 
 ## Comparison of Observational Designs
 
 | Feature | Cohort Study | Case-Control Study |
 |:---|:---|:---|
 | Starting Point | Exposure status | Outcome / disease status |
-| Direction of Inquiry | Forward (Exposure $\rightarrow$ Outcome) | Backward (Outcome $\rightarrow$ Exposure) |
-| Primary Measure | Relative Risk (RR) | Odds Ratio (OR) |
+| Direction of Inquiry | <span class="hide"> Forward (Exposure $\rightarrow$ Outcome) </span> | <span class="hide"> Backward (Outcome $\rightarrow$ Exposure) </span> |
+| Primary Measure | <span class="hide"> Relative Risk (RR)</span>  | <span class="hide"> Odds Ratio (OR) </span> |
 | Best Suited For | Rare exposures | Rare diseases |
 | Directly Measures Incidence? | Yes | No |
 
@@ -187,13 +203,13 @@ Enrolls participants based on current exposure status, then follows them longitu
 
 ## Randomized Controlled Trial
 
-**Study Framework**
+**Randomized Controlled Trial (RCT) Study Framework**
 
 1. Enroll eligible participants meeting defined inclusion/exclusion criteria.
 2. Randomly assign participants to either an **intervention group** (e.g., active drug) or a **control group** (e.g., placebo or standard of care).
 3. Follow participants longitudinally to evaluate differences in clinical outcomes and determine intervention efficacy.
 
-![Illustration of Randomized Controlled Trial (RCT)](/assets/images/epi1/rct.png){width=65%}
+![Illustration of Randomized Controlled Trial (RCT)](/assets/images/intro-to-epi/rct.png){width=55%}
 
 ## Hierarchy of Epidemiological Evidence
 
@@ -201,7 +217,7 @@ Enrolls participants based on current exposure status, then follows them longitu
 
 ::: {.column width="40%"}
 
-::: {.incremental}
+::: {.incremental .hide}
 1. Randomized Controlled Trials (RCTs)
 2. Cohort Studies
 3. Case-Control Studies
