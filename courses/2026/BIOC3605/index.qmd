@@ -1,0 +1,10 @@
+---
+title: "BBMS3009 Genome Science"
+subtitle: "Course index — slides and annotated notes"
+---
+
+Lecture materials for BBMS3009. Use **Blank** for student-facing slides and **✍️ Annotated** when an in-class / sketch version is available.
+
+| Topic | Slides | Annotated slides |Solution slides |
+|---|---|---|---|
+| Functional genomics | [Blank](functional-genomics.qmd) | — |— |

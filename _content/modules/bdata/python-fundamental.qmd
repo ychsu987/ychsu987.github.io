@@ -1,3 +1,31 @@
+## Python for Genomics
+
+- Python is the  industry standard for bioinformatics, computational biology, and AI. 
+- Example applications:
+    - Whether you are analyzing sequence data, 
+    - AlphaFold for protein structures,
+    - Building phylogenetic trees
+
+- Highly Readable: Unlike older languages (like C++ or Java), 
+    - Designed to read almost like plain English.
+- Open source
+
+## Slide conventions
+
+- Use code formatting for special terms and examples, such as `This` or **`This are code`**.
+
+**Actionable code**
+```{python}
+#| echo: true
+#| eval: true
+# This is a code chunk
+```
+
+**Demonstration only code chunk**
+```python
+# This is a code chunk that Ray does not aim to let you execute
+```
+
 ## Variables
 
 :::{.columns}
@@ -181,9 +209,9 @@ When DNA is transcribed to mRNA, Thymine (T) is replaced by Uracil (U). We can s
 #| eval: true
 
 # Transcribe the DNA to RNA by replacing T with U
-mrna_sequence = target_gene.replace("T", "U")
+mrna_sequence = target_gene_1.replace("T", "U")
 
-print("Original DNA:", target_gene)
+print("Original DNA:", target_gene_1)
 print("Transcribed mRNA:", mrna_sequence)
 ```
 :::
