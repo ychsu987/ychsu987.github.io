@@ -246,14 +246,14 @@ Dr.&nbsp;Yu Cheng Hsu
 <h1>Introduction to Network Science</h1>
 
 </section>
-<section id="what-is-network-science" class="slide level2">
-<h2>What is Network Science?</h2>
+<section id="network-science" class="slide level2">
+<h2>Network Science?</h2>
 <ul>
 <li><strong>Definition:</strong> An interdisciplinary field studying the topology, dynamics, and interactions of complex systems through graph theory.</li>
 <li>Focuses on organizing principles across diverse domains without requiring advanced pure mathematics or algorithms.</li>
 </ul>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:53%;">
 <ul>
 <li><strong>Foundational Literature:</strong>
 <ul>
@@ -262,10 +262,10 @@ Dr.&nbsp;Yu Cheng Hsu
 <li><span class="citation" data-cites="menczer_fortunato_davis_2020">Menczer, Fortunato, and Davis (<a href="#/refernce-list" role="doc-biblioref" onclick="">2020</a>)</span>, <em>A First Course in Network Science</em></li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:44%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/network/meme2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="../../..\assets/images/network/meme2.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></a></p>
+<p><a href="../../..\assets/images/network/meme2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="../../..\assets/images/network/meme2.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></a></p>
 </figure>
 </div>
 </div></div>
@@ -399,11 +399,14 @@ A_{ij} =
 <ul>
 <li><p><strong>Intuition:</strong> Quantifies how well-connected a node is by counting its direct connections.</p></li>
 <li><p><strong>Undirected Graph:</strong> <span class="math display">\[
+\small
 k_i = \sum_{j=1}^{N} A_{ij}
 \]</span></p></li>
 <li><p><strong>Directed Graph:</strong> <span class="math display">\[
+\small
 k_i^{\text{in}} = \sum_{j=1}^{N} A_{ji} \quad \text{(Inward endorsements / popularity)}
 \]</span> <span class="math display">\[
+\small
 k_i^{\text{out}} = \sum_{j=1}^{N} A_{ij} \quad \text{(Outward activity / gregariousness)}
 \]</span></p></li>
 </ul>
@@ -510,8 +513,8 @@ C_B(i) = \sum_{s \neq i \neq t \in V} \frac{\sigma_{st}(i)}{\sigma_{st}}
 <h1>Meso-Level Metrics: Communities &amp; Clustering</h1>
 
 </section>
-<section id="community-detection-vs.-clustering" class="slide level2">
-<h2>Community Detection vs.&nbsp;Clustering</h2>
+<section id="detection-vs.-clustering" class="slide level2">
+<h2>Detection vs.&nbsp;Clustering</h2>
 <ul>
 <li><strong>Local Clustering:</strong> Evaluates local connectivity density—specifically, the probability that two neighbors of a node are themselves linked.</li>
 <li><strong>Community Detection:</strong> Partitions the network into modular sub-units with dense internal connections and sparse inter-group connections.</li>
@@ -1028,7 +1031,7 @@ P(Y = y \mid \theta) = \frac{\exp\left(\theta^\top g(y)\right)}{\kappa(\theta)}
 <section id="structural-elements-of-gy" class="slide level2">
 <h2>Structural Elements of <span class="math inline">\(g(y)\)</span></h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:67%;">
 <ol type="1">
 <li><strong>Dyadic Independent Terms:</strong>
 <ul>
@@ -1043,10 +1046,10 @@ P(Y = y \mid \theta) = \frac{\exp\left(\theta^\top g(y)\right)}{\kappa(\theta)}
 <li>Degree Distributions: Star terms, Geometrically Weighted Degree (GWESP, GWDegree)</li>
 </ul></li>
 </ol>
-</div><div class="column" style="width:38%;">
+</div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-right">
 <figure>
-<p><a href="../../..\assets/images/network/X.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="../../..\assets/images/network/X.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></a></p>
+<p><a href="../../..\assets/images/network/X.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="../../..\assets/images/network/X.png" class="quarto-figure quarto-figure-right" style="width:80.0%"></a></p>
 </figure>
 </div>
 </div></div>
