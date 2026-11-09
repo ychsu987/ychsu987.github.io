@@ -174,3 +174,159 @@ IF an internvetion does not work at all.
   - The observation on $t_1$ is correlated with $t_0$ and so on so forth
   - Violating the assumption the independent sample asumption
   - Durbin-Watson test statistic is $< 1.5$: Adding autoregressive errors
+
+## 3. Preparing the Data in SPSS (No Coding Required)
+
+Example dataset: Regionalization and Outcomes of Lung Cancer Surgery in Ontario, Canada, prepared by Changing Use of Surgical Antibiotic Prophylaxis in Thika Hospital, Kenya: A Quality Improvement Intervention with an Interrupted Time Series Design
+
+
+Suppose you have monthly data for $N = 36$ months on hospital-acquired infections, with an infection control policy implemented at **Month 19**.
+
+### Step 1: Create the Baseline Time Variable (`Time`)
+If your file does not already have a sequence index from $1$ to $N$:
+1. Go to **Transform > Compute Variable...**
+2. In **Target Variable**, type: `Time`
+3. In **Numeric Expression**, type: `$CASENUM`
+4. Click **OK**.
+
+### Step 2: Create the Intervention Indicator (`Intervention`)
+This dummy variable marks the immediate level jump.
+1. Go to **Transform > Compute Variable...**
+2. In **Target Variable**, type: `Intervention`
+3. In **Numeric Expression**, type: `Time >= 19`
+4. Click **OK**.  
+   *(SPSS evaluates logical expressions as $1$ for True and $0$ for False).*
+
+### Step 3: Create the Post-Intervention Time Variable (`Time_Post`)
+This continuous variable captures the slope change.
+1. Go to **Transform > Compute Variable...**
+2. In **Target Variable**, type: `Time_Post`
+3. In **Numeric Expression**, type: `0`
+4. Click **OK**.
+5. Re-open **Transform > Compute Variable...**
+6. Keep **Target Variable** as: `Time_Post`
+7. In **Numeric Expression**, type: `Time - 18`
+8. Click the **If...** button at the bottom:
+   * Select **Include if case satisfies condition**.
+   * Enter: `Time >= 19`
+   * Click **Continue**.
+9. Click **OK** and confirm replacement.
+
+### Expected Data View
+
+| Month (Label) | `Infection_Rate` ($Y$) | `Time` ($T$) | `Intervention` ($D$) | `Time_Post` ($P$) |
+| :--- | :--- | :--- | :--- | :--- |
+| Month 1 | 24.1 | 1 | 0 | 0 |
+| Month 2 | 23.8 | 2 | 0 | 0 |
+| $\dots$ | $\dots$ | $\dots$ | 0 | 0 |
+| Month 18 | 25.2 | 18 | 0 | 0 |
+| **Month 19 (Policy)** | **18.4** | **19** | **1** | **1** |
+| Month 20 | 17.9 | 20 | 1 | 2 |
+| $\dots$ | $\dots$ | $\dots$ | 1 | $\dots$ |
+| Month 36 | 12.1 | 36 | 1 | 18 |
+
+---
+
+## 4. Running the Model via SPSS Menus
+
+### Step 1: Open Linear Regression
+Navigate to **Analyze > Regression > Linear...**
+
+### Step 2: Assign Variables
+* Move `Infection_Rate` into the **Dependent** box.
+* Move `Time`, `Intervention`, and `Time_Post` into the **Independent(s)** box.
+* Leave **Method** set to `Enter`.
+
+```
++--------------------------------------------------------------+
+| Linear Regression                                            |
++--------------------------------------------------------------+
+| Dependent:     [ Infection_Rate                           ]  |
+|                                                              |
+| Independents:  [ Time                                     ]  |
+|                [ Intervention                             ]  |
+|                [ Time_Post                                ]  |
+|                                                              |
+| Method:        [ Enter                                   v]  |
++--------------------------------------------------------------+
+```
+
+### Step 3: Configure Output Statistics
+Click the **Statistics...** button on the right:
+1. Ensure **Estimates** and **Model fit** are checked.
+2. Check **95% Confidence intervals**.
+3. Under **Residuals**, check **Durbin-Watson**.
+4. Click **Continue**.
+
+### Step 4: Optional Diagnostic Plots
+Click the **Plots...** button on the right:
+1. Move `*ZRESID` (standardized residuals) into the **Y** box.
+2. Move `*ZPRED` (standardized predicted values) into the **X** box.
+3. Check **Histogram** and **Normal probability plot**.
+4. Click **Continue**, then click **OK** to run.
+
+---
+
+## 5. Interpreting the SPSS Output Tables
+
+### A. Model Summary Table
+
+| Model | $R$ | $R$ Square | Adjusted $R$ Square | Std. Error of the Estimate | Durbin-Watson |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | .942 | .887 | .876 | 1.142 | **1.895** |
+
+* **Durbin-Watson Statistic:** Tests for first-order autocorrelation ($\text{AR}(1)$).
+  * Values close to **2.0** indicate **no serial correlation** (independent errors).
+  * Values below **1.5** suggest positive autocorrelation (errors are correlated over time, which can artificially deflate $p$-values).
+  * A value of $1.895$ indicates that standard OLS assumptions are acceptable for this series.
+
+### B. Coefficients Table
+
+| Model | Unstandardized B | Std. Error | Standardized Beta | $t$ | Sig. ($p$) | 95% Confidence Interval (B) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **(Constant)** | 23.410 | 0.485 | | 48.27 | < .001 | [22.42, 24.40] |
+| **`Time`** | 0.082 | 0.046 | 0.165 | 1.78 | .084 | [-0.012, 0.176] |
+| **`Intervention`** | -4.850 | 0.742 | -0.612 | -6.54 | < .001 | [-6.36, -3.34] |
+| **`Time_Post`** | -0.395 | 0.068 | -0.684 | -5.81 | < .001 | [-0.53, -0.26] |
+
+### Practical Translation of Results:
+1. **Baseline Trend (`Time` = $0.082$, $p = .084$):** Prior to the policy, infection rates were slightly increasing by $0.082$ units per month, though this slope was not statistically significant at the $\alpha = .05$ level.
+2. **Immediate Effect (`Intervention` = $-4.850$, $p < .001$):** At Month 19, the intervention produced an immediate, statistically significant drop of $4.85$ infections per 100 patient days ($95\%\text{ CI: } [-6.36, -3.34]$).
+3. **Trend Shift (`Time_Post` = $-0.395$, $p < .001$):** The rate of change shifted downward significantly by $0.395$ units per month post-intervention compared to the baseline trend.
+4. **Overall Post-Intervention Slope:**
+   $$\text{Post-Slope} = \beta_1 + \beta_3 = 0.082 + (-0.395) = -0.313 \text{ per month}$$
+   Infections steadily decreased by approximately $0.31$ cases per month after the policy took effect.
+
+---
+
+## 6. What If the Durbin-Watson Statistic Fails?
+
+If the Durbin-Watson statistic is $< 1.5$, standard regression standard errors are biased downward due to autocorrelation. SPSS offers two point-and-click remedies:
+
+### Remedy 1: Generalized Linear Models with Autoregressive Errors
+1. Navigate to **Analyze > Generalized Linear Models > Generalized Linear Models...**
+2. In the **Repeated** tab, designate `Time` as the **Within-subject variable**.
+3. Set the **Covariance Matrix structure** to **First-order autoregressive (AR1)**.
+4. Set outcome and covariates as usual under the **Predictors** and **Model** tabs.
+
+### Remedy 2: Time Series ARIMA Modeling
+1. Go to **Analyze > Forecasting > Create Traditional Models...**
+2. Under **Method**, select **ARIMA**.
+3. Click **Criteria...** to specify an autoregressive component ($p=1$).
+4. Add `Intervention` and `Time_Post` as transfer functions / independent predictors.
+
+---
+
+## 7. Generating the Final Plot in SPSS
+
+A clear ITS publication graph displays observed points, the fitted trend lines, and the projected counterfactual path.
+
+1. Go to **Transform > Compute Variable...** to create the counterfactual values:
+   * Target Variable: `Counterfactual`
+   * Numeric Expression: `23.410 + (0.082 * Time)` *(using your estimated $\beta_0$ and $\beta_1$)*
+2. In the Linear Regression dialog, click **Save...** and check **Unstandardized Predicted Values** (`PRE_1`).
+3. Open **Graphs > Chart Builder...**
+4. Choose **Line** (Multiple Lines) or **Scatter/Dot** (Overlay Scatter).
+5. Drag `Time` to the X-axis.
+6. Overlay `Infection_Rate` (as dots), `PRE_1` (as a solid fitted line), and `Counterfactual` (as a dotted continuation past Month 19).
+7. Add a reference line on the X-axis at $18.5$ via the Chart Editor to highlight the intervention launch.

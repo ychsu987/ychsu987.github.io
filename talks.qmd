@@ -7,4 +7,5 @@ Paper reading club
 
 | Topic | Slides | 
 |---|---|
-| LLM watermark (Kirchenbauer et al. 2023) | [Slides](courses\talks\AI-watermark\ai-watermark.qmd) | — |— |
+| LLM watermark (Kirchenbauer et al. 2023) | [Slides](courses/talks/AI-watermark/ai-watermark.qmd) | — |— |
+| Network Sciences for Social sciences| [Slides](courses/talks/Network-science/network.qmd) | — |— |
