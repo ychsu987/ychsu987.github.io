@@ -12,7 +12,7 @@
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <meta name="author" content="Yu Cheng Hsu">
+  <meta name="author" content="Dr.&nbsp;Yu Cheng Hsu">
   <title>Yu Cheng Hsu – Regression diagnostics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -223,7 +223,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Yu Cheng Hsu 
+Dr.&nbsp;Yu Cheng Hsu 
 </div>
 </div>
 </div>
@@ -235,6 +235,33 @@ Yu Cheng Hsu
 <li>Demonstrate linear regression diagnostics</li>
 <li>Judgement on the performance of linear regression</li>
 </ul>
+<p>Terms matching</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Rachel’s slide</th>
+<th>Ray’s slides</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\text{SS}_\text{Total}\)</span></td>
+<td><span class="math inline">\(\text{SST}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{SS}_\text{Regression}\)</span></td>
+<td><span class="math inline">\(\text{SSR}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\text{SS}_\text{Residual}\)</span></td>
+<td><span class="math inline">\(\text{SSE}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{MSS}_\text{Residual}\)</span></td>
+<td><span class="math inline">\(\text{MSE}\)</span></td>
+</tr>
+</tbody>
+</table>
 
 <aside><div>
 <p>Background image: <span class="citation" data-cites="bg1">Eakins (<a href="#/summary-diagnostic-flowchart" role="doc-biblioref" onclick="">1875</a>)</span></p>
@@ -251,51 +278,6 @@ Yu Cheng Hsu
 <ul>
 <li>Does <span class="math inline">\(X_1, X_2, \dots, X_k\)</span> really make explaination to <span class="math inline">\(Y\)</span></li>
 <li>How good is the model performance?</li>
-</ul>
-</section>
-<section id="evaluating-linear-regression---from-an-observation" class="slide level2">
-<h2>Evaluating linear regression - from an observation</h2>
-<ul>
-<li>The regression diagnostics lies in the <strong>Analysis of Variance (ANOVA)</strong></li>
-<li>We can decompose the error of you prediction as:</li>
-</ul>
-<div class="hide">
-<p><span class="math display">\[
-(Y_i - \hat{Y}_i) = (Y_i - \bar{Y})-(\hat{Y}_i - \bar{Y})
-\]</span></p>
-</div>
-<p>Where:</p>
-<ul>
-<li><strong><span class="math inline">\((Y_i - \hat{Y}_i) = e_i\)</span></strong> = Unexplained residual deviation (the error remaining after fitting the model).</li>
-<li><strong><span class="math inline">\((Y_i - \bar{Y})\)</span></strong> = Total deviation of the data point from the baseline benchmark (sample mean).</li>
-<li><strong><span class="math inline">\((\hat{Y}_i - \bar{Y})\)</span></strong> = Explained deviation (the difference between the model’s fitted value and the sample mean).</li>
-</ul>
-</section>
-<section id="illustration" class="slide level2">
-<h2>Illustration</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></a></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="a-summary-of-error" class="slide level2">
-<h2>A summary of error</h2>
-<p>Squaring both sides and summing across all <span class="math inline">\(n\)</span> observations yields the fundamental sum-of-squares identity:</p>
-<div class="hide">
-<p><span class="math display">\[
-\text{SSE} = \text{SST} - \text{SSR}
-\]</span></p>
-</div>
-<p>Where</p>
-<ul>
-<li>SST (Total Sum of Squares): <span class="math inline">\(\sum_i (Y_i - \hat{Y}_i)^2\)</span></li>
-<li>SSE (Error Sum of Squares): <span class="math inline">\(\sum_i (Y_i - \bar{Y})^2\)</span></li>
-<li>SSR (Regression Sum of Squares): <span class="math inline">\(\sum_i (\hat{Y}_i - \bar{Y})^2\)</span></li>
 </ul>
 
 <aside><div>
@@ -380,7 +362,7 @@ R^2_{\text{adj}} = 1 - (1 - R^2) \frac{n - 1}{n - k - 1}
 </section>
 <section id="f-test-for-model-significance" class="slide level2">
 <h2><span class="math inline">\(F\)</span>-Test for Model Significance</h2>
-<p><span class="math inline">\(F\)</span>-Test** evaluates whether the collection of predictors collectively explains a statistically significant amount of variation.</p>
+<p><strong><span class="math inline">\(F\)</span>-Test</strong> evaluates whether the collection of predictors collectively explains a statistically significant amount of variation.</p>
 <p><strong>Hypotheses</strong></p>
 <ul>
 <li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> All slope coefficients are simultaneously zero.</li>
@@ -404,47 +386,8 @@ H_1: \text{There is at least one} \beta_j \neq 0
 <li>Repeated testing <span class="math inline">\(\beta_i\)</span> cause p-value inflation</li>
 </ul>
 </section>
-<section id="mean-squares-variance-between-vs.-variance-within" class="slide level2">
-<h2>Mean Squares: Variance Between vs.&nbsp;Variance Within</h2>
-<p>Before calculating the <span class="math inline">\(F\)</span>-statistic, we normalize the sums of squares by their respective degrees of freedom:</p>
-<p><strong>Mean Square Regression (MSR):</strong></p>
-<div class="hide">
-<p><span class="math display">\[
-\text{MSR} = \frac{\text{SSR}}{k}
-\]</span></p>
-</div>
-<p><strong>Mean Square Error (MSE):</strong></p>
-<div class="hide">
-<p><span class="math display">\[
-\text{MSE} = \frac{\text{SSE}}{n - k - 1} = s_e^2 \quad (\text{an unbiased estimator of } \sigma^2)
-\]</span></p>
-</div>
-</section>
-<section id="constructing-the-f-statistic" class="slide level2">
-<h2>Constructing the <span class="math inline">\(F\)</span>-Statistic</h2>
-<p>The <span class="math inline">\(F\)</span>-statistic is the ratio of explained variance per degree of freedom to unexplained variance per degree of freedom:</p>
-<div class="hide">
-<p><span class="math display">\[
-F = \frac{\text{MSR}}{\text{MSE}} = \frac{\text{SSR} / k}{\text{SSE} / (n - k - 1)}
-\]</span></p>
-</div>
-<p>It can also be written directly in terms of <span class="math inline">\(R^2\)</span>:</p>
-<p><span class="math display">\[
-F = \frac{R^2 / k}{(1 - R^2) / (n - k - 1)}
-\]</span></p>
-</section>
-<section id="sampling-distribution-decision-rule" class="slide level2">
-<h2>Sampling Distribution &amp; Decision Rule:</h2>
-<p>Under the null hypothesis <span class="math inline">\(H_0\)</span>, and assuming <strong>normally distributed homoscedastic</strong> errors: <span class="math display">\[
-F \sim F(df_1 = k, \, df_2 = n - k - 1)
-\]</span></p>
-<ul>
-<li><strong>Decision:</strong> Reject <span class="math inline">\(H_0\)</span> at significance level <span class="math inline">\(\alpha\)</span> if <span class="math inline">\(F &gt; F_{\text{crit}}(\alpha, k, n - k - 1)\)</span> or if <span class="math inline">\(p\text{-value} &lt; \alpha\)</span>.</li>
-<li><strong>Conclusion:</strong> Rejecting <span class="math inline">\(H_0\)</span> confirms that the regression model explains significantly more variance than a naive “intercept-only” model (sample mean <span class="math inline">\(\bar{Y}\)</span>).</li>
-</ul>
-</section>
 <section id="the-standard-anova-table-for-regression" class="slide level2">
-<h2>5. The Standard ANOVA Table for Regression</h2>
+<h2>The Standard ANOVA Table for Regression</h2>
 <p>Statistical software (e.g., R, Python <code>statsmodels</code>, Stata, SAS) formats these calculations into an ANOVA table:</p>
 <table class="caption-top">
 <colgroup>
@@ -568,38 +511,80 @@ F \sim F(df_1 = k, \, df_2 = n - k - 1)
 <section id="key-metrics-calculations" class="slide level2">
 <h2>Key Metrics Calculations</h2>
 <ol type="1">
-<li><p><strong><span class="math inline">\(R^2\)</span> Calculation:</strong> <span class="math display">\[
+<li><strong><span class="math inline">\(R^2\)</span> Calculation:</strong> <span class="math display">\[
 R^2 = \frac{17469477.719 }{ 99969655.810} = 17.4\%
-\]</span> <em>Interpretation:</em> 12.6% of the variance in biomarker reduction is explained by maternal weight at last menstrual period, baseline metabolic index, and age.</p></li>
-<li><p><strong>Adjusted <span class="math inline">\(R^2\)</span> Calculation:</strong> <span class="math display">\[
+\]</span></li>
+</ol>
+<p><em>Interpretation:</em> 17.4% of the variance in biomarker reduction is explained by maternal weight at last menstrual period, baseline metabolic index, and age.</p>
+<ol start="2" type="1">
+<li><strong>Adjusted <span class="math inline">\(R^2\)</span> Calculation:</strong> <span class="math display">\[
 R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = = 1 - 0.8478 = 15.2\%
-\]</span> <em>Interpretation:</em> After penalizing for adding three model parameters, the model accounts for approximately 70.2% of the variance.</p></li>
+\]</span> <em>Interpretation:</em> After penalizing for adding three model parameters, the model accounts for approximately 70.2% of the variance.</li>
 </ol>
 </section>
-<section id="simple-linear-regression-t-test-vs.-f-test" class="slide level2">
-<h2>Simple Linear Regression: <span class="math inline">\(t\)</span>-test vs.&nbsp;<span class="math inline">\(F\)</span>-test</h2>
-<p><strong><span class="math inline">\(F\)</span>-Test Evaluation:</strong> <span class="math inline">\(F_{(5, 183)} = 7.75, \quad p &lt; 0.0001\)</span> <em>Conclusion:</em> Since the <span class="math inline">\(p\)</span>-value is well below <span class="math inline">\(\alpha = 0.05\)</span>, we reject <span class="math inline">\(H_0\)</span>. The model as a whole explains a statistically significant amount of variation compared to a flat horizontal line.</p>
-<p><strong><span class="math inline">\(\beta\)</span></strong></p>
-<p>In simple linear regression (<span class="math inline">\(k = 1\)</span>): <span class="math display">\[
-F_{(1, n-2)} = (t_{\beta_1})^2
-\]</span></p>
-<p>The two-sided <span class="math inline">\(t\)</span>-test on the single slope coefficient <span class="math inline">\(\beta_1\)</span> and the overall <span class="math inline">\(F\)</span>-test are mathematically identical and yield the exact same <span class="math inline">\(p\)</span>-value.</p>
-</section>
-<section id="high-f-statistic-but-no-individual-significant-t-statistics" class="slide level2">
-<h2>High <span class="math inline">\(F\)</span>-statistic, but no individual significant <span class="math inline">\(t\)</span>-statistics?</h2>
+<section id="common-issues" class="slide level2">
+<h2>Common issues</h2>
+<p><strong>Significant <span class="math inline">\(F\)</span>-statistic, but no individual significant <span class="math inline">\(t\)</span>-statistics</strong></p>
 <p>This classic paradox typically occurs due to <strong>severe multicollinearity</strong>.</p>
 <ul>
 <li>The predictors are highly correlated with each other.</li>
 <li>The overall <span class="math inline">\(F\)</span>-test confirms that the set of predictors collectively accounts for substantial variation.</li>
-<li>However, the variance inflation factor (VIF) is high, inflating individual standard errors and making it impossible for the individual <span class="math inline">\(t\)</span>-tests to isolate which specific variable is doing the work.</li>
 </ul>
-</section>
-<section id="low-r2-with-a-statistically-significant-f-test" class="slide level2">
-<h2>Low <span class="math inline">\(R^2\)</span> with a Statistically Significant <span class="math inline">\(F\)</span>-test</h2>
+<p><strong>Low <span class="math inline">\(R^2\)</span> with a Statistically Significant <span class="math inline">\(F\)</span>-test</strong></p>
 <ul>
 <li><strong>Common in noisy biological or social science data</strong> (e.g., <span class="math inline">\(R^2 = 0.08\)</span>, <span class="math inline">\(p &lt; 0.001\)</span> with <span class="math inline">\(n = 5,000\)</span>).</li>
 <li>This means the effect is genuine, real, and reproducible (not a sampling artifact), but individual-level variation remains high due to unmeasured factors.</li>
 </ul>
+</section>
+<section>
+<section id="l.i.n.e-assumptions" class="title-slide slide level1 center">
+<h1>L.I.N.E Assumptions</h1>
+
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Letter</th>
+<th style="text-align: left;">Assumption</th>
+<th style="text-align: left;">Primary Diagnostic Tool</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>L</strong></td>
+<td style="text-align: left;"><strong>Linearity</strong> of the conditional expectation</td>
+<td style="text-align: left;"><span class="math inline">\(\mathbb{E}[\varepsilon_i \mid X] = 0\)</span></td>
+<td style="text-align: left;">Residuals vs.&nbsp;Fitted Plot</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: left;"><strong>Independence</strong> of observational errors</td>
+<td style="text-align: left;"><span class="math inline">\(\text{Cov}(\varepsilon_i, \varepsilon_j) = 0 \quad (\forall i \neq j)\)</span></td>
+<td style="text-align: left;">Autocorrelation / Study Design Review</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>N</strong></td>
+<td style="text-align: left;"><strong>Normality</strong> of error distribution</td>
+<td style="text-align: left;"><span class="math inline">\(\varepsilon_i \sim \mathcal{N}(0, \sigma^2)\)</span></td>
+<td style="text-align: left;">Normal Q-Q Plot</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>E</strong></td>
+<td style="text-align: left;"><strong>Equal Variance</strong> (Homoscedasticity)</td>
+<td style="text-align: left;"><span class="math inline">\(\text{Var}(\varepsilon_i \mid X) = \sigma^2\)</span> (constant)</td>
+<td style="text-align: left;">Scale-Location Plot</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="pitfalls-to-avoid" class="slide level2">
 <h2>Pitfalls to Avoid</h2>
@@ -609,27 +594,221 @@ F_{(1, n-2)} = (t_{\beta_1})^2
 <li><strong>Over-reliance on <span class="math inline">\(R^2_{\text{adj}}\)</span> Alone:</strong> Always inspect residual diagnostics (residual vs.&nbsp;fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold.</li>
 </ol>
 </section>
+<section id="in-depth-diagnostics-clinical-risks-remedies" class="slide level2">
+<h2>4. In-Depth Diagnostics, Clinical Risks &amp; Remedies</h2>
+<pre><code>                THE 4 BASE R DIAGNOSTIC PLOTS: plot(model)
+   ┌───────────────────────────────────┬───────────────────────────────────┐
+   │ 1. Residuals vs Fitted            │ 2. Normal Q-Q Plot                │
+   │    Checks: Linearity              │    Checks: Normality              │
+   │    Ideal: Flat red line at y = 0  │    Ideal: Points follow dashed 45°│
+   ├───────────────────────────────────┼───────────────────────────────────┤
+   │ 3. Scale-Location                 │ 4. Residuals vs Leverage          │
+   │    Checks: Equal Variance         │    Checks: Influential Points     │
+   │    Ideal: Flat horizontal line    │    Ideal: Points inside Cook's d  │
+   └───────────────────────────────────┴───────────────────────────────────┘</code></pre>
+</section>
+<section id="l-linearity" class="slide level2">
+<h2>L — Linearity</h2>
+<ul>
+<li>The relationship between <span class="math inline">\(X\)</span> and the outcome is an additive <strong>linear</strong> combination.</li>
+</ul>
+<p><strong>Example</strong></p>
+<ul>
+<li>The relation between X and Y is a quadratic relation instead of a linear</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul>
+<li>Add non-linear polynomial terms: e.g., <span class="math inline">\(\text{Age}^2\)</span>.</li>
+<li>Apply logarithmic or power transformations</li>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="columns">
+<p><strong>Tool:</strong> <strong>Residuals vs.&nbsp;Fitted Plot</strong></p><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<ul>
+<li><strong>Healthy Pattern:</strong> Residuals bounce randomly across a horizontal band centered at <span class="math inline">\(y = 0\)</span>, with no distinct trend. The red smooth smoother curve is nearly flat along <span class="math inline">\(y = 0\)</span>.</li>
+<li><strong>Violation Warning:</strong> Distinct parabolic “U-shape”, inverted “U”, or sinusoidal wave.</li>
+</ul>
+</div></div>
+</section>
+<section id="i-independence-of-errors" class="slide level2">
+<h2>I — Independence of Errors</h2>
+<ul>
+<li><p>Knowing that Patient A has an unexpectedly high outcome provides zero information about Patient B’s outcome.</p></li>
+<li><p><strong>Example</strong></p>
+<ul>
+<li>Clustering: Patients recruited from the same hospital ward or family share correlated responses.</li>
+<li>Autocorrelation: Longitudinal measurements taken repeatedly over time on the same subject.</li>
+</ul></li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul>
+<li>Revise study design</li>
+<li><strong>Clustered data:</strong> Linear Mixed-Effects Models (<code>lme4::lmer()</code>) incorporating random intercepts for clusters/centers.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<ul>
+<li><strong>Tool:</strong> Evaluation of study design, Residuals vs.&nbsp;Time/Subject ID order, or <strong>Durbin-Watson test</strong> (<code>car::dwt(model)</code>).</li>
+</ul><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>car<span class="sc">::</span><span class="fu">dwt</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> lag Autocorrelation D-W Statistic p-value
+   1       0.7582327     0.4817912       0
+ Alternative hypothesis: rho != 0</code></pre>
+</div>
+</div>
+</div><div class="column">
+<p><strong>Consequence</strong></p>
+<ul>
+<li><strong>Deceptive Precision:</strong> The effective sample size is smaller than <span class="math inline">\(n\)</span>. Linear regression underestimate standard errors (<span class="math inline">\(SE(\hat{\beta})\)</span>), causing artificially narrow 95% CIs.</li>
+</ul>
+</div></div>
+</section>
+<section id="n-normality-of-residuals" class="slide level2">
+<h2>N — Normality of Residuals</h2>
+<ul>
+<li>The error terms re normally distributed around the fitted line.</li>
+</ul>
+<p><strong>Crucial Clarification:</strong> In regression, the raw variables <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> <strong>do not</strong> need to be normally distributed; only the <strong>residuals</strong> (<span class="math inline">\(\varepsilon_i\)</span>) must be normally distributed.</p>
+<ul>
+<li><strong>Tool:</strong> <strong>Normal Q-Q Plot</strong> (Base R Plot 2: <code>plot(model, which = 2)</code>).</li>
+<li><strong>Healthy Pattern:</strong> Residual quantiles fall tightly along the theoretical 45-degree dashed line.</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul>
+<li>Transform the outcome variable: logarithmic transformation: <span class="math display">\[\log(Y_i) = \beta_0 + \beta_1 X_i + \varepsilon_i\]</span></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<ul>
+<li><strong>Violation Warning:</strong>
+<ul>
+<li><strong>Heavy tails (S-shape):</strong> Data has far more extreme clinical outliers than predicted by a normal curve.</li>
+<li><strong>Curvature at ends:</strong> Skewed distributions (frequently seen with right-skewed lab markers such as serum creatinine, viral loads, or cytokine concentrations).</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="e-equal-variance" class="slide level2">
+<h2>E — Equal Variance</h2>
+<ul>
+<li>The variance of the residuals <span class="math inline">\(\text{Var}(\varepsilon_i \mid X) = \sigma^2\)</span> is constant across all predicted values <span class="math inline">\(\hat{Y}\)</span>. (Homoscedasticity)</li>
+</ul>
+<p><strong>Consequence</strong></p>
+<ul>
+<li>Conventional <span class="math inline">\(SE(\hat{\beta})\)</span> calculations are invalid. If variance expands at higher values, standard errors are underestimated for higher exposures, leading to false claims of significance.</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ol type="1">
+<li><strong>Variance-stabilizing transformations:</strong> <span class="math inline">\(\log(Y)\)</span> or <span class="math inline">\(\sqrt{Y}\)</span>.</li>
+<li><strong>Heteroscedasticity-Consistent (HC) Robust Standard Errors:</strong> Using <code>sandwich::vcovHC(model, type = "HC3")</code> paired with <code>lmtest::coeftest()</code>.</li>
+<li><strong>Weighted Least Squares (WLS):</strong> Weights inversely proportional to variance: <span class="math inline">\(w_i = 1/\sigma_i^2\)</span>.</li>
+</ol>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><strong>Tool:</strong> <strong>Scale-Location Plot</strong> (Base R Plot 3: <code>plot(model, which = 3)</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<ul>
+<li><strong>Healthy Pattern:</strong> A horizontal smooth red line with an even, constant vertical scatter of points across all fitted values.</li>
+<li><strong>Violation Warning:</strong> A <strong>megaphone / funnel shape</strong> where residual spread widens drastically as <span class="math inline">\(\hat{Y}\)</span> increases (common in biomedical dosing and growth studies).</li>
+</ul>
+</div></div>
+</section>
 <section id="summary-diagnostic-flowchart" class="slide level2 smaller scrollable">
-<h2>8. Summary Diagnostic Flowchart</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>[Fit OLS Regression Model]</span>
-<span id="cb6-2"><a></a>           │</span>
-<span id="cb6-3"><a></a>           ▼</span>
-<span id="cb6-4"><a></a>[Check Overall F-Test]</span>
-<span id="cb6-5"><a></a>  ├── p &gt;= 0.05 ───► Model does not explain variance beyond noise. Stop / Respecify.</span>
-<span id="cb6-6"><a></a>  └── p &lt; 0.05 ────► Model explains significant variance. Proceed:</span>
-<span id="cb6-7"><a></a>                           │</span>
-<span id="cb6-8"><a></a>           ┌───────────────┴──────────────┐</span>
-<span id="cb6-9"><a></a>           ▼                              ▼</span>
-<span id="cb6-10"><a></a>    [Assess Fit]                  [Inspect Coefficients]</span>
-<span id="cb6-11"><a></a>    • Check R² &amp; Adj R²           • Examine t-tests &amp; p-values</span>
-<span id="cb6-12"><a></a>    • Check Root MSE (s_e)        • Check signs &amp; magnitude</span>
-<span id="cb6-13"><a></a>                                  • Check VIF for multicollinearity</span>
-<span id="cb6-14"><a></a>                                          │</span>
-<span id="cb6-15"><a></a>                                          ▼</span>
-<span id="cb6-16"><a></a>                               [Validate Assumptions]</span>
-<span id="cb6-17"><a></a>                               • Residual vs Fitted (Linearity / Homoscedasticity)</span>
-<span id="cb6-18"><a></a>                               • Normal Q-Q Plot (Normality of residuals)</span>
-<span id="cb6-19"><a></a>                               • Leverage / Cook's D (Influential outliers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h2>Summary Diagnostic Flowchart</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a></a>                      [Fit Linear Model: lm(Y ~ X1 + X2)]</span>
+<span id="cb12-2"><a></a>                                       │</span>
+<span id="cb12-3"><a></a>                ┌──────────────────────┴──────────────────────┐</span>
+<span id="cb12-4"><a></a>                ▼                                             ▼</span>
+<span id="cb12-5"><a></a>       [Evaluate Goodness-of-Fit]                    [Validate L.I.N.E.]</span>
+<span id="cb12-6"><a></a>       • R² &amp; Adjusted R²                            • Residuals vs Fitted (Linearity)</span>
+<span id="cb12-7"><a></a>       • Residual Std Error (RSE)                    • Study structure (Independence)</span>
+<span id="cb12-8"><a></a>       • Global ANOVA F-Test                         • Normal Q-Q (Normality)</span>
+<span id="cb12-9"><a></a>                │                                    • Scale-Location (Equal Variance)</span>
+<span id="cb12-10"><a></a>                │                                             │</span>
+<span id="cb12-11"><a></a>                └──────────────────────┬──────────────────────┘</span>
+<span id="cb12-12"><a></a>                                       │</span>
+<span id="cb12-13"><a></a>                     All L.I.N.E. Assumptions Hold?</span>
+<span id="cb12-14"><a></a>                                       │</span>
+<span id="cb12-15"><a></a>                      ├─── YES ──► Report slopes, 95% CIs &amp; p-values</span>
+<span id="cb12-16"><a></a>                      │</span>
+<span id="cb12-17"><a></a>                      └─── NO  ──► Apply Diagnostic Remedy:</span>
+<span id="cb12-18"><a></a>                                   • Non-linear? ──► Log(X), Polynomials</span>
+<span id="cb12-19"><a></a>                                   • Heteroscedastic? ──► Log(Y), HC3 Robust SE</span>
+<span id="cb12-20"><a></a>                                   • Non-normal? ──► Transform Y, Bootstrap</span>
+<span id="cb12-21"><a></a>                                   • Clustered? ──► Mixed-Effects Model (lmer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -637,7 +816,7 @@ F_{(1, n-2)} = (t_{\beta_1})^2
 Eakins, Thomas. 1875. <em>The Clinic of Dr. Gross</em>. Oil on canvas. Philadelphia Museum of Art.
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -856,42 +1035,80 @@ Eakins, Thomas. 1875. <em>The Clinic of Dr. Gross</em>. Oil on canvas. Philadelp
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -31,8 +31,28 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-efdb9ef8a56c3099b277c384a82e1330.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -152,7 +172,7 @@ Dr.&nbsp;Yu Cheng Hsu
 </ul>
 
 <aside><div>
-<p>Background image: <span class="citation" data-cites="bg4">@bg4</span></p>
+<p>Background image: <span class="citation" data-cites="bg4">Monet (<a href="#/wrap-up" role="doc-biblioref" onclick="">1878</a>)</span></p>
 </div></aside></section>
 <section id="mary-mallon" class="slide level2">
 <h2>Mary Mallon</h2>
@@ -161,26 +181,26 @@ Dr.&nbsp;Yu Cheng Hsu
 — <strong>Mary Mallon</strong></p>
 </blockquote>
 <div class="columns">
-<div class="column">
+<div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../../assets/images/intro-to-epi/mary.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Typhoid Mary from Wikipedia"><img data-src="../../../assets/images/intro-to-epi/mary.jpg" alt="Typhoid Mary from Wikipedia"></a></p>
+<p><a href="../../..\assets/images/intro-to-epi/mary.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Typhoid Mary from Wikipedia"><img data-src="../../..\assets/images/intro-to-epi/mary.jpg" alt="Typhoid Mary from Wikipedia"></a></p>
 <figcaption>Typhoid Mary from Wikipedia</figcaption>
 </figure>
 </div>
-</div><div class="column">
+</div><div class="column" style="width:55%;">
 <ul>
-<li>Linked to 51 typhoid indfection and 3 deaths in early 1900s.</li>
-<li>Mary was a asymptomatic carrier.</li>
-<li>Transforming modern epidemiological tracking, quarantine, and medical ethics.</li>
+<li>Linked to 51 typhoid infections and 3 deaths in the early 1900s.</li>
+<li>Identified as an asymptomatic carrier.</li>
+<li>Transformed modern epidemiological contact tracing, quarantine protocols, and medical ethics.</li>
 </ul>
 </div></div>
 </section>
 <section id="what-is-epidemiology" class="slide level2">
-<h2>What is epidemiology?</h2>
+<h2>What Is Epidemiology?</h2>
 <p><strong>Definition</strong></p>
-<p>Study of the <strong>distribution</strong> and <strong>determinants</strong> of health-related states among specified <strong>populations</strong> and the application of that study to the control of health problems.</p>
-<p>Some common questions that epidemiologists ask include:</p>
+<p>The study of the <strong>distribution</strong> and <strong>determinants</strong> of health-related states or events in specified <strong>populations</strong>, and the application of this study to the control of health problems.</p>
+<p>Common questions epidemiologists ask:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -189,7 +209,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <li>Where do they get sick?</li>
 <li>How do they get sick?</li>
 <li>Why do they get sick?</li>
-<li>How can we prevent them from getting sick?</li>
+<li>How can we prevent illness?</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -201,230 +221,264 @@ Dr.&nbsp;Yu Cheng Hsu
 </div></div>
 </section>
 <section id="epidemiological-tools" class="slide level2">
-<h2>Epidemiological tools</h2>
-<p>Based on these questions we can categorize epidemiological tools into three main types:</p>
+<h2>Epidemiological Tools</h2>
+<p>Based on these core questions, epidemiological study designs fall into three primary categories:</p>
 <ul>
-<li><p><strong>Descriptive epidemiology</strong>: Describes the distribution of disease in a population by person, place, and time.</p></li>
-<li><p><strong>Analytic epidemiology</strong>: Identifies the determinants of disease by testing hypotheses about the relationship between exposures and outcomes.</p></li>
-<li><p><strong>Experimental epidemiology</strong>: Tests the efficacy of interventions to prevent or treat disease by manipulating the exposure of interest and observing the outcome.</p></li>
+<li><strong>Descriptive epidemiology</strong>: Characterizes the distribution of disease in a population by person, place, and time.</li>
+<li><strong>Analytic epidemiology</strong>: Evaluates hypotheses regarding the determinants of disease and the relationship between exposures and outcomes.</li>
+<li><strong>Experimental epidemiology</strong>: Evaluates the efficacy of preventive or therapeutic interventions by manipulating exposure status and tracking outcomes.</li>
 </ul>
 </section>
-<section id="describe-a-disease" class="slide level2">
-<h2>Describe a disease</h2>
+<section id="describing-disease-patterns" class="slide level2">
+<h2>Describing Disease Patterns</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://cdn.arstechnica.net/wp-content/uploads/2020/04/Screen-Shot-2020-04-13-at-5.40.40-PM-2048x762.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="JHU COVID-19 dashboard"><img data-src="https://cdn.arstechnica.net/wp-content/uploads/2020/04/Screen-Shot-2020-04-13-at-5.40.40-PM-2048x762.jpeg" alt="JHU COVID-19 dashboard"></a></p>
-<figcaption>JHU COVID-19 dashboard</figcaption>
+<p><a href="https://cdn.arstechnica.net/wp-content/uploads/2020/04/Screen-Shot-2020-04-13-at-5.40.40-PM-2048x762.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="JHU COVID-19 Dashboard"><img data-src="https://cdn.arstechnica.net/wp-content/uploads/2020/04/Screen-Shot-2020-04-13-at-5.40.40-PM-2048x762.jpeg" alt="JHU COVID-19 Dashboard"></a></p>
+<figcaption>JHU COVID-19 Dashboard</figcaption>
 </figure>
 </div>
 </section>
-<section id="getting-disease-descriptions" class="slide level2">
-<h2>Getting disease descriptions</h2>
+<section id="descriptive-study-designs" class="slide level2">
+<h2>Descriptive Study Designs</h2>
 <ul>
 <li><strong>Case study</strong>
 <ul>
-<li>Common tools: Interview with case</li>
-<li>Purpose: In depth investigate the disease process and identify potential causes and risk factors.</li>
+<li>Common tools: Patient interviews and clinical records</li>
+<li>Purpose: Investigate disease etiology in-depth and identify potential risk factors</li>
 </ul></li>
 <li><strong>Cross-sectional study</strong>
 <ul>
-<li>Common tools: Survey (one single time)</li>
-<li>Purpose: Assess the prevalence of disease and its association with potential risk factors at certain time.</li>
+<li>Common tools: Cross-sectional surveys</li>
+<li>Purpose: Estimate disease prevalence and evaluate associations with risk factors at a single point in time</li>
 </ul></li>
 <li><strong>Ecological study</strong>
 <ul>
-<li>Common tools: health records, government statistics</li>
-<li>Purpose: <strong>Population level</strong> to assess the trend, association of a disease.</li>
+<li>Common tools: Vital statistics and public health registries</li>
+<li>Purpose: Evaluate population-level disease trends and aggregate exposure patterns</li>
 </ul></li>
 </ul>
 </section>
-<section id="key-measures-in-epidemiology" class="slide level2">
-<h2>Key measures in epidemiology</h2>
+<section id="key-measures-of-disease-frequency" class="slide level2">
+<h2>Key Measures of Disease Frequency</h2>
 <ul>
-<li><strong>Prevalence</strong> ≈ how common the disease is <em>right now</em> in a group<br>
-</li>
-<li><strong>Incidence</strong> ≈ how many <em>new</em> cases appear over a period of time<br>
-</li>
-<li><strong>Relative risk (RR)</strong> ≈ “how many times more (or less) risk if exposed?”
+<li><strong>Prevalence</strong> ≈ Proportion of a group with the condition <em>at a specific point or period in time</em></li>
+</ul>
+<div class="hide">
+<p><span class="math display">\[
+\small
+\text{Prevalence} = \frac{\text{Number of all existing cases (new and old) at a specific time}}{\text{Total population at that specific time}}
+\]</span></p>
+</div>
 <ul>
-<li>RR = 1 → same risk;</li>
-<li>RR &gt; 1 → higher risk in exposed;</li>
-<li>RR &lt; 1 → lower risk<br>
-</li>
+<li><strong>Incidence</strong> ≈ Rate of <em>new</em> disease occurrences within a population over a given period</li>
+</ul>
+<div class="hide">
+<p><span class="math display">\[
+\small
+\text{Incidence Rate} = \frac{\text{Number of new cases arising during a specific time period}}{\text{Total population at risk during that time period}}
+\]</span></p>
+</div>
+</section>
+<section id="understanding-associations" class="slide level2">
+<h2>Understanding Associations</h2>
+<ul>
+<li><strong>Cohort study</strong>
+<ul>
+<li>Common tools: Longitudinal health records, prospective cohort recruitment</li>
+<li>Approach: Classify by <strong>exposure status</strong>, then follow participants over time to observe disease incidence</li>
 </ul></li>
-<li><strong>Odds ratio (OR)</strong> ≈
+<li><strong>Case-control study</strong>
 <ul>
-<li>Odds, measure the chance that a health event happens compared to the chance it does not happen (<span class="math inline">\(p/(1-p)\)</span>) OR has the similar interpretation as RR</li>
+<li>Common tools: Medical charts and registry records</li>
+<li>Approach: Classify by <strong>outcome status</strong>, then assess prior exposures retrospectively</li>
 </ul></li>
 </ul>
-<p>We will compute RR/OR in the next class.</p>
 </section>
-<section id="understand-association" class="slide level2">
-<h2>Understand association</h2>
+<section id="key-measures-of-association" class="slide level2">
+<h2>Key Measures of Association</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Relative Risk (RR)</strong></p>
+<div class="hide">
+<p><span class="math display">\[
+\begin{aligned}
+\text{Risk} &amp;= \frac{\text{Events}}{\text{Total at Risk}} \\
+\text{RR} &amp;= \frac{\text{Risk}_{\text{exposed}}}{\text{Risk}_{\text{unexposed}}}
+\end{aligned}
+\]</span></p>
+</div>
+<p><em>Question addressed:</em> “How many times higher is the disease risk in the exposed group compared to the unexposed group?”</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Odds Ratio (OR)</strong></p>
+<div class="hide">
+<p><span class="math display">\[
+\begin{aligned}
+\text{Odds} &amp;= \frac{\text{Events}}{\text{Non-Events}} = \frac{p}{1 - p} \\
+\text{OR} &amp;= \frac{\text{Odds}_{\text{exposed}}}{\text{Odds}_{\text{unexposed}}}
+\end{aligned}
+\]</span></p>
+</div>
+<p><em>Question addressed:</em> “How many times higher are the odds of exposure among cases compared to controls?”</p>
+</div></div>
+<p><strong>Interpreting the Metric (<span class="math inline">\(RR\)</span> or <span class="math inline">\(OR\)</span>):</strong></p>
 <ul>
-<li>Cohort study
-<ul>
-<li>Common tools: health records, participant recruit (optional)</li>
-<li>Perspective: Control on the exposure and test the outcome is developed</li>
-</ul></li>
-<li>Case-control study
-<ul>
-<li>Common tools: health records</li>
-<li>Perspective: Control on the <strong>outcome</strong> and test what exposure is <strong>associated</strong> with the outcome</li>
-</ul></li>
+<li><span class="hide"> <span class="math inline">\(= 1.0\)</span> </span>: No association (exposure does not alter risk or odds)</li>
+<li><span class="hide"> <span class="math inline">\(&gt; 1.0\)</span> </span>: Positive association (exposure increases risk or odds; harmful)</li>
+<li><span class="hide"> <span class="math inline">\(&lt; 1.0\)</span> </span>: Negative association (exposure decreases risk or odds; protective)</li>
 </ul>
 </section>
-<section id="cohort-study" class="slide level2">
-<h2>Cohort study</h2>
+<section id="cohort-studies" class="slide level2">
+<h2>Cohort Studies</h2>
 <p><strong>Cohort</strong></p>
-<p>A group of people who share a common characteristic or experience within a defined period of time.</p>
-<p><strong>Idea</strong></p>
+<p>A group of individuals who share common characteristics or exposures, followed over a defined observation window.</p>
+<p><strong>Cohort Studies Study Framework</strong></p>
 <ol type="1">
-<li>Select a group of people (cohort)
-<ol type="1">
-<li>with shared similar characteristics (Age, sex, etc.)</li>
-<li>with different <strong>exposures</strong> (e.g., smoking vs.&nbsp;non-smoking)</li>
-</ol></li>
-<li>Follow them over time to see who develops the disease of interest (e.g., lung cancer).</li>
+<li>Identify a defined population cohort:
+<ul>
+<li>Comparable demographic characteristics (e.g., age, sex)</li>
+<li>Contrasting <strong>exposure profiles</strong> (e.g., smokers vs.&nbsp;non-smokers)</li>
+</ul></li>
+<li>Follow participants prospectively over time to monitor who develops the outcome of interest (e.g., lung cancer).</li>
 </ol>
 </section>
 <section id="retrospective-cohort-study" class="slide level2">
-<h2>Retrospective cohort study</h2>
-<p>Looking back from the history of the cohort to determine exposure status and outcome.</p>
+<h2>Retrospective Cohort Study</h2>
+<p>Assesses historical records to ascertain past exposure status and subsequent outcome status.</p>
 <ol type="1">
-<li>Find out who were exposed and who were not exposed in the past.</li>
-<li>Find out who develops the disease of interest after the exposure.</li>
+<li>Classify participants by historical exposure status (exposed vs.&nbsp;unexposed).</li>
+<li>Determine subsequent disease outcomes that developed following the exposure window.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../../assets/images/epi1/retro_edit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Illustration of retrospective cohort study"><img data-src="../../../assets/images/epi1/retro_edit.png" style="width:65.0%" alt="Illustration of retrospective cohort study"></a></p>
+<p><a href="../../..\assets/images/intro-to-epi/retro_edit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Illustration of retrospective cohort study"><img data-src="../../..\assets/images/intro-to-epi/retro_edit.png" style="width:65.0%" alt="Illustration of retrospective cohort study"></a></p>
 <figcaption>Illustration of retrospective cohort study</figcaption>
 </figure>
 </div>
 </section>
 <section id="prospective-cohort-study" class="slide level2">
-<h2>Prospective cohort study</h2>
-<p>Enroll participants by exposure status now, then follow them forward over time to track who develops the outcome.</p>
+<h2>Prospective Cohort Study</h2>
+<p>Enrolls participants based on current exposure status, then follows them longitudinally forward in time.</p>
 <ol type="1">
-<li>Identify who are exposed and who are not exposed at the start of the study.</li>
-<li>Follow them forward to see who develops the disease of interest after enrollment.</li>
+<li>Identify exposed and unexposed cohorts free of the outcome at baseline.</li>
+<li>Follow cohorts prospectively to measure disease incidence over time.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../../assets/images/epi1/prospective - edit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Illustration of prospective cohort study"><img data-src="../../../assets/images/epi1/prospective - edit.png" style="width:65.0%" alt="Illustration of prospective cohort study"></a></p>
+<p><a href="../../..\assets/images/intro-to-epi/prospective - edit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Illustration of prospective cohort study"><img data-src="../../..\assets/images/intro-to-epi/prospective - edit.png" style="width:65.0%" alt="Illustration of prospective cohort study"></a></p>
 <figcaption>Illustration of prospective cohort study</figcaption>
 </figure>
 </div>
 </section>
 <section id="case-control-study" class="slide level2">
-<h2>Case control study</h2>
+<h2>Case-Control Study</h2>
+<p><strong>Case-Control Study Study Framework</strong></p>
 <ol type="1">
-<li>We select a group of people with
+<li>Select two groups based on clinical outcome:
 <ul>
-<li>similar characteristics (e.g., age, sex)</li>
-<li>with different <strong>disease</strong> (e.g., cancer vs.&nbsp;non-cancer),</li>
+<li><strong>Cases</strong>: Individuals with the disease (e.g., lung cancer)</li>
+<li><strong>Controls</strong>: Comparable individuals without the disease (e.g., cancer-free)</li>
 </ul></li>
-<li>Check what kind of exposure they had before the disease</li>
+<li>Evaluate and compare past exposure history between both groups.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../../assets/images/epi1/case-control.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Illustration of case-control study"><img data-src="../../../assets/images/epi1/case-control.png" style="width:65.0%" alt="Illustration of case-control study"></a></p>
+<p><a href="../../..\assets/images/intro-to-epi/case-control.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Illustration of case-control study"><img data-src="../../..\assets/images/intro-to-epi/case-control.png" style="width:60.0%" alt="Illustration of case-control study"></a></p>
 <figcaption>Illustration of case-control study</figcaption>
 </figure>
 </div>
 </section>
-<section id="comparison" class="slide level2">
-<h2>Comparison</h2>
+<section id="comparison-of-observational-designs" class="slide level2">
+<h2>Comparison of Observational Designs</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 28%">
-<col style="width: 35%">
-<col style="width: 36%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Feature</th>
-<th>Cohort</th>
-<th>Case-Control</th>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Cohort Study</th>
+<th style="text-align: left;">Case-Control Study</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Starting Point</td>
-<td>Exposure status</td>
-<td>Disease status (Outcome)</td>
+<td style="text-align: left;">Starting Point</td>
+<td style="text-align: left;">Exposure status</td>
+<td style="text-align: left;">Outcome / disease status</td>
 </tr>
 <tr class="even">
-<td>Direction of Inquiry</td>
-<td>Forward (Exposure → Outcome)</td>
-<td>Backward (Outcome → Exposure)</td>
+<td style="text-align: left;">Direction of Inquiry</td>
+<td style="text-align: left;"><span class="hide"> Forward (Exposure <span class="math inline">\(\rightarrow\)</span> Outcome) </span></td>
+<td style="text-align: left;"><span class="hide"> Backward (Outcome <span class="math inline">\(\rightarrow\)</span> Exposure) </span></td>
 </tr>
 <tr class="odd">
-<td>Primary Metric</td>
-<td>Relative Risk (RR)</td>
-<td>Odds Ratio (OR)</td>
+<td style="text-align: left;">Primary Measure</td>
+<td style="text-align: left;"><span class="hide"> Relative Risk (RR)</span></td>
+<td style="text-align: left;"><span class="hide"> Odds Ratio (OR) </span></td>
 </tr>
 <tr class="even">
-<td>Ideal Use Case</td>
-<td>Rare exposures</td>
-<td>Rare diseases</td>
+<td style="text-align: left;">Best Suited For</td>
+<td style="text-align: left;">Rare exposures</td>
+<td style="text-align: left;">Rare diseases</td>
 </tr>
 <tr class="odd">
-<td>Can measure incidence?</td>
-<td>Yes</td>
-<td>No</td>
+<td style="text-align: left;">Directly Measures Incidence?</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">No</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section>
 <section id="experimental-epidemiology" class="title-slide slide level1 center">
-<h1>Experimental epidemiology</h1>
+<h1>Experimental Epidemiology</h1>
 
 </section>
-<section id="randomized-controlled-trial-rct" class="slide level2">
-<h2>Randomized controlled trial (RCT)</h2>
-<p><strong>Idea</strong></p>
+<section id="randomized-controlled-trial" class="slide level2">
+<h2>Randomized Controlled Trial</h2>
+<p><strong>Randomized Controlled Trial (RCT) Study Framework</strong></p>
 <ol type="1">
-<li>Select a group of people with similar characteristics (e.g., age, sex)</li>
-<li>Randomly assign them to <strong>treatment</strong> (e.g., drug) or <strong>control</strong> (e.g.,placebo, reference point),</li>
-<li>Follow-up to see improvement in health outcomes to test the efficacy of the treatment.</li>
+<li>Enroll eligible participants meeting defined inclusion/exclusion criteria.</li>
+<li>Randomly assign participants to either an <strong>intervention group</strong> (e.g., active drug) or a <strong>control group</strong> (e.g., placebo or standard of care).</li>
+<li>Follow participants longitudinally to evaluate differences in clinical outcomes and determine intervention efficacy.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../../assets/images/epi1/rct.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Illustration of RCT"><img data-src="../../../assets/images/epi1/rct.png" style="width:65.0%" alt="Illustration of RCT"></a></p>
-<figcaption>Illustration of RCT</figcaption>
+<p><a href="../../..\assets/images/intro-to-epi/rct.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Illustration of Randomized Controlled Trial (RCT)"><img data-src="../../..\assets/images/intro-to-epi/rct.png" style="width:55.0%" alt="Illustration of Randomized Controlled Trial (RCT)"></a></p>
+<figcaption>Illustration of Randomized Controlled Trial (RCT)</figcaption>
 </figure>
 </div>
 </section>
-<section id="evidence-level-of-different-tools" class="slide level2">
-<h2>Evidence level of different tools</h2>
+<section id="hierarchy-of-epidemiological-evidence" class="slide level2">
+<h2>Hierarchy of Epidemiological Evidence</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
+<div class="hide">
 <ol type="1">
-<li class="fragment">RCTs</li>
-<li class="fragment">Cohort studies</li>
-<li class="fragment">Case-control Studies</li>
-<li class="fragment">Case study</li>
+<li class="fragment">Randomized Controlled Trials (RCTs)</li>
+<li class="fragment">Cohort Studies</li>
+<li class="fragment">Case-Control Studies</li>
+<li class="fragment">Case Reports &amp; Case Series</li>
 </ol>
-</div><div class="column" style="width:50%;">
+</div>
+</div><div class="column" style="width:58%;">
+<p><strong>Higher-Tier Evidence:</strong></p>
 <ul>
-<li>Higher-level evidence in terms of
+<li>Stronger capacity to establish causality</li>
+<li>Enhanced control of confounding variables</li>
+<li>Lower susceptibility to selection and recall bias</li>
+</ul>
+<p><strong>Lower-Tier Evidence:</strong></p>
 <ul>
-<li>Ability to establish causality</li>
-<li>Higher control for confounding factors</li>
-<li>Less prone to bias</li>
-</ul></li>
-<li>Lower-level evidence
-<ul>
-<li>Cheaper and easier to conduct</li>
-<li>Useful for generating hypotheses and exploring rare diseases</li>
-<li>Less ethical concerns</li>
-</ul></li>
+<li>Faster, lower cost, and easier implementation</li>
+<li>Ideal for exploratory hypothesis generation</li>
+<li>Valuable for rare conditions or when randomization is unethical</li>
 </ul>
 </div></div>
 </section>
-<section id="wrap-up" class="slide level2">
+<section id="wrap-up" class="slide level2 smaller scrollable">
 <h2>Wrap-up</h2>
 <ul>
 <li><p>Define epidemiology</p></li>
@@ -435,8 +489,14 @@ Dr.&nbsp;Yu Cheng Hsu
 <li>We are doing code and quantitative analysis for the next class</li>
 </ul></li>
 </ul>
+<p><strong>Cover page source</strong></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bg4" class="csl-entry" role="listitem">
+Monet, Claude. 1878. <em>La Rue Montorgueil à Paris. Fête Du 30 Juin 1878</em>. Oil on canvas. Musee d’Orsay.
+</div>
+</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

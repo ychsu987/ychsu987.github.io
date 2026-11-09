@@ -229,110 +229,6 @@ Yu Cheng Hsu
 <li><strong>Diagnostics</strong> — check whether the line’s assumptions look reasonable</li>
 </ol>
 </section>
-<section id="what-is-an-ehr" class="slide level2">
-<h2>What is an EHR?</h2>
-<p>An <strong>Electronic Health Record (EHR)</strong> is the digital chart of a patient’s encounters with the health system—visits, diagnoses, labs, prescriptions, and clinical notes stored so clinicians (and later analysts) can reuse them.</p>
-<p><strong>Toy timeline (one patient):</strong></p>
-<ol type="1">
-<li>Visit the clinic → demographics recorded<br>
-</li>
-<li>Doctor records a diagnosis → coded (e.g.&nbsp;ICD)<br>
-</li>
-<li>Lab is ordered → result coded (e.g.&nbsp;LOINC)<br>
-</li>
-<li>Prescription is filled → drug coded (e.g.&nbsp;ATC / RxNorm)</li>
-</ol>
-<p>Coding systems are a <strong>shared language</strong> so different hospitals and software can mean the same clinical idea.</p>
-</section>
-<section id="components-in-ehr-system" class="slide level2">
-<h2>Components in EHR System</h2>
-<ul>
-<li>Demographics &amp; Social Determinants: Age, sex, ethnicity, socioeconomic indicators.</li>
-<li>Clinical Encounters &amp; Diagnoses: Coded using international diagnostic standards:
-<ul>
-<li>ICD-9 / ICD-10 / ICD-11: International Classification of Diseases.<br>
-</li>
-<li>SNOMED-CT: Systematized Nomenclature of Medicine for clinical concepts.<br>
-</li>
-</ul></li>
-<li>Prescriptions &amp; Pharmacy Records: Coded using ATC or RxNorm frameworks.<br>
-</li>
-<li>Laboratory &amp; Diagnostic Results: Coded using LOINC standards.</li>
-<li>Unstructured Clinical Text: Progress notes, discharge summaries, radiological reports.</li>
-</ul>
-</section>
-<section id="from-individual-care-to-population-global-health" class="slide level2">
-<h2>From Individual Care to Population &amp; Global Health</h2>
-<ul>
-<li><p>Scaling clinical observations from single patient encounters to entire populations.</p></li>
-<li><p>Clinical Medicine: Focuses on diagnosis, treatment, and immediate patient outcomes.</p></li>
-<li><p>Population Health: Health outcomes, determinants, and patterns across defined groups (e.g., regional populations, disease cohorts).</p></li>
-<li><p>Global Health &amp; Digital Health Venture: Scalable health solutions, cross-border disease surveillance, and commercialization of data-driven digital health products.</p></li>
-</ul>
-</section>
-<section id="ehr-for-idea-generation" class="slide level2">
-<h2>EHR for idea generation</h2>
-<p><strong>Problem</strong></p>
-<ul>
-<li><p>Many biomedical startups fail due to building solutions for undersized or ill-defined patient markets.</p></li>
-<li><p>How many potential customers could benefit from the product?</p></li>
-</ul>
-<p><strong>EHR can</strong></p>
-<ul>
-<li>Analyzing epidemiological EHR data allows founders to precisely quantify <strong>unmet clinical needs</strong></li>
-<li>Facilitate further pricing strategy, potential market size.</li>
-</ul>
-</section>
-<section id="ehr-as-a-product" class="slide level2">
-<h2>EHR as a product</h2>
-<p><strong>Problem</strong></p>
-<ul>
-<li>Using EHR to develop new algorithms for diagnostic AI</li>
-<li>Software-as-a-Medical-Device (<strong>SaMD</strong>: software that itself is regulated as a medical device)</li>
-<li>Enhance accessibility of EHR, e.g.&nbsp;dashboard</li>
-</ul>
-<p><strong>EHR can</strong></p>
-<ul>
-<li>Provide fruitful training sources</li>
-<li>Serve as an information service for clinical decisions</li>
-</ul>
-</section>
-<section id="ehr-as-an-evidence" class="slide level2">
-<h2>EHR as an evidence</h2>
-<p><strong>Problem</strong> Traditional Randomized Controlled Trials (RCTs) are</p>
-<ul>
-<li>expensive,</li>
-<li>slow, and often lack generalizability.</li>
-</ul>
-<p><strong>EHR can</strong></p>
-<p>Regulatory bodies (e.g., US FDA, EMA, NMPA) increasingly accept <strong>real-world evidence (RWE)</strong>—evidence generated from routine care data such as EHRs, not only from traditional trials—for</p>
-<ul>
-<li>Post-market surveillance,</li>
-<li>Label expansions, and</li>
-<li>Synthetic control arms in clinical trials.</li>
-</ul>
-</section>
-<section id="challenges-in-ehr" class="slide level2">
-<h2>Challenges in EHR</h2>
-<p><strong>Missingness (missing for a reason)</strong></p>
-<ul>
-<li>Clinic vignette: sicker patients get more labs ordered; healthier patients may have blank lab fields. A “missing” lab is often informative, not random noise.</li>
-<li>Formal label: this pattern is often called <strong>missing not at random (MNAR)</strong> (contrast: completely random gaps vs gaps explained by other recorded variables).</li>
-<li>Labs/tests are ordered based on clinical suspicion, leading to missing baseline data.</li>
-<li>Loss to follow-up due to stigma and/or economic difficulties.</li>
-</ul>
-<p><strong>Selection / Sampling Bias</strong></p>
-<ul>
-<li>EHRs represent health-seeking populations, not necessarily the general population.</li>
-<li>People who are not covered in the health care system</li>
-</ul>
-<p><strong>Measurement / Coding Error</strong></p>
-<ul>
-<li>Inaccurate ICD codes or changes in institutional coding policies over time.</li>
-<li>Human errors in the process</li>
-<li>Misdiagnosis</li>
-</ul>
-</section>
 <section>
 <section id="linear-regression-diagnostics" class="title-slide slide level1 center">
 <h1>Linear Regression &amp; Diagnostics</h1>
@@ -394,11 +290,64 @@ y_{i} = &amp; \beta_{0} + \beta_{1}x_{1i} + \beta_{2}x_{2i} + \dots + \beta_{p}x
 <li>Uncertainty: Uncertainty on <span class="math inline">\(\mathbb{\beta}\)</span> <strong>and</strong> Uncertainty on <span class="math inline">\(\mathbb{X}\)</span></li>
 </ul>
 </div></div>
-<div id="632f984d" class="cell" data-execution_count="1">
+<div id="f0b9c926" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="co"># 1. Generate synthetic data</span></span>
+<span id="cb1-6"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb1-7"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">50</span>)</span>
+<span id="cb1-8"><a></a><span class="co"># True relationship with some random noise</span></span>
+<span id="cb1-9"><a></a>y <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">10</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">4</span>, size<span class="op">=</span><span class="bu">len</span>(x))</span>
+<span id="cb1-10"><a></a></span>
+<span id="cb1-11"><a></a><span class="co"># 2. Fit the Ordinary Least Squares (OLS) model</span></span>
+<span id="cb1-12"><a></a><span class="co"># statsmodels requires manually adding a constant for the intercept</span></span>
+<span id="cb1-13"><a></a>X_with_const <span class="op">=</span> sm.add_constant(x)</span>
+<span id="cb1-14"><a></a>model <span class="op">=</span> sm.OLS(y, X_with_const).fit()</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a><span class="co"># 3. Generate predictions and intervals</span></span>
+<span id="cb1-17"><a></a><span class="co"># get_prediction calculates standard errors for both the mean and new observations</span></span>
+<span id="cb1-18"><a></a>predictions <span class="op">=</span> model.get_prediction(X_with_const)</span>
+<span id="cb1-19"><a></a>summary_frame <span class="op">=</span> predictions.summary_frame(alpha<span class="op">=</span><span class="fl">0.05</span>) <span class="co"># 95% intervals</span></span>
+<span id="cb1-20"><a></a></span>
+<span id="cb1-21"><a></a><span class="co"># Extract the calculated components</span></span>
+<span id="cb1-22"><a></a>y_pred <span class="op">=</span> summary_frame[<span class="st">'mean'</span>]</span>
+<span id="cb1-23"><a></a>ci_lower <span class="op">=</span> summary_frame[<span class="st">'mean_ci_lower'</span>]</span>
+<span id="cb1-24"><a></a>ci_upper <span class="op">=</span> summary_frame[<span class="st">'mean_ci_upper'</span>]</span>
+<span id="cb1-25"><a></a>pi_lower <span class="op">=</span> summary_frame[<span class="st">'obs_ci_lower'</span>]</span>
+<span id="cb1-26"><a></a>pi_upper <span class="op">=</span> summary_frame[<span class="st">'obs_ci_upper'</span>]</span>
+<span id="cb1-27"><a></a></span>
+<span id="cb1-28"><a></a><span class="co"># 4. Create the visualization</span></span>
+<span id="cb1-29"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb1-30"><a></a></span>
+<span id="cb1-31"><a></a><span class="co"># Plot the actual data points</span></span>
+<span id="cb1-32"><a></a>ax.scatter(x, y, color<span class="op">=</span><span class="st">'dodgerblue'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Actual Data Points'</span>)</span>
+<span id="cb1-33"><a></a></span>
+<span id="cb1-34"><a></a><span class="co"># Plot the regression line</span></span>
+<span id="cb1-35"><a></a>ax.plot(x, y_pred, color<span class="op">=</span><span class="st">'crimson'</span>, linewidth<span class="op">=</span><span class="fl">2.5</span>, label<span class="op">=</span><span class="st">'Regression Line (Mean Response)'</span>)</span>
+<span id="cb1-36"><a></a></span>
+<span id="cb1-37"><a></a><span class="co"># Plot the 95% Confidence Interval (CI)</span></span>
+<span id="cb1-38"><a></a>ax.fill_between(x, ci_lower, ci_upper, color<span class="op">=</span><span class="st">'crimson'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, </span>
+<span id="cb1-39"><a></a>                label<span class="op">=</span><span class="st">'95% Confidence Interval (Uncertainty of the Line)'</span>)</span>
+<span id="cb1-40"><a></a></span>
+<span id="cb1-41"><a></a><span class="co"># Plot the 95% Prediction Interval (PI)</span></span>
+<span id="cb1-42"><a></a>ax.fill_between(x, pi_lower, pi_upper, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.2</span>, </span>
+<span id="cb1-43"><a></a>                label<span class="op">=</span><span class="st">'95% Prediction Interval (Uncertainty of New Data)'</span>)</span>
+<span id="cb1-44"><a></a></span>
+<span id="cb1-45"><a></a><span class="co"># Formatting the plot</span></span>
+<span id="cb1-46"><a></a>ax.set_title(<span class="st">'Confidence Interval vs. Prediction Interval in Linear Regression'</span>, fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb1-47"><a></a>ax.set_xlabel(<span class="st">'Predictor (X)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb1-48"><a></a>ax.set_ylabel(<span class="st">'Outcome (Y)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb1-49"><a></a>ax.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb1-50"><a></a>ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb1-51"><a></a></span>
+<span id="cb1-52"><a></a>plt.tight_layout()</span>
+<span id="cb1-53"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="lr_files/figure-revealjs/cell-2-output-1.png"></a></p>
+<p><a href="lr_files/figure-html/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="lr_files/figure-html/cell-2-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -413,11 +362,67 @@ y_{i} = &amp; \beta_{0} + \beta_{1}x_{1i} + \beta_{2}x_{2i} + \dots + \beta_{p}x
 <li><span class="math inline">\(\hat{y}_i\)</span>: The predicted value on the regression line.</li>
 <li><span class="math inline">\(\bar{y}\)</span>: The mean of all observed <span class="math inline">\(y\)</span> values.</li>
 </ul>
-<div id="0a6afebe" class="cell" data-execution_count="2">
+<div id="959c767b" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="co"># 1. Generate synthetic data</span></span>
+<span id="cb2-5"><a></a>np.random.seed(<span class="dv">2</span>)</span>
+<span id="cb2-6"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
+<span id="cb2-7"><a></a>y <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">5</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span><span class="bu">len</span>(x))</span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a><span class="co"># 2. Calculate Mean and Regression Line</span></span>
+<span id="cb2-10"><a></a>y_mean <span class="op">=</span> np.mean(y)</span>
+<span id="cb2-11"><a></a>coeffs <span class="op">=</span> np.polyfit(x, y, <span class="dv">1</span>)</span>
+<span id="cb2-12"><a></a>y_pred <span class="op">=</span> np.polyval(coeffs, x)</span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a><span class="co"># 3. Select the point furthest from the regression line for better visualization</span></span>
+<span id="cb2-15"><a></a><span class="co"># Using np.argmax to find the data point with the largest positive residual</span></span>
+<span id="cb2-16"><a></a>idx <span class="op">=</span> np.argmax(y <span class="op">-</span> y_pred)</span>
+<span id="cb2-17"><a></a>xi <span class="op">=</span> x[idx]</span>
+<span id="cb2-18"><a></a>yi <span class="op">=</span> y[idx]</span>
+<span id="cb2-19"><a></a>y_pred_i <span class="op">=</span> y_pred[idx]</span>
+<span id="cb2-20"><a></a></span>
+<span id="cb2-21"><a></a><span class="co"># 4. Create the plot</span></span>
+<span id="cb2-22"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb2-23"><a></a></span>
+<span id="cb2-24"><a></a><span class="co"># Plot data, mean line, and regression line</span></span>
+<span id="cb2-25"><a></a>ax.scatter(x, y, color<span class="op">=</span><span class="st">'dodgerblue'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, label<span class="op">=</span><span class="st">'Data points'</span>)</span>
+<span id="cb2-26"><a></a>ax.scatter(xi, yi, color<span class="op">=</span><span class="st">'red'</span>, s<span class="op">=</span><span class="dv">100</span>, zorder<span class="op">=</span><span class="dv">5</span>, label<span class="op">=</span><span class="st">'Highlighted Point ($y_i$)'</span>)</span>
+<span id="cb2-27"><a></a>ax.axhline(y_mean, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Mean ($</span><span class="er">\</span><span class="st">overline</span><span class="sc">{y}</span><span class="st">$)'</span>)</span>
+<span id="cb2-28"><a></a>ax.plot(x, y_pred, color<span class="op">=</span><span class="st">'darkorange'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Regression Line ($</span><span class="er">\</span><span class="st">hat</span><span class="sc">{y}</span><span class="st">_i$)'</span>)</span>
+<span id="cb2-29"><a></a></span>
+<span id="cb2-30"><a></a><span class="co"># Draw the decomposition lines for the highlighted point</span></span>
+<span id="cb2-31"><a></a><span class="co"># ESS component (Mean to Regression Line)</span></span>
+<span id="cb2-32"><a></a>ax.annotate(<span class="st">''</span>, xy<span class="op">=</span>(xi, y_pred_i), xytext<span class="op">=</span>(xi, y_mean),</span>
+<span id="cb2-33"><a></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'&lt;-&gt;'</span>, color<span class="op">=</span><span class="st">'purple'</span>, lw<span class="op">=</span><span class="fl">2.5</span>))</span>
+<span id="cb2-34"><a></a>ax.text(xi <span class="op">-</span> <span class="fl">0.2</span>, (y_pred_i <span class="op">+</span> y_mean) <span class="op">/</span> <span class="dv">2</span>, <span class="st">'Explained</span><span class="ch">\n</span><span class="st">($</span><span class="er">\</span><span class="st">hat</span><span class="sc">{y}</span><span class="st">_i - </span><span class="er">\</span><span class="st">overline</span><span class="sc">{y}</span><span class="st">$)'</span>, </span>
+<span id="cb2-35"><a></a>        color<span class="op">=</span><span class="st">'purple'</span>, ha<span class="op">=</span><span class="st">'right'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb2-36"><a></a></span>
+<span id="cb2-37"><a></a><span class="co"># RSS component (Regression Line to Actual Point)</span></span>
+<span id="cb2-38"><a></a>ax.annotate(<span class="st">''</span>, xy<span class="op">=</span>(xi, yi), xytext<span class="op">=</span>(xi, y_pred_i),</span>
+<span id="cb2-39"><a></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'&lt;-&gt;'</span>, color<span class="op">=</span><span class="st">'crimson'</span>, lw<span class="op">=</span><span class="fl">2.5</span>))</span>
+<span id="cb2-40"><a></a>ax.text(xi <span class="op">-</span> <span class="fl">0.2</span>, (yi <span class="op">+</span> y_pred_i) <span class="op">/</span> <span class="dv">2</span>, <span class="st">'Residual</span><span class="ch">\n</span><span class="st">($y_i - </span><span class="er">\</span><span class="st">hat</span><span class="sc">{y}</span><span class="st">_i$)'</span>, </span>
+<span id="cb2-41"><a></a>        color<span class="op">=</span><span class="st">'crimson'</span>, ha<span class="op">=</span><span class="st">'right'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb2-42"><a></a></span>
+<span id="cb2-43"><a></a><span class="co"># TSS component (Bracket on the right side)</span></span>
+<span id="cb2-44"><a></a>ax.annotate(<span class="st">''</span>, xy<span class="op">=</span>(xi <span class="op">+</span> <span class="fl">0.1</span>, yi), xytext<span class="op">=</span>(xi <span class="op">+</span> <span class="fl">0.1</span>, y_mean),</span>
+<span id="cb2-45"><a></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">']-[, widthB=0.5, widthA=0.5'</span>, color<span class="op">=</span><span class="st">'black'</span>, lw<span class="op">=</span><span class="fl">1.5</span>))</span>
+<span id="cb2-46"><a></a>ax.text(xi <span class="op">+</span> <span class="fl">0.3</span>, (yi <span class="op">+</span> y_mean) <span class="op">/</span> <span class="dv">2</span>, <span class="st">'Total Deviation</span><span class="ch">\n</span><span class="st">($y_i - </span><span class="er">\</span><span class="st">overline</span><span class="sc">{y}</span><span class="st">$)'</span>, </span>
+<span id="cb2-47"><a></a>        color<span class="op">=</span><span class="st">'black'</span>, ha<span class="op">=</span><span class="st">'left'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb2-48"><a></a></span>
+<span id="cb2-49"><a></a><span class="co"># Formatting</span></span>
+<span id="cb2-50"><a></a>ax.set_title(<span class="st">'Decomposition of Total Deviation for a High-Residual Point'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb2-51"><a></a>ax.set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb2-52"><a></a>ax.set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb2-53"><a></a>ax.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb2-54"><a></a></span>
+<span id="cb2-55"><a></a>plt.tight_layout()</span>
+<span id="cb2-56"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="lr_files/figure-revealjs/cell-3-output-1.png"></a></p>
+<p><a href="lr_files/figure-html/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="lr_files/figure-html/cell-3-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -493,11 +498,82 @@ H_0: \beta_i = 0
 <ul>
 <li>Residual versus Predictor (RVP) plots</li>
 </ul>
-<div id="584be9bf" class="cell" data-execution_count="3">
+<div id="56cc08d3" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb3-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a><span class="co"># 1. Generate synthetic data with a THRESHOLD (piecewise linear) effect</span></span>
+<span id="cb3-7"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb3-8"><a></a>x <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">300</span>)</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a><span class="co"># Define a threshold at X = 50</span></span>
+<span id="cb3-11"><a></a>threshold <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb3-12"><a></a><span class="co"># The 'effect' is 0 before the threshold, and scales linearly after</span></span>
+<span id="cb3-13"><a></a>spline_term <span class="op">=</span> np.maximum(<span class="dv">0</span>, x <span class="op">-</span> threshold)</span>
+<span id="cb3-14"><a></a></span>
+<span id="cb3-15"><a></a><span class="co"># True relationship: flat before 50, positive slope after</span></span>
+<span id="cb3-16"><a></a>y <span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> spline_term <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">300</span>)</span>
+<span id="cb3-17"><a></a></span>
+<span id="cb3-18"><a></a><span class="co"># 2. Fit the Misspecified Linear Model (ignoring the threshold)</span></span>
+<span id="cb3-19"><a></a>X_linear <span class="op">=</span> sm.add_constant(x)</span>
+<span id="cb3-20"><a></a>model_linear <span class="op">=</span> sm.OLS(y, X_linear).fit()</span>
+<span id="cb3-21"><a></a>fitted_linear <span class="op">=</span> model_linear.fittedvalues</span>
+<span id="cb3-22"><a></a>residuals_linear <span class="op">=</span> model_linear.resid</span>
+<span id="cb3-23"><a></a></span>
+<span id="cb3-24"><a></a><span class="co"># 3. Fit the Correctly Specified Model (Piecewise / Linear Spline)</span></span>
+<span id="cb3-25"><a></a><span class="co"># The design matrix includes the constant, the base X, and the spline term</span></span>
+<span id="cb3-26"><a></a>X_spline <span class="op">=</span> np.column_stack((np.ones(<span class="bu">len</span>(x)), x, spline_term))</span>
+<span id="cb3-27"><a></a>model_spline <span class="op">=</span> sm.OLS(y, X_spline).fit()</span>
+<span id="cb3-28"><a></a>fitted_spline <span class="op">=</span> model_spline.fittedvalues</span>
+<span id="cb3-29"><a></a>residuals_spline <span class="op">=</span> model_spline.resid</span>
+<span id="cb3-30"><a></a></span>
+<span id="cb3-31"><a></a><span class="co"># 4. Create the 1x3 Combined Visualization</span></span>
+<span id="cb3-32"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">5</span>))</span>
+<span id="cb3-33"><a></a></span>
+<span id="cb3-34"><a></a><span class="co"># --- Plot 1: Fitted Regression Lines vs. Observations ---</span></span>
+<span id="cb3-35"><a></a>axes[<span class="dv">0</span>].scatter(x, y, color<span class="op">=</span><span class="st">'dodgerblue'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Observed Data'</span>)</span>
+<span id="cb3-36"><a></a>sort_idx <span class="op">=</span> np.argsort(x)</span>
+<span id="cb3-37"><a></a></span>
+<span id="cb3-38"><a></a><span class="co"># Plot Misspecified Fit</span></span>
+<span id="cb3-39"><a></a>axes[<span class="dv">0</span>].plot(x[sort_idx], fitted_linear[sort_idx], color<span class="op">=</span><span class="st">'purple'</span>, </span>
+<span id="cb3-40"><a></a>             linewidth<span class="op">=</span><span class="dv">3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'Misspecified (Strict Linear)'</span>)</span>
+<span id="cb3-41"><a></a><span class="co"># Plot Corrected Fit (Spline)</span></span>
+<span id="cb3-42"><a></a>axes[<span class="dv">0</span>].plot(x[sort_idx], fitted_spline[sort_idx], color<span class="op">=</span><span class="st">'crimson'</span>, </span>
+<span id="cb3-43"><a></a>             linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">'Corrected (Linear Spline)'</span>)</span>
+<span id="cb3-44"><a></a></span>
+<span id="cb3-45"><a></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Outcome vs. Predictor'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb3-46"><a></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Predictor ($X$)</span><span class="ch">\n</span><span class="st">(e.g., Drug Dosage)'</span>)</span>
+<span id="cb3-47"><a></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Outcome ($Y$)</span><span class="ch">\n</span><span class="st">(e.g., Response Level)'</span>)</span>
+<span id="cb3-48"><a></a>axes[<span class="dv">0</span>].legend()</span>
+<span id="cb3-49"><a></a></span>
+<span id="cb3-50"><a></a><span class="co"># --- Plot 2: Residuals vs. Predictor (Misspecified) ---</span></span>
+<span id="cb3-51"><a></a>sns.residplot(x<span class="op">=</span>x, y<span class="op">=</span>residuals_linear, lowess<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-52"><a></a>              line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'purple'</span>, <span class="st">'lw'</span>: <span class="dv">3</span>, <span class="st">'label'</span>: <span class="st">'LOWESS Smooth'</span>}, </span>
+<span id="cb3-53"><a></a>              scatter_kws<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">0.5</span>, <span class="st">'color'</span>: <span class="st">'gray'</span>}, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb3-54"><a></a>axes[<span class="dv">1</span>].axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb3-55"><a></a>axes[<span class="dv">1</span>].set_title(<span class="st">'RVP: Misspecified Model'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb3-56"><a></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Predictor ($X$)'</span>)</span>
+<span id="cb3-57"><a></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb3-58"><a></a>axes[<span class="dv">1</span>].legend()</span>
+<span id="cb3-59"><a></a></span>
+<span id="cb3-60"><a></a><span class="co"># --- Plot 3: Residuals vs. Predictor (Corrected) ---</span></span>
+<span id="cb3-61"><a></a>sns.residplot(x<span class="op">=</span>x, y<span class="op">=</span>residuals_spline, lowess<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-62"><a></a>              line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'green'</span>, <span class="st">'lw'</span>: <span class="dv">3</span>, <span class="st">'label'</span>: <span class="st">'LOWESS Smooth'</span>}, </span>
+<span id="cb3-63"><a></a>              scatter_kws<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">0.5</span>, <span class="st">'color'</span>: <span class="st">'gray'</span>}, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
+<span id="cb3-64"><a></a>axes[<span class="dv">2</span>].axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb3-65"><a></a>axes[<span class="dv">2</span>].set_title(<span class="st">'RVP: Corrected Model'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb3-66"><a></a>axes[<span class="dv">2</span>].set_xlabel(<span class="st">'Predictor ($X$)'</span>)</span>
+<span id="cb3-67"><a></a>axes[<span class="dv">2</span>].set_ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb3-68"><a></a>axes[<span class="dv">2</span>].legend()</span>
+<span id="cb3-69"><a></a></span>
+<span id="cb3-70"><a></a>plt.tight_layout()</span>
+<span id="cb3-71"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="lr_files/figure-revealjs/cell-4-output-1.png"></a></p>
+<p><a href="lr_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="lr_files/figure-html/cell-4-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -526,11 +602,68 @@ H_0: \beta_i = 0
 <li>Downward curvature: Residuals are left-skewed (Ceiling effects of X).</li>
 </ul></li>
 </ul>
-<div id="62dbb29b" class="cell" data-execution_count="4">
+<div id="e4d6578d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb4-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-4"><a></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb4-5"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb4-6"><a></a></span>
+<span id="cb4-7"><a></a><span class="co"># 1. Generate synthetic Count Data (Poisson process)</span></span>
+<span id="cb4-8"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb4-9"><a></a>x <span class="op">=</span> np.random.uniform(<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">300</span>)</span>
+<span id="cb4-10"><a></a></span>
+<span id="cb4-11"><a></a><span class="co"># In a Poisson process, the rate (lambda) often grows exponentially</span></span>
+<span id="cb4-12"><a></a>true_lambda <span class="op">=</span> np.exp(<span class="fl">0.5</span> <span class="op">*</span> x)</span>
+<span id="cb4-13"><a></a></span>
+<span id="cb4-14"><a></a><span class="co"># Generate counts based on the Poisson rate</span></span>
+<span id="cb4-15"><a></a><span class="co"># Counts are strictly non-negative integers (0, 1, 2, 3...)</span></span>
+<span id="cb4-16"><a></a>y <span class="op">=</span> np.random.poisson(true_lambda)</span>
+<span id="cb4-17"><a></a></span>
+<span id="cb4-18"><a></a><span class="co"># 2. Fit a standard Linear Regression (OLS) ignoring the count nature of the data</span></span>
+<span id="cb4-19"><a></a>X_with_const <span class="op">=</span> sm.add_constant(x)</span>
+<span id="cb4-20"><a></a>model <span class="op">=</span> sm.OLS(y, X_with_const).fit()</span>
+<span id="cb4-21"><a></a>residuals <span class="op">=</span> model.resid</span>
+<span id="cb4-22"><a></a>fitted <span class="op">=</span> model.fittedvalues</span>
+<span id="cb4-23"><a></a></span>
+<span id="cb4-24"><a></a><span class="co"># 3. Create the 1x3 Diagnostic Visualization</span></span>
+<span id="cb4-25"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">5</span>))</span>
+<span id="cb4-26"><a></a></span>
+<span id="cb4-27"><a></a><span class="co"># --- Plot 1: The Raw Data and OLS Fit ---</span></span>
+<span id="cb4-28"><a></a>axes[<span class="dv">0</span>].scatter(x, y, color<span class="op">=</span><span class="st">'dodgerblue'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Count Data (Observed)'</span>)</span>
+<span id="cb4-29"><a></a>sort_idx <span class="op">=</span> np.argsort(x)</span>
+<span id="cb4-30"><a></a>axes[<span class="dv">0</span>].plot(x[sort_idx], fitted[sort_idx], color<span class="op">=</span><span class="st">'crimson'</span>, </span>
+<span id="cb4-31"><a></a>             linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">'OLS Linear Fit'</span>)</span>
+<span id="cb4-32"><a></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Count Outcome vs. Predictor'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb4-33"><a></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Predictor ($X$)'</span>)</span>
+<span id="cb4-34"><a></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Count Outcome ($Y$)'</span>)</span>
+<span id="cb4-35"><a></a>axes[<span class="dv">0</span>].legend()</span>
+<span id="cb4-36"><a></a></span>
+<span id="cb4-37"><a></a><span class="co"># --- Plot 2: Histogram of Residuals ---</span></span>
+<span id="cb4-38"><a></a>sns.histplot(residuals, kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>], color<span class="op">=</span><span class="st">'purple'</span>, stat<span class="op">=</span><span class="st">'density'</span>)</span>
+<span id="cb4-39"><a></a><span class="co"># Overlay a theoretical normal distribution for comparison</span></span>
+<span id="cb4-40"><a></a>mu, std <span class="op">=</span> stats.norm.fit(residuals)</span>
+<span id="cb4-41"><a></a>xmin, xmax <span class="op">=</span> axes[<span class="dv">1</span>].get_xlim()</span>
+<span id="cb4-42"><a></a>x_pdf <span class="op">=</span> np.linspace(xmin, xmax, <span class="dv">100</span>)</span>
+<span id="cb4-43"><a></a>p_pdf <span class="op">=</span> stats.norm.pdf(x_pdf, mu, std)</span>
+<span id="cb4-44"><a></a>axes[<span class="dv">1</span>].plot(x_pdf, p_pdf, <span class="st">'k--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Normal Reference'</span>)</span>
+<span id="cb4-45"><a></a></span>
+<span id="cb4-46"><a></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Histogram of Residuals'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb4-47"><a></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb4-48"><a></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb4-49"><a></a>axes[<span class="dv">1</span>].legend()</span>
+<span id="cb4-50"><a></a></span>
+<span id="cb4-51"><a></a><span class="co"># --- Plot 3: Normal Q-Q Plot ---</span></span>
+<span id="cb4-52"><a></a><span class="co"># We use statsmodels' qqplot and draw a 45-degree reference line</span></span>
+<span id="cb4-53"><a></a>sm.qqplot(residuals, line<span class="op">=</span><span class="st">'45'</span>, fit<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
+<span id="cb4-54"><a></a>axes[<span class="dv">2</span>].set_title(<span class="st">'Normal Q-Q Plot'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb4-55"><a></a></span>
+<span id="cb4-56"><a></a>plt.tight_layout()</span>
+<span id="cb4-57"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="lr_files/figure-revealjs/cell-5-output-1.png"></a></p>
+<p><a href="lr_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="lr_files/figure-html/cell-5-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -555,11 +688,99 @@ H_0: \beta_i = 0
 <li>Temporal or spatial patterns among observations</li>
 </ul>
 <p>Checking the group difference</p>
-<div id="31c0c705" class="cell" data-execution_count="5">
+<div id="ee24c79c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-3"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb5-4"><a></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb5-5"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-6"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb5-7"><a></a></span>
+<span id="cb5-8"><a></a><span class="co"># 1. Generate Data with Simpson's Paradox (Biomedical Context)</span></span>
+<span id="cb5-9"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb5-10"><a></a>n_groups <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb5-11"><a></a>n_obs <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb5-12"><a></a></span>
+<span id="cb5-13"><a></a><span class="co"># Cell lines have increasing average X, but drastically decreasing baseline Y</span></span>
+<span id="cb5-14"><a></a>group_x_means <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb5-15"><a></a>group_intercepts <span class="op">=</span> [<span class="dv">120</span>, <span class="dv">80</span>, <span class="dv">40</span>, <span class="dv">0</span>]</span>
+<span id="cb5-16"><a></a>group_names <span class="op">=</span> [<span class="st">'Cell Line A'</span>, <span class="st">'Cell Line B'</span>, <span class="st">'Cell Line C'</span>, <span class="st">'Cell Line D'</span>]</span>
+<span id="cb5-17"><a></a></span>
+<span id="cb5-18"><a></a>data <span class="op">=</span> []</span>
+<span id="cb5-19"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_groups):</span>
+<span id="cb5-20"><a></a>    x <span class="op">=</span> np.random.normal(group_x_means[i], <span class="dv">3</span>, n_obs)</span>
+<span id="cb5-21"><a></a>    <span class="co"># The true within-group slope is POSITIVE (+2.5)</span></span>
+<span id="cb5-22"><a></a>    y <span class="op">=</span> group_intercepts[i] <span class="op">+</span> <span class="fl">2.5</span> <span class="op">*</span> x <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">5</span>, n_obs)</span>
+<span id="cb5-23"><a></a>    </span>
+<span id="cb5-24"><a></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n_obs):</span>
+<span id="cb5-25"><a></a>        data.append([group_names[i], x[j], y[j]])</span>
+<span id="cb5-26"><a></a></span>
+<span id="cb5-27"><a></a>df <span class="op">=</span> pd.DataFrame(data, columns<span class="op">=</span>[<span class="st">'Cell_Line'</span>, <span class="st">'Protein_Expression'</span>, <span class="st">'Growth_Rate'</span>])</span>
+<span id="cb5-28"><a></a></span>
+<span id="cb5-29"><a></a><span class="co"># 2. Fit the Misspecified OLS Model</span></span>
+<span id="cb5-30"><a></a>X_ols <span class="op">=</span> sm.add_constant(df[<span class="st">'Protein_Expression'</span>])</span>
+<span id="cb5-31"><a></a>model_ols <span class="op">=</span> sm.OLS(df[<span class="st">'Growth_Rate'</span>], X_ols).fit()</span>
+<span id="cb5-32"><a></a>df[<span class="st">'OLS_Fitted'</span>] <span class="op">=</span> model_ols.fittedvalues</span>
+<span id="cb5-33"><a></a>df[<span class="st">'OLS_Residuals'</span>] <span class="op">=</span> model_ols.resid</span>
+<span id="cb5-34"><a></a></span>
+<span id="cb5-35"><a></a><span class="co"># 3. Fit the Correct Mixed-Effect Model</span></span>
+<span id="cb5-36"><a></a>model_mixed <span class="op">=</span> smf.mixedlm(<span class="st">"Growth_Rate ~ Protein_Expression"</span>, df, groups<span class="op">=</span>df[<span class="st">"Cell_Line"</span>]).fit()</span>
+<span id="cb5-37"><a></a>df[<span class="st">'Mixed_Fitted'</span>] <span class="op">=</span> model_mixed.fittedvalues</span>
+<span id="cb5-38"><a></a></span>
+<span id="cb5-39"><a></a><span class="co"># 4. Create the 1x2 Combined Visualization</span></span>
+<span id="cb5-40"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">6</span>))</span>
+<span id="cb5-41"><a></a></span>
+<span id="cb5-42"><a></a><span class="co"># --- Setup Explicit Color Mapping ---</span></span>
+<span id="cb5-43"><a></a>unique_groups <span class="op">=</span> <span class="bu">sorted</span>(df[<span class="st">'Cell_Line'</span>].unique())</span>
+<span id="cb5-44"><a></a>palette <span class="op">=</span> sns.color_palette(<span class="st">'Set1'</span>, n_colors<span class="op">=</span><span class="bu">len</span>(unique_groups))</span>
+<span id="cb5-45"><a></a>color_map <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(unique_groups, palette))</span>
+<span id="cb5-46"><a></a></span>
+<span id="cb5-47"><a></a><span class="co"># --- Subplot 1: Model Fit Comparison (OLS vs. Mixed-Effect) ---</span></span>
+<span id="cb5-48"><a></a><span class="co"># Plot raw data colored by group using the explicit color map</span></span>
+<span id="cb5-49"><a></a>sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'Protein_Expression'</span>, y<span class="op">=</span><span class="st">'Growth_Rate'</span>, </span>
+<span id="cb5-50"><a></a>                hue<span class="op">=</span><span class="st">'Cell_Line'</span>, palette<span class="op">=</span>color_map, s<span class="op">=</span><span class="dv">60</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb5-51"><a></a></span>
+<span id="cb5-52"><a></a><span class="co"># Overlay the Misspecified OLS Line (Black, dashed)</span></span>
+<span id="cb5-53"><a></a>sort_idx <span class="op">=</span> np.argsort(df[<span class="st">'Protein_Expression'</span>].values)</span>
+<span id="cb5-54"><a></a>axes[<span class="dv">0</span>].plot(df[<span class="st">'Protein_Expression'</span>].values[sort_idx], df[<span class="st">'OLS_Fitted'</span>].values[sort_idx], </span>
+<span id="cb5-55"><a></a>             color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">4</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'Misspecified OLS Slope'</span>)</span>
+<span id="cb5-56"><a></a></span>
+<span id="cb5-57"><a></a><span class="co"># Overlay the Corrected Mixed-Effect Lines (Solid, exactly matching scatter colors)</span></span>
+<span id="cb5-58"><a></a><span class="cf">for</span> name, group <span class="kw">in</span> df.groupby(<span class="st">'Cell_Line'</span>):</span>
+<span id="cb5-59"><a></a>    sort_idx_g <span class="op">=</span> np.argsort(group[<span class="st">'Protein_Expression'</span>].values)</span>
+<span id="cb5-60"><a></a>    axes[<span class="dv">0</span>].plot(group[<span class="st">'Protein_Expression'</span>].values[sort_idx_g], </span>
+<span id="cb5-61"><a></a>                 group[<span class="st">'Mixed_Fitted'</span>].values[sort_idx_g], </span>
+<span id="cb5-62"><a></a>                 linewidth<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span>color_map[name])</span>
+<span id="cb5-63"><a></a></span>
+<span id="cb5-64"><a></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Model Comparison: OLS vs. Mixed-Effect'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb5-65"><a></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Predictor ($X$): Protein Expression'</span>)</span>
+<span id="cb5-66"><a></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Outcome ($Y$): Growth Rate'</span>)</span>
+<span id="cb5-67"><a></a></span>
+<span id="cb5-68"><a></a><span class="co"># Adjust legend for Plot 1</span></span>
+<span id="cb5-69"><a></a>handles, labels <span class="op">=</span> axes[<span class="dv">0</span>].get_legend_handles_labels()</span>
+<span id="cb5-70"><a></a>axes[<span class="dv">0</span>].legend(handles<span class="op">=</span>handles, labels<span class="op">=</span>labels, loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb5-71"><a></a></span>
+<span id="cb5-72"><a></a><span class="co"># --- Subplot 2: Diagnosing the Error (OLS Residuals colored by Group) ---</span></span>
+<span id="cb5-73"><a></a><span class="co"># We plot the OLS residuals against the OLS fitted values, also using the exact same colors</span></span>
+<span id="cb5-74"><a></a>sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'OLS_Fitted'</span>, y<span class="op">=</span><span class="st">'OLS_Residuals'</span>, </span>
+<span id="cb5-75"><a></a>                hue<span class="op">=</span><span class="st">'Cell_Line'</span>, palette<span class="op">=</span>color_map, s<span class="op">=</span><span class="dv">70</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb5-76"><a></a></span>
+<span id="cb5-77"><a></a><span class="co"># Add the standard zero reference line</span></span>
+<span id="cb5-78"><a></a>axes[<span class="dv">1</span>].axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-79"><a></a></span>
+<span id="cb5-80"><a></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Diagnostic: OLS Residuals by Group'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb5-81"><a></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Fitted Values ($</span><span class="er">\</span><span class="st">hat</span><span class="sc">{y}</span><span class="st">$)'</span>)</span>
+<span id="cb5-82"><a></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'OLS Residuals ($y - </span><span class="er">\</span><span class="st">hat</span><span class="sc">{y}</span><span class="st">$)'</span>)</span>
+<span id="cb5-83"><a></a></span>
+<span id="cb5-84"><a></a><span class="co"># Move legend outside the plot for cleaner viewing</span></span>
+<span id="cb5-85"><a></a>axes[<span class="dv">1</span>].legend(title<span class="op">=</span><span class="st">'Cell Line'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb5-86"><a></a></span>
+<span id="cb5-87"><a></a>plt.tight_layout()</span>
+<span id="cb5-88"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="lr_files/figure-revealjs/cell-6-output-1.png"></a></p>
+<p><a href="lr_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="lr_files/figure-html/cell-6-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -578,11 +799,94 @@ H_0: \beta_i = 0
 <li>Having more observations won’t relieve the problem</li>
 </ul>
 </div><div class="column">
-<div id="dd08a5e5" class="cell" data-execution_count="6">
+<div id="5fbf9a9e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-3"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb6-4"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-5"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb6-6"><a></a></span>
+<span id="cb6-7"><a></a><span class="co"># 1. Generate Synthetic Data with DECREASING Variance</span></span>
+<span id="cb6-8"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb6-9"><a></a>practice_hours <span class="op">=</span> np.random.uniform(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">300</span>)</span>
+<span id="cb6-10"><a></a></span>
+<span id="cb6-11"><a></a><span class="co"># The mean effect: More practice = faster completion time</span></span>
+<span id="cb6-12"><a></a>true_mean_time <span class="op">=</span> <span class="dv">120</span> <span class="op">-</span> <span class="fl">0.8</span> <span class="op">*</span> practice_hours</span>
+<span id="cb6-13"><a></a></span>
+<span id="cb6-14"><a></a><span class="co"># The variance effect: More practice = less noise (higher consistency)</span></span>
+<span id="cb6-15"><a></a>dynamic_std_dev <span class="op">=</span> <span class="dv">35</span> <span class="op">-</span> <span class="fl">0.3</span> <span class="op">*</span> practice_hours </span>
+<span id="cb6-16"><a></a>true_variance <span class="op">=</span> dynamic_std_dev <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb6-17"><a></a></span>
+<span id="cb6-18"><a></a><span class="co"># Generate the outcome with the dynamic, non-constant noise</span></span>
+<span id="cb6-19"><a></a>completion_time <span class="op">=</span> true_mean_time <span class="op">+</span> np.random.normal(<span class="dv">0</span>, dynamic_std_dev, <span class="dv">300</span>)</span>
+<span id="cb6-20"><a></a></span>
+<span id="cb6-21"><a></a><span class="co"># 2. Fit the Models</span></span>
+<span id="cb6-22"><a></a>X_with_const <span class="op">=</span> sm.add_constant(practice_hours)</span>
+<span id="cb6-23"><a></a></span>
+<span id="cb6-24"><a></a><span class="co"># Model A: Misspecified OLS (Assumes constant variance)</span></span>
+<span id="cb6-25"><a></a>model_ols <span class="op">=</span> sm.OLS(completion_time, X_with_const).fit()</span>
+<span id="cb6-26"><a></a></span>
+<span id="cb6-27"><a></a><span class="co"># Model B: Correctly Specified WLS (Weights = 1 / Variance)</span></span>
+<span id="cb6-28"><a></a>weights <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> true_variance</span>
+<span id="cb6-29"><a></a>model_wls <span class="op">=</span> sm.WLS(completion_time, X_with_const, weights<span class="op">=</span>weights).fit()</span>
+<span id="cb6-30"><a></a></span>
+<span id="cb6-31"><a></a><span class="co"># 3. Structure Data for Seaborn 'hue'</span></span>
+<span id="cb6-32"><a></a><span class="co"># We build a long-format DataFrame combining both models</span></span>
+<span id="cb6-33"><a></a>df_ols <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb6-34"><a></a>    <span class="st">'Practice_Hours'</span>: practice_hours,</span>
+<span id="cb6-35"><a></a>    <span class="st">'Completion_Time'</span>: completion_time,</span>
+<span id="cb6-36"><a></a>    <span class="st">'Fitted'</span>: model_ols.fittedvalues,</span>
+<span id="cb6-37"><a></a>    <span class="st">'Residuals'</span>: model_ols.resid,           <span class="co"># Raw errors</span></span>
+<span id="cb6-38"><a></a>    <span class="st">'Model Specification'</span>: <span class="st">'OLS (Misspecified)'</span></span>
+<span id="cb6-39"><a></a>})</span>
+<span id="cb6-40"><a></a></span>
+<span id="cb6-41"><a></a>df_wls <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb6-42"><a></a>    <span class="st">'Practice_Hours'</span>: practice_hours,</span>
+<span id="cb6-43"><a></a>    <span class="st">'Completion_Time'</span>: completion_time,</span>
+<span id="cb6-44"><a></a>    <span class="st">'Fitted'</span>: model_wls.fittedvalues,</span>
+<span id="cb6-45"><a></a>    <span class="st">'Residuals'</span>: model_wls.resid_pearson,   <span class="co"># Weighted errors</span></span>
+<span id="cb6-46"><a></a>    <span class="st">'Model Specification'</span>: <span class="st">'WLS (Corrected)'</span></span>
+<span id="cb6-47"><a></a>})</span>
+<span id="cb6-48"><a></a></span>
+<span id="cb6-49"><a></a>df_diagnostics <span class="op">=</span> pd.concat([df_ols, df_wls])</span>
+<span id="cb6-50"><a></a>color_palette <span class="op">=</span> {<span class="st">'OLS (Misspecified)'</span>: <span class="st">'crimson'</span>, <span class="st">'WLS (Corrected)'</span>: <span class="st">'teal'</span>}</span>
+<span id="cb6-51"><a></a></span>
+<span id="cb6-52"><a></a><span class="co"># 4. Create the Diagnostic Visualization</span></span>
+<span id="cb6-53"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">6</span>))</span>
+<span id="cb6-54"><a></a></span>
+<span id="cb6-55"><a></a><span class="co"># --- Plot 1: Raw Data vs. Fitted Lines ---</span></span>
+<span id="cb6-56"><a></a><span class="co"># Plot raw observations once (using the OLS subset just to get the background dots)</span></span>
+<span id="cb6-57"><a></a>sns.scatterplot(data<span class="op">=</span>df_ols, x<span class="op">=</span><span class="st">'Practice_Hours'</span>, y<span class="op">=</span><span class="st">'Completion_Time'</span>, </span>
+<span id="cb6-58"><a></a>                color<span class="op">=</span><span class="st">'lightgray'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, s<span class="op">=</span><span class="dv">50</span>, </span>
+<span id="cb6-59"><a></a>                label<span class="op">=</span><span class="st">'Observed Performances'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb6-60"><a></a></span>
+<span id="cb6-61"><a></a><span class="co"># Plot both fitted lines using 'hue'</span></span>
+<span id="cb6-62"><a></a>sns.lineplot(data<span class="op">=</span>df_diagnostics, x<span class="op">=</span><span class="st">'Practice_Hours'</span>, y<span class="op">=</span><span class="st">'Fitted'</span>, </span>
+<span id="cb6-63"><a></a>             hue<span class="op">=</span><span class="st">'Model Specification'</span>, palette<span class="op">=</span>color_palette, </span>
+<span id="cb6-64"><a></a>             linewidth<span class="op">=</span><span class="dv">3</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb6-65"><a></a></span>
+<span id="cb6-66"><a></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Outcome vs. Predictor</span><span class="ch">\n</span><span class="st">(Mean Fits)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb6-67"><a></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Predictor ($X$): Hours of Practice'</span>)</span>
+<span id="cb6-68"><a></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Outcome ($Y$): Task Completion Time'</span>)</span>
+<span id="cb6-69"><a></a></span>
+<span id="cb6-70"><a></a><span class="co"># --- Plot 2: Residuals vs. Fitted (RVF) ---</span></span>
+<span id="cb6-71"><a></a><span class="co"># Plot both sets of residuals using 'hue'</span></span>
+<span id="cb6-72"><a></a>sns.scatterplot(data<span class="op">=</span>df_diagnostics, x<span class="op">=</span><span class="st">'Fitted'</span>, y<span class="op">=</span><span class="st">'Residuals'</span>, </span>
+<span id="cb6-73"><a></a>                hue<span class="op">=</span><span class="st">'Model Specification'</span>, palette<span class="op">=</span>color_palette, </span>
+<span id="cb6-74"><a></a>                alpha<span class="op">=</span><span class="fl">0.7</span>, s<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb6-75"><a></a></span>
+<span id="cb6-76"><a></a>axes[<span class="dv">1</span>].axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-77"><a></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Residuals vs. Fitted Values (RVF)</span><span class="ch">\n</span><span class="st">(Raw vs. Weighted Errors)'</span>, </span>
+<span id="cb6-78"><a></a>                  fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb6-79"><a></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Fitted Values ($</span><span class="er">\</span><span class="st">hat</span><span class="sc">{y}</span><span class="st">$)'</span>)</span>
+<span id="cb6-80"><a></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb6-81"><a></a></span>
+<span id="cb6-82"><a></a>plt.tight_layout()</span>
+<span id="cb6-83"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="lr_files/figure-revealjs/cell-7-output-1.png"></a></p>
+<p><a href="lr_files/figure-html/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="lr_files/figure-html/cell-7-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -591,20 +895,170 @@ H_0: \beta_i = 0
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<div id="9dea0d37" class="cell" data-execution_count="7">
+<div id="34eb9e63" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-3"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb7-4"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-5"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a><span class="co"># 1. Generate Synthetic Data with MULTIPLICATIVE Seasonality</span></span>
+<span id="cb7-8"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb7-9"><a></a>t <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">121</span>)  <span class="co"># 120 months (10 years) of data</span></span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a><span class="co"># The baseline trend grows steadily over time</span></span>
+<span id="cb7-12"><a></a>trend <span class="op">=</span> <span class="dv">10</span> <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> t</span>
+<span id="cb7-13"><a></a></span>
+<span id="cb7-14"><a></a><span class="co"># The seasonal effect is a sine wave</span></span>
+<span id="cb7-15"><a></a>seasonal_wave <span class="op">=</span> <span class="fl">0.3</span> <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> <span class="dv">12</span>)</span>
+<span id="cb7-16"><a></a></span>
+<span id="cb7-17"><a></a><span class="co"># MULTIPLICATIVE COMBINATION: </span></span>
+<span id="cb7-18"><a></a><span class="co"># The amplitude of the season is multiplied by the growing trend</span></span>
+<span id="cb7-19"><a></a>y_true <span class="op">=</span> trend <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> seasonal_wave) <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">5</span>, <span class="bu">len</span>(t))</span>
+<span id="cb7-20"><a></a></span>
+<span id="cb7-21"><a></a><span class="co"># 2. Fit a Misspecified ADDITIVE Model</span></span>
+<span id="cb7-22"><a></a><span class="co"># We give the model the trend (t) and the seasonal shape (sin and cos), </span></span>
+<span id="cb7-23"><a></a><span class="co"># but OLS will force them to have fixed, constant coefficients.</span></span>
+<span id="cb7-24"><a></a>sin_t <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> <span class="dv">12</span>)</span>
+<span id="cb7-25"><a></a>cos_t <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> <span class="dv">12</span>)</span>
+<span id="cb7-26"><a></a></span>
+<span id="cb7-27"><a></a><span class="co"># Design matrix: Constant, Time (Trend), and Seasonality</span></span>
+<span id="cb7-28"><a></a>X <span class="op">=</span> np.column_stack((t, sin_t, cos_t))</span>
+<span id="cb7-29"><a></a>X_with_const <span class="op">=</span> sm.add_constant(X)</span>
+<span id="cb7-30"><a></a></span>
+<span id="cb7-31"><a></a>model_additive <span class="op">=</span> sm.OLS(y_true, X_with_const).fit()</span>
+<span id="cb7-32"><a></a>fitted_additive <span class="op">=</span> model_additive.fittedvalues</span>
+<span id="cb7-33"><a></a>residuals <span class="op">=</span> model_additive.resid</span>
+<span id="cb7-34"><a></a></span>
+<span id="cb7-35"><a></a><span class="co"># 3. Create the Diagnostic Visualization</span></span>
+<span id="cb7-36"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">6</span>))</span>
+<span id="cb7-37"><a></a></span>
+<span id="cb7-38"><a></a><span class="co"># --- Plot 1: Raw Data vs. Misspecified Additive Fit ---</span></span>
+<span id="cb7-39"><a></a>axes[<span class="dv">0</span>].plot(t, y_true, color<span class="op">=</span><span class="st">'dodgerblue'</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>, </span>
+<span id="cb7-40"><a></a>             alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Observed (Multiplicative)'</span>)</span>
+<span id="cb7-41"><a></a>axes[<span class="dv">0</span>].plot(t, fitted_additive, color<span class="op">=</span><span class="st">'crimson'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, </span>
+<span id="cb7-42"><a></a>             label<span class="op">=</span><span class="st">'Misspecified Fit (Additive)'</span>)</span>
+<span id="cb7-43"><a></a></span>
+<span id="cb7-44"><a></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Outcome vs. Time</span><span class="ch">\n</span><span class="st">(The Expanding Amplitude)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb7-45"><a></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Time ($t$)'</span>)</span>
+<span id="cb7-46"><a></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Outcome ($Y$)'</span>)</span>
+<span id="cb7-47"><a></a>axes[<span class="dv">0</span>].legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb7-48"><a></a></span>
+<span id="cb7-49"><a></a><span class="co"># --- Plot 2: Residuals vs. Time (Diagnosing Heteroscedasticity) ---</span></span>
+<span id="cb7-50"><a></a>sns.scatterplot(x<span class="op">=</span>t, y<span class="op">=</span>residuals, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, s<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb7-51"><a></a></span>
+<span id="cb7-52"><a></a><span class="co"># Add a LOWESS smooth to show the mean is roughly zero</span></span>
+<span id="cb7-53"><a></a>sns.regplot(x<span class="op">=</span>t, y<span class="op">=</span>residuals, scatter<span class="op">=</span><span class="va">False</span>, lowess<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb7-54"><a></a>            line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'purple'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>, <span class="st">'label'</span>: <span class="st">'LOWESS Smooth'</span>}, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb7-55"><a></a></span>
+<span id="cb7-56"><a></a><span class="co"># Draw a funnel shape to highlight the expanding variance</span></span>
+<span id="cb7-57"><a></a>axes[<span class="dv">1</span>].plot([<span class="dv">0</span>, <span class="dv">120</span>], [<span class="dv">5</span>, <span class="dv">45</span>], color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Expanding Variance'</span>)</span>
+<span id="cb7-58"><a></a>axes[<span class="dv">1</span>].plot([<span class="dv">0</span>, <span class="dv">120</span>], [<span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">45</span>], color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb7-59"><a></a></span>
+<span id="cb7-60"><a></a>axes[<span class="dv">1</span>].axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb7-61"><a></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Residuals vs. Time</span><span class="ch">\n</span><span class="st">(The "Funnel" Effect)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb7-62"><a></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Time ($t$)'</span>)</span>
+<span id="cb7-63"><a></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb7-64"><a></a>axes[<span class="dv">1</span>].legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb7-65"><a></a></span>
+<span id="cb7-66"><a></a>plt.tight_layout()</span>
+<span id="cb7-67"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-8-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="lr_files/figure-revealjs/cell-8-output-1.png"></a></p>
+<p><a href="lr_files/figure-html/cell-8-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="lr_files/figure-html/cell-8-output-1.png"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="a9f8e85d" class="cell" data-execution_count="8">
+<div id="97d2119d" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-3"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb8-4"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-5"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb8-6"><a></a></span>
+<span id="cb8-7"><a></a><span class="co"># 1. Generate Synthetic Data with MULTIPLICATIVE Seasonality</span></span>
+<span id="cb8-8"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb8-9"><a></a>t <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">121</span>)  <span class="co"># 120 months (10 years) of data</span></span>
+<span id="cb8-10"><a></a></span>
+<span id="cb8-11"><a></a><span class="co"># The baseline trend grows steadily over time</span></span>
+<span id="cb8-12"><a></a>trend <span class="op">=</span> <span class="dv">10</span> <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> t</span>
+<span id="cb8-13"><a></a></span>
+<span id="cb8-14"><a></a><span class="co"># The seasonal effect is a sine wave</span></span>
+<span id="cb8-15"><a></a>seasonal_wave <span class="op">=</span> <span class="fl">0.3</span> <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> <span class="dv">12</span>)</span>
+<span id="cb8-16"><a></a></span>
+<span id="cb8-17"><a></a><span class="co"># MULTIPLICATIVE COMBINATION: </span></span>
+<span id="cb8-18"><a></a><span class="co"># The amplitude of the season is multiplied by the growing trend</span></span>
+<span id="cb8-19"><a></a>y_true <span class="op">=</span> trend <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> seasonal_wave) <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">5</span>, <span class="bu">len</span>(t))</span>
+<span id="cb8-20"><a></a></span>
+<span id="cb8-21"><a></a><span class="co"># 2. Fit the Models</span></span>
+<span id="cb8-22"><a></a>sin_t <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> <span class="dv">12</span>)</span>
+<span id="cb8-23"><a></a>cos_t <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">/</span> <span class="dv">12</span>)</span>
+<span id="cb8-24"><a></a></span>
+<span id="cb8-25"><a></a><span class="co"># Model A: Misspecified ADDITIVE Model (No interactions)</span></span>
+<span id="cb8-26"><a></a>X_add <span class="op">=</span> np.column_stack((t, sin_t, cos_t))</span>
+<span id="cb8-27"><a></a>X_add_const <span class="op">=</span> sm.add_constant(X_add)</span>
+<span id="cb8-28"><a></a>model_additive <span class="op">=</span> sm.OLS(y_true, X_add_const).fit()</span>
+<span id="cb8-29"><a></a></span>
+<span id="cb8-30"><a></a><span class="co"># Model B: Correctly Specified MULTIPLICATIVE Model </span></span>
+<span id="cb8-31"><a></a><span class="co"># We add interaction terms between Time (trend) and Seasonality</span></span>
+<span id="cb8-32"><a></a>X_mult <span class="op">=</span> np.column_stack((t, sin_t, cos_t, t <span class="op">*</span> sin_t, t <span class="op">*</span> cos_t))</span>
+<span id="cb8-33"><a></a>X_mult_const <span class="op">=</span> sm.add_constant(X_mult)</span>
+<span id="cb8-34"><a></a>model_multiplicative <span class="op">=</span> sm.OLS(y_true, X_mult_const).fit()</span>
+<span id="cb8-35"><a></a></span>
+<span id="cb8-36"><a></a><span class="co"># 3. Structure Data for Seaborn 'hue'</span></span>
+<span id="cb8-37"><a></a>df_add <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb8-38"><a></a>    <span class="st">'Time'</span>: t,</span>
+<span id="cb8-39"><a></a>    <span class="st">'Outcome'</span>: y_true,</span>
+<span id="cb8-40"><a></a>    <span class="st">'Fitted'</span>: model_additive.fittedvalues,</span>
+<span id="cb8-41"><a></a>    <span class="st">'Residuals'</span>: model_additive.resid,</span>
+<span id="cb8-42"><a></a>    <span class="st">'Model Specification'</span>: <span class="st">'Additive (Misspecified)'</span></span>
+<span id="cb8-43"><a></a>})</span>
+<span id="cb8-44"><a></a></span>
+<span id="cb8-45"><a></a>df_mult <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb8-46"><a></a>    <span class="st">'Time'</span>: t,</span>
+<span id="cb8-47"><a></a>    <span class="st">'Outcome'</span>: y_true,</span>
+<span id="cb8-48"><a></a>    <span class="st">'Fitted'</span>: model_multiplicative.fittedvalues,</span>
+<span id="cb8-49"><a></a>    <span class="st">'Residuals'</span>: model_multiplicative.resid,</span>
+<span id="cb8-50"><a></a>    <span class="st">'Model Specification'</span>: <span class="st">'Multiplicative (Corrected)'</span></span>
+<span id="cb8-51"><a></a>})</span>
+<span id="cb8-52"><a></a></span>
+<span id="cb8-53"><a></a>df_diagnostics <span class="op">=</span> pd.concat([df_add, df_mult])</span>
+<span id="cb8-54"><a></a>color_palette <span class="op">=</span> {<span class="st">'Additive (Misspecified)'</span>: <span class="st">'crimson'</span>, <span class="st">'Multiplicative (Corrected)'</span>: <span class="st">'teal'</span>}</span>
+<span id="cb8-55"><a></a></span>
+<span id="cb8-56"><a></a><span class="co"># 4. Create the 1x2 Diagnostic Visualization</span></span>
+<span id="cb8-57"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">6</span>))</span>
+<span id="cb8-58"><a></a></span>
+<span id="cb8-59"><a></a><span class="co"># --- Plot 1: Raw Data vs. Fitted Lines ---</span></span>
+<span id="cb8-60"><a></a>sns.scatterplot(data<span class="op">=</span>df_add, x<span class="op">=</span><span class="st">'Time'</span>, y<span class="op">=</span><span class="st">'Outcome'</span>, color<span class="op">=</span><span class="st">'lightgray'</span>, </span>
+<span id="cb8-61"><a></a>                alpha<span class="op">=</span><span class="fl">0.6</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, s<span class="op">=</span><span class="dv">40</span>, </span>
+<span id="cb8-62"><a></a>                label<span class="op">=</span><span class="st">'Observed Data'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb8-63"><a></a></span>
+<span id="cb8-64"><a></a>sns.lineplot(data<span class="op">=</span>df_diagnostics, x<span class="op">=</span><span class="st">'Time'</span>, y<span class="op">=</span><span class="st">'Fitted'</span>, </span>
+<span id="cb8-65"><a></a>             hue<span class="op">=</span><span class="st">'Model Specification'</span>, palette<span class="op">=</span>color_palette, </span>
+<span id="cb8-66"><a></a>             linewidth<span class="op">=</span><span class="fl">2.5</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb8-67"><a></a></span>
+<span id="cb8-68"><a></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Outcome vs. Time</span><span class="ch">\n</span><span class="st">(Mean Fits)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb8-69"><a></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Time ($t$)'</span>)</span>
+<span id="cb8-70"><a></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Outcome ($Y$)'</span>)</span>
+<span id="cb8-71"><a></a></span>
+<span id="cb8-72"><a></a><span class="co"># --- Plot 2: Residuals vs. Time (Diagnosing the Funnel) ---</span></span>
+<span id="cb8-73"><a></a>sns.scatterplot(data<span class="op">=</span>df_diagnostics, x<span class="op">=</span><span class="st">'Time'</span>, y<span class="op">=</span><span class="st">'Residuals'</span>, </span>
+<span id="cb8-74"><a></a>                hue<span class="op">=</span><span class="st">'Model Specification'</span>, palette<span class="op">=</span>color_palette, </span>
+<span id="cb8-75"><a></a>                alpha<span class="op">=</span><span class="fl">0.7</span>, s<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb8-76"><a></a></span>
+<span id="cb8-77"><a></a>axes[<span class="dv">1</span>].axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-78"><a></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Residuals vs. Time</span><span class="ch">\n</span><span class="st">(Raw vs. Corrected Errors)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb8-79"><a></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Time ($t$)'</span>)</span>
+<span id="cb8-80"><a></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb8-81"><a></a></span>
+<span id="cb8-82"><a></a>plt.tight_layout()</span>
+<span id="cb8-83"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-9-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="lr_files/figure-revealjs/cell-9-output-1.png"></a></p>
+<p><a href="lr_files/figure-html/cell-9-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="lr_files/figure-html/cell-9-output-1.png"></a></p>
 </figure>
 </div>
 </div>
@@ -620,15 +1074,60 @@ H_0: \beta_i = 0
 </section>
 <section id="python-illustration" class="slide level2">
 <h2>Python illustration</h2>
-<div id="6bc51b48" class="cell" data-execution_count="9">
+<div id="7ef94bfc" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-3"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb9-4"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-5"><a></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb9-6"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb9-7"><a></a></span>
+<span id="cb9-8"><a></a><span class="co"># 1. Generate Synthetic Data</span></span>
+<span id="cb9-9"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb9-10"><a></a>x1 <span class="op">=</span> np.random.normal(<span class="dv">50</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
+<span id="cb9-11"><a></a>x2 <span class="op">=</span> np.random.normal(<span class="dv">100</span>, <span class="dv">20</span>, <span class="dv">200</span>)</span>
+<span id="cb9-12"><a></a><span class="co"># Create a continuous outcome with some normal noise</span></span>
+<span id="cb9-13"><a></a>y <span class="op">=</span> <span class="dv">15</span> <span class="op">+</span> <span class="fl">2.5</span> <span class="op">*</span> x1 <span class="op">-</span> <span class="fl">1.2</span> <span class="op">*</span> x2 <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">200</span>)</span>
+<span id="cb9-14"><a></a></span>
+<span id="cb9-15"><a></a>data <span class="op">=</span> pd.DataFrame({<span class="st">'Y'</span>: y, <span class="st">'X1'</span>: x1, <span class="st">'X2'</span>: x2})</span>
+<span id="cb9-16"><a></a></span>
+<span id="cb9-17"><a></a><span class="co"># 2. Fit the Linear Regression Model</span></span>
+<span id="cb9-18"><a></a>X <span class="op">=</span> sm.add_constant(data[[<span class="st">'X1'</span>, <span class="st">'X2'</span>]])</span>
+<span id="cb9-19"><a></a>model <span class="op">=</span> sm.OLS(data[<span class="st">'Y'</span>], X).fit()</span>
+<span id="cb9-20"><a></a></span>
+<span id="cb9-21"><a></a><span class="co"># Print model summary (Contains F-test, R-squared, and coefficients)</span></span>
+<span id="cb9-22"><a></a><span class="bu">print</span>(model.summary())</span>
+<span id="cb9-23"><a></a></span>
+<span id="cb9-24"><a></a><span class="co"># 3. Residual Diagnostics</span></span>
+<span id="cb9-25"><a></a>residuals <span class="op">=</span> model.resid</span>
+<span id="cb9-26"><a></a>fitted <span class="op">=</span> model.fittedvalues</span>
+<span id="cb9-27"><a></a></span>
+<span id="cb9-28"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">4</span>))</span>
+<span id="cb9-29"><a></a></span>
+<span id="cb9-30"><a></a><span class="co"># A. Residuals vs Fitted (Checking Constant Variance / Homoscedasticity)</span></span>
+<span id="cb9-31"><a></a>sns.residplot(x<span class="op">=</span>fitted, y<span class="op">=</span>residuals, lowess<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>], line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'red'</span>})</span>
+<span id="cb9-32"><a></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Residuals vs Fitted (RVF)'</span>)</span>
+<span id="cb9-33"><a></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Fitted Values'</span>)</span>
+<span id="cb9-34"><a></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb9-35"><a></a></span>
+<span id="cb9-36"><a></a><span class="co"># B. Normal Q-Q Plot (Checking Normality)</span></span>
+<span id="cb9-37"><a></a>sm.qqplot(residuals, line<span class="op">=</span><span class="st">'45'</span>, fit<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb9-38"><a></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Normal Q-Q Plot'</span>)</span>
+<span id="cb9-39"><a></a></span>
+<span id="cb9-40"><a></a><span class="co"># C. Residual Histogram (Checking Normality)</span></span>
+<span id="cb9-41"><a></a>sns.histplot(residuals, kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">2</span>])</span>
+<span id="cb9-42"><a></a>axes[<span class="dv">2</span>].set_title(<span class="st">'Residual Distribution'</span>)</span>
+<span id="cb9-43"><a></a></span>
+<span id="cb9-44"><a></a>plt.tight_layout()</span>
+<span id="cb9-45"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                            OLS Regression Results                            
 ==============================================================================
 Dep. Variable:                      Y   R-squared:                       0.810
 Model:                            OLS   Adj. R-squared:                  0.808
 Method:                 Least Squares   F-statistic:                     420.6
-Date:                Tue, 15 Sep 2026   Prob (F-statistic):           7.92e-72
-Time:                        11:55:35   Log-Likelihood:                -821.84
+Date:                Mon, 26 Oct 2026   Prob (F-statistic):           7.92e-72
+Time:                        15:18:40   Log-Likelihood:                -821.84
 No. Observations:                 200   AIC:                             1650.
 Df Residuals:                     197   BIC:                             1660.
 Df Model:                           2                                         
@@ -652,7 +1151,7 @@ Notes:
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><a href="lr_files/figure-revealjs/cell-10-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="lr_files/figure-revealjs/cell-10-output-2.png"></a></p>
+<p><a href="lr_files/figure-html/cell-10-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="lr_files/figure-html/cell-10-output-2.png"></a></p>
 </figure>
 </div>
 </div>
@@ -660,31 +1159,31 @@ Notes:
 </section>
 <section id="r-illustration" class="slide level2">
 <h2>R illustration</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a># 1. Generate Synthetic Data</span>
-<span id="cb2-2"><a></a>set.seed(42)</span>
-<span id="cb2-3"><a></a>n &lt;- 200</span>
-<span id="cb2-4"><a></a>X1 &lt;- rnorm(n, mean=50, sd=10)</span>
-<span id="cb2-5"><a></a>X2 &lt;- rnorm(n, mean=100, sd=20)</span>
-<span id="cb2-6"><a></a># Create outcome with normal noise</span>
-<span id="cb2-7"><a></a>Y &lt;- 15 + 2.5*X1 - 1.2*X2 + rnorm(n, mean=0, sd=15)</span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a>data &lt;- data.frame(Y, X1, X2)</span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a># 2. Fit the Linear Regression Model</span>
-<span id="cb2-12"><a></a>model &lt;- lm(Y ~ X1 + X2, data=data)</span>
-<span id="cb2-13"><a></a></span>
-<span id="cb2-14"><a></a># Print model summary (Contains F-test, RSS, and coefficients)</span>
-<span id="cb2-15"><a></a>print(summary(model))</span>
-<span id="cb2-16"><a></a></span>
-<span id="cb2-17"><a></a># 3. Residual Diagnostics</span>
-<span id="cb2-18"><a></a># R has built-in diagnostic plots that are generated by plotting the model object</span>
-<span id="cb2-19"><a></a>par(mfrow=c(2,2)) # Set up a 2x2 grid for plots</span>
-<span id="cb2-20"><a></a></span>
-<span id="cb2-21"><a></a># Plot 1: Residuals vs Fitted (checks linearity and constant variance)</span>
-<span id="cb2-22"><a></a># Plot 2: Normal Q-Q (checks normality of residuals)</span>
-<span id="cb2-23"><a></a># Plot 3: Scale-Location (checks homoscedasticity)</span>
-<span id="cb2-24"><a></a># Plot 4: Residuals vs Leverage (checks for influential points / high leverage)</span>
-<span id="cb2-25"><a></a>plot(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a></a># 1. Generate Synthetic Data</span>
+<span id="cb11-2"><a></a>set.seed(42)</span>
+<span id="cb11-3"><a></a>n &lt;- 200</span>
+<span id="cb11-4"><a></a>X1 &lt;- rnorm(n, mean=50, sd=10)</span>
+<span id="cb11-5"><a></a>X2 &lt;- rnorm(n, mean=100, sd=20)</span>
+<span id="cb11-6"><a></a># Create outcome with normal noise</span>
+<span id="cb11-7"><a></a>Y &lt;- 15 + 2.5*X1 - 1.2*X2 + rnorm(n, mean=0, sd=15)</span>
+<span id="cb11-8"><a></a></span>
+<span id="cb11-9"><a></a>data &lt;- data.frame(Y, X1, X2)</span>
+<span id="cb11-10"><a></a></span>
+<span id="cb11-11"><a></a># 2. Fit the Linear Regression Model</span>
+<span id="cb11-12"><a></a>model &lt;- lm(Y ~ X1 + X2, data=data)</span>
+<span id="cb11-13"><a></a></span>
+<span id="cb11-14"><a></a># Print model summary (Contains F-test, RSS, and coefficients)</span>
+<span id="cb11-15"><a></a>print(summary(model))</span>
+<span id="cb11-16"><a></a></span>
+<span id="cb11-17"><a></a># 3. Residual Diagnostics</span>
+<span id="cb11-18"><a></a># R has built-in diagnostic plots that are generated by plotting the model object</span>
+<span id="cb11-19"><a></a>par(mfrow=c(2,2)) # Set up a 2x2 grid for plots</span>
+<span id="cb11-20"><a></a></span>
+<span id="cb11-21"><a></a># Plot 1: Residuals vs Fitted (checks linearity and constant variance)</span>
+<span id="cb11-22"><a></a># Plot 2: Normal Q-Q (checks normality of residuals)</span>
+<span id="cb11-23"><a></a># Plot 3: Scale-Location (checks homoscedasticity)</span>
+<span id="cb11-24"><a></a># Plot 4: Residuals vs Leverage (checks for influential points / high leverage)</span>
+<span id="cb11-25"><a></a>plot(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section></section>
