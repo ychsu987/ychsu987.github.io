@@ -22,30 +22,40 @@
 ```
 
 **Demonstration only code chunk**
+
 ```python
 # This is a code chunk that Ray does not aim to let you execute
+# The slides show no difference but the apeearance in ipynb is different
 ```
 
-## Variables
+## Python environment
 
 :::{.columns}
 
-:::{.columm}
-In python there two fundamental data type
+:::{.column}
 
-- Numbers (Pure values)
-- Strings (wrapped in quote marks "")
+**File format**:
 
-We can store these values using `=` in a `variable`
+`.py` : Standard python script file
+`.ipynb`: **I**nteractive **Py**thon **N**ote**b**ook
 
- - Can only contain A-z, 0-9, and _ 
- - Must start with letter
- - Case-sensitive
+**Environment**
 
-*Side notes*: numbers can be further categorized by their storage methods
+- Anaconda: Locally operate python environemnt
+- Google colab: Online coding platform
+
 :::
 
-:::{.columm}
+:::{.column}
+
+![Google colab illustration, Source from HKUST Digital Humanities Initiative](https://digitalhumanities.hkust.edu.hk/wp-content/uploads/2023/08/google-colab-open-jupyter-notebook.gif)
+
+:::
+
+:::
+
+## Variables
+
 ```{python}
 #| echo: true
 #| eval: true
@@ -62,30 +72,78 @@ gene_2_expr = 20
 print(target_gene_1)
 print(gene_1_expr)
 ```
+
+:::{.columns}
+
+:::{.column}
+In python there two fundamental data type
+
+- Boolean (`True`, `False`)
+- Numbers (Pure values)
+- Strings (wrapped in quote marks `""`, or `''`)
+
+:::
+
+:::{.column}
+
+We can store these values using `=` in a `variable`
+
+ - Can only contain A-z, 0-9, and _ 
+ - Must start with letter
+ - Case-sensitive
+
 :::
 
 :::
 
 ## Mathematical Operations
 
+Python works exactly like a scientific calculator. The basic operators are: 
 
 :::{.columns}
 
-:::{.columm}
+:::{.column}
 
-Python works exactly like a scientific calculator. The basic operators are: 
+**Math operation**
 
-- addition (+)
-- subtraction (-)
-- multiplication (*)
-- division (/)
-- exponents (**)
-
-*Side notes*: Do not skip multiplication signs as you do in math
+- Addition (`+`)
+- Subtraction (`-`)
+- Multiplication (`*`)
+- Division (`/`)
+- Modulous (`%`)
+- Exponentiation (`**`)
 
 :::
 
-:::{.columm}
+:::{.column}
+
+**Comparison**
+
+- Equal (**==**)
+- Not equal (**!=**)
+- Greater (**>**), Greater than or equal to (**>=**)
+- Less (**<**), Less than or equal to (**<=**)
+
+
+**Logical operation**
+
+- `and` (Both sides must be True)
+- `or` (Only one side needs to be True)
+- `not`
+
+:::
+
+:::
+
+*Side notes*: Do not skip multiplication signs as you do in math
+
+## Example: PCR simulator
+
+- We are using PCR to make more copies of a destinated DNA
+- At the begining we have `starting_templates` copies
+- Each PCR cycle will double the copy amounts
+- `final_copies` Calculate the final copies after `pcr_cycles` 
+
 ```{python}
 #| echo: true
 #| eval: true
@@ -100,16 +158,55 @@ final_copies = starting_templates * (2 ** pcr_cycles)
 print("Starting DNA templates:", starting_templates)
 print("Final copies after 30 cycles:", final_copies)
 ```
-:::
 
-:::
+## `if` Statement Structure
+
+`if` statement acts as a gatekeeper. It checks a rule. If the rule is `True`, the indented code below it runs. If it is `False`, Python skips it completely.
+
+**Optional following actions**
+
+- `elif` (Else If): Checks this only if the previous `if`,`elif` rule was False. You can have as many of these as you want.
+- `else`The garbage bin. If absolutely every rule above it was False, the else block runs
+
+```{python}
+#| code-line-numbers: "|1|3,4|5,6|7,8"
+#| echo: true
+#| eval: true
+read_depth = 45
+# The colon (:) tells Python the rule is finished, and the action is starting.
+if read_depth >= 30:
+    print("Action: PASS variant.")
+elif read_depth >= 10:
+    print("Action: FLAG for manual review.")    
+else:
+    print("Action: FAIL variant (Depth too low).")
+```
+
+## Example: PCR QC check
+
+- We are using PCR to make more copies of a destinated DNA
+- At the begining we have `starting_templates` copies
+- Each PCR cycle will double the copy amounts
+- `final_copies` Calculate the final copies after `pcr_cycles` 
+
+```{python}
+#| echo: true
+#| eval: true
+
+## Continue on previous PCR example
+
+# We need BOTH conditions to be true to proceed to sequencing.
+if final_copies >= 1000000000 and pcr_cycles <= 35:
+    print("QC PASS: You have enough high-quality DNA for sequencing!")
+# 'elif' stands for "else if". We check this if the first rule fails.
+elif pcr_cycles > 35:
+    print("QC FAIL: Too many pcr_cycles. High risk of polymerase errors.")
+# 'else' catches everything else (meaning pcr_cycles were fine, but copies were too low).
+else:
+    print("QC FAIL: Not enough DNA. Try starting with more template.")
+```
 
 ## Functions
-
-
-:::{.columns}
-
-:::{.columm}
 
 Function is a predefined set of code to make you perform specific task.
 
@@ -117,9 +214,7 @@ Function is a predefined set of code to make you perform specific task.
 
 For example `print()` is a function to print out the string and values
 Here we introduce another function `len()` to inspect how long is the string
-:::
 
-:::{.columm}
 ```{python}
 #| echo: true
 #| eval: true
@@ -133,21 +228,15 @@ print("Total base pairs (Seq 1):", seq_1_length)
 print("Total base pairs (Seq 2):", seq_2_length)
 
 ```
-:::
-
-:::
 
 ## Methods
 
-:::{.columns}
+Variables have special actions they can perform, called methods. 
 
-:::{.columm}
+The methods is inherited with the data type. Using the methods by `Variable.Methods(INPUTS)` 
 
-Variables that store text (Strings) have special actions they can perform, called methods. We can ask our DNA sequence to count specific motifs or bases using .count().
+We can ask our DNA sequence to count specific motifs or bases using `.count()`.
 
-:::
-
-:::{.columm}
 ```{python}
 #| echo: true
 #| eval: true
@@ -160,50 +249,44 @@ print("Number of A bases:", a_count)
 cpg_count = target_gene_1.count("CG")
 print("Number of CpG sites:", cpg_count)
 ```
-:::
 
-:::
 
 ## Exercise: Calculating GC-Content
 
 
-:::{.columns}
 
-:::{.columm}
+GC-content is crucial for determining the melting temperature of PCR primers (G-C base pairs form 3 hydrogen bonds, but A-T forms 2). 
+Let's calculate it using basic Python math 
 
-GC-content is crucial for determining the melting temperature of PCR primers (G-C base pairs form 3 hydrogen bonds, but A-T forms 2). Let's calculate it using basic Python math 
 
-:::
-
-:::{.columm}
 ```{python}
 #| echo: true
 #| eval: true
 
-# Count the number of Adenine bases in our sequence from Step 1
-a_count = target_gene_1.count("A")
-print("Number of A bases:", a_count)
+# 1. Count the Gs and Cs
+g_count = target_gene_1.count("G")
+c_count = target_gene_1.count("C")
 
-# Count a specific motif (e.g., a CpG site)
-cpg_count = target_gene_1.count("CG")
-print("Number of CpG sites:", cpg_count)
+# 2. Add them together, divide by total length, and multiply by 100
+# (We use parentheses to control the order of operations, just like standard math)
+gc_content = ((g_count + c_count) / seq_1_length) * 100
+
+print("GC Content (%):", gc_content)
+
 ```
-:::
-
-:::
 
 ## Replacing strings: Simulating Transcription
 
 
 :::{.columns}
 
-:::{.columm}
+:::{.column}
 
 When DNA is transcribed to mRNA, Thymine (T) is replaced by Uracil (U). We can simulate this biological process instantly with the `.replace()` method.
 
 :::
 
-:::{.columm}
+:::{.column}
 ```{python}
 #| echo: true
 #| eval: true
@@ -217,3 +300,183 @@ print("Transcribed mRNA:", mrna_sequence)
 :::
 
 :::
+
+## Indexing and Slicing: Finding Codons
+
+
+:::{.columns}
+
+:::{.column}
+
+Python is **0-indexed**, meaning it starts counting at `0`, not `1`. To extract specific bases (like a start codon), we use square brackets `[]` to "slice" the string.
+
+The format is `[start:stop]`, but Python grabs everything up to, but **NOT including**, the stop number.
+:::
+
+:::{.column}
+```{python}
+#| echo: true
+#| eval: true
+
+# Extract the very first base (index 0)
+first_base = target_gene_1[0]
+print("First base:", first_base)
+
+# Extract the first codon (bases at index 0, 1, and 2)
+# We stop at 3, so Python grabs 0, 1, 2.
+start_codon = target_gene_1[0:3]
+print("Start codon:", start_codon)
+
+# Python can also count backward! 
+# Use a negative number to look at the end.
+last_base = target_gene_1[-1]
+print("Last base:", last_base)
+
+# Extract the last 3 bases 
+# (from the 3rd-to-last to the very end)
+last_codon = target_gene_1[-3:]
+print("Last codon:", last_codon)
+```
+:::
+
+:::
+
+# Write the first function
+
+## Without a function
+
+If we want to define our own set of code, then we need to write up the function by ourselves.
+
+Using GC-content example again
+
+:::{.columns}
+
+:::{.column}
+
+**Without function**
+
+```{python}
+#| echo: true
+#| eval: false
+
+g_count = target_gene_1.count("G")
+c_count = target_gene_1.count("C")
+
+gc_content = ((g_count + c_count) / seq_1_length) * 100
+
+print("GC Content (%):", gc_content)
+
+```
+
+:::
+
+:::{.column}
+
+**Pros**
+
+- Straight forward solution
+- Easier line-bby line tracking
+
+**Cons-Scalability**
+
+- The Copy-Paste Trap
+- A Nightmare to Update
+- Clutter
+
+:::
+
+:::
+
+
+## With a function
+
+Write down a function
+
+:::{.columns}
+
+:::{.column}
+
+**With function**
+
+```{python}
+#| code-line-numbers: "|2|3-11|12,13"
+#| echo: true
+#| eval: true
+# 1. Define the name and give input a placeholder input 
+def calculate_gc(dna_seq):
+
+    # 2. The indented body: 
+    # What does the protocol actually do?
+    length = len(dna_seq)
+    g_count = dna_seq.count("G")
+    c_count = dna_seq.count("C")
+    
+    gc_percent = ((g_count + c_count) / length) * 100
+    
+    # 3. The return: Return the final answer
+    return gc_percent
+```
+
+:::
+
+:::{.column}
+
+- `def`: Short for "define." This tells Python you are creating a new function.
+- Arguments `()`: Placed inside parentheses, this is a placeholder variable for the data you will feed
+- The Colon `:` Tells Python: "The instructions are about to start."
+- Indentation: Every step inside the function must be indented (press `Tab`)
+- `return`: The final command. It tells the function what data to hand back
+
+:::
+
+:::
+
+## Using a function
+
+:::{.columns}
+
+:::{.column}
+
+**Apply function**
+
+```{python}
+#| echo: true
+#| eval: true
+
+brca1_gc = calculate_gc("ATGCATGCATGCGCGCGC")
+
+print("Target GC:", calculate_gc("ATGCGTAACGTTAG"))
+print("BRCA1 GC:", brca1_gc)
+```
+
+:::
+
+:::{.column}
+
+**Pros**:
+
+- Reusability:  Write Once, Use Forever
+- Easier to Update: Only have to fix it in one place.
+- Readability: Your code looks cleaner and less cluttered
+
+**Cons**:
+
+- Slight Learning Curve
+- Overkill for Single Use
+
+:::
+
+:::
+
+## AI survival guide (For beginner)
+
+- **Don't** ask AI to give you direct solution
+  - AI can almost get an accurate answer
+  - You won't learn anything
+- **Do** ask AI to navigate the directions
+  - Asking about why does the error occur
+  - Asking how does the code works
+
+"Frankenstein" Warning
+
+If they ask an AI to "write a script to calculate GC content," the AI might use advanced libraries.

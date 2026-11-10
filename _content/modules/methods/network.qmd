@@ -1,22 +1,23 @@
 # Introduction to Network Science
 
-## What is Network Science?
+## Network Science?
 
 * **Definition:** An interdisciplinary field studying the topology, dynamics, and interactions of complex systems through graph theory.
 * Focuses on organizing principles across diverse domains without requiring advanced pure mathematics or algorithms.
 
 
 ::: {.columns}
-::: {.column width="55%"}
+::: {.column width="53%"}
 * **Foundational Literature:** 
   * @barabasi2013network, *Network Science* 
   * @newman2018networks, *Networks*
   * @menczer_fortunato_davis_2020, *A First Course in Network Science* 
 :::
 
-::: {.column width="45%"}
-![](/assets/images/network/meme2.png){width=70% fig-align="center"}
+::: {.column width="44%"}
+![](/assets/images/network/meme2.png){width=65% fig-align="center"}
 :::
+
 :::
 
 ## Mathematical Formalism
@@ -86,14 +87,17 @@ $$
 * **Intuition:** Quantifies how well-connected a node is by counting its direct connections.
 * **Undirected Graph:**
   $$
+  \small
   k_i = \sum_{j=1}^{N} A_{ij}
   $$
 
 * **Directed Graph:**
   $$
+  \small
   k_i^{\text{in}} = \sum_{j=1}^{N} A_{ji} \quad \text{(Inward endorsements / popularity)}
   $$
   $$
+  \small
   k_i^{\text{out}} = \sum_{j=1}^{N} A_{ij} \quad \text{(Outward activity / gregariousness)}
   $$
 
@@ -187,7 +191,7 @@ bw = nx.betweenness_centrality(G)
 
 # Meso-Level Metrics: Communities & Clustering
 
-## Community Detection vs. Clustering
+## Detection vs. Clustering
 
 * **Local Clustering:** Evaluates local connectivity density—specifically, the probability that two neighbors of a node are themselves linked.
 * **Community Detection:** Partitions the network into modular sub-units with dense internal connections and sparse inter-group connections.
@@ -559,7 +563,7 @@ $$
 ## Structural Elements of $g(y)$
 :::{.columns}
 
-:::{.column width=60%}
+:::{.column width=67%}
 
 1. **Dyadic Independent Terms:**
    - Density: Number of edges $\sum y_{ij}$
@@ -574,9 +578,9 @@ $$
 
 :::
 
-:::{.column width=38%}
+:::{.column width=30%}
 
-![](/assets/images/network/X.png){width=100% fig-align="right"}
+![](/assets/images/network/X.png){width=80% fig-align="right"}
 
 :::
 

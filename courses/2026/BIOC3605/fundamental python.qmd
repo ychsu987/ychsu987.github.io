@@ -1,8 +1,9 @@
 ---
-title: "Functional genomics"
+title: "Python"
+subtitle: "Fundamental python skills"
 author: Dr. Yu Cheng Hsu
 title-slide-attributes:
-    data-background: /assets/images/functional-genomics/background-1.jpg
+    data-background: /assets/images/python/background-1.jpg
     data-background-size:  40% 100%
     data-background-position: right
     data-background-opacity: "0.8"
@@ -18,11 +19,11 @@ format:
 engine: knitr
 bibliography: ref.bib
 lightbox: true
---- 
+---  
 
 ## Learning Objectives
 
-- Understand basic Python sybtax
+- Understand basic Python syntax
 
 :::{.aside}
 

@@ -13,7 +13,7 @@ Lecture materials for BBMS1021. **Blank** is student-facing slides and **Annotat
 | File structure | [Blank](file-structure.qmd) | — |— |
 | R-studio keyboard shortcuts | [Blank](shortcut.qmd) | — |— |
 | AI vibing tips | [Blank](ai-guide.qmd) | — |— |
-| Introduction to epidemiology | [Blank](intro-to-epi.qmd) | — |— |
+| Introduction to epidemiology | [Blank](intro-to-epi.qmd) | [Sketches](intro-to-epi-sketch.qmd) | [Full slides](intro-to-epi-full.qmd) |
 | Epidemiology workshop | [Blank](epi-workshop.qmd) | — |— |
 
 ## Tutorials

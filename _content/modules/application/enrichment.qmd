@@ -211,7 +211,7 @@ Protein is enriched in the pathway *multicellular organismal development*
 This enrichment analysis is implemented in `chipenrich` library
 ```{r}
 #| echo: true
-#| eval: true
+#| eval: false
 
 # Install chipenrich and its data package
 if (!requireNamespace(c("BiocManager","chipenrich","chipenrich.data"), quietly = TRUE)) {
@@ -235,6 +235,8 @@ results <- chipenrich(
 
 ## Code results
 ```{r}
+#| echo: true
+#| eval: false
 # Extract and view the top enriched gene sets
 enrichment_table <- results$results
 head(enrichment_table,2)
