@@ -1,0 +1,166 @@
+## Reveiw
+
+In Session 1, we stored a single DNA sequence in a single variable (`target_gene = "ATGC"`). A standard RNA-seq experiment outputs expression data for 20,000+ genes simultaneously. To handle bulk data, Python uses **Collections**.
+
+In this session, we will introduce the two most important collections in Python: **Lists** and **Dictionaries**.
+
+:::{.aside}
+
+1. Understanding these two structures is critical, because tomorrow we will combine them to build full datasets.
+2. As you may notice, **Lists** and **Dictionaries** are also different datatypes in Python, and indeed in Python datatype can be manually defined
+
+:::
+
+# List
+
+## Lists: Storing Multiple Items
+
+A List 
+
+- An ordered collection of items. 
+- In Python, you create a list using square brackets `[]`, and you separate each item with a `,`
+
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Storing multiple DNA motifs as Strings in a List
+motifs = ["TATA", "ATG", "TAG"]
+
+print("My motif list:", motifs)
+
+# We can use the len() function to see how many motifs we are tracking
+total_motifs = len(motifs)
+print("Total motifs to scan:", total_motifs)
+```
+
+## Indexing a List
+
+Python lists are 0-indexed. We can grab specific genes out of our list using their position.
+
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Recalling that 
+# motifs = ["TATA", "ATG", "TAG"]
+
+# Grab the first motif in the list (Index 0)
+first_motif = motifs[0]
+print("The first motif is:", first_motif)
+
+# Grab the last dna using a negative index
+last_motif  = motifs[-1]
+print("The last motif is:", last_motif)
+```
+
+## Modifying the List
+
+- using `.append()` method to append a new item at the end of the list
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Add a new motif (CpG island) to the end of our list
+motifs.append("CG")
+
+print("Updated motif list:", motifs)
+```
+
+# For loop
+
+## For loop
+
+`for` is the keyword for you to iterate over a designated list
+
+:::{.columns}
+
+:::{.column width=60%}
+```{python}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "|9|3|10|4|10|5|10|6|10"
+# Our list of dna from earlier
+motifs = [
+    "TATA", 
+    "ATG", 
+    "TAG", 
+    "CG"]
+# Python reads this as: 
+# "For every individual motif inside the motifs list, do this:"
+for m in motifs:
+    print("Currently analyzing:", m)
+print("Loop finished! All motifs analyzed.")
+```
+:::
+
+:::{.column width=38%}
+
+**`for INDEX in LIST:`**
+
+- `for`: Starting of a loop
+- `INDEX`: Index variable will iterater along the list order
+- `in`: Specify the list you want to iterate
+- `LIST`: Targetting list
+- `:`: Instruction start (all the instruction should be indented)
+:::
+
+:::
+
+## Example: Counting motifs
+
+We want to calculate how many motifs are there in a designated `dna_read`
+
+:::{.columns}
+
+:::{.column}
+
+**Without for loop**
+```{python}
+#| echo: true
+#| eval: true
+
+dna_read = "ATGCGTATATAATGCGCTAGCG"
+motifs = ["TATA", "ATG", "TAG", "CG"]
+
+occurrences = dna_read.count(motifs[0])
+print("Motif:", motifs[0], " occurrs ",
+ occurrences, " times")
+occurrences = dna_read.count(motifs[1])
+print("Motif:", motifs[1], " occurrs ", 
+occurrences, " times") 
+
+# and so on so forth ....
+
+```
+
+:::
+
+:::{.column}
+
+**With for loop**
+```{python}
+#| echo: true
+#| eval: true
+
+dna_read = "ATGCGTATATAATGCGCTAGCG"
+
+motifs = ["TATA", "ATG", "TAG", "CG"]
+
+# The Automation (The Loop)
+# Python reads this as: "For every individual sequence inside our motifs list..."
+for m in motifs:
+    # 2. Count how many times it appears in the DNA read
+    occurrences = dna_read.count(m)
+    # 3. Print the final report for this specific motif
+    print("Motif:", m, " occurrs ", occurrences, " times")        
+print("Motif scan complete!")
+```
+:::
+
+:::
+
+## Discussion of the loop

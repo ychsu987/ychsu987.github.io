@@ -1,0 +1,35 @@
+---
+title: "Data structures"
+author: Dr. Yu Cheng Hsu
+title-slide-attributes:
+    data-background: /assets/images/functional-genomics/background-1.jpg
+    data-background-size:  40% 100%
+    data-background-position: right
+    data-background-opacity: "0.8"
+format: 
+    revealjs:
+        theme: [default, ../../../assets/css/general_style.css]
+        slide-number: true
+        smaller: true
+        lightbox: true
+        chalkboard:
+            theme: whiteboard
+            src: None
+engine: knitr
+bibliography: ref.bib
+lightbox: true
+---  
+
+## Learning Objectives
+
+- Understand basic Python syntax
+
+:::{.aside}
+
+Background image: @bg1
+:::
+
+{{< include /_content/modules/bdata/python-ds.qmd >}}
+
+
+## Bibliography Notes

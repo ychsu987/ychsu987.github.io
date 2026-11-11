@@ -1,11 +1,11 @@
-# Workshop Background
+## Workshop Background
 
 The "direction" of data collection determines which epidemiological measures we can estimate. We will use a deck of cards to simulate two primary observational study designs:
 
 - **Cohort study**
 - **Case-control study**
 
-### Activity Setup
+**Activity Setup**
 
 - **Card Back Pattern** = Exposure variable
   - Water Source A (Blue back)
@@ -13,8 +13,6 @@ The "direction" of data collection determines which epidemiological measures we 
 - **Card Face Color** = Outcome variable
   - Red card (Hearts and Diamonds): Infected
   - Black card (Spades and Clubs): Healthy
-
----
 
 # Cohort Study
 
@@ -25,22 +23,25 @@ The "direction" of data collection determines which epidemiological measures we 
 ::: {.column}
 **Presenting Issue**
 
-A small community relies on two drinking-water sources: Water Source A and Water Source B. Several residents develop gastrointestinal illness after drinking untreated water.
+A small community relies on two drinking-water sources. Several residents develop gastrointestinal illness after drinking untreated water.
+
+- Water Source A
+- Water Source B. 
 :::
 
 ::: {.column}
 **Questions**
 
 Investigators want to determine whether drinking from a specific water source increases the risk of infection.
-:::
+
+![Illustration](/assets/images/epi_workshop/illustration.png){width=95%}
 
 :::
 
-![Illustration](/assets/images/epi_workshop/illustration.png){width=70%}
+:::
 
----
 
-## Activity Instructions: Cohort Study
+## Activity: Cohort Study
 
 In a cohort study, we identify participants defined by **exposure status** and follow them over time to observe the subsequent occurrence of disease.
 
@@ -54,7 +55,6 @@ In a cohort study, we identify participants defined by **exposure status** and f
 | **Water Source A (Exposed)** | $a$ | $b$ | $a + b = N$ |
 | **Water Source B (Unexposed)** | $c$ | $d$ | $c + d = N$ |
 
----
 
 ## Interpretation of Cohort Study
 
@@ -68,7 +68,6 @@ To calculate this measure:
 2. Calculate cumulative incidence (risk) in unexposed: $R_B = \frac{c}{c+d}$
 3. Compute the ratio of the two risks (Relative Risk, RR): $\text{RR} = \frac{R_A}{R_B}$
 
----
 
 ## Cohort Analysis in R
 
@@ -94,7 +93,7 @@ cat("Relative Risk (RR) of the Cohort Study:", round(RR, 2), "\n")
 
 ::: {.column}
 - **RR** quantifies the ratio of disease risk among the exposed compared to the unexposed.
-- If the 95% confidence interval for RR **includes 1.0 (the null value)**, the finding is consistent with no difference—treat the result as **inconclusive**, rather than definitive proof of no effect.
+- If the 95% confidence interval for RR **includes 1.0 (the null value)**, the finding is consistent with no difference (**inconclusive** results).
 :::
 
 ::: {.column}
@@ -107,7 +106,6 @@ cat("Relative Risk (RR) of the Cohort Study:", round(RR, 2), "\n")
 
 :::
 
----
 
 # Case-Control Study
 
@@ -123,9 +121,8 @@ Investigators evaluate historical exposures to determine whether exposure to Wat
 
 In this activity, we select infected individuals (cases) and healthy individuals (controls), then ascertain their prior exposure status.
 
----
 
-## Activity Instructions: Case-Control Study
+## Activity: Case-Control Study
 
 In a case-control study, we select subjects based on **outcome status** (cases vs. controls) and compare their prior exposure histories.
 
@@ -139,7 +136,6 @@ In a case-control study, we select subjects based on **outcome status** (cases v
 | **Lived near Water Source A** | $a$ | $b$ |
 | **Lived near Water Source B** | $c$ | $d$ |
 
----
 
 ## Case-Control Data Setup in R
 
@@ -153,34 +149,6 @@ disease_data_cc <- matrix(
   nrow = 2,
   byrow = TRUE
 )
-```
-
----
-
-## Interpretation of Case-Control Study
-
-We investigate the same underlying association, but the sampling scheme differs fundamentally:
-
-**Key differences from cohort studies**
-
-- Because the case-to-control ratio is fixed by design, baseline disease incidence and risk cannot be estimated directly.
-- Consequently, Relative Risk (RR) cannot be directly calculated without external population incidence data.
-
-1. **Odds of exposure among cases**: $\frac{a}{c}$
-2. **Odds of exposure among controls**: $\frac{b}{d}$
-
-The Odds Ratio (OR) evaluates the association between exposure and outcome:
-$$
-\text{OR} = \frac{a / c}{b / d} = \frac{a \times d}{b \times c} = \frac{a / b}{c / d}
-$$
-
----
-
-## Case-Control Analysis in R
-
-```{r}
-#| echo: true
-#| eval: true
 # Calculate odds of exposure within outcome groups
 odds_cases <- disease_data_cc[1, 1] / disease_data_cc[2, 1]
 odds_controls <- disease_data_cc[1, 2] / disease_data_cc[2, 2]
@@ -190,9 +158,26 @@ OR <- odds_cases / odds_controls
 cat("Odds Ratio (OR) of the Case-Control Study:", round(OR, 2), "\n")
 ```
 
-- **OR** represents the relative odds of exposure among cases compared to controls (and mathematically equals the disease odds ratio across exposure groups).
+1. **Odds of exposure among cases**: $\frac{a}{c}$
+2. **Odds of exposure among controls**: $\frac{b}{d}$
 
----
+## Interpretations
+
+We investigate the same underlying association, but the sampling scheme differs fundamentally:
+
+**Key differences from cohort studies**
+
+- Because the case-to-control ratio is fixed by design, baseline disease incidence and risk cannot be estimated directly.
+- Consequently, Relative Risk (RR) cannot be directly calculated without external population incidence data.
+
+The Odds Ratio (OR) evaluates the association between exposure and outcome:
+$$
+\small
+\text{OR} = \frac{a / c}{b / d} = \frac{a \times d}{b \times c} = \frac{a / b}{c / d}
+$$
+
+- **OR** represents the relative odds of exposure among cases compared to controls.
+
 
 ## Statistical Inference on the Odds Ratio
 
@@ -207,7 +192,6 @@ $$
 
 - For small sample counts or contingency tables with low expected cell values, **Fisher's Exact Test** provides exact conditional inference.
 
----
 
 ## Fisher's Exact Test in R
 
@@ -226,7 +210,6 @@ cat("P-value:", signif(result_cc$p.value, 3), "\n")
 - **$\text{OR} > 1$** ($\ln(\text{OR}) > 0$): Exposure is positively associated with higher odds of outcome
 - **$\text{OR} < 1$** ($\ln(\text{OR}) < 0$): Exposure is inversely associated with odds of outcome (protective)
 
----
 
 # Selecting the Study Design
 
@@ -239,11 +222,10 @@ While case-control and cohort designs investigate similar associations, practica
 - Latency period between exposure and disease onset
 - Cost, logistics, and follow-up feasibility
 
----
 
-## The "Needle in a Haystack" Problem: Rare Diseases
+## Rare Diseases
 
-Consider investigating an uncommon pathology occurring in 1 per 100,000 person-years:
+Consider investigating an uncommon pathology occurring in 1 per 100,000 person-years (The "Needle in a Haystack" ):
 
 ::: {.columns}
 
@@ -260,7 +242,7 @@ Consider investigating an uncommon pathology occurring in 1 per 100,000 person-y
 
 - Sample size: Highly efficient (e.g., $N$ confirmed cases vs. matched controls)
 - Follow-up duration: Minimal (ascertainment of past exposure)
-- Efficiency: High yield for rare outcomes
+
 :::
 
 :::
@@ -270,9 +252,8 @@ Consider investigating an uncommon pathology occurring in 1 per 100,000 person-y
 - Case-control studies are statistically and economically optimal for studying **rare diseases**.
 - Under the rare disease assumption, the sample OR closely approximates the population RR.
 
----
 
-## Odds Ratio Approximation to Relative Risk
+## OR Approximation to RR
 
 Recall the $2 \times 2$ contingency table notation:
 
@@ -281,6 +262,7 @@ Recall the $2 \times 2$ contingency table notation:
 ::: {.column}
 **Relative Risk (RR):** 
 $$ 
+\small
 \text{RR} = \frac{\text{Risk in Exposed}}{\text{Risk in Unexposed}} = \frac{\frac{a}{a+b}}{\frac{c}{c+d}}
 $$
 :::
@@ -288,28 +270,27 @@ $$
 ::: {.column}
 **Odds Ratio (OR):** 
 $$
-\text{OR} = \frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a \times d}{b \times c}
+\small
+\text{OR}  = \frac{\text{Odds in Exposed}}{\text{Odds in Unexposed}}  =  \frac{\frac{a}{b}}{\frac{c}{d}} 
 $$
+
 :::
 
 :::
 
 When the outcome is rare across both exposure groups, cumulative incidence is very low:
 $$
-a \ll b \implies a + b \approx b
-$$
-$$
-c \ll d \implies c + d \approx d
-$$
-
-Substituting these approximations yields:
-$$
-\text{RR} = \frac{\frac{a}{a+b}}{\frac{c}{c+d}} \approx \frac{\frac{a}{b}}{\frac{c}{d}} = \text{OR}
+\small
+\begin{aligned}
+a \ll b \implies & a + b \approx b \\
+c \ll d \implies & c + d \approx d
+\end{aligned}
 $$
 
----
+Substituting these approximations yields: $\text{RR} = \frac{\frac{a}{a+b}}{\frac{c}{c+d}} \approx \frac{\frac{a}{b}}{\frac{c}{d}} = \text{OR}$
 
-## The "Unique Group" Problem: Rare Exposures
+
+## Rare Exposures
 
 Suppose we are investigating the occupational health impact of an accidental chemical spill within a single industrial facility:
 
@@ -318,14 +299,15 @@ Suppose we are investigating the occupational health impact of an accidental che
 ::: {.column}
 **Cohort Study Design:** 
 
-- Sample size: Readily assembled from the defined exposed workforce
-- Follow-up: Track exposed workers and an internal/external unexposed comparison group
+- **Sample size**: Readily assembled from the defined exposed workforce
+- **Follow-up**: Track exposed workers and an internal/external unexposed comparison group
 ::: 
 
 ::: {.column}
 **Case-Control Design:**
 
-- Sample size: General-population sampling would require immense screening to identify enough exposed individuals
+- **Sample size**: General-population sampling would require immense screening to identify enough exposed individuals
+- **Follow-up**: Not the concern
 :::
 
 :::
@@ -334,7 +316,6 @@ Suppose we are investigating the occupational health impact of an accidental che
 
 - Cohort studies are the design of choice when studying **rare exposures**.
 
----
 
 ## Implementation Realities: Time and Memory
 
@@ -348,9 +329,8 @@ Study validity is strongly influenced by methodological and logistical vulnerabi
   - Attrition over long tracking periods can introduce selection bias.
   - Non-random dropouts systematically distort risk estimates if loss to follow-up is related to both exposure and outcome.
 
----
 
-## Implementation Realities: Selecting Valid Controls
+## Selecting Valid Controls
 
 Identifying an appropriate control group is a critical challenge in case-control research:
 
@@ -374,7 +354,6 @@ Identifying an appropriate control group is a critical challenge in case-control
 
 :::
 
----
 
 ## Summary Comparison
 
@@ -386,7 +365,6 @@ Identifying an appropriate control group is a critical challenge in case-control
 | **Primary Association Metric** | Cumulative Incidence, Relative Risk (RR) | Odds Ratio (OR) |
 | **Primary Vulnerabilities** | Attrition / loss to follow-up, cost | Recall bias, control selection bias |
 
----
 
 ## Learning Objectives Review
 
@@ -394,7 +372,6 @@ Identifying an appropriate control group is a critical challenge in case-control
 - Estimate and interpret Odds Ratios and Fisher's exact tests from case-control data.
 - Justify study design selection based on disease rarity, exposure frequency, and logistical constraints.
 
----
 
 # Optional Module 1: Confidence Interval of Relative Risk
 
@@ -420,7 +397,6 @@ $$
 
 - If the 95% confidence interval for $\text{RR}$ spans $1.0$ (or for $\ln(\text{RR})$ spans $0$), we fail to reject $H_0$ at $\alpha = 0.05$.
 
----
 
 ## Computing Relative Risk Confidence Intervals in R
 
@@ -459,7 +435,6 @@ cat("95% CI: [", round(ci_lower, 2), ",", round(ci_upper, 2), "]\n")
 
 :::
 
----
 
 # Optional Module 2: Connection with Regression Models
 
@@ -484,7 +459,6 @@ table_to_df <- function(contingency_table) {
 }
 ```
 
----
 
 ## Cohort Study and Log-Binomial / Poisson Regression
 
@@ -501,7 +475,6 @@ $$
 - $\beta_0$: Log-risk in the unexposed group ($X = 0$).
 - $\beta_1$: Difference in log-risk between exposed and unexposed groups ($\ln(\text{RR})$).
 
----
 
 ## Why $\beta_1 = \ln(\text{RR})$
 
@@ -514,8 +487,6 @@ $$
 $$
 \beta_1 = \ln(p_A) - \ln(p_B) = \ln\left(\frac{p_A}{p_B}\right) = \ln(\text{RR}) \implies \exp(\beta_1) = \text{RR}
 $$
-
----
 
 ## Fitting Poisson Regression in R
 
@@ -555,8 +526,6 @@ summary(poisson_model)
 
 :::
 
----
-
 ## Case-Control Study and Logistic Regression
 
 For a case-control design, binary outcome modeling with the canonical logit link:
@@ -567,7 +536,6 @@ $$
 - $\beta_0$: Intercept reflecting the arbitrary case-control sampling ratio.
 - $\beta_1$: Invariance of the odds ratio permits estimating the true exposure log-odds ratio $\ln(\text{OR})$.
 
----
 
 ## Why $\beta_1 = \ln(\text{OR})$
 
@@ -581,7 +549,6 @@ $$
 \beta_1 = \text{logit}(p_A) - \text{logit}(p_B) = \ln\left(\frac{p_A / (1 - p_A)}{p_B / (1 - p_B)}\right) = \ln(\text{OR})
 $$
 
----
 
 ## Fitting Logistic Regression in R
 
@@ -615,7 +582,6 @@ summary(glm_model)
 
 :::
 
----
 
 ## Methodological Note: Estimating Relative Risk in Cohort Data
 

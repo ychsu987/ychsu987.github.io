@@ -1,0 +1,42 @@
+title: "Assignment - Exploratory Health Informatics Dashboard"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    self-contained: true
+    lightbox: true
+author: "Dr. Yu Cheng Hsu"
+---
+
+# Open-Ended Tableau Visualization Project
+
+## Objective
+
+Rather than replicating a predefined layout, you are tasked with designing and publishing an original public health monitoring tool. You will formulate an analytical inquiry based on global surveillance indicators available in the WHO Global Health Observatory (GHO) and build an interactive Tableau workbook (Dashboard or Story) that communicates clear epidemiological insights to your chosen target audience.
+
+## Data Ingestion Requirements
+
+- Data Connection: Connect Tableau directly to the WHO GHO OData API feed.
+- Relational Schema: Retrieve the master country dimension table (RegionCountry) and at least three distinct quantitative indicator fact tables of your choice
+
+## Tableau Technical & Design Evaluation Criteria
+
+- Contains at least **three** distinct analytical views that answer complementary facets of your inquiry (3 marks)
+
+- The dashboard works with proper functionality (e.g., interactive filters, synchronized cross-filtering, or dynamic sliders) (3 marks)
+
+- Employs appropriate visual encodings matching the underlying data type (3 marks)
+
+
+# Design Reflection & Narrative Commentary
+
+1. What specific public health question or overarching message does your dashboard communicate? Describe the intended user journey through your views (2 marks)
+
+
+2. Select two views from your dashboard (e.g., your scatter plot,  line plot). Using Jock Mackinlay’s ranking of visual encoding to justify why the visual channels you picked are perceptually appropriate for the data types. (2 marks)
+
+
+3. How did you annotate, caption, or contextualize your views to guide the viewer toward the correct public health conclusion? (2 marks)
+
+
