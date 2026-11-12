@@ -82,7 +82,7 @@ print("Updated motif list:", motifs)
 ```{python}
 #| echo: true
 #| eval: true
-#| code-line-numbers: "|9|3|10|4|10|5|10|6|10"
+#| code-line-numbers: "|9|3|10|4|10|5|10|6|10|"
 # Our list of dna from earlier
 motifs = [
     "TATA", 
@@ -116,7 +116,7 @@ We want to calculate how many motifs are there in a designated `dna_read`
 
 :::{.columns}
 
-:::{.column}
+:::{.column width=41%}
 
 **Without for loop**
 ```{python}
@@ -132,14 +132,13 @@ print("Motif:", motifs[0], " occurrs ",
 occurrences = dna_read.count(motifs[1])
 print("Motif:", motifs[1], " occurrs ", 
 occurrences, " times") 
-
 # and so on so forth ....
 
 ```
 
 :::
 
-:::{.column}
+:::{.column width=58%}
 
 **With for loop**
 ```{python}
@@ -151,11 +150,49 @@ dna_read = "ATGCGTATATAATGCGCTAGCG"
 motifs = ["TATA", "ATG", "TAG", "CG"]
 
 # The Automation (The Loop)
-# Python reads this as: "For every individual sequence inside our motifs list..."
+# Python reads this as: "For every individual
+# sequence inside our motifs list..."
 for m in motifs:
     # 2. Count how many times it appears in the DNA read
     occurrences = dna_read.count(m)
     # 3. Print the final report for this specific motif
+    print("Motif:", m, " occurrs ", occurrences, " times")        
+```
+:::
+
+:::
+
+## Discussion of the loop
+
+:::{.columns}
+
+:::{.column width=37%}
+
+- Reuse of the code and scalability
+- Conctruct a loop
+  - Code without a loop
+  - Identify the repeated pattern
+  - Replacing the changing part by the index
+
+:::
+
+:::{.column width=62%}
+
+**Example**
+```{python}
+#| echo: true
+#| eval: false
+
+# Without For loop
+
+# occurrences = dna_read.count(motifs[0])
+# print("Motif:", motifs[0], " occurrs ", occurrences, " times")
+# occurrences = dna_read.count(motifs[1])
+# The Automation (The Loop)
+
+# With for loop
+for m in motifs:
+    occurrences = dna_read.count(m)
     print("Motif:", m, " occurrs ", occurrences, " times")        
 print("Motif scan complete!")
 ```
@@ -163,4 +200,237 @@ print("Motif scan complete!")
 
 :::
 
-## Discussion of the loop
+# Dictionary
+
+## Dictionary
+
+
+::: {.columns}
+
+::: {.column}
+
+Dictionary links 
+
+- a **Key** to 
+- a **Value** 
+
+Dictionaries are created using curly braces `{}` and colons `:`.
+
+:::
+
+::: {.column}
+
+```{python}
+#| echo: true
+#| eval: true
+# A dictionary mapping the Sequence (Key) to its Biological Label (Value)
+motif_labels = {
+    "TATA": "Promoter Box",
+    "ATG": "Start Codon",
+    "TAG": "Stop Codon",
+    "CG": "CpG Island"
+}
+
+print("Full label dictionary:", motif_labels)
+```
+
+:::
+
+:::
+
+
+## Looking up a Label
+
+To find the label for a specific sequence, you do not use a number. You just pass the Key into square brackets.
+
+- **Key** does not need to be a text, numeric value also works
+
+```{python}
+#| echo: true
+#| eval: true
+# Look up the biological label for "ATG"
+atg_label = motif_labels["ATG"]
+print("The sequence ATG is a:", atg_label)
+
+# Look up the biological label for "TAG"
+tag_label = motif_labels["TAG"]
+print("The sequence TAG is a:", tag_label)
+```
+
+
+## Updating dictionary
+
+To add or update data, we use the exact same square bracket syntax we used for looking things up, but we use an equals sign `=` to assign the new label.
+
+```{python}
+#| echo: true
+#| eval: true
+
+# 1. ADDING: We found a new motif we want to track
+motif_labels["UAA"] = "Stop Codon"
+
+# 2. UPDATING: We want to make our ATG label more specific
+motif_labels["ATG"] = "Start Codon (Methionine)"
+
+print("Updated Dictionary:", motif_labels)
+```
+
+## Checking if a Key Exists
+
+
+::: {.columns}
+
+::: {.column}
+
+If you ask Python for motif_labels["CCC"], and "CCC" is not in your dictionary, Python will panic and throw a KeyError, crashing your entire script.
+
+```{python}
+#| echo: true
+#| eval: false
+unknown_motif = "CCC"
+# Do not run the code, as "CCC" is not a key
+print("Unknown sequence", motif_labels[unknown_motif])
+```
+
+:::
+
+::: {.column}
+
+Instead, you can use a `if ... else ...` control to protect your code 
+
+```{python}
+#| echo: true
+#| eval: true
+
+unknown_motif = "CCC"
+
+# Python evaluates this as True or False
+if unknown_motif in motif_labels:
+    print("Found it! The label is:", 
+    motif_labels[unknown_motif])
+else:
+    print("Unknown sequence. No label exists for", 
+    unknown_motif)
+```
+
+:::
+
+:::
+
+## Extracting All Keys
+
+**`.keys()`**
+
+- To access all **Keys** in your dictionary
+- Give you a **`List`** of all keys
+
+```{python}
+#| echo: true
+#| eval: true
+# Extract all the known sequences from our dictionary
+known_sequences = motif_labels.keys()
+
+print("Sequences we are currently tracking:", known_sequences)
+```
+
+**Why this is powerful:**
+
+In the for loop section next, you will see how we can plug these extracted keys directly into an automated scanner, letting the dictionary do all the heavy lifting.
+
+# Exercise: The Motif Database Manager
+
+## Exercise: Background
+
+**Scenario**:
+
+You have received raw motif counting data from a patient's sequencing run. It is structured as our "Dictionary of Lists". You need to extract specific data, update the database with new findings, and write an automated loop to flag high-frequency motifs.
+
+**The Starting Data**:
+
+Copy this into your first Colab cell and run it to load the data into memory.
+
+
+```{python}
+#| echo: true
+#| eval: true
+motif_table = {
+    "Sequence": ["TATA", "ATG", "TAG", "CG"],
+    "Label": ["Promoter", "Start Codon", "Stop Codon", "CpG Island"],
+    "Counts": [42, 15, 15, 890]
+}
+```
+
+## Task: Extracting and Measuring 
+
+We want to know the highest motif count and the total number of motifs found. First, we extract the "Counts" list from the dictionary, and then we use Python's built-in `max()`and `sum()` functions.
+
+
+```{python}
+#| echo: true
+#| eval: true
+# 1. Grab just the list of counts using its Key
+patient_counts = motif_table["Counts"]
+print("All counts:", patient_counts)
+
+# 2. Find the highest number and the total sum
+highest_count = max(patient_counts)
+total_motifs = sum(patient_counts)
+
+print("Highest single motif count:", highest_count)
+print("Total motifs found:", total_motifs)
+```
+
+## Task: Updating the Database
+
+The sequencer just finished another run and found a new motif: a "Poly-A Tail" (Sequence: "AAAA", Count: 120).
+
+To add this to our table, we must append the new data to ALL THREE lists. If we don't, our "columns" will be uneven, and our data will be corrupted.
+
+```{python}
+#| echo: true
+#| eval: true
+# Append the new data to each list inside the dictionary
+motif_table["Sequence"].append("AAAA")
+motif_table["Label"].append("Poly-A Tail")
+motif_table["Counts"].append(120)
+
+# Let's check if it worked
+print("Updated Sequences:", motif_table["Sequence"])
+print("Updated Counts:", motif_table["Counts"])
+```
+
+## Task: Detect high frequency motif
+
+We want to print an alert for any motif that appears more than 100 times. Please write a code to check it, if the motif with counts more than 100 times, please print out `print("ALERT: High frequency detected!")`
+
+
+```{python}
+#| echo: true
+#| eval: true
+# Find out how many 'rows' we have by checking the length of one of our lists
+total_rows = len(motif_table["Sequence"])
+
+# Loop through row 0, then row 1, then row 2...
+for i in range(total_rows):
+    
+    # Use the 'i' index to extract the matching data across all three lists
+    current_seq = motif_table["Sequence"][i]
+    current_label = motif_table["Label"][i]
+    current_count = motif_table["Counts"][i]
+    
+    # Apply our True/False Logic
+    if current_count > 100:
+        print("ALERT: High frequency detected!")
+        print("--> Motif:", current_label, "(", current_seq, ") - Count:", current_count)
+```
+
+
+# Summary
+
+- Basic methods and usage of list and dictionary
+- For loop
+
+**What's next**
+
+- For the exercise example, we can find that if we handle the tabular data this way it is not convenient !
+- We need a more efficient way to do it
