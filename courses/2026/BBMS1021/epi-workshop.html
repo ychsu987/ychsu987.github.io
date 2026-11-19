@@ -241,23 +241,23 @@ Dr.&nbsp;Yu Cheng Hsu
 <p>Background image: <span class="citation" data-cites="bg5">Cézanne (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">1890</a>)</span></p>
 </div></aside></section>
 <section id="workshop-background" class="slide level2">
-<h2>Workshop background</h2>
-<p>The “direction” of our data collection determines which statistical measures we can estimate. We will use poker cards to simulate two study designs:</p>
+<h2>Workshop Background</h2>
+<p>The “direction” of data collection determines which epidemiological measures we can estimate. We will use a deck of cards to simulate two primary observational study designs:</p>
 <ul>
-<li>Cohort study</li>
-<li>Case-control study</li>
+<li><strong>Cohort study</strong></li>
+<li><strong>Case-control study</strong></li>
 </ul>
-<p><strong>Set up</strong></p>
+<p><strong>Activity Setup</strong></p>
 <ul>
-<li><strong>Card back pattern</strong> = Exposure variable
+<li><strong>Card Back Pattern</strong> = Exposure variable
 <ul>
 <li>Water Source A (Blue back)</li>
 <li>Water Source B (Red back)</li>
 </ul></li>
-<li><strong>Card face color</strong> = Outcome variable
+<li><strong>Card Face Color</strong> = Outcome variable
 <ul>
-<li>Red card (hearts and diamonds): Infected</li>
-<li>Black card (spades and clubs): Healthy</li>
+<li>Red card (Hearts and Diamonds): Infected</li>
+<li>Black card (Spades and Clubs): Healthy</li>
 </ul></li>
 </ul>
 </section>
@@ -267,30 +267,34 @@ Dr.&nbsp;Yu Cheng Hsu
 
 </section>
 <section id="scenario-a-suspected-outbreak" class="slide level2">
-<h2>Scenario: A suspected outbreak</h2>
+<h2>Scenario: A Suspected Outbreak</h2>
 <div class="columns">
 <div class="column">
-<p><strong>Presenting issue</strong></p>
-<p>A small community that relies on two drinking-water sources, Water Source A and Water Source B. Several residents develop disease after directly drinking water.</p>
+<p><strong>Presenting Issue</strong></p>
+<p>A small community relies on two drinking-water sources. Several residents develop gastrointestinal illness after drinking untreated water.</p>
+<ul>
+<li>Water Source A</li>
+<li>Water Source B.</li>
+</ul>
 </div><div class="column">
 <p><strong>Questions</strong></p>
-<p>Investigators want to know whether living near one water source increases the risk of infection.</p>
-</div></div>
+<p>Investigators want to determine whether drinking from a specific water source increases the risk of infection.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/epi_workshop/illustration.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration"><img data-src="../../..\assets/images/epi_workshop/illustration.png" style="width:70.0%" alt="Illustration"></a></p>
+<p><a href="../../..\assets/images/epi_workshop/illustration.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Illustration"><img data-src="../../..\assets/images/epi_workshop/illustration.png" style="width:95.0%" alt="Illustration"></a></p>
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
+</div></div>
 </section>
-<section id="activity-instructions" class="slide level2">
-<h2>Activity instructions</h2>
-<p>In a cohort study, we follow a specific population based on their exposure status to observe their future probability of developing a disease.</p>
+<section id="activity-cohort-study" class="slide level2">
+<h2>Activity: Cohort Study</h2>
+<p>In a cohort study, we identify participants defined by <strong>exposure status</strong> and follow them over time to observe the subsequent occurrence of disease.</p>
 <ol type="1">
-<li><strong>Everyone in the class:</strong> show only the card back (Water Source) and hide the face.</li>
-<li><strong>Investigation</strong>: leave your seat and find <span class="math inline">\(N\)</span> <strong>residents from Area A</strong> and <span class="math inline">\(N\)</span> <strong>residents from Area B</strong>.</li>
-<li>Once you find them, ask them to <em>reveal</em> their card faces and record whether they are infected (Red card).</li>
-<li>Record your data in the table below in R:</li>
+<li><strong>Everyone in the class:</strong> Show only the card back (Water Source) and conceal the face.</li>
+<li><strong>Investigation:</strong> Leave your seat and recruit <span class="math inline">\(N\)</span> residents from <strong>Area A (Exposed)</strong> and <span class="math inline">\(N\)</span> residents from <strong>Area B (Unexposed)</strong>.</li>
+<li>Once recruited, ask participants to <em>reveal</em> their card faces and record whether they are infected (Red card).</li>
+<li>Record your counts in the <span class="math inline">\(2 \times 2\)</span> contingency table below:</li>
 </ol>
 <table class="caption-top">
 <thead>
@@ -298,45 +302,48 @@ Dr.&nbsp;Yu Cheng Hsu
 <th style="text-align: left;">Cohort Study</th>
 <th style="text-align: center;">Infected (Red)</th>
 <th style="text-align: center;">Healthy (Black)</th>
+<th style="text-align: center;">Total</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Water Source A (Exposed = <span class="math inline">\(N\)</span>)</strong></td>
-<td style="text-align: center;">a</td>
-<td style="text-align: center;">b</td>
+<td style="text-align: left;"><strong>Water Source A (Exposed)</strong></td>
+<td style="text-align: center;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a + b = N\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Water Source B (Unexposed = <span class="math inline">\(N\)</span>)</strong></td>
-<td style="text-align: center;">c</td>
-<td style="text-align: center;">d</td>
+<td style="text-align: left;"><strong>Water Source B (Unexposed)</strong></td>
+<td style="text-align: center;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(d\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(c + d = N\)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="interpretation-of-cohort-study" class="slide level2">
-<h2>Interpretation of cohort study</h2>
-<p>The fundamental question we can answer is:</p>
+<h2>Interpretation of Cohort Study</h2>
+<p>The fundamental question we address is:</p>
 <blockquote>
-<p>Compared with the <strong>unexposed</strong> group, how likely is the <strong>exposed</strong> group to develop the disease (outcome)?</p>
+<p>Compared with the <strong>unexposed</strong> group, how much more or less likely is the <strong>exposed</strong> group to develop the outcome?</p>
 </blockquote>
-<p>To answer this, we need to know</p>
+<p>To calculate this measure:</p>
 <ol type="1">
-<li>How likely is the outcome to occur in the unexposed group? (Risk)</li>
-<li>How likely is the outcome to occur in the exposed group? (Risk)</li>
-<li>Calculate the ratio of 2. to 1. (Relative Risk)</li>
+<li>Calculate cumulative incidence (risk) in exposed: <span class="math inline">\(R_A = \frac{a}{a+b}\)</span></li>
+<li>Calculate cumulative incidence (risk) in unexposed: <span class="math inline">\(R_B = \frac{c}{c+d}\)</span></li>
+<li>Compute the ratio of the two risks (Relative Risk, RR): <span class="math inline">\(\text{RR} = \frac{R_A}{R_B}\)</span></li>
 </ol>
 </section>
-<section class="slide level2">
-
+<section id="cohort-analysis-in-r" class="slide level2">
+<h2>Cohort Analysis in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Enter the data (a, b, c, d) you collected from your Cohort Study</span></span>
-<span id="cb1-2"><a></a>a <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Number of infected in Area A (example)</span></span>
-<span id="cb1-3"><a></a>b <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Number of healthy in Area A (example)</span></span>
-<span id="cb1-4"><a></a>c <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Number of infected in Area B (example)</span></span>
-<span id="cb1-5"><a></a>d <span class="ot">&lt;-</span> <span class="dv">6</span>  <span class="co"># Number of healthy in Area B (example)</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Enter counts (a, b, c, d) collected from your Cohort Study</span></span>
+<span id="cb1-2"><a></a>a <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Infected in Area A (exposed cases)</span></span>
+<span id="cb1-3"><a></a>b <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Healthy in Area A (exposed non-cases)</span></span>
+<span id="cb1-4"><a></a>c <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Infected in Area B (unexposed cases)</span></span>
+<span id="cb1-5"><a></a>d <span class="ot">&lt;-</span> <span class="dv">6</span>  <span class="co"># Healthy in Area B (unexposed non-cases)</span></span>
 <span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a><span class="co"># Calculate the Risk (Incidence)</span></span>
+<span id="cb1-7"><a></a><span class="co"># Calculate Risk (Cumulative Incidence)</span></span>
 <span id="cb1-8"><a></a>risk_A <span class="ot">&lt;-</span> a <span class="sc">/</span> (a <span class="sc">+</span> b)</span>
 <span id="cb1-9"><a></a>risk_B <span class="ot">&lt;-</span> c <span class="sc">/</span> (c <span class="sc">+</span> d)</span>
 <span id="cb1-10"><a></a></span>
@@ -350,15 +357,15 @@ Dr.&nbsp;Yu Cheng Hsu
 <div class="columns">
 <div class="column">
 <ul>
-<li><strong>RR</strong> represents “how many times more likely the exposed group is to develop the disease compared to the unexposed group.”</li>
+<li><strong>RR</strong> quantifies the ratio of disease risk among the exposed compared to the unexposed.</li>
+<li>If the 95% confidence interval for RR <strong>includes 1.0 (the null value)</strong>, the finding is consistent with no difference (<strong>inconclusive</strong> results).</li>
 </ul>
-<p>If a confidence interval for the effect <strong>includes the null</strong> (no difference), treat the result as <strong>inconclusive</strong>—not as proof of no effect.</p>
 </div><div class="column">
 <p><strong>Takeaway</strong></p>
 <ul>
-<li><strong>RR = 1</strong>: No difference in risk between groups</li>
-<li><strong>RR &gt; 1</strong> : Increased risk in the exposed group</li>
-<li><strong>RR &lt; 1</strong>: Decreased risk in the exposed group</li>
+<li><strong><span class="math inline">\(\text{RR} = 1\)</span></strong>: No difference in risk between exposure groups</li>
+<li><strong><span class="math inline">\(\text{RR} &gt; 1\)</span></strong>: Higher risk in the exposed group</li>
+<li><strong><span class="math inline">\(\text{RR} &lt; 1\)</span></strong>: Lower risk in the exposed group (protective effect)</li>
 </ul>
 </div></div>
 </section></section>
@@ -367,256 +374,251 @@ Dr.&nbsp;Yu Cheng Hsu
 <h1>Case-Control Study</h1>
 
 </section>
-<section id="scenario-a-retrospective-investigation-of-a-suspected-link" class="slide level2">
-<h2>Scenario: A retrospective investigation of a suspected link</h2>
-<p><strong>Presenting issue</strong></p>
-<p>A mysterious disease outbreak in the hospital. Scientists want to investigate whether this disease is associate with the water source.</p>
+<section id="scenario-a-retrospective-investigation" class="slide level2">
+<h2>Scenario: A Retrospective Investigation</h2>
+<p><strong>Presenting Issue</strong></p>
+<p>A sudden cluster of illness is identified in a hospital setting. Epidemiologists want to investigate whether the disease is associated with a specific drinking-water source.</p>
 <p><strong>Questions</strong></p>
-<p>Scientists want to look back to see whether exposure to one of the water sources is more common among the infected group.</p>
-<p>In this activity, we start with infected individuals (cases) and healthy individuals (controls), then compare their past exposure to the two water sources.</p>
+<p>Investigators evaluate historical exposures to determine whether exposure to Water Source A was more frequent among infected individuals than among healthy individuals.</p>
+<p>In this activity, we select infected individuals (cases) and healthy individuals (controls), then ascertain their prior exposure status.</p>
 </section>
-<section id="activity-instructions-1" class="slide level2">
-<h2>Activity instructions</h2>
-<p>In a case-control study, we start with people who already have the disease and compare them with people who do not have the disease based on their past exposure.</p>
+<section id="activity-case-control-study" class="slide level2">
+<h2>Activity: Case-Control Study</h2>
+<p>In a case-control study, we select subjects based on <strong>outcome status</strong> (cases vs.&nbsp;controls) and compare their prior exposure histories.</p>
 <ol type="1">
-<li><strong>Everyone in the class:</strong> Show only the <strong>card face (hearts, clubs, etc.)</strong> and hide the card back.</li>
-<li><strong>Investigation</strong>: Leave your seat and find <span class="math inline">\(N\)</span> <strong>infected individuals (Cases, Red cards)</strong> and <span class="math inline">\(N\)</span> <strong>healthy individuals (Controls, Black cards)</strong>.</li>
-<li>Once you find your targets, ask them to <em>reveal</em> their card back and record which water source they lived near.</li>
-<li>Record your data in R:</li>
+<li><strong>Everyone in the class:</strong> Show only the <strong>card face (hearts, clubs, etc.)</strong> and conceal the card back.</li>
+<li><strong>Investigation:</strong> Leave your seat and recruit <span class="math inline">\(N\)</span> <strong>infected individuals (Cases, Red cards)</strong> and <span class="math inline">\(N\)</span> <strong>healthy individuals (Controls, Black cards)</strong>.</li>
+<li>Once targets are identified, ask them to <em>reveal</em> their card backs and record their water source history.</li>
+<li>Record your counts in R:</li>
 </ol>
 <table class="caption-top">
 <colgroup>
-<col style="width: 36%">
-<col style="width: 30%">
-<col style="width: 32%">
+<col style="width: 28%">
+<col style="width: 35%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Case-Control Study</th>
-<th>Cases (Infected = N)</th>
-<th>Controls (Healthy = N)</th>
+<th style="text-align: left;">Case-Control Study</th>
+<th style="text-align: center;">Cases (Infected = <span class="math inline">\(N\)</span>)</th>
+<th style="text-align: center;">Controls (Healthy = <span class="math inline">\(N\)</span>)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Lived near Water Source A</td>
-<td>a</td>
-<td>b</td>
+<td style="text-align: left;"><strong>Lived near Water Source A</strong></td>
+<td style="text-align: center;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b\)</span></td>
 </tr>
 <tr class="even">
-<td>Lived near Water Source B</td>
-<td>c</td>
-<td>d</td>
+<td style="text-align: left;"><strong>Lived near Water Source B</strong></td>
+<td style="text-align: center;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(d\)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section class="slide level2">
-
+<section id="case-control-data-setup-in-r" class="slide level2">
+<h2>Case-Control Data Setup in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Enter the data you collected from your Case-Control Study</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Enter counts collected from your Case-Control Study</span></span>
 <span id="cb3-2"><a></a>disease_data_cc <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb3-3"><a></a>  <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">3</span>,   <span class="co"># Area A: Cases (a), Controls (b) (example)</span></span>
-<span id="cb3-4"><a></a>    <span class="dv">2</span>, <span class="dv">5</span>),  <span class="co"># Area B: Cases (c), Controls (d) (example)</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">3</span>,   <span class="co"># Area A: Cases (a), Controls (b)</span></span>
+<span id="cb3-4"><a></a>    <span class="dv">2</span>, <span class="dv">5</span>),  <span class="co"># Area B: Cases (c), Controls (d)</span></span>
 <span id="cb3-5"><a></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
 <span id="cb3-6"><a></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
-<span id="cb3-7"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="interpretation-of-case-control-study" class="slide level2">
-<h2>Interpretation of Case-Control study</h2>
-<p>We are trying to answer a similar question as in the cohort study, but the sampling is different.</p>
-<p><strong>Key difference from cohort studies</strong></p>
-<ul>
-<li>We cannot estimate risk directly from a case-control study because the ratio of cases to controls (prevalence) is set by the study design.</li>
-<li>Relative risk (RR) is not directly estimable from this design.</li>
-</ul>
-<ol type="1">
-<li><strong>Odds of disease among exposed individuals</strong>: <span class="math inline">\(a/b\)</span></li>
-<li><strong>Odds of disease among unexposed individuals</strong>: <span class="math inline">\(c/d\)</span></li>
-</ol>
-<p>We use the odds ratio (OR) <span class="math display">\[
-\frac{a/b}{c/d} = \frac{a \times d}{b \times c}
-\]</span> to quantify the association between exposure and outcome.</p>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Calculate the odds of disease</span></span>
-<span id="cb4-2"><a></a>Odds_A <span class="ot">&lt;-</span> disease_data_cc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">/</span> disease_data_cc[<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb4-3"><a></a>Odds_B <span class="ot">&lt;-</span> disease_data_cc[<span class="dv">2</span>,<span class="dv">1</span>] <span class="sc">/</span> disease_data_cc[<span class="dv">2</span>,<span class="dv">2</span>]</span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a><span class="co"># Calculate Odds Ratio (OR)</span></span>
-<span id="cb4-6"><a></a>OR <span class="ot">&lt;-</span> Odds_A <span class="sc">/</span> Odds_B</span>
-<span id="cb4-7"><a></a><span class="fu">cat</span>(<span class="st">"Odds Ratio (OR) of the Case-Control Study:"</span>, <span class="fu">round</span>(OR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a></a>)</span>
+<span id="cb3-8"><a></a><span class="co"># Calculate odds of exposure within outcome groups</span></span>
+<span id="cb3-9"><a></a>odds_cases <span class="ot">&lt;-</span> disease_data_cc[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">/</span> disease_data_cc[<span class="dv">2</span>, <span class="dv">1</span>]</span>
+<span id="cb3-10"><a></a>odds_controls <span class="ot">&lt;-</span> disease_data_cc[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">/</span> disease_data_cc[<span class="dv">2</span>, <span class="dv">2</span>]</span>
+<span id="cb3-11"><a></a></span>
+<span id="cb3-12"><a></a><span class="co"># Calculate Odds Ratio (OR)</span></span>
+<span id="cb3-13"><a></a>OR <span class="ot">&lt;-</span> odds_cases <span class="sc">/</span> odds_controls</span>
+<span id="cb3-14"><a></a><span class="fu">cat</span>(<span class="st">"Odds Ratio (OR) of the Case-Control Study:"</span>, <span class="fu">round</span>(OR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Odds Ratio (OR) of the Case-Control Study: 5 </code></pre>
 </div>
 </div>
+<ol type="1">
+<li><strong>Odds of exposure among cases</strong>: <span class="math inline">\(\frac{a}{c}\)</span></li>
+<li><strong>Odds of exposure among controls</strong>: <span class="math inline">\(\frac{b}{d}\)</span></li>
+</ol>
+</section>
+<section id="interpretations" class="slide level2">
+<h2>Interpretations</h2>
+<p>We investigate the same underlying association, but the sampling scheme differs fundamentally:</p>
+<p><strong>Key differences from cohort studies</strong></p>
 <ul>
-<li><strong>OR</strong> represents “the strength of association between an exposure (e.g., a risk factor or treatment) and an outcome (e.g., a disease)”</li>
+<li>Because the case-to-control ratio is fixed by design, baseline disease incidence and risk cannot be estimated directly.</li>
+<li>Consequently, Relative Risk (RR) cannot be directly calculated without external population incidence data.</li>
+</ul>
+<p>The Odds Ratio (OR) evaluates the association between exposure and outcome: <span class="math display">\[
+\small
+\text{OR} = \frac{a / c}{b / d} = \frac{a \times d}{b \times c} = \frac{a / b}{c / d}
+\]</span></p>
+<ul>
+<li><strong>OR</strong> represents the relative odds of exposure among cases compared to controls.</li>
 </ul>
 </section>
-<section id="inference-on-or" class="slide level2">
-<h2>Inference on OR</h2>
+<section id="statistical-inference-on-the-odds-ratio" class="slide level2">
+<h2>Statistical Inference on the Odds Ratio</h2>
 <ul>
-<li>Hypothesis</li>
+<li>Hypotheses:</li>
 </ul>
 <p><span class="math display">\[
 \begin{aligned}
-H_0: &amp; \text{OR} = \frac{\frac{a}{b}}{\frac{c}{d}} = 1 \\
-H_a: &amp; \text{OR} = \frac{\frac{a}{b}}{\frac{c}{d}} \neq 1
+H_0: &amp; \quad \text{OR} = 1 \quad \left(\text{or } \ln(\text{OR}) = 0\right) \\
+H_a: &amp; \quad \text{OR} \neq 1 \quad \left(\text{or } \ln(\text{OR}) \neq 0\right)
 \end{aligned}
 \]</span></p>
-<p>This is equivalent to evaluating <span class="math display">\[
-\frac{a}{b} = \frac{c}{d}
-\]</span></p>
 <ul>
-<li>We can use <strong>Fisher’s Exact Test</strong> to test it</li>
+<li>For small sample counts or contingency tables with low expected cell values, <strong>Fisher’s Exact Test</strong> provides exact conditional inference.</li>
 </ul>
 </section>
-<section class="slide level2">
-
+<section id="fishers-exact-test-in-r" class="slide level2">
+<h2>Fisher’s Exact Test in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Use Fisher's Exact Test to calculate the OR and P-value</span></span>
-<span id="cb6-2"><a></a>result_cc <span class="ot">&lt;-</span> <span class="fu">fisher.test</span>(disease_data_cc)</span>
-<span id="cb6-3"><a></a><span class="fu">cat</span>(<span class="st">"Odds Ratio (OR) of the Case-Control Study:"</span>, <span class="fu">round</span>(result_cc<span class="sc">$</span>estimate, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Use Fisher's Exact Test to compute conditional maximum likelihood OR and p-value</span></span>
+<span id="cb5-2"><a></a>result_cc <span class="ot">&lt;-</span> <span class="fu">fisher.test</span>(disease_data_cc)</span>
+<span id="cb5-3"><a></a><span class="fu">cat</span>(<span class="st">"Odds Ratio (Fisher's exact):"</span>, <span class="fu">round</span>(result_cc<span class="sc">$</span>estimate, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Odds Ratio (OR) of the Case-Control Study: 4.47 </code></pre>
+<pre><code>Odds Ratio (Fisher's exact): 4.47 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">cat</span>(<span class="st">"P-value:"</span>, <span class="fu">signif</span>(result_cc<span class="sc">$</span>p.value, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">cat</span>(<span class="st">"P-value:"</span>, <span class="fu">signif</span>(result_cc<span class="sc">$</span>p.value, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>P-value: 0.315 </code></pre>
 </div>
 </div>
 <p><strong>Interpretation</strong></p>
 <ul>
-<li><strong>OR = 1</strong> and <strong>log(OR) = 0</strong>: Exposure is not associated with the outcome</li>
-<li><strong>OR &gt; 1</strong> and <strong>log(OR) &gt; 0</strong>: Exposure is positively associated with the outcome</li>
-<li><strong>OR &lt; 1</strong> and <strong>log(OR) &lt; 0</strong>: Exposure is negatively associated with the outcome</li>
+<li><strong><span class="math inline">\(\text{OR} = 1\)</span></strong> (<span class="math inline">\(\ln(\text{OR}) = 0\)</span>): Exposure is not associated with outcome</li>
+<li><strong><span class="math inline">\(\text{OR} &gt; 1\)</span></strong> (<span class="math inline">\(\ln(\text{OR}) &gt; 0\)</span>): Exposure is positively associated with higher odds of outcome</li>
+<li><strong><span class="math inline">\(\text{OR} &lt; 1\)</span></strong> (<span class="math inline">\(\ln(\text{OR}) &lt; 0\)</span>): Exposure is inversely associated with odds of outcome (protective)</li>
 </ul>
+</section></section>
+<section>
+<section id="selecting-the-study-design" class="title-slide slide level1 center">
+<h1>Selecting the Study Design</h1>
+
 </section>
-<section id="discussion-how-should-i-determine-the-experiment-design" class="slide level2">
-<h2>Discussion: how should I determine the experiment design</h2>
-<p>While case-control and cohort studies have similarities, they are rarely interchangeable due to practical reasons:</p>
+<section id="discussion-choosing-the-appropriate-study-design" class="slide level2">
+<h2>Discussion: Choosing the Appropriate Study Design</h2>
+<p>While case-control and cohort designs investigate similar associations, practical constraints govern study selection:</p>
 <ul>
-<li>Sample size considerations</li>
-<li>Ability to handle rare events</li>
-<li>Practical implementation</li>
-<li>Level of evidence</li>
+<li>Disease incidence / rarity of the outcome</li>
+<li>Prevalence / rarity of the exposure</li>
+<li>Latency period between exposure and disease onset</li>
+<li>Cost, logistics, and follow-up feasibility</li>
 </ul>
 </section>
-<section id="the-needle-in-a-haystack-problem-rare-diseases" class="slide level2">
-<h2>The “Needle in a Haystack” Problem: Rare Diseases</h2>
-<p>Imagine you are investigating a very rare type of cancer that affects only 1 in 100,000 people.</p>
+<section id="rare-diseases" class="slide level2">
+<h2>Rare Diseases</h2>
+<p>Consider investigating an uncommon pathology occurring in 1 per 100,000 person-years (The “Needle in a Haystack” ):</p>
 <div class="columns">
 <div class="column">
-<p><strong>Cohort Study design:</strong></p>
+<p><strong>Cohort Study Design:</strong></p>
 <ul>
-<li>Sample size: Large population (e.g., 500,000 people)</li>
-<li>Tracking time: Long period (if prospective cohort)</li>
-<li>Disease case rate: low</li>
+<li>Sample size: Extremely large cohort (e.g., &gt; 500,000 individuals)</li>
+<li>Follow-up duration: Years to decades</li>
+<li>Expected incident cases: Very low per cohort size</li>
 </ul>
 </div><div class="column">
-<p><strong>Case-Control design:</strong></p>
+<p><strong>Case-Control Design:</strong></p>
 <ul>
-<li>Sample size: Relatively small (<span class="math inline">\(N\)</span> disease vs.&nbsp;<span class="math inline">\(N\)</span> healthy)</li>
-<li>Time: Not a major consideration</li>
-<li>Disease case rate: Not applicable</li>
+<li>Sample size: Highly efficient (e.g., <span class="math inline">\(N\)</span> confirmed cases vs.&nbsp;matched controls)</li>
+<li>Follow-up duration: Minimal (ascertainment of past exposure)</li>
 </ul>
 </div></div>
 <p><strong>Takeaway:</strong></p>
 <ul>
-<li>Case-control studies are economically feasible for studying <strong>rare diseases</strong>.</li>
-<li>The OR approximates the RR when the disease is rare.</li>
+<li>Case-control studies are statistically and economically optimal for studying <strong>rare diseases</strong>.</li>
+<li>Under the rare disease assumption, the sample OR closely approximates the population RR.</li>
 </ul>
 </section>
-<section id="optional-or-approximate-to-rr" class="slide level2">
-<h2>(Optional) OR approximate to RR</h2>
-<p>Let’s recall the formulas using our <span class="math inline">\(2 \times 2\)</span> table counts (<span class="math inline">\(a\)</span> = Exposed Cases, <span class="math inline">\(b\)</span> = Exposed Controls, <span class="math inline">\(c\)</span> = Unexposed Cases, <span class="math inline">\(d\)</span> = Unexposed Controls).</p>
+<section id="or-approximation-to-rr" class="slide level2">
+<h2>OR Approximation to RR</h2>
+<p>Recall the <span class="math inline">\(2 \times 2\)</span> contingency table notation:</p>
 <div class="columns">
 <div class="column">
 <p><strong>Relative Risk (RR):</strong> <span class="math display">\[
 \small
-RR = \frac{\text{Risk in Exposed}}{\text{Risk in Unexposed}} = \frac{\frac{a}{a+b}}{\frac{c}{c+d}}
+\text{RR} = \frac{\text{Risk in Exposed}}{\text{Risk in Unexposed}} = \frac{\frac{a}{a+b}}{\frac{c}{c+d}}
 \]</span></p>
 </div><div class="column">
-<p><strong>Odds Ratio (OR):</strong></p>
-<p><span class="math display">\[
+<p><strong>Odds Ratio (OR):</strong> <span class="math display">\[
 \small
-OR = \frac{\text{Odds in Exposed}}{\text{Odds in Unexposed}} = \frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a \times d}{b \times c}
+\text{OR}  = \frac{\text{Odds in Exposed}}{\text{Odds in Unexposed}}  =  \frac{\frac{a}{b}}{\frac{c}{d}}
 \]</span></p>
 </div></div>
-<p>If a disease is extremely rare (e.g., 1 in 10,000 people), the number of sick (<span class="math inline">\(a\)</span> and <span class="math inline">\(c\)</span>) is incredibly tiny compared to the healthy people (<span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span>).</p>
-<p>If <span class="math inline">\(a\)</span> is vanishingly small, then adding it to <span class="math inline">\(b\)</span> barely changes anything. Therefore the following approximation holds <span class="math display">\[
+<p>When the outcome is rare across both exposure groups, cumulative incidence is very low: <span class="math display">\[
 \small
 \begin{aligned}
 a \ll b \implies &amp; a + b \approx b \\
 c \ll d \implies &amp; c + d \approx d
 \end{aligned}
 \]</span></p>
+<p>Substituting these approximations yields: <span class="math inline">\(\text{RR} = \frac{\frac{a}{a+b}}{\frac{c}{c+d}} \approx \frac{\frac{a}{b}}{\frac{c}{d}} = \text{OR}\)</span></p>
 </section>
-<section id="the-unique-group-problem-rare-exposures" class="slide level2">
-<h2>2. The “Unique Group” Problem: Rare Exposures</h2>
-<p>In contrast, we are studying the health effects of a chemical spill inside a specific, small battery factory.</p>
+<section id="rare-exposures" class="slide level2">
+<h2>Rare Exposures</h2>
+<p>Suppose we are investigating the occupational health impact of an accidental chemical spill within a single industrial facility:</p>
 <div class="columns">
 <div class="column">
-<p><strong>Cohort Study design:</strong></p>
+<p><strong>Cohort Study Design:</strong></p>
 <ul>
-<li>Sample size: Manageable (<span class="math inline">\(N\)</span> exposure v.s. <span class="math inline">\(N\)</span> non-exposure)</li>
-<li>Tracking Time: depends</li>
+<li><strong>Sample size</strong>: Readily assembled from the defined exposed workforce</li>
+<li><strong>Follow-up</strong>: Track exposed workers and an internal/external unexposed comparison group</li>
 </ul>
 </div><div class="column">
-<p><strong>Case-Control design:</strong></p>
+<p><strong>Case-Control Design:</strong></p>
 <ul>
-<li>Sample size: Large population required to identify enough exposed individuals</li>
+<li><strong>Sample size</strong>: General-population sampling would require immense screening to identify enough exposed individuals</li>
+<li><strong>Follow-up</strong>: Not the concern</li>
 </ul>
 </div></div>
 <p><strong>Takeaway:</strong></p>
 <ul>
-<li>Cohort studies are usually a better choice for studying <strong>Rare Exposures</strong>.</li>
+<li>Cohort studies are the design of choice when studying <strong>rare exposures</strong>.</li>
 </ul>
 </section>
 <section id="implementation-realities-time-and-memory" class="slide level2">
-<h2>Implementation Realities: Time, and Memory</h2>
-<p>Beyond statistical theory, study design is heavily dictated by human behavior and logistics.</p>
+<h2>Implementation Realities: Time and Memory</h2>
+<p>Study validity is strongly influenced by methodological and logistical vulnerabilities:</p>
 <ul>
 <li><strong>Recall Bias (Case-Control):</strong>
 <ul>
-<li>Rely on people’s memories to know the exposure.</li>
-<li>e.g.&nbsp;If you ask a mother whose baby was born with a defect (Case) if she ate anything unusual during pregnancy</li>
+<li>Relies on retrospective recall of exposure details.</li>
+<li>Differential recall frequently occurs when disease status alters exposure reporting (e.g., cases reviewing past events more intensely than controls).</li>
 </ul></li>
-<li><strong>Loss to follow-up (Cohort):</strong>
+<li><strong>Loss to Follow-up (Cohort):</strong>
 <ul>
-<li>There is a risk of losing track of people.</li>
-<li>e.g.&nbsp;If you track people for 10 years, participants may move away, change contact details, or drop out of the study.</li>
-<li>If those who drop out differ systematically from those who stay, the results can be biased.</li>
+<li>Attrition over long tracking periods can introduce selection bias.</li>
+<li>Non-random dropouts systematically distort risk estimates if loss to follow-up is related to both exposure and outcome.</li>
 </ul></li>
 </ul>
 </section>
-<section id="implementation-realities-finding-good-control" class="slide level2">
-<h2>Implementation Realities: Finding good control</h2>
-<ul>
-<li>Identifying a proper control group can be challenging</li>
-</ul>
+<section id="selecting-valid-controls" class="slide level2">
+<h2>Selecting Valid Controls</h2>
+<p>Identifying an appropriate control group is a critical challenge in case-control research:</p>
 <div class="columns">
 <div class="column">
-<p><strong>Pancreatic cancer and coffee</strong> <span class="citation" data-cites="macmahon1981coffee">MacMahon et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">1981</a>)</span></p>
+<p><strong>Pancreatic Cancer and Coffee</strong> (<span class="citation" data-cites="macmahon1981coffee">MacMahon et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">1981</a>)</span>)</p>
 <ul>
-<li>Pancreatic cancer patient (case) v.s. Gastric ulcer (Hospital control)</li>
-<li>Hidden issue: Gastric ulcer patients are often advised to limit intake of irritants such as caffeine.</li>
-<li>Conclusion: Coffee intake appeared positively associated with pancreatic cancer.</li>
+<li>Cases: Pancreatic cancer patients.</li>
+<li>Controls: Hospitalized patients with other gastrointestinal conditions (e.g., peptic ulcers).</li>
+<li>Selection artifact: Peptic ulcer patients had deliberately restricted coffee intake due to abdominal symptoms.</li>
+<li>Result: Spurious positive association between coffee consumption and pancreatic cancer.</li>
 </ul>
 </div><div class="column">
-<p><strong>GLP-1 and other medications</strong> <span class="citation" data-cites="schuemie2019plea">Schuemie et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2019</a>)</span></p>
+<p><strong>GLP-1 Receptor Agonists and Safety</strong> (<span class="citation" data-cites="schuemie2019plea">Schuemie et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2019</a>)</span>)</p>
 <ul>
-<li>Studies try to show the effect of GLP-1 therapies (once used for type 2 diabetes, now repurposed for weight control and cardiovascular risk reduction)</li>
-<li>Because of the variety of products, patients may not know whether they are taking the medication or not</li>
+<li>Evaluating GLP-1 receptor agonist safety profiles across observational databases.</li>
+<li>Confounding by indication and treatment switching across multi-drug regimens requires rigorous active-comparator selection.</li>
 </ul>
 </div></div>
 </section>
-<section id="wrap-up-summary" class="slide level2">
-<h2>Wrap up Summary</h2>
+<section id="summary-comparison" class="slide level2">
+<h2>Summary Comparison</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -632,109 +634,105 @@ c \ll d \implies &amp; c + d \approx d
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Starting Point</strong></td>
-<td style="text-align: left;">Exposure (e.g., Water Source)</td>
-<td style="text-align: left;">Disease (e.g., Gastroenteritis)</td>
+<td style="text-align: left;"><strong>Primary Sampling Basis</strong></td>
+<td style="text-align: left;">Exposure status</td>
+<td style="text-align: left;">Disease / outcome status</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Direction of Time</strong></td>
-<td style="text-align: left;">Forward (Prospective)*</td>
-<td style="text-align: left;">Backward (Retrospective)</td>
+<td style="text-align: left;"><strong>Temporal Direction</strong></td>
+<td style="text-align: left;">Forward (Prospective or Retrospective Cohort)</td>
+<td style="text-align: left;">Backward (Exposure history)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Best Used For…</strong></td>
-<td style="text-align: left;"><strong>Rare Exposures</strong></td>
-<td style="text-align: left;"><strong>Rare Diseases</strong></td>
+<td style="text-align: left;"><strong>Optimal Application</strong></td>
+<td style="text-align: left;">Rare exposures, multiple outcomes</td>
+<td style="text-align: left;">Rare diseases, long latency</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Primary Metric</strong></td>
-<td style="text-align: left;">Relative Risk (RR)</td>
+<td style="text-align: left;"><strong>Primary Association Metric</strong></td>
+<td style="text-align: left;">Cumulative Incidence, Relative Risk (RR)</td>
 <td style="text-align: left;">Odds Ratio (OR)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Biggest Risk</strong></td>
-<td style="text-align: left;">Loss to follow-up, Expensive</td>
-<td style="text-align: left;">Recall bias, Hard to pick good controls</td>
+<td style="text-align: left;"><strong>Primary Vulnerabilities</strong></td>
+<td style="text-align: left;">Attrition / loss to follow-up, cost</td>
+<td style="text-align: left;">Recall bias, control selection bias</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="learning-objectives-1" class="slide level2">
-<h2>Learning objectives</h2>
+<section id="learning-objectives-review" class="slide level2">
+<h2>Learning Objectives Review</h2>
 <ul>
-<li>Analyze data from cohort study</li>
-<li>Analyze data from case-control study</li>
-<li>Justify the use of a cohort or case-control study</li>
+<li>Estimate and interpret incidence and Relative Risk from cohort study data.</li>
+<li>Estimate and interpret Odds Ratios and Fisher’s exact tests from case-control data.</li>
+<li>Justify study design selection based on disease rarity, exposure frequency, and logistical constraints.</li>
 </ul>
 </section></section>
 <section>
-<section id="optional-material-1-confidence-interval-of-rr" class="title-slide slide level1 center">
-<h1>Optional material 1: Confidence interval of RR</h1>
+<section id="optional-module-1-confidence-interval-of-relative-risk" class="title-slide slide level1 center">
+<h1>Optional Module 1: Confidence Interval of Relative Risk</h1>
 
 </section>
-<section id="inference-on-rr" class="slide level2">
-<h2>Inference on RR</h2>
+<section id="inference-on-relative-risk" class="slide level2">
+<h2>Inference on Relative Risk</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Optional below</strong></p>
+<p><strong>Optional Material</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Optional below:</strong> SE formula, <span class="math inline">\(z\)</span>-interval construction, and code. Not included in the exam (Z-test is an approximation; other methods adjust for covariates more cleanly).</p>
+<p>The standard error formula and Wald-type confidence interval below are presented for pedagogical reference.</p>
 </div>
 </div>
 </div>
+<p>Under asymptotic normality, <span class="math inline">\(\ln(\text{RR})\)</span> has estimated standard error: <span class="math display">\[
+\text{SE}\left(\ln(\text{RR})\right) = \sqrt{\frac{1}{a} - \frac{1}{a+b} + \frac{1}{c} - \frac{1}{c+d}} = \sqrt{\frac{b}{a(a+b)} + \frac{d}{c(c+d)}}
+\]</span></p>
 <ul>
-<li><p><span class="math inline">\(\log(\text{RR})\)</span> follows normal distribution with standard error (SE) <span class="math display">\[
-SE=\sqrt{\frac{1}{a}-\frac{1}{a+b}+\frac{1}{c}-\frac{1}{c+d}}
-\]</span></p></li>
-<li><p>Hypothesis <span class="math display">\[
+<li><p>Hypotheses: <span class="math display">\[
 \begin{aligned}
-H_0: &amp; \ln(RR) = 0 \\
-H_a: &amp; \ln(RR) \neq 0
+H_0: &amp; \quad \ln(\text{RR}) = 0 \quad (\text{RR} = 1) \\
+H_a: &amp; \quad \ln(\text{RR}) \neq 0 \quad (\text{RR} \neq 1)
 \end{aligned}
 \]</span></p></li>
-<li><p>If your 95% confidence interval includes 0 (e.g., [-0.9, 2.4]), we <strong>fail to reject the null hypothesis</strong>, because <span class="math inline">\(\ln(RR) = 0\)</span> is still plausible.</p></li>
+<li><p>If the 95% confidence interval for <span class="math inline">\(\text{RR}\)</span> spans <span class="math inline">\(1.0\)</span> (or for <span class="math inline">\(\ln(\text{RR})\)</span> spans <span class="math inline">\(0\)</span>), we fail to reject <span class="math inline">\(H_0\)</span> at <span class="math inline">\(\alpha = 0.05\)</span>.</p></li>
 </ul>
 </section>
-<section class="slide level2">
-
+<section id="computing-relative-risk-confidence-intervals-in-r" class="slide level2">
+<h2>Computing Relative Risk Confidence Intervals in R</h2>
 <div class="columns">
-<div class="column" style="width:34%;">
+<div class="column" style="width:35%;">
 <p><strong>Interpretation</strong></p>
 <ul>
-<li><strong>RR = 1</strong> and <strong>log(RR) = 0</strong>: No difference in risk between groups</li>
-<li><strong>RR &gt; 1</strong> and <strong>log(RR) &gt; 0</strong>: Increased risk in the exposed group</li>
-<li><strong>RR &lt; 1</strong> and <strong>log(RR) &lt; 0</strong>: Decreased risk in the exposed group</li>
+<li><strong><span class="math inline">\(\text{RR} = 1\)</span></strong> (<span class="math inline">\(\ln(\text{RR}) = 0\)</span>): Null association</li>
+<li><strong><span class="math inline">\(\text{RR} &gt; 1\)</span></strong> (<span class="math inline">\(\ln(\text{RR}) &gt; 0\)</span>): Elevated risk in exposed</li>
+<li><strong><span class="math inline">\(\text{RR} &lt; 1\)</span></strong> (<span class="math inline">\(\ln(\text{RR}) &lt; 0\)</span>): Reduced risk in exposed</li>
 </ul>
 </div><div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># 1. Calculate the natural log of RR</span></span>
-<span id="cb10-2"><a></a>log_RR <span class="ot">&lt;-</span> <span class="fu">log</span>(RR)</span>
-<span id="cb10-3"><a></a></span>
-<span id="cb10-4"><a></a><span class="co"># 2. Calculate the Standard Error (SE) for log(RR)</span></span>
-<span id="cb10-5"><a></a><span class="co"># The mathematical formula for the variance of log(RR) is:</span></span>
-<span id="cb10-6"><a></a><span class="co"># (1/a) - (1/(a+b)) + (1/c) - (1/(c+d))</span></span>
-<span id="cb10-7"><a></a>se_log_RR <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span>a) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span>(a<span class="sc">+</span>b)) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">/</span>c) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span>(c<span class="sc">+</span>d)))</span>
-<span id="cb10-8"><a></a></span>
-<span id="cb10-9"><a></a><span class="co"># 3. Build the 95% Confidence Interval on the log scale</span></span>
-<span id="cb10-10"><a></a><span class="co"># (using Z = 1.96)</span></span>
-<span id="cb10-11"><a></a>ci_lower_log <span class="ot">&lt;-</span> log_RR <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se_log_RR</span>
-<span id="cb10-12"><a></a>ci_upper_log <span class="ot">&lt;-</span> log_RR <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se_log_RR</span>
-<span id="cb10-13"><a></a></span>
-<span id="cb10-14"><a></a><span class="co"># 4. Exponentiate [ exp() ] back to the normal RR scale</span></span>
-<span id="cb10-15"><a></a>ci_lower <span class="ot">&lt;-</span> <span class="fu">exp</span>(ci_lower_log)</span>
-<span id="cb10-16"><a></a>ci_upper <span class="ot">&lt;-</span> <span class="fu">exp</span>(ci_upper_log)</span>
-<span id="cb10-17"><a></a></span>
-<span id="cb10-18"><a></a><span class="co"># Print the results</span></span>
-<span id="cb10-19"><a></a><span class="fu">cat</span>(<span class="st">"Relative Risk (RR):"</span>, <span class="fu">round</span>(RR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># 1. Natural log of RR</span></span>
+<span id="cb9-2"><a></a>log_RR <span class="ot">&lt;-</span> <span class="fu">log</span>(RR)</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="co"># 2. Standard error for log(RR)</span></span>
+<span id="cb9-5"><a></a>se_log_RR <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span>a) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span>(a <span class="sc">+</span> b)) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">/</span>c) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span>(c <span class="sc">+</span> d)))</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="co"># 3. 95% Wald confidence interval on log scale</span></span>
+<span id="cb9-8"><a></a>ci_lower_log <span class="ot">&lt;-</span> log_RR <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se_log_RR</span>
+<span id="cb9-9"><a></a>ci_upper_log <span class="ot">&lt;-</span> log_RR <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se_log_RR</span>
+<span id="cb9-10"><a></a></span>
+<span id="cb9-11"><a></a><span class="co"># 4. Exponentiate back to natural scale</span></span>
+<span id="cb9-12"><a></a>ci_lower <span class="ot">&lt;-</span> <span class="fu">exp</span>(ci_lower_log)</span>
+<span id="cb9-13"><a></a>ci_upper <span class="ot">&lt;-</span> <span class="fu">exp</span>(ci_upper_log)</span>
+<span id="cb9-14"><a></a></span>
+<span id="cb9-15"><a></a><span class="fu">cat</span>(<span class="st">"Relative Risk (RR):"</span>, <span class="fu">round</span>(RR, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Relative Risk (RR): 2.5 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">cat</span>(<span class="st">"95% CI: ["</span>, <span class="fu">round</span>(ci_lower, <span class="dv">2</span>), <span class="st">","</span>, <span class="fu">round</span>(ci_upper, <span class="dv">2</span>), <span class="st">"]</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">cat</span>(<span class="st">"95% CI: ["</span>, <span class="fu">round</span>(ci_lower, <span class="dv">2</span>), <span class="st">","</span>, <span class="fu">round</span>(ci_upper, <span class="dv">2</span>), <span class="st">"]</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>95% CI: [ 0.67 , 9.31 ]</code></pre>
 </div>
@@ -742,95 +740,76 @@ H_a: &amp; \ln(RR) \neq 0
 </div></div>
 </section></section>
 <section>
-<section id="optional-materials-2-connection-with-regression" class="title-slide slide level1 center">
-<h1>Optional materials 2 Connection with regression</h1>
+<section id="optional-module-2-connection-with-regression-models" class="title-slide slide level1 center">
+<h1>Optional Module 2: Connection with Regression Models</h1>
 
 </section>
-<section id="helper-function" class="slide level2">
-<h2>Helper function</h2>
-<p>To perform regression analysis we need to transform our contingency table to proper dataframe</p>
-<p><strong>Helper function</strong></p>
+<section id="data-transformation-helper-function" class="slide level2">
+<h2>Data Transformation Helper Function</h2>
+<p>To fit generalized linear models, we expand aggregate cell counts into individual-level rows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Helper function to transform contingency table to dataframe</span></span>
-<span id="cb14-2"><a></a>table_to_df <span class="ot">&lt;-</span> <span class="cf">function</span>(contingency_table) {</span>
-<span id="cb14-3"><a></a>  </span>
-<span id="cb14-4"><a></a>  <span class="co"># Getting cell from the contingency table</span></span>
-<span id="cb14-5"><a></a>  a <span class="ot">&lt;-</span> contingency_table[<span class="dv">1</span>, <span class="dv">1</span>] </span>
-<span id="cb14-6"><a></a>  b <span class="ot">&lt;-</span> contingency_table[<span class="dv">1</span>, <span class="dv">2</span>] </span>
-<span id="cb14-7"><a></a>  c <span class="ot">&lt;-</span> contingency_table[<span class="dv">2</span>, <span class="dv">1</span>] </span>
-<span id="cb14-8"><a></a>  d <span class="ot">&lt;-</span> contingency_table[<span class="dv">2</span>, <span class="dv">2</span>] </span>
-<span id="cb14-9"><a></a>  </span>
-<span id="cb14-10"><a></a>  <span class="co"># Matching a, b, c, d to disease status and exposure</span></span>
-<span id="cb14-11"><a></a>  Disease_Status <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, a), <span class="fu">rep</span>(<span class="dv">0</span>, b), <span class="fu">rep</span>(<span class="dv">1</span>, c), <span class="fu">rep</span>(<span class="dv">0</span>, d))</span>
-<span id="cb14-12"><a></a>  Exposure_Status <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, a), <span class="fu">rep</span>(<span class="dv">1</span>, b), <span class="fu">rep</span>(<span class="dv">0</span>, c), <span class="fu">rep</span>(<span class="dv">0</span>, d))</span>
-<span id="cb14-13"><a></a>  </span>
-<span id="cb14-14"><a></a>  <span class="co"># Combine as dataframe</span></span>
-<span id="cb14-15"><a></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb14-16"><a></a>    <span class="at">Exposure =</span> Exposure_Status,</span>
-<span id="cb14-17"><a></a>    <span class="at">Disease =</span> Disease_Status</span>
-<span id="cb14-18"><a></a>  )</span>
-<span id="cb14-19"><a></a>  </span>
-<span id="cb14-20"><a></a>  <span class="fu">return</span>(df)</span>
-<span id="cb14-21"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>table_to_df <span class="ot">&lt;-</span> <span class="cf">function</span>(contingency_table) {</span>
+<span id="cb13-2"><a></a>  a <span class="ot">&lt;-</span> contingency_table[<span class="dv">1</span>, <span class="dv">1</span>] </span>
+<span id="cb13-3"><a></a>  b <span class="ot">&lt;-</span> contingency_table[<span class="dv">1</span>, <span class="dv">2</span>] </span>
+<span id="cb13-4"><a></a>  c <span class="ot">&lt;-</span> contingency_table[<span class="dv">2</span>, <span class="dv">1</span>] </span>
+<span id="cb13-5"><a></a>  d <span class="ot">&lt;-</span> contingency_table[<span class="dv">2</span>, <span class="dv">2</span>] </span>
+<span id="cb13-6"><a></a>  </span>
+<span id="cb13-7"><a></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-8"><a></a>    <span class="at">Exposure =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, a), <span class="fu">rep</span>(<span class="dv">1</span>, b), <span class="fu">rep</span>(<span class="dv">0</span>, c), <span class="fu">rep</span>(<span class="dv">0</span>, d)),</span>
+<span id="cb13-9"><a></a>    <span class="at">Disease  =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, a), <span class="fu">rep</span>(<span class="dv">0</span>, b), <span class="fu">rep</span>(<span class="dv">1</span>, c), <span class="fu">rep</span>(<span class="dv">0</span>, d))</span>
+<span id="cb13-10"><a></a>  )</span>
+<span id="cb13-11"><a></a>  <span class="fu">return</span>(df)</span>
+<span id="cb13-12"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="cohort-and-poisson-regression" class="slide level2">
-<h2>Cohort and Poisson regression</h2>
+<section id="cohort-study-and-log-binomial-poisson-regression" class="slide level2">
+<h2>Cohort Study and Log-Binomial / Poisson Regression</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Optional modeling bridge</strong></p>
+<p><strong>Modeling Bridge</strong></p>
 </div>
 <div class="callout-content">
-<p>This section links RR to a Poisson regression coefficient <span class="math inline">\(\beta_1\)</span>. Useful for later courses; <strong>not</strong> the core workshop skill. Core skill remains: build the <span class="math inline">\(2\times 2\)</span> table and interpret RR/OR.</p>
+<p>This section links RR directly to generalized linear model parameterization.</p>
 </div>
 </div>
 </div>
-<p>Consider the Exposure of A (X, 0 = control, live in B, 1 = exposure live in A), in Poisson regression, it is written as</p>
-<p><span class="math display">\[
-\ln(\text{Risk}) = \beta_0 + \beta_1 X
+<p>Modeling binary disease risk with a log link: <span class="math display">\[
+\ln(P(Y = 1 \mid X)) = \beta_0 + \beta_1 X
 \]</span></p>
 <ul>
-<li><span class="math inline">\(\beta_0\)</span>: is the baseline log-risk (Intercept, baseline for the not exposed group).</li>
-<li><span class="math inline">\(\beta_1\)</span>: the increase <span class="math inline">\(\ln(\text{Risk})\)</span> due to exposure</li>
+<li><span class="math inline">\(\beta_0\)</span>: Log-risk in the unexposed group (<span class="math inline">\(X = 0\)</span>).</li>
+<li><span class="math inline">\(\beta_1\)</span>: Difference in log-risk between exposed and unexposed groups (<span class="math inline">\(\ln(\text{RR})\)</span>).</li>
 </ul>
 </section>
-<section id="why-smallbeta_1-is-the-smalllogtextrr" class="slide level2">
-<h2>Why <span class="math inline">\(\small\beta_1\)</span> is the <span class="math inline">\(\small\log\text{(RR)}\)</span></h2>
+<section id="why-beta_1-lntextrr" class="slide level2">
+<h2>Why <span class="math inline">\(\beta_1 = \ln(\text{RR})\)</span></h2>
 <ol type="1">
-<li><p>Risk for living near Water Source A, and B <span class="math display">\[
-\small
-\log(\text{Risk}_A )= \ln\left(p_A\right) = \beta_0 + \beta_1, \quad \log(\text{Risk}_B )= \ln\left(p_B\right) = \beta_0
+<li><p>Log-risk by exposure group: <span class="math display">\[
+\ln(p_A) = \beta_0 + \beta_1, \quad \ln(p_B) = \beta_0
 \]</span></p></li>
-<li><p>Subtracting the two, we will get</p></li>
+<li><p>Difference of log-risks: <span class="math display">\[
+\beta_1 = \ln(p_A) - \ln(p_B) = \ln\left(\frac{p_A}{p_B}\right) = \ln(\text{RR}) \implies \exp(\beta_1) = \text{RR}
+\]</span></p></li>
 </ol>
-<p><span class="math display">\[
-\begin{aligned}
-\text{RR} = &amp; \ln\left(\frac{\text{Risk}_{X=1}}{\text{Risk}_{X=0}}\right) = \ln(\text{Risk}_{X=1}) - \ln(\text{Risk}_{X=0})  \\
-&amp; = (\beta_0 + \beta_1) - \beta_0 = \beta_1
-\end{aligned}
-\]</span></p>
 </section>
-<section id="perform-the-task-in-poisson-regression-manner" class="slide level2">
-<h2>Perform the task in Poisson regression manner</h2>
+<section id="fitting-poisson-regression-in-r" class="slide level2">
+<h2>Fitting Poisson Regression in R</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
-<p><strong>Transforming to dataframe</strong></p>
+<p><strong>Preparing Individual Data</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># 2. transform contingency table DataFrame</span></span>
-<span id="cb15-2"><a></a>disease_data_ch<span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb15-3"><a></a>  <span class="fu">c</span>(a, b,   <span class="co"># Area A: Cases (a), Controls (b) (example)</span></span>
-<span id="cb15-4"><a></a>    c, d),  <span class="co"># Area B: Cases (c), Controls (d) (example)</span></span>
-<span id="cb15-5"><a></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
-<span id="cb15-6"><a></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
-<span id="cb15-7"><a></a>)</span>
-<span id="cb15-8"><a></a>patient_data <span class="ot">&lt;-</span> <span class="fu">table_to_df</span>(disease_data_ch)</span>
-<span id="cb15-9"><a></a></span>
-<span id="cb15-10"><a></a><span class="co"># 3. inspect first 5 rows</span></span>
-<span id="cb15-11"><a></a><span class="fu">head</span>(patient_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>disease_data_ch <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb14-2"><a></a>  <span class="fu">c</span>(a, b,</span>
+<span id="cb14-3"><a></a>    c, d),</span>
+<span id="cb14-4"><a></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb14-5"><a></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
+<span id="cb14-6"><a></a>)</span>
+<span id="cb14-7"><a></a>patient_data_ch <span class="ot">&lt;-</span> <span class="fu">table_to_df</span>(disease_data_ch)</span>
+<span id="cb14-8"><a></a><span class="fu">head</span>(patient_data_ch, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Exposure Disease
 1        1       1
@@ -841,18 +820,19 @@ H_a: &amp; \ln(RR) \neq 0
 </div>
 </div>
 </div><div class="column" style="width:55%;">
-<p><strong>Performing Poisson regression</strong></p>
+<p><strong>Fitting Poisson GLM</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># 4. perform Poisson regression</span></span>
-<span id="cb17-2"><a></a>poisson_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Disease <span class="sc">~</span> Exposure, </span>
-<span id="cb17-3"><a></a>                    <span class="at">data =</span> patient_data, </span>
-<span id="cb17-4"><a></a>                    <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb17-5"><a></a><span class="fu">summary</span>(poisson_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>poisson_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb16-2"><a></a>  Disease <span class="sc">~</span> Exposure, </span>
+<span id="cb16-3"><a></a>  <span class="at">data =</span> patient_data_ch, </span>
+<span id="cb16-4"><a></a>  <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>)</span>
+<span id="cb16-5"><a></a>)</span>
+<span id="cb16-6"><a></a><span class="fu">summary</span>(poisson_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
 glm(formula = Disease ~ Exposure, family = poisson(link = "log"), 
-    data = patient_data)
+    data = patient_data_ch)
 
 Coefficients:
             Estimate Std. Error z value Pr(&gt;|z|)  
@@ -872,73 +852,33 @@ Number of Fisher Scoring iterations: 5</code></pre>
 </div>
 </div></div>
 </section>
-<section id="case-control-and-logistic-regression" class="slide level2">
-<h2>Case-control and logistic regression</h2>
-<p>Consider the Exposure of A (X, 0 = control, live in B, 1 = exposure live in A), in logistic regression, it is written as:</p>
-<p><span class="math display">\[
-\ln\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 X
+<section id="case-control-study-and-logistic-regression" class="slide level2">
+<h2>Case-Control Study and Logistic Regression</h2>
+<p>For a case-control design, binary outcome modeling with the canonical logit link: <span class="math display">\[
+\text{logit}(P(Y = 1 \mid X)) = \ln\left(\frac{p}{1 - p}\right) = \beta_0 + \beta_1 X
 \]</span></p>
 <ul>
-<li><span class="math inline">\(\beta_0\)</span>: baseline log-odds intercept (affected by the sampling ratio in case-control studies).</li>
-<li><span class="math inline">\(\beta_1\)</span>: the log(OR) for living in A.</li>
+<li><span class="math inline">\(\beta_0\)</span>: Intercept reflecting the arbitrary case-control sampling ratio.</li>
+<li><span class="math inline">\(\beta_1\)</span>: Invariance of the odds ratio permits estimating the true exposure log-odds ratio <span class="math inline">\(\ln(\text{OR})\)</span>.</li>
 </ul>
-<p><strong>Implication</strong></p>
-<p>We can use <strong>logistic regression</strong> to analyze case-control study.</p>
 </section>
-<section id="why-smallbeta_1-is-the-smalllogtextor" class="slide level2">
-<h2>Why <span class="math inline">\(\small\beta_1\)</span> is the <span class="math inline">\(\small\log\text{(OR)}\)</span></h2>
-<ol type="1">
-<li>First we normalize the 2 by 2 table by its row sum</li>
-</ol>
-<table class="caption-top">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 30%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Case-Control Study</th>
-<th>Cases (Infected = N)</th>
-<th>Controls (Healthy = N)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Lived near Water Source A</td>
-<td>a/(a+b) = <span class="math inline">\(p_A\)</span></td>
-<td>b/(a+b) = <span class="math inline">\(1-p_A\)</span></td>
-</tr>
-<tr class="even">
-<td>Lived near Water Source B</td>
-<td>c/(c+d) = <span class="math inline">\(p_B\)</span></td>
-<td>d/(c+d) = <span class="math inline">\(1-p_B\)</span></td>
-</tr>
-</tbody>
-</table>
-<ol start="2" type="1">
-<li><p>Odds for living near Water Source A, and B <span class="math display">\[
-\small
-\log(\text{Odds}_A )= \ln\left(\frac{p_A}{1-p_A}\right) = \beta_0 + \beta_1, \quad \log(\text{Odds}_B )= \ln\left(\frac{p_B}{1-p_B}\right) = \beta_0
-\]</span></p></li>
-<li><p>Subtracting the two in step 2, we will get</p></li>
-</ol>
-<p><span class="math display">\[
-\small
-\log(OR)= \ln\left(\frac{\frac{p_A}{1-p_A}}{\frac{p_B}{1-p_B}}\right) = \beta_1
+<section id="why-beta_1-lntextor" class="slide level2">
+<h2>Why <span class="math inline">\(\beta_1 = \ln(\text{OR})\)</span></h2>
+<p>Evaluating log-odds in exposed (<span class="math inline">\(X = 1\)</span>) vs.&nbsp;unexposed (<span class="math inline">\(X = 0\)</span>): <span class="math display">\[
+\text{logit}(p_A) = \beta_0 + \beta_1, \quad \text{logit}(p_B) = \beta_0
+\]</span></p>
+<p>Subtracting the two equations: <span class="math display">\[
+\beta_1 = \text{logit}(p_A) - \text{logit}(p_B) = \ln\left(\frac{p_A / (1 - p_A)}{p_B / (1 - p_B)}\right) = \ln(\text{OR})
 \]</span></p>
 </section>
-<section id="perform-the-task-in-logistic-regression-manner" class="slide level2">
-<h2>Perform the task in logistic regression manner</h2>
+<section id="fitting-logistic-regression-in-r" class="slide level2">
+<h2>Fitting Logistic Regression in R</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
-<p><strong>Transforming to dataframe</strong></p>
+<p><strong>Preparing Individual Data</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># 2. transform contingency table DataFrame</span></span>
-<span id="cb19-2"><a></a>patient_data <span class="ot">&lt;-</span> <span class="fu">table_to_df</span>(disease_data_cc)</span>
-<span id="cb19-3"><a></a></span>
-<span id="cb19-4"><a></a><span class="co"># 3. inspect first 5 rows</span></span>
-<span id="cb19-5"><a></a><span class="fu">head</span>(patient_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>patient_data_cc <span class="ot">&lt;-</span> <span class="fu">table_to_df</span>(disease_data_cc)</span>
+<span id="cb18-2"><a></a><span class="fu">head</span>(patient_data_cc, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Exposure Disease
 1        1       1
@@ -949,16 +889,19 @@ Number of Fisher Scoring iterations: 5</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:55%;">
-<p><strong>Performing logistic regression</strong></p>
+<p><strong>Fitting Logistic GLM</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># 4. perform logistic regression</span></span>
-<span id="cb21-2"><a></a>glm_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Disease <span class="sc">~</span> Exposure, <span class="at">data =</span> patient_data, </span>
-<span id="cb21-3"><a></a>                 <span class="at">family =</span> binomial)</span>
-<span id="cb21-4"><a></a><span class="fu">summary</span>(glm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>glm_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb20-2"><a></a>  Disease <span class="sc">~</span> Exposure, </span>
+<span id="cb20-3"><a></a>  <span class="at">data =</span> patient_data_cc, </span>
+<span id="cb20-4"><a></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>)</span>
+<span id="cb20-5"><a></a>)</span>
+<span id="cb20-6"><a></a><span class="fu">summary</span>(glm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-glm(formula = Disease ~ Exposure, family = binomial, data = patient_data)
+glm(formula = Disease ~ Exposure, family = binomial(link = "logit"), 
+    data = patient_data_cc)
 
 Coefficients:
             Estimate Std. Error z value Pr(&gt;|z|)
@@ -976,22 +919,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 </div></div>
 </section>
-<section id="historical-notes" class="slide level2">
-<h2>Historical notes</h2>
+<section id="methodological-note-estimating-relative-risk-in-cohort-data" class="slide level2">
+<h2>Methodological Note: Estimating Relative Risk in Cohort Data</h2>
 <ul>
-<li>In some old paper researchers tend to use logistic regression for cohort study.
-<ul>
-<li><strong>Benefits</strong>
-<ul>
-<li>Intuitive</li>
-</ul></li>
-<li><strong>Pitfalls</strong>
-<ul>
-<li>Over-estimation on CI (Poisson are modeling frequency not binary outcomes)</li>
-</ul></li>
-</ul></li>
+<li>In prospective cohorts where the outcome is common (&gt; 10%), logistic regression odds ratios substantially overestimate the Relative Risk.</li>
+<li>Modified Poisson regression with robust sandwich variance estimators (<span class="citation" data-cites="zou2004modified">Zou (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2004</a>)</span>) or log-binomial models should be used to directly estimate Relative Risks without inflating confidence intervals.</li>
 </ul>
-<p>This issue is solved by <span class="citation" data-cites="zou2004modified">Zou (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2004</a>)</span>, and since then Poisson regression and logistic regression will get the exact same results in this context.</p>
 </section>
 <section id="bibliography-notes" class="slide level2 smaller scrollable">
 <h2>Bibliography notes</h2>

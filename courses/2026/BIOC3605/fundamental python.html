@@ -6,11 +6,14 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Dr.&nbsp;Yu Cheng Hsu">
-  <title>Yu Cheng Hsu – Functional genomics</title>
+  <title>Yu Cheng Hsu – Python</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -214,8 +217,9 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background="/assets/images/functional-genomics/background-1.jpg" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
-  <h1 class="title">Functional genomics</h1>
+<section id="title-slide" data-background="/assets/images/python/background-1.jpg" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
+  <h1 class="title">Python</h1>
+  <p class="subtitle">Fundamental python skills</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -229,11 +233,11 @@ Dr.&nbsp;Yu Cheng Hsu
 <section id="learning-objectives" class="slide level2">
 <h2>Learning Objectives</h2>
 <ul>
-<li>Understand basic Python sybtax</li>
+<li>Understand basic Python syntax</li>
 </ul>
 
 <aside><div>
-<p>Background image: <span class="citation" data-cites="bg1">Mondrian (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">1935</a>)</span></p>
+<p>Background image: <span class="citation" data-cites="bg1">Seurat (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">1883</a>)</span></p>
 </div></aside></section>
 <section id="python-for-genomics" class="slide level2">
 <h2>Python for Genomics</h2>
@@ -241,47 +245,53 @@ Dr.&nbsp;Yu Cheng Hsu
 <li>Python is the industry standard for bioinformatics, computational biology, and AI.</li>
 <li>Example applications:
 <ul>
-<li>Whether you are analyzing sequence data,</li>
-<li>AlphaFold for protein structures,</li>
+<li>Analyzing sequence data</li>
+<li>Predicting protein structures with AlphaFold</li>
 <li>Building phylogenetic trees</li>
 </ul></li>
-<li>Highly Readable: Unlike older languages (like C++ or Java),
+<li>Highly Readable: Unlike older languages (like C++ or Java), Python is:
 <ul>
 <li>Designed to read almost like plain English.</li>
 </ul></li>
-<li>Open source</li>
+<li>Open-source</li>
 </ul>
 </section>
 <section id="slide-conventions" class="slide level2">
 <h2>Slide conventions</h2>
 <ul>
-<li>Use code formatting for special terms and examples, such as <code>This</code> or <strong><code>This are code</code></strong>.</li>
+<li>Use code formatting for special terms and examples, such as <code>This</code> or <strong><code>This is code</code></strong>.</li>
 </ul>
-<div class="cell">
+<p><strong>Actionable code</strong></p>
+<div id="be66e5bf" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co"># This is a code chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="co">#| echo: true</span></span>
-<span id="cb2-2"><a></a><span class="co">#| eval: true</span></span>
-<span id="cb2-3"><a></a><span class="co"># This is a code chunk that Ray does not aim to let you execute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Demonstration-only code chunk</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="co"># This is a code chunk that Ray does not aim to let you execute</span></span>
+<span id="cb2-2"><a></a><span class="co"># The slides show no difference, but the appearance in .ipynb is different</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="python-environment" class="slide level2">
+<h2>Python environment</h2>
+<div class="columns">
+<div class="column">
+<p><strong>File format</strong>:</p>
+<p><code>.py</code> : Standard Python script file <code>.ipynb</code>: <strong>I</strong>nteractive <strong>Py</strong>thon <strong>N</strong>ote<strong>b</strong>ook</p>
+<p><strong>Environment</strong></p>
+<ul>
+<li>Anaconda: Locally operate Python environment</li>
+<li>Google Colab: Online coding platform</li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://digitalhumanities.hkust.edu.hk/wp-content/uploads/2023/08/google-colab-open-jupyter-notebook.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Google colab illustration, Source from HKUST Digital Humanities Initiative"><img data-src="https://digitalhumanities.hkust.edu.hk/wp-content/uploads/2023/08/google-colab-open-jupyter-notebook.gif" alt="Google colab illustration, Source from HKUST Digital Humanities Initiative"></a></p>
+<figcaption>Google colab illustration, Source from HKUST Digital Humanities Initiative</figcaption>
+</figure>
+</div>
+</div></div>
 </section>
 <section id="variables" class="slide level2">
 <h2>Variables</h2>
-<div class="columns">
-<div class="columm">
-<p>In python there two fundamental data type</p>
-<ul>
-<li>Numbers (Pure values)</li>
-<li>Strings (wrapped in quote marks ““)</li>
-</ul>
-<p>We can store these values using <code>=</code> in a <code>variable</code></p>
-<ul>
-<li>Can only contain A-z, 0-9, and _</li>
-<li>Must start with letter</li>
-<li>Case-sensitive</li>
-</ul>
-<p><em>Side notes</em>: numbers can be further categorized by their storage methods</p>
-</div><div class="columm">
-<div class="cell">
+<div id="abd2bd2c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># The '#' symbol is a comment. Python ignores it. We use it to leave notes.</span></span>
 <span id="cb3-2"><a></a><span class="co"># Let's store a short snippet of a target gene:</span></span>
 <span id="cb3-3"><a></a>target_gene_1 <span class="op">=</span> <span class="st">"ATGCGTAACGTTAGCGCC"</span></span>
@@ -291,145 +301,351 @@ Dr.&nbsp;Yu Cheng Hsu
 <span id="cb3-7"><a></a>gene_2_expr <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb3-8"><a></a></span>
 <span id="cb3-9"><a></a><span class="co"># To see what is inside our variable, we use the print function:</span></span>
-<span id="cb3-10"><a></a><span class="bu">print</span>(target_gene_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a></a><span class="bu">print</span>(target_gene_1)</span>
+<span id="cb3-11"><a></a><span class="bu">print</span>(gene_1_expr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>ATGCGTAACGTTAGCGCC</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="bu">print</span>(gene_1_expr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>15</code></pre>
+<pre><code>ATGCGTAACGTTAGCGCC
+15</code></pre>
 </div>
 </div>
-</div>
-</div>
+<div class="columns">
+<div class="column">
+<p>In Python, there are three fundamental data types:</p>
+<ul>
+<li>Boolean (<code>True</code>, <code>False</code>)</li>
+<li>Numbers (Pure values)</li>
+<li>Strings (wrapped in quote marks <code>""</code>, or <code>''</code>)</li>
+</ul>
+</div><div class="column">
+<p>We can store these values using <code>=</code> in a <code>variable</code>:</p>
+<ul>
+<li>Can only contain A-z, 0-9, and <code>_</code></li>
+<li>Must start with a letter (or underscore)</li>
+<li>Case-sensitive</li>
+</ul>
+</div></div>
 </section>
 <section id="mathematical-operations" class="slide level2">
 <h2>Mathematical Operations</h2>
-<div class="columns">
-<div class="columm">
 <p>Python works exactly like a scientific calculator. The basic operators are:</p>
+<div class="columns">
+<div class="column">
+<p><strong>Math operation</strong></p>
 <ul>
-<li>addition (+)</li>
-<li>subtraction (-)</li>
-<li>multiplication (*)</li>
-<li>division (/)</li>
-<li>exponents (**)</li>
+<li>Addition (<code>+</code>)</li>
+<li>Subtraction (<code>-</code>)</li>
+<li>Multiplication (<code>*</code>)</li>
+<li>Division (<code>/</code>)</li>
+<li>Modulus (<code>%</code>)</li>
+<li>Exponentiation (<code>**</code>)</li>
 </ul>
-<p><em>Side notes</em>: Do not skip multiplication signs as you do in math</p>
-</div><div class="columm">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Simulating a PCR reaction</span></span>
-<span id="cb7-2"><a></a>starting_templates <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb7-3"><a></a>pcr_cycles <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb7-4"><a></a></span>
-<span id="cb7-5"><a></a><span class="co"># The double asterisk (**) means "to the power of"</span></span>
-<span id="cb7-6"><a></a>final_copies <span class="op">=</span> starting_templates <span class="op">*</span> (<span class="dv">2</span> <span class="op">**</span> pcr_cycles)</span>
-<span id="cb7-7"><a></a></span>
-<span id="cb7-8"><a></a><span class="bu">print</span>(<span class="st">"Starting DNA templates:"</span>, starting_templates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<p><strong>Comparison</strong></p>
+<ul>
+<li>Equal (<strong>==</strong>)</li>
+<li>Not equal (<strong>!=</strong>)</li>
+<li>Greater (<strong>&gt;</strong>), Greater than or equal to (<strong>&gt;=</strong>)</li>
+<li>Less (<strong>&lt;</strong>), Less than or equal to (<strong>&lt;=</strong>)</li>
+</ul>
+<p><strong>Logical operation</strong></p>
+<ul>
+<li><code>and</code> (Both sides must be True)</li>
+<li><code>or</code> (Only one side needs to be True)</li>
+<li><code>not</code></li>
+</ul>
+</div></div>
+<p><em>Side notes</em>: Do not skip multiplication signs as you do in math.</p>
+</section>
+<section id="example-pcr-simulator" class="slide level2">
+<h2>Example: PCR simulator</h2>
+<ul>
+<li>We are using PCR to make more copies of a target DNA.</li>
+<li>At the beginning, we have <code>starting_templates</code> copies.</li>
+<li>Each PCR cycle will double the copy amounts.</li>
+<li><code>final_copies</code> calculates the final copies after <code>pcr_cycles</code>.</li>
+</ul>
+<div id="15b16ab1" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Simulating a PCR reaction</span></span>
+<span id="cb5-2"><a></a>starting_templates <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb5-3"><a></a>pcr_cycles <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="co"># The double asterisk (**) means "to the power of"</span></span>
+<span id="cb5-6"><a></a>final_copies <span class="op">=</span> starting_templates <span class="op">*</span> (<span class="dv">2</span> <span class="op">**</span> pcr_cycles)</span>
+<span id="cb5-7"><a></a></span>
+<span id="cb5-8"><a></a><span class="bu">print</span>(<span class="st">"Starting DNA templates:"</span>, starting_templates)</span>
+<span id="cb5-9"><a></a><span class="bu">print</span>(<span class="st">"Final copies after 30 cycles:"</span>, final_copies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Starting DNA templates: 5</code></pre>
+<pre><code>Starting DNA templates: 5
+Final copies after 30 cycles: 5368709120</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="bu">print</span>(<span class="st">"Final copies after 30 cycles:"</span>, final_copies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="if-statement-structure" class="slide level2">
+<h2><code>if</code> Statement Structure</h2>
+<p>An <code>if</code> statement acts as a gatekeeper. It checks a rule. If the rule is <code>True</code>, the indented code below it runs. If it is <code>False</code>, Python skips it completely.</p>
+<p><strong>Optional following actions</strong></p>
+<ul>
+<li><code>elif</code> (Else If): Checks this only if the previous <code>if</code> or <code>elif</code> rule was False. You can have as many of these as you want.</li>
+<li><code>else</code>: The garbage bin. If absolutely every rule above it was False, the <code>else</code> block runs.</li>
+</ul>
+<div id="93964108" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|1|3,4|5,6|7,8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>read_depth <span class="op">=</span> <span class="dv">45</span></span>
+<span id="cb7-2"><a></a><span class="co"># The colon (:) tells Python the rule is finished, and the action is starting.</span></span>
+<span id="cb7-3"><a></a><span class="cf">if</span> read_depth <span class="op">&gt;=</span> <span class="dv">30</span>:</span>
+<span id="cb7-4"><a></a>    <span class="bu">print</span>(<span class="st">"Action: PASS variant."</span>)</span>
+<span id="cb7-5"><a></a><span class="cf">elif</span> read_depth <span class="op">&gt;=</span> <span class="dv">10</span>:</span>
+<span id="cb7-6"><a></a>    <span class="bu">print</span>(<span class="st">"Action: FLAG for manual review."</span>)    </span>
+<span id="cb7-7"><a></a><span class="cf">else</span>:</span>
+<span id="cb7-8"><a></a>    <span class="bu">print</span>(<span class="st">"Action: FAIL variant (Depth too low)."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Final copies after 30 cycles: 5368709120</code></pre>
+<pre><code>Action: PASS variant.</code></pre>
 </div>
 </div>
+</section>
+<section id="example-pcr-qc-check" class="slide level2">
+<h2>Example: PCR QC check</h2>
+<ul>
+<li>We are using PCR to make more copies of a target DNA.</li>
+<li>At the beginning, we have <code>starting_templates</code> copies.</li>
+<li>Each PCR cycle will double the copy amounts.</li>
+<li><code>final_copies</code> calculates the final copies after <code>pcr_cycles</code>.</li>
+</ul>
+<div id="a385394e" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co">## Continue on previous PCR example</span></span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a><span class="co"># We need BOTH conditions to be true to proceed to sequencing.</span></span>
+<span id="cb9-4"><a></a><span class="cf">if</span> final_copies <span class="op">&gt;=</span> <span class="dv">1000000000</span> <span class="kw">and</span> pcr_cycles <span class="op">&lt;=</span> <span class="dv">35</span>:</span>
+<span id="cb9-5"><a></a>    <span class="bu">print</span>(<span class="st">"QC PASS: You have enough high-quality DNA for sequencing!"</span>)</span>
+<span id="cb9-6"><a></a><span class="co"># 'elif' stands for "else if". We check this if the first rule fails.</span></span>
+<span id="cb9-7"><a></a><span class="cf">elif</span> pcr_cycles <span class="op">&gt;</span> <span class="dv">35</span>:</span>
+<span id="cb9-8"><a></a>    <span class="bu">print</span>(<span class="st">"QC FAIL: Too many pcr_cycles. High risk of polymerase errors."</span>)</span>
+<span id="cb9-9"><a></a><span class="co"># 'else' catches everything else (meaning pcr_cycles were fine, but copies were too low).</span></span>
+<span id="cb9-10"><a></a><span class="cf">else</span>:</span>
+<span id="cb9-11"><a></a>    <span class="bu">print</span>(<span class="st">"QC FAIL: Not enough DNA. Try starting with more template."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>QC PASS: You have enough high-quality DNA for sequencing!</code></pre>
 </div>
 </div>
 </section>
 <section id="functions" class="slide level2">
 <h2>Functions</h2>
-<div class="columns">
-<div class="columm">
-<p>Function is a predefined set of code to make you perform specific task.</p>
-<p><code>function_name(input1, input_2, ...)</code></p>
-<p>For example <code>print()</code> is a function to print out the string and values Here we introduce another function <code>len()</code> to inspect how long is the string</p>
-</div><div class="columm">
-<div class="cell">
+<p>A function is a predefined block of code designed to perform a specific task.</p>
+<p><code>function_name(input_1, input_2, ...)</code></p>
+<p>For example, <code>print()</code> is a function to print out strings and values. Here we introduce another function, <code>len()</code>, to inspect how long a string is.</p>
+<div id="0bbc018e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Calculate the length of the target gene</span></span>
 <span id="cb11-2"><a></a>seq_1_length <span class="op">=</span> <span class="bu">len</span>(target_gene_1)</span>
 <span id="cb11-3"><a></a>seq_2_length <span class="op">=</span> <span class="bu">len</span>(target_gene_2)</span>
 <span id="cb11-4"><a></a></span>
 <span id="cb11-5"><a></a><span class="co"># We can print text and variables together by separating them with a comma</span></span>
-<span id="cb11-6"><a></a><span class="bu">print</span>(<span class="st">"Total base pairs (Seq 1):"</span>, seq_1_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a></a><span class="bu">print</span>(<span class="st">"Total base pairs (Seq 1):"</span>, seq_1_length)</span>
+<span id="cb11-7"><a></a><span class="bu">print</span>(<span class="st">"Total base pairs (Seq 2):"</span>, seq_2_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total base pairs (Seq 1): 18</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="bu">print</span>(<span class="st">"Total base pairs (Seq 2):"</span>, seq_2_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Total base pairs (Seq 2): 18</code></pre>
-</div>
-</div>
+<pre><code>Total base pairs (Seq 1): 18
+Total base pairs (Seq 2): 18</code></pre>
 </div>
 </div>
 </section>
 <section id="methods" class="slide level2">
 <h2>Methods</h2>
-<div class="columns">
-<div class="columm">
-<p>Variables that store text (Strings) have special actions they can perform, called methods. We can ask our DNA sequence to count specific motifs or bases using .count().</p>
-</div><div class="columm">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Count the number of Adenine bases in our sequence from Step 1</span></span>
-<span id="cb15-2"><a></a>a_count <span class="op">=</span> target_gene_1.count(<span class="st">"A"</span>)</span>
-<span id="cb15-3"><a></a><span class="bu">print</span>(<span class="st">"Number of A bases:"</span>, a_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Variables have special actions they can perform, called methods.</p>
+<p>Methods are associated with specific data types. You use a method by typing <code>Variable.Method(INPUTS)</code>.</p>
+<p>We can ask our DNA sequence to count specific motifs or bases using <code>.count()</code>.</p>
+<div id="a6bfc38f" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Count the number of Adenine bases in our sequence from Step 1</span></span>
+<span id="cb13-2"><a></a>a_count <span class="op">=</span> target_gene_1.count(<span class="st">"A"</span>)</span>
+<span id="cb13-3"><a></a><span class="bu">print</span>(<span class="st">"Number of A bases:"</span>, a_count)</span>
+<span id="cb13-4"><a></a></span>
+<span id="cb13-5"><a></a><span class="co"># Count a specific motif (e.g., a CpG site)</span></span>
+<span id="cb13-6"><a></a>cpg_count <span class="op">=</span> target_gene_1.count(<span class="st">"CG"</span>)</span>
+<span id="cb13-7"><a></a><span class="bu">print</span>(<span class="st">"Number of CpG sites:"</span>, cpg_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of A bases: 4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="co"># Count a specific motif (e.g., a CpG site)</span></span>
-<span id="cb17-2"><a></a>cpg_count <span class="op">=</span> target_gene_1.count(<span class="st">"CG"</span>)</span>
-<span id="cb17-3"><a></a><span class="bu">print</span>(<span class="st">"Number of CpG sites:"</span>, cpg_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of CpG sites: 3</code></pre>
-</div>
-</div>
+<pre><code>Number of A bases: 4
+Number of CpG sites: 3</code></pre>
 </div>
 </div>
 </section>
 <section id="exercise-calculating-gc-content" class="slide level2">
 <h2>Exercise: Calculating GC-Content</h2>
-<div class="columns">
-<div class="columm">
-<p>GC-content is crucial for determining the melting temperature of PCR primers (G-C base pairs form 3 hydrogen bonds, but A-T forms 2). Let’s calculate it using basic Python math</p>
-</div><div class="columm">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="co"># Count the number of Adenine bases in our sequence from Step 1</span></span>
-<span id="cb19-2"><a></a>a_count <span class="op">=</span> target_gene_1.count(<span class="st">"A"</span>)</span>
-<span id="cb19-3"><a></a><span class="bu">print</span>(<span class="st">"Number of A bases:"</span>, a_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>GC-content is crucial for determining the melting temperature of PCR primers (G-C base pairs form 3 hydrogen bonds, but A-T forms 2). Let’s calculate it using basic Python math.</p>
+<div id="b228272e" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># 1. Count the Gs and Cs</span></span>
+<span id="cb15-2"><a></a>g_count <span class="op">=</span> target_gene_1.count(<span class="st">"G"</span>)</span>
+<span id="cb15-3"><a></a>c_count <span class="op">=</span> target_gene_1.count(<span class="st">"C"</span>)</span>
+<span id="cb15-4"><a></a></span>
+<span id="cb15-5"><a></a><span class="co"># 2. Add them together, divide by total length, and multiply by 100</span></span>
+<span id="cb15-6"><a></a><span class="co"># (We use parentheses to control the order of operations, just like standard math)</span></span>
+<span id="cb15-7"><a></a>gc_content <span class="op">=</span> ((g_count <span class="op">+</span> c_count) <span class="op">/</span> seq_1_length) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb15-8"><a></a></span>
+<span id="cb15-9"><a></a><span class="bu">print</span>(<span class="st">"GC Content (%):"</span>, gc_content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of A bases: 4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="co"># Count a specific motif (e.g., a CpG site)</span></span>
-<span id="cb21-2"><a></a>cpg_count <span class="op">=</span> target_gene_1.count(<span class="st">"CG"</span>)</span>
-<span id="cb21-3"><a></a><span class="bu">print</span>(<span class="st">"Number of CpG sites:"</span>, cpg_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of CpG sites: 3</code></pre>
-</div>
-</div>
+<pre><code>GC Content (%): 55.55555555555556</code></pre>
 </div>
 </div>
 </section>
 <section id="replacing-strings-simulating-transcription" class="slide level2">
 <h2>Replacing strings: Simulating Transcription</h2>
 <div class="columns">
-<div class="columm">
+<div class="column">
 <p>When DNA is transcribed to mRNA, Thymine (T) is replaced by Uracil (U). We can simulate this biological process instantly with the <code>.replace()</code> method.</p>
-</div><div class="columm">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="co"># Transcribe the DNA to RNA by replacing T with U</span></span>
-<span id="cb23-2"><a></a>mrna_sequence <span class="op">=</span> target_gene_1.replace(<span class="st">"T"</span>, <span class="st">"U"</span>)</span>
-<span id="cb23-3"><a></a></span>
-<span id="cb23-4"><a></a><span class="bu">print</span>(<span class="st">"Original DNA:"</span>, target_gene_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div id="a2787789" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="co"># Transcribe the DNA to RNA by replacing T with U</span></span>
+<span id="cb17-2"><a></a>mrna_sequence <span class="op">=</span> target_gene_1.replace(<span class="st">"T"</span>, <span class="st">"U"</span>)</span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a><span class="bu">print</span>(<span class="st">"Original DNA:"</span>, target_gene_1)</span>
+<span id="cb17-5"><a></a><span class="bu">print</span>(<span class="st">"Transcribed mRNA:"</span>, mrna_sequence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Original DNA: ATGCGTAACGTTAGCGCC</code></pre>
+<pre><code>Original DNA: ATGCGTAACGTTAGCGCC
+Transcribed mRNA: AUGCGUAACGUUAGCGCC</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="bu">print</span>(<span class="st">"Transcribed mRNA:"</span>, mrna_sequence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="indexing-and-slicing-finding-codons" class="slide level2">
+<h2>Indexing and Slicing: Finding Codons</h2>
+<div class="columns">
+<div class="column">
+<p>Python is <strong>0-indexed</strong>, meaning it starts counting at <code>0</code>, not <code>1</code>. To extract specific bases (like a start codon), we use square brackets <code>[]</code> to “slice” the string.</p>
+<p>The format is <code>[start:stop]</code>, but Python grabs everything up to, but <strong>NOT including</strong>, the stop number.</p>
+</div><div class="column">
+<div id="d5d72d65" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="co"># Extract the very first base (index 0)</span></span>
+<span id="cb19-2"><a></a>first_base <span class="op">=</span> target_gene_1[<span class="dv">0</span>]</span>
+<span id="cb19-3"><a></a><span class="bu">print</span>(<span class="st">"First base:"</span>, first_base)</span>
+<span id="cb19-4"><a></a></span>
+<span id="cb19-5"><a></a><span class="co"># Extract the first codon (bases at index 0, 1, and 2)</span></span>
+<span id="cb19-6"><a></a><span class="co"># We stop at 3, so Python grabs 0, 1, 2.</span></span>
+<span id="cb19-7"><a></a>start_codon <span class="op">=</span> target_gene_1[<span class="dv">0</span>:<span class="dv">3</span>]</span>
+<span id="cb19-8"><a></a><span class="bu">print</span>(<span class="st">"Start codon:"</span>, start_codon)</span>
+<span id="cb19-9"><a></a></span>
+<span id="cb19-10"><a></a><span class="co"># Python can also count backward! </span></span>
+<span id="cb19-11"><a></a><span class="co"># Use a negative number to look at the end.</span></span>
+<span id="cb19-12"><a></a>last_base <span class="op">=</span> target_gene_1[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb19-13"><a></a><span class="bu">print</span>(<span class="st">"Last base:"</span>, last_base)</span>
+<span id="cb19-14"><a></a></span>
+<span id="cb19-15"><a></a><span class="co"># Extract the last 3 bases </span></span>
+<span id="cb19-16"><a></a><span class="co"># (from the 3rd-to-last to the very end)</span></span>
+<span id="cb19-17"><a></a>last_codon <span class="op">=</span> target_gene_1[<span class="op">-</span><span class="dv">3</span>:]</span>
+<span id="cb19-18"><a></a><span class="bu">print</span>(<span class="st">"Last codon:"</span>, last_codon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Transcribed mRNA: AUGCGUAACGUUAGCGCC</code></pre>
+<pre><code>First base: A
+Start codon: ATG
+Last base: C
+Last codon: GCC</code></pre>
 </div>
 </div>
+</div></div>
+</section>
+<section>
+<section id="write-the-first-function" class="title-slide slide level1 center">
+<h1>Write the first function</h1>
+
+</section>
+<section id="without-a-function" class="slide level2">
+<h2>Without a function</h2>
+<p>If we want to define our own custom set of code, we need to write the function ourselves.</p>
+<p>Using the GC-content example again:</p>
+<div class="columns">
+<div class="column">
+<p><strong>Without a function</strong></p>
+<div id="31914f0f" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>g_count <span class="op">=</span> target_gene_1.count(<span class="st">"G"</span>)</span>
+<span id="cb21-2"><a></a>c_count <span class="op">=</span> target_gene_1.count(<span class="st">"C"</span>)</span>
+<span id="cb21-3"><a></a></span>
+<span id="cb21-4"><a></a>gc_content <span class="op">=</span> ((g_count <span class="op">+</span> c_count) <span class="op">/</span> seq_1_length) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb21-5"><a></a></span>
+<span id="cb21-6"><a></a><span class="bu">print</span>(<span class="st">"GC Content (%):"</span>, gc_content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+<p><strong>Pros</strong></p>
+<ul>
+<li>Straightforward solution</li>
+<li>Easier line-by-line tracking</li>
+</ul>
+<p><strong>Cons: Scalability</strong></p>
+<ul>
+<li>The copy-paste trap</li>
+<li>A nightmare to update</li>
+<li>Clutter</li>
+</ul>
+</div></div>
+</section>
+<section id="with-a-function" class="slide level2">
+<h2>With a function</h2>
+<p>Write down a function:</p>
+<div class="columns">
+<div class="column">
+<p><strong>With a function</strong></p>
+<div id="743793b4" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="|2|3-11|12,13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="co"># 1. Define the name and give the input a placeholder </span></span>
+<span id="cb22-2"><a></a><span class="kw">def</span> calculate_gc(dna_seq):</span>
+<span id="cb22-3"><a></a></span>
+<span id="cb22-4"><a></a>    <span class="co"># 2. The indented body: </span></span>
+<span id="cb22-5"><a></a>    <span class="co"># What does the protocol actually do?</span></span>
+<span id="cb22-6"><a></a>    length <span class="op">=</span> <span class="bu">len</span>(dna_seq)</span>
+<span id="cb22-7"><a></a>    g_count <span class="op">=</span> dna_seq.count(<span class="st">"G"</span>)</span>
+<span id="cb22-8"><a></a>    c_count <span class="op">=</span> dna_seq.count(<span class="st">"C"</span>)</span>
+<span id="cb22-9"><a></a>    </span>
+<span id="cb22-10"><a></a>    gc_percent <span class="op">=</span> ((g_count <span class="op">+</span> c_count) <span class="op">/</span> length) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb22-11"><a></a>    </span>
+<span id="cb22-12"><a></a>    <span class="co"># 3. The return: Return the final answer</span></span>
+<span id="cb22-13"><a></a>    <span class="cf">return</span> gc_percent</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+<ul>
+<li><code>def</code>: Short for “define.” This tells Python you are creating a new function.</li>
+<li>Arguments <code>()</code>: Placed inside parentheses, this is a placeholder variable for the data you will feed into the function.</li>
+<li>The Colon (<code>:</code>): Tells Python, “The instructions are about to start.”</li>
+<li>Indentation: Every step inside the function must be indented (press <code>Tab</code>).</li>
+<li><code>return</code>: The final command. It tells the function what data to hand back.</li>
+</ul>
+</div></div>
+</section>
+<section id="using-a-function" class="slide level2">
+<h2>Using a function</h2>
+<div class="columns">
+<div class="column">
+<p><strong>Apply the function</strong></p>
+<div id="02fc8f53" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>brca1_gc <span class="op">=</span> calculate_gc(<span class="st">"ATGCATGCATGCGCGCGC"</span>)</span>
+<span id="cb23-2"><a></a></span>
+<span id="cb23-3"><a></a><span class="bu">print</span>(<span class="st">"Target GC:"</span>, calculate_gc(<span class="st">"ATGCGTAACGTTAG"</span>))</span>
+<span id="cb23-4"><a></a><span class="bu">print</span>(<span class="st">"BRCA1 GC:"</span>, brca1_gc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Target GC: 42.857142857142854
+BRCA1 GC: 66.66666666666666</code></pre>
 </div>
 </div>
+</div><div class="column">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>Reusability: Write once, use forever.</li>
+<li>Easier to update: You only have to fix the math in one place.</li>
+<li>Readability: Your code looks cleaner and less cluttered.</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Slight learning curve</li>
+<li>Overkill for a single use</li>
+</ul>
+</div></div>
+</section>
+<section id="ai-survival-guide-for-beginners" class="slide level2">
+<h2>AI survival guide (For Beginners)</h2>
+<ul>
+<li><strong>Don’t</strong> ask AI to give you a direct solution.
+<ul>
+<li>The AI can usually get an accurate answer, but you won’t learn anything.</li>
+</ul></li>
+<li><strong>Do</strong> ask AI to navigate the directions.
+<ul>
+<li>Ask why an error is occurring.</li>
+<li>Ask how a specific block of code works.</li>
+</ul></li>
+</ul>
+<p><strong>The “Frankenstein” Warning</strong></p>
+<p>If you ask an AI to “write a script to calculate GC content,” the AI might use advanced libraries and regular expressions you haven’t learned yet. If you paste code you don’t understand, you won’t be able to fix it when it breaks.</p>
 </section>
 <section id="bibliography-notes" class="slide level2 smaller scrollable">
 <h2>Bibliography Notes</h2>
@@ -437,10 +653,10 @@ Dr.&nbsp;Yu Cheng Hsu
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bg1" class="csl-entry" role="listitem">
-Mondrian, Piet. 1935. <em>Composition (No. 1) Gray-Red</em>. Oil on canvas. the Art Institute of Chicago.
+Seurat, Georges. 1883. <em>A Summer Landscape</em>. Oil on wood. National Gallery of Art.
 </div>
 </div>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -658,82 +874,6 @@ Mondrian, Piet. 1935. <em>Composition (No. 1) Gray-Red</em>. Oil on canvas. the 
         ]
       });
     </script>
-    
-
-    <script>
-
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-      // slide changes (different for each slide format).
-
-      (function () {
-
-        // dispatch for htmlwidgets
-
-        function fireSlideEnter() {
-
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
-        }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
-          }
-
-        }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
-        }
-
-    
-
-      })();
-
-    </script>
-
-    
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
@@ -901,6 +1041,38 @@ Mondrian, Piet. 1935. <em>Composition (No. 1) Gray-Red</em>. Oil on canvas. the 
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

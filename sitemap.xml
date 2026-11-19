@@ -41,32 +41,40 @@
     <lastmod>2026-11-03T09:49:29.332Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/CCAI9007/index.html</loc>
-    <lastmod>2026-07-27T02:39:44.059Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/SBMS7105/assignment.html</loc>
+    <lastmod>2026-11-11T09:34:28.435Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BIOF4002/index.html</loc>
-    <lastmod>2026-07-27T02:39:44.059Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BIOF4002/its.html</loc>
+    <lastmod>2026-11-03T07:30:41.166Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BIOF3001/adt-model.html</loc>
-    <lastmod>2026-09-09T05:13:30.662Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BIOF3001/index.html</loc>
+    <lastmod>2026-09-08T08:49:00.332Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BIOF3001/adt-model-full.html</loc>
-    <lastmod>2026-09-11T03:19:01.677Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BIOF3001/adt-model-sketch.html</loc>
+    <lastmod>2026-09-11T10:03:56.165Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/courses/2026/BIOF2014/index.html</loc>
+    <lastmod>2026-07-27T02:39:44.064Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/courses/2026/BIOC3605/index.html</loc>
     <lastmod>2026-11-08T14:26:55.770Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BBMS3009/index.html</loc>
-    <lastmod>2026-09-08T10:00:49.604Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BIOC3605/data-structures.html</loc>
+    <lastmod>2026-11-19T02:29:33.767Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BBMS2013/Linear regression.html</loc>
-    <lastmod>2026-11-04T06:10:22.209Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BBMS3009/functional-genomics.html</loc>
+    <lastmod>2026-11-08T14:26:55.753Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/courses/2026/BBMS2013/Linear regression-full.html</loc>
+    <lastmod>2026-11-17T08:49:57.374Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/courses/2026/BBMS1021/tutorial_3.html</loc>
@@ -302,7 +310,7 @@
   </url>
   <url>
     <loc>https://ychsu987.github.io/courses/2026/BBMS1021/epi-workshop.html</loc>
-    <lastmod>2026-10-23T02:34:11.767Z</lastmod>
+    <lastmod>2026-11-11T08:32:01.230Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/courses/2026/BBMS1021/ggplot2.html</loc>
@@ -326,31 +334,39 @@
   </url>
   <url>
     <loc>https://ychsu987.github.io/courses/2026/BBMS2013/index.html</loc>
+    <lastmod>2026-11-17T08:51:41.217Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/courses/2026/BBMS2013/Linear regression.html</loc>
+    <lastmod>2026-11-17T08:53:26.591Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/courses/2026/BBMS3009/index.html</loc>
     <lastmod>2026-09-08T10:00:49.604Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BBMS3009/functional-genomics.html</loc>
-    <lastmod>2026-11-08T14:26:55.753Z</lastmod>
-  </url>
-  <url>
     <loc>https://ychsu987.github.io/courses/2026/BIOC3605/fundamental python.html</loc>
-    <lastmod>2026-11-08T14:26:55.768Z</lastmod>
+    <lastmod>2026-11-18T07:23:08.518Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BIOF2014/index.html</loc>
-    <lastmod>2026-07-27T02:39:44.064Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BIOC3605/pandas.html</loc>
+    <lastmod>2026-11-18T08:34:07.118Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BIOF3001/adt-model-sketch.html</loc>
-    <lastmod>2026-09-11T10:03:56.165Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BIOF3001/adt-model-full.html</loc>
+    <lastmod>2026-09-11T03:19:01.677Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BIOF3001/index.html</loc>
-    <lastmod>2026-09-08T08:49:00.332Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BIOF3001/adt-model.html</loc>
+    <lastmod>2026-09-09T05:13:30.662Z</lastmod>
   </url>
   <url>
-    <loc>https://ychsu987.github.io/courses/2026/BIOF4002/its.html</loc>
-    <lastmod>2026-11-03T07:30:41.166Z</lastmod>
+    <loc>https://ychsu987.github.io/courses/2026/BIOF4002/index.html</loc>
+    <lastmod>2026-07-27T02:39:44.059Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ychsu987.github.io/courses/2026/CCAI9007/index.html</loc>
+    <lastmod>2026-07-27T02:39:44.059Z</lastmod>
   </url>
   <url>
     <loc>https://ychsu987.github.io/courses/2026/SBMS7105/workshop.html</loc>
