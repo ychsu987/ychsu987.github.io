@@ -16,7 +16,7 @@ format:
         chalkboard:
             theme: whiteboard
             src: None
-engine: knitr
+engine: Jupyter
 bibliography: ref.bib
 lightbox: true
 ---  

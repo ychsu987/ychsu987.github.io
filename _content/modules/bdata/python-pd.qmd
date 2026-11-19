@@ -1,0 +1,350 @@
+## Library
+
+In python a lot of developer will write their own code and share to other to reuse. This package of code are called `library`
+
+To install a specific library you can do 
+
+```{python}
+#| echo: true
+#| eval: false
+! pip install PACKAGE_NAME
+```
+You do not need to do this on Google colab as Google colab pre-installed most of the commonly used package for you already
+
+**Import library**
+
+You can import the installed library throgh keyword `import`
+```{python}
+# Import NumPy Library (for mathematical calculation we will use later on)
+import numpy as np
+import time
+```
+
+## Pandas 
+
+::: {.columns}
+
+::: {.column}
+
+- Pandas is a specialized library for manipulating tabular data
+- To use the exisiting library we can do 
+
+
+```{python}
+#| echo: true
+#| eval: true
+# 'pd' is the universal standard nickname for pandas. 
+# Every coder in the world uses this exact line.
+import pandas as pd
+```
+
+
+:::
+
+::: {.column}
+
+**Dataset Overview**
+
+You will analyze brain tissue RNA-Seq profiles from mice infected with influenza over an 8-day timecourse:
+
+* **Source:** [link](https://raw.githubusercontent.com/uclouvain-cbio/WSBIM1207/master/data/rnaseq.csv)
+* **Key columns:** `gene`, `sample`, `expression`, `sex`, `infection`, `time`, `tissue`, `gene_biotype`
+
+The case is adopted from @laurent_gatto_2021_5532658 with data from @blackmore2017influenza
+
+
+:::
+
+:::
+
+## Loading the data
+
+- Data table is called a DataFrame (usually abbreviated as `df`) in Pandas
+- To read the data we use `pd.read_csv("FILE_LOCATION")`
+
+```{python}
+#| echo: true
+#| eval: true
+# Load the CSV file into memory
+# (Assume we uploaded 'rnaseq_results.csv' to Colab)
+df = pd.read_csv("https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/refs/heads/main/docs/data/rnaseq.csv")
+
+# Printing the first 3 rows fo the dataframe 
+print(df.head(5))
+```
+
+## Inspecting the DataFrame
+
+Some few information you can retrieved of your data
+
+- `.shape` : The dimensions: (number_of_rows, number_of_columns)
+- `.columns` : List of all the column headers
+
+```{python}
+#| echo: true
+#| eval: true
+# 1. df.shape tells you the dimensions: (number_of_rows, number_of_columns)
+print("Data dimensions:", df.shape)
+
+# 2. df.columns gives you a List of all the column headers
+print("Column names:", df.columns)
+```
+
+## Selecting Columns
+
+Subset the DataFrame by passing a `List` of the column names you want to keep inside square brackets.
+
+```{python}
+#| echo: true
+#| eval: true
+# We use double brackets: the outer brackets are for Pandas, 
+# and the inner brackets represent our Python List of names!
+df_subset = df[["gene", "expression", "tissue"]]
+
+df_subset.head()
+```
+
+## Precise Slicing `.loc` and `.iloc`
+
+
+::: {.columns}
+
+::: {.column}
+
+**`.loc` Label location**
+
+```{python}
+#| echo: true
+#| eval: true
+# 1. Turn the "gene" column into the Index
+df_indexed = df.set_index("gene")
+
+# 2. Let's find the data for the Plp1 gene:
+plp1_data = df_indexed.loc["Plp1", :]
+
+print("Data for Plp1:")
+print(plp1_data.head(2))
+
+# 3. We can be highly specific: 
+# "Give me the Plp1 row, but only the expression column"
+plp1_exp = df_indexed.loc["Plp1", "expression"]
+print("Plp1 Expression:", plp1_exp.head(2))
+```
+
+:::
+
+::: {.column}
+
+**`.iloc` index location**
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Grab the first row (index 0) and all columns (the colon :)
+first_row = df.iloc[0, :]
+
+# Grab the first 3 rows, and only the first 2 columns
+# (Remember: 0:3 means it grabs 0, 1, and 2. It stops BEFORE 3!)
+top_left_block = df.iloc[0:3, 0:2]
+
+print(top_left_block)
+```
+
+:::
+
+:::
+
+## Comparison
+
+| Feature | .iloc (Integer Location)                                    | .loc (Label Location)                                      |
+|---------|-------------------------------------------------------------|------------------------------------------------------------|
+| Lookup Mechanism | **Position-based**: Uses exact numerical coordinates (0, 1, 2). | **Name-based**: Uses the actual row/column names.              |
+| Example Syntax   | `df.iloc[0:5, 2]`                                           | `df.loc["BRCA1":"EGFR", "expression"] `                      |
+| Slicing Rule     | **Exclusive** of the stop number (`0:3` grabs 0, 1, 2).           | **Inclusive** of the stop name (`"A":"C"` grabs A, B, and C).    |
+| Best Used For    | Grabbing the "Top 10" rows, or dealing with un-named data.  | Extracting specific genes, writing reproducible pipelines. |
+| Robustness       | **Highly Fragile**. Breaks silently if data changes.            | **Highly Robust**. Immune to structural column/row shifts.     |
+
+
+## Robustness matters
+
+Goal: Extracting the `expression` column
+
+::: {.columns}
+
+::: {.column}
+
+**`.loc` Label location**
+- Use actual name
+
+```{python}
+#| echo: true
+#| eval: true
+# Extract all rows for the `expression` column
+df.loc[:, "expression"].head(3)
+```
+
+:::
+
+::: {.column}
+
+**`.iloc` index location**
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Extract all rows for the 3rd column
+df.iloc[:, 2].head(3)
+```
+
+:::
+
+:::
+
+**Scenario**:
+
+Sequencing facility updates their software and adds a new `quality_score` column at the very beginning of the CSV. 
+What will happen ?
+
+- label location: <span class="hide">Not affected </span>
+- index location: <span class="hide">Not referring to the intended column (and without warning message) </span>
+
+## Creating new columns
+
+Creating new column:
+
+- Assign on a new column. 
+- Do not need to loop all cells, Most of the python math function will apply the math mfunctin to every cells in the table
+```{python}
+#| echo: true
+#| eval: true
+#### Time start (This is for the next slides)
+start_time_loop = time.time()
+## Exact code starts
+
+# Create a new column called 'log_expression'
+df["log_expression"] = np.log2(df["expression"])
+
+#### Exact code ends, Below are for the next slides and display purpose 
+end_time_loop = time.time()
+loop_time = end_time_loop - start_time_loop
+print(f"For loop finished in: {loop_time:.5f} seconds")
+df.head(2)
+```
+
+## What if using `for` Loops
+
+We can use for loop to achieve exactly the same goal
+
+```{python}
+#| echo: true
+#| eval: true
+# Time start
+start_time_loop = time.time()
+
+#### Exact code starts here 
+# 1. Create an empty list to store the answers
+new_values = []
+# 2. Loop through every single row in the dataframe
+for i in range(len(df)):
+    # Calculate the new value for this specific row and appe
+    math_result = np.log2(df.loc[i, "expression"])
+    new_values.append(math_result)
+# 3. Assign the completed list as a new column
+df["log_expression"] = new_values
+
+#### Exact code ends, Time end
+end_time_loop = time.time()
+loop_time = end_time_loop - start_time_loop
+print(f"For loop finished in: {loop_time:.2f} seconds")
+```
+
+## Advantage of using `Pandas`
+
+
+::: {.columns}
+
+::: {.column}
+
+**Vectorization** (Pandas)
+
+- Code Clarity: Poor. Using 5 lines to write
+- Time efficiency: Low (0.16s)
+
+:::
+
+::: {.column}
+
+**`For` loop** (Pandas)
+
+- Code Clarity: Great. 1 line solution, easy to understand
+- Time efficiency: Fast (0.001s)
+
+:::
+
+:::
+
+- The time difference will be more prominent when the rows increase
+
+## Save your results
+
+`.to_csv`/ `.to_excel` methods can let you save your results
+
+
+```{python}
+#| echo: true
+#| eval: false
+# Save our filtered 'highly_expressed_genes' table to a new CSV file.
+# index=False prevents Pandas from exporting the 0,1,2,3 row numbers.
+df.to_csv("high_expression_results.csv", index=False)
+
+```
+
+# Data wrangling
+
+
+## Motivations
+
+If we manipulate the data with what we have just cover
+
+
+```{python}
+#| echo: true
+#| eval: true
+# Create a copy of df to prevent overwriting  
+my_data = df.copy()
+
+# 2. Filter for high expression
+my_data = my_data[my_data["expression"] > 50000]
+
+# 3. Talking the log of expression
+my_data["expression"] = np.log2(my_data["expression"])
+```
+
+**Problems**
+
+Colab lets you run the same cell multiple times (by accidentally pressing Shift + Enter twice), this step-by-step approach is highly dangerous.
+
+- Run 1: Your expression of 60,000 is taking log to log(60000)
+- Run 2: You accidentally run the cell again. Python take log again become log(log(60000))
+
+## Other problem 
+
+The below code will give you a warning
+
+```{python}
+#| echo: true
+#| eval: true
+# 1. Filter the data
+high_exp = df[df["expression"] > 50000]
+
+# 2. Try to do math on the filtered data
+high_exp["expression_k"] = high_exp["expression"] / 1000
+```
+
+Pandas gives you warning because it isn't sure if high_exp is a brand-new table or just a "window" looking at the original `df`
+
+**Implication**
+
+If in the step 1 and 2 you do some change on `df["expression"]` then `high_exp` won't get the updated value

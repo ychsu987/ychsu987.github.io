@@ -7,4 +7,4 @@ Lecture materials for SBMS7402. Use **Blank** for student-facing slides and **�
 
 | Topic | Slides | Annotated slides | Solution slides |
 |---|---|---|---|
-| linear regression | [Blank](lr.qmd) | — |— |
+| linear regression | [Blank](Linear regression.qmd) | — |[Blank](Linear regression-full.qmd) |

@@ -1,7 +1,6 @@
-
 ## Overview of linear regression
 
-In linear regression, our fundamental objective is to explain the variability observed in the outcome variable ($Y$) using one or more explanatory variable ($X_1, X_2, \dots, X_k$). 
+In linear regression, our fundamental objective is to explain the variability observed in the outcome variable ($Y$) using one or more explanatory variables ($X_1, X_2, \dots, X_k$). 
 
 :::{.hide}
 $$
@@ -9,27 +8,25 @@ $$
 $$
 :::
 
-It is crucial to know
+It is crucial to know:
 
-- Does $X_1, X_2, \dots, X_k$ really make explaination to $Y$
-- How good is the model performance?
-
+- Do $X_1, X_2, \dots, X_k$ really explain $Y$?
+- How good is the model's performance?
 
 :::{.aside}
 (Note on terminology: In some literature, notably British and econometrics, SSR is termed "Explained Sum of Squares" (ESS) and SSE is termed "Residual Sum of Squares" (RSS). Always check definitions in your specific context).
 :::
 
-## Quick summary
-
+## Recap
 
 | Metric | Formula | Degrees of Freedom ($df$) | Conceptual Intuition |
 | :- | :-- | :-- | :------ |
 | **SST** | $\sum_{i=1}^n (Y_i - \bar{Y})^2$ | $n - 1$ | Total variation in the outcome $Y$ without using any predictors. |
-| **SSR** | $\sum_{i=1}^n (\hat{Y}_i - \bar{Y})^2$ | $k$ | Variation accounted  by the regression model. |
+| **SSR** | $\sum_{i=1}^n (\hat{Y}_i - \bar{Y})^2$ | $k$ | Variation accounted for by the regression model. |
 | **SSE** | $\sum_{i=1}^n (Y_i - \hat{Y}_i)^2$ <br> $= \sum_{i=1}^n e_i^2$ | $n - k - 1$ | Unexplained variation; sum of squared discrepancies between observed points and regression surface. |
 
 :::{.aside}
-- $n$ represents the sample size
+- $n$ represents the sample size.
 - $k$ represents the number of predictors, excluding the intercept.
 :::
 ---
@@ -43,6 +40,7 @@ $R^2$ (The coefficient of determination) quantifies the proportion of total vari
 $$
 R^2 = \frac{\text{SSR}}{\text{SST}} = 1 - \frac{\text{SSE}}{\text{SST}}
 $$
+
 :::
 
 **Interpretation Rules**
@@ -53,16 +51,18 @@ $$
 
 ## Adjusted $R^2$ ($R^2_{\text{adj}}$)
 
-The **Adjusted $R^2$** incorporates degrees of freedom to penalize excessive parameterization and prevent overfitting, :
+The **Adjusted $R^2$** incorporates degrees of freedom to penalize excessive parameterization and prevent overfitting:
 
 :::{.hide}
 $$
+\small
 R^2_{\text{adj}} = 1 - \left[ \frac{\text{SSE} / (n - k - 1)}{\text{SST} / (n - 1)} \right] = 1 - \left( \frac{\text{MSE}}{\text{MST}} \right)
 $$
 :::
 
 Alternatively expressed via $R^2$:
 $$
+\small
 R^2_{\text{adj}} = 1 - (1 - R^2) \frac{n - 1}{n - k - 1}
 $$
 
@@ -71,6 +71,11 @@ $$
 - Increases only if a newly added predictor reduces $\text{SSE}$ by a margin greater than what would be expected by pure chance.
 - Can occasionally yield a negative value when model fit is negligible; in such cases, it is effectively interpreted as zero.
 
+## Pitfalls to Avoid
+
+1. **Confusing $R^2_{\text{adj}}$ with Causality:** A high $R^2$ indicates strong linear correlation, not causal direction.
+2. **Comparing $R^2_{\text{adj}}$ Across Different Transformations:** You cannot compare the $R^2$ of a model predicting $Y$ directly to a model predicting $\ln(Y)$, because $\text{SST}$ is measured on fundamentally different scales.
+3. **Over-reliance on $R^2_{\text{adj}}$ Alone:** Always inspect residual diagnostics (residual vs. fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold.
 
 ## $F$-Test for Model Significance
 
@@ -93,15 +98,15 @@ $$
 :::{.hide}
 
 $$
-H_1: \text{There is at least one} \beta_j \neq 0
+H_1: \text{There is at least one } \beta_j \neq 0
 $$
 
 :::
 
-**Difference on individual testing on $\beta_i$**
+**Differences from individual testing on $\beta_i$**
 
-- $\beta_i$ is a $t$-test
-- Repeated testing $\beta_i$  cause p-value inflation
+- Testing individual $\beta_i$ relies on a $t$-test.
+- Repeatedly testing $\beta_i$ causes p-value inflation.
 
 ## The Standard ANOVA Table for Regression
 
@@ -119,7 +124,7 @@ Statistical software (e.g., R, Python `statsmodels`, Stata, SAS) formats these c
 
 :::{.columns}
 
-:::{.column width=45%}
+:::{.column width="45%"}
 
 Research purpose: Factors affecting infant birth weight ($n = 189$).
 
@@ -128,13 +133,13 @@ Research purpose: Factors affecting infant birth weight ($n = 189$).
 :::
 
 
-:::{.column width=52%}
+:::{.column width="52%"}
 
 - Predictors ($X$): Maternal age (age), 
   - maternal weight at last menstrual period (lwt),
   -  smoking status during pregnancy (smoke), 
   -  history of hypertension (ht), 
-  -  uterine irritability (ui)
+  -  uterine irritability (ui).
 
 :::
 
@@ -163,6 +168,8 @@ birthwt$ui    <- factor(birthwt$ui, labels = c("No", "Yes"))
 model <- lm(bwt ~ age + lwt + smoke + ht + ui, data = birthwt)
 summary(model)
 ```
+
+**Code output**
 
 ```text
 Residuals:
@@ -197,6 +204,7 @@ olsaov<-ols_regress(model)$anova
 olsaov$anova
 ```
 
+**Code output**
 
 ```text
                                  ANOVA                                   
@@ -217,13 +225,13 @@ $$
 R^2 = \frac{17469477.719 }{ 99969655.810} = 17.4\%
 $$
 
-*Interpretation:* 17.4% of the variance in biomarker reduction is explained by maternal weight at last menstrual period, baseline metabolic index, and age.
+*Interpretation:* 17.4% of the variance in infant birth weight is explained by maternal age, maternal weight at last menstrual period, smoking status, history of hypertension, and uterine irritability.
 
 2. **Adjusted $R^2$ Calculation:**
    $$
-   R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = = 1 - 0.8478 = 15.2\% 
+   R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = 1 - 0.8478 = 15.2\% 
    $$
-   *Interpretation:* After penalizing for adding three model parameters, the model accounts for approximately 70.2% of the variance.
+   *Interpretation:* After penalizing for adding the model parameters, the model accounts for approximately 15.2% of the variance.
 
 ## Common issues 
 
@@ -244,19 +252,14 @@ This classic paradox typically occurs due to **severe multicollinearity**.
 ## Overview
 
 | Letter | Assumption | Primary Diagnostic Tool |
-|:------------------:|:----------------|:----------------|:----------------|
+|:---:|:---|:---|
 | **L** | **Linearity** of the conditional expectation | $\mathbb{E}[\varepsilon_i \mid X] = 0$ | Residuals vs. Fitted Plot |
 | **I** | **Independence** of observational errors | $\text{Cov}(\varepsilon_i, \varepsilon_j) = 0 \quad (\forall i \neq j)$ | Autocorrelation / Study Design Review |
 | **N** | **Normality** of error distribution | $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ | Normal Q-Q Plot  |
 | **E** | **Equal Variance** (Homoscedasticity) | $\text{Var}(\varepsilon_i \mid X) = \sigma^2$ (constant) | Scale-Location Plot  |
 
-## Pitfalls to Avoid
 
-1. **Confusing $R^2_{\text{adj}}$ with Causality:** A high $R^2$ indicates strong linear correlation, not causal direction.
-2. **Comparing $R^2_{\text{adj}}$ Across Different Transformations:** You cannot compare the $R^2$ of a model predicting $Y$ directly to a model predicting $\ln(Y)$, because $\text{SST}$ is measured on fundamentally different scales.
-3. **Over-reliance on $R^2_{\text{adj}}$ Alone:** Always inspect residual diagnostics (residual vs. fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold.
-
-## 4. In-Depth Diagnostics, Clinical Risks & Remedies
+## 4. In-Depth Diagnostics & Remedies
 
 ```         
                 THE 4 BASE R DIAGNOSTIC PLOTS: plot(model)
@@ -277,12 +280,12 @@ This classic paradox typically occurs due to **severe multicollinearity**.
 
 **Example**
 
-- The relation between X and Y is a quadratic relation instead of a linear
+- The relationship between $X$ and $Y$ is a quadratic relation instead of a linear one.
 
 **Actions**
 
 - Add non-linear polynomial terms: e.g., $\text{Age}^2$.
-- Apply logarithmic or power transformations
+- Apply logarithmic or power transformations.
 
 ## 
 
@@ -340,39 +343,13 @@ plot(mod_linear_misspec, which = 1,
 
 - Revise study design
 - **Clustered data:** Linear Mixed-Effects Models (`lme4::lmer()`) incorporating random intercepts for clusters/centers.
-
----
-
-:::{.columns}
-
--   **Tool:** Evaluation of study design, Residuals vs. Time/Subject ID order, or **Durbin-Watson test** (`car::dwt(model)`).
-
-:::{.column}
-```{r}
-#| echo: true
-#| eval: true
-
-car::dwt(model)
-
-```
-
-:::
-
-:::{.column}
+- **Tool:** Evaluation of study design, Residuals vs. Time/Subject ID order
 
 
-**Consequence**
-
--   **Deceptive Precision:** The effective sample size is smaller than $n$. Linear regression underestimate standard errors ($SE(\hat{\beta})$), causing artificially narrow 95% CIs.
-
-
-:::
-
-:::
-
+  
 ## N — Normality of Residuals
 
-- The error terms re normally distributed around the fitted line.
+- The error terms are normally distributed around the fitted line.
 
 **Crucial Clarification:** In regression, the raw variables $Y$ and $X$ **do not** need to be normally distributed; only the **residuals** ($\varepsilon_i$) must be normally distributed.
 
