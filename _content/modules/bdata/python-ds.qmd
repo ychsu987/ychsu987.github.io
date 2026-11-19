@@ -1,4 +1,4 @@
-## Reveiw
+## Review
 
 In Session 1, we stored a single DNA sequence in a single variable (`target_gene = "ATGC"`). A standard RNA-seq experiment outputs expression data for 20,000+ genes simultaneously. To handle bulk data, Python uses **Collections**.
 
@@ -15,7 +15,7 @@ In this session, we will introduce the two most important collections in Python:
 
 ## Lists: Storing Multiple Items
 
-A List 
+A List is
 
 - An ordered collection of items. 
 - In Python, you create a list using square brackets `[]`, and you separate each item with a `,`
@@ -39,7 +39,6 @@ print("Total motifs to scan:", total_motifs)
 
 Python lists are 0-indexed. We can grab specific genes out of our list using their position.
 
-
 ```{python}
 #| echo: true
 #| eval: true
@@ -58,7 +57,7 @@ print("The last motif is:", last_motif)
 
 ## Modifying the List
 
-- using `.append()` method to append a new item at the end of the list
+- Use the `.append()` method to append a new item at the end of the list
 
 ```{python}
 #| echo: true
@@ -102,9 +101,9 @@ print("Loop finished! All motifs analyzed.")
 **`for INDEX in LIST:`**
 
 - `for`: Starting of a loop
-- `INDEX`: Index variable will iterater along the list order
+- `INDEX`: Index variable will iterate along the list order
 - `in`: Specify the list you want to iterate
-- `LIST`: Targetting list
+- `LIST`: Target list
 - `:`: Instruction start (all the instruction should be indented)
 :::
 
@@ -156,7 +155,7 @@ for m in motifs:
     # 2. Count how many times it appears in the DNA read
     occurrences = dna_read.count(m)
     # 3. Print the final report for this specific motif
-    print("Motif:", m, " occurrs ", occurrences, " times")        
+    print("Motif:", m, "occurs", occurrences, "times")        
 ```
 :::
 
@@ -169,10 +168,10 @@ for m in motifs:
 :::{.column width=37%}
 
 - Reuse of the code and scalability
-- Conctruct a loop
+- Construct a loop
   - Code without a loop
   - Identify the repeated pattern
-  - Replacing the changing part by the index
+  - Replace the changing part with an index variable
 
 :::
 
@@ -186,14 +185,14 @@ for m in motifs:
 # Without For loop
 
 # occurrences = dna_read.count(motifs[0])
-# print("Motif:", motifs[0], " occurrs ", occurrences, " times")
+# print("Motif:", m, "occurs", occurrences, "times")        
 # occurrences = dna_read.count(motifs[1])
 # The Automation (The Loop)
 
 # With for loop
 for m in motifs:
     occurrences = dna_read.count(m)
-    print("Motif:", m, " occurrs ", occurrences, " times")        
+    print("Motif:", m, "occurs", occurrences, "times")        
 print("Motif scan complete!")
 ```
 :::
@@ -401,7 +400,7 @@ print("Updated Counts:", motif_table["Counts"])
 
 ## Task: Detect high frequency motif
 
-We want to print an alert for any motif that appears more than 100 times. Please write a code to check it, if the motif with counts more than 100 times, please print out `print("ALERT: High frequency detected!")`
+We want to print an alert for any motif that appears more than 100 times. If the motif count is greater than 100, print `print("ALERT: High frequency detected!")`
 
 
 ```{python}
@@ -432,5 +431,5 @@ for i in range(total_rows):
 
 **What's next**
 
-- For the exercise example, we can find that if we handle the tabular data this way it is not convenient !
+- As we saw in the exercise, handling tabular data with multiple lists is not very convenient!
 - We need a more efficient way to do it

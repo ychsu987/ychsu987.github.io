@@ -347,4 +347,9 @@ Pandas gives you warning because it isn't sure if high_exp is a brand-new table 
 
 **Implication**
 
-If in the step 1 and 2 you do some change on `df["expression"]` then `high_exp` won't get the updated value
+If between the step 1 and 2 you do some change on `df["expression"]`, `high_exp` won't get the updated value
+
+
+## Method chaining
+
+In stead of this messy way, `Pandas' provide a  
