@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Dr.&nbsp;Yu Cheng Hsu">
-  <title>Yu Cheng Hsu – Regression diagnostics</title>
+  <title>Yu Cheng Hsu – Multivariate analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -218,7 +218,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background="/assets/images/lr/background-1.jpg" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
-  <h1 class="title">Regression diagnostics</h1>
+  <h1 class="title">Multivariate analysis</h1>
+  <p class="subtitle">Regression diagnostics</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -362,6 +363,14 @@ R^2_{\text{adj}} = 1 - (1 - R^2) \frac{n - 1}{n - k - 1}
 <li>Can occasionally yield a negative value when model fit is negligible; in such cases, it is effectively interpreted as zero.</li>
 </ul>
 </section>
+<section id="pitfalls-to-avoid" class="slide level2">
+<h2>Pitfalls to Avoid</h2>
+<ol type="1">
+<li><strong>Confusing <span class="math inline">\(R^2_{\text{adj}}\)</span> with Causality:</strong> A high <span class="math inline">\(R^2\)</span> indicates strong linear correlation, not causal direction.</li>
+<li><strong>Comparing <span class="math inline">\(R^2_{\text{adj}}\)</span> Across Different Transformations:</strong> You cannot compare the <span class="math inline">\(R^2\)</span> of a model predicting <span class="math inline">\(Y\)</span> directly to a model predicting <span class="math inline">\(\ln(Y)\)</span>, because <span class="math inline">\(\text{SST}\)</span> is measured on fundamentally different scales.</li>
+<li><strong>Over-reliance on <span class="math inline">\(R^2_{\text{adj}}\)</span> Alone:</strong> Always inspect residual diagnostics (residual vs.&nbsp;fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold.</li>
+</ol>
+</section>
 <section id="f-test-for-model-significance" class="slide level2">
 <h2><span class="math inline">\(F\)</span>-Test for Model Significance</h2>
 <p><strong><span class="math inline">\(F\)</span>-Test</strong> evaluates whether the collection of predictors collectively explains a statistically significant amount of variation.</p>
@@ -497,9 +506,12 @@ H_1: \text{There is at least one } \beta_j \neq 0
 <section id="anova-table" class="slide level2">
 <h2>ANOVA table</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(olsrr)</span>
-<span id="cb4-2"><a></a>olsaov<span class="ot">&lt;-</span><span class="fu">ols_regress</span>(model)<span class="sc">$</span>anova</span>
-<span id="cb4-3"><a></a>olsaov<span class="sc">$</span>anova</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Install the package if you need </span></span>
+<span id="cb4-2"><a></a><span class="co"># install.packages("olsrr",dep=TRUE)</span></span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a><span class="fu">library</span>(olsrr)</span>
+<span id="cb4-5"><a></a>olsaov<span class="ot">&lt;-</span><span class="fu">ols_regress</span>(model)</span>
+<span id="cb4-6"><a></a>olsaov</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Code output</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a>                                 ANOVA                                   </span>
@@ -584,16 +596,8 @@ R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = 1 -
 </tbody>
 </table>
 </section>
-<section id="pitfalls-to-avoid" class="slide level2">
-<h2>Pitfalls to Avoid</h2>
-<ol type="1">
-<li><strong>Confusing <span class="math inline">\(R^2_{\text{adj}}\)</span> with Causality:</strong> A high <span class="math inline">\(R^2\)</span> indicates strong linear correlation, not causal direction.</li>
-<li><strong>Comparing <span class="math inline">\(R^2_{\text{adj}}\)</span> Across Different Transformations:</strong> You cannot compare the <span class="math inline">\(R^2\)</span> of a model predicting <span class="math inline">\(Y\)</span> directly to a model predicting <span class="math inline">\(\ln(Y)\)</span>, because <span class="math inline">\(\text{SST}\)</span> is measured on fundamentally different scales.</li>
-<li><strong>Over-reliance on <span class="math inline">\(R^2_{\text{adj}}\)</span> Alone:</strong> Always inspect residual diagnostics (residual vs.&nbsp;fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold.</li>
-</ol>
-</section>
-<section id="in-depth-diagnostics-clinical-risks-remedies" class="slide level2">
-<h2>4. In-Depth Diagnostics, Clinical Risks &amp; Remedies</h2>
+<section id="in-depth-diagnostics-remedies" class="slide level2">
+<h2>4. In-Depth Diagnostics &amp; Remedies</h2>
 <pre><code>                THE 4 BASE R DIAGNOSTIC PLOTS: plot(model)
    ┌───────────────────────────────────┬───────────────────────────────────┐
    │ 1. Residuals vs Fitted            │ 2. Normal Q-Q Plot                │
@@ -664,28 +668,8 @@ R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = 1 -
 <ul>
 <li>Revise study design</li>
 <li><strong>Clustered data:</strong> Linear Mixed-Effects Models (<code>lme4::lmer()</code>) incorporating random intercepts for clusters/centers.</li>
+<li><strong>Tool:</strong> Evaluation of study design, Residuals vs.&nbsp;Time/Subject ID order</li>
 </ul>
-</section>
-<section class="slide level2">
-
-<div class="columns">
-<ul>
-<li><strong>Tool:</strong> Evaluation of study design, Residuals vs.&nbsp;Time/Subject ID order, or <strong>Durbin-Watson test</strong> (<code>car::dwt(model)</code>).</li>
-</ul><div class="column">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>car<span class="sc">::</span><span class="fu">dwt</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> lag Autocorrelation D-W Statistic p-value
-   1       0.7582327     0.4817912       0
- Alternative hypothesis: rho != 0</code></pre>
-</div>
-</div>
-</div><div class="column">
-<p><strong>Consequence</strong></p>
-<ul>
-<li><strong>Deceptive Precision:</strong> The effective sample size is smaller than <span class="math inline">\(n\)</span>. Linear regression underestimate standard errors (<span class="math inline">\(SE(\hat{\beta})\)</span>), causing artificially narrow 95% CIs.</li>
-</ul>
-</div></div>
 </section>
 <section id="n-normality-of-residuals" class="slide level2">
 <h2>N — Normality of Residuals</h2>
@@ -707,11 +691,11 @@ R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = 1 -
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></a></p>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -720,7 +704,7 @@ R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = 1 -
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></a></p>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -759,11 +743,11 @@ R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = 1 -
 <li><strong>Tool:</strong> <strong>Scale-Location Plot</strong> (Base R Plot 3: <code>plot(model, which = 3)</code>)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></a></p>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -772,7 +756,7 @@ R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = 1 -
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></a></p>
+<p><a href="Linear-regression_files/figure-revealjs/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="Linear-regression_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -786,27 +770,27 @@ R^2_{\text{adj}} = 1 - \left( \frac{450820.645}{99969655.810/ 188} \right) = 1 -
 </section>
 <section id="summary-diagnostic-flowchart" class="slide level2 smaller scrollable">
 <h2>Summary Diagnostic Flowchart</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a></a>                      [Fit Linear Model: lm(Y ~ X1 + X2)]</span>
-<span id="cb12-2"><a></a>                                       │</span>
-<span id="cb12-3"><a></a>                ┌──────────────────────┴──────────────────────┐</span>
-<span id="cb12-4"><a></a>                ▼                                             ▼</span>
-<span id="cb12-5"><a></a>       [Evaluate Goodness-of-Fit]                    [Validate L.I.N.E.]</span>
-<span id="cb12-6"><a></a>       • R² &amp; Adjusted R²                            • Residuals vs Fitted (Linearity)</span>
-<span id="cb12-7"><a></a>       • Residual Std Error (RSE)                    • Study structure (Independence)</span>
-<span id="cb12-8"><a></a>       • Global ANOVA F-Test                         • Normal Q-Q (Normality)</span>
-<span id="cb12-9"><a></a>                │                                    • Scale-Location (Equal Variance)</span>
-<span id="cb12-10"><a></a>                │                                             │</span>
-<span id="cb12-11"><a></a>                └──────────────────────┬──────────────────────┘</span>
-<span id="cb12-12"><a></a>                                       │</span>
-<span id="cb12-13"><a></a>                     All L.I.N.E. Assumptions Hold?</span>
-<span id="cb12-14"><a></a>                                       │</span>
-<span id="cb12-15"><a></a>                      ├─── YES ──► Report slopes, 95% CIs &amp; p-values</span>
-<span id="cb12-16"><a></a>                      │</span>
-<span id="cb12-17"><a></a>                      └─── NO  ──► Apply Diagnostic Remedy:</span>
-<span id="cb12-18"><a></a>                                   • Non-linear? ──► Log(X), Polynomials</span>
-<span id="cb12-19"><a></a>                                   • Heteroscedastic? ──► Log(Y), HC3 Robust SE</span>
-<span id="cb12-20"><a></a>                                   • Non-normal? ──► Transform Y, Bootstrap</span>
-<span id="cb12-21"><a></a>                                   • Clustered? ──► Mixed-Effects Model (lmer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a></a>                      [Fit Linear Model: lm(Y ~ X1 + X2)]</span>
+<span id="cb10-2"><a></a>                                       │</span>
+<span id="cb10-3"><a></a>                ┌──────────────────────┴──────────────────────┐</span>
+<span id="cb10-4"><a></a>                ▼                                             ▼</span>
+<span id="cb10-5"><a></a>       [Evaluate Goodness-of-Fit]                    [Validate L.I.N.E.]</span>
+<span id="cb10-6"><a></a>       • R² &amp; Adjusted R²                            • Residuals vs Fitted (Linearity)</span>
+<span id="cb10-7"><a></a>       • Residual Std Error (RSE)                    • Study structure (Independence)</span>
+<span id="cb10-8"><a></a>       • Global ANOVA F-Test                         • Normal Q-Q (Normality)</span>
+<span id="cb10-9"><a></a>                │                                    • Scale-Location (Equal Variance)</span>
+<span id="cb10-10"><a></a>                │                                             │</span>
+<span id="cb10-11"><a></a>                └──────────────────────┬──────────────────────┘</span>
+<span id="cb10-12"><a></a>                                       │</span>
+<span id="cb10-13"><a></a>                     All L.I.N.E. Assumptions Hold?</span>
+<span id="cb10-14"><a></a>                                       │</span>
+<span id="cb10-15"><a></a>                      ├─── YES ──► Report slopes, 95% CIs &amp; p-values</span>
+<span id="cb10-16"><a></a>                      │</span>
+<span id="cb10-17"><a></a>                      └─── NO  ──► Apply Diagnostic Remedy:</span>
+<span id="cb10-18"><a></a>                                   • Non-linear? ──► Log(X), Polynomials</span>
+<span id="cb10-19"><a></a>                                   • Heteroscedastic? ──► Log(Y), HC3 Robust SE</span>
+<span id="cb10-20"><a></a>                                   • Non-normal? ──► Transform Y, Bootstrap</span>
+<span id="cb10-21"><a></a>                                   • Clustered? ──► Mixed-Effects Model (lmer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">

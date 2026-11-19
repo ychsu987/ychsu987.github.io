@@ -1633,161 +1633,161 @@
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#learning-objectives",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#learning-objectives",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Learning objectives",
     "text": "Learning objectives\n\nDemonstrate linear regression diagnostics\nJudgement on the performance of linear regression\n\nTerms matching\n\n\n\nRachel’s slide\nRay’s slides\n\n\n\n\n\\(\\text{SS}_\\text{Total}\\)\n\\(\\text{SST}\\)\n\n\n\\(\\text{SS}_\\text{Regression}\\)\n\\(\\text{SSR}\\)\n\n\n\\(\\text{SS}_\\text{Residual}\\)\n\\(\\text{SSE}\\)\n\n\n\\(\\text{MSS}_\\text{Residual}\\)\n\\(\\text{MSE}\\)\n\n\n\n\n\nBackground image: Eakins (1875)"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#overview-of-linear-regression",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#overview-of-linear-regression",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Overview of linear regression",
     "text": "Overview of linear regression\nIn linear regression, our fundamental objective is to explain the variability observed in the outcome variable (\\(Y\\)) using one or more explanatory variables (\\(X_1, X_2, \\dots, X_k\\)).\n\n\\[\n\\hat{Y}_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \\dots + b_k X_{ki}\n\\]\n\nIt is crucial to know:\n\nDo \\(X_1, X_2, \\dots, X_k\\) really explain \\(Y\\)?\nHow good is the model’s performance?\n\n\n\n(Note on terminology: In some literature, notably British and econometrics, SSR is termed “Explained Sum of Squares” (ESS) and SSE is termed “Residual Sum of Squares” (RSS). Always check definitions in your specific context)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#recap",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#recap",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Recap",
     "text": "Recap\n\n\n\n\n\n\n\n\n\nMetric\nFormula\nDegrees of Freedom (\\(df\\))\nConceptual Intuition\n\n\n\n\nSST\n\\(\\sum_{i=1}^n (Y_i - \\bar{Y})^2\\)\n\\(n - 1\\)\nTotal variation in the outcome \\(Y\\) without using any predictors.\n\n\nSSR\n\\(\\sum_{i=1}^n (\\hat{Y}_i - \\bar{Y})^2\\)\n\\(k\\)\nVariation accounted for by the regression model.\n\n\nSSE\n\\(\\sum_{i=1}^n (Y_i - \\hat{Y}_i)^2\\)  \\(= \\sum_{i=1}^n e_i^2\\)\n\\(n - k - 1\\)\nUnexplained variation; sum of squared discrepancies between observed points and regression surface.\n\n\n\n\n\n\n\\(n\\) represents the sample size.\n\\(k\\) represents the number of predictors, excluding the intercept."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#goodness-of-fit-r2",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#goodness-of-fit-r2",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Goodness-of-Fit: \\(R^2\\)",
     "text": "Goodness-of-Fit: \\(R^2\\)\n\\(R^2\\) (The coefficient of determination) quantifies the proportion of total variation in the response variable explained by the linear combination of predictors:\n\n\\[\nR^2 = \\frac{\\text{SSR}}{\\text{SST}} = 1 - \\frac{\\text{SSE}}{\\text{SST}}\n\\]\n\nInterpretation Rules\n\nRange: In standard OLS with an intercept, \\(0 \\le R^2 \\le 1\\) (or \\(0\\%\\) to \\(100\\%\\)).\nInterpretation: If \\(R^2 = 0.74\\), exactly 74% of the variability in \\(Y\\) is explained by the predictors included in the model, while the remaining 26% is attributable to residual noise or omitted factors.\nLimitation: \\(R^2\\) is non-decreasing with respect to the addition of predictors. Adding completely unrelated random noise variables will force \\(\\text{SSE}\\) to stay equal or decrease, artificially inflating \\(R^2\\)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#adjusted-r2-r2_textadj",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#adjusted-r2-r2_textadj",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Adjusted \\(R^2\\) (\\(R^2_{\\text{adj}}\\))",
     "text": "Adjusted \\(R^2\\) (\\(R^2_{\\text{adj}}\\))\nThe Adjusted \\(R^2\\) incorporates degrees of freedom to penalize excessive parameterization and prevent overfitting:\n\n\\[\n\\small\nR^2_{\\text{adj}} = 1 - \\left[ \\frac{\\text{SSE} / (n - k - 1)}{\\text{SST} / (n - 1)} \\right] = 1 - \\left( \\frac{\\text{MSE}}{\\text{MST}} \\right)\n\\]\n\nAlternatively expressed via \\(R^2\\): \\[\n\\small\nR^2_{\\text{adj}} = 1 - (1 - R^2) \\frac{n - 1}{n - k - 1}\n\\]\nKey Properties\n\nIncreases only if a newly added predictor reduces \\(\\text{SSE}\\) by a margin greater than what would be expected by pure chance.\nCan occasionally yield a negative value when model fit is negligible; in such cases, it is effectively interpreted as zero."
   },
   {
+    "objectID": "courses/2026/BBMS2013/Linear regression-full.html#pitfalls-to-avoid",
+    "href": "courses/2026/BBMS2013/Linear regression-full.html#pitfalls-to-avoid",
+    "title": "Multivariate analysis",
+    "section": "Pitfalls to Avoid",
+    "text": "Pitfalls to Avoid\n\nConfusing \\(R^2_{\\text{adj}}\\) with Causality: A high \\(R^2\\) indicates strong linear correlation, not causal direction.\nComparing \\(R^2_{\\text{adj}}\\) Across Different Transformations: You cannot compare the \\(R^2\\) of a model predicting \\(Y\\) directly to a model predicting \\(\\ln(Y)\\), because \\(\\text{SST}\\) is measured on fundamentally different scales.\nOver-reliance on \\(R^2_{\\text{adj}}\\) Alone: Always inspect residual diagnostics (residual vs. fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold."
+  },
+  {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#f-test-for-model-significance",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#f-test-for-model-significance",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "\\(F\\)-Test for Model Significance",
     "text": "\\(F\\)-Test for Model Significance\n\\(F\\)-Test evaluates whether the collection of predictors collectively explains a statistically significant amount of variation.\nHypotheses\n\nNull Hypothesis (\\(H_0\\)): All slope coefficients are simultaneously zero.\n\n\n\\[\nH_0: \\beta_1 = \\beta_2 = \\dots = \\beta_k = 0\n\\]\n\n\nAlternative Hypothesis (\\(H_1\\)): At least one slope coefficient is non-zero.\n\n\n\\[\nH_1: \\text{There is at least one } \\beta_j \\neq 0\n\\]\n\nDifferences from individual testing on \\(\\beta_i\\)\n\nTesting individual \\(\\beta_i\\) relies on a \\(t\\)-test.\nRepeatedly testing \\(\\beta_i\\) causes p-value inflation."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#the-standard-anova-table-for-regression",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#the-standard-anova-table-for-regression",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "The Standard ANOVA Table for Regression",
     "text": "The Standard ANOVA Table for Regression\nStatistical software (e.g., R, Python statsmodels, Stata, SAS) formats these calculations into an ANOVA table:\n\n\n\n\n\n\n\n\n\n\n\nSource of Variation\nSum of Squares (\\(SS\\))\nDegrees of Freedom (\\(df\\))\nMean Square (\\(MS\\))\n\\(F\\)-Statistic\n\\(p\\)-value\n\n\n\n\nRegression (Model)\n\\(\\text{SSR}\\)\n\\(k\\)\n\\(\\text{MSR} = \\frac{\\text{SSR}}{k}\\)\n\\(F = \\frac{\\text{MSR}}{\\text{MSE}}\\)\n\\(P(F_{(k, n-k-1)} \\ge F)\\)\n\n\nResidual (Error)\n\\(\\text{SSE}\\)\n\\(n - k - 1\\)\n\\(\\text{MSE} = \\frac{\\text{SSE}}{n - k - 1}\\)\n—\n—\n\n\nTotal\n\\(\\text{SST}\\)\n\\(n - 1\\)\n\\(\\text{MST} = \\frac{\\text{SST}}{n - 1}\\)\n—\n—"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#annotated-worked-example",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#annotated-worked-example",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Annotated Worked Example",
     "text": "Annotated Worked Example\n\n\nResearch purpose: Factors affecting infant birth weight (\\(n = 189\\)).\n\nOutcome (\\(Y\\)): bwt (Infant birth weight in grams).\n\n\n\nPredictors (\\(X\\)): Maternal age (age),\n\nmaternal weight at last menstrual period (lwt),\nsmoking status during pregnancy (smoke),\nhistory of hypertension (ht),\nuterine irritability (ui).\n\n\n\n\n# Load MASS (pre-installed in R)\nlibrary(MASS)\ndata(birthwt)\n\n# Convert binary indicator variables into explicit factors\nbirthwt$smoke &lt;- factor(birthwt$smoke, labels = c(\"Non-Smoker\", \"Smoker\"))\nbirthwt$ht    &lt;- factor(birthwt$ht, labels = c(\"No\", \"Yes\"))\nbirthwt$ui    &lt;- factor(birthwt$ui, labels = c(\"No\", \"Yes\"))"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#regression-results",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#regression-results",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Regression results",
     "text": "Regression results\n\nmodel &lt;- lm(bwt ~ age + lwt + smoke + ht + ui, data = birthwt)\nsummary(model)\n\nCode output\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1675.13  -464.38    -1.02   459.70  1779.69 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 2506.354    291.759   8.591 3.73e-15 ***\nage            3.648      9.432   0.387  0.69935    \nlwt            4.388      1.691   2.594  0.01024 *  \nsmokeSmoker -240.848    100.413  -2.399  0.01746 *  \nhtYes       -643.958    207.232  -3.107  0.00219 ** \nuiYes       -547.068    139.937  -3.909  0.00013 ***\n---\nSignif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1\n\nResidual standard error: 671.4 on 183 degrees of freedom\nMultiple R-squared:  0.1747,    Adjusted R-squared:  0.1522 \nF-statistic:  7.75 on 5 and 183 DF,  p-value: 1.234e-06"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#anova-table",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#anova-table",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "ANOVA table",
     "text": "ANOVA table\n\nlibrary(olsrr)\nolsaov&lt;-ols_regress(model)$anova\nolsaov$anova\n\nCode output\n                                 ANOVA                                   \n------------------------------------------------------------------------\n                    Sum of                                              \n                   Squares         DF    Mean Square      F        Sig. \n------------------------------------------------------------------------\nRegression    17469477.719          5    3493895.544     7.75    0.0000 \nResidual      82500178.091        183     450820.645                    \nTotal         99969655.810        188                                   \n------------------------------------------------------------------------"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#key-metrics-calculations",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#key-metrics-calculations",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Key Metrics Calculations",
     "text": "Key Metrics Calculations\n\n\\(R^2\\) Calculation: \\[\nR^2 = \\frac{17469477.719 }{ 99969655.810} = 17.4\\%\n\\]\n\nInterpretation: 17.4% of the variance in infant birth weight is explained by maternal age, maternal weight at last menstrual period, smoking status, history of hypertension, and uterine irritability.\n\nAdjusted \\(R^2\\) Calculation: \\[\nR^2_{\\text{adj}} = 1 - \\left( \\frac{450820.645}{99969655.810/ 188} \\right) = 1 - 0.8478 = 15.2\\%\n\\] Interpretation: After penalizing for adding the model parameters, the model accounts for approximately 15.2% of the variance."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#common-issues",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#common-issues",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Common issues",
     "text": "Common issues\nSignificant \\(F\\)-statistic, but no individual significant \\(t\\)-statistics\nThis classic paradox typically occurs due to severe multicollinearity.\n\nThe predictors are highly correlated with each other.\nThe overall \\(F\\)-test confirms that the set of predictors collectively accounts for substantial variation.\n\nLow \\(R^2\\) with a Statistically Significant \\(F\\)-test\n\nCommon in noisy biological or social science data (e.g., \\(R^2 = 0.08\\), \\(p &lt; 0.001\\) with \\(n = 5,000\\)).\nThis means the effect is genuine, real, and reproducible (not a sampling artifact), but individual-level variation remains high due to unmeasured factors."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#overview",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#overview",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Overview",
     "text": "Overview\n\n\n\n\n\n\n\n\nLetter\nAssumption\nPrimary Diagnostic Tool\n\n\n\n\nL\nLinearity of the conditional expectation\n\\(\\mathbb{E}[\\varepsilon_i \\mid X] = 0\\)\n\n\nI\nIndependence of observational errors\n\\(\\text{Cov}(\\varepsilon_i, \\varepsilon_j) = 0 \\quad (\\forall i \\neq j)\\)\n\n\nN\nNormality of error distribution\n\\(\\varepsilon_i \\sim \\mathcal{N}(0, \\sigma^2)\\)\n\n\nE\nEqual Variance (Homoscedasticity)\n\\(\\text{Var}(\\varepsilon_i \\mid X) = \\sigma^2\\) (constant)"
   },
   {
-    "objectID": "courses/2026/BBMS2013/Linear regression-full.html#pitfalls-to-avoid",
-    "href": "courses/2026/BBMS2013/Linear regression-full.html#pitfalls-to-avoid",
-    "title": "Regression diagnostics",
-    "section": "Pitfalls to Avoid",
-    "text": "Pitfalls to Avoid\n\nConfusing \\(R^2_{\\text{adj}}\\) with Causality: A high \\(R^2\\) indicates strong linear correlation, not causal direction.\nComparing \\(R^2_{\\text{adj}}\\) Across Different Transformations: You cannot compare the \\(R^2\\) of a model predicting \\(Y\\) directly to a model predicting \\(\\ln(Y)\\), because \\(\\text{SST}\\) is measured on fundamentally different scales.\nOver-reliance on \\(R^2_{\\text{adj}}\\) Alone: Always inspect residual diagnostics (residual vs. fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold."
-  },
-  {
-    "objectID": "courses/2026/BBMS2013/Linear regression-full.html#in-depth-diagnostics-clinical-risks-remedies",
-    "href": "courses/2026/BBMS2013/Linear regression-full.html#in-depth-diagnostics-clinical-risks-remedies",
-    "title": "Regression diagnostics",
-    "section": "4. In-Depth Diagnostics, Clinical Risks & Remedies",
-    "text": "4. In-Depth Diagnostics, Clinical Risks & Remedies\n                THE 4 BASE R DIAGNOSTIC PLOTS: plot(model)\n   ┌───────────────────────────────────┬───────────────────────────────────┐\n   │ 1. Residuals vs Fitted            │ 2. Normal Q-Q Plot                │\n   │    Checks: Linearity              │    Checks: Normality              │\n   │    Ideal: Flat red line at y = 0  │    Ideal: Points follow dashed 45°│\n   ├───────────────────────────────────┼───────────────────────────────────┤\n   │ 3. Scale-Location                 │ 4. Residuals vs Leverage          │\n   │    Checks: Equal Variance         │    Checks: Influential Points     │\n   │    Ideal: Flat horizontal line    │    Ideal: Points inside Cook's d  │\n   └───────────────────────────────────┴───────────────────────────────────┘"
+    "objectID": "courses/2026/BBMS2013/Linear regression-full.html#in-depth-diagnostics-remedies",
+    "href": "courses/2026/BBMS2013/Linear regression-full.html#in-depth-diagnostics-remedies",
+    "title": "Multivariate analysis",
+    "section": "4. In-Depth Diagnostics & Remedies",
+    "text": "4. In-Depth Diagnostics & Remedies\n                THE 4 BASE R DIAGNOSTIC PLOTS: plot(model)\n   ┌───────────────────────────────────┬───────────────────────────────────┐\n   │ 1. Residuals vs Fitted            │ 2. Normal Q-Q Plot                │\n   │    Checks: Linearity              │    Checks: Normality              │\n   │    Ideal: Flat red line at y = 0  │    Ideal: Points follow dashed 45°│\n   ├───────────────────────────────────┼───────────────────────────────────┤\n   │ 3. Scale-Location                 │ 4. Residuals vs Leverage          │\n   │    Checks: Equal Variance         │    Checks: Influential Points     │\n   │    Ideal: Flat horizontal line    │    Ideal: Points inside Cook's d  │\n   └───────────────────────────────────┴───────────────────────────────────┘"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#l-linearity",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#l-linearity",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "L — Linearity",
     "text": "L — Linearity\n\nThe relationship between \\(X\\) and the outcome is an additive linear combination.\n\nExample\n\nThe relationship between \\(X\\) and \\(Y\\) is a quadratic relation instead of a linear one.\n\nActions\n\nAdd non-linear polynomial terms: e.g., \\(\\text{Age}^2\\).\nApply logarithmic or power transformations."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#section",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#section",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "",
     "text": "Tool: Residuals vs. Fitted Plot\n\nplot(model, which = 1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealthy Pattern: Residuals bounce randomly across a horizontal band centered at \\(y = 0\\), with no distinct trend. The red smooth smoother curve is nearly flat along \\(y = 0\\).\nViolation Warning: Distinct parabolic “U-shape”, inverted “U”, or sinusoidal wave."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#i-independence-of-errors",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#i-independence-of-errors",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "I — Independence of Errors",
-    "text": "I — Independence of Errors\n\nKnowing that Patient A has an unexpectedly high outcome provides zero information about Patient B’s outcome.\nExample\n\nClustering: Patients recruited from the same hospital ward or family share correlated responses.\nAutocorrelation: Longitudinal measurements taken repeatedly over time on the same subject.\n\n\nActions\n\nRevise study design\nClustered data: Linear Mixed-Effects Models (lme4::lmer()) incorporating random intercepts for clusters/centers."
+    "text": "I — Independence of Errors\n\nKnowing that Patient A has an unexpectedly high outcome provides zero information about Patient B’s outcome.\nExample\n\nClustering: Patients recruited from the same hospital ward or family share correlated responses.\nAutocorrelation: Longitudinal measurements taken repeatedly over time on the same subject.\n\n\nActions\n\nRevise study design\nClustered data: Linear Mixed-Effects Models (lme4::lmer()) incorporating random intercepts for clusters/centers.\nTool: Evaluation of study design, Residuals vs. Time/Subject ID order"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#n-normality-of-residuals",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#n-normality-of-residuals",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "N — Normality of Residuals",
     "text": "N — Normality of Residuals\n\nThe error terms are normally distributed around the fitted line.\n\nCrucial Clarification: In regression, the raw variables \\(Y\\) and \\(X\\) do not need to be normally distributed; only the residuals (\\(\\varepsilon_i\\)) must be normally distributed.\n\nTool: Normal Q-Q Plot (Base R Plot 2: plot(model, which = 2)).\nHealthy Pattern: Residual quantiles fall tightly along the theoretical 45-degree dashed line.\n\nActions\n\nTransform the outcome variable: logarithmic transformation: \\[\\log(Y_i) = \\beta_0 + \\beta_1 X_i + \\varepsilon_i\\]"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#section-1",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#section-1",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "",
     "text": "plot(model, which = 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nViolation Warning:\n\nHeavy tails (S-shape): Data has far more extreme clinical outliers than predicted by a normal curve.\nCurvature at ends: Skewed distributions (frequently seen with right-skewed lab markers such as serum creatinine, viral loads, or cytokine concentrations)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#e-equal-variance",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#e-equal-variance",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "E — Equal Variance",
     "text": "E — Equal Variance\n\nThe variance of the residuals \\(\\text{Var}(\\varepsilon_i \\mid X) = \\sigma^2\\) is constant across all predicted values \\(\\hat{Y}\\). (Homoscedasticity)\n\nConsequence\n\nConventional \\(SE(\\hat{\\beta})\\) calculations are invalid. If variance expands at higher values, standard errors are underestimated for higher exposures, leading to false claims of significance.\n\nActions\n\nVariance-stabilizing transformations: \\(\\log(Y)\\) or \\(\\sqrt{Y}\\).\nHeteroscedasticity-Consistent (HC) Robust Standard Errors: Using sandwich::vcovHC(model, type = \"HC3\") paired with lmtest::coeftest().\nWeighted Least Squares (WLS): Weights inversely proportional to variance: \\(w_i = 1/\\sigma_i^2\\)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#section-2",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#section-2",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "",
     "text": "Tool: Scale-Location Plot (Base R Plot 3: plot(model, which = 3))\n\n\nplot(model, which = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealthy Pattern: A horizontal smooth red line with an even, constant vertical scatter of points across all fitted values.\nViolation Warning: A megaphone / funnel shape where residual spread widens drastically as \\(\\hat{Y}\\) increases (common in biomedical dosing and growth studies)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression-full.html#summary-diagnostic-flowchart",
     "href": "courses/2026/BBMS2013/Linear regression-full.html#summary-diagnostic-flowchart",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Summary Diagnostic Flowchart",
     "text": "Summary Diagnostic Flowchart\n                      [Fit Linear Model: lm(Y ~ X1 + X2)]\n                                       │\n                ┌──────────────────────┴──────────────────────┐\n                ▼                                             ▼\n       [Evaluate Goodness-of-Fit]                    [Validate L.I.N.E.]\n       • R² & Adjusted R²                            • Residuals vs Fitted (Linearity)\n       • Residual Std Error (RSE)                    • Study structure (Independence)\n       • Global ANOVA F-Test                         • Normal Q-Q (Normality)\n                │                                    • Scale-Location (Equal Variance)\n                │                                             │\n                └──────────────────────┬──────────────────────┘\n                                       │\n                     All L.I.N.E. Assumptions Hold?\n                                       │\n                      ├─── YES ──► Report slopes, 95% CIs & p-values\n                      │\n                      └─── NO  ──► Apply Diagnostic Remedy:\n                                   • Non-linear? ──► Log(X), Polynomials\n                                   • Heteroscedastic? ──► Log(Y), HC3 Robust SE\n                                   • Non-normal? ──► Transform Y, Bootstrap\n                                   • Clustered? ──► Mixed-Effects Model (lmer)\n\n\n\n\nEakins, Thomas. 1875. The Clinic of Dr. Gross. Oil on canvas. Philadelphia Museum of Art."
   },
@@ -8066,161 +8066,161 @@
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#learning-objectives",
     "href": "courses/2026/BBMS2013/Linear regression.html#learning-objectives",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Learning objectives",
     "text": "Learning objectives\n\nDemonstrate linear regression diagnostics\nJudgement on the performance of linear regression\n\nTerms matching\n\n\n\nRachel’s slide\nRay’s slides\n\n\n\n\n\\(\\text{SS}_\\text{Total}\\)\n\\(\\text{SST}\\)\n\n\n\\(\\text{SS}_\\text{Regression}\\)\n\\(\\text{SSR}\\)\n\n\n\\(\\text{SS}_\\text{Residual}\\)\n\\(\\text{SSE}\\)\n\n\n\\(\\text{MSS}_\\text{Residual}\\)\n\\(\\text{MSE}\\)\n\n\n\n\n\nBackground image: Eakins (1875)"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#overview-of-linear-regression",
     "href": "courses/2026/BBMS2013/Linear regression.html#overview-of-linear-regression",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Overview of linear regression",
     "text": "Overview of linear regression\nIn linear regression, our fundamental objective is to explain the variability observed in the outcome variable (\\(Y\\)) using one or more explanatory variables (\\(X_1, X_2, \\dots, X_k\\)).\n\n\\[\n\\hat{Y}_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \\dots + b_k X_{ki}\n\\]\n\nIt is crucial to know:\n\nDo \\(X_1, X_2, \\dots, X_k\\) really explain \\(Y\\)?\nHow good is the model’s performance?\n\n\n\n(Note on terminology: In some literature, notably British and econometrics, SSR is termed “Explained Sum of Squares” (ESS) and SSE is termed “Residual Sum of Squares” (RSS). Always check definitions in your specific context)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#recap",
     "href": "courses/2026/BBMS2013/Linear regression.html#recap",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Recap",
     "text": "Recap\n\n\n\n\n\n\n\n\n\nMetric\nFormula\nDegrees of Freedom (\\(df\\))\nConceptual Intuition\n\n\n\n\nSST\n\\(\\sum_{i=1}^n (Y_i - \\bar{Y})^2\\)\n\\(n - 1\\)\nTotal variation in the outcome \\(Y\\) without using any predictors.\n\n\nSSR\n\\(\\sum_{i=1}^n (\\hat{Y}_i - \\bar{Y})^2\\)\n\\(k\\)\nVariation accounted for by the regression model.\n\n\nSSE\n\\(\\sum_{i=1}^n (Y_i - \\hat{Y}_i)^2\\)  \\(= \\sum_{i=1}^n e_i^2\\)\n\\(n - k - 1\\)\nUnexplained variation; sum of squared discrepancies between observed points and regression surface.\n\n\n\n\n\n\n\\(n\\) represents the sample size.\n\\(k\\) represents the number of predictors, excluding the intercept."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#goodness-of-fit-r2",
     "href": "courses/2026/BBMS2013/Linear regression.html#goodness-of-fit-r2",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Goodness-of-Fit: \\(R^2\\)",
     "text": "Goodness-of-Fit: \\(R^2\\)\n\\(R^2\\) (The coefficient of determination) quantifies the proportion of total variation in the response variable explained by the linear combination of predictors:\n\n\\[\nR^2 = \\frac{\\text{SSR}}{\\text{SST}} = 1 - \\frac{\\text{SSE}}{\\text{SST}}\n\\]\n\nInterpretation Rules\n\nRange: In standard OLS with an intercept, \\(0 \\le R^2 \\le 1\\) (or \\(0\\%\\) to \\(100\\%\\)).\nInterpretation: If \\(R^2 = 0.74\\), exactly 74% of the variability in \\(Y\\) is explained by the predictors included in the model, while the remaining 26% is attributable to residual noise or omitted factors.\nLimitation: \\(R^2\\) is non-decreasing with respect to the addition of predictors. Adding completely unrelated random noise variables will force \\(\\text{SSE}\\) to stay equal or decrease, artificially inflating \\(R^2\\)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#adjusted-r2-r2_textadj",
     "href": "courses/2026/BBMS2013/Linear regression.html#adjusted-r2-r2_textadj",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Adjusted \\(R^2\\) (\\(R^2_{\\text{adj}}\\))",
     "text": "Adjusted \\(R^2\\) (\\(R^2_{\\text{adj}}\\))\nThe Adjusted \\(R^2\\) incorporates degrees of freedom to penalize excessive parameterization and prevent overfitting:\n\n\\[\n\\small\nR^2_{\\text{adj}} = 1 - \\left[ \\frac{\\text{SSE} / (n - k - 1)}{\\text{SST} / (n - 1)} \\right] = 1 - \\left( \\frac{\\text{MSE}}{\\text{MST}} \\right)\n\\]\n\nAlternatively expressed via \\(R^2\\): \\[\n\\small\nR^2_{\\text{adj}} = 1 - (1 - R^2) \\frac{n - 1}{n - k - 1}\n\\]\nKey Properties\n\nIncreases only if a newly added predictor reduces \\(\\text{SSE}\\) by a margin greater than what would be expected by pure chance.\nCan occasionally yield a negative value when model fit is negligible; in such cases, it is effectively interpreted as zero."
   },
   {
+    "objectID": "courses/2026/BBMS2013/Linear regression.html#pitfalls-to-avoid",
+    "href": "courses/2026/BBMS2013/Linear regression.html#pitfalls-to-avoid",
+    "title": "Multivariate analysis",
+    "section": "Pitfalls to Avoid",
+    "text": "Pitfalls to Avoid\n\nConfusing \\(R^2_{\\text{adj}}\\) with Causality: A high \\(R^2\\) indicates strong linear correlation, not causal direction.\nComparing \\(R^2_{\\text{adj}}\\) Across Different Transformations: You cannot compare the \\(R^2\\) of a model predicting \\(Y\\) directly to a model predicting \\(\\ln(Y)\\), because \\(\\text{SST}\\) is measured on fundamentally different scales.\nOver-reliance on \\(R^2_{\\text{adj}}\\) Alone: Always inspect residual diagnostics (residual vs. fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold."
+  },
+  {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#f-test-for-model-significance",
     "href": "courses/2026/BBMS2013/Linear regression.html#f-test-for-model-significance",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "\\(F\\)-Test for Model Significance",
     "text": "\\(F\\)-Test for Model Significance\n\\(F\\)-Test evaluates whether the collection of predictors collectively explains a statistically significant amount of variation.\nHypotheses\n\nNull Hypothesis (\\(H_0\\)): All slope coefficients are simultaneously zero.\n\n\n\\[\nH_0: \\beta_1 = \\beta_2 = \\dots = \\beta_k = 0\n\\]\n\n\nAlternative Hypothesis (\\(H_1\\)): At least one slope coefficient is non-zero.\n\n\n\\[\nH_1: \\text{There is at least one } \\beta_j \\neq 0\n\\]\n\nDifferences from individual testing on \\(\\beta_i\\)\n\nTesting individual \\(\\beta_i\\) relies on a \\(t\\)-test.\nRepeatedly testing \\(\\beta_i\\) causes p-value inflation."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#the-standard-anova-table-for-regression",
     "href": "courses/2026/BBMS2013/Linear regression.html#the-standard-anova-table-for-regression",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "The Standard ANOVA Table for Regression",
     "text": "The Standard ANOVA Table for Regression\nStatistical software (e.g., R, Python statsmodels, Stata, SAS) formats these calculations into an ANOVA table:\n\n\n\n\n\n\n\n\n\n\n\nSource of Variation\nSum of Squares (\\(SS\\))\nDegrees of Freedom (\\(df\\))\nMean Square (\\(MS\\))\n\\(F\\)-Statistic\n\\(p\\)-value\n\n\n\n\nRegression (Model)\n\\(\\text{SSR}\\)\n\\(k\\)\n\\(\\text{MSR} = \\frac{\\text{SSR}}{k}\\)\n\\(F = \\frac{\\text{MSR}}{\\text{MSE}}\\)\n\\(P(F_{(k, n-k-1)} \\ge F)\\)\n\n\nResidual (Error)\n\\(\\text{SSE}\\)\n\\(n - k - 1\\)\n\\(\\text{MSE} = \\frac{\\text{SSE}}{n - k - 1}\\)\n—\n—\n\n\nTotal\n\\(\\text{SST}\\)\n\\(n - 1\\)\n\\(\\text{MST} = \\frac{\\text{SST}}{n - 1}\\)\n—\n—"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#annotated-worked-example",
     "href": "courses/2026/BBMS2013/Linear regression.html#annotated-worked-example",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Annotated Worked Example",
     "text": "Annotated Worked Example\n\n\nResearch purpose: Factors affecting infant birth weight (\\(n = 189\\)).\n\nOutcome (\\(Y\\)): bwt (Infant birth weight in grams).\n\n\n\nPredictors (\\(X\\)): Maternal age (age),\n\nmaternal weight at last menstrual period (lwt),\nsmoking status during pregnancy (smoke),\nhistory of hypertension (ht),\nuterine irritability (ui).\n\n\n\n\n# Load MASS (pre-installed in R)\nlibrary(MASS)\ndata(birthwt)\n\n# Convert binary indicator variables into explicit factors\nbirthwt$smoke &lt;- factor(birthwt$smoke, labels = c(\"Non-Smoker\", \"Smoker\"))\nbirthwt$ht    &lt;- factor(birthwt$ht, labels = c(\"No\", \"Yes\"))\nbirthwt$ui    &lt;- factor(birthwt$ui, labels = c(\"No\", \"Yes\"))"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#regression-results",
     "href": "courses/2026/BBMS2013/Linear regression.html#regression-results",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Regression results",
     "text": "Regression results\n\nmodel &lt;- lm(bwt ~ age + lwt + smoke + ht + ui, data = birthwt)\nsummary(model)\n\nCode output\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1675.13  -464.38    -1.02   459.70  1779.69 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 2506.354    291.759   8.591 3.73e-15 ***\nage            3.648      9.432   0.387  0.69935    \nlwt            4.388      1.691   2.594  0.01024 *  \nsmokeSmoker -240.848    100.413  -2.399  0.01746 *  \nhtYes       -643.958    207.232  -3.107  0.00219 ** \nuiYes       -547.068    139.937  -3.909  0.00013 ***\n---\nSignif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1\n\nResidual standard error: 671.4 on 183 degrees of freedom\nMultiple R-squared:  0.1747,    Adjusted R-squared:  0.1522 \nF-statistic:  7.75 on 5 and 183 DF,  p-value: 1.234e-06"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#anova-table",
     "href": "courses/2026/BBMS2013/Linear regression.html#anova-table",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "ANOVA table",
-    "text": "ANOVA table\n\nlibrary(olsrr)\nolsaov&lt;-ols_regress(model)$anova\nolsaov$anova\n\nCode output\n                                 ANOVA                                   \n------------------------------------------------------------------------\n                    Sum of                                              \n                   Squares         DF    Mean Square      F        Sig. \n------------------------------------------------------------------------\nRegression    17469477.719          5    3493895.544     7.75    0.0000 \nResidual      82500178.091        183     450820.645                    \nTotal         99969655.810        188                                   \n------------------------------------------------------------------------"
+    "text": "ANOVA table\n\n# Install the package if you need \n# install.packages(\"olsrr\",dep=TRUE)\n\nlibrary(olsrr)\nolsaov&lt;-ols_regress(model)\nolsaov\n\nCode output\n                                 ANOVA                                   \n------------------------------------------------------------------------\n                    Sum of                                              \n                   Squares         DF    Mean Square      F        Sig. \n------------------------------------------------------------------------\nRegression    17469477.719          5    3493895.544     7.75    0.0000 \nResidual      82500178.091        183     450820.645                    \nTotal         99969655.810        188                                   \n------------------------------------------------------------------------"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#key-metrics-calculations",
     "href": "courses/2026/BBMS2013/Linear regression.html#key-metrics-calculations",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Key Metrics Calculations",
     "text": "Key Metrics Calculations\n\n\\(R^2\\) Calculation: \\[\nR^2 = \\frac{17469477.719 }{ 99969655.810} = 17.4\\%\n\\]\n\nInterpretation: 17.4% of the variance in infant birth weight is explained by maternal age, maternal weight at last menstrual period, smoking status, history of hypertension, and uterine irritability.\n\nAdjusted \\(R^2\\) Calculation: \\[\nR^2_{\\text{adj}} = 1 - \\left( \\frac{450820.645}{99969655.810/ 188} \\right) = 1 - 0.8478 = 15.2\\%\n\\] Interpretation: After penalizing for adding the model parameters, the model accounts for approximately 15.2% of the variance."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#common-issues",
     "href": "courses/2026/BBMS2013/Linear regression.html#common-issues",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Common issues",
     "text": "Common issues\nSignificant \\(F\\)-statistic, but no individual significant \\(t\\)-statistics\nThis classic paradox typically occurs due to severe multicollinearity.\n\nThe predictors are highly correlated with each other.\nThe overall \\(F\\)-test confirms that the set of predictors collectively accounts for substantial variation.\n\nLow \\(R^2\\) with a Statistically Significant \\(F\\)-test\n\nCommon in noisy biological or social science data (e.g., \\(R^2 = 0.08\\), \\(p &lt; 0.001\\) with \\(n = 5,000\\)).\nThis means the effect is genuine, real, and reproducible (not a sampling artifact), but individual-level variation remains high due to unmeasured factors."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#overview",
     "href": "courses/2026/BBMS2013/Linear regression.html#overview",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Overview",
     "text": "Overview\n\n\n\n\n\n\n\n\nLetter\nAssumption\nPrimary Diagnostic Tool\n\n\n\n\nL\nLinearity of the conditional expectation\n\\(\\mathbb{E}[\\varepsilon_i \\mid X] = 0\\)\n\n\nI\nIndependence of observational errors\n\\(\\text{Cov}(\\varepsilon_i, \\varepsilon_j) = 0 \\quad (\\forall i \\neq j)\\)\n\n\nN\nNormality of error distribution\n\\(\\varepsilon_i \\sim \\mathcal{N}(0, \\sigma^2)\\)\n\n\nE\nEqual Variance (Homoscedasticity)\n\\(\\text{Var}(\\varepsilon_i \\mid X) = \\sigma^2\\) (constant)"
   },
   {
-    "objectID": "courses/2026/BBMS2013/Linear regression.html#pitfalls-to-avoid",
-    "href": "courses/2026/BBMS2013/Linear regression.html#pitfalls-to-avoid",
-    "title": "Regression diagnostics",
-    "section": "Pitfalls to Avoid",
-    "text": "Pitfalls to Avoid\n\nConfusing \\(R^2_{\\text{adj}}\\) with Causality: A high \\(R^2\\) indicates strong linear correlation, not causal direction.\nComparing \\(R^2_{\\text{adj}}\\) Across Different Transformations: You cannot compare the \\(R^2\\) of a model predicting \\(Y\\) directly to a model predicting \\(\\ln(Y)\\), because \\(\\text{SST}\\) is measured on fundamentally different scales.\nOver-reliance on \\(R^2_{\\text{adj}}\\) Alone: Always inspect residual diagnostics (residual vs. fitted plots, Q-Q plots) to ensure linearity, normality, and homoscedasticity assumptions hold."
-  },
-  {
-    "objectID": "courses/2026/BBMS2013/Linear regression.html#in-depth-diagnostics-clinical-risks-remedies",
-    "href": "courses/2026/BBMS2013/Linear regression.html#in-depth-diagnostics-clinical-risks-remedies",
-    "title": "Regression diagnostics",
-    "section": "4. In-Depth Diagnostics, Clinical Risks & Remedies",
-    "text": "4. In-Depth Diagnostics, Clinical Risks & Remedies\n                THE 4 BASE R DIAGNOSTIC PLOTS: plot(model)\n   ┌───────────────────────────────────┬───────────────────────────────────┐\n   │ 1. Residuals vs Fitted            │ 2. Normal Q-Q Plot                │\n   │    Checks: Linearity              │    Checks: Normality              │\n   │    Ideal: Flat red line at y = 0  │    Ideal: Points follow dashed 45°│\n   ├───────────────────────────────────┼───────────────────────────────────┤\n   │ 3. Scale-Location                 │ 4. Residuals vs Leverage          │\n   │    Checks: Equal Variance         │    Checks: Influential Points     │\n   │    Ideal: Flat horizontal line    │    Ideal: Points inside Cook's d  │\n   └───────────────────────────────────┴───────────────────────────────────┘"
+    "objectID": "courses/2026/BBMS2013/Linear regression.html#in-depth-diagnostics-remedies",
+    "href": "courses/2026/BBMS2013/Linear regression.html#in-depth-diagnostics-remedies",
+    "title": "Multivariate analysis",
+    "section": "4. In-Depth Diagnostics & Remedies",
+    "text": "4. In-Depth Diagnostics & Remedies\n                THE 4 BASE R DIAGNOSTIC PLOTS: plot(model)\n   ┌───────────────────────────────────┬───────────────────────────────────┐\n   │ 1. Residuals vs Fitted            │ 2. Normal Q-Q Plot                │\n   │    Checks: Linearity              │    Checks: Normality              │\n   │    Ideal: Flat red line at y = 0  │    Ideal: Points follow dashed 45°│\n   ├───────────────────────────────────┼───────────────────────────────────┤\n   │ 3. Scale-Location                 │ 4. Residuals vs Leverage          │\n   │    Checks: Equal Variance         │    Checks: Influential Points     │\n   │    Ideal: Flat horizontal line    │    Ideal: Points inside Cook's d  │\n   └───────────────────────────────────┴───────────────────────────────────┘"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#l-linearity",
     "href": "courses/2026/BBMS2013/Linear regression.html#l-linearity",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "L — Linearity",
     "text": "L — Linearity\n\nThe relationship between \\(X\\) and the outcome is an additive linear combination.\n\nExample\n\nThe relationship between \\(X\\) and \\(Y\\) is a quadratic relation instead of a linear one.\n\nActions\n\nAdd non-linear polynomial terms: e.g., \\(\\text{Age}^2\\).\nApply logarithmic or power transformations."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#section",
     "href": "courses/2026/BBMS2013/Linear regression.html#section",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "",
     "text": "Tool: Residuals vs. Fitted Plot\n\nplot(model, which = 1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealthy Pattern: Residuals bounce randomly across a horizontal band centered at \\(y = 0\\), with no distinct trend. The red smooth smoother curve is nearly flat along \\(y = 0\\).\nViolation Warning: Distinct parabolic “U-shape”, inverted “U”, or sinusoidal wave."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#i-independence-of-errors",
     "href": "courses/2026/BBMS2013/Linear regression.html#i-independence-of-errors",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "I — Independence of Errors",
-    "text": "I — Independence of Errors\n\nKnowing that Patient A has an unexpectedly high outcome provides zero information about Patient B’s outcome.\nExample\n\nClustering: Patients recruited from the same hospital ward or family share correlated responses.\nAutocorrelation: Longitudinal measurements taken repeatedly over time on the same subject.\n\n\nActions\n\nRevise study design\nClustered data: Linear Mixed-Effects Models (lme4::lmer()) incorporating random intercepts for clusters/centers."
+    "text": "I — Independence of Errors\n\nKnowing that Patient A has an unexpectedly high outcome provides zero information about Patient B’s outcome.\nExample\n\nClustering: Patients recruited from the same hospital ward or family share correlated responses.\nAutocorrelation: Longitudinal measurements taken repeatedly over time on the same subject.\n\n\nActions\n\nRevise study design\nClustered data: Linear Mixed-Effects Models (lme4::lmer()) incorporating random intercepts for clusters/centers.\nTool: Evaluation of study design, Residuals vs. Time/Subject ID order"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#n-normality-of-residuals",
     "href": "courses/2026/BBMS2013/Linear regression.html#n-normality-of-residuals",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "N — Normality of Residuals",
     "text": "N — Normality of Residuals\n\nThe error terms are normally distributed around the fitted line.\n\nCrucial Clarification: In regression, the raw variables \\(Y\\) and \\(X\\) do not need to be normally distributed; only the residuals (\\(\\varepsilon_i\\)) must be normally distributed.\n\nTool: Normal Q-Q Plot (Base R Plot 2: plot(model, which = 2)).\nHealthy Pattern: Residual quantiles fall tightly along the theoretical 45-degree dashed line.\n\nActions\n\nTransform the outcome variable: logarithmic transformation: \\[\\log(Y_i) = \\beta_0 + \\beta_1 X_i + \\varepsilon_i\\]"
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#section-1",
     "href": "courses/2026/BBMS2013/Linear regression.html#section-1",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "",
     "text": "plot(model, which = 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nViolation Warning:\n\nHeavy tails (S-shape): Data has far more extreme clinical outliers than predicted by a normal curve.\nCurvature at ends: Skewed distributions (frequently seen with right-skewed lab markers such as serum creatinine, viral loads, or cytokine concentrations)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#e-equal-variance",
     "href": "courses/2026/BBMS2013/Linear regression.html#e-equal-variance",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "E — Equal Variance",
     "text": "E — Equal Variance\n\nThe variance of the residuals \\(\\text{Var}(\\varepsilon_i \\mid X) = \\sigma^2\\) is constant across all predicted values \\(\\hat{Y}\\). (Homoscedasticity)\n\nConsequence\n\nConventional \\(SE(\\hat{\\beta})\\) calculations are invalid. If variance expands at higher values, standard errors are underestimated for higher exposures, leading to false claims of significance.\n\nActions\n\nVariance-stabilizing transformations: \\(\\log(Y)\\) or \\(\\sqrt{Y}\\).\nHeteroscedasticity-Consistent (HC) Robust Standard Errors: Using sandwich::vcovHC(model, type = \"HC3\") paired with lmtest::coeftest().\nWeighted Least Squares (WLS): Weights inversely proportional to variance: \\(w_i = 1/\\sigma_i^2\\)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#section-2",
     "href": "courses/2026/BBMS2013/Linear regression.html#section-2",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "",
     "text": "Tool: Scale-Location Plot (Base R Plot 3: plot(model, which = 3))\n\n\nplot(model, which = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealthy Pattern: A horizontal smooth red line with an even, constant vertical scatter of points across all fitted values.\nViolation Warning: A megaphone / funnel shape where residual spread widens drastically as \\(\\hat{Y}\\) increases (common in biomedical dosing and growth studies)."
   },
   {
     "objectID": "courses/2026/BBMS2013/Linear regression.html#summary-diagnostic-flowchart",
     "href": "courses/2026/BBMS2013/Linear regression.html#summary-diagnostic-flowchart",
-    "title": "Regression diagnostics",
+    "title": "Multivariate analysis",
     "section": "Summary Diagnostic Flowchart",
     "text": "Summary Diagnostic Flowchart\n                      [Fit Linear Model: lm(Y ~ X1 + X2)]\n                                       │\n                ┌──────────────────────┴──────────────────────┐\n                ▼                                             ▼\n       [Evaluate Goodness-of-Fit]                    [Validate L.I.N.E.]\n       • R² & Adjusted R²                            • Residuals vs Fitted (Linearity)\n       • Residual Std Error (RSE)                    • Study structure (Independence)\n       • Global ANOVA F-Test                         • Normal Q-Q (Normality)\n                │                                    • Scale-Location (Equal Variance)\n                │                                             │\n                └──────────────────────┬──────────────────────┘\n                                       │\n                     All L.I.N.E. Assumptions Hold?\n                                       │\n                      ├─── YES ──► Report slopes, 95% CIs & p-values\n                      │\n                      └─── NO  ──► Apply Diagnostic Remedy:\n                                   • Non-linear? ──► Log(X), Polynomials\n                                   • Heteroscedastic? ──► Log(Y), HC3 Robust SE\n                                   • Non-normal? ──► Transform Y, Bootstrap\n                                   • Clustered? ──► Mixed-Effects Model (lmer)\n\n\n\n\nEakins, Thomas. 1875. The Clinic of Dr. Gross. Oil on canvas. Philadelphia Museum of Art."
   },
