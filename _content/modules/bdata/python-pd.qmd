@@ -352,4 +352,81 @@ If between the step 1 and 2 you do some change on `df["expression"]`, `high_exp`
 
 ## Method chaining
 
-In stead of this messy way, `Pandas' provide a  
+In stead of this messy way, `Pandas' provide a **method chaining** approach to make your code clearer.
+In specific, we will focus on the following methods
+
+
+::: {.columns}
+
+::: {.column}
+
+- `.query()`: Selecting data
+- `.mutate()`: Adding new column
+- `.groupby()`: Group data by the designated group
+- `.summary()`: calculate summary statistics
+
+:::
+
+::: {.column}
+**Example**
+```{python}
+#| echo: true
+#| eval: true
+# The parentheses () tell Python this is one pipeline.
+final_df = (
+    df 
+    # 1. FILTER: Keep only high expression
+    .query("expression > 50000")
+    # 2. MUTATE: Create a BRAND NEW column
+    .assign( log_exp = lambda x: np.log(x["expression"] + 1))
+    # 3. SELECT: Keep only these three columns at the very end
+    [["gene", "sample", "log_exp"]]
+)
+```
+
+:::
+
+:::
+
+## `.query()`: Filtering Rows
+
+`.query()` lets you write the filtering condition as a clean string.
+
+
+```{python}
+#| echo: true
+#| eval: true
+ df.query("expression > 50000 and tissue == 'Cerebellum'")
+```
+
+- Quotes inside quotes: If the outer query uses double quotes `"..."`, use single quotes `'...'`  for text values inside (like `'Cerebellum'`).
+- Natural logic: You can write `and` / `or` 
+- Using external variables: Prefix a Python variable with `@` to reference it inside the query string
+
+```{python}
+#| echo: true
+#| eval: true
+cutoff=50000
+df.query("expression > @cutoff")
+```
+
+## .assign(): Creating or Modifying Columns
+
+`.assign()`adds new columns and returns a new DataFrame without modifying the original rna table.
+
+```{python}
+#| echo: true
+#| eval: true
+# The parentheses () tell Python this is one pipeline.
+final_df = (
+    df 
+    .assign(
+        time_hours = lambda x: x["time"] * 24,
+        time_min   = lambda x: x["time_hours"] * 60,
+        log_exp    = lambda x: np.log(x["expression"] + 1)
+    )
+)
+```
+
+- `lambda x:` : `x` represents the current state of the DataFrame at that exact step. If you filtered rows in the line above, `lambda x:` ensures you are calculating on the filtered data.
+- Sequential creation: you can reference a column you just created in the very next line of the same `.assign()` call

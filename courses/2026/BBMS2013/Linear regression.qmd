@@ -1,5 +1,6 @@
 ---
-title: "Regression diagnostics"
+title: "Multivariate analysis"
+subtitle: "Regression diagnostics"
 author: "Dr. Yu Cheng Hsu"
 title-slide-attributes:
     data-background: /assets/images/lr/background-1.jpg

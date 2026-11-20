@@ -198,10 +198,12 @@ F-statistic:  7.75 on 5 and 183 DF,  p-value: 1.234e-06
 #| echo: true
 #| eval: true
 #| output: false
+# Install the package if you need 
+# install.packages("olsrr",dep=TRUE)
 
 library(olsrr)
-olsaov<-ols_regress(model)$anova
-olsaov$anova
+olsaov<-ols_regress(model)
+olsaov
 ```
 
 **Code output**

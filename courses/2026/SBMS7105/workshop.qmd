@@ -18,7 +18,7 @@ author: "Dr. Yu Cheng Hsu"
 
 
 ```{=html}
-<div class='tableauPlaceholder' id='viz1757429236454' style='position: relative'><noscript><a href='#'><img alt='Story 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Q9&#47;Q9832J6T9&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;Q9832J6T9' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Q9&#47;Q9832J6T9&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1757429236454');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='900px';vizElement.style.height='700px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<div class='tableauPlaceholder' id='viz1795141800062' style='position: relative'><noscript><a href='#'><img alt='Story 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIOF4002example&#47;Story1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BIOF4002example&#47;Story1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIOF4002example&#47;Story1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1795141800062');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='900px';vizElement.style.height='627px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 ```
 # Getting WHO Observatory Data Source
 
@@ -259,7 +259,7 @@ Name the data source and column you need.
 5. Drag `Year` to Filters, change it to display as discrete values, and click Show Filter
 6. Drag `New HIV cases` to Color and set the summarize function as `SUM`
 7. Set the filter on `New HIV cases` by clicking the triangle at the Marks card and make it only include non-null values
-8. Set the `Year` filter to a slider at the right hand side panel by right-clicking it and selecting Slider.
+8. Set the `Year` filter to a slider at the right hand side panel by clicking the triangle at the right and selecting Slider.
 9. Set the color gradient and customize the values at the right hand side panel by selecting Edit Colors, and rename the title  as `New HIV cases per year`
 10. Set the title as `Global New HIV Infection in <Year>`
 
@@ -271,7 +271,7 @@ Name the data source and column you need.
 ### Create the line plot Chart (Total HIV population vs. New HIV by Year)
 
 1. Rename `Numeric Value` in `HIV_0000000001` to `Total HIV cases`
-2. Drag  `Year` in `HIV_0000000026` to x-axis.
+2. Drag  `Year` in `HIV_0000000026` to x-axis and set it as dimension.
 3. Drag  `Total HIV cases` in `HIV_0000000001` and `New HIV cases` in `HIV_0000000026` to the Rows shelf (Y-axis), aggregating both with  `SUM`.
 4. Choose either `Total HIV cases` or `New HIV cases` and select `dual axis`
 5. Similar to adding the Year filter, this time we add a `Country Name` filter and make it into a dropdown box
@@ -285,9 +285,9 @@ Name the data source and column you need.
 1. Drag `Total HIV cases` from `HIV_0000000001` to the x-axis, select it as dimension.
 
 2. Rename `Numeric Value` in `TB_e_inc_tbhiv_100k` to `Incidence of tuberculosis (per 100 000 population) (HIV-positive cases)`, drag it to the y-axis, and select it as dimension.
-
-3. Drag `Year` to the `Label` marks
-4. Add the trend line by right-clicking in the middle of the sheet and selecting "Show Trend Lines"
+3. Add a `Country Name` filter
+4. Drag `Year` to the `Label` marks
+5. Add the trend line by right-clicking in the middle of the sheet and selecting "Show Trend Lines"
 
 ![Comorbidity between HIV and TB for each country](../../../assets/images/tableau/comorbid.png)
 

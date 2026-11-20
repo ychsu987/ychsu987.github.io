@@ -37,6 +37,17 @@ Below is a curated list of teaching materials. Feel free to use and modify the c
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100 .shadow-sm}
 ::: {.card-body}
+### BBMS2013 Biomedical Statistics
+
+
+[Course index](courses/2026/BBMS2013/index.qmd){.btn .btn-primary .btn-sm}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-body}
 ### BIOF2014 Statistical Modelling in Bioinformatics
 
 
