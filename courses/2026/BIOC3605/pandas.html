@@ -248,7 +248,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <h2>Library</h2>
 <p>In python a lot of developer will write their own code and share to other to reuse. This package of code are called <code>library</code></p>
 <p>To install a specific library you can do</p>
-<div id="98d6db00" class="cell" data-execution_count="1">
+<div id="2648336c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="op">!</span> pip install PACKAGE_NAME</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You do not need to do this on Google colab as Google colab pre-installed most of the commonly used package for you already</p>
@@ -263,7 +263,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <li>Pandas is a specialized library for manipulating tabular data</li>
 <li>To use the exisiting library we can do</li>
 </ul>
-<div id="d388e819" class="cell" data-execution_count="3">
+<div id="6ccf89b5" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="co"># 'pd' is the universal standard nickname for pandas. </span></span>
 <span id="cb2-2"><a></a><span class="co"># Every coder in the world uses this exact line.</span></span>
 <span id="cb2-3"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -284,7 +284,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <li>Data table is called a DataFrame (usually abbreviated as <code>df</code>) in Pandas</li>
 <li>To read the data we use <code>pd.read_csv("FILE_LOCATION")</code></li>
 </ul>
-<div id="3d4edb62" class="cell" data-execution_count="4">
+<div id="a2915c98" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># Load the CSV file into memory</span></span>
 <span id="cb3-2"><a></a><span class="co"># (Assume we uploaded 'rnaseq_results.csv' to Colab)</span></span>
 <span id="cb3-3"><a></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/refs/heads/main/docs/data/rnaseq.csv"</span>)</span>
@@ -343,7 +343,7 @@ Dr.&nbsp;Yu Cheng Hsu
 <li><code>.shape</code> : The dimensions: (number_of_rows, number_of_columns)</li>
 <li><code>.columns</code> : List of all the column headers</li>
 </ul>
-<div id="f6cfac8d" class="cell" data-execution_count="5">
+<div id="11f2bd82" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># 1. df.shape tells you the dimensions: (number_of_rows, number_of_columns)</span></span>
 <span id="cb5-2"><a></a><span class="bu">print</span>(<span class="st">"Data dimensions:"</span>, df.shape)</span>
 <span id="cb5-3"><a></a></span>
@@ -363,7 +363,7 @@ Column names: Index(['gene', 'sample', 'expression', 'organism', 'age', 'sex', '
 <section id="selecting-columns" class="slide level2">
 <h2>Selecting Columns</h2>
 <p>Subset the DataFrame by passing a <code>List</code> of the column names you want to keep inside square brackets.</p>
-<div id="bd42fd4b" class="cell" data-execution_count="6">
+<div id="0e759f95" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># We use double brackets: the outer brackets are for Pandas, </span></span>
 <span id="cb7-2"><a></a><span class="co"># and the inner brackets represent our Python List of names!</span></span>
 <span id="cb7-3"><a></a>df_subset <span class="op">=</span> df[[<span class="st">"gene"</span>, <span class="st">"expression"</span>, <span class="st">"tissue"</span>]]</span>
@@ -437,7 +437,7 @@ Column names: Index(['gene', 'sample', 'expression', 'organism', 'age', 'sex', '
 <div class="columns">
 <div class="column">
 <p><strong><code>.loc</code> Label location</strong></p>
-<div id="4c9408de" class="cell" data-execution_count="7">
+<div id="7c74d90b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># 1. Turn the "gene" column into the Index</span></span>
 <span id="cb8-2"><a></a>df_indexed <span class="op">=</span> df.set_index(<span class="st">"gene"</span>)</span>
 <span id="cb8-3"><a></a></span>
@@ -485,7 +485,7 @@ Name: expression, dtype: int64</code></pre>
 </div>
 </div><div class="column">
 <p><strong><code>.iloc</code> index location</strong></p>
-<div id="692f7acd" class="cell" data-execution_count="8">
+<div id="ab79aa25" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Grab the first row (index 0) and all columns (the colon :)</span></span>
 <span id="cb10-2"><a></a>first_row <span class="op">=</span> df.iloc[<span class="dv">0</span>, :]</span>
 <span id="cb10-3"><a></a></span>
@@ -553,7 +553,7 @@ Name: expression, dtype: int64</code></pre>
 <div class="columns">
 <div class="column">
 <p><strong><code>.loc</code> Label location</strong> - Use actual name</p>
-<div id="444b6331" class="cell" data-execution_count="9">
+<div id="76692978" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Extract all rows for the `expression` column</span></span>
 <span id="cb12-2"><a></a>df.loc[:, <span class="st">"expression"</span>].head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -565,7 +565,7 @@ Name: expression, dtype: int64</code></pre>
 </div>
 </div><div class="column">
 <p><strong><code>.iloc</code> index location</strong></p>
-<div id="48b5dda5" class="cell" data-execution_count="10">
+<div id="5608f25f" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Extract all rows for the 3rd column</span></span>
 <span id="cb14-2"><a></a>df.iloc[:, <span class="dv">2</span>].head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
@@ -590,7 +590,7 @@ Name: expression, dtype: int64</code></pre>
 <li>Assign on a new column.</li>
 <li>Do not need to loop all cells, Most of the python math function will apply the math mfunctin to every cells in the table</li>
 </ul>
-<div id="8462a306" class="cell" data-execution_count="11">
+<div id="b24a4a45" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co">#### Time start (This is for the next slides)</span></span>
 <span id="cb16-2"><a></a>start_time_loop <span class="op">=</span> time.time()</span>
 <span id="cb16-3"><a></a><span class="co">## Exact code starts</span></span>
@@ -604,7 +604,7 @@ Name: expression, dtype: int64</code></pre>
 <span id="cb16-11"><a></a><span class="bu">print</span>(<span class="ss">f"For loop finished in: </span><span class="sc">{</span>loop_time<span class="sc">:.5f}</span><span class="ss"> seconds"</span>)</span>
 <span id="cb16-12"><a></a>df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>For loop finished in: 0.00184 seconds</code></pre>
+<pre><code>For loop finished in: 0.00103 seconds</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
@@ -705,7 +705,7 @@ Name: expression, dtype: int64</code></pre>
 <section id="what-if-using-for-loops" class="slide level2">
 <h2>What if using <code>for</code> Loops</h2>
 <p>We can use for loop to achieve exactly the same goal</p>
-<div id="3f49abc9" class="cell" data-execution_count="12">
+<div id="6423f7a5" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="co"># Time start</span></span>
 <span id="cb18-2"><a></a>start_time_loop <span class="op">=</span> time.time()</span>
 <span id="cb18-3"><a></a></span>
@@ -725,7 +725,7 @@ Name: expression, dtype: int64</code></pre>
 <span id="cb18-17"><a></a>loop_time <span class="op">=</span> end_time_loop <span class="op">-</span> start_time_loop</span>
 <span id="cb18-18"><a></a><span class="bu">print</span>(<span class="ss">f"For loop finished in: </span><span class="sc">{</span>loop_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>For loop finished in: 0.21 seconds</code></pre>
+<pre><code>For loop finished in: 0.15 seconds</code></pre>
 </div>
 </div>
 </section>
@@ -752,7 +752,7 @@ Name: expression, dtype: int64</code></pre>
 <section id="save-your-results" class="slide level2">
 <h2>Save your results</h2>
 <p><code>.to_csv</code>/ <code>.to_excel</code> methods can let you save your results</p>
-<div id="21b390c5" class="cell" data-execution_count="13">
+<div id="4540945b" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="co"># Save our filtered 'highly_expressed_genes' table to a new CSV file.</span></span>
 <span id="cb20-2"><a></a><span class="co"># index=False prevents Pandas from exporting the 0,1,2,3 row numbers.</span></span>
 <span id="cb20-3"><a></a>df.to_csv(<span class="st">"high_expression_results.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -766,7 +766,7 @@ Name: expression, dtype: int64</code></pre>
 <section id="motivations" class="slide level2">
 <h2>Motivations</h2>
 <p>If we manipulate the data with what we have just cover</p>
-<div id="98ed1dd3" class="cell" data-execution_count="14">
+<div id="3511e3b3" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="co"># Create a copy of df to prevent overwriting  </span></span>
 <span id="cb21-2"><a></a>my_data <span class="op">=</span> df.copy()</span>
 <span id="cb21-3"><a></a></span>
@@ -786,7 +786,7 @@ Name: expression, dtype: int64</code></pre>
 <section id="other-problem" class="slide level2">
 <h2>Other problem</h2>
 <p>The below code will give you a warning</p>
-<div id="ab2ea769" class="cell" data-execution_count="15">
+<div id="d80cdddf" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="co"># 1. Filter the data</span></span>
 <span id="cb22-2"><a></a>high_exp <span class="op">=</span> df[df[<span class="st">"expression"</span>] <span class="op">&gt;</span> <span class="dv">50000</span>]</span>
 <span id="cb22-3"><a></a></span>
@@ -795,7 +795,2645 @@ Name: expression, dtype: int64</code></pre>
 </div>
 <p>Pandas gives you warning because it isn’t sure if high_exp is a brand-new table or just a “window” looking at the original <code>df</code></p>
 <p><strong>Implication</strong></p>
-<p>If in the step 1 and 2 you do some change on <code>df["expression"]</code> then <code>high_exp</code> won’t get the updated value</p>
+<p>If between the step 1 and 2 you do some change on <code>df["expression"]</code>, <code>high_exp</code> won’t get the updated value</p>
+</section>
+<section id="method-chaining" class="slide level2">
+<h2>Method chaining</h2>
+<p>In stead of this messy way, `Pandas’ provide a <strong>method chaining</strong> approach to make your code clearer. In specific, we will focus on the following methods</p>
+<div class="columns">
+<div class="column">
+<ul>
+<li><code>.query()</code>: Selecting data</li>
+<li><code>.mutate()</code>: Adding new column</li>
+<li><code>.groupby()</code>: Group data by the designated group</li>
+<li><code>.summary()</code>: calculate summary statistics</li>
+</ul>
+</div><div class="column">
+<p><strong>Example</strong></p>
+<div id="6dc34959" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="co"># The parentheses () tell Python this is one pipeline.</span></span>
+<span id="cb23-2"><a></a>final_df <span class="op">=</span> (</span>
+<span id="cb23-3"><a></a>    df </span>
+<span id="cb23-4"><a></a>    .query(<span class="st">"expression &gt; 50000 and tissue == 'Cerebellum'"</span>)</span>
+<span id="cb23-5"><a></a>    .assign(expression_k <span class="op">=</span> <span class="kw">lambda</span> x: x[<span class="st">"expression"</span>] <span class="op">/</span> <span class="dv">1000</span>)</span>
+<span id="cb23-6"><a></a>    <span class="co"># 3. SELECT: Keep only these three columns at the very end</span></span>
+<span id="cb23-7"><a></a>    [[<span class="st">"gene"</span>, <span class="st">"sample"</span>, <span class="st">"expression_k"</span>]]</span>
+<span id="cb23-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+<p>#3 <code>.query()</code>: Filtering Rows</p>
+<p><code>.query()</code> lets you write the filtering condition as a clean string.</p>
+<div id="0326fcbe" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a> df.query(<span class="st">"expression &gt; 50000 and tissue == 'Cerebellum'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">gene</th>
+<th data-quarto-table-cell-role="th">sample</th>
+<th data-quarto-table-cell-role="th">expression</th>
+<th data-quarto-table-cell-role="th">organism</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">infection</th>
+<th data-quarto-table-cell-role="th">strain</th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">tissue</th>
+<th data-quarto-table-cell-role="th">mouse</th>
+<th data-quarto-table-cell-role="th">ENTREZID</th>
+<th data-quarto-table-cell-role="th">product</th>
+<th data-quarto-table-cell-role="th">ensembl_gene_id</th>
+<th data-quarto-table-cell-role="th">external_synonym</th>
+<th data-quarto-table-cell-role="th">chromosome_name</th>
+<th data-quarto-table-cell-role="th">gene_biotype</th>
+<th data-quarto-table-cell-role="th">phenotype_description</th>
+<th data-quarto-table-cell-role="th">hsapiens_homolog_associated_gene_name</th>
+<th data-quarto-table-cell-role="th">log_expression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">50</td>
+<td>Glul</td>
+<td>GSM2545336</td>
+<td>89445</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>14</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.448713</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">260</td>
+<td>Sparc</td>
+<td>GSM2545336</td>
+<td>69090</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>14</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>16.076189</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1456</td>
+<td>Atp1b1</td>
+<td>GSM2545336</td>
+<td>69860</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>14</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>16.092179</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1482</td>
+<td>Plp1</td>
+<td>GSM2545337</td>
+<td>101241</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>9</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.627434</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2930</td>
+<td>Atp1b1</td>
+<td>GSM2545337</td>
+<td>53260</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>9</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.700765</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2956</td>
+<td>Plp1</td>
+<td>GSM2545338</td>
+<td>96534</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>10</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.558750</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4404</td>
+<td>Atp1b1</td>
+<td>GSM2545338</td>
+<td>50614</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>10</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.627249</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4430</td>
+<td>Plp1</td>
+<td>GSM2545339</td>
+<td>58354</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>15</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>15.832544</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5878</td>
+<td>Atp1b1</td>
+<td>GSM2545339</td>
+<td>52975</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>15</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.693024</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5904</td>
+<td>Plp1</td>
+<td>GSM2545340</td>
+<td>53126</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>18</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>15.697130</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7352</td>
+<td>Atp1b1</td>
+<td>GSM2545340</td>
+<td>52634</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>18</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.683707</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7420</td>
+<td>Glul</td>
+<td>GSM2545341</td>
+<td>61758</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>6</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.914338</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8894</td>
+<td>Glul</td>
+<td>GSM2545342</td>
+<td>60132</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>5</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.875845</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10326</td>
+<td>Plp1</td>
+<td>GSM2545343</td>
+<td>98658</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>11</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.590148</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10368</td>
+<td>Glul</td>
+<td>GSM2545343</td>
+<td>54808</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>11</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.742099</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11774</td>
+<td>Atp1b1</td>
+<td>GSM2545343</td>
+<td>60083</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>11</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.874669</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">11800</td>
+<td>Plp1</td>
+<td>GSM2545344</td>
+<td>61356</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>22</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>15.904917</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13248</td>
+<td>Atp1b1</td>
+<td>GSM2545344</td>
+<td>55437</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>22</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.758562</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13274</td>
+<td>Plp1</td>
+<td>GSM2545345</td>
+<td>61647</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>13</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>15.911743</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13316</td>
+<td>Glul</td>
+<td>GSM2545345</td>
+<td>55968</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>13</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.772315</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14722</td>
+<td>Atp1b1</td>
+<td>GSM2545345</td>
+<td>55710</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>13</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.765649</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">14790</td>
+<td>Glul</td>
+<td>GSM2545346</td>
+<td>71706</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>23</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.129806</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16196</td>
+<td>Atp1b1</td>
+<td>GSM2545346</td>
+<td>54794</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>23</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.741730</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16264</td>
+<td>Glul</td>
+<td>GSM2545347</td>
+<td>71375</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>24</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.123131</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16474</td>
+<td>Sparc</td>
+<td>GSM2545347</td>
+<td>62757</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>24</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>15.937489</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17670</td>
+<td>Atp1b1</td>
+<td>GSM2545347</td>
+<td>61672</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>24</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.912328</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17696</td>
+<td>Plp1</td>
+<td>GSM2545348</td>
+<td>102790</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>8</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.649340</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19144</td>
+<td>Atp1b1</td>
+<td>GSM2545348</td>
+<td>59544</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>8</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.861669</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19170</td>
+<td>Plp1</td>
+<td>GSM2545349</td>
+<td>82722</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>7</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.335983</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20618</td>
+<td>Atp1b1</td>
+<td>GSM2545349</td>
+<td>59094</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>7</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.850724</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20644</td>
+<td>Plp1</td>
+<td>GSM2545350</td>
+<td>91642</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>1</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.483721</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20686</td>
+<td>Glul</td>
+<td>GSM2545350</td>
+<td>67586</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>1</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.044437</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20896</td>
+<td>Sparc</td>
+<td>GSM2545350</td>
+<td>50113</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>1</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>15.612897</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">22092</td>
+<td>Atp1b1</td>
+<td>GSM2545350</td>
+<td>71866</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>1</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>16.133022</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22160</td>
+<td>Glul</td>
+<td>GSM2545351</td>
+<td>75277</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>16</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.199922</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">22370</td>
+<td>Sparc</td>
+<td>GSM2545351</td>
+<td>57409</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>16</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>15.808989</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23566</td>
+<td>Atp1b1</td>
+<td>GSM2545351</td>
+<td>63790</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>16</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.961043</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23592</td>
+<td>Plp1</td>
+<td>GSM2545352</td>
+<td>74044</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>21</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.176095</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23634</td>
+<td>Glul</td>
+<td>GSM2545352</td>
+<td>67681</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>21</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.046463</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25040</td>
+<td>Atp1b1</td>
+<td>GSM2545352</td>
+<td>72459</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>21</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>16.144877</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25066</td>
+<td>Plp1</td>
+<td>GSM2545353</td>
+<td>71237</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>4</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.120339</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25108</td>
+<td>Glul</td>
+<td>GSM2545353</td>
+<td>52451</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>4</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.678683</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26514</td>
+<td>Atp1b1</td>
+<td>GSM2545353</td>
+<td>61451</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>4</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.907149</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">26540</td>
+<td>Plp1</td>
+<td>GSM2545354</td>
+<td>84540</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>2</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.367346</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26582</td>
+<td>Glul</td>
+<td>GSM2545354</td>
+<td>50584</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>2</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.626394</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27988</td>
+<td>Atp1b1</td>
+<td>GSM2545354</td>
+<td>57409</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>2</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.808989</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28014</td>
+<td>Plp1</td>
+<td>GSM2545362</td>
+<td>71380</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>20</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.123232</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">28056</td>
+<td>Glul</td>
+<td>GSM2545362</td>
+<td>62355</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>20</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.928218</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">29462</td>
+<td>Atp1b1</td>
+<td>GSM2545362</td>
+<td>64450</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>20</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.975893</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29488</td>
+<td>Plp1</td>
+<td>GSM2545363</td>
+<td>66033</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>12</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.010900</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30936</td>
+<td>Atp1b1</td>
+<td>GSM2545363</td>
+<td>57383</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>12</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.808336</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31004</td>
+<td>Glul</td>
+<td>GSM2545380</td>
+<td>87942</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>19</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.424265</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">31214</td>
+<td>Sparc</td>
+<td>GSM2545380</td>
+<td>67748</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>19</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>16.047891</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">32410</td>
+<td>Atp1b1</td>
+<td>GSM2545380</td>
+<td>67958</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>19</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>16.052356</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>Quotes inside quotes: If the outer query uses double quotes <code>"..."</code>, use single quotes <code>'...'</code> for text values inside (like <code>'Cerebellum'</code>).</li>
+<li>Natural logic: You can write <code>and</code> / <code>or</code></li>
+<li>Using external variables: Prefix a Python variable with <code>@</code> to reference it inside the query string</li>
+</ul>
+<div id="d31d5249" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>cutoff<span class="op">=</span><span class="dv">50000</span></span>
+<span id="cb25-2"><a></a>df.query(<span class="st">"expression &gt; @cutoff"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">gene</th>
+<th data-quarto-table-cell-role="th">sample</th>
+<th data-quarto-table-cell-role="th">expression</th>
+<th data-quarto-table-cell-role="th">organism</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">infection</th>
+<th data-quarto-table-cell-role="th">strain</th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">tissue</th>
+<th data-quarto-table-cell-role="th">mouse</th>
+<th data-quarto-table-cell-role="th">ENTREZID</th>
+<th data-quarto-table-cell-role="th">product</th>
+<th data-quarto-table-cell-role="th">ensembl_gene_id</th>
+<th data-quarto-table-cell-role="th">external_synonym</th>
+<th data-quarto-table-cell-role="th">chromosome_name</th>
+<th data-quarto-table-cell-role="th">gene_biotype</th>
+<th data-quarto-table-cell-role="th">phenotype_description</th>
+<th data-quarto-table-cell-role="th">hsapiens_homolog_associated_gene_name</th>
+<th data-quarto-table-cell-role="th">log_expression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">50</td>
+<td>Glul</td>
+<td>GSM2545336</td>
+<td>89445</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>14</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.448713</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">260</td>
+<td>Sparc</td>
+<td>GSM2545336</td>
+<td>69090</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>14</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>16.076189</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1456</td>
+<td>Atp1b1</td>
+<td>GSM2545336</td>
+<td>69860</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>14</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>16.092179</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1482</td>
+<td>Plp1</td>
+<td>GSM2545337</td>
+<td>101241</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>9</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.627434</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2930</td>
+<td>Atp1b1</td>
+<td>GSM2545337</td>
+<td>53260</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>9</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.700765</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2956</td>
+<td>Plp1</td>
+<td>GSM2545338</td>
+<td>96534</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>10</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.558750</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4404</td>
+<td>Atp1b1</td>
+<td>GSM2545338</td>
+<td>50614</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>10</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.627249</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4430</td>
+<td>Plp1</td>
+<td>GSM2545339</td>
+<td>58354</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>15</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>15.832544</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5878</td>
+<td>Atp1b1</td>
+<td>GSM2545339</td>
+<td>52975</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>15</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.693024</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5904</td>
+<td>Plp1</td>
+<td>GSM2545340</td>
+<td>53126</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>18</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>15.697130</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7352</td>
+<td>Atp1b1</td>
+<td>GSM2545340</td>
+<td>52634</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>18</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.683707</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7420</td>
+<td>Glul</td>
+<td>GSM2545341</td>
+<td>61758</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>6</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.914338</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8894</td>
+<td>Glul</td>
+<td>GSM2545342</td>
+<td>60132</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>5</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.875845</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10326</td>
+<td>Plp1</td>
+<td>GSM2545343</td>
+<td>98658</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>11</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.590148</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10368</td>
+<td>Glul</td>
+<td>GSM2545343</td>
+<td>54808</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>11</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.742099</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11774</td>
+<td>Atp1b1</td>
+<td>GSM2545343</td>
+<td>60083</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>11</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.874669</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">11800</td>
+<td>Plp1</td>
+<td>GSM2545344</td>
+<td>61356</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>22</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>15.904917</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13248</td>
+<td>Atp1b1</td>
+<td>GSM2545344</td>
+<td>55437</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>22</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.758562</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13274</td>
+<td>Plp1</td>
+<td>GSM2545345</td>
+<td>61647</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>13</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>15.911743</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13316</td>
+<td>Glul</td>
+<td>GSM2545345</td>
+<td>55968</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>13</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.772315</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14722</td>
+<td>Atp1b1</td>
+<td>GSM2545345</td>
+<td>55710</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>13</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.765649</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">14790</td>
+<td>Glul</td>
+<td>GSM2545346</td>
+<td>71706</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>23</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.129806</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16196</td>
+<td>Atp1b1</td>
+<td>GSM2545346</td>
+<td>54794</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>23</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.741730</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16264</td>
+<td>Glul</td>
+<td>GSM2545347</td>
+<td>71375</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>24</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.123131</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16474</td>
+<td>Sparc</td>
+<td>GSM2545347</td>
+<td>62757</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>24</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>15.937489</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17670</td>
+<td>Atp1b1</td>
+<td>GSM2545347</td>
+<td>61672</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>24</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.912328</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17696</td>
+<td>Plp1</td>
+<td>GSM2545348</td>
+<td>102790</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>8</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.649340</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19144</td>
+<td>Atp1b1</td>
+<td>GSM2545348</td>
+<td>59544</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>8</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.861669</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19170</td>
+<td>Plp1</td>
+<td>GSM2545349</td>
+<td>82722</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>7</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.335983</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20618</td>
+<td>Atp1b1</td>
+<td>GSM2545349</td>
+<td>59094</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>7</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.850724</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20644</td>
+<td>Plp1</td>
+<td>GSM2545350</td>
+<td>91642</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>1</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.483721</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20686</td>
+<td>Glul</td>
+<td>GSM2545350</td>
+<td>67586</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>1</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.044437</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20896</td>
+<td>Sparc</td>
+<td>GSM2545350</td>
+<td>50113</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>1</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>15.612897</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">22092</td>
+<td>Atp1b1</td>
+<td>GSM2545350</td>
+<td>71866</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>1</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>16.133022</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22160</td>
+<td>Glul</td>
+<td>GSM2545351</td>
+<td>75277</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>16</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.199922</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">22370</td>
+<td>Sparc</td>
+<td>GSM2545351</td>
+<td>57409</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>16</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>15.808989</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23566</td>
+<td>Atp1b1</td>
+<td>GSM2545351</td>
+<td>63790</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>16</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.961043</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23592</td>
+<td>Plp1</td>
+<td>GSM2545352</td>
+<td>74044</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>21</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.176095</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23634</td>
+<td>Glul</td>
+<td>GSM2545352</td>
+<td>67681</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>21</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.046463</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25040</td>
+<td>Atp1b1</td>
+<td>GSM2545352</td>
+<td>72459</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>21</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>16.144877</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25066</td>
+<td>Plp1</td>
+<td>GSM2545353</td>
+<td>71237</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>4</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.120339</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25108</td>
+<td>Glul</td>
+<td>GSM2545353</td>
+<td>52451</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>4</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.678683</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26514</td>
+<td>Atp1b1</td>
+<td>GSM2545353</td>
+<td>61451</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>4</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.907149</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">26540</td>
+<td>Plp1</td>
+<td>GSM2545354</td>
+<td>84540</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>2</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.367346</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26582</td>
+<td>Glul</td>
+<td>GSM2545354</td>
+<td>50584</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>2</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.626394</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27988</td>
+<td>Atp1b1</td>
+<td>GSM2545354</td>
+<td>57409</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>NonInfected</td>
+<td>C57BL/6</td>
+<td>0</td>
+<td>Cerebellum</td>
+<td>2</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.808989</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28014</td>
+<td>Plp1</td>
+<td>GSM2545362</td>
+<td>71380</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>20</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.123232</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">28056</td>
+<td>Glul</td>
+<td>GSM2545362</td>
+<td>62355</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>20</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>15.928218</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">29462</td>
+<td>Atp1b1</td>
+<td>GSM2545362</td>
+<td>64450</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>20</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.975893</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29488</td>
+<td>Plp1</td>
+<td>GSM2545363</td>
+<td>66033</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>12</td>
+<td>18823</td>
+<td>proteolipid protein (myelin) 1, transcript var...</td>
+<td>ENSMUSG00000031425</td>
+<td>DM20</td>
+<td>X</td>
+<td>protein_coding</td>
+<td>abnormal CNS glial cell morphology</td>
+<td>PLP1</td>
+<td>16.010900</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30936</td>
+<td>Atp1b1</td>
+<td>GSM2545363</td>
+<td>57383</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Male</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>4</td>
+<td>Cerebellum</td>
+<td>12</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>15.808336</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31004</td>
+<td>Glul</td>
+<td>GSM2545380</td>
+<td>87942</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>19</td>
+<td>14645</td>
+<td>glutamate-ammonia ligase (glutamine synthetase)</td>
+<td>ENSMUSG00000026473</td>
+<td>Glns</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>embryonic lethality before implantation incomp...</td>
+<td>GLUL</td>
+<td>16.424265</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">31214</td>
+<td>Sparc</td>
+<td>GSM2545380</td>
+<td>67748</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>19</td>
+<td>20692</td>
+<td>secreted acidic cysteine rich glycoprotein, tr...</td>
+<td>ENSMUSG00000018593</td>
+<td>BM-40</td>
+<td>11</td>
+<td>protein_coding</td>
+<td>abnormal coat/ hair morphology</td>
+<td>SPARC</td>
+<td>16.047891</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">32410</td>
+<td>Atp1b1</td>
+<td>GSM2545380</td>
+<td>67958</td>
+<td>Mus musculus</td>
+<td>8</td>
+<td>Female</td>
+<td>InfluenzaA</td>
+<td>C57BL/6</td>
+<td>8</td>
+<td>Cerebellum</td>
+<td>19</td>
+<td>11931</td>
+<td>ATPase, Na+/K+ transporting, beta 1 polypeptide</td>
+<td>ENSMUSG00000026576</td>
+<td>Atpb</td>
+<td>1</td>
+<td>protein_coding</td>
+<td>no abnormal phenotype detected</td>
+<td>ATP1B1</td>
+<td>16.052356</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="assign-creating-or-modifying-columns" class="slide level2">
+<h2>.assign(): Creating or Modifying Columns</h2>
+<p><code>.assign()</code>adds new columns and returns a new DataFrame without modifying the original rna table.</p>
+<div id="de85c945" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="co"># The parentheses () tell Python this is one pipeline.</span></span>
+<span id="cb26-2"><a></a>final_df <span class="op">=</span> (</span>
+<span id="cb26-3"><a></a>    df </span>
+<span id="cb26-4"><a></a>    .assign(</span>
+<span id="cb26-5"><a></a>        time_hours <span class="op">=</span> <span class="kw">lambda</span> x: x[<span class="st">"time"</span>] <span class="op">*</span> <span class="dv">24</span>,</span>
+<span id="cb26-6"><a></a>        time_min   <span class="op">=</span> <span class="kw">lambda</span> x: x[<span class="st">"time_hours"</span>] <span class="op">*</span> <span class="dv">60</span>,</span>
+<span id="cb26-7"><a></a>        log_exp    <span class="op">=</span> <span class="kw">lambda</span> x: np.log(x[<span class="st">"expression"</span>] <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb26-8"><a></a>    )</span>
+<span id="cb26-9"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>lambda x:</code> : <code>x</code> represents the current state of the DataFrame at that exact step. If you filtered rows in the line above, <code>lambda x:</code> ensures you are calculating on the filtered data.</li>
+<li>Sequential creation: you can reference a column you just created in the very next line of the same <code>.assign()</code> call:</li>
+</ul>
 </section>
 <section id="bibliography-notes" class="slide level2 smaller scrollable">
 <h2>Bibliography Notes</h2>
