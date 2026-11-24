@@ -180,7 +180,7 @@ Each generation of enrichment methods was developed to solve a specific limitati
 
 ## Fisher's Exact Test 
 
-* If $a:c \ge b:d$, then the gene set is enriched with pathway $\pi$ ^\[$a:c \ge b:d$ is equivalent to $\frac{a}{c} \ge \frac{b}{d} \text{ or } ad \ge bc$, so you can swap the columns and rows in the previous table.\]
+* If $a:c \ge b:d$, then the gene set is enriched with pathway $\pi$ ^[$a:c \ge b:d$ is equivalent to $\frac{a}{c} \ge \frac{b}{d} \text{ or } ad \ge bc$, so you can swap the columns and rows in the previous table.]
 
 * The observation of cells follows a **hypergeometric distribution**
 
@@ -269,6 +269,7 @@ Consider a genome with $30$ genes, where the functional pathway "PATH_X" contain
 ::: {.hide}
 
 $$
+\small
 \begin{aligned} P &= \sum_{i=4}^{5} \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\ &= \frac{\binom{5}{4}\binom{25}{6}}{\binom{30}{10}} + \frac{\binom{5}{5}\binom{25}{5}}{\binom{30}{10}} = 0.03124 \\ &= 1 - \sum_{i=0}^{3} \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\ &= 1 - \biggl( \frac{\binom{5}{0}\binom{25}{10}}{\binom{30}{10}} + \frac{\binom{5}{1}\binom{25}{9}}{\binom{30}{10}} \\ &\quad + \frac{\binom{5}{2}\binom{25}{8}}{\binom{30}{10}} + \frac{\binom{5}{3}\binom{25}{7}}{\binom{30}{10}} \biggr) = 0.03124 \end{aligned}
 $$
 
@@ -307,13 +308,10 @@ dotplot(ora_res, showCategory = 10)
 
 ```
 
-## Pitfalls & Best Practices of ORA
+## Improving on ORA in differential expression
 
 Why do we need more advanced methods beyond Fisher's Exact Test?
 
-:::: {.columns}
-
-::: {.column width="50%"}
 **1. Threshold & Directionality Pitfalls** $\rightarrow$ *Solved by GSEA*
 
 * **Arbitrary cutoffs:** Genes at $p = 0.049$ vs. $0.051$ are treated completely differently; misses subtle, coordinated pathway shifts.
@@ -323,9 +321,10 @@ Why do we need more advanced methods beyond Fisher's Exact Test?
 **2. Gene Independence Assumption** $\rightarrow$ *Solved by Networks*
 
 * Co-expressed and interacting genes in a pathway are not statistically independent events.
-:::
 
-::: {.column width="50%"}
+
+## Generalizing to ChIp-Seq for ORA
+
 **3. Sequencing & Length Biases** $\rightarrow$ *Critical for RNA-seq & ChIP-seq*
 
 * **Wrong background universe (**$N$**):** Always set $N$ to **genes actually expressed/detected** in your experiment—not the whole genome—to avoid tissue-baseline artifacts.
@@ -333,9 +332,8 @@ Why do we need more advanced methods beyond Fisher's Exact Test?
 * **Transcript length & expression bias (RNA-seq):** In fragmented RNA-seq, longer or highly expressed transcripts yield more reads $\rightarrow$ higher statistical power to pass DEG cutoffs (mitigate via `goseq`, 3'-end UMI sequencing, or GSEA).
 
 * **Gene locus length bias (ChIP-seq):** Even more severe when mapping peaks to genes $\rightarrow$ *Solved by GREAT & ChIP-Enrich*.
-:::
 
-::::
+
 
 # Functional Class Scoring (GSEA)
 
@@ -362,7 +360,7 @@ Why do we need more advanced methods beyond Fisher's Exact Test?
 3. Find the maximum deviation from zero (**preserving sign**)
 
 4. Permute labels to calculate an empirical p-value
-   :::
+:::
 
 ::: {.column width="50%"}
 ![Illustration of GSEA @subramanian2005gene; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation](/assets/images/functional-genomics/gsea.png){height="400"}
@@ -374,6 +372,11 @@ Why do we need more advanced methods beyond Fisher's Exact Test?
 
 Consider our gene set with size $N$, and the pathway $\pi$ has $M$ genes in it.
 
+
+::: {.columns}
+
+::: {.column}
+
 1. Initial running sum of enrichment score is $ES_0 = 0$, and the normalization denominator is $N_R = \sum_{j \in \pi} \vert{}r_j\vert{}$, where $r_j$ is the log fold change of genes that are in the pathway $\pi$.
 
 2. Going through the ordered gene list $n_i$:
@@ -381,6 +384,10 @@ Consider our gene set with size $N$, and the pathway $\pi$ has $M$ genes in it.
    * If gene $n_i$ is in the pathway: $ES_i = ES_{i-1} + \frac{\vert{}r_i\vert{}}{N_R}$
 
    * If gene $n_i$ is **NOT** in the pathway: $ES_i = ES_{i-1} - \frac{1}{N - M}$
+
+:::
+
+::: {.column}
 
 The final enrichment score is the **maximum deviation from zero (preserving the sign)**:
 
@@ -391,6 +398,10 @@ $$
 * $ES > 0$: enriched at the **top** of the list (upregulated)
 
 * $ES < 0$: enriched at the **bottom** of the list (downregulated)
+
+:::
+
+:::
 
 ## Calculating P-values
 
@@ -486,7 +497,7 @@ Consider a DEG list for $8$ genes $\{G1, \dots, G8\}$, where the functional path
 | 6 | G8 | Miss | $-1/4$ | 
 | 7 | G7 | Miss | $-1/4$ | 
 | 8 | G6 | Miss | $-1/4$ | 
-| ::: |  |  |  | 
+:::
 
 ::: {.column width="50%"}
 
@@ -553,7 +564,9 @@ Consider a DEG list for $8$ genes $\{G1, \dots, G8\}$, where the functional path
 
 * Score deducted if the gene is not in the pathway: $\frac{1}{8-5} = \frac{1}{3}$
 
-* Normalized term ($N_R$) if the gene is in the pathway: $\vert{}-2.0\vert{}+\vert{}-0.1\vert{}+\vert{}-2.3\vert{}+\vert{}-1.7\vert{}+\vert{}-0.9\vert{} = 7$
+* Normalized term ($N_R$) if the gene is in the pathway: 
+
+$$\small \vert{}-2.0\vert{}+\vert{}-0.1\vert{}+\vert{}-2.3\vert{}+\vert{}-1.7\vert{}+\vert{}-0.9\vert{} = 7$$
 
 * $ES$:
 
@@ -571,6 +584,7 @@ $$
 ## Comparison of ORA and GSEA
 
 :::: {.columns}
+
 ::: {.column width="50%"}
 **ORA**
 
@@ -581,7 +595,7 @@ $$
 * Computationally fast
 
 * Does not inherently determine regulation direction
-  :::
+:::
 
 ::: {.column width="50%"}
 **GSEA**
@@ -593,7 +607,7 @@ $$
 * Computationally more expensive (permutation test)
 
 * Determines regulation direction via the sign of $ES$ / $NES$
-  :::
+:::
 
 Different results in ORA and GSEA often imply subtle, coordinated changes near the boundary of an **arbitrary** cut-off (e.g., many pathway genes with $p \approx 0.051$).
 
@@ -652,7 +666,8 @@ Can we simply map each ChIP-seq peak to its nearest gene and run **Fisher's Exac
 
 * **Motivation**: Do cis-regulatory elements (ChIP-seq peaks) associate with specific pathways, **accounting for the length of regulatory domains**?
 
-{height=400}
+![ChIP-seq Data Visualization
+](/assets/images/functional-genomics/CHIP-SEQ.png){height=375}
 
 ## Problem Formulation
 
@@ -673,7 +688,7 @@ Can we simply map each ChIP-seq peak to its nearest gene and run **Fisher's Exac
 * ChIP-seq identified $6$ enriched regions bound by protein; among them, $5$ are in the annotated region $\pi$
 
 * **Question**: If the ChIP-seq identified regions occur randomly, what is the probability that ChIP-seq identified regions fall into the regulatory domain $\pi$?
-  :::
+:::
 
 ::::
 
@@ -761,6 +776,7 @@ $$
 ::: {.hide .t}
 
 $$
+\small
 P(X \ge 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
 $$
 
@@ -772,11 +788,11 @@ $$
 Yes, since $0.00095 < 0.05$, the protein is enriched in the pathway *multicellular organismal development*.
 :::
 
-## Code Example: GREAT Analysis in R
+## GREAT Analysis in R
 
 GREAT's binomial and hypergeometric tests are implemented in the `rGREAT` Bioconductor package:
 
-```
+```{r}
 #| echo: true
 #| eval: false
 
@@ -803,15 +819,27 @@ head(tb[, c("id", "description", "fold_enrichment", "p_adjust", "p_adjust_hyper"
 
 ```
 
-## Discussion: FET (ORA) vs. GREAT (Binomial) vs. ChIP-Enrich
+## FET vs. GREAT (Binomial)
 
 How do ChIP-seq enrichment methods balance **gene locus length** against **peak clustering**?
 
 | Method | Unit | Locus Length Handling | Key Limitation | 
-| ----- | ----- | ----- | ----- | 
+| ---- | --- | ---- | ------- | 
 | **Fisher's Exact Test (ORA)** | Gene ($\ge 1$ peak) | **None** (assumes equal probability per gene) | Severe false positives for pathways with long gene loci (e.g., neural/developmental genes in gene deserts) | 
 | **GREAT (Binomial Test)** | Peak count | **Linearly proportional** to locus length | Assumes peaks are independent; a few genes with many peaks can inflate significance; can over-correct TSS-proximal TFs | 
-| **ChIP-Enrich** | Gene ($\ge 1$ peak) | **Empirical smoothing spline** $f(\log_{10} L_i)$ | Fits a dataset-specific curve via logistic regression, controlling false positives across both TSS-proximal and distal-binding factors | 
+
+## Improvement on ChIp-Seq
+
+**ChIP-Enrich** 
+
+- Unit: Gene ($\ge 1$ peak) 
+
+$$
+\small
+\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \beta_0 + \beta_1 g_i + f(\log_{10} L_i)
+$$
+ 
+**Empirical smoothing spline** $f(\log_{10} L_i)$: Fits a dataset-specific curve via logistic regression, controlling false positives across both TSS-proximal and distal-binding factors | 
 
 * **Practical takeaway:** GREAT recommends requiring significance in **both** the binomial and hypergeometric (FET) tests; **ChIP-Enrich** (@welch2014chip) unifies this into a single gene-level logistic regression model.
 
@@ -847,7 +875,7 @@ results <- chipenrich(
 
 ## ChIP-Enrich Results
 
-```
+```{r}
 #| echo: true
 #| eval: false
 
@@ -865,13 +893,13 @@ head(enrichment_table[, c("Geneset.ID", "Description", "P.value", "FDR", "Status
 
 # Biological Networks
 
-## Solving Pitfall 3: Complexity of Interactions
+## Pitfall 3: Complexity of Interactions
 
 ORA, GSEA, and ChIP-Enrich treat pathways as flat sets of **independent** genes. In reality, proteins physically interact in complex networks beyond static KEGG diagrams.
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 
 ::: {.r-stack}
 ![Simplified Insulin Pathway](/assets/images/functional-genomics/insulin.png){.fragment }
@@ -881,7 +909,7 @@ ORA, GSEA, and ChIP-Enrich treat pathways as flat sets of **independent** genes.
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 **Reasons**
 
 * Proteins could interact with each other across different pathways (e.g., some interactions relate to insulin resistance rather than insulin secretion, so a single KEGG map does not show them)
@@ -964,6 +992,7 @@ Degree of:
 * How many friends of friends are also my friends (Triangles)
 
 $$
+\small
 \begin{aligned} \text{Clustering coefficient}(i) &= \frac{L_i}{\frac{k_i(k_i-1)}{2}} \\ &= \frac{2L_i}{k_i(k_i-1)} \end{aligned}
 $$
 
