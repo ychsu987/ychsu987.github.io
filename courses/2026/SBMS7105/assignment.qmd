@@ -1,3 +1,4 @@
+---
 title: "Assignment - Exploratory Health Informatics Dashboard"
 format: 
   html:
@@ -9,7 +10,7 @@ format:
 author: "Dr. Yu Cheng Hsu"
 ---
 
-# Open-Ended Tableau Visualization Project
+# Tableau Visualization Project
 
 ## Objective
 
@@ -34,9 +35,20 @@ Rather than replicating a predefined layout, you are tasked with designing and p
 1. What specific public health question or overarching message does your dashboard communicate? Describe the intended user journey through your views (2 marks)
 
 
-2. Select two views from your dashboard (e.g., your scatter plot,  line plot). Using Jock Mackinlay’s ranking of visual encoding to justify why the visual channels you picked are perceptually appropriate for the data types. (2 marks)
+2. Select two views from your dashboard (e.g., your scatter plot,  line plot). Using Jock Mackinlay’s ranking of visual encodings to justify why the visual channels you picked are perceptually appropriate for the data types. (2 marks)
 
 
 3. How did you annotate, caption, or contextualize your views to guide the viewer toward the correct public health conclusion? (2 marks)
 
 
+# Submission Format & Logistics
+
+1. Published Tableau Public Link:
+  - Publish your completed workbook to Tableau Public and ensure public viewing permissions are enabled.
+  - Place the active, clickable URL prominently at the very top of your submission document.
+2. Report File Format:
+  Submit your written reflection via the course LMS (Moodle) in either of the following formats:
+  - A Word (.docx) or PDF (.pdf) file containing screenshots of your final dashboard views alongside your written reflection and Tableau Public URL.
+  - File Naming Convention:`[StudentID]_[LastName]_HealthDashboard.pdf (or .html / .docx)`
+  - Late Policy:
+    All files must be uploaded before December 3, 2026, at 23:59. Please test your Tableau Public link in an incognito/private browser window prior to submission to verify that it loads properly without requiring a login. 
