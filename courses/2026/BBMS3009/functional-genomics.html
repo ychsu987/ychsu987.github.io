@@ -118,7 +118,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-ed38e28f065dabf014fc15cdac891daf.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-efdb9ef8a56c3099b277c384a82e1330.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -219,6 +219,7 @@
 
 <section id="title-slide" data-background="/assets/images/functional-genomics/background-1.jpg" data-background-opacity="0.8" data-background-position="right" data-background-size="40% 100%" class="quarto-title-block center">
   <h1 class="title">Functional genomics</h1>
+  <p class="subtitle">Pathway Enrichment &amp; Biological Networks</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -249,12 +250,12 @@ Dr.&nbsp;Yu Cheng Hsu
 <h1>Functional View in Genomics</h1>
 
 </section>
-<section id="connecting-differences-to-pathways" class="slide level2 smaller">
+<section id="connecting-differences-to-pathways" class="slide level2">
 <h2>Connecting Differences to Pathways</h2>
 <p><strong>Motivation</strong></p>
 <ul>
-<li>What are the implications of DNA-microarray/ChIP-seq results in the clinical perspective?</li>
-<li>If 300 genes are differentially expressed, what kind of biological pathways are affected?</li>
+<li><p>What are the implications of DNA-microarray/ChIP-seq results in the clinical perspective?</p></li>
+<li><p>If 300 genes are differentially expressed, what kind of biological pathways are affected?</p></li>
 </ul>
 <p><img data-src="../../..\assets/images/functional-genomics/chip-seq.png" class="absolute fragment fade-in" style="top: 300px; left: 200px; width: 200px; height: 100px; " alt="ChIP-seq Data Visualization"> <img data-src="../../..\assets/images/functional-genomics/deg.png" class="absolute fragment fade-in" style="top: 450px; left: 200px; width: 200px; height: 200px; " alt="Differentially Expressed Genes Heatmap"> <img data-src="../../..\assets/images/functional-genomics/go-logo.png" class="absolute fragment fade-in" style="top: 350px; left: 400px; width: 300px; height: 100px; " alt="Gene Ontology Logo"> <img data-src="../../..\assets/images/functional-genomics/kegg_model.png" class="absolute fragment fade-in" style="top: 400px; left: 400px; width: 300px; height: 250px; " alt="KEGG Pathway Model"></p>
 <div class="fragment fade-in absolute" style="top: 400px; left: 750px; width: 300px; height: 100px; ">
@@ -266,35 +267,34 @@ Dr.&nbsp;Yu Cheng Hsu
 <section id="need-for-an-encyclopedia" class="slide level2">
 <h2>Need for an Encyclopedia</h2>
 <ul>
-<li>We have databases to annotate each gene with its:
+<li><p>We have databases to annotate each gene with its:</p>
 <ul>
-<li>Location in the genome</li>
-<li>Molecular function</li>
-<li>Biological pathways it involves</li>
-<li>Co-regulated/expressed genes</li>
-<li>Properties</li>
+<li><p>Location in the genome</p></li>
+<li><p>Molecular function</p></li>
+<li><p>Biological pathways it involves</p></li>
+<li><p>Co-regulated/expressed genes</p></li>
+<li><p>Properties</p></li>
 </ul></li>
 </ul>
 </section>
-<section id="databases-recording-all-information" class="slide level2 smaller">
+<section id="databases-recording-all-information" class="slide level2">
 <h2>Databases Recording All Information</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>Kyoto Encyclopedia of Genes and Genomes (KEGG)</strong></p>
 <ul>
-<li>Integrates genomic, biological pathway, disease, and drug information</li>
-<li>Pathway maps depict molecular interaction networks including metabolic, signaling, and genetic information pathways.</li>
+<li><p>Integrates genomic, biological pathway, disease, and drug information</p></li>
+<li><p>Pathway maps depict molecular interaction networks including metabolic, signaling, and genetic information pathways.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>Gene Ontology (GO)</strong></p>
 <ul>
-<li>GO is a standardized, hierarchical ontology for annotating gene products across species</li>
-<li>Annotates from three perspectives:
+<li><p>GO is a standardized, hierarchical ontology for annotating gene products across species</p></li>
+<li><p>Annotates from three perspectives:</p>
 <ul>
-<li>Biological process<br>
-</li>
-<li>Cellular component</li>
-<li>Molecular functions</li>
+<li><p>Biological process</p></li>
+<li><p>Cellular component</p></li>
+<li><p>Molecular functions</p></li>
 </ul></li>
 </ul>
 </div></div>
@@ -316,18 +316,11 @@ Dr.&nbsp;Yu Cheng Hsu
 </section>
 <section id="example-of-go-pathways" class="slide level2 smaller">
 <h2>Example of GO Pathways</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/functional-genomics/GO_insulin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Gene Ontology Annotation for Insulin Secretion"><img data-src="../../..\assets/images/functional-genomics/GO_insulin.png" alt="Gene Ontology Annotation for Insulin Secretion"></a></p>
+<p><a href="../../..\assets/images/functional-genomics/GO_insulin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Gene Ontology Annotation for Insulin Secretion"><img data-src="../../..\assets/images/functional-genomics/GO_insulin.png" style="width:55.0%" alt="Gene Ontology Annotation for Insulin Secretion"></a></p>
 <figcaption>Gene Ontology Annotation for Insulin Secretion</figcaption>
 </figure>
-</div>
-</div><div class="column" style="width:50%;">
-<iframe src="https://amigo.geneontology.org/amigo/search/bioentity?q=*%3A*&amp;fq=isa_partof_closure:%22GO%3A0030073%22&amp;sfq=document_category:%22bioentity%22" width="550" height="500">
-</iframe>
-</div><p>Example of insulin annotation and insulin secretion process in GO</p>
 </div>
 </section></section>
 <section>
@@ -344,152 +337,58 @@ Dr.&nbsp;Yu Cheng Hsu
 <figcaption>Overview of Enrichment Analysis <span class="citation" data-cites="khatri2012ten">Khatri, Sirota, and Butte (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2012</a>)</span></figcaption>
 </figure>
 </div>
+</section>
+<section id="evolution-of-functional-analysis" class="slide level2">
+<h2>Evolution of Functional Analysis</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Era</th>
+<th>Method</th>
+<th>Driving Data</th>
+<th>Problem Solved</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>~2000</strong></td>
+<td><strong>ORA</strong> (Fisher’s Exact Test)</td>
+<td>Microarrays &amp; GO</td>
+<td>Summarizing a list of differentially expressed genes (DEGs) into pathways</td>
+</tr>
+<tr class="even">
+<td><strong>2003–2005</strong></td>
+<td><strong>GSEA</strong></td>
+<td>Microarrays / RNA-seq</td>
+<td>Removing arbitrary DEG cutoffs and capturing regulation direction</td>
+</tr>
+<tr class="odd">
+<td><strong>2010–2014</strong></td>
+<td><strong>GREAT &amp; ChIP-Enrich</strong></td>
+<td>ChIP-seq</td>
+<td>Handling distal regulatory regions and severe gene locus-length bias</td>
+</tr>
+<tr class="even">
+<td><strong>Ongoing</strong></td>
+<td><strong>Biological Networks (PPI)</strong></td>
+<td>Multi-omics / STRING</td>
+<td>Moving beyond independent “bags of genes” to physical interaction topologies</td>
+</tr>
+</tbody>
+</table>
 </section></section>
 <section>
-<section id="enrichment-in-the-sequence" class="title-slide slide level1 center">
-<h1>Enrichment in the Sequence</h1>
+<section id="over-representation-analysis-ora" class="title-slide slide level1 center">
+<h1>Over-Representation Analysis (ORA)</h1>
 
 </section>
-<section id="genomic-regions-enrichment-of-annotations-tool" class="slide level2 smaller">
-<h2>Genomic Regions Enrichment of Annotations Tool</h2>
-<ul>
-<li><strong>Motivation</strong>: Do cis-regulatory elements associate with specific pathways?</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="../../..\assets/images/functional-genomics/chip-seq.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="ChIP-seq Data Visualization"><img data-src="../../..\assets/images/functional-genomics/chip-seq.png" height="400" alt="ChIP-seq Data Visualization"></a></p>
-<figcaption>ChIP-seq Data Visualization</figcaption>
-</figure>
-</div>
-</section>
-<section id="problem-formulation" class="slide level2 smaller">
-<h2>Problem Formulation</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="../../..\assets/images/functional-genomics/GREAT.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Motivation Example @welch2014chip"><img data-src="../../..\assets/images/functional-genomics/GREAT.png" alt="Motivation Example Welch et al. (2014)"></a></p>
-<figcaption>Motivation Example <span class="citation" data-cites="welch2014chip">Welch et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2014</a>)</span></figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:60%;">
-<ul>
-<li>Given a 1000 bp sequence</li>
-<li>From the existing database, 600 bp (located in the figure) is annotated with the functional path <span class="math inline">\(\pi\)</span></li>
-<li>ChIP-seq identified 6 enriched regions bound by protein, among them, 5 are in the annotated region <span class="math inline">\(\pi\)</span></li>
-<li><strong>Question</strong>: If the ChIP-Seq identified regions occur randomly, what is the probability that ChIP-Seq identified regions fall into the regulatory domain <span class="math inline">\(\pi\)</span>?</li>
-</ul>
-</div></div>
-</section>
-<section id="binomial-test" class="slide level2 smaller">
-<h2>Binomial Test</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Analogy:</strong> You are flipping an unfair coin</p>
-<ol type="1">
-<li>Chance of having a head: 0.6</li>
-<li>Times you flip: 6</li>
-<li>Heads you get: 5</li>
-</ol>
-</div><div class="column" style="width:50%;">
-<p><strong>ChIP-seq:</strong> Identified Region</p>
-<ol type="1">
-<li>Chance to be in the regulatory domain: <span class="math inline">\(p = \frac{\text{Annotated length}}{\text{Total ChIP-seq length}} = \frac{600}{1000}\)</span></li>
-<li>Number of genomic regions identified: <span class="math inline">\(n = 6\)</span></li>
-<li>Number of genomic regions falling into the annotated area: <span class="math inline">\(k = 5\)</span></li>
-</ol>
-</div><p>The probability of getting exactly k heads out of n with the probability <span class="math inline">\(p\)</span>:</p><div class="hide t">
-<p><span class="math display">\[
-P(X = k) = \binom{n}{k}(p)^k(1-p)^{n-k}
-\]</span></p>
-</div>
-</div>
-</section>
-<section id="back-to-our-example" class="slide level2 smaller">
-<h2>Back to Our Example</h2>
-<ul>
-<li>We can derive the p-value (probability) to test: <strong>How likely is it to get at least <span class="math inline">\(k\)</span> annotations in the regulatory region out of <span class="math inline">\(n\)</span> attempts</strong>, if the ChIP-Seq peaks occur randomly?</li>
-</ul>
-<p><span class="math display">\[
-\text{p-value} = P(X \geq k) = \sum_{i=k}^{n}\binom{n}{i}(p)^i(1-p)^{n-i}
-\]</span></p>
-<p>In our example, it will be</p>
-<div class="hide t">
-<p><span class="math display">\[
-P(X\geq 5) = \binom{6}{5}(0.6)^5(1-0.6)^{1} +\binom{6}{6}(0.6)^6(1-0.6)^{0}=0.23
-\]</span></p>
-</div>
-<p>For a given false discovery rate (FDR, typically 0.05), if <span class="math inline">\(\text{p-value} &lt; FDR\)</span>, we will say that <strong>the regulatory element is enriched in the pathway <span class="math inline">\(\pi\)</span></strong>.</p>
-</section>
-<section id="wrap-up-enrichment-analysis-of-a-set-of-cis-regulatory-regions" class="slide level2 smaller">
-<h2>Wrap-up: Enrichment Analysis of a Set of Cis-Regulatory Regions</h2>
-<ul>
-<li><p>For a sequence with length <span class="math inline">\(N\)</span> with <span class="math inline">\(K_\pi\)</span> of them annotated with pathway <span class="math inline">\(\pi\)</span></p></li>
-<li><p>ChIP-seq selected <span class="math inline">\(n\)</span> genomic regions and <span class="math inline">\(k_\pi\)</span> of them fall into the annotation of pathway <span class="math inline">\(\pi\)</span></p></li>
-<li><p><span class="math inline">\(p_\pi\)</span> is the probability of selecting a base pair annotated with <span class="math inline">\(\pi\)</span> when selecting a single base pair uniformly from all base pairs in the genome <span class="math display">\[
-\text{p-value} = P(X \geq k_\pi) = \sum_{i=k_\pi}^{n}\binom{n}{i}(p_\pi)^i(1-p_\pi)^{n-i}
-\]</span></p></li>
-<li><p>Each pathway needs to be tested once, and when <strong>testing on more than one pathway, P-value correction</strong> (e.g., Bonferroni or other methods) should be applied.</p></li>
-</ul>
-</section>
-<section id="exercise-question" class="slide level2 smaller">
-<h2>Exercise Question</h2>
-<ul>
-<li>On a sequence with length <span class="math inline">\(100\)</span>, with <span class="math inline">\(14\)</span> of them annotated with the pathway <em>multicellular organismal development</em></li>
-<li>ChIP-seq on this sequence showed that 10 enriched regions are bound by protein in older adults compared to young adults; among them, 6 fall into the annotated regions</li>
-</ul>
-<p><strong>Q1</strong> What is the p-value of the binomial test that at least 6 out of 10 fall into the annotated regions?</p>
-<div class="hide t">
-<p><span class="math display">\[
-P(X\geq 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
-\]</span></p>
-</div>
-<p><strong>Q2</strong> Given the p-value, is the protein enriched in the pathway <em>multicellular organismal development</em> at the 0.05 false discovery rate?</p>
-<div class="hide t">
-<p>Protein is enriched in the pathway <em>multicellular organismal development</em></p>
-</div>
-</section>
-<section id="code-example" class="slide level2">
-<h2>Code example</h2>
-<p>This enrichment analysis is implemented in <code>chipenrich</code> library</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Install chipenrich and its data package</span></span>
-<span id="cb1-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="fu">c</span>(<span class="st">"BiocManager"</span>,<span class="st">"chipenrich"</span>,<span class="st">"chipenrich.data"</span>), <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb1-3"><a></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
-<span id="cb1-4"><a></a>    BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="fu">c</span>(<span class="st">"chipenrich"</span>,<span class="st">"chipenrich.data"</span>))</span>
-<span id="cb1-5"><a></a>}</span>
-<span id="cb1-6"><a></a><span class="co"># Load the package</span></span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(chipenrich)</span>
-<span id="cb1-8"><a></a><span class="fu">data</span>(peaks_E2F4,<span class="at">package =</span> <span class="st">"chipenrich.data"</span>)</span>
-<span id="cb1-9"><a></a><span class="co"># Run the ChIP-Enrich analysis</span></span>
-<span id="cb1-10"><a></a>results <span class="ot">&lt;-</span> <span class="fu">chipenrich</span>(</span>
-<span id="cb1-11"><a></a>  <span class="at">peaks =</span> peaks_E2F4, <span class="co"># Can be a data frame or a file path to a BED/txt file</span></span>
-<span id="cb1-12"><a></a>  <span class="at">genome =</span> <span class="st">"hg19"</span>,  <span class="co"># Reference genome (e.g., "hg19", "hg38", "mm10")</span></span>
-<span id="cb1-13"><a></a>  <span class="at">genesets =</span> <span class="st">"GOBP"</span>, <span class="co"># Gene sets to test (e.g., "GOBP" for GO Biological Process)</span></span>
-<span id="cb1-14"><a></a>  <span class="at">locusdef =</span> <span class="st">"nearest_tss"</span>, <span class="co"># Defines the region assigned to each gene</span></span>
-<span id="cb1-15"><a></a>  <span class="at">qc_plots =</span> <span class="cn">FALSE</span>,  <span class="co"># Set to TRUE to generate diagnostic spline plots</span></span>
-<span id="cb1-16"><a></a>  <span class="at">out_name =</span> <span class="cn">NULL</span>,   <span class="co"># Provide a prefix (e.g., "E2F4_run") to save output files to disk</span></span>
-<span id="cb1-17"><a></a>  <span class="at">n_cores =</span> <span class="dv">1</span>      <span class="co"># Number of cores for parallel processing</span></span>
-<span id="cb1-18"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="code-results" class="slide level2">
-<h2>Code results</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Extract and view the top enriched gene sets</span></span>
-<span id="cb2-2"><a></a>enrichment_table <span class="ot">&lt;-</span> results<span class="sc">$</span>results</span>
-<span id="cb2-3"><a></a><span class="fu">head</span>(enrichment_table,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><code>results$results</code>: The primary output. It contains the Gene Set ID, description, p-value, False Discovery Rate (FDR), effect size (positive means enriched, negative means depleted), and the specific genes driving the enrichment. <code>results$peaks</code>: A detailed mapping showing exactly which gene locus each individual peak was assigned to. <code>results$peaks_per_gene</code>: A summary table showing the aggregate count of peaks assigned to each specific gene.</li>
-</ul>
-</section></section>
-<section>
-<section id="enrichment-in-the-protein" class="title-slide slide level1 center">
-<h1>Enrichment in the Protein</h1>
-
-</section>
-<section id="over-representation-analysis" class="slide level2 smaller">
+<section id="over-representation-analysis" class="slide level2">
 <h2>Over-Representation Analysis</h2>
 <ul>
 <li><strong>Motivation</strong>: Are biological pathways enriched (over-represented) in an experimentally-derived gene list, e.g., a list of differentially expressed genes (DEGs)?</li>
@@ -498,38 +397,32 @@ P(X\geq 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/functional-genomics/ora.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Pathway Enrichment"><img data-src="../../..\assets/images/functional-genomics/ora.png" alt="Pathway Enrichment"></a></p>
+<p><a href="../../..\assets/images/functional-genomics/ora.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Pathway Enrichment"><img data-src="../../..\assets/images/functional-genomics/ora.png" alt="Pathway Enrichment"></a></p>
 <figcaption>Pathway Enrichment</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
-<li><span class="math inline">\(N\)</span>: Background set</li>
-<li><span class="math inline">\(n\)</span>: Differentially expressed genes</li>
-<li><span class="math inline">\(K\)</span>: Genes in the Pathway <span class="math inline">\(\pi\)</span></li>
-<li><span class="math inline">\(k\)</span>: Overlapping set</li>
+<li><p><span class="math inline">\(N\)</span>: Background gene set</p></li>
+<li><p><span class="math inline">\(n\)</span>: Differentially expressed genes (DEGs)</p></li>
+<li><p><span class="math inline">\(M\)</span>: Genes in the pathway <span class="math inline">\(\pi\)</span></p></li>
+<li><p><span class="math inline">\(a\)</span>: Overlapping set (DEGs in pathway <span class="math inline">\(\pi\)</span>)</p></li>
 </ul>
 </div></div>
 </section>
-<section id="problem-formulation-1" class="slide level2 smaller">
+<section id="problem-formulation" class="slide level2">
 <h2>Problem Formulation</h2>
 <p><strong>Problem Statement</strong></p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li>100 (<span class="math inline">\(N\)</span>) genes detected in a microarray study
+<li><p><span class="math inline">\(100\)</span> (<span class="math inline">\(N\)</span>) genes detected in a microarray study</p>
 <ul>
-<li>10 (<span class="math inline">\(M\)</span>, G1-G10) of them belong to pathway <span style="color: red;"><span class="math inline">\(\pi\)</span></span></li>
-<li>40 (<span class="math inline">\(n\)</span>, G1-G8, G11-G42) genes were differentially expressed</li>
+<li><p><span class="math inline">\(10\)</span> (<span class="math inline">\(M\)</span>, G1–G10) of them belong to pathway <span class="math inline">\(\pi\)</span></p></li>
+<li><p><span class="math inline">\(40\)</span> (<span class="math inline">\(n\)</span>, G1–G8, G11–G42) genes were differentially expressed</p></li>
 </ul></li>
 </ul>
 <table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -541,21 +434,21 @@ P(X\geq 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
 <tbody>
 <tr class="odd">
 <td>In <span class="math inline">\(\pi\)</span></td>
-<td><span class="hide t">8(a)</span></td>
-<td><span class="hide t"> 2(b)</span></td>
-<td><span class="hide t">10 (<span class="math inline">\(M\)</span>)</span></td>
+<td>8 (<span class="math inline">\(a\)</span>)</td>
+<td>2 (<span class="math inline">\(b\)</span>)</td>
+<td>10 (<span class="math inline">\(M\)</span>)</td>
 </tr>
 <tr class="even">
 <td>NOT in <span class="math inline">\(\pi\)</span></td>
-<td><span class="hide t">32(c)</span></td>
-<td><span class="hide t">58(d)</span></td>
-<td><span class="hide t">90 (<span class="math inline">\(N-M\)</span>)</span></td>
+<td>32 (<span class="math inline">\(c\)</span>)</td>
+<td>58 (<span class="math inline">\(d\)</span>)</td>
+<td>90 (<span class="math inline">\(N-M\)</span>)</td>
 </tr>
 <tr class="odd">
 <td>Column sum</td>
-<td><span class="hide t"> 40 (<span class="math inline">\(n\)</span>)</span></td>
-<td><span class="hide t"> 60 (<span class="math inline">\(N-n\)</span>)</span></td>
-<td><span class="hide t">100 (<span class="math inline">\(N\)</span>)</span></td>
+<td>40 (<span class="math inline">\(n\)</span>)</td>
+<td>60 (<span class="math inline">\(N-n\)</span>)</td>
+<td>100 (<span class="math inline">\(N\)</span>)</td>
 </tr>
 </tbody>
 </table>
@@ -570,24 +463,24 @@ P(X\geq 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
 </thead>
 <tbody>
 <tr class="odd">
-<td><span style="color: red;">G1</span></td>
-<td>-2.8</td>
-<td>0.010</td>
+<td>G1</td>
+<td><span class="math inline">\(-2.8\)</span></td>
+<td><span class="math inline">\(0.010\)</span></td>
 </tr>
 <tr class="even">
-<td><span style="color: red;">G2</span></td>
-<td>2.6</td>
-<td>0.028</td>
+<td>G2</td>
+<td><span class="math inline">\(2.6\)</span></td>
+<td><span class="math inline">\(0.028\)</span></td>
 </tr>
 <tr class="odd">
-<td><span style="color: red;">G3</span></td>
-<td>2.5</td>
-<td>0.031</td>
+<td>G3</td>
+<td><span class="math inline">\(2.5\)</span></td>
+<td><span class="math inline">\(0.031\)</span></td>
 </tr>
 <tr class="even">
-<td><span style="color: red;">G4</span></td>
-<td>2.4</td>
-<td>0.040</td>
+<td>G4</td>
+<td><span class="math inline">\(2.4\)</span></td>
+<td><span class="math inline">\(0.040\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\vdots\)</span></td>
@@ -596,51 +489,40 @@ P(X\geq 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
 </tr>
 <tr class="even">
 <td>G99</td>
-<td>0.1</td>
-<td>0.849</td>
+<td><span class="math inline">\(0.1\)</span></td>
+<td><span class="math inline">\(0.849\)</span></td>
 </tr>
 <tr class="odd">
 <td>G100</td>
-<td>0.4</td>
-<td>0.733</td>
+<td><span class="math inline">\(0.4\)</span></td>
+<td><span class="math inline">\(0.733\)</span></td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </section>
-<section id="fishers-exact-test" class="slide level2 smaller">
+<section id="fishers-exact-test" class="slide level2">
 <h2>Fisher’s Exact Test</h2>
 <ul>
-<li>If <span class="math inline">\(a:c \geq b:d\)</span>, then the gene set is enriched with pathway <span class="math inline">\(\pi\)</span> <sup>1</sup></li>
-<li>The observation of cells follows a <strong>hypergeometric distribution</strong></li>
-<li>Fisher’s exact test (as one of the cells is less than 5) <sup>2</sup></li>
-<li>The p-value is the probability of the table being more uneven than the observation</li>
+<li><p>If <span class="math inline">\(a:c \ge b:d\)</span>, then the gene set is enriched with pathway <span class="math inline">\(\pi\)</span> <sup>1</sup></p></li>
+<li><p>The observation of cells follows a <strong>hypergeometric distribution</strong></p></li>
+<li><p><strong>Fisher’s exact test</strong> (one-tailed) computes the exact probability of observing an overlap of <span class="math inline">\(a\)</span> or more genes by chance ^[For large cell counts, Fisher’s exact test approximates to the Chi-square test.]</p></li>
 </ul>
 <p><span class="math display">\[
-P = \sum_{i=a}^M \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1- \sum_{i=0}^{a-1} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}}
+P = \sum_{i=a}^{M} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1 - \sum_{i=0}^{a-1} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}}
 \]</span></p>
-
-<aside><div>
-
-</div><ol class="aside-footnotes"><li id="fn1"><p><span class="math inline">\(a:c \geq b:d\)</span> is equivalent to <span class="math inline">\(\frac{a}{c} \geq \frac{b}{d} \text{ or } ad \geq bc\)</span>, so you can swap the columns and rows in the previous table</p></li><li id="fn2"><p>For any cell with a larger number, Fisher’s exact test approximates to the Chi-square test </p></li></ol></aside></section>
-<section id="back-to-our-example-1" class="slide level2 smaller">
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="math inline">\(a:c \ge b:d\)</span> is equivalent to <span class="math inline">\(\frac{a}{c} \ge \frac{b}{d} \text{ or } ad \ge bc\)</span>, so you can swap the columns and rows in the previous table.</p></li></ol></aside></section>
+<section id="back-to-our-example" class="slide level2">
 <h2>Back to Our Example</h2>
 <div class="hide">
 <p><span class="math display">\[
-P = \sum_{i=8}^{10}\frac{\binom{10}{i}\binom{90}{40-i}}{\binom{100}{40}} = 1- \sum_{i=0}^{7} \frac{\binom{10}{i}\binom{90}{40-i}}{\binom{100}{40}}
-= 0.0015
+P = \sum_{i=8}^{10}\frac{\binom{10}{i}\binom{90}{40-i}}{\binom{100}{40}} = 1 - \sum_{i=0}^{7} \frac{\binom{10}{i}\binom{90}{40-i}}{\binom{100}{40}} = 0.0015
 \]</span></p>
 </div>
 <ul>
-<li>At 5% FDR, the differentially expressed gene is enriched in the pathway <span class="math inline">\(\pi\)</span></li>
+<li>At the <span class="math inline">\(\alpha = 0.05\)</span> significance level, the differentially expressed genes are enriched in pathway <span class="math inline">\(\pi\)</span></li>
 </ul>
 <table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -671,42 +553,27 @@ P = \sum_{i=8}^{10}\frac{\binom{10}{i}\binom{90}{40-i}}{\binom{100}{40}} = 1- \s
 </tbody>
 </table>
 </section>
-<section id="wrap-up-ora" class="slide level2 smaller">
+<section id="wrap-up-ora" class="slide level2">
 <h2>Wrap-up: ORA</h2>
 <ul>
-<li>Background gene list with size <span class="math inline">\(N\)</span>,</li>
-<li>Pathway gene list <span class="math inline">\(M\)</span></li>
-<li>Within the background gene list, <span class="math inline">\(n\)</span> are differentially expressed and <span class="math inline">\(a\)</span> of them are in the pathway</li>
+<li><p>Background gene list with size <span class="math inline">\(N\)</span></p></li>
+<li><p>Pathway gene list with size <span class="math inline">\(M\)</span></p></li>
+<li><p>Within the background gene list, <span class="math inline">\(n\)</span> are differentially expressed and <span class="math inline">\(a\)</span> of them are in the pathway</p></li>
 </ul>
 <p><span class="math display">\[
-P = \sum_{i=a}^M \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1- \sum_{i=0}^{a-1} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}}
+P = \sum_{i=a}^{M} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1 - \sum_{i=0}^{a-1} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}}
 \]</span></p>
 <ul>
-<li>Each pathway needs to be tested once, and when <strong>testing on more than one pathway, P-value correction</strong> (e.g., Bonferroni or other methods) should be applied.</li>
+<li>Each pathway needs to be tested once, and when <strong>testing on more than one pathway, p-value correction</strong> (e.g., Bonferroni or Benjamini-Hochberg FDR) should be applied.</li>
 </ul>
 </section>
-<section id="pitfalls-of-ora" class="slide level2">
-<h2>Pitfalls of ORA</h2>
-<ul>
-<li>Arbitrary cutoff of the interested gene list</li>
-<li>Cannot determine the regulation direction:
-<ul>
-<li>Downregulation</li>
-<li>Upregulation</li>
-</ul></li>
-<li>Even deeper consideration:
-<ul>
-<li>Gene expressions are not independent events</li>
-</ul></li>
-</ul>
-</section>
-<section id="exercise-question-1" class="slide level2 smaller">
+<section id="exercise-question" class="slide level2">
 <h2>Exercise Question</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Consider a genome with 30 genes, where the functional pathway “PATH_X” contains 5 genes, <strong>G1, G2, G3, G4, G5</strong>. 10, <strong>G1, G2, G3, G4, G25, … , G30</strong> are differentially expressed genes in males, with Log2 fold change (Log2FC) and adjusted p-values as follows</p>
-<p><strong>Q1</strong> Derive the contingency table for the study above to conduct over-representation analysis. use <span class="math inline">\(p&lt;0.05\)</span> as selection criteria</p>
-<p><strong>Q2</strong> What is the p-value for the over-representation analysis</p>
+<p>Consider a genome with <span class="math inline">\(30\)</span> genes, where the functional pathway “PATH_X” contains <span class="math inline">\(5\)</span> genes: <strong>G1, G2, G3, G4, G5</strong>. <span class="math inline">\(10\)</span> genes (<strong>G1, G2, G3, G4, G25, …, G30</strong>) are differentially expressed genes in males, with Log2 fold change (Log2FC) and adjusted p-values as follows.</p>
+<p><strong>Q1</strong> Derive the contingency table for the study above to conduct over-representation analysis. Use <span class="math inline">\(p &lt; 0.05\)</span> as the selection criterion.</p>
+<p><strong>Q2</strong> What is the p-value for the over-representation analysis?</p>
 </div><div class="column" style="width:38%;">
 <table class="caption-top">
 <thead>
@@ -719,23 +586,23 @@ P = \sum_{i=a}^M \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1- \sum_{i=
 <tbody>
 <tr class="odd">
 <td>G1</td>
-<td>-2.2</td>
-<td>0.049</td>
+<td><span class="math inline">\(-2.2\)</span></td>
+<td><span class="math inline">\(0.049\)</span></td>
 </tr>
 <tr class="even">
 <td>G2</td>
-<td>-2.3</td>
-<td>0.049</td>
+<td><span class="math inline">\(-2.3\)</span></td>
+<td><span class="math inline">\(0.049\)</span></td>
 </tr>
 <tr class="odd">
 <td>G3</td>
-<td>-2.8</td>
-<td>0.010</td>
+<td><span class="math inline">\(-2.8\)</span></td>
+<td><span class="math inline">\(0.010\)</span></td>
 </tr>
 <tr class="even">
 <td>G4</td>
-<td>2.3</td>
-<td>0.049</td>
+<td><span class="math inline">\(2.3\)</span></td>
+<td><span class="math inline">\(0.049\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\vdots\)</span></td>
@@ -744,24 +611,18 @@ P = \sum_{i=a}^M \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1- \sum_{i=
 </tr>
 <tr class="even">
 <td>G30</td>
-<td>2.4</td>
-<td>0.033</td>
+<td><span class="math inline">\(2.4\)</span></td>
+<td><span class="math inline">\(0.033\)</span></td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </section>
-<section id="solution" class="slide level2 smaller">
+<section id="solution" class="slide level2">
 <h2>Solution</h2>
-<div class="columns">
-<div class="column">
 <p><strong>Q1</strong></p>
+<div class="hide">
 <table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -772,80 +633,142 @@ P = \sum_{i=a}^M \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}} = 1- \sum_{i=
 <tbody>
 <tr class="odd">
 <td>In the pathway</td>
-<td><span class="hide">4</span></td>
-<td><span class="hide">1</span></td>
+<td>4</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td>NOT in the pathway</td>
-<td><span class="hide">6</span></td>
-<td><span class="hide">19</span></td>
+<td>6</td>
+<td>19</td>
 </tr>
 </tbody>
 </table>
-</div><div class="column">
+</div>
 <p><strong>Q2</strong></p>
 <div class="hide">
-<p><span class="math display">\[\begin{aligned}
-P &amp; = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
-&amp; = \frac{\binom{5}{4}\binom{25}{10-4}}{\binom{30}{10}}+ \frac{\binom{5}{5}\binom{25}{10-5}}{\binom{30}{10}} =0.03124 \\
-&amp; = 1-\sum_{i=0}^3 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
-&amp; = 1 - \biggl(
-\frac{\binom{5}{0}\binom{25}{10-0}}{\binom{30}{10}}+ \frac{\binom{5}{1}\binom{25}{10-1}}{\binom{30}{10}} \\
-&amp;+
-\frac{\binom{5}{2}\binom{25}{10-2}}{\binom{30}{10}}+ \frac{\binom{5}{3}\binom{25}{10-3}}{\binom{30}{10}}\biggr) =0.03124
-\end{aligned}
+<p><span class="math display">\[
+\small
+\begin{aligned}
+P &amp;= \sum_{i=4}^{5} \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} = \frac{\binom{5}{4}\binom{25}{6}}{\binom{30}{10}} + \frac{\binom{5}{5}\binom{25}{5}}{\binom{30}{10}} \\
+&amp; = 1 - \sum_{i=0}^{3} \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} = 1 - \biggl( \frac{\binom{5}{0}\binom{25}{10}}{\binom{30}{10}} + \frac{\binom{5}{1}\binom{25}{9}}{\binom{30}{10}}  + \frac{\binom{5}{2}\binom{25}{8}}{\binom{30}{10}} + \frac{\binom{5}{3}\binom{25}{7}}{\binom{30}{10}} \biggr) \\ &amp;=  0.03124 \end{aligned}
 \]</span></p>
 </div>
-</div></div>
 </section>
-<section id="functional-class-scoring" class="slide level2 smaller">
-<h2>Functional Class Scoring</h2>
+<section id="code-example-ora-in-r-clusterprofiler" class="slide level2">
+<h2>Code Example: ORA in R (<code>clusterProfiler</code>)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(clusterProfiler)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(org.Hs.eg.db)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># 1. Define DEG list (e.g., padj &lt; 0.05 &amp; |log2FC| &gt; 1) and background universe</span></span>
+<span id="cb1-5"><a></a><span class="co"># deg_genes &lt;- rownames(subset(res_df, padj &lt; 0.05 &amp; abs(log2FoldChange) &gt; 1))</span></span>
+<span id="cb1-6"><a></a><span class="co"># bg_genes  &lt;- rownames(res_df) # All expressed/tested genes in the experiment</span></span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a><span class="co"># 2. Run GO Over-Representation Analysis (Fisher's / Hypergeometric test)</span></span>
+<span id="cb1-9"><a></a>ora_res <span class="ot">&lt;-</span> <span class="fu">enrichGO</span>(</span>
+<span id="cb1-10"><a></a>  <span class="at">gene          =</span> deg_genes,</span>
+<span id="cb1-11"><a></a>  <span class="at">universe      =</span> bg_genes,       <span class="co"># Crucial: use detected genes, not whole genome</span></span>
+<span id="cb1-12"><a></a>  <span class="at">OrgDb         =</span> org.Hs.eg.db,</span>
+<span id="cb1-13"><a></a>  <span class="at">keyType       =</span> <span class="st">"SYMBOL"</span>,       <span class="co"># Or "ENSEMBL" / "ENTREZID"</span></span>
+<span id="cb1-14"><a></a>  <span class="at">ont           =</span> <span class="st">"BP"</span>,           <span class="co"># Biological Process ("BP", "MF", "CC")</span></span>
+<span id="cb1-15"><a></a>  <span class="at">pAdjustMethod =</span> <span class="st">"BH"</span>,           <span class="co"># Benjamini-Hochberg FDR correction</span></span>
+<span id="cb1-16"><a></a>  <span class="at">pvalueCutoff  =</span> <span class="fl">0.05</span>,</span>
+<span id="cb1-17"><a></a>  <span class="at">qvalueCutoff  =</span> <span class="fl">0.05</span></span>
+<span id="cb1-18"><a></a>)</span>
+<span id="cb1-19"><a></a></span>
+<span id="cb1-20"><a></a><span class="fu">head</span>(ora_res[, <span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Description"</span>, <span class="st">"GeneRatio"</span>, <span class="st">"BgRatio"</span>, <span class="st">"p.adjust"</span>)])</span>
+<span id="cb1-21"><a></a><span class="fu">dotplot</span>(ora_res, <span class="at">showCategory =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="improving-on-ora-in-differential-expression" class="slide level2">
+<h2>Improving on ORA in differential expression</h2>
+<p>Why do we need more advanced methods beyond Fisher’s Exact Test?</p>
+<p><strong>1. Threshold &amp; Directionality Pitfalls</strong> <span class="math inline">\(\rightarrow\)</span> <em>Solved by GSEA</em></p>
 <ul>
-<li><strong>Motivation</strong>: Genes in the same pathway are usually co-expressed together, but they do not necessarily pass the DEGs threshold selection.</li>
+<li><p><strong>Arbitrary cutoffs:</strong> Genes at <span class="math inline">\(p = 0.049\)</span> vs.&nbsp;<span class="math inline">\(0.051\)</span> are treated completely differently; misses subtle, coordinated pathway shifts.</p></li>
+<li><p><strong>No regulation direction:</strong> Mixing up- and down-regulated genes loses directionality (tip: run ORA separately on up- and down-regulated DEGs).</p></li>
+</ul>
+<p><strong>2. Gene Independence Assumption</strong> <span class="math inline">\(\rightarrow\)</span> <em>Solved by Networks</em></p>
+<ul>
+<li>Co-expressed and interacting genes in a pathway are not statistically independent events.</li>
 </ul>
 </section>
-<section id="gene-set-enrichment-analysis-gsea" class="slide level2 smaller">
+<section id="generalizing-to-chip-seq-for-ora" class="slide level2">
+<h2>Generalizing to ChIp-Seq for ORA</h2>
+<p><strong>3. Sequencing &amp; Length Biases</strong> <span class="math inline">\(\rightarrow\)</span> <em>Critical for RNA-seq &amp; ChIP-seq</em></p>
+<ul>
+<li><p><strong>Wrong background universe (</strong><span class="math inline">\(N\)</span><strong>):</strong> Always set <span class="math inline">\(N\)</span> to <strong>genes actually expressed/detected</strong> in your experiment—not the whole genome—to avoid tissue-baseline artifacts.</p></li>
+<li><p><strong>Transcript length &amp; expression bias (RNA-seq):</strong> In fragmented RNA-seq, longer or highly expressed transcripts yield more reads <span class="math inline">\(\rightarrow\)</span> higher statistical power to pass DEG cutoffs (mitigate via <code>goseq</code>, 3’-end UMI sequencing, or GSEA).</p></li>
+<li><p><strong>Gene locus length bias (ChIP-seq):</strong> Even more severe when mapping peaks to genes <span class="math inline">\(\rightarrow\)</span> <em>Solved by GREAT &amp; ChIP-Enrich</em>.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="functional-class-scoring-gsea" class="title-slide slide level1 center">
+<h1>Functional Class Scoring (GSEA)</h1>
+
+</section>
+<section id="solving-pitfall-1-functional-class-scoring" class="slide level2">
+<h2>Solving Pitfall 1: Functional Class Scoring</h2>
+<ul>
+<li><p><strong>Motivation</strong>: Genes in the same pathway are usually co-expressed together, but they do not necessarily pass a strict DEG threshold (<span class="math inline">\(p &lt; 0.05\)</span>, <span class="math inline">\(\vert{}\log_2\text{FC}\vert{} &gt; 1\)</span>).</p></li>
+<li><p>Instead of dichotomizing genes into “DE” vs.&nbsp;“NOT DE”, <strong>Functional Class Scoring</strong> uses the full ranked list of all tested genes.</p></li>
+</ul>
+</section>
+<section id="gene-set-enrichment-analysis-gsea" class="slide level2">
 <h2>Gene Set Enrichment Analysis (GSEA)</h2>
 <div class="columns">
-<div class="column">
+<div class="column" style="width:50%;">
 <ol type="1">
-<li>Sort genes (by log fold change)</li>
-<li>Calculate running sum from the sorted gene list:
-<ol type="1">
-<li>Increase while in the pathway</li>
-<li>Decrease while not in the pathway</li>
-</ol></li>
-<li>Find the maximum running sum</li>
-<li>Permute the label to calculate p-value</li>
+<li><p>Sort all genes (e.g., by <span class="math inline">\(\log_2\)</span> fold change or test statistic)</p></li>
+<li><p>Calculate a running sum down the sorted gene list:</p>
+<ul>
+<li><p><strong>Increase</strong> when a gene is in the pathway (Hit)</p></li>
+<li><p><strong>Decrease</strong> when a gene is not in the pathway (Miss)</p></li>
+</ul></li>
+<li><p>Find the maximum deviation from zero (<strong>preserving sign</strong>)</p></li>
+<li><p>Permute labels to calculate an empirical p-value</p></li>
 </ol>
-</div><div class="column">
+</div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/functional-genomics/gsea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Illustration of GSEA @subramanian2005gene; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"><img data-src="../../..\assets/images/functional-genomics/gsea.png" height="400" alt="Illustration of GSEA Subramanian et al. (2005); Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"></a></p>
+<p><a href="../../..\assets/images/functional-genomics/gsea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Illustration of GSEA @subramanian2005gene; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"><img data-src="../../..\assets/images/functional-genomics/gsea.png" height="400" alt="Illustration of GSEA Subramanian et al. (2005); Top:Upregulation, Middle: Not enriched, Bottom: Downregulation"></a></p>
 <figcaption>Illustration of GSEA <span class="citation" data-cites="subramanian2005gene">Subramanian et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2005</a>)</span>; Top:Upregulation, Middle: Not enriched, Bottom: Downregulation</figcaption>
 </figure>
 </div>
 </div></div>
 </section>
-<section id="calculate-running-sum" class="slide level2 smaller">
+<section id="calculate-running-sum" class="slide level2">
 <h2>Calculate Running Sum</h2>
 <p>Consider our gene set with size <span class="math inline">\(N\)</span>, and the pathway <span class="math inline">\(\pi\)</span> has <span class="math inline">\(M\)</span> genes in it.</p>
+<div class="columns">
+<div class="column">
 <ol type="1">
-<li><p>Initial running sum of enrichment score is <span class="math inline">\(ES_0 = 0\)</span>, the denominator <span class="math inline">\(N_R=\sum |r_j|\)</span>, where <span class="math inline">\(r_j\)</span> is the log fold change of genes that are in the pathway <span class="math inline">\(\pi\)</span></p></li>
-<li><p>Going through the ordered gene <span class="math inline">\(n_i\)</span> list, do:</p>
-<ol type="a">
-<li>If gene <span class="math inline">\(n_i\)</span> is in the pathway, <span class="math inline">\(ES_i = ES_{i-1} + \frac{|r_j|}{N_R}\)</span></li>
-<li>If gene <span class="math inline">\(n_i\)</span> is <strong>NOT</strong> in the list, <span class="math inline">\(ES_i = ES_{i-1} - \frac{1}{N - M}\)</span></li>
-</ol></li>
+<li><p>Initial running sum of enrichment score is <span class="math inline">\(ES_0 = 0\)</span>, and the normalization denominator is <span class="math inline">\(N_R = \sum_{j \in \pi} \vert{}r_j\vert{}\)</span>, where <span class="math inline">\(r_j\)</span> is the log fold change of genes that are in the pathway <span class="math inline">\(\pi\)</span>.</p></li>
+<li><p>Going through the ordered gene list <span class="math inline">\(n_i\)</span>:</p>
+<ul>
+<li><p>If gene <span class="math inline">\(n_i\)</span> is in the pathway: <span class="math inline">\(ES_i = ES_{i-1} + \frac{\vert{}r_i\vert{}}{N_R}\)</span></p></li>
+<li><p>If gene <span class="math inline">\(n_i\)</span> is <strong>NOT</strong> in the pathway: <span class="math inline">\(ES_i = ES_{i-1} - \frac{1}{N - M}\)</span></p></li>
+</ul></li>
 </ol>
-<p>The final enrichment score is <span class="math inline">\(ES = \max(|ES_i|)\)</span></p>
-</section>
-<section id="calculating-p-values" class="slide level2 smaller">
-<h2>Calculating P-values</h2>
-<p><strong>Permutation Test</strong>: Randomly shuffle the gene label for each expression level for <span class="math inline">\(k\)</span> times and plot the <span class="math inline">\(ES\)</span> distribution for these <span class="math inline">\(k\)</span> permutations, and the p-value will be</p>
+</div><div class="column">
+<p>The final enrichment score is the <strong>maximum deviation from zero (preserving the sign)</strong>:</p>
 <p><span class="math display">\[
-\small
-\text{P-value} = \frac{\text{# of times} ES \geq ES_o}{k}
+\begin{aligned}
+ES = &amp; ES_{i^*}, \\
+\text{where } i^* = &amp; \arg\max_i \vert{}ES_i\vert{}
+\end{aligned}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(ES &gt; 0\)</span>: enriched at the <strong>top</strong> of the list (upregulated)</p></li>
+<li><p><span class="math inline">\(ES &lt; 0\)</span>: enriched at the <strong>bottom</strong> of the list (downregulated)</p></li>
+</ul>
+</div></div>
+</section>
+<section id="calculating-p-values" class="slide level2">
+<h2>Calculating P-values</h2>
+<p><strong>Permutation Test</strong>: Randomly shuffle the gene labels for each expression level <span class="math inline">\(k\)</span> times and plot the <span class="math inline">\(ES\)</span> distribution for these <span class="math inline">\(k\)</span> permutations. The empirical p-value is:</p>
+<p><span class="math display">\[
+\text{P-value} = \frac{\text{\# of times } \vert{}ES\vert{} \ge \vert{}ES_o\vert{}}{k}
 \]</span></p>
 <div class="columns">
 <div class="column" style="width:33%;">
@@ -860,33 +783,33 @@ P &amp; = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
 <tbody>
 <tr class="odd">
 <td>G1</td>
-<td>2.3</td>
+<td><span class="math inline">\(2.3\)</span></td>
 </tr>
 <tr class="even">
 <td>G2</td>
-<td>0.7</td>
+<td><span class="math inline">\(0.7\)</span></td>
 </tr>
 <tr class="odd">
 <td>G3</td>
-<td>2.6</td>
+<td><span class="math inline">\(2.6\)</span></td>
 </tr>
 <tr class="even">
 <td>G4</td>
-<td>1.4</td>
+<td><span class="math inline">\(1.4\)</span></td>
 </tr>
 <tr class="odd">
 <td>G5</td>
-<td>1.2</td>
+<td><span class="math inline">\(1.2\)</span></td>
 </tr>
 <tr class="even">
 <td>G6</td>
-<td>0.1</td>
+<td><span class="math inline">\(0.1\)</span></td>
 </tr>
 </tbody>
 </table>
 </div><div class="column fragment fade-in" style="width:33%;">
 <table class="caption-top">
-<caption>Permutation</caption>
+<caption>Permutation 1</caption>
 <thead>
 <tr class="header">
 <th>Gene</th>
@@ -896,27 +819,27 @@ P &amp; = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
 <tbody>
 <tr class="odd">
 <td>G4</td>
-<td>2.3</td>
+<td><span class="math inline">\(2.3\)</span></td>
 </tr>
 <tr class="even">
 <td>G2</td>
-<td>0.7</td>
+<td><span class="math inline">\(0.7\)</span></td>
 </tr>
 <tr class="odd">
 <td>G6</td>
-<td>2.6</td>
+<td><span class="math inline">\(2.6\)</span></td>
 </tr>
 <tr class="even">
 <td>G1</td>
-<td>1.4</td>
+<td><span class="math inline">\(1.4\)</span></td>
 </tr>
 <tr class="odd">
 <td>G5</td>
-<td>1.2</td>
+<td><span class="math inline">\(1.2\)</span></td>
 </tr>
 <tr class="even">
 <td>G3</td>
-<td>0.1</td>
+<td><span class="math inline">\(0.1\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -932,37 +855,37 @@ P &amp; = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
 <tbody>
 <tr class="odd">
 <td>G4</td>
-<td>2.3</td>
+<td><span class="math inline">\(2.3\)</span></td>
 </tr>
 <tr class="even">
 <td>G1</td>
-<td>0.7</td>
+<td><span class="math inline">\(0.7\)</span></td>
 </tr>
 <tr class="odd">
 <td>G6</td>
-<td>2.6</td>
+<td><span class="math inline">\(2.6\)</span></td>
 </tr>
 <tr class="even">
 <td>G2</td>
-<td>1.4</td>
+<td><span class="math inline">\(1.4\)</span></td>
 </tr>
 <tr class="odd">
-<td>G3</td>
-<td>0.1</td>
+<td>G5</td>
+<td><span class="math inline">\(1.2\)</span></td>
 </tr>
 <tr class="even">
-<td>G5</td>
-<td>0.6</td>
+<td>G3</td>
+<td><span class="math inline">\(0.1\)</span></td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </section>
-<section id="example" class="slide level2 smaller">
-<h2>Example</h2>
+<section id="example-1" class="slide level2">
+<h2>Example 1</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Consider a DEG for 8 genes {G1 to G8}, where the functional pathway “PATH_A” contains 4 genes {G1, G2, G3, G4}. With the readings on the right, please calculate the enrichment score of PATH_A on this array.</p>
+<p>Consider a DEG list for <span class="math inline">\(8\)</span> genes <span class="math inline">\(\{G1, \dots, G8\}\)</span>, where the functional pathway “PATH_A” contains <span class="math inline">\(4\)</span> genes <span class="math inline">\(\{G1, G2, G3, G4\}\)</span>. With the readings on the right, please calculate the enrichment score of PATH_A on this array.</p>
 </div><div class="column" style="width:40%;">
 <table class="caption-top">
 <thead>
@@ -974,51 +897,45 @@ P &amp; = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
 <tbody>
 <tr class="odd">
 <td>G1</td>
-<td>2.3</td>
+<td><span class="math inline">\(2.3\)</span></td>
 </tr>
 <tr class="even">
 <td>G2</td>
-<td>0.7</td>
+<td><span class="math inline">\(0.7\)</span></td>
 </tr>
 <tr class="odd">
 <td>G3</td>
-<td>2.6</td>
+<td><span class="math inline">\(2.6\)</span></td>
 </tr>
 <tr class="even">
 <td>G4</td>
-<td>1.4</td>
+<td><span class="math inline">\(1.4\)</span></td>
 </tr>
 <tr class="odd">
 <td>G5</td>
-<td>1.2</td>
+<td><span class="math inline">\(1.2\)</span></td>
 </tr>
 <tr class="even">
 <td>G6</td>
-<td>0.1</td>
+<td><span class="math inline">\(0.1\)</span></td>
 </tr>
 <tr class="odd">
 <td>G7</td>
-<td>0.3</td>
+<td><span class="math inline">\(0.3\)</span></td>
 </tr>
 <tr class="even">
 <td>G8</td>
-<td>0.6</td>
+<td><span class="math inline">\(0.6\)</span></td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </section>
-<section id="example-1" class="slide level2 smaller">
-<h2>Example</h2>
+<section id="example-1-solution" class="slide level2">
+<h2>Example 1 Solution</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <table class="caption-top">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 38%">
-<col style="width: 23%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Rank</th>
@@ -1030,74 +947,72 @@ P &amp; = \sum_{i=4}^5 \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\
 <tbody>
 <tr class="odd">
 <td>1</td>
-<td><span class="hide">G3</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">2.6/7</span></td>
+<td>G3</td>
+<td>Hit</td>
+<td><span class="math inline">\(2.6/7\)</span></td>
 </tr>
 <tr class="even">
 <td>2</td>
-<td><span class="hide">G1</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">2.3/7</span></td>
+<td>G1</td>
+<td>Hit</td>
+<td><span class="math inline">\(2.3/7\)</span></td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td><span class="hide">G4</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">1.4/7</span></td>
+<td>G4</td>
+<td>Hit</td>
+<td><span class="math inline">\(1.4/7\)</span></td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td><span class="hide">G5</span></td>
-<td><span class="hide">Miss</span></td>
-<td><span class="hide">-1/4</span></td>
+<td>G5</td>
+<td>Miss</td>
+<td><span class="math inline">\(-1/4\)</span></td>
 </tr>
 <tr class="odd">
 <td>5</td>
-<td><span class="hide">G2</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">0.7/7</span></td>
+<td>G2</td>
+<td>Hit</td>
+<td><span class="math inline">\(0.7/7\)</span></td>
 </tr>
 <tr class="even">
 <td>6</td>
-<td><span class="hide">G8</span></td>
-<td><span class="hide">Miss</span></td>
-<td><span class="hide">-1/4</span></td>
+<td>G8</td>
+<td>Miss</td>
+<td><span class="math inline">\(-1/4\)</span></td>
 </tr>
 <tr class="odd">
 <td>7</td>
-<td><span class="hide">G7</span></td>
-<td><span class="hide">Miss</span></td>
-<td><span class="hide">-1/4</span></td>
+<td>G7</td>
+<td>Miss</td>
+<td><span class="math inline">\(-1/4\)</span></td>
 </tr>
 <tr class="even">
 <td>8</td>
-<td><span class="hide">G6</span></td>
-<td><span class="hide">Miss</span></td>
-<td><span class="hide">-1/4</span></td>
+<td>G6</td>
+<td>Miss</td>
+<td><span class="math inline">\(-1/4\)</span></td>
 </tr>
 </tbody>
 </table>
 </div><div class="column" style="width:50%;">
 <ul>
-<li>Score deducted if the gene is not in the pathway <span class="hide">1/(8-4)</span></li>
-<li>Normalized term (<span class="math inline">\(N_R\)</span>) if the gene is in the pathway: <span class="hide">2.6+2.3+1.4+0.7=7</span></li>
-<li>ES</li>
+<li><p>Score deducted if the gene is not in the pathway: <span class="math inline">\(\frac{1}{8-4} = \frac{1}{4}\)</span></p></li>
+<li><p>Normalized term (<span class="math inline">\(N_R\)</span>) if the gene is in the pathway: <span class="math inline">\(2.6 + 2.3 + 1.4 + 0.7 = 7\)</span></p></li>
+<li><p><span class="math inline">\(ES\)</span>:</p></li>
 </ul>
 <div class="hide">
-<span class="math display">\[\begin{aligned}
-ES &amp; = \\
-  &amp; \frac{|2.6}{7} + \frac{2.3}{7} + \frac{1.4}{7} \\
-  &amp; =0.9
-\end{aligned}\]</span>
+<p><span class="math display">\[
+\begin{aligned} ES &amp;= \frac{2.6}{7} + \frac{2.3}{7} + \frac{1.4}{7} \\ &amp;= 0.9 \quad (\text{upregulated}) \end{aligned}
+\]</span></p>
 </div>
 </div></div>
 </section>
-<section id="example-2" class="slide level2 smaller">
+<section id="example-2" class="slide level2">
 <h2>Example 2</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Consider a DEG for 8 genes {G1 to G8}, where the functional pathway “PATH_B” contains 5 genes {G1, G2, G3, G4, G5}. With the readings on the right, please calculate the enrichment score of PATH_B on this array.</p>
+<p>Consider a DEG list for <span class="math inline">\(8\)</span> genes <span class="math inline">\(\{G1, \dots, G8\}\)</span>, where the functional pathway “PATH_B” contains <span class="math inline">\(5\)</span> genes <span class="math inline">\(\{G1, G2, G3, G4, G5\}\)</span>. With the readings on the right, please calculate the enrichment score of PATH_B on this array.</p>
 </div><div class="column" style="width:40%;">
 <table class="caption-top">
 <thead>
@@ -1109,51 +1024,45 @@ ES &amp; = \\
 <tbody>
 <tr class="odd">
 <td>G1</td>
-<td>-2.0</td>
+<td><span class="math inline">\(-2.0\)</span></td>
 </tr>
 <tr class="even">
 <td>G2</td>
-<td>-0.1</td>
+<td><span class="math inline">\(-0.1\)</span></td>
 </tr>
 <tr class="odd">
 <td>G3</td>
-<td>-2.3</td>
+<td><span class="math inline">\(-2.3\)</span></td>
 </tr>
 <tr class="even">
 <td>G4</td>
-<td>-1.7</td>
+<td><span class="math inline">\(-1.7\)</span></td>
 </tr>
 <tr class="odd">
 <td>G5</td>
-<td>-0.9</td>
+<td><span class="math inline">\(-0.9\)</span></td>
 </tr>
 <tr class="even">
 <td>G6</td>
-<td>0.1</td>
+<td><span class="math inline">\(0.1\)</span></td>
 </tr>
 <tr class="odd">
 <td>G7</td>
-<td>0.3</td>
+<td><span class="math inline">\(0.3\)</span></td>
 </tr>
 <tr class="even">
 <td>G8</td>
-<td>0.6</td>
+<td><span class="math inline">\(0.6\)</span></td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </section>
-<section id="example-2-1" class="slide level2 smaller">
-<h2>Example 2</h2>
+<section id="example-2-solution" class="slide level2">
+<h2>Example 2 Solution</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <table class="caption-top">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 38%">
-<col style="width: 23%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Rank</th>
@@ -1165,151 +1074,417 @@ ES &amp; = \\
 <tbody>
 <tr class="odd">
 <td>1</td>
-<td><span class="hide">G8</span></td>
-<td><span class="hide">Miss</span></td>
-<td><span class="hide">-1/3</span></td>
+<td>G8</td>
+<td>Miss</td>
+<td><span class="math inline">\(-1/3\)</span></td>
 </tr>
 <tr class="even">
 <td>2</td>
-<td><span class="hide">G7</span></td>
-<td><span class="hide">Miss</span></td>
-<td><span class="hide">-1/3</span></td>
+<td>G7</td>
+<td>Miss</td>
+<td><span class="math inline">\(-1/3\)</span></td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td><span class="hide">G6</span></td>
-<td><span class="hide">Miss</span></td>
-<td><span class="hide">-1/3</span></td>
+<td>G6</td>
+<td>Miss</td>
+<td><span class="math inline">\(-1/3\)</span></td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td><span class="hide">G2</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">0.1/7</span></td>
+<td>G2</td>
+<td>Hit</td>
+<td><span class="math inline">\(0.1/7\)</span></td>
 </tr>
 <tr class="odd">
 <td>5</td>
-<td><span class="hide">G5</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">0.9/7</span></td>
+<td>G5</td>
+<td>Hit</td>
+<td><span class="math inline">\(0.9/7\)</span></td>
 </tr>
 <tr class="even">
 <td>6</td>
-<td><span class="hide">G4</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">1.7/7</span></td>
+<td>G4</td>
+<td>Hit</td>
+<td><span class="math inline">\(1.7/7\)</span></td>
 </tr>
 <tr class="odd">
 <td>7</td>
-<td><span class="hide">G1</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">2/7</span></td>
+<td>G1</td>
+<td>Hit</td>
+<td><span class="math inline">\(2.0/7\)</span></td>
 </tr>
 <tr class="even">
 <td>8</td>
-<td><span class="hide">G3</span></td>
-<td><span class="hide">Hit</span></td>
-<td><span class="hide">2.3/7</span></td>
+<td>G3</td>
+<td>Hit</td>
+<td><span class="math inline">\(2.3/7\)</span></td>
 </tr>
 </tbody>
 </table>
 </div><div class="column" style="width:50%;">
 <ul>
-<li>Score deducted if the gene is not in the pathway: <span class="hide">1/(8-5)</span></li>
-<li>Normalized term (<span class="math inline">\(N_R\)</span>) if the gene is in the pathway <span class="hide">|-2|+|-0.1|+|-2.3|+|-1.7|+|-0.9|=7</span></li>
-<li>ES</li>
+<li><p>Score deducted if the gene is not in the pathway: <span class="math inline">\(\frac{1}{8-5} = \frac{1}{3}\)</span></p></li>
+<li><p>Normalized term (<span class="math inline">\(N_R\)</span>) if the gene is in the pathway:</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\small \vert-2.0\vert+ &amp; \vert-0.1\vert+\vert-2.3\vert + \\ \vert-1.7\vert + &amp;\vert-0.9\vert = 7
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(ES\)</span>:</li>
 </ul>
 <div class="hide">
-<span class="math display">\[\begin{aligned}
-ES &amp; = \\
-  &amp; |\frac{-1}{3}| + |\frac{-1}{3}| + |\frac{-1}{3}| \\
-  &amp; = 1
-\end{aligned}\]</span>
+<p><span class="math display">\[
+\begin{aligned} ES &amp;= -\frac{1}{3} - \frac{1}{3} - \frac{1}{3} \\ &amp;= -1.0 \quad (\text{downregulated}) \end{aligned}
+\]</span></p>
 </div>
 </div></div>
 </section>
-<section id="comparison-of-ora-and-gsea" class="slide level2 smaller">
+<section id="comparison-of-ora-and-gsea" class="slide level2">
 <h2>Comparison of ORA and GSEA</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>ORA</strong></p>
 <ul>
-<li>A hard threshold</li>
-<li>Provides a list of interested genes instead of DEG result</li>
+<li><p>Uses a hard threshold (DEG cutoff)</p></li>
+<li><p>Only requires a list of genes of interest (plus background universe)</p></li>
+<li><p>Computationally fast</p></li>
+<li><p>Does not inherently determine regulation direction</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>GSEA</strong></p>
 <ul>
-<li>A soft threshold</li>
-<li>Needs a DEG result</li>
-<li>Computationally expensive</li>
-<li>Can determine the regulation direction</li>
+<li><p>Threshold-free (uses the full ranked gene list)</p></li>
+<li><p>Requires a continuous ranking metric (e.g., <span class="math inline">\(\log_2\text{FC}\)</span> or test statistic)</p></li>
+<li><p>Computationally more expensive (permutation test)</p></li>
+<li><p>Determines regulation direction via the sign of <span class="math inline">\(ES\)</span> / <span class="math inline">\(NES\)</span></p></li>
 </ul>
-</div><p>Different results in ORA and GSEA might implies subtle difference at the boundary of <strong>arbitrary</strong> cut-off (i.e.&nbsp;some genes with p-value like 0.051)</p>
+</div><p>Different results in ORA and GSEA often imply subtle, coordinated changes near the boundary of an <strong>arbitrary</strong> cut-off (e.g., many pathway genes with <span class="math inline">\(p \approx 0.051\)</span>).</p>
 </div>
+</section>
+<section id="code-example-gsea-in-r-clusterprofiler" class="slide level2">
+<h2>Code Example: GSEA in R (<code>clusterProfiler</code>)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(clusterProfiler)</span>
+<span id="cb2-2"><a></a><span class="fu">library</span>(org.Hs.eg.db)</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="co"># 1. Create a named numeric vector of ALL tested genes, sorted decreasingly by log2FC</span></span>
+<span id="cb2-5"><a></a><span class="co"># gene_list &lt;- res_df$log2FoldChange</span></span>
+<span id="cb2-6"><a></a><span class="co"># names(gene_list) &lt;- rownames(res_df)</span></span>
+<span id="cb2-7"><a></a><span class="co"># gene_list &lt;- sort(na.omit(gene_list), decreasing = TRUE)</span></span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a><span class="co"># 2. Run Gene Set Enrichment Analysis (no hard DEG cutoff needed)</span></span>
+<span id="cb2-10"><a></a>gsea_res <span class="ot">&lt;-</span> <span class="fu">gseGO</span>(</span>
+<span id="cb2-11"><a></a>  <span class="at">geneList      =</span> gene_list,</span>
+<span id="cb2-12"><a></a>  <span class="at">OrgDb         =</span> org.Hs.eg.db,</span>
+<span id="cb2-13"><a></a>  <span class="at">keyType       =</span> <span class="st">"SYMBOL"</span>,</span>
+<span id="cb2-14"><a></a>  <span class="at">ont           =</span> <span class="st">"BP"</span>,</span>
+<span id="cb2-15"><a></a>  <span class="at">minGSSize     =</span> <span class="dv">15</span>,</span>
+<span id="cb2-16"><a></a>  <span class="at">maxGSSize     =</span> <span class="dv">500</span>,</span>
+<span id="cb2-17"><a></a>  <span class="at">pvalueCutoff  =</span> <span class="fl">0.05</span>,</span>
+<span id="cb2-18"><a></a>  <span class="at">pAdjustMethod =</span> <span class="st">"BH"</span>,</span>
+<span id="cb2-19"><a></a>  <span class="at">verbose       =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-20"><a></a>)</span>
+<span id="cb2-21"><a></a></span>
+<span id="cb2-22"><a></a><span class="co"># NES &gt; 0: upregulated pathway; NES &lt; 0: downregulated pathway</span></span>
+<span id="cb2-23"><a></a><span class="fu">head</span>(gsea_res[, <span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Description"</span>, <span class="st">"NES"</span>, <span class="st">"p.adjust"</span>)])</span>
+<span id="cb2-24"><a></a><span class="fu">gseaplot2</span>(gsea_res, <span class="at">geneSetID =</span> <span class="dv">1</span>, <span class="at">title =</span> gsea_res<span class="sc">$</span>Description[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="enrichment-in-the-sequence-chip-seq" class="title-slide slide level1 center">
+<h1>Enrichment in the Sequence (ChIP-seq)</h1>
+
+</section>
+<section id="solving-pitfall-2-why-not-just-run-ora-on-chip-seq" class="slide level2">
+<h2>Solving Pitfall 2: Why Not Just Run ORA on ChIP-seq?</h2>
+<p>Can we simply map each ChIP-seq peak to its nearest gene and run <strong>Fisher’s Exact Test (ORA)</strong>?</p>
+<ul>
+<li><p><strong>In theory, yes</strong>—the <span class="math inline">\(2 \times 2\)</span> contingency table is identical (genes with <span class="math inline">\(\ge 1\)</span> peak vs.&nbsp;genes in pathway <span class="math inline">\(\pi\)</span>).</p></li>
+<li><p><strong>In practice, it fails severely</strong> because Fisher’s Exact Test assumes <strong>every gene has an equal probability</strong> of receiving a peak by chance:</p>
+<ul>
+<li><p><strong>Housekeeping genes</strong> live in gene-dense regions (tiny regulatory territory: <span class="math inline">\(\sim 5\text{--}10\text{ kb}\)</span>).</p></li>
+<li><p><strong>Developmental &amp; neural genes</strong> sit in vast “gene deserts” with distal enhancers (huge regulatory territory: <span class="math inline">\(&gt; 500\text{ kb} \sim 1\text{ Mb}\)</span>).</p></li>
+</ul></li>
+<li><p>Even completely random peaks will disproportionately land on long gene loci, causing <strong>massive false positives</strong> in FET.</p></li>
+</ul>
+</section>
+<section id="genomic-regions-enrichment-of-annotations-tool-great" class="slide level2">
+<h2>Genomic Regions Enrichment of Annotations Tool (GREAT)</h2>
+<ul>
+<li><strong>Motivation</strong>: Do cis-regulatory elements (ChIP-seq peaks) associate with specific pathways, <strong>accounting for the length of regulatory domains</strong>?</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="../../..\assets/images/functional-genomics/CHIP-SEQ.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="ChIP-seq Data Visualization"><img data-src="../../..\assets/images/functional-genomics/CHIP-SEQ.png" height="375" alt="ChIP-seq Data Visualization"></a></p>
+<figcaption>ChIP-seq Data Visualization</figcaption>
+</figure>
+</div>
+</section>
+<section id="problem-formulation-1" class="slide level2">
+<h2>Problem Formulation</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="../../..\assets/images/functional-genomics/GREAT.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Motivation Example @welch2014chip"><img data-src="../../..\assets/images/functional-genomics/GREAT.png" alt="Motivation Example Welch et al. (2014)"></a></p>
+<figcaption>Motivation Example <span class="citation" data-cites="welch2014chip">Welch et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2014</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<ul>
+<li><p>Given a <span class="math inline">\(1000\text{ bp}\)</span> sequence</p></li>
+<li><p>From the existing database, <span class="math inline">\(600\text{ bp}\)</span> (located in the figure) is annotated with the functional pathway <span class="math inline">\(\pi\)</span></p></li>
+<li><p>ChIP-seq identified <span class="math inline">\(6\)</span> enriched regions bound by protein; among them, <span class="math inline">\(5\)</span> are in the annotated region <span class="math inline">\(\pi\)</span></p></li>
+<li><p><strong>Question</strong>: If the ChIP-seq identified regions occur randomly, what is the probability that ChIP-seq identified regions fall into the regulatory domain <span class="math inline">\(\pi\)</span>?</p></li>
+</ul>
+</div></div>
+</section>
+<section id="binomial-test" class="slide level2">
+<h2>Binomial Test</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Analogy:</strong> You are flipping an unfair coin</p>
+<ol type="1">
+<li><p>Chance of having a head: <span class="math inline">\(0.6\)</span></p></li>
+<li><p>Times you flip: <span class="math inline">\(6\)</span></p></li>
+<li><p>Heads you get: <span class="math inline">\(5\)</span></p></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><strong>ChIP-seq:</strong> Identified Region</p>
+<ol type="1">
+<li><p>Chance to be in the regulatory domain: <span class="math inline">\(p = \frac{\text{Annotated length}}{\text{Total sequence length}} = \frac{600}{1000}\)</span></p></li>
+<li><p>Number of genomic regions identified: <span class="math inline">\(n = 6\)</span></p></li>
+<li><p>Number of genomic regions falling into the annotated area: <span class="math inline">\(k = 5\)</span></p></li>
+</ol>
+</div><p>The probability of getting exactly <span class="math inline">\(k\)</span> hits out of <span class="math inline">\(n\)</span> with probability <span class="math inline">\(p\)</span>:</p><div class="hide t">
+<p><span class="math display">\[
+P(X = k) = \binom{n}{k}(p)^k(1-p)^{n-k}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="back-to-our-example-1" class="slide level2">
+<h2>Back to Our Example</h2>
+<ul>
+<li>We can derive the p-value (probability) to test: <strong>How likely is it to get at least</strong> <span class="math inline">\(k\)</span> <strong>annotations in the regulatory region out of</strong> <span class="math inline">\(n\)</span> <strong>attempts</strong>, if the ChIP-seq peaks occur randomly?</li>
+</ul>
+<p><span class="math display">\[
+\text{p-value} = P(X \ge k) = \sum_{i=k}^{n}\binom{n}{i}(p)^i(1-p)^{n-i}
+\]</span></p>
+<p>In our example, it will be:</p>
+<div class="hide t">
+<p><span class="math display">\[
+P(X \ge 5) = \binom{6}{5}(0.6)^5(1-0.6)^{1} + \binom{6}{6}(0.6)^6(1-0.6)^{0} = 0.23
+\]</span></p>
+</div>
+<p>For a given significance level <span class="math inline">\(\alpha\)</span> (typically <span class="math inline">\(0.05\)</span>), if <span class="math inline">\(\text{p-value} &lt; \alpha\)</span> (or adjusted p-value / <span class="math inline">\(\text{FDR} &lt; 0.05\)</span> when testing multiple pathways), we conclude that <strong>the regulatory element is enriched in the pathway</strong> <span class="math inline">\(\pi\)</span>.</p>
+</section>
+<section id="wrap-up-enrichment-analysis-of-cis-regulatory-regions" class="slide level2">
+<h2>Wrap-up: Enrichment Analysis of Cis-Regulatory Regions</h2>
+<ul>
+<li><p>For a sequence with length <span class="math inline">\(N\)</span> with <span class="math inline">\(K_\pi\)</span> bp annotated with pathway <span class="math inline">\(\pi\)</span></p></li>
+<li><p>ChIP-seq selected <span class="math inline">\(n\)</span> genomic regions and <span class="math inline">\(k_\pi\)</span> of them fall into the annotation of pathway <span class="math inline">\(\pi\)</span></p></li>
+<li><p><span class="math inline">\(p_\pi = \frac{K_\pi}{N}\)</span> is the probability of selecting a base pair annotated with <span class="math inline">\(\pi\)</span> when selecting a single base pair uniformly from all base pairs in the genome</p></li>
+</ul>
+<p><span class="math display">\[
+\text{p-value} = P(X \ge k_\pi) = \sum_{i=k_\pi}^{n}\binom{n}{i}(p_\pi)^i(1-p_\pi)^{n-i}
+\]</span></p>
+<ul>
+<li>Each pathway needs to be tested once, and when <strong>testing on more than one pathway, p-value correction</strong> (e.g., Bonferroni or Benjamini-Hochberg FDR) should be applied.</li>
+</ul>
+</section>
+<section id="exercise-question-1" class="slide level2">
+<h2>Exercise Question</h2>
+<ul>
+<li><p>On a sequence with length <span class="math inline">\(100\)</span>, with <span class="math inline">\(14\)</span> bp annotated with the pathway <em>multicellular organismal development</em></p></li>
+<li><p>ChIP-seq on this sequence showed that <span class="math inline">\(10\)</span> enriched regions are bound by protein in older adults compared to young adults; among them, <span class="math inline">\(6\)</span> fall into the annotated regions</p></li>
+</ul>
+<p><strong>Q1</strong> What is the p-value of the binomial test that at least <span class="math inline">\(6\)</span> out of <span class="math inline">\(10\)</span> fall into the annotated regions?</p>
+<div class="hide t">
+<p><span class="math display">\[
+\small
+P(X \ge 6) = \sum_{i=6}^{10}\binom{10}{i}(0.14)^i(1-0.14)^{10-i} = 0.00095
+\]</span></p>
+</div>
+<p><strong>Q2</strong> Given the p-value, is the protein enriched in the pathway <em>multicellular organismal development</em> at the <span class="math inline">\(\alpha = 0.05\)</span> significance level?</p>
+<div class="hide t">
+<p>Yes, since <span class="math inline">\(0.00095 &lt; 0.05\)</span>, the protein is enriched in the pathway <em>multicellular organismal development</em>.</p>
+</div>
+</section>
+<section id="great-analysis-in-r" class="slide level2">
+<h2>GREAT Analysis in R</h2>
+<p>GREAT’s binomial and hypergeometric tests are implemented in the <code>rGREAT</code> Bioconductor package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Install rGREAT if needed</span></span>
+<span id="cb3-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb3-3"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"rGREAT"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"rGREAT"</span>)</span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a><span class="fu">library</span>(rGREAT)</span>
+<span id="cb3-6"><a></a><span class="fu">library</span>(GenomicRanges)</span>
+<span id="cb3-7"><a></a></span>
+<span id="cb3-8"><a></a><span class="co"># Example: load peak coordinates (chr, start, end) as a GRanges object</span></span>
+<span id="cb3-9"><a></a><span class="co"># peaks_gr &lt;- GRanges(seqnames = df$chr, ranges = IRanges(df$start, df$end))</span></span>
+<span id="cb3-10"><a></a></span>
+<span id="cb3-11"><a></a><span class="co"># Run local GREAT analysis against GO Biological Process (hg38)</span></span>
+<span id="cb3-12"><a></a>res_great <span class="ot">&lt;-</span> <span class="fu">great</span>(</span>
+<span id="cb3-13"><a></a>  <span class="at">gr =</span> peaks_gr,</span>
+<span id="cb3-14"><a></a>  <span class="at">gene_sets =</span> <span class="st">"GO:BP"</span>,</span>
+<span id="cb3-15"><a></a>  <span class="at">tss_source =</span> <span class="st">"hg38"</span></span>
+<span id="cb3-16"><a></a>)</span>
+<span id="cb3-17"><a></a></span>
+<span id="cb3-18"><a></a><span class="co"># Extract enrichment table (includes BOTH binomial &amp; hypergeometric p-values)</span></span>
+<span id="cb3-19"><a></a>tb <span class="ot">&lt;-</span> <span class="fu">getEnrichmentTable</span>(res_great)</span>
+<span id="cb3-20"><a></a><span class="fu">head</span>(tb[, <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"description"</span>, <span class="st">"fold_enrichment"</span>, <span class="st">"p_adjust"</span>, <span class="st">"p_adjust_hyper"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fet-vs.-great-binomial" class="slide level2">
+<h2>FET vs.&nbsp;GREAT (Binomial)</h2>
+<p>How do ChIP-seq enrichment methods balance <strong>gene locus length</strong> against <strong>peak clustering</strong>?</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 16%">
+<col style="width: 22%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Unit</th>
+<th>Locus Length Handling</th>
+<th>Key Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fisher’s Exact Test (ORA)</strong></td>
+<td>Gene (<span class="math inline">\(\ge 1\)</span> peak)</td>
+<td><strong>None</strong> (assumes equal probability per gene)</td>
+<td>Severe false positives for pathways with long gene loci (e.g., neural/developmental genes in gene deserts)</td>
+</tr>
+<tr class="even">
+<td><strong>GREAT (Binomial Test)</strong></td>
+<td>Peak count</td>
+<td><strong>Linearly proportional</strong> to locus length</td>
+<td>Assumes peaks are independent; a few genes with many peaks can inflate significance; can over-correct TSS-proximal TFs</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="improvement-on-chip-seq" class="slide level2">
+<h2>Improvement on ChIp-Seq</h2>
+<p><strong>ChIP-Enrich</strong></p>
+<ul>
+<li>Unit: Gene (<span class="math inline">\(\ge 1\)</span> peak)</li>
+</ul>
+<p><span class="math display">\[
+\small
+\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \beta_0 + \beta_1 g_i + f(\log_{10} L_i)
+\]</span></p>
+<p><strong>Empirical smoothing spline</strong> <span class="math inline">\(f(\log_{10} L_i)\)</span>: Fits a dataset-specific curve via logistic regression, controlling false positives across both TSS-proximal and distal-binding factors</p>
+<ul>
+<li><strong>Practical takeaway:</strong> GREAT recommends requiring significance in <strong>both</strong> the binomial and hypergeometric (FET) tests; <strong>ChIP-Enrich</strong> (<span class="citation" data-cites="welch2014chip">Welch et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2014</a>)</span>) unifies this into a single gene-level logistic regression model.</li>
+</ul>
+</section>
+<section id="code-example-chip-enrich-in-r" class="slide level2">
+<h2>Code Example: ChIP-Enrich in R</h2>
+<p>To empirically adjust for locus length bias (<span class="citation" data-cites="welch2014chip">Welch et al. (<a href="#/bibliography-notes" role="doc-biblioref" onclick="">2014</a>)</span>), use the <code>chipenrich</code> library:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Install packages safely (check one package at a time)</span></span>
+<span id="cb4-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb4-3"><a></a><span class="cf">for</span> (pkg <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"chipenrich"</span>, <span class="st">"chipenrich.data"</span>)) {</span>
+<span id="cb4-4"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(pkg, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) BiocManager<span class="sc">::</span><span class="fu">install</span>(pkg)</span>
+<span id="cb4-5"><a></a>}</span>
+<span id="cb4-6"><a></a></span>
+<span id="cb4-7"><a></a><span class="fu">library</span>(chipenrich)</span>
+<span id="cb4-8"><a></a><span class="fu">data</span>(peaks_E2F4, <span class="at">package =</span> <span class="st">"chipenrich.data"</span>)</span>
+<span id="cb4-9"><a></a></span>
+<span id="cb4-10"><a></a><span class="co"># Run ChIP-Enrich (logistic regression + locus-length smoothing spline)</span></span>
+<span id="cb4-11"><a></a>results <span class="ot">&lt;-</span> <span class="fu">chipenrich</span>(</span>
+<span id="cb4-12"><a></a>  <span class="at">peaks =</span> peaks_E2F4,       <span class="co"># Data frame or file path to a BED/txt file</span></span>
+<span id="cb4-13"><a></a>  <span class="at">genome =</span> <span class="st">"hg19"</span>,          <span class="co"># Reference genome (e.g., "hg19", "hg38", "mm10")</span></span>
+<span id="cb4-14"><a></a>  <span class="at">genesets =</span> <span class="st">"GOBP"</span>,        <span class="co"># Gene sets to test (e.g., "GOBP" for GO Biological Process)</span></span>
+<span id="cb4-15"><a></a>  <span class="at">locusdef =</span> <span class="st">"nearest_tss"</span>, <span class="co"># Defines the region assigned to each gene</span></span>
+<span id="cb4-16"><a></a>  <span class="at">qc_plots =</span> <span class="cn">FALSE</span>,         <span class="co"># Set to TRUE to generate diagnostic spline plots</span></span>
+<span id="cb4-17"><a></a>  <span class="at">out_name =</span> <span class="cn">NULL</span>,          <span class="co"># Provide a prefix (e.g., "E2F4_run") to save output files</span></span>
+<span id="cb4-18"><a></a>  <span class="at">n_cores =</span> <span class="dv">1</span>               <span class="co"># Number of cores for parallel processing</span></span>
+<span id="cb4-19"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="chip-enrich-results" class="slide level2">
+<h2>ChIP-Enrich Results</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Extract and view the top enriched gene sets</span></span>
+<span id="cb5-2"><a></a>enrichment_table <span class="ot">&lt;-</span> results<span class="sc">$</span>results</span>
+<span id="cb5-3"><a></a><span class="fu">head</span>(enrichment_table[, <span class="fu">c</span>(<span class="st">"Geneset.ID"</span>, <span class="st">"Description"</span>, <span class="st">"P.value"</span>, <span class="st">"FDR"</span>, <span class="st">"Status"</span>)], <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p><code>results$results</code>: The primary output. It contains the Gene Set ID, description, p-value, False Discovery Rate (FDR), effect size (<code>Status</code>: enriched vs.&nbsp;depleted), and the specific genes driving the enrichment.</p></li>
+<li><p><code>results$peaks</code>: A detailed mapping showing exactly which gene locus each individual peak was assigned to.</p></li>
+<li><p><code>results$peaks_per_gene</code>: A summary table showing the aggregate count of peaks assigned to each specific gene.</p></li>
+</ul>
 </section></section>
 <section>
 <section id="biological-networks" class="title-slide slide level1 center">
 <h1>Biological Networks</h1>
 
 </section>
-<section id="complexity-of-interactions" class="slide level2 smaller">
-<h2>Complexity of Interactions</h2>
-<p>In reality, proteins can interact together, and it’s more complex than what we’ve seen in KEGG.</p>
+<section id="pitfall-3-complexity-of-interactions" class="slide level2">
+<h2>Pitfall 3: Complexity of Interactions</h2>
+<p>ORA, GSEA, and ChIP-Enrich treat pathways as flat sets of <strong>independent</strong> genes. In reality, proteins physically interact in complex networks beyond static KEGG diagrams.</p>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <div class="r-stack">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/functional-genomics/insulin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Simplified Insulin Pathway"><img data-src="../../..\assets/images/functional-genomics/insulin.png" class="fragment" alt="Simplified Insulin Pathway"></a></p>
+<p><a href="../../..\assets/images/functional-genomics/insulin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Simplified Insulin Pathway"><img data-src="../../..\assets/images/functional-genomics/insulin.png" class="fragment" style="width:80.0%" alt="Simplified Insulin Pathway"></a></p>
 <figcaption>Simplified Insulin Pathway</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="../../..\assets/images/functional-genomics/insulin_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Complex Insulin Pathway"><img data-src="../../..\assets/images/functional-genomics/insulin_2.png" class="fragment" alt="Complex Insulin Pathway"></a></p>
+<p><a href="../../..\assets/images/functional-genomics/insulin_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Complex Insulin Pathway"><img data-src="../../..\assets/images/functional-genomics/insulin_2.png" class="fragment" style="width:80.0%" alt="Complex Insulin Pathway"></a></p>
 <figcaption>Complex Insulin Pathway</figcaption>
 </figure>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:60%;">
 <p><strong>Reasons</strong></p>
 <ul>
-<li><p>Proteins could interact with each other in other pathways (e.g., some interactions can be related to insulin resistance but not insulin secretion, so KEGG does not show it)</p></li>
+<li><p>Proteins could interact with each other across different pathways (e.g., some interactions relate to insulin resistance rather than insulin secretion, so a single KEGG map does not show them)</p></li>
 <li><p>Scientific advancements and experiments:</p>
 <ul>
-<li>Gene co-expression</li>
-<li>Co-occurrenceperg</li>
+<li><p>Gene co-expression</p></li>
+<li><p>Co-occurrence</p></li>
 </ul></li>
 </ul>
 </div></div>
 </section>
-<section id="getting-networks" class="slide level2 smaller">
+<section id="getting-networks" class="slide level2">
 <h2>Getting Networks</h2>
 <p><strong>Getting Protein-Protein Interaction (PPI) Network</strong></p>
 <p><a href="https://string-db.org/">STRING</a>: A database to document interactions between proteins</p>
 <ul>
-<li>Interactions:
+<li><p>Interactions:</p>
 <ul>
 <li>Physical and functional associations</li>
 </ul></li>
-<li>Sources:
+<li><p>Sources:</p>
 <ul>
-<li>Computational prediction</li>
-<li>Knowledge transfer between organisms</li>
-<li>Databases</li>
+<li><p>Computational prediction</p></li>
+<li><p>Knowledge transfer between organisms</p></li>
+<li><p>Databases</p></li>
 </ul></li>
 </ul>
 <p><strong>Definition of the Network</strong></p>
-<p><span class="math display">\[\begin{equation*}
-\begin{split}
-    G&amp;=(V,E) \\
-    V&amp;=\text{All the nodes (Proteins)}\\
-    E&amp;=\{(s,e)\} \quad \text{All the edges from s to e (interactions between two)}
-\end{split}
-\end{equation*}\]</span></p>
+<p><span class="math display">\[
+\begin{aligned} G &amp;= (V, E) \\ V &amp;= \text{All the nodes (Proteins)} \\ E &amp;= \{(s, e)\} \quad \text{All the edges from } s \text{ to } e \text{ (interactions between two)} \end{aligned}
+\]</span></p>
 </section>
-<section id="importance-of-a-node" class="slide level2 smaller">
+<section id="importance-of-a-node" class="slide level2">
 <h2>Importance of a Node</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1322,20 +1497,20 @@ ES &amp; = \\
 </div><div class="column" style="width:60%;">
 <p><strong>Degree</strong></p>
 <ul>
-<li>An intuitive measurement of the importance of a node</li>
-<li>Number of edges connected to the node</li>
+<li><p>An intuitive measurement of the importance of a node</p></li>
+<li><p>Number of edges connected to the node</p></li>
 </ul>
-<p><span class="math display">\[\begin{equation*}
-    \text{Degree(i)}=\sum_{j=0}^{\vert N\vert}e_{ij}
-\end{equation*}\]</span></p>
+<p><span class="math display">\[
+\text{Degree}(i) = \sum_{j=1}^{\vert{}V\vert{}} e_{ij}
+\]</span></p>
 <p>Degree of:</p>
 <ul>
-<li>GNAT2: <span class="hide">7</span></li>
-<li>TEX28: <span class="hide">2</span></li>
+<li><p>GNAT2: <span class="math inline">\(7\)</span></p></li>
+<li><p>TEX28: <span class="math inline">\(2\)</span></p></li>
 </ul>
 </div></div>
 </section>
-<section id="local-community-of-a-network" class="slide level2 smaller">
+<section id="local-community-of-a-network" class="slide level2">
 <h2>Local Community of a Network</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1350,19 +1525,17 @@ ES &amp; = \\
 <ul>
 <li>How many friends of friends are also my friends (Triangles)</li>
 </ul>
-<p><span class="math display">\[\begin{equation*}
-\begin{split}
-        \text{Clustering coefficient(i)}&amp;=\frac{L_i}{\frac{k_i(k_i-1)}{2}}\\
-        &amp;=\frac{2L_i}{k_i(k_i-1)}
-\end{split}
-\end{equation*}\]</span></p>
+<p><span class="math display">\[
+\small
+\begin{aligned} \text{Clustering coefficient}(i) &amp;= \frac{L_i}{\frac{k_i(k_i-1)}{2}} \\ &amp;= \frac{2L_i}{k_i(k_i-1)} \end{aligned}
+\]</span></p>
 <ul>
-<li><span class="math inline">\(L_i\)</span>: Number of triangles including node <span class="math inline">\(i\)</span></li>
-<li><span class="math inline">\(k_i\)</span>: Number of nodes connected to node <span class="math inline">\(i\)</span></li>
+<li><p><span class="math inline">\(L_i\)</span>: Number of triangles including node <span class="math inline">\(i\)</span></p></li>
+<li><p><span class="math inline">\(k_i\)</span>: Number of nodes connected to node <span class="math inline">\(i\)</span></p></li>
 </ul>
 <p>Clustering coefficient of:</p>
 <ul>
-<li>GNAT2: <span class="hide"><span class="math inline">\(\frac{7*2}{7*6}=0.33\)</span></span>, TEX28: <span class="hide"><span class="math inline">\(0\)</span></span></li>
+<li>GNAT2: <span class="math inline">\(\frac{7 \times 2}{7 \times 6} = 0.33\)</span>, TEX28: <span class="math inline">\(0\)</span></li>
 </ul>
 </div></div>
 </section>
@@ -1372,22 +1545,22 @@ ES &amp; = \\
 <div class="column" style="width:40%;">
 <p><strong>Degree</strong></p>
 <ul>
-<li>Importance of a protein</li>
-<li>Identifying potential drug targets</li>
+<li><p>Importance of a protein</p></li>
+<li><p>Identifying potential drug targets</p></li>
 </ul>
 </div><div class="column" style="width:60%;">
 <p><strong>Clustering Coefficient</strong></p>
 <ul>
-<li>Identifies potential clusters (sub-functions)</li>
-<li>Identifying potential drug targets</li>
+<li><p>Identifies potential clusters (sub-functions)</p></li>
+<li><p>Identifying potential drug targets</p></li>
 </ul>
 </div></div>
 </section>
 <section id="application-of-ppi" class="slide level2">
 <h2>Application of PPI</h2>
 <ul>
-<li>Exploring disease mechanisms</li>
-<li>Drug discovery</li>
+<li><p>Exploring disease mechanisms</p></li>
+<li><p>Drug discovery</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
