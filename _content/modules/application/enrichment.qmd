@@ -86,11 +86,7 @@ Example of insulin annotation and insulin secretion process in KEGG
 
 ## Example of GO Pathways {.smaller}
 
-
-![Gene Ontology Annotation for Insulin Secretion](/assets/images/functional-genomics/GO_insulin.png){width="60%"}
-
-Example of insulin annotation and insulin secretion process in GO
-
+![Gene Ontology Annotation for Insulin Secretion](/assets/images/functional-genomics/GO_insulin.png){width="55%"}
 
 # Enrichment Analysis
 
@@ -104,10 +100,8 @@ Summarizes identified differences in genes associated with common functions.
 
 ## Evolution of Functional Analysis 
 
-Each generation of enrichment methods was developed to solve a specific limitation of the previous one:
-
 | Era | Method | Driving Data | Problem Solved | 
-| -- | --- | -- | ----- | 
+| -- | -- | -- | ----- | 
 | **\~2000** | **ORA** (Fisher's Exact Test) | Microarrays & GO | Summarizing a list of differentially expressed genes (DEGs) into pathways | 
 | **2003–2005** | **GSEA** | Microarrays / RNA-seq | Removing arbitrary DEG cutoffs and capturing regulation direction | 
 | **2010–2014** | **GREAT & ChIP-Enrich** | ChIP-seq | Handling distal regulatory regions and severe gene locus-length bias | 
@@ -251,32 +245,30 @@ Consider a genome with $30$ genes, where the functional pathway "PATH_X" contain
 
 ## Solution
 
-:::: {.columns}
 
-::: {.column width="45%"}
 **Q1**
 
+::: {.hide}
+
 |  | DE | NOT DE | 
-| ----- | ----- | ----- | 
+| ----- | ----- | --- | 
 | In the pathway | 4 | 1 | 
 | NOT in the pathway | 6 | 19 | 
 
 :::
 
-::: {.column width="55%"}
 **Q2**
 
 ::: {.hide}
 
 $$
 \small
-\begin{aligned} P &= \sum_{i=4}^{5} \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\ &= \frac{\binom{5}{4}\binom{25}{6}}{\binom{30}{10}} + \frac{\binom{5}{5}\binom{25}{5}}{\binom{30}{10}} = 0.03124 \\ &= 1 - \sum_{i=0}^{3} \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} \\ &= 1 - \biggl( \frac{\binom{5}{0}\binom{25}{10}}{\binom{30}{10}} + \frac{\binom{5}{1}\binom{25}{9}}{\binom{30}{10}} \\ &\quad + \frac{\binom{5}{2}\binom{25}{8}}{\binom{30}{10}} + \frac{\binom{5}{3}\binom{25}{7}}{\binom{30}{10}} \biggr) = 0.03124 \end{aligned}
+\begin{aligned} 
+P &= \sum_{i=4}^{5} \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} = \frac{\binom{5}{4}\binom{25}{6}}{\binom{30}{10}} + \frac{\binom{5}{5}\binom{25}{5}}{\binom{30}{10}} \\ 
+& = 1 - \sum_{i=0}^{3} \frac{\binom{5}{i}\binom{25}{10-i}}{\binom{30}{10}} = 1 - \biggl( \frac{\binom{5}{0}\binom{25}{10}}{\binom{30}{10}} + \frac{\binom{5}{1}\binom{25}{9}}{\binom{30}{10}}  + \frac{\binom{5}{2}\binom{25}{8}}{\binom{30}{10}} + \frac{\binom{5}{3}\binom{25}{7}}{\binom{30}{10}} \biggr) \\ &=  0.03124 \end{aligned}
 $$
 
 :::
-:::
-
-::::
 
 ## Code Example: ORA in R (`clusterProfiler`)
 
@@ -392,7 +384,10 @@ Consider our gene set with size $N$, and the pathway $\pi$ has $M$ genes in it.
 The final enrichment score is the **maximum deviation from zero (preserving the sign)**:
 
 $$
-ES = ES_{i^*}, \quad \text{where } i^* = \arg\max_i \vert{}ES_i\vert{}
+\begin{aligned}
+ES = & ES_{i^*}, \\
+\text{where } i^* = & \arg\max_i \vert{}ES_i\vert{}
+\end{aligned}
 $$
 
 * $ES > 0$: enriched at the **top** of the list (upregulated)
@@ -566,7 +561,11 @@ Consider a DEG list for $8$ genes $\{G1, \dots, G8\}$, where the functional path
 
 * Normalized term ($N_R$) if the gene is in the pathway: 
 
-$$\small \vert{}-2.0\vert{}+\vert{}-0.1\vert{}+\vert{}-2.3\vert{}+\vert{}-1.7\vert{}+\vert{}-0.9\vert{} = 7$$
+$$
+\begin{aligned}
+\small \vert-2.0\vert+ & \vert-0.1\vert+\vert-2.3\vert + \\ \vert-1.7\vert + &\vert-0.9\vert = 7
+\end{aligned}
+$$
 
 * $ES$:
 
@@ -839,7 +838,7 @@ $$
 \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \beta_0 + \beta_1 g_i + f(\log_{10} L_i)
 $$
  
-**Empirical smoothing spline** $f(\log_{10} L_i)$: Fits a dataset-specific curve via logistic regression, controlling false positives across both TSS-proximal and distal-binding factors | 
+**Empirical smoothing spline** $f(\log_{10} L_i)$: Fits a dataset-specific curve via logistic regression, controlling false positives across both TSS-proximal and distal-binding factors 
 
 * **Practical takeaway:** GREAT recommends requiring significance in **both** the binomial and hypergeometric (FET) tests; **ChIP-Enrich** (@welch2014chip) unifies this into a single gene-level logistic regression model.
 
@@ -902,9 +901,9 @@ ORA, GSEA, and ChIP-Enrich treat pathways as flat sets of **independent** genes.
 ::: {.column width="40%"}
 
 ::: {.r-stack}
-![Simplified Insulin Pathway](/assets/images/functional-genomics/insulin.png){.fragment }
+![Simplified Insulin Pathway](/assets/images/functional-genomics/insulin.png){.fragment width="80%"}
 
-![Complex Insulin Pathway](/assets/images/functional-genomics/insulin_2.png){.fragment}
+![Complex Insulin Pathway](/assets/images/functional-genomics/insulin_2.png){.fragment  width="80%"}
 :::
 
 :::
@@ -1034,5 +1033,5 @@ Clustering coefficient of:
 * Exploring disease mechanisms
 
 * Drug discovery
-* 
+
 ![Application of PPI](/assets/images/functional-genomics/ppi.jpg){height=300}

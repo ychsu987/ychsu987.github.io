@@ -1,5 +1,6 @@
 ---
 title: "Functional genomics"
+subtitle: Pathway Enrichment & Biological Networks
 author: Dr. Yu Cheng Hsu
 title-slide-attributes:
     data-background: /assets/images/functional-genomics/background-1.jpg
@@ -8,7 +9,7 @@ title-slide-attributes:
     data-background-opacity: "0.8"
 format: 
     revealjs:
-        theme: [default, ../../../assets/css/general_style.css]
+        theme: [default, ../../../assets/css/general_style.css, ../../../assets/css/student_view.css]
         slide-number: true
         smaller: true
         lightbox: true
