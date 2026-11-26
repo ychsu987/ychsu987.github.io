@@ -666,8 +666,8 @@ Can we simply map each ChIP-seq peak to its nearest gene and run **Fisher's Exac
 * **Motivation**: Do cis-regulatory elements (ChIP-seq peaks) associate with specific pathways, **accounting for the length of regulatory domains**?
 
 ![ChIP-seq Data Visualization
-](/assets/images/functional-genomics/CHIP-SEQ.png){height=375}
-
+](/assets/images/functional-genomics/chip-seq.png){height=375}
+eq
 ## Problem Formulation
 
 :::: {.columns}

@@ -7,4 +7,4 @@ Lecture materials for BBMS3009. Use **Blank** for student-facing slides and **�
 
 | Topic | Slides | Annotated slides |Solution slides |
 |---|---|---|---|
-| Functional genomics | [Blank](functional-genomics.qmd) | — |— |
+| Functional genomics | [Blank](functional-genomics.qmd) | [Sketches](functional-genomics-sketch1.qmd) |[Full](functional-genomics-full.qmd)  |
