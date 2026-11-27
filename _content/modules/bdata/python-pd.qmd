@@ -361,9 +361,9 @@ In specific, we will focus on the following methods
 ::: {.column}
 
 - `.query()`: Selecting data
-- `.mutate()`: Adding new column
+- `.assign()`: Adding new column
 - `.groupby()`: Group data by the designated group
-- `.summary()`: calculate summary statistics
+- `.agg()`: calculate summary statistics
 
 :::
 
@@ -396,7 +396,7 @@ final_df = (
 ```{python}
 #| echo: true
 #| eval: true
- df.query("expression > 50000 and tissue == 'Cerebellum'")
+ df.query("expression > 50000 and tissue == 'Cerebellum'").head(1)
 ```
 
 - Quotes inside quotes: If the outer query uses double quotes `"..."`, use single quotes `'...'`  for text values inside (like `'Cerebellum'`).
@@ -405,12 +405,12 @@ final_df = (
 
 ```{python}
 #| echo: true
-#| eval: true
+#| eval: false
 cutoff=50000
 df.query("expression > @cutoff")
 ```
 
-## .assign(): Creating or Modifying Columns
+## `.assign()`: Creating or Modifying Columns
 
 `.assign()`adds new columns and returns a new DataFrame without modifying the original rna table.
 
@@ -430,3 +430,26 @@ final_df = (
 
 - `lambda x:` : `x` represents the current state of the DataFrame at that exact step. If you filtered rows in the line above, `lambda x:` ensures you are calculating on the filtered data.
 - Sequential creation: you can reference a column you just created in the very next line of the same `.assign()` call
+
+## `.agg()`: summarize data
+
+`.agg()` (aggregate) computes summary statistics for each group 
+
+
+```{python}
+#| echo: true
+#| eval: true
+# The parentheses () tell Python this is one pipeline.
+(
+    df 
+    .agg(
+        mean_expression   = ("expression", "mean"),
+        median_expression = ("expression", "median"),
+        n_samples         = ("sample", "count")
+    )
+    .reset_index()
+)
+```
+
+- Named Aggregation syntax:`new_col_name = ("source_column", "stat_function")`
+- Always finish with `.reset_index()`: By default, `.groupby()` turns your grouping variables (gene, infection, time) into a nested row Index. Adding .reset_index() flattens them back into regular columns
